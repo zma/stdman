@@ -4,40 +4,40 @@ std::swap(std::optional) \- std::swap(std::optional)
 
 .SH Synopsis
 
-Defined in header <optional>
-template< class T >                                                         \fI(since C++17)\fP
-void swap( optional<T>& lhs, optional<T>& rhs ) noexcept(/* see below */);
+  Defined in header <optional>
+  template< class T >                                                         \fI(since C++17)\fP
+  void swap( optional<T>& lhs, optional<T>& rhs ) noexcept(/* see below */);
 
-Overloads the std::swap algorithm for std::optional. Exchanges the state of lhs with that of rhs. Effectively calls lhs.swap(rhs).
-This function template does not participate in overload resolution unless std::is_move_constructible_v<T> and std::is_swappable_v<T> are both true.
+  Overloads the std::swap algorithm for std::optional. Exchanges the state of lhs with that of rhs. Effectively calls lhs.swap(rhs).
+  This function template does not participate in overload resolution unless std::is_move_constructible_v<T> and std::is_swappable_v<T> are both true.
 
 .SH Parameters
 
 
-lhs, rhs - optional objects whose states to swap
+  lhs, rhs - optional objects whose states to swap
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Exceptions
 
-noexcept specification:
-noexcept(noexcept(lhs.swap(rhs)))
+  noexcept specification:
+  noexcept(noexcept(lhs.swap(rhs)))
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-     exchanges the contents
-swap \fI(public member function)\fP
+       exchanges the contents
+  swap \fI(public member function)\fP
 
 
 

@@ -4,81 +4,81 @@ std::toupper \- std::toupper
 
 .SH Synopsis
 
-Defined in header <cctype>
-int toupper( int ch );
+  Defined in header <cctype>
+  int toupper( int ch );
 
-Converts the given character to uppercase according to the character conversion rules defined by the currently installed C locale.
-In the default "C" locale, the following lowercase letters abcdefghijklmnopqrstuvwxyz are replaced with respective uppercase letters ABCDEFGHIJKLMNOPQRSTUVWXYZ.
+  Converts the given character to uppercase according to the character conversion rules defined by the currently installed C locale.
+  In the default "C" locale, the following lowercase letters abcdefghijklmnopqrstuvwxyz are replaced with respective uppercase letters ABCDEFGHIJKLMNOPQRSTUVWXYZ.
 
 .SH Parameters
 
 
-ch - character to be converted. If the value of ch is not representable as unsigned char and does not equal EOF, the behavior is undefined.
+  ch - character to be converted. If the value of ch is not representable as unsigned char and does not equal EOF, the behavior is undefined.
 
 
 .SH Return value
 
-Converted character or ch if no uppercase version is defined by the current C locale.
+  Converted character or ch if no uppercase version is defined by the current C locale.
 
 .SH Notes
 
-Like all other functions from <cctype>, the behavior of std::toupper is undefined if the argument's value is neither representable as unsigned char nor equal to EOF. To use these functions safely with plain chars (or signed chars), the argument should first be converted to unsigned char:
+  Like all other functions from <cctype>, the behavior of std::toupper is undefined if the argument's value is neither representable as unsigned char nor equal to EOF. To use these functions safely with plain chars (or signed chars), the argument should first be converted to unsigned char:
 
-  char my_toupper(char ch)
-  {
-      return static_cast<char>(std::toupper(static_cast<unsigned char>(ch)));
-  }
+    char my_toupper(char ch)
+    {
+        return static_cast<char>(std::toupper(static_cast<unsigned char>(ch)));
+    }
 
-Similarly, they should not be directly used with standard algorithms when the iterator's value type is char or signed char. Instead, convert the value to unsigned char first:
+  Similarly, they should not be directly used with standard algorithms when the iterator's value type is char or signed char. Instead, convert the value to unsigned char first:
 
-  std::string str_toupper(std::string s) {
-      std::transform(s.begin(), s.end(), s.begin(),
-                  // static_cast<int(*)(int)>(std::toupper)         // wrong
-                  // [](int c){ return std::toupper(c); }           // wrong
-                  // [](char c){ return std::toupper(c); }          // wrong
-                     [](unsigned char c){ return std::toupper(c); } // correct
-                    );
-      return s;
-  }
+    std::string str_toupper(std::string s) {
+        std::transform(s.begin(), s.end(), s.begin(),
+                    // static_cast<int(*)(int)>(std::toupper)         // wrong
+                    // [](int c){ return std::toupper(c); }           // wrong
+                    // [](char c){ return std::toupper(c); }          // wrong
+                       [](unsigned char c){ return std::toupper(c); } // correct
+                      );
+        return s;
+    }
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <cctype>
-  #include <clocale>
+    #include <iostream>
+    #include <cctype>
+    #include <clocale>
 
-  int main()
-  {
-      unsigned char c = '\\xb8'; // the character ž in ISO-8859-15
-                                // but ¸ (cedilla) in ISO-8859-1
+    int main()
+    {
+        unsigned char c = '\\xb8'; // the character ž in ISO-8859-15
+                                  // but ¸ (cedilla) in ISO-8859-1
 
-      std::setlocale(LC_ALL, "en_US.iso88591");
-      std::cout << std::hex << std::showbase;
-      std::cout << "in iso8859-1, toupper('0xb8') gives " << std::toupper(c) << '\\n';
-      std::setlocale(LC_ALL, "en_US.iso885915");
-      std::cout << "in iso8859-15, toupper('0xb8') gives " << std::toupper(c) << '\\n';
-  }
+        std::setlocale(LC_ALL, "en_US.iso88591");
+        std::cout << std::hex << std::showbase;
+        std::cout << "in iso8859-1, toupper('0xb8') gives " << std::toupper(c) << '\\n';
+        std::setlocale(LC_ALL, "en_US.iso885915");
+        std::cout << "in iso8859-15, toupper('0xb8') gives " << std::toupper(c) << '\\n';
+    }
 
 .SH Output:
 
-  in iso8859-1, toupper('0xb8') gives 0xb8
-  in iso8859-15, toupper('0xb8') gives 0xb4
+    in iso8859-1, toupper('0xb8') gives 0xb8
+    in iso8859-15, toupper('0xb8') gives 0xb4
 
 
 
 .SH See also
 
 
-                     converts a character to lowercase
-tolower              \fI(function)\fP
-                     converts a character to uppercase using the ctype facet of a locale
-toupper(std::locale) \fI(function template)\fP
-                     converts a wide character to uppercase
-towupper             \fI(function)\fP
+                       converts a character to lowercase
+  tolower              \fI(function)\fP
+                       converts a character to uppercase using the ctype facet of a locale
+  toupper(std::locale) \fI(function template)\fP
+                       converts a wide character to uppercase
+  towupper             \fI(function)\fP
 
 
 

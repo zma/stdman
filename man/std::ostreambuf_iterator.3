@@ -4,88 +4,88 @@ std::ostreambuf_iterator \- std::ostreambuf_iterator
 
 .SH Synopsis
 
-Defined in header <iterator>
-template< class CharT, class Traits = std::char_traits<CharT> >
-class ostreambuf_iterator : public std::iterator<std::output_iterator_tag,  \fI(until C++17)\fP
-void, void, void, void>
-template< class CharT, class Traits = std::char_traits<CharT> >             \fI(since C++17)\fP
-class ostreambuf_iterator;
+  Defined in header <iterator>
+  template< class CharT, class Traits = std::char_traits<CharT> >
+  class ostreambuf_iterator : public std::iterator<std::output_iterator_tag,  \fI(until C++17)\fP
+  void, void, void, void>
+  template< class CharT, class Traits = std::char_traits<CharT> >             \fI(since C++17)\fP
+  class ostreambuf_iterator;
 
-std::ostreambuf_iterator is a single-pass LegacyOutputIterator that writes successive characters into the std::basic_streambuf object for which it was constructed. The actual write operation is performed when the iterator (whether dereferenced or not) is assigned to. Incrementing the std::ostreambuf_iterator is a no-op.
-In a typical implementation, the only data members of std::ostreambuf_iterator are a pointer to the associated std::basic_streambuf and a boolean flag indicating if the the end of file condition has been reached.
+  std::ostreambuf_iterator is a single-pass LegacyOutputIterator that writes successive characters into the std::basic_streambuf object for which it was constructed. The actual write operation is performed when the iterator (whether dereferenced or not) is assigned to. Incrementing the std::ostreambuf_iterator is a no-op.
+  In a typical implementation, the only data members of std::ostreambuf_iterator are a pointer to the associated std::basic_streambuf and a boolean flag indicating if the the end of file condition has been reached.
 
 .SH Member types
 
 
-Member type    Definition
-char_type      CharT
-traits_type    Traits
-streambuf_type std::basic_streambuf<CharT, Traits>
-ostream_type   std::basic_ostream<CharT, Traits>
+  Member type    Definition
+  char_type      CharT
+  traits_type    Traits
+  streambuf_type std::basic_streambuf<CharT, Traits>
+  ostream_type   std::basic_ostream<CharT, Traits>
 
 
 .SH Member functions
 
 
-                      constructs a new ostreambuf_iterator
-constructor           \fI(public member function)\fP
+                        constructs a new ostreambuf_iterator
+  constructor           \fI(public member function)\fP
 
-destructor            destructs an ostreambuf_iterator
-                      \fI(public member function)\fP
-(implicitly declared)
-                      writes a character to the associated output sequence
-operator=             \fI(public member function)\fP
-                      no-op
-operator*             \fI(public member function)\fP
-                      no-op
-operator++            \fI(public member function)\fP
-operator++(int)
-                      tests if output failed
-failed                \fI(public member function)\fP
+  destructor            destructs an ostreambuf_iterator
+                        \fI(public member function)\fP
+  (implicitly declared)
+                        writes a character to the associated output sequence
+  operator=             \fI(public member function)\fP
+                        no-op
+  operator*             \fI(public member function)\fP
+                        no-op
+  operator++            \fI(public member function)\fP
+  operator++(int)
+                        tests if output failed
+  failed                \fI(public member function)\fP
 
 
 .SH Member types
 
 
-Member type       Definition
-value_type        void
-difference_type   void
-pointer           void
-reference         void
-iterator_category std::output_iterator_tag
+  Member type       Definition
+  value_type        void
+  difference_type   void
+  pointer           void
+  reference         void
+  iterator_category std::output_iterator_tag
 
 
-These member types are required to be obtained by inheriting from std::iterator<std::output_iterator_tag, void, void, void, void>. \fI(until C++17)\fP
+  These member types are required to be obtained by inheriting from std::iterator<std::output_iterator_tag, void, void, void, void>. \fI(until C++17)\fP
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <string>
-  #include <algorithm>
-  #include <iterator>
-  #include <iostream>
+    #include <string>
+    #include <algorithm>
+    #include <iterator>
+    #include <iostream>
 
-  int main()
-  {
-      std::string s = "This is an example\\n";
-      std::copy(s.begin(), s.end(), std::ostreambuf_iterator<char>(std::cout));
-  }
+    int main()
+    {
+        std::string s = "This is an example\\n";
+        std::copy(s.begin(), s.end(), std::ostreambuf_iterator<char>(std::cout));
+    }
 
 .SH Output:
 
-  This is an example
+    This is an example
 
 
 .SH See also
 
 
-                    input iterator that reads from std::basic_streambuf
-istreambuf_iterator \fI(class template)\fP
-                    output iterator that writes to std::basic_ostream
-ostream_iterator    \fI(class template)\fP
+                      input iterator that reads from std::basic_streambuf
+  istreambuf_iterator \fI(class template)\fP
+                      output iterator that writes to std::basic_ostream
+  ostream_iterator    \fI(class template)\fP
 
 
 

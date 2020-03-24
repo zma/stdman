@@ -4,35 +4,35 @@ std::fgetwc \- std::fgetwc
 
 .SH Synopsis
 
-Defined in header <cwchar>
-wint_t fgetwc( std::FILE* stream );
-wint_t getwc( std::FILE* stream );
+  Defined in header <cwchar>
+  wint_t fgetwc( std::FILE* stream );
+  wint_t getwc( std::FILE* stream );
 
-Reads the next wide character from the given input stream. getwc() may be implemented as a macro and may evaluate stream more than once.
+  Reads the next wide character from the given input stream. getwc() may be implemented as a macro and may evaluate stream more than once.
 
 .SH Parameters
 
 
-stream - to read the wide character from
+  stream - to read the wide character from
 
 
 .SH Return value
 
-The next wide character from the stream or WEOF if an error has occurred or the end of file has been reached. If an encoding error occurred, errno is set to EILSEQ.
+  The next wide character from the stream or WEOF if an error has occurred or the end of file has been reached. If an encoding error occurred, errno is set to EILSEQ.
 
 .SH See also
 
 
-        gets a character from a file stream
-fgetc   \fI(function)\fP
-getc
-        gets a wide string from a file stream
-fgetws  \fI(function)\fP
-        writes a wide character to a file stream
-fputwc  \fI(function)\fP
-putwc
-        puts a wide character back into a file stream
-ungetwc \fI(function)\fP
+          gets a character from a file stream
+  fgetc   \fI(function)\fP
+  getc
+          gets a wide string from a file stream
+  fgetws  \fI(function)\fP
+          writes a wide character to a file stream
+  fputwc  \fI(function)\fP
+  putwc
+          puts a wide character back into a file stream
+  ungetwc \fI(function)\fP
 
 
 

@@ -4,53 +4,53 @@ std::experimental::pmr::polymorphic_allocator \- std::experimental::pmr::polymor
 
 .SH Synopsis
 
-Defined in header <experimental/memory_resource>
-template< class T >                               (library fundamentals TS)
-class polymorphic_allocator;
+  Defined in header <experimental/memory_resource>
+  template< class T >                               (library fundamentals TS)
+  class polymorphic_allocator;
 
-The class template std::experimental::pmr::polymorphic_allocator is an Allocator whose allocation behavior depends on the memory resource it is constructed with. Thus, different instances of polymorphic_allocator can exhibit entirely different allocation behavior. This runtime polymorphism allows objects using polymorphic_allocator to behave as if they used different allocator types at run time despite the identical static allocator type.
+  The class template std::experimental::pmr::polymorphic_allocator is an Allocator whose allocation behavior depends on the memory resource it is constructed with. Thus, different instances of polymorphic_allocator can exhibit entirely different allocation behavior. This runtime polymorphism allows objects using polymorphic_allocator to behave as if they used different allocator types at run time despite the identical static allocator type.
 
 .SH Member types
 
 
-Member type definition
-value_type  T
+  Member type definition
+  value_type  T
 
 
 .SH Member functions
 
 
-                                      Constructs a polymorphic_allocator
-constructor                           \fI(public member function)\fP
+                                        Constructs a polymorphic_allocator
+  constructor                           \fI(public member function)\fP
 
-destructor                            Implicitly declared destructor
-                                      \fI(public member function)\fP
-(implicitly declared)
-                                      Copy assignment operator
-operator=                             \fI(public member function)\fP
+  destructor                            Implicitly declared destructor
+                                        \fI(public member function)\fP
+  (implicitly declared)
+                                        Copy assignment operator
+  operator=                             \fI(public member function)\fP
 
 .SH Public member functions
 
-                                      Allocate memory
-allocate                              \fI(public member function)\fP
-                                      Deallocate memory
-deallocate                            \fI(public member function)\fP
-                                      Constructs an object in allocated storage
-construct                             \fI(public member function)\fP
-                                      Destroys an object in allocated storage
-destroy                               \fI(public member function)\fP
-                                      Create a new polymorphic_allocator for use by a container's copy constructor
-select_on_container_copy_construction \fI(public member function)\fP
-                                      Returns a pointer to the underlying memory resource
-resource                              \fI(public member function)\fP
+                                        Allocate memory
+  allocate                              \fI(public member function)\fP
+                                        Deallocate memory
+  deallocate                            \fI(public member function)\fP
+                                        Constructs an object in allocated storage
+  construct                             \fI(public member function)\fP
+                                        Destroys an object in allocated storage
+  destroy                               \fI(public member function)\fP
+                                        Create a new polymorphic_allocator for use by a container's copy constructor
+  select_on_container_copy_construction \fI(public member function)\fP
+                                        Returns a pointer to the underlying memory resource
+  resource                              \fI(public member function)\fP
 
 
 .SH Non-member functions
 
 
-           compare two polymorphic_allocators
-operator== \fI(function)\fP
-operator!=
+             compare two polymorphic_allocators
+  operator== \fI(function)\fP
+  operator!=
 
 
 

@@ -4,123 +4,123 @@ std::experimental::optional \- std::experimental::optional
 
 .SH Synopsis
 
-Defined in header <experimental/optional>
-template< class T >                        (library fundamentals TS)
-class optional;
+  Defined in header <experimental/optional>
+  template< class T >                        (library fundamentals TS)
+  class optional;
 
-The class template std::experimental::optional manages an optional contained value, i.e. a value that may or may not be present.
-A common use case for optional is the return value of a function that may fail. As opposed to other approaches, such as std::pair<T,bool>, optional handles expensive to construct objects well and is more readable, as the intent is expressed explicitly.
-Any instance of optional<T> at any given point in time either contains a value or does not contain a value.
-If an optional<T> contains a value, the value is guaranteed to be allocated as part of the optional object footprint, i.e. no dynamic memory allocation ever takes place. Thus, an optional object models an object, not a pointer, even though the operator*() and operator->() are defined.
-When an object of type optional<T> is contextually_converted_to_bool, the conversion returns true if the object contains a value and false if it does not contain a value.
-The optional object contains a value in the following conditions:
+  The class template std::experimental::optional manages an optional contained value, i.e. a value that may or may not be present.
+  A common use case for optional is the return value of a function that may fail. As opposed to other approaches, such as std::pair<T,bool>, optional handles expensive to construct objects well and is more readable, as the intent is expressed explicitly.
+  Any instance of optional<T> at any given point in time either contains a value or does not contain a value.
+  If an optional<T> contains a value, the value is guaranteed to be allocated as part of the optional object footprint, i.e. no dynamic memory allocation ever takes place. Thus, an optional object models an object, not a pointer, even though the operator*() and operator->() are defined.
+  When an object of type optional<T> is contextually_converted_to_bool, the conversion returns true if the object contains a value and false if it does not contain a value.
+  The optional object contains a value in the following conditions:
 
-* The object is initialized with a value of type T
-* The object is assigned from another optional that contains a value.
+  * The object is initialized with a value of type T
+  * The object is assigned from another optional that contains a value.
 
-The object does not contain a value in the following conditions:
+  The object does not contain a value in the following conditions:
 
-* The object is default-initialized.
-* The object is initialized with a value of std::experimental::nullopt_t or an optional object that does not contain a value.
-* The object is assigned from a value of std::experimental::nullopt_t or from an optional that does not contain a value
+  * The object is default-initialized.
+  * The object is initialized with a value of std::experimental::nullopt_t or an optional object that does not contain a value.
+  * The object is assigned from a value of std::experimental::nullopt_t or from an optional that does not contain a value
 
 
 .SH Template parameters
 
 
-T - the type of the value to manage initialization state for. The type must meet the requirements of Destructible
+  T - the type of the value to manage initialization state for. The type must meet the requirements of Destructible
 
 
 .SH Member types
 
 
-Member type Definition
-value_type  T
+  Member type Definition
+  value_type  T
 
 
 .SH Member functions
 
 
-              constructs the optional object
-constructor   \fI(public member function)\fP
-              destroys the contained value, if there is one
-destructor    \fI(public member function)\fP
-              assigns contents
-operator=     \fI(public member function)\fP
+                constructs the optional object
+  constructor   \fI(public member function)\fP
+                destroys the contained value, if there is one
+  destructor    \fI(public member function)\fP
+                assigns contents
+  operator=     \fI(public member function)\fP
 
 .SH Observers
 
-              accesses the contained value
-operator->    \fI(public member function)\fP
-operator*
-              checks whether the object contains a value
-operator_bool \fI(public member function)\fP
-              returns the contained value
-value         \fI(public member function)\fP
-              returns the contained value if available, another value otherwise
-value_or      \fI(public member function)\fP
+                accesses the contained value
+  operator->    \fI(public member function)\fP
+  operator*
+                checks whether the object contains a value
+  operator_bool \fI(public member function)\fP
+                returns the contained value
+  value         \fI(public member function)\fP
+                returns the contained value if available, another value otherwise
+  value_or      \fI(public member function)\fP
 
 .SH Modifiers
 
-              exchanges the contents
-swap          \fI(public member function)\fP
-              constructs the contained value in-place
-emplace       \fI(public member function)\fP
+                exchanges the contents
+  swap          \fI(public member function)\fP
+                constructs the contained value in-place
+  emplace       \fI(public member function)\fP
 
 
 .SH Member objects
 
 
-Member name   Definition
-val (private) pointer to the contained value (which points at a data member of the same object), the name is for exposition only
+  Member name   Definition
+  val (private) pointer to the contained value (which points at a data member of the same object), the name is for exposition only
 
 
 .SH Non-member functions
 
 
 
-operator==
-operator!=                             compares optional objects
-operator<                              \fI(function template)\fP
-operator<=
-operator>
-operator>=
-                                       creates an optional object
-make_optional                          \fI(function template)\fP
-                                       specializes the std::swap algorithm
-std::swap(std::experimental::optional) \fI(function)\fP
+  operator==
+  operator!=                             compares optional objects
+  operator<                              \fI(function template)\fP
+  operator<=
+  operator>
+  operator>=
+                                         creates an optional object
+  make_optional                          \fI(function template)\fP
+                                         specializes the std::swap algorithm
+  std::swap(std::experimental::optional) \fI(function)\fP
 
 
 .SH Helper classes
 
 
-                                       specializes the std::hash algorithm
-std::hash<std::experimental::optional> \fI(class template specialization)\fP
+                                         specializes the std::hash algorithm
+  std::hash<std::experimental::optional> \fI(class template specialization)\fP
 
-nullopt_t                              indicator of optional type with uninitialized state
-                                       \fI(class)\fP
-(library fundamentals TS)
+  nullopt_t                              indicator of optional type with uninitialized state
+                                         \fI(class)\fP
+  (library fundamentals TS)
 
-in_place_t                             disambiguation tag type for in-place construction of optional types
-                                       \fI(class)\fP
-(library fundamentals TS)
+  in_place_t                             disambiguation tag type for in-place construction of optional types
+                                         \fI(class)\fP
+  (library fundamentals TS)
 
-bad_optional_access                    exception indicating checked access to an optional that doesn't contain a value
-                                       \fI(class)\fP
-(library fundamentals TS)
-
-
-Helper objects
+  bad_optional_access                    exception indicating checked access to an optional that doesn't contain a value
+                                         \fI(class)\fP
+  (library fundamentals TS)
 
 
+  Helper objects
 
-nullopt                   an object of type nullopt_t
-                          \fI(function)\fP
-(library fundamentals TS)
 
-in_place                  an object of type std::experimental::in_place_t
-                          \fI(function)\fP
-(library fundamentals TS)
+
+  nullopt                   an object of type nullopt_t
+                            \fI(function)\fP
+  (library fundamentals TS)
+
+  in_place                  an object of type std::experimental::in_place_t
+                            \fI(function)\fP
+  (library fundamentals TS)
 
 
 

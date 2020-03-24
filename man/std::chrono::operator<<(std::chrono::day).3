@@ -4,29 +4,29 @@ std::chrono::operator<<(std::chrono::day) \- std::chrono::operator<<(std::chrono
 
 .SH Synopsis
 
-template <class CharT, class Traits>
-std::basic_ostream<CharT, Traits>&                                             \fI(since C++20)\fP
-operator<<(std::basic_ostream<CharT, Traits>& os, const std::chrono::day& d);
+  template <class CharT, class Traits>
+  std::basic_ostream<CharT, Traits>&                                             \fI(since C++20)\fP
+  operator<<(std::basic_ostream<CharT, Traits>& os, const std::chrono::day& d);
 
-Forms a std::basic_string<CharT> s consisting of the day value stored in d formatted as a decimal number, with a leading zero if the result would otherwise be a single decimal digit. Inserts that string into os. Then, if !d.ok(), inserts the string " is not a valid day" into os.
+  Forms a std::basic_string<CharT> s consisting of the day value stored in d formatted as a decimal number, with a leading zero if the result would otherwise be a single decimal digit. Inserts that string into os. Then, if !d.ok(), inserts the string " is not a valid day" into os.
 
 .SH Return value
 
-os.
+  os.
 
 .SH Notes
 
-This operator<< is primarily intended for debugging use. For control over formatting, use std::chrono::format.
+  This operator<< is primarily intended for debugging use. For control over formatting, use std::chrono::format.
 
 .SH See also
 
 
 
-format    formats a streamable chrono object for insertion
-          \fI(function template)\fP
-(C++20)
-          outputs a day into a stream according to the provided format
-to_stream \fI(function template)\fP
+  format    formats a streamable chrono object for insertion
+            \fI(function template)\fP
+  (C++20)
+            outputs a day into a stream according to the provided format
+  to_stream \fI(function template)\fP
 
 
 

@@ -4,68 +4,68 @@ std::isgraph(std::locale) \- std::isgraph(std::locale)
 
 .SH Synopsis
 
-Defined in header <locale>
-template< class charT >
-bool isgraph( charT ch, const locale& loc );
+  Defined in header <locale>
+  template< class charT >
+  bool isgraph( charT ch, const locale& loc );
 
-Checks if the given character classified as a graphic character (i.e. printable, excluding space) by the given locale's std::ctype facet.
+  Checks if the given character classified as a graphic character (i.e. printable, excluding space) by the given locale's std::ctype facet.
 
 .SH Parameters
 
 
-ch  - character
-loc - locale
+  ch  - character
+  loc - locale
 
 
 .SH Return value
 
-Returns true if the character is classified as graphic, false otherwise.
+  Returns true if the character is classified as graphic, false otherwise.
 
 .SH Possible implementation
 
 
 
-  template< class charT >
-  bool isgraph( charT ch, const std::locale& loc ) {
-      return std::use_facet<std::ctype<charT>>(loc).is(std::ctype_base::graph, ch);
-  }
+    template< class charT >
+    bool isgraph( charT ch, const std::locale& loc ) {
+        return std::use_facet<std::ctype<charT>>(loc).is(std::ctype_base::graph, ch);
+    }
 
 
 
 .SH Example
 
-Demonstrates the use of isgraph() with different locales (OS-specific).
-
+  Demonstrates the use of isgraph() with different locales (OS-specific).
+  
 // Run this code
 
-  #include <iostream>
-  #include <locale>
-  int main()
-  {
-      const wchar_t c = L'\\u2a0c'; // quadruple integral
+    #include <iostream>
+    #include <locale>
+    int main()
+    {
+        const wchar_t c = L'\\u2a0c'; // quadruple integral
 
-      std::locale loc1("C");
-      std::cout << "isgraph('⨌', C locale) returned "
-                 << std::boolalpha << std::isgraph(c, loc1) << '\\n';
+        std::locale loc1("C");
+        std::cout << "isgraph('⨌', C locale) returned "
+                   << std::boolalpha << std::isgraph(c, loc1) << '\\n';
 
-      std::locale loc2("en_US.UTF-8");
-      std::cout << "isgraph('⨌', Unicode locale) returned "
-                << std::boolalpha << std::isgraph(c, loc2) << '\\n';
-  }
+        std::locale loc2("en_US.UTF-8");
+        std::cout << "isgraph('⨌', Unicode locale) returned "
+                  << std::boolalpha << std::isgraph(c, loc2) << '\\n';
+    }
 
 .SH Output:
 
-  isgraph('⨌', C locale) returned false
-  isgraph('⨌', Unicode locale) returned true
+    isgraph('⨌', C locale) returned false
+    isgraph('⨌', Unicode locale) returned true
 
 
 .SH See also
 
 
-         checks if a character is a graphical character
-isgraph  \fI(function)\fP
-         checks if a wide character is a graphical character
-iswgraph \fI(function)\fP
+           checks if a character is a graphical character
+  isgraph  \fI(function)\fP
+           checks if a wide character is a graphical character
+  iswgraph \fI(function)\fP
 
 
 

@@ -4,17 +4,17 @@ std::experimental::simd_abi::max_fixed_size \- std::experimental::simd_abi::max_
 
 .SH Synopsis
 
-Defined in header <experimental/simd>
-namespace simd_abi {
-template < class T >
-inline constexpr int max_fixed_size = /*implementation-defined*/;
-}
+  Defined in header <experimental/simd>
+  namespace simd_abi {
+  template < class T >
+  inline constexpr int max_fixed_size = /*implementation-defined*/;
+  }
 
-The value of max_fixed_size<T> declares that an instance of simd<T, fixed_size<N>> with N <= max_fixed_size<T> is supported by the implementation.
+  The value of max_fixed_size<T> declares that an instance of simd<T, fixed_size<N>> with N <= max_fixed_size<T> is supported by the implementation.
 
 .SH Notes
 
-It is unspecified whether an implementation supports simd<T, fixed_size<N>> with N > max_fixed_size<T>. The value of max_fixed_size<T> may depend on compiler flags and may change between different compiler versions.
+  It is unspecified whether an implementation supports simd<T, fixed_size<N>> with N > max_fixed_size<T>. The value of max_fixed_size<T> may depend on compiler flags and may change between different compiler versions.
 
 
 

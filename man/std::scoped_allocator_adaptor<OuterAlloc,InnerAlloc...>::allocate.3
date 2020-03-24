@@ -4,38 +4,38 @@ std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::allocate \- std::scoped
 
 .SH Synopsis
 
-Defined in header <scoped_allocator>
-pointer allocate( size_type n );                                                \fI(since C++11)\fP
-                                                                                \fI(until C++20)\fP
-[[nodiscard]] pointer allocate( size_type n );                          \fB(1)\fP     \fI(since C++20)\fP
-pointer allocate( size_type n, const_void_pointer hint );                                      \fI(since C++11)\fP
-                                                                            \fB(2)\fP                \fI(until C++20)\fP
-[[nodiscard]] pointer allocate( size_type n, const_void_pointer hint );                        \fI(since C++20)\fP
+  Defined in header <scoped_allocator>
+  pointer allocate( size_type n );                                                \fI(since C++11)\fP
+                                                                                  \fI(until C++20)\fP
+  [[nodiscard]] pointer allocate( size_type n );                          \fB(1)\fP     \fI(since C++20)\fP
+  pointer allocate( size_type n, const_void_pointer hint );                                      \fI(since C++11)\fP
+                                                                              \fB(2)\fP                \fI(until C++20)\fP
+  [[nodiscard]] pointer allocate( size_type n, const_void_pointer hint );                        \fI(since C++20)\fP
 
-Uses the outer allocator to allocate uninitialized storage.
-1) Calls std::allocator_traits<OuterAlloc>::allocate(outer_allocator(), n)
-2) Additionally provides memory locality hint, by calling std::allocator_traits<OuterAlloc>::allocate(outer_allocator(), n, hint)
+  Uses the outer allocator to allocate uninitialized storage.
+  1) Calls std::allocator_traits<OuterAlloc>::allocate(outer_allocator(), n)
+  2) Additionally provides memory locality hint, by calling std::allocator_traits<OuterAlloc>::allocate(outer_allocator(), n, hint)
 
 .SH Parameters
 
 
-n    - the number of objects to allocate storage for
-hint - pointer to a nearby memory location
+  n    - the number of objects to allocate storage for
+  hint - pointer to a nearby memory location
 
 
 .SH Return value
 
-The pointer to the allocated storage
+  The pointer to the allocated storage
 
 .SH See also
 
 
-         allocates uninitialized storage
-allocate \fI(public member function of std::allocator<T>)\fP
+           allocates uninitialized storage
+  allocate \fI(public member function of std::allocator<T>)\fP
 
-allocate allocates uninitialized storage using the allocator
-         \fI(public static member function of std::allocator_traits<Alloc>)\fP
-\fB[static]\fP
+  allocate allocates uninitialized storage using the allocator
+           \fI(public static member function of std::allocator_traits<Alloc>)\fP
+  \fB[static]\fP
 
 
 

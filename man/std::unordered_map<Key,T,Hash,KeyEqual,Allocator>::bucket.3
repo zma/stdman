@@ -4,30 +4,30 @@ std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::bucket \- std::unordered_map<
 
 .SH Synopsis
 
-size_type bucket( const Key& key ) const;  \fI(since C++11)\fP
+  size_type bucket( const Key& key ) const;  \fI(since C++11)\fP
 
-Returns the index of the bucket for key key. Elements (if any) with keys equivalent to key are always found in this bucket. The returned value is valid only for instances of the container for which bucket_count() returns the same value.
-The behavior is undefined if bucket_count() is zero.
+  Returns the index of the bucket for key key. Elements (if any) with keys equivalent to key are always found in this bucket. The returned value is valid only for instances of the container for which bucket_count() returns the same value.
+  The behavior is undefined if bucket_count() is zero.
 
 .SH Parameters
 
 
-key - the value of the key to examine
+  key - the value of the key to examine
 
 
 .SH Return value
 
-Bucket index for the key key.
+  Bucket index for the key key.
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH See also
 
 
-            returns the number of elements in specific bucket
-bucket_size \fI(public member function)\fP
+              returns the number of elements in specific bucket
+  bucket_size \fI(public member function)\fP
 
 
 

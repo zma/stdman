@@ -4,47 +4,47 @@ std::swap(std::array) \- std::swap(std::array)
 
 .SH Synopsis
 
-template< class T, std::size_t N >            \fI(since C++11)\fP
-void swap( array<T,N>& lhs,                   \fI(until C++17)\fP
-array<T,N>& rhs );
-template< class T, std::size_t N >            \fI(since C++17)\fP
-void swap( array<T,N>& lhs,                   \fI(until C++20)\fP
-array<T,N>& rhs ) noexcept(/* see below */);
-template< class T, std::size_t N >
-constexpr void swap( array<T,N>& lhs,         \fI(since C++20)\fP
-array<T,N>& rhs ) noexcept(/* see below */);
+  template< class T, std::size_t N >            \fI(since C++11)\fP
+  void swap( array<T,N>& lhs,                   \fI(until C++17)\fP
+  array<T,N>& rhs );
+  template< class T, std::size_t N >            \fI(since C++17)\fP
+  void swap( array<T,N>& lhs,                   \fI(until C++20)\fP
+  array<T,N>& rhs ) noexcept(/* see below */);
+  template< class T, std::size_t N >
+  constexpr void swap( array<T,N>& lhs,         \fI(since C++20)\fP
+  array<T,N>& rhs ) noexcept(/* see below */);
 
-Specializes the std::swap algorithm for std::array. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
+  Specializes the std::swap algorithm for std::array. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
-This overload only participates in overload resolution if N == 0 or std::is_swappable<T>::value is true. \fI(since C++17)\fP
+  This overload only participates in overload resolution if N == 0 or std::is_swappable<T>::value is true. \fI(since C++17)\fP
 
 
 .SH Parameters
 
 
-lhs, rhs - containers whose contents to swap
+  lhs, rhs - containers whose contents to swap
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-Linear in size of the container.
+  Linear in size of the container.
 
 .SH Exceptions
 
 
-noexcept specification:           \fI(since C++17)\fP
-noexcept(noexcept(lhs.swap(rhs)))
+  noexcept specification:           \fI(since C++17)\fP
+  noexcept(noexcept(lhs.swap(rhs)))
 
 
 .SH See also
 
 
-     swaps the contents
-swap \fI(public member function)\fP
+       swaps the contents
+  swap \fI(public member function)\fP
 
 
 

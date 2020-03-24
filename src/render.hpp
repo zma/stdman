@@ -30,7 +30,8 @@ class render
 
       state.plain = execute("html2text -width 10000 -style pretty -utf8 " +
                             state.tmp_file +
-                            " | perl -0777 -pe 's|^\\n*||g'");
+                            " | perl -0777 -pe 's|^\\n*||g'" +
+                            " | perl -pe 's|^(.+)$|  \\1|g'");
 
       /* Cleanup a bit. */
       str::replace(state.plain, "[edit]", "");

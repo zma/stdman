@@ -4,24 +4,24 @@ std::chrono::operator<<(std::chrono::local_time) \- std::chrono::operator<<(std:
 
 .SH Synopsis
 
-template <class CharT, class Traits, class Duration>
-std::basic_ostream<CharT, Traits>&                    \fI(since C++20)\fP
-operator<<(std::basic_ostream<CharT, Traits>& os,
-const std::chrono::local_time<Duration>& tp);
+  template <class CharT, class Traits, class Duration>
+  std::basic_ostream<CharT, Traits>&                    \fI(since C++20)\fP
+  operator<<(std::basic_ostream<CharT, Traits>& os,
+  const std::chrono::local_time<Duration>& tp);
 
-Outputs tp into the stream os, as if by os << std::chrono::sys_time<Duration>(tp.time_since_epoch());
+  Outputs tp into the stream os, as if by os << std::chrono::sys_time<Duration>(tp.time_since_epoch());
 
 .SH Return value
 
-os.
+  os.
 
 .SH See also
 
 
 
-operator<<_(std::chrono::sys_time) performs stream output on a sys_time
-                                   \fI(function template)\fP
-(C++20)
+  operator<<_(std::chrono::sys_time) performs stream output on a sys_time
+                                     \fI(function template)\fP
+  (C++20)
 
 
 

@@ -4,152 +4,152 @@ std::minmax \- std::minmax
 
 .SH Synopsis
 
-Defined in header <algorithm>
-template< class T >                                                                      \fI(since C++11)\fP
-std::pair<const T&,const T&> minmax( const T& a, const T& b );                           \fI(until C++14)\fP
-template< class T >                                                                      \fI(since C++14)\fP
-constexpr std::pair<const T&,const T&> minmax( const T& a, const T& b );
-template< class T, class Compare >                                                                      \fI(since C++11)\fP
-std::pair<const T&,const T&> minmax( const T& a, const T& b,                                            \fI(until C++14)\fP
-Compare comp );
-template< class T, class Compare >
-constexpr std::pair<const T&,const T&> minmax( const T& a, const T& b,           \fB(1)\fP                    \fI(since C++14)\fP
-Compare comp );
-template< class T >                                                                  \fB(2)\fP                               \fI(since C++11)\fP
-std::pair<T,T> minmax( std::initializer_list<T> ilist);                                                                \fI(until C++14)\fP
-template< class T >                                                                                                    \fI(since C++14)\fP
-constexpr std::pair<T,T> minmax( std::initializer_list<T> ilist);                        \fB(3)\fP
-template< class T, class Compare >                                                                                                    \fI(since C++11)\fP
-std::pair<T,T> minmax( std::initializer_list<T> ilist, Compare comp );                                  \fB(4)\fP                           \fI(until C++14)\fP
-template< class T, class Compare >                                                                                                    \fI(since C++14)\fP
-constexpr std::pair<T,T> minmax( std::initializer_list<T> ilist, Compare comp );
+  Defined in header <algorithm>
+  template< class T >                                                                      \fI(since C++11)\fP
+  std::pair<const T&,const T&> minmax( const T& a, const T& b );                           \fI(until C++14)\fP
+  template< class T >                                                                      \fI(since C++14)\fP
+  constexpr std::pair<const T&,const T&> minmax( const T& a, const T& b );
+  template< class T, class Compare >                                                                      \fI(since C++11)\fP
+  std::pair<const T&,const T&> minmax( const T& a, const T& b,                                            \fI(until C++14)\fP
+  Compare comp );
+  template< class T, class Compare >
+  constexpr std::pair<const T&,const T&> minmax( const T& a, const T& b,           \fB(1)\fP                    \fI(since C++14)\fP
+  Compare comp );
+  template< class T >                                                                  \fB(2)\fP                               \fI(since C++11)\fP
+  std::pair<T,T> minmax( std::initializer_list<T> ilist);                                                                \fI(until C++14)\fP
+  template< class T >                                                                                                    \fI(since C++14)\fP
+  constexpr std::pair<T,T> minmax( std::initializer_list<T> ilist);                        \fB(3)\fP
+  template< class T, class Compare >                                                                                                    \fI(since C++11)\fP
+  std::pair<T,T> minmax( std::initializer_list<T> ilist, Compare comp );                                  \fB(4)\fP                           \fI(until C++14)\fP
+  template< class T, class Compare >                                                                                                    \fI(since C++14)\fP
+  constexpr std::pair<T,T> minmax( std::initializer_list<T> ilist, Compare comp );
 
-Returns the lowest and the greatest of the given values.
-1-2) Returns references to the smaller and the greater of a and b.
-3-4) Returns the smallest and the greatest of the values in initializer list ilist.
-The (1,3) versions use operator< to compare the values, whereas the (2,4) versions use the given comparison function comp.
+  Returns the lowest and the greatest of the given values.
+  1-2) Returns references to the smaller and the greater of a and b.
+  3-4) Returns the smallest and the greatest of the values in initializer list ilist.
+  The (1,3) versions use operator< to compare the values, whereas the (2,4) versions use the given comparison function comp.
 
 .SH Parameters
 
 
-a, b  - the values to compare
-ilist - initializer list with the values to compare
-        comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
-        The signature of the comparison function should be equivalent to the following:
-        bool cmp(const Type1 &a, const Type2 &b);
-comp  - While the signature does not need to have const &, the function must not modify the objects passed to it and must be able to accept all values of type (possibly const) Type1 and Type2 regardless of value_category (thus, Type1 & is not allowed
-        , nor is Type1 unless for Type1 a move is equivalent to a copy
-        \fI(since C++11)\fP).
-        The types Type1 and Type2 must be such that an object of type T can be implicitly converted to both of them. 
+  a, b  - the values to compare
+  ilist - initializer list with the values to compare
+          comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+          The signature of the comparison function should be equivalent to the following:
+          bool cmp(const Type1 &a, const Type2 &b);
+  comp  - While the signature does not need to have const &, the function must not modify the objects passed to it and must be able to accept all values of type (possibly const) Type1 and Type2 regardless of value_category (thus, Type1 & is not allowed
+          , nor is Type1 unless for Type1 a move is equivalent to a copy
+          \fI(since C++11)\fP).
+          The types Type1 and Type2 must be such that an object of type T can be implicitly converted to both of them. 
 .SH Type requirements
--
-T must meet the requirements of LessThanComparable in order to use overloads (1,3).
--
-T must meet the requirements of CopyConstructible in order to use overloads (3,4).
+  -
+  T must meet the requirements of LessThanComparable in order to use overloads (1,3).
+  -
+  T must meet the requirements of CopyConstructible in order to use overloads (3,4).
 
 
 .SH Return value
 
-1-2) Returns the result of std::pair<const T&, const T&>(a, b) if a<b or if a is equivalent to b. Returns the result of std::pair<const T&, const T&>(b, a) if b<a.
-3-4) A pair with the smallest value in ilist as the first element and the greatest as the second. If several elements are equivalent to the smallest, the leftmost such element is returned. If several elements are equivalent to the largest, the rightmost such element is returned.
+  1-2) Returns the result of std::pair<const T&, const T&>(a, b) if a<b or if a is equivalent to b. Returns the result of std::pair<const T&, const T&>(b, a) if b<a.
+  3-4) A pair with the smallest value in ilist as the first element and the greatest as the second. If several elements are equivalent to the smallest, the leftmost such element is returned. If several elements are equivalent to the largest, the rightmost such element is returned.
 
 .SH Complexity
 
-1-2) Exactly one comparison
-3-4) At most ilist.size() * 3 / 2 comparisons
+  1-2) Exactly one comparison
+  3-4) At most ilist.size() * 3 / 2 comparisons
 
 .SH Possible implementation
 
 
 .SH First version
 
-  template<class T>
-  std::pair<const T&, const T&> minmax( const T& a, const T& b )
-  {
-      return (b < a) ? std::pair<const T&, const T&>(b, a)
-                     : std::pair<const T&, const T&>(a, b);
-  }
+    template<class T>
+    std::pair<const T&, const T&> minmax( const T& a, const T& b )
+    {
+        return (b < a) ? std::pair<const T&, const T&>(b, a)
+                       : std::pair<const T&, const T&>(a, b);
+    }
 
 .SH Second version
 
-  template<class T, class Compare>
-  std::pair<const T&, const T&> minmax( const T& a, const T& b, Compare comp )
-  {
-      return comp(b, a) ? std::pair<const T&, const T&>(b, a)
-                        : std::pair<const T&, const T&>(a, b);
-  }
+    template<class T, class Compare>
+    std::pair<const T&, const T&> minmax( const T& a, const T& b, Compare comp )
+    {
+        return comp(b, a) ? std::pair<const T&, const T&>(b, a)
+                          : std::pair<const T&, const T&>(a, b);
+    }
 
-Third version
+  Third version
 
-  template< class T >
-  std::pair<T, T> minmax( std::initializer_list<T> ilist )
-  {
-      auto p = std::minmax_element(ilist.begin(), ilist.end());
-      return std::make_pair(*p.first, *p.second);
-  }
+    template< class T >
+    std::pair<T, T> minmax( std::initializer_list<T> ilist )
+    {
+        auto p = std::minmax_element(ilist.begin(), ilist.end());
+        return std::make_pair(*p.first, *p.second);
+    }
 
-Fourth version
+  Fourth version
 
-  template< class T, class Compare >
-  std::pair<T, T> minmax( std::initializer_list<T> ilist, Compare comp )
-  {
-      auto p = std::minmax_element(ilist.begin(), ilist.end(), comp);
-      return std::make_pair(*p.first, *p.second);
-  }
+    template< class T, class Compare >
+    std::pair<T, T> minmax( std::initializer_list<T> ilist, Compare comp )
+    {
+        auto p = std::minmax_element(ilist.begin(), ilist.end(), comp);
+        return std::make_pair(*p.first, *p.second);
+    }
 
 
 
 .SH Notes
 
-For overloads (1,2), if one of the parameters is an rvalue, the reference returned becomes a dangling reference at the end of the full expression that contains the call to minmax:
+  For overloads (1,2), if one of the parameters is an rvalue, the reference returned becomes a dangling reference at the end of the full expression that contains the call to minmax:
 
-  int n = 1;
-  auto p = std::minmax(n, n+1);
-  int m = p.first; // ok
-  int x = p.second; // undefined behavior
+    int n = 1;
+    auto p = std::minmax(n, n+1);
+    int m = p.first; // ok
+    int x = p.second; // undefined behavior
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <algorithm>
-  #include <iostream>
-  #include <vector>
-  #include <cstdlib>
-  #include <ctime>
+    #include <algorithm>
+    #include <iostream>
+    #include <vector>
+    #include <cstdlib>
+    #include <ctime>
 
-  int main()
-  {
-      std::vector<int> v {3, 1, 4, 1, 5, 9, 2, 6};
-      std::srand(std::time(0));
-      std::pair<int, int> bounds = std::minmax(std::rand() % v.size(),
-                                               std::rand() % v.size());
+    int main()
+    {
+        std::vector<int> v {3, 1, 4, 1, 5, 9, 2, 6};
+        std::srand(std::time(0));
+        std::pair<int, int> bounds = std::minmax(std::rand() % v.size(),
+                                                 std::rand() % v.size());
 
-      std::cout << "v[" << bounds.first << "," << bounds.second << "]: ";
-      for (int i = bounds.first; i < bounds.second; ++i) {
-          std::cout << v[i] << ' ';
-      }
-      std::cout << '\\n';
-  }
+        std::cout << "v[" << bounds.first << "," << bounds.second << "]: ";
+        for (int i = bounds.first; i < bounds.second; ++i) {
+            std::cout << v[i] << ' ';
+        }
+        std::cout << '\\n';
+    }
 
 .SH Possible output:
 
-  v[2,7]: 4 1 5 9 2
+    v[2,7]: 4 1 5 9 2
 
 
 .SH See also
 
 
-               returns the smaller of the given values
-min            \fI(function template)\fP
-               returns the greater of the given values
-max            \fI(function template)\fP
+                 returns the smaller of the given values
+  min            \fI(function template)\fP
+                 returns the greater of the given values
+  max            \fI(function template)\fP
 
-minmax_element returns the smallest and the largest elements in a range
-               \fI(function template)\fP
-\fI(C++11)\fP
+  minmax_element returns the smallest and the largest elements in a range
+                 \fI(function template)\fP
+  \fI(C++11)\fP
 
 
 

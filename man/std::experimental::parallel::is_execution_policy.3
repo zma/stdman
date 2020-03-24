@@ -4,57 +4,57 @@ std::experimental::parallel::is_execution_policy \- std::experimental::parallel:
 
 .SH Synopsis
 
-Defined in header <experimental/execution_policy>
-template< class T >                                (parallelism TS)
-struct is_execution_policy;
+  Defined in header <experimental/execution_policy>
+  template< class T >                                (parallelism TS)
+  struct is_execution_policy;
 
-Checks whether T is a standard or implementation-defined execution policy type.
-Provides the member constant value which is equal to true, if T is execution_policy, sequential_execution_policy, parallel_execution_policy, parallel_vector_execution_policy, or an implementation-defined execution policy type. Otherwise, value is equal to false.
-The behavior of a program that adds specializations for is_execution_policy is undefined.
+  Checks whether T is a standard or implementation-defined execution policy type.
+  Provides the member constant value which is equal to true, if T is execution_policy, sequential_execution_policy, parallel_execution_policy, parallel_vector_execution_policy, or an implementation-defined execution policy type. Otherwise, value is equal to false.
+  The behavior of a program that adds specializations for is_execution_policy is undefined.
 
 .SH Template parameters
 
 
-T - a type to check
+  T - a type to check
 
 
-Helper template
+  Helper template
 
 
-Defined in header <experimental/execution_policy>
-template< class T >                                                    (parallelism TS)
-constexpr bool is_execution_policy_v = is_execution_policy<T>::value;
+  Defined in header <experimental/execution_policy>
+  template< class T >                                                    (parallelism TS)
+  constexpr bool is_execution_policy_v = is_execution_policy<T>::value;
 
 
-Inherited from std::integral_constant
+  Inherited from std::integral_constant
 
 
 .SH Member constants
 
 
 
-value    true if T is a standard or implementation-defined execution policy type , false otherwise
-         \fI(public static member constant)\fP
-\fB[static]\fP
+  value    true if T is a standard or implementation-defined execution policy type , false otherwise
+           \fI(public static member constant)\fP
+  \fB[static]\fP
 
 
 .SH Member functions
 
 
-              converts the object to bool, returns value
-operator bool \fI(public member function)\fP
+                converts the object to bool, returns value
+  operator bool \fI(public member function)\fP
 
-operator()    returns value
-              \fI(public member function)\fP
-\fI(C++14)\fP
+  operator()    returns value
+                \fI(public member function)\fP
+  \fI(C++14)\fP
 
 
 .SH Member types
 
 
-Type       Definition
-value_type bool
-type       std::integral_constant<bool, value>
+  Type       Definition
+  value_type bool
+  type       std::integral_constant<bool, value>
 
 
 

@@ -4,70 +4,70 @@ std::filesystem::remove,std::filesystem::remove_all \- std::filesystem::remove,s
 
 .SH Synopsis
 
-Defined in header <filesystem>
-bool remove(const std::filesystem::path& p);                                    \fB(1)\fP \fI(since C++17)\fP
-bool remove(const std::filesystem::path& p, std::error_code& ec) noexcept;
-std::uintmax_t remove_all(const std::filesystem::path& p);                      \fB(2)\fP \fI(since C++17)\fP
-std::uintmax_t remove_all(const std::filesystem::path& p, std::error_code& ec);
+  Defined in header <filesystem>
+  bool remove(const std::filesystem::path& p);                                    \fB(1)\fP \fI(since C++17)\fP
+  bool remove(const std::filesystem::path& p, std::error_code& ec) noexcept;
+  std::uintmax_t remove_all(const std::filesystem::path& p);                      \fB(2)\fP \fI(since C++17)\fP
+  std::uintmax_t remove_all(const std::filesystem::path& p, std::error_code& ec);
 
-1) The file or empty directory identified by the path p is deleted as if by the POSIX remove. Symlinks are not followed (symlink is removed, not its target)
-2) Deletes the contents of p (if it is a directory) and the contents of all its subdirectories, recursively, then deletes p itself as if by repeatedly applying the POSIX remove. Symlinks are not followed (symlink is removed, not its target)
+  1) The file or empty directory identified by the path p is deleted as if by the POSIX remove. Symlinks are not followed (symlink is removed, not its target)
+  2) Deletes the contents of p (if it is a directory) and the contents of all its subdirectories, recursively, then deletes p itself as if by repeatedly applying the POSIX remove. Symlinks are not followed (symlink is removed, not its target)
 
 .SH Parameters
 
 
-p  - path to delete
-ec - out-parameter for error reporting in the non-throwing overload
+  p  - path to delete
+  ec - out-parameter for error reporting in the non-throwing overload
 
 
 .SH Return value
 
-1) true if the file was deleted, false if it did not exist. The overload that takes error_code& argument returns false on errors.
-2) Returns the number of files and directories that were deleted (which may be zero if p did not exist to begin with). The overload that takes error_code& argument returns static_cast<std::uintmax_t>(-1) on error.
+  1) true if the file was deleted, false if it did not exist. The overload that takes error_code& argument returns false on errors.
+  2) Returns the number of files and directories that were deleted (which may be zero if p did not exist to begin with). The overload that takes error_code& argument returns static_cast<std::uintmax_t>(-1) on error.
 
 .SH Exceptions
 
-The overload that does not take a std::error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first path argument and the OS error code as the error code argument. The overload taking a std::error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. Any overload not marked noexcept may throw std::bad_alloc if memory allocation fails.
+  The overload that does not take a std::error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first path argument and the OS error code as the error code argument. The overload taking a std::error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. Any overload not marked noexcept may throw std::bad_alloc if memory allocation fails.
 
 .SH Notes
 
-On POSIX systems, this function typically calls unlink and rmdir as needed, on Windows RemoveDirectoryW and DeleteFileW.
+  On POSIX systems, this function typically calls unlink and rmdir as needed, on Windows RemoveDirectoryW and DeleteFileW.
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                                                     Correct behavior
-LWG_3014 C++17      error_code overload of remove_all marked noexcept but can allocate memory noexcept removed
+  DR       Applied to Behavior as published                                                     Correct behavior
+  LWG_3014 C++17      error_code overload of remove_all marked noexcept but can allocate memory noexcept removed
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <cstdint>
-  #include <filesystem>
-  namespace fs = std::filesystem;
-  int main()
-  {
-      fs::path dir = fs::temp_directory_path();
-      fs::create_directories(dir / "abcdef/example");
-      std::uintmax_t n = fs::remove_all(dir / "abcdef");
-      std::cout << "Deleted " << n << " files or directories\\n";
-  }
+    #include <iostream>
+    #include <cstdint>
+    #include <filesystem>
+    namespace fs = std::filesystem;
+    int main()
+    {
+        fs::path dir = fs::temp_directory_path();
+        fs::create_directories(dir / "abcdef/example");
+        std::uintmax_t n = fs::remove_all(dir / "abcdef");
+        std::cout << "Deleted " << n << " files or directories\\n";
+    }
 
 .SH Possible output:
 
-  Deleted 2 files or directories
+    Deleted 2 files or directories
 
 
 .SH See also
 
 
-       erases a file
-remove \fI(function)\fP
+         erases a file
+  remove \fI(function)\fP
 
 
 

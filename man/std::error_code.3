@@ -4,75 +4,75 @@ std::error_code \- std::error_code
 
 .SH Synopsis
 
-Defined in header <system_error>
-class error_code;                 \fI(since C++11)\fP
+  Defined in header <system_error>
+  class error_code;                 \fI(since C++11)\fP
 
-std::error_code is a platform-dependent error code. Each std::error_code object holds an error code originating from the operating system or some low-level interface and a pointer to an object of type std::error_category, which corresponds to the said interface. The error code values may be not unique across different error categories.
+  std::error_code is a platform-dependent error code. Each std::error_code object holds an error code originating from the operating system or some low-level interface and a pointer to an object of type std::error_category, which corresponds to the said interface. The error code values may be not unique across different error categories.
 
 .SH Member functions
 
 
-                        constructs an error code
-constructor             \fI(public member function)\fP
-                        assigns another error code
-operator=               \fI(public member function)\fP
-                        assigns another error code
-assign                  \fI(public member function)\fP
+                          constructs an error code
+  constructor             \fI(public member function)\fP
+                          assigns another error code
+  operator=               \fI(public member function)\fP
+                          assigns another error code
+  assign                  \fI(public member function)\fP
 
 .SH Modifiers
 
-                        sets the error_code to value 0 in system_category
-clear                   \fI(public member function)\fP
+                          sets the error_code to value 0 in system_category
+  clear                   \fI(public member function)\fP
 
 .SH Observers
 
-                        obtains the value of the error_code
-value                   \fI(public member function)\fP
-                        obtains the error_category for this error_code
-category                \fI(public member function)\fP
-                        obtains the error_condition for this error_code
-default_error_condition \fI(public member function)\fP
-                        obtains the explanatory string for this error_code
-message                 \fI(public member function)\fP
-                        checks if the value is non-zero
-operator_bool           \fI(public member function)\fP
+                          obtains the value of the error_code
+  value                   \fI(public member function)\fP
+                          obtains the error_category for this error_code
+  category                \fI(public member function)\fP
+                          obtains the error_condition for this error_code
+  default_error_condition \fI(public member function)\fP
+                          obtains the explanatory string for this error_code
+  message                 \fI(public member function)\fP
+                          checks if the value is non-zero
+  operator_bool           \fI(public member function)\fP
 
 
 .SH Non-member functions
 
 
 
-operator== compares two error_codes
-operator!= \fI(function)\fP
-operator<
-           outputs the value and the category name to an output stream
-operator<< \fI(function)\fP
+  operator== compares two error_codes
+  operator!= \fI(function)\fP
+  operator<
+             outputs the value and the category name to an output stream
+  operator<< \fI(function)\fP
 
 
 .SH Helper classes
 
 
 
-is_error_code_enum         identifies a class as an error_code enumeration
-                           \fI(class template)\fP
-\fI(C++11)\fP
+  is_error_code_enum         identifies a class as an error_code enumeration
+                             \fI(class template)\fP
+  \fI(C++11)\fP
 
-std::hash<std::error_code> hash support for std::error_code
-                           \fI(class template specialization)\fP
-\fI(C++11)\fP
+  std::hash<std::error_code> hash support for std::error_code
+                             \fI(class template specialization)\fP
+  \fI(C++11)\fP
 
 
 .SH See also
 
 
 
-error_condition holds a portable error code
-                \fI(class)\fP
-\fI(C++11)\fP
+  error_condition holds a portable error code
+                  \fI(class)\fP
+  \fI(C++11)\fP
 
-error_category  base class for error categories
-                \fI(class)\fP
-\fI(C++11)\fP
+  error_category  base class for error categories
+                  \fI(class)\fP
+  \fI(C++11)\fP
 
 
 

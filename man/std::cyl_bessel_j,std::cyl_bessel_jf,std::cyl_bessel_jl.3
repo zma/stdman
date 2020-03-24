@@ -4,95 +4,95 @@ std::cyl_bessel_j,std::cyl_bessel_jf,std::cyl_bessel_jl \- std::cyl_bessel_j,std
 
 .SH Synopsis
 
-double cyl_bessel_j( double ν, double x );
-float cyl_bessel_jf( float ν, float x );                  \fB(1)\fP \fI(since C++17)\fP
-long double cyl_bessel_jl( long double ν, long double x );
-Promoted cyl_bessel_j( Arithmetic ν, Arithmetic x );      \fB(2)\fP \fI(since C++17)\fP
+  double cyl_bessel_j( double ν, double x );
+  float cyl_bessel_jf( float ν, float x );                  \fB(1)\fP \fI(since C++17)\fP
+  long double cyl_bessel_jl( long double ν, long double x );
+  Promoted cyl_bessel_j( Arithmetic ν, Arithmetic x );      \fB(2)\fP \fI(since C++17)\fP
 
-1) Computes the cylindrical_Bessel_function_of_the_first_kind of ν and x.
-2) A set of overloads or a function template for all combinations of arguments of arithmetic type not covered by \fB(1)\fP. If any argument has integral_type, it is cast to double. If any argument is long double, then the return type Promoted is also long double, otherwise the return type is always double.
+  1) Computes the cylindrical_Bessel_function_of_the_first_kind of ν and x.
+  2) A set of overloads or a function template for all combinations of arguments of arithmetic type not covered by \fB(1)\fP. If any argument has integral_type, it is cast to double. If any argument is long double, then the return type Promoted is also long double, otherwise the return type is always double.
 
 .SH Parameters
 
 
-ν- the order of the function
-x - the argument of the function
+  ν- the order of the function
+  x - the argument of the function
 
 
 .SH Return value
 
-If no errors occur, value of the cylindrical Bessel function of the first kind of ν and x, that is J
-ν(x) = Σ∞
-k=0
+  If no errors occur, value of the cylindrical Bessel function of the first kind of ν and x, that is J
+  ν(x) = Σ∞
+  k=0
 
-(-1)k
-(x/2)ν+2k
-k!Γ(ν+k+1)
+  (-1)k
+  (x/2)ν+2k
+  k!Γ(ν+k+1)
 
-(for x≥0), is returned.
+  (for x≥0), is returned.
 
 .SH Error handling
 
-Errors may be reported as specified in math_errhandling
+  Errors may be reported as specified in math_errhandling
 
-* If the argument is NaN, NaN is returned and domain error is not reported
-* If ν>=128, the behavior is implementation-defined
+  * If the argument is NaN, NaN is returned and domain error is not reported
+  * If ν>=128, the behavior is implementation-defined
 
 
 .SH Notes
 
-Implementations that do not support C++17, but support ISO_29124:2010, provide this function if __STDCPP_MATH_SPEC_FUNCS__ is defined by the implementation to a value at least 201003L and if the user defines __STDCPP_WANT_MATH_SPEC_FUNCS__ before including any standard library headers.
-Implementations that do not support ISO 29124:2010 but support TR 19768:2007 (TR1), provide this function in the header tr1/cmath and namespace std::tr1
-An implementation of this function is also available_in_boost.math
+  Implementations that do not support C++17, but support ISO_29124:2010, provide this function if __STDCPP_MATH_SPEC_FUNCS__ is defined by the implementation to a value at least 201003L and if the user defines __STDCPP_WANT_MATH_SPEC_FUNCS__ before including any standard library headers.
+  Implementations that do not support ISO 29124:2010 but support TR 19768:2007 (TR1), provide this function in the header tr1/cmath and namespace std::tr1
+  An implementation of this function is also available_in_boost.math
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <cmath>
-  #include <iostream>
-  int main()
-  {
-      // spot check for ν == 0
-      double x = 1.2345;
-      std::cout << "J_0(" << x << ") = " << std::cyl_bessel_j(0, x) << '\\n';
+    #include <cmath>
+    #include <iostream>
+    int main()
+    {
+        // spot check for ν == 0
+        double x = 1.2345;
+        std::cout << "J_0(" << x << ") = " << std::cyl_bessel_j(0, x) << '\\n';
 
-      // series expansion for J_0
-      double fct = 1;
-      double sum = 0;
-      for(int k = 0; k < 6; fct*=++k) {
-          sum += std::pow(-1, k)*std::pow((x/2),2*k) / std::pow(fct,2);
-          std::cout << "sum = " << sum << '\\n';
-      }
-  }
+        // series expansion for J_0
+        double fct = 1;
+        double sum = 0;
+        for(int k = 0; k < 6; fct*=++k) {
+            sum += std::pow(-1, k)*std::pow((x/2),2*k) / std::pow(fct,2);
+            std::cout << "sum = " << sum << '\\n';
+        }
+    }
 
 .SH Output:
 
-  J_0(1.2345) = 0.653792
-  sum = 1
-  sum = 0.619002
-  sum = 0.655292
-  sum = 0.653756
-  sum = 0.653793
-  sum = 0.653792
+    J_0(1.2345) = 0.653792
+    sum = 1
+    sum = 0.619002
+    sum = 0.655292
+    sum = 0.653756
+    sum = 0.653793
+    sum = 0.653792
 
 
 .SH External links
 
-Weisstein,_Eric_W._"Bessel_Function_of_the_First_Kind." From MathWorld--A Wolfram Web Resource.
+  Weisstein,_Eric_W._"Bessel_Function_of_the_First_Kind." From MathWorld--A Wolfram Web Resource.
 
 .SH See also
 
 
 
-cyl_bessel_i
-cyl_bessel_if
-cyl_bessel_il regular modified cylindrical Bessel functions
-              \fI(function)\fP
-\fI(C++17)\fP
-\fI(C++17)\fP
-\fI(C++17)\fP
+  cyl_bessel_i
+  cyl_bessel_if
+  cyl_bessel_il regular modified cylindrical Bessel functions
+                \fI(function)\fP
+  \fI(C++17)\fP
+  \fI(C++17)\fP
+  \fI(C++17)\fP
 
 
 

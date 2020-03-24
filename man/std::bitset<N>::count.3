@@ -4,57 +4,57 @@ std::bitset<N>::count \- std::bitset<N>::count
 
 .SH Synopsis
 
-std::size_t count() const;           \fI(until C++11)\fP
-std::size_t count() const noexcept;  \fI(since C++11)\fP
+  std::size_t count() const;           \fI(until C++11)\fP
+  std::size_t count() const noexcept;  \fI(since C++11)\fP
 
-Returns the number of bits that are set to true.
+  Returns the number of bits that are set to true.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-number of bits that are set to true.
+  number of bits that are set to true.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <bitset>
+    #include <iostream>
+    #include <bitset>
 
-  int main()
-  {
-      std::bitset<8> b("00010010");
-      std::cout << "initial value: " << b << '\\n';
+    int main()
+    {
+        std::bitset<8> b("00010010");
+        std::cout << "initial value: " << b << '\\n';
 
-      // find the first unset bit
-      std::size_t idx = 0;
-      while (idx < b.size() && b.test(idx)) ++idx;
+        // find the first unset bit
+        std::size_t idx = 0;
+        while (idx < b.size() && b.test(idx)) ++idx;
 
-      // continue setting bits until half the bitset is filled
-      while (idx < b.size() && b.count() < b.size()/2) {
-          b.set(idx);
-          std::cout << "setting bit " << idx << ": " << b << '\\n';
-          while (idx < b.size() && b.test(idx)) ++idx;
-      }
+        // continue setting bits until half the bitset is filled
+        while (idx < b.size() && b.count() < b.size()/2) {
+            b.set(idx);
+            std::cout << "setting bit " << idx << ": " << b << '\\n';
+            while (idx < b.size() && b.test(idx)) ++idx;
+        }
 
-  }
+    }
 
 .SH Output:
 
-  initial value: 00010010
-  setting bit 0: 00010011
-  setting bit 2: 00010111
+    initial value: 00010010
+    setting bit 0: 00010011
+    setting bit 2: 00010111
 
 
 .SH See also
 
 
-     returns the size number of bits that the bitset can hold
-size \fI(public member function)\fP
+       returns the size number of bits that the bitset can hold
+  size \fI(public member function)\fP
 
 
 

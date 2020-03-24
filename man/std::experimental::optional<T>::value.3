@@ -4,66 +4,66 @@ std::experimental::optional<T>::value \- std::experimental::optional<T>::value
 
 .SH Synopsis
 
-constexpr T& value() &;               \fB(1)\fP (library fundamentals TS)
-constexpr const T & value() const &;
-constexpr T&& value() &&;             \fB(2)\fP (library fundamentals TS)
-constexpr const T&& value() const &&;
+  constexpr T& value() &;               \fB(1)\fP (library fundamentals TS)
+  constexpr const T & value() const &;
+  constexpr T&& value() &&;             \fB(2)\fP (library fundamentals TS)
+  constexpr const T&& value() const &&;
 
-Returns the contained value.
-1) Equivalent to return bool(*this) ? *val : throw bad_optional_access();
-2) Equivalent to return bool(*this) ? std::move(*val) : throw bad_optional_access();
+  Returns the contained value.
+  1) Equivalent to return bool(*this) ? *val : throw bad_optional_access();
+  2) Equivalent to return bool(*this) ? std::move(*val) : throw bad_optional_access();
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-A reference to the contained value.
+  A reference to the contained value.
 
 .SH Exceptions
 
-std::experimental::bad_optional_access if *this does not contain a value.
+  std::experimental::bad_optional_access if *this does not contain a value.
 
 .SH Notes
 
-The dereference operator operator*() does not check if this optional contains a value, which may be more efficient than value().
+  The dereference operator operator*() does not check if this optional contains a value, which may be more efficient than value().
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <experimental/optional>
-  #include <iostream>
-  int main()
-  {
-      std::experimental::optional<int> opt = {};
+    #include <experimental/optional>
+    #include <iostream>
+    int main()
+    {
+        std::experimental::optional<int> opt = {};
 
-      try {
-          int n = opt.value();
-      } catch(const std::logic_error& e) {
-          std::cout << e.what() << '\\n';
-      }
-  }
+        try {
+            int n = opt.value();
+        } catch(const std::logic_error& e) {
+            std::cout << e.what() << '\\n';
+        }
+    }
 
 .SH Possible output:
 
-  optional<T>::value: not engaged
+    optional<T>::value: not engaged
 
 
 .SH See also
 
 
-                          returns the contained value if available, another value otherwise
-value_or                  \fI(public member function)\fP
-                          accesses the contained value
-operator->                \fI(public member function)\fP
-operator*
+                            returns the contained value if available, another value otherwise
+  value_or                  \fI(public member function)\fP
+                            accesses the contained value
+  operator->                \fI(public member function)\fP
+  operator*
 
-bad_optional_access       exception indicating checked access to an optional that doesn't contain a value
-                          \fI(class)\fP
-(library fundamentals TS)
+  bad_optional_access       exception indicating checked access to an optional that doesn't contain a value
+                            \fI(class)\fP
+  (library fundamentals TS)
 
 
 

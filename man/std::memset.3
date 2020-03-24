@@ -4,64 +4,64 @@ std::memset \- std::memset
 
 .SH Synopsis
 
-Defined in header <cstring>
-void* memset( void* dest, int ch, std::size_t count );
+  Defined in header <cstring>
+  void* memset( void* dest, int ch, std::size_t count );
 
-Converts the value ch to unsigned char and copies it into each of the first count characters of the object pointed to by dest. If the object is a potentially-overlapping_subobject or is not TriviallyCopyable (e.g., scalar, C-compatible struct, or an array of trivially copyable type), the behavior is undefined. If count is greater than the size of the object pointed to by dest, the behavior is undefined.
+  Converts the value ch to unsigned char and copies it into each of the first count characters of the object pointed to by dest. If the object is a potentially-overlapping_subobject or is not TriviallyCopyable (e.g., scalar, C-compatible struct, or an array of trivially copyable type), the behavior is undefined. If count is greater than the size of the object pointed to by dest, the behavior is undefined.
 
 .SH Parameters
 
 
-dest  - pointer to the object to fill
-ch    - fill byte
-count - number of bytes to fill
+  dest  - pointer to the object to fill
+  ch    - fill byte
+  count - number of bytes to fill
 
 
 .SH Return value
 
-dest
+  dest
 
 .SH Notes
 
-std::memset may be optimized away (under the as-if rules) if the object modified by this function is not accessed again for the rest of its lifetime (e.g. gcc_bug_8537). For that reason, this function cannot be used to scrub memory (e.g. to fill an array that stored a password with zeroes). Solutions for that include std::fill with volatile pointers, C11 memset_s, FreeBSD explicit_bzero or Microsoft SecureZeroMemory.
+  std::memset may be optimized away (under the as-if rules) if the object modified by this function is not accessed again for the rest of its lifetime (e.g. gcc_bug_8537). For that reason, this function cannot be used to scrub memory (e.g. to fill an array that stored a password with zeroes). Solutions for that include std::fill with volatile pointers, C11 memset_s, FreeBSD explicit_bzero or Microsoft SecureZeroMemory.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <cstring>
+    #include <iostream>
+    #include <cstring>
 
-  int main()
-  {
-      int a[20];
-      std::memset(a, 0, sizeof a);
-      for (int ai : a) std::cout << ai;
-  }
+    int main()
+    {
+        int a[20];
+        std::memset(a, 0, sizeof a);
+        for (int ai : a) std::cout << ai;
+    }
 
 .SH Output:
 
-  00000000000000000000
+    00000000000000000000
 
 
 .SH See also
 
 
-                      copies one buffer to another
-memcpy                \fI(function)\fP
-                      moves one buffer to another
-memmove               \fI(function)\fP
-                      copies the given wide character to every position in a wide character array
-wmemset               \fI(function)\fP
-                      copy-assigns the given value to every element in a range
-fill                  \fI(function template)\fP
-                      copy-assigns the given value to N elements in a range
-fill_n                \fI(function template)\fP
+                        copies one buffer to another
+  memcpy                \fI(function)\fP
+                        moves one buffer to another
+  memmove               \fI(function)\fP
+                        copies the given wide character to every position in a wide character array
+  wmemset               \fI(function)\fP
+                        copy-assigns the given value to every element in a range
+  fill                  \fI(function template)\fP
+                        copy-assigns the given value to N elements in a range
+  fill_n                \fI(function template)\fP
 
-is_trivially_copyable checks if a type is trivially copyable
-                      \fI(class template)\fP
-\fI(C++11)\fP
+  is_trivially_copyable checks if a type is trivially copyable
+                        \fI(class template)\fP
+  \fI(C++11)\fP
 
 
 

@@ -4,53 +4,53 @@ std::experimental::filesystem::space_info \- std::experimental::filesystem::spac
 
 .SH Synopsis
 
-Defined in header <experimental/filesystem>
-struct space_info {
-uintmax_t capacity;
-uintmax_t free;                              (filesystem TS)
-uintmax_t available;
-};
+  Defined in header <experimental/filesystem>
+  struct space_info {
+  uintmax_t capacity;
+  uintmax_t free;                              (filesystem TS)
+  uintmax_t available;
+  };
 
-Represents the filesystem information as determined by space
-The members have the following meaning:
+  Represents the filesystem information as determined by space
+  The members have the following meaning:
 
-* capacity -- total size of the filesystem, in bytes
-* free -- free space on the filesystem, in bytes
-* available -- free space available to a non-privileged process (may be equal or less than free)
+  * capacity -- total size of the filesystem, in bytes
+  * free -- free space on the filesystem, in bytes
+  * available -- free space available to a non-privileged process (may be equal or less than free)
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <experimental/filesystem>
-  namespace fs = std::experimental::filesystem;
-  int main()
-  {
-      fs::space_info devi = fs::space("/dev/null");
-      fs::space_info tmpi = fs::space("/tmp");
+    #include <iostream>
+    #include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
+    int main()
+    {
+        fs::space_info devi = fs::space("/dev/null");
+        fs::space_info tmpi = fs::space("/tmp");
 
-      std::cout << ".        Capacity       Free      Available\\n"
-                << "/dev:   " << devi.capacity << "   "
-                << devi.free << "   " << devi.available  << '\\n'
-                << "/tmp: " << tmpi.capacity << " "
-                << tmpi.free << " " << tmpi.available  << '\\n';
-  }
+        std::cout << ".        Capacity       Free      Available\\n"
+                  << "/dev:   " << devi.capacity << "   "
+                  << devi.free << "   " << devi.available  << '\\n'
+                  << "/tmp: " << tmpi.capacity << " "
+                  << tmpi.free << " " << tmpi.available  << '\\n';
+    }
 
 .SH Possible output:
 
-  .         Capacity       Free      Available
-  /dev:   4175114240   4175110144   4175110144
-  /tmp: 420651237376 411962273792 390570749952
+    .         Capacity       Free      Available
+    /dev:   4175114240   4175110144   4175110144
+    /tmp: 420651237376 411962273792 390570749952
 
 
 .SH See also
 
 
-      determines available free space on the file system
-space \fI(function)\fP
+        determines available free space on the file system
+  space \fI(function)\fP
 
 
 

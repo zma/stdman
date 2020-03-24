@@ -4,74 +4,74 @@ std::chrono::floor(std::chrono::time_point) \- std::chrono::floor(std::chrono::t
 
 .SH Synopsis
 
-Defined in header <chrono>
-template <class ToDuration, class Clock, class Duration>                               \fI(since C++17)\fP
-constexpr time_point<Clock, ToDuration> floor(const time_point<Clock, Duration>& tp);
+  Defined in header <chrono>
+  template <class ToDuration, class Clock, class Duration>                               \fI(since C++17)\fP
+  constexpr time_point<Clock, ToDuration> floor(const time_point<Clock, Duration>& tp);
 
-Returns the largest time point t representable in ToDuration that is smaller or equal to tp.
-The function does not participate in the overload resolution unless ToDuration is an specialization of std::chrono::duration.
+  Returns the largest time point t representable in ToDuration that is smaller or equal to tp.
+  The function does not participate in the overload resolution unless ToDuration is an specialization of std::chrono::duration.
 
 .SH Parameters
 
 
-tp - time point to round down
+  tp - time point to round down
 
 
 .SH Return value
 
-d rounded down to a the next time point using duration of type ToDuration.
+  d rounded down to a the next time point using duration of type ToDuration.
 
 .SH Possible implementation
 
 
 
-  template <class T> struct is_duration : std::false_type {};
-  template <class Rep, class Period> struct is_duration<
-      std::chrono::duration<Rep, Period>> : std::true_type {};
+    template <class T> struct is_duration : std::false_type {};
+    template <class Rep, class Period> struct is_duration<
+        std::chrono::duration<Rep, Period>> : std::true_type {};
 
-  template <class To, class Clock, class FromDuration,
-            class = std::enable_if_t<is_duration<To>{}>>
-  constexpr std::chrono::time_point<Clock, To>
-      floor(const std::chrono::time_point<Clock, FromDuration>& tp)
-  {
-      return std::chrono::time_point<Clock, To>{
-          std::chrono::floor<To>(tp.time_since_epoch())};
-  }
+    template <class To, class Clock, class FromDuration,
+              class = std::enable_if_t<is_duration<To>{}>>
+    constexpr std::chrono::time_point<Clock, To>
+        floor(const std::chrono::time_point<Clock, FromDuration>& tp)
+    {
+        return std::chrono::time_point<Clock, To>{
+            std::chrono::floor<To>(tp.time_since_epoch())};
+    }
 
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-                               converts a time point to another time point on the same clock, with a different duration
-time_point_cast                \fI(function template)\fP
+                                 converts a time point to another time point on the same clock, with a different duration
+  time_point_cast                \fI(function template)\fP
 
-ceil(std::chrono::time_point)  converts a time_point to another, rounding up
-                               \fI(function template)\fP
-\fI(C++17)\fP
+  ceil(std::chrono::time_point)  converts a time_point to another, rounding up
+                                 \fI(function template)\fP
+  \fI(C++17)\fP
 
-round(std::chrono::time_point) converts a time_point to another, rounding to nearest, ties to even
-                               \fI(function template)\fP
-\fI(C++17)\fP
+  round(std::chrono::time_point) converts a time_point to another, rounding to nearest, ties to even
+                                 \fI(function template)\fP
+  \fI(C++17)\fP
 
-floor(std::chrono::duration)   converts a duration to another, rounding down
-                               \fI(function template)\fP
-\fI(C++17)\fP
+  floor(std::chrono::duration)   converts a duration to another, rounding down
+                                 \fI(function template)\fP
+  \fI(C++17)\fP
 
-floor
-floorf
-floorl                         nearest integer not greater than the given value
-                               \fI(function)\fP
+  floor
+  floorf
+  floorl                         nearest integer not greater than the given value
+                                 \fI(function)\fP
 
-\fI(C++11)\fP
-\fI(C++11)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
 
 
 

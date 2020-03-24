@@ -4,33 +4,33 @@ std::shared_lock<Mutex>::release \- std::shared_lock<Mutex>::release
 
 .SH Synopsis
 
-mutex_type* release() noexcept;  \fI(since C++14)\fP
+  mutex_type* release() noexcept;  \fI(since C++14)\fP
 
-Breaks the association of the associated mutex, if any, and *this.
-No locks are unlocked. If the *this held ownership of the associated mutex prior to the call, the caller is now responsible to unlock the mutex.
+  Breaks the association of the associated mutex, if any, and *this.
+  No locks are unlocked. If the *this held ownership of the associated mutex prior to the call, the caller is now responsible to unlock the mutex.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-Pointer to the associated mutex or NULL if there was no associated mutex.
+  Pointer to the associated mutex or NULL if there was no associated mutex.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-        unlocks the associated mutex
-unlock  \fI(public member function)\fP
-        disassociates the associated mutex without unlocking it
-release \fI(public member function of std::unique_lock<Mutex>)\fP
+          unlocks the associated mutex
+  unlock  \fI(public member function)\fP
+          disassociates the associated mutex without unlocking it
+  release \fI(public member function of std::unique_lock<Mutex>)\fP
 
 
 

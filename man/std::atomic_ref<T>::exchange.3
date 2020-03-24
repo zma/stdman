@@ -4,20 +4,20 @@ std::atomic_ref<T>::exchange \- std::atomic_ref<T>::exchange
 
 .SH Synopsis
 
-T exchange( T desired, std::memory_order order = std::memory_order_seq_cst ) const noexcept;  \fI(since C++20)\fP
+  T exchange( T desired, std::memory_order order = std::memory_order_seq_cst ) const noexcept;  \fI(since C++20)\fP
 
-Atomically replaces the value of the referenced object with desired. The operation is a read-modify-write operation. Memory is affected according to the value of order.
+  Atomically replaces the value of the referenced object with desired. The operation is a read-modify-write operation. Memory is affected according to the value of order.
 
 .SH Parameters
 
 
-desired - value to assign
-order   - memory order constraints to enforce
+  desired - value to assign
+  order   - memory order constraints to enforce
 
 
 .SH Return value
 
-The value of the referenced object before the call.
+  The value of the referenced object before the call.
 
 
 

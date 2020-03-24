@@ -4,96 +4,96 @@ std::iter_swap \- std::iter_swap
 
 .SH Synopsis
 
-Defined in header <algorithm>
-template< class ForwardIt1, class ForwardIt2 >           \fI(until C++20)\fP
-void iter_swap( ForwardIt1 a, ForwardIt2 b );
-template< class ForwardIt1, class ForwardIt2 >           \fI(since C++20)\fP
-constexpr void iter_swap( ForwardIt1 a, ForwardIt2 b );
+  Defined in header <algorithm>
+  template< class ForwardIt1, class ForwardIt2 >           \fI(until C++20)\fP
+  void iter_swap( ForwardIt1 a, ForwardIt2 b );
+  template< class ForwardIt1, class ForwardIt2 >           \fI(since C++20)\fP
+  constexpr void iter_swap( ForwardIt1 a, ForwardIt2 b );
 
-Swaps the values of the elements the given iterators are pointing to.
+  Swaps the values of the elements the given iterators are pointing to.
 
 .SH Parameters
 
 
-a, b - iterators to the elements to swap
+  a, b - iterators to the elements to swap
 .SH Type requirements
--
-ForwardIt1, ForwardIt2 must meet the requirements of LegacyForwardIterator.
--
-*a, *b must meet the requirements of Swappable.
+  -
+  ForwardIt1, ForwardIt2 must meet the requirements of LegacyForwardIterator.
+  -
+  *a, *b must meet the requirements of Swappable.
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-constant
+  constant
 
 .SH Possible implementation
 
 
 
-  template<class ForwardIt1, class ForwardIt2>
-  constexpr void iter_swap(ForwardIt1 a, ForwardIt2 b) // constexpr since C++20
-  {
-     using std::swap;
-     swap(*a, *b);
-  }
+    template<class ForwardIt1, class ForwardIt2>
+    constexpr void iter_swap(ForwardIt1 a, ForwardIt2 b) // constexpr since C++20
+    {
+       using std::swap;
+       swap(*a, *b);
+    }
 
 
 
 .SH Example
 
-The following is an implementation of selection sort in C++
-
+  The following is an implementation of selection sort in C++
+  
 // Run this code
 
-  #include <random>
-  #include <vector>
-  #include <iostream>
-  #include <algorithm>
-  #include <functional>
+    #include <random>
+    #include <vector>
+    #include <iostream>
+    #include <algorithm>
+    #include <functional>
 
-  template<class ForwardIt>
-  void selection_sort(ForwardIt begin, ForwardIt end)
-  {
-      for (ForwardIt i = begin; i != end; ++i)
-          std::iter_swap(i, std::min_element(i, end));
-  }
+    template<class ForwardIt>
+    void selection_sort(ForwardIt begin, ForwardIt end)
+    {
+        for (ForwardIt i = begin; i != end; ++i)
+            std::iter_swap(i, std::min_element(i, end));
+    }
 
-  int main()
-  {
-      std::random_device rd;
-      std::mt19937 gen(rd());
-      std::uniform_int_distribution<> dist(-10, 10);
-      std::vector<int> v;
-      generate_n(back_inserter(v), 20, bind(dist, gen));
+    int main()
+    {
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dist(-10, 10);
+        std::vector<int> v;
+        generate_n(back_inserter(v), 20, bind(dist, gen));
 
-      std::cout << "Before sort: ";
-      for(auto e : v) std::cout << e << " ";
+        std::cout << "Before sort: ";
+        for(auto e : v) std::cout << e << " ";
 
-      selection_sort(v.begin(), v.end());
+        selection_sort(v.begin(), v.end());
 
-      std::cout << "\\nAfter sort: ";
-      for(auto e : v) std::cout << e << " ";
-      std::cout << '\\n';
-  }
+        std::cout << "\\nAfter sort: ";
+        for(auto e : v) std::cout << e << " ";
+        std::cout << '\\n';
+    }
 
 .SH Output:
 
-  Before sort: -7 6 2 4 -1 6 -9 -1 2 -5 10 -9 -5 -3 -5 -3 6 6 1 8
-  After sort: -9 -9 -7 -5 -5 -5 -3 -3 -1 -1 1 2 2 4 6 6 6 6 8 10
+    Before sort: -7 6 2 4 -1 6 -9 -1 2 -5 10 -9 -5 -3 -5 -3 6 6 1 8
+    After sort: -9 -9 -7 -5 -5 -5 -3 -3 -1 -1 1 2 2 4 6 6 6 6 8 10
 
 
 .SH See also
 
 
-            swaps the values of two objects
-swap        \fI(function template)\fP
-            swaps two ranges of elements
-swap_ranges \fI(function template)\fP
+              swaps the values of two objects
+  swap        \fI(function template)\fP
+              swaps two ranges of elements
+  swap_ranges \fI(function template)\fP
 
 
 

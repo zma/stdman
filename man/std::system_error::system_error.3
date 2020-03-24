@@ -4,58 +4,58 @@ std::system_error::system_error \- std::system_error::system_error
 
 .SH Synopsis
 
-system_error( std::error_code ec );                              \fB(1)\fP \fI(since C++11)\fP
-system_error( std::error_code ec, const std::string& what_arg ); \fB(2)\fP \fI(since C++11)\fP
-system_error( std::error_code ec, const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
-system_error( int ev, const std::error_category& ecat );         \fB(3)\fP \fI(since C++11)\fP
-system_error( int ev, const std::error_category& ecat,           \fB(4)\fP \fI(since C++11)\fP
-const std::string& what_arg);
-system_error( int ev, const std::error_category& ecat,           \fB(4)\fP \fI(since C++11)\fP
-const char* what_arg);
+  system_error( std::error_code ec );                              \fB(1)\fP \fI(since C++11)\fP
+  system_error( std::error_code ec, const std::string& what_arg ); \fB(2)\fP \fI(since C++11)\fP
+  system_error( std::error_code ec, const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
+  system_error( int ev, const std::error_category& ecat );         \fB(3)\fP \fI(since C++11)\fP
+  system_error( int ev, const std::error_category& ecat,           \fB(4)\fP \fI(since C++11)\fP
+  const std::string& what_arg);
+  system_error( int ev, const std::error_category& ecat,           \fB(4)\fP \fI(since C++11)\fP
+  const char* what_arg);
 
-Constructs new system error object.
-1) Constructs with error code ec
-2) Constructs with error code ec and explanation string what_arg. The string returned by what() is guaranteed to contain what_arg as a substring.
-3) Constructs with underlying error code ev and associated error category ecat.
-4) Constructs with underlying error code ev, associated error category ecat and explanatory string what_arg. The string returned by what() is guaranteed to contain what_arg as a substring.
+  Constructs new system error object.
+  1) Constructs with error code ec
+  2) Constructs with error code ec and explanation string what_arg. The string returned by what() is guaranteed to contain what_arg as a substring.
+  3) Constructs with underlying error code ev and associated error category ecat.
+  4) Constructs with underlying error code ev, associated error category ecat and explanatory string what_arg. The string returned by what() is guaranteed to contain what_arg as a substring.
 
 .SH Parameters
 
 
-ec       - error code
-ev       - underlying error code in the enumeration associated with ecat
-ecat     - the category of error
-what_arg - explanatory string
+  ec       - error code
+  ev       - underlying error code in the enumeration associated with ecat
+  ecat     - the category of error
+  what_arg - explanatory string
 
 
 .SH Example
 
-Demonstrates how to create a system_error exception from an errno value.
-
+  Demonstrates how to create a system_error exception from an errno value.
+  
 // Run this code
 
-  #include <iostream>
-  #include <system_error>
+    #include <iostream>
+    #include <system_error>
 
-  int main()
-  {
-      try
-      {
-          throw std::system_error(EDOM, std::generic_category(), "hello world");
-      }
-      catch (const std::system_error& ex)
-      {
-          std::cout << ex.code() << '\\n';
-          std::cout << ex.code().message() << '\\n';
-          std::cout << ex.what() << '\\n';
-      }
-  }
+    int main()
+    {
+        try
+        {
+            throw std::system_error(EDOM, std::generic_category(), "hello world");
+        }
+        catch (const std::system_error& ex)
+        {
+            std::cout << ex.code() << '\\n';
+            std::cout << ex.code().message() << '\\n';
+            std::cout << ex.what() << '\\n';
+        }
+    }
 
 .SH Possible output:
 
-  generic:33
-  Numerical argument out of domain
-  hello world: Numerical argument out of domain
+    generic:33
+    Numerical argument out of domain
+    hello world: Numerical argument out of domain
 
 
 

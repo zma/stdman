@@ -4,32 +4,32 @@ std::tuple_element<std::experimental::ranges::tagged> \- std::tuple_element<std:
 
 .SH Synopsis
 
-template< std::size_t N, class Base, class... Tags >
-struct tuple_element<N, std::experimental::ranges::tagged<Base, Tags...>>  (ranges TS)
-: std::tuple_element<N, Base> { };
+  template< std::size_t N, class Base, class... Tags >
+  struct tuple_element<N, std::experimental::ranges::tagged<Base, Tags...>>  (ranges TS)
+  : std::tuple_element<N, Base> { };
 
-The partial specialization of std::tuple_element for tagged provide compile-time access to the types of the tagged's elements, using tuple-like syntax. It simply forwards to std::tuple_element<N, Base>.
+  The partial specialization of std::tuple_element for tagged provide compile-time access to the types of the tagged's elements, using tuple-like syntax. It simply forwards to std::tuple_element<N, Base>.
 
 .SH Member types
 
 
-Member type Definition
-type        std::tuple_element_t<N, Base>
+  Member type Definition
+  type        std::tuple_element_t<N, Base>
 
 
 .SH See also
 
 
-                                                   obtains the type of the specified element
-tuple_element                                      \fI(class template specialization)\fP
-                                                   obtains the type of the elements of array
-std::tuple_element<std::array>                     \fI(class template specialization)\fP
+                                                     obtains the type of the specified element
+  tuple_element                                      \fI(class template specialization)\fP
+                                                     obtains the type of the elements of array
+  std::tuple_element<std::array>                     \fI(class template specialization)\fP
 
-std::tuple_element<std::pair>                      obtains the type of the elements of pair
-                                                   \fI(class template specialization)\fP
-\fI(C++11)\fP
-                                                   obtains the size of a tagged
-std::tuple_size<std::experimental::ranges::tagged> \fI(class template specialization)\fP
+  std::tuple_element<std::pair>                      obtains the type of the elements of pair
+                                                     \fI(class template specialization)\fP
+  \fI(C++11)\fP
+                                                     obtains the size of a tagged
+  std::tuple_size<std::experimental::ranges::tagged> \fI(class template specialization)\fP
 
 
 

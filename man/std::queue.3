@@ -4,109 +4,109 @@ std::queue \- std::queue
 
 .SH Synopsis
 
-Defined in header <queue>
-template<
-class T,
-class Container = std::deque<T>
-> class queue;
+  Defined in header <queue>
+  template<
+  class T,
+  class Container = std::deque<T>
+  > class queue;
 
-The std::queue class is a container adapter that gives the programmer the functionality of a queue - specifically, a FIFO (first-in, first-out) data structure.
-The class template acts as a wrapper to the underlying container - only a specific set of functions is provided. The queue pushes the elements on the back of the underlying container and pops them from the front.
+  The std::queue class is a container adapter that gives the programmer the functionality of a queue - specifically, a FIFO (first-in, first-out) data structure.
+  The class template acts as a wrapper to the underlying container - only a specific set of functions is provided. The queue pushes the elements on the back of the underlying container and pops them from the front.
 
 .SH Template parameters
 
 
-            The type of the stored elements.
-T         - The behavior is undefined if T is not the same type as Container::value_type.
-            \fI(since C++17)\fP
-            The type of the underlying container to use to store the elements. The container must satisfy the requirements of SequenceContainer. Additionally, it must provide the following functions with the usual semantics:
+              The type of the stored elements.
+  T         - The behavior is undefined if T is not the same type as Container::value_type.
+              \fI(since C++17)\fP
+              The type of the underlying container to use to store the elements. The container must satisfy the requirements of SequenceContainer. Additionally, it must provide the following functions with the usual semantics:
 
-            * back()
-Container - * front()
-            * push_back()
-            * pop_front()
+              * back()
+  Container - * front()
+              * push_back()
+              * pop_front()
 
-            The standard containers std::deque and std::list satisfy these requirements.
+              The standard containers std::deque and std::list satisfy these requirements.
 
 
 .SH Member types
 
 
-Member type     Definition
-container_type  Container
-value_type      Container::value_type
-size_type       Container::size_type
-reference       Container::reference
-const_reference Container::const_reference
+  Member type     Definition
+  container_type  Container
+  value_type      Container::value_type
+  size_type       Container::size_type
+  reference       Container::reference
+  const_reference Container::const_reference
 
 
 .SH Member functions
 
 
-              constructs the queue
-constructor   \fI(public member function)\fP
-              destructs the queue
-destructor    \fI(public member function)\fP
-              assigns values to the container adaptor
-operator=     \fI(public member function)\fP
+                constructs the queue
+  constructor   \fI(public member function)\fP
+                destructs the queue
+  destructor    \fI(public member function)\fP
+                assigns values to the container adaptor
+  operator=     \fI(public member function)\fP
 
 .SH Element access
 
-              access the first element
-front         \fI(public member function)\fP
-              access the last element
-back          \fI(public member function)\fP
+                access the first element
+  front         \fI(public member function)\fP
+                access the last element
+  back          \fI(public member function)\fP
 
 .SH Capacity
 
-              checks whether the underlying container is empty
-empty         \fI(public member function)\fP
-              returns the number of elements
-size          \fI(public member function)\fP
+                checks whether the underlying container is empty
+  empty         \fI(public member function)\fP
+                returns the number of elements
+  size          \fI(public member function)\fP
 
 .SH Modifiers
 
-              inserts element at the end
-push          \fI(public member function)\fP
+                inserts element at the end
+  push          \fI(public member function)\fP
 
-emplace       constructs element in-place at the end
-              \fI(public member function)\fP
-\fI(C++11)\fP
-              removes the first element
-pop           \fI(public member function)\fP
-              swaps the contents
-swap          \fI(public member function)\fP
+  emplace       constructs element in-place at the end
+                \fI(public member function)\fP
+  \fI(C++11)\fP
+                removes the first element
+  pop           \fI(public member function)\fP
+                swaps the contents
+  swap          \fI(public member function)\fP
 
 .SH Member objects
 
-              the underlying container
-Container c   \fI(protected member object)\fP
+                the underlying container
+  Container c   \fI(protected member object)\fP
 
 
 .SH Non-member functions
 
 
 
-operator==
-operator!=            lexicographically compares the values in the queue
-operator<             \fI(function template)\fP
-operator<=
-operator>
-operator>=
-                      specializes the std::swap algorithm
-std::swap(std::queue) \fI(function template)\fP
+  operator==
+  operator!=            lexicographically compares the values in the queue
+  operator<             \fI(function template)\fP
+  operator<=
+  operator>
+  operator>=
+                        specializes the std::swap algorithm
+  std::swap(std::queue) \fI(function template)\fP
 
 
 .SH Helper classes
 
 
 
-std::uses_allocator<std::queue> specializes the std::uses_allocator type trait
-                                \fI(function template)\fP
-\fI(C++11)\fP
+  std::uses_allocator<std::queue> specializes the std::uses_allocator type trait
+                                  \fI(function template)\fP
+  \fI(C++11)\fP
 
 
-Deduction_guides\fI(since C++17)\fP
+  Deduction_guides\fI(since C++17)\fP
 
 
 

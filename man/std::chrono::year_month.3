@@ -4,46 +4,46 @@ std::chrono::year_month \- std::chrono::year_month
 
 .SH Synopsis
 
-Defined in header <chrono>
-class year_month;           \fI(since C++20)\fP
+  Defined in header <chrono>
+  class year_month;           \fI(since C++20)\fP
 
-The class year_month represents a specific month of a specific year, but with an unspecified day. It is a field-based time point, with a resolution of std::chrono::months.
-year_month is a TriviallyCopyable StandardLayoutType.
+  The class year_month represents a specific month of a specific year, but with an unspecified day. It is a field-based time point, with a resolution of std::chrono::months.
+  year_month is a TriviallyCopyable StandardLayoutType.
 
 .SH Member functions
 
 
-              constructs a year_month
-constructor   \fI(public member function)\fP
-              accesses the stored year and month
-year          \fI(public member function)\fP
-month
-              modifies the year_month by some number of months or years
-operator+=    \fI(public member function)\fP
-operator-=
-              checks if this year_month is valid
-ok            \fI(public member function)\fP
+                constructs a year_month
+  constructor   \fI(public member function)\fP
+                accesses the stored year and month
+  year          \fI(public member function)\fP
+  month
+                modifies the year_month by some number of months or years
+  operator+=    \fI(public member function)\fP
+  operator-=
+                checks if this year_month is valid
+  ok            \fI(public member function)\fP
 
 
-Nonmember functions
+  Nonmember functions
 
 
 
-operator==
-operator!=  compares two year_month objects
-operator<   \fI(function)\fP
-operator<=
-operator>
-operator>=
-            performs arithmetic on year_month
-operator+   \fI(function)\fP
-operator-
-            outputs a year_month into a stream
-operator<<  \fI(function template)\fP
-            outputs a year_month into a stream according to the provided format
-to_stream   \fI(function template)\fP
-            parses a year_month from a stream according to the provided format
-from_stream \fI(function template)\fP
+  operator==
+  operator!=  compares two year_month objects
+  operator<   \fI(function)\fP
+  operator<=
+  operator>
+  operator>=
+              performs arithmetic on year_month
+  operator+   \fI(function)\fP
+  operator-
+              outputs a year_month into a stream
+  operator<<  \fI(function template)\fP
+              outputs a year_month into a stream according to the provided format
+  to_stream   \fI(function template)\fP
+              parses a year_month from a stream according to the provided format
+  from_stream \fI(function template)\fP
 
 
 

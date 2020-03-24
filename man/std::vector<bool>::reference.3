@@ -4,95 +4,95 @@ std::vector<bool>::reference \- std::vector<bool>::reference
 
 .SH Synopsis
 
-class reference;
+  class reference;
 
-The std::vector<bool> specialization defines std::vector<bool>::reference as a publicly-accessible nested class. std::vector<bool>::reference proxies the behavior of references to a single bit in std::vector<bool>.
-The primary use of std::vector<bool>::reference is to provide an l-value that can be returned from operator[].
-Any reads or writes to a vector that happen via a std::vector<bool>::reference potentially read or write to the entire underlying vector.
+  The std::vector<bool> specialization defines std::vector<bool>::reference as a publicly-accessible nested class. std::vector<bool>::reference proxies the behavior of references to a single bit in std::vector<bool>.
+  The primary use of std::vector<bool>::reference is to provide an l-value that can be returned from operator[].
+  Any reads or writes to a vector that happen via a std::vector<bool>::reference potentially read or write to the entire underlying vector.
 
 .SH Member functions
 
 
-              constructs the reference. Accessible only to std::vector<bool> itself
-constructor   \fI(public member function)\fP
-              destroys the reference
-destructor    \fI(public member function)\fP
-              assigns a bool to the referenced bit
-operator=     \fI(public member function)\fP
-              returns the referenced bit
-operator bool \fI(public member function)\fP
-              flips the referenced bit
-flip          \fI(public member function)\fP
+                constructs the reference. Accessible only to std::vector<bool> itself
+  constructor   \fI(public member function)\fP
+                destroys the reference
+  destructor    \fI(public member function)\fP
+                assigns a bool to the referenced bit
+  operator=     \fI(public member function)\fP
+                returns the referenced bit
+  operator bool \fI(public member function)\fP
+                flips the referenced bit
+  flip          \fI(public member function)\fP
 
 
- std::vector<bool>::reference::~reference
+   std::vector<bool>::reference::~reference
 
 
-~reference()
+  ~reference()
 
-Destroys the reference.
+  Destroys the reference.
 
- std::vector<bool>::reference::operator=
+   std::vector<bool>::reference::operator=
 
 
-reference& operator=( bool x );                       \fI(until C++11)\fP
-reference& operator=( const reference& x );
-reference& operator=( bool x ) noexcept;              \fI(since C++11)\fP
-reference& operator=( const reference& x ) noexcept;
+  reference& operator=( bool x );                       \fI(until C++11)\fP
+  reference& operator=( const reference& x );
+  reference& operator=( bool x ) noexcept;              \fI(since C++11)\fP
+  reference& operator=( const reference& x ) noexcept;
 
-Assigns a value to the referenced bit.
+  Assigns a value to the referenced bit.
 
 .SH Parameters
 
 
-x - value to assign
+  x - value to assign
 
 
 .SH Return value
 
-*this
+  *this
 
- std::vector<bool>::reference::operator bool
-
-
-operator bool() const;           \fI(until C++11)\fP
-operator bool() const noexcept;  \fI(since C++11)\fP
-
-Returns the value of the referenced bit.
-
-.SH Parameters
-
-\fI(none)\fP
-
-.SH Return value
-
-The referenced bit.
-
- std::vector<bool>::reference::flip
+   std::vector<bool>::reference::operator bool
 
 
-void flip();           \fI(until C++11)\fP
-void flip() noexcept;  \fI(since C++11)\fP
+  operator bool() const;           \fI(until C++11)\fP
+  operator bool() const noexcept;  \fI(since C++11)\fP
 
-Inverts the referenced bit.
+  Returns the value of the referenced bit.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-\fI(none)\fP
+  The referenced bit.
+
+   std::vector<bool>::reference::flip
+
+
+  void flip();           \fI(until C++11)\fP
+  void flip() noexcept;  \fI(since C++11)\fP
+
+  Inverts the referenced bit.
+
+.SH Parameters
+
+  \fI(none)\fP
+
+.SH Return value
+
+  \fI(none)\fP
 
 .SH See also
 
 
-           access specified element
-operator[] \fI(public member function of std::vector<T,Allocator>)\fP
+             access specified element
+  operator[] \fI(public member function of std::vector<T,Allocator>)\fP
 
-swap       swaps two std::vector<bool>::references
-           \fI(public static member function)\fP
-\fB[static]\fP
+  swap       swaps two std::vector<bool>::references
+             \fI(public static member function)\fP
+  \fB[static]\fP
 
 
 

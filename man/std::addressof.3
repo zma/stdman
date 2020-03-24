@@ -4,101 +4,101 @@ std::addressof \- std::addressof
 
 .SH Synopsis
 
-Defined in header <memory>
-template< class T >                              \fI(since C++11)\fP
-T* addressof(T& arg) noexcept;                   \fI(until C++17)\fP
-template< class T >                      \fB(1)\fP     \fI(since C++17)\fP
-constexpr T* addressof(T& arg) noexcept;
-template <class T>                           \fB(2)\fP \fI(since C++17)\fP
-const T* addressof(const T&&) = delete;
+  Defined in header <memory>
+  template< class T >                              \fI(since C++11)\fP
+  T* addressof(T& arg) noexcept;                   \fI(until C++17)\fP
+  template< class T >                      \fB(1)\fP     \fI(since C++17)\fP
+  constexpr T* addressof(T& arg) noexcept;
+  template <class T>                           \fB(2)\fP \fI(since C++17)\fP
+  const T* addressof(const T&&) = delete;
 
-1) Obtains the actual address of the object or function arg, even in presence of overloaded operator&
-2) Rvalue overload is deleted to prevent taking the address of const rvalues.
+  1) Obtains the actual address of the object or function arg, even in presence of overloaded operator&
+  2) Rvalue overload is deleted to prevent taking the address of const rvalues.
 
-The expression std::addressof(E) is a constant_subexpression, if E is an lvalue constant subexpression. \fI(since C++17)\fP
+  The expression std::addressof(E) is a constant_subexpression, if E is an lvalue constant subexpression. \fI(since C++17)\fP
 
 
 .SH Parameters
 
 
-arg - lvalue object or function
+  arg - lvalue object or function
 
 
 .SH Return value
 
-Pointer to arg.
+  Pointer to arg.
 
 .SH Possible implementation
 
 
 
-  template< class T >
-  T* addressof(T& arg)
-  {
-      return reinterpret_cast<T*>(
-                 &const_cast<char&>(
-                    reinterpret_cast<const volatile char&>(arg)));
-  }
+    template< class T >
+    T* addressof(T& arg)
+    {
+        return reinterpret_cast<T*>(
+                   &const_cast<char&>(
+                      reinterpret_cast<const volatile char&>(arg)));
+    }
 
 
-Note: the above implementation is_oversimplified and is not constexpr (which requires compiler support).
+  Note: the above implementation is_oversimplified and is not constexpr (which requires compiler support).
 
 .SH Example
 
-operator& may be overloaded for a pointer wrapper class to obtain a pointer to pointer:
-
+  operator& may be overloaded for a pointer wrapper class to obtain a pointer to pointer:
+  
 // Run this code
 
-  #include <iostream>
-  #include <memory>
+    #include <iostream>
+    #include <memory>
 
-  template<class T>
-  struct Ptr {
-      T* pad; // add pad to show difference between 'this' and 'data'
-      T* data;
-      Ptr(T* arg) : pad(nullptr), data(arg)
-      {
-          std::cout << "Ctor this = " << this << std::endl;
-      }
+    template<class T>
+    struct Ptr {
+        T* pad; // add pad to show difference between 'this' and 'data'
+        T* data;
+        Ptr(T* arg) : pad(nullptr), data(arg)
+        {
+            std::cout << "Ctor this = " << this << std::endl;
+        }
 
-      ~Ptr() { delete data; }
-      T** operator&() { return &data; }
-  };
+        ~Ptr() { delete data; }
+        T** operator&() { return &data; }
+    };
 
-  template<class T>
-  void f(Ptr<T>* p)
-  {
-      std::cout << "Ptr   overload called with p = " << p << '\\n';
-  }
+    template<class T>
+    void f(Ptr<T>* p)
+    {
+        std::cout << "Ptr   overload called with p = " << p << '\\n';
+    }
 
-  void f(int** p)
-  {
-      std::cout << "int** overload called with p = " << p << '\\n';
-  }
+    void f(int** p)
+    {
+        std::cout << "int** overload called with p = " << p << '\\n';
+    }
 
-  int main()
-  {
-      Ptr<int> p(new int(42));
-      f(&p);                 // calls int** overload
-      f(std::addressof(p));  // calls Ptr<int>* overload, (= this)
-  }
+    int main()
+    {
+        Ptr<int> p(new int(42));
+        f(&p);                 // calls int** overload
+        f(std::addressof(p));  // calls Ptr<int>* overload, (= this)
+    }
 
 .SH Possible output:
 
-  Ctor this = 0x7fff59ae6e88
-  int** overload called with p = 0x7fff59ae6e90
-  Ptr   overload called with p = 0x7fff59ae6e88
+    Ctor this = 0x7fff59ae6e88
+    int** overload called with p = 0x7fff59ae6e90
+    Ptr   overload called with p = 0x7fff59ae6e88
 
 
 .SH See also
 
 
-           the default allocator
-allocator  \fI(class template)\fP
+             the default allocator
+  allocator  \fI(class template)\fP
 
-pointer_to obtains a dereferenceable pointer to its argument
-           \fI(public static member function of std::pointer_traits<Ptr>)\fP
-\fB[static]\fP
+  pointer_to obtains a dereferenceable pointer to its argument
+             \fI(public static member function of std::pointer_traits<Ptr>)\fP
+  \fB[static]\fP
 
 
 

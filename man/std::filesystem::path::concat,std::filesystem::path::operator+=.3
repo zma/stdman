@@ -4,85 +4,85 @@ std::filesystem::path::concat,std::filesystem::path::operator+= \- std::filesyst
 
 .SH Synopsis
 
-path& operator+=( const path& p );                          \fB(1)\fP \fI(since C++17)\fP
-path& operator+=( const string_type& str );                 \fB(2)\fP \fI(since C++17)\fP
-path& operator+=( std::basic_string_view<value_type> str );
-path& operator+=( const value_type* ptr );                  \fB(3)\fP \fI(since C++17)\fP
-path& operator+=( value_type x );                           \fB(4)\fP \fI(since C++17)\fP
-template< class Source >                                    \fB(5)\fP \fI(since C++17)\fP
-path& operator+=( const Source& source );
-template< class CharT >                                     \fB(6)\fP \fI(since C++17)\fP
-path& operator+=( CharT x );
-template< class Source >                                    \fB(7)\fP \fI(since C++17)\fP
-path& concat( const Source& source );
-template< class InputIt >                                   \fB(8)\fP \fI(since C++17)\fP
-path& concat( InputIterator first, InputIterator last );
+  path& operator+=( const path& p );                          \fB(1)\fP \fI(since C++17)\fP
+  path& operator+=( const string_type& str );                 \fB(2)\fP \fI(since C++17)\fP
+  path& operator+=( std::basic_string_view<value_type> str );
+  path& operator+=( const value_type* ptr );                  \fB(3)\fP \fI(since C++17)\fP
+  path& operator+=( value_type x );                           \fB(4)\fP \fI(since C++17)\fP
+  template< class Source >                                    \fB(5)\fP \fI(since C++17)\fP
+  path& operator+=( const Source& source );
+  template< class CharT >                                     \fB(6)\fP \fI(since C++17)\fP
+  path& operator+=( CharT x );
+  template< class Source >                                    \fB(7)\fP \fI(since C++17)\fP
+  path& concat( const Source& source );
+  template< class InputIt >                                   \fB(8)\fP \fI(since C++17)\fP
+  path& concat( InputIterator first, InputIterator last );
 
-Concatenates the current path and the argument
-1-7) Appends path(other).native() to the pathname stored in *this in the native format. This directly manipulates the value of native() and may not be portable between operating systems.
-8) Same as return *this += path(first, last)
+  Concatenates the current path and the argument
+  1-7) Appends path(other).native() to the pathname stored in *this in the native format. This directly manipulates the value of native() and may not be portable between operating systems.
+  8) Same as return *this += path(first, last)
 
 .SH Parameters
 
 
-p           - path to append
-str         - string or string view to append
-ptr         - pointer to the beginning of a null-terminated string to append
-x           - single character to append
-source      - std::basic_string, std::basic_string_view, null-terminated multicharacter string, or an input iterator pointing to a null-terminated multicharacter sequence, which represents a path name (either in portable or in native format)
-first, last - pair of LegacyInputIterators that specify a multicharacter sequence that represents a path name
+  p           - path to append
+  str         - string or string view to append
+  ptr         - pointer to the beginning of a null-terminated string to append
+  x           - single character to append
+  source      - std::basic_string, std::basic_string_view, null-terminated multicharacter string, or an input iterator pointing to a null-terminated multicharacter sequence, which represents a path name (either in portable or in native format)
+  first, last - pair of LegacyInputIterators that specify a multicharacter sequence that represents a path name
 .SH Type requirements
--
-InputIt must meet the requirements of LegacyInputIterator.
--
-The value type of InputIt must be one of the encoded character types (char, wchar_t, char16_t and char32_t)
--
-CharT must be one of the encoded character types (char, wchar_t, char16_t and char32_t)
+  -
+  InputIt must meet the requirements of LegacyInputIterator.
+  -
+  The value type of InputIt must be one of the encoded character types (char, wchar_t, char16_t and char32_t)
+  -
+  CharT must be one of the encoded character types (char, wchar_t, char16_t and char32_t)
 
 
 .SH Return value
 
-*this
+  *this
 
 .SH Exceptions
 
-May throw std::bad_alloc if memory allocation fails.
+  May throw std::bad_alloc if memory allocation fails.
 
 
 .SH Notes
 
-Unlike with append() or operator/=, additional directory separators are never introduced.
+  Unlike with append() or operator/=, additional directory separators are never introduced.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <filesystem>
-  namespace fs = std::filesystem;
-  int main() {
-      fs::path p1; // empty path
-      p1 += "var"; // does not insert a separator
-      std::cout << "\\"\\" + \\"var\\" == " << p1 << '\\n';
-      p1 += "lib"; // does not insert a separator
-      std::cout << "\\"\\" + \\"var\\" + \\"lib\\" == " << p1 << '\\n';
-  }
+    #include <iostream>
+    #include <filesystem>
+    namespace fs = std::filesystem;
+    int main() {
+        fs::path p1; // empty path
+        p1 += "var"; // does not insert a separator
+        std::cout << "\\"\\" + \\"var\\" == " << p1 << '\\n';
+        p1 += "lib"; // does not insert a separator
+        std::cout << "\\"\\" + \\"var\\" + \\"lib\\" == " << p1 << '\\n';
+    }
 
 .SH Output:
 
-  "" + "var" == "var"
-  "" + "var" + "lib" == "varlib"
+    "" + "var" == "var"
+    "" + "var" + "lib" == "varlib"
 
 
 .SH See also
 
 
-           appends elements to the path with a directory separator
-append     \fI(public member function)\fP
-operator/=
-           concatenates two paths with a directory separator
-operator/  \fI(function)\fP
+             appends elements to the path with a directory separator
+  append     \fI(public member function)\fP
+  operator/=
+             concatenates two paths with a directory separator
+  operator/  \fI(function)\fP
 
 
 

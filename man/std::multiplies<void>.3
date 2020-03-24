@@ -4,54 +4,54 @@ std::multiplies<void> \- std::multiplies<void>
 
 .SH Synopsis
 
-Defined in header <functional>
-template<>                      \fI(since C++14)\fP
-class multiplies<void>;
+  Defined in header <functional>
+  template<>                      \fI(since C++14)\fP
+  class multiplies<void>;
 
-std::multiplies<> is a specialization of std::multiplies with parameter and return type deduced.
+  std::multiplies<> is a specialization of std::multiplies with parameter and return type deduced.
 
 .SH Member types
 
 
-Member type    Definition
-is_transparent /* unspecified */
+  Member type    Definition
+  is_transparent /* unspecified */
 
 
 .SH Member functions
 
 
-           returns the product of two arguments
-operator() \fI(public member function)\fP
+             returns the product of two arguments
+  operator() \fI(public member function)\fP
 
 
- std::multiplies<>::operator()
+   std::multiplies<>::operator()
 
 
-template< class T, class U>
-constexpr auto operator()( T&& lhs, U&& rhs ) const
--> decltype(std::forward<T>(lhs) * std::forward<U>(rhs));
+  template< class T, class U>
+  constexpr auto operator()( T&& lhs, U&& rhs ) const
+  -> decltype(std::forward<T>(lhs) * std::forward<U>(rhs));
 
-Returns the result of multiplying lhs by rhs (or whatever operator* is overloaded to do)
+  Returns the result of multiplying lhs by rhs (or whatever operator* is overloaded to do)
 
 .SH Parameters
 
 
-lhs, rhs - values to multiply
+  lhs, rhs - values to multiply
 
 
 .SH Return value
 
-The result of lhs * rhs.
+  The result of lhs * rhs.
 
 .SH Notes
 
-The member type is_transparent indicates to the caller that this function object is a transparent function object: it accepts arguments of arbitrary types and uses perfect forwarding, which avoids unnecessary copying and conversion when the function object is used in heterogeneous context, or with rvalue arguments. In particular, template functions such as std::set::find and std::set::lower_bound make use of this member type on their Compare types.
+  The member type is_transparent indicates to the caller that this function object is a transparent function object: it accepts arguments of arbitrary types and uses perfect forwarding, which avoids unnecessary copying and conversion when the function object is used in heterogeneous context, or with rvalue arguments. In particular, template functions such as std::set::find and std::set::lower_bound make use of this member type on their Compare types.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 

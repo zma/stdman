@@ -4,92 +4,92 @@ std::pow(std::complex) \- std::pow(std::complex)
 
 .SH Synopsis
 
-Defined in header <complex>
-template< class T >                                                   \fB(1)\fP
-complex<T> pow( const complex<T>& x, const complex<T>& y);
-template< class T >                                                   \fB(2)\fP
-complex<T> pow( const complex<T>& x, const T& y);
-template< class T >                                                   \fB(3)\fP
-complex<T> pow( const T& x, const complex<T>& y);
-template< class T, class U >                                          \fB(4)\fP \fI(since C++11)\fP
-complex</*Promoted*/> pow( const complex<T>& x, const complex<U>& y);
-template< class T, class U >                                          \fB(5)\fP \fI(since C++11)\fP
-complex</*Promoted*/> pow( const complex<T>& x, const U& y);
-template< class T, class U >                                          \fB(6)\fP \fI(since C++11)\fP
-complex</*Promoted*/> pow( const T& x, const complex<U>& y);
+  Defined in header <complex>
+  template< class T >                                                   \fB(1)\fP
+  complex<T> pow( const complex<T>& x, const complex<T>& y);
+  template< class T >                                                   \fB(2)\fP
+  complex<T> pow( const complex<T>& x, const T& y);
+  template< class T >                                                   \fB(3)\fP
+  complex<T> pow( const T& x, const complex<T>& y);
+  template< class T, class U >                                          \fB(4)\fP \fI(since C++11)\fP
+  complex</*Promoted*/> pow( const complex<T>& x, const complex<U>& y);
+  template< class T, class U >                                          \fB(5)\fP \fI(since C++11)\fP
+  complex</*Promoted*/> pow( const complex<T>& x, const U& y);
+  template< class T, class U >                                          \fB(6)\fP \fI(since C++11)\fP
+  complex</*Promoted*/> pow( const T& x, const complex<U>& y);
 
-1-3) Computes complex x raised to a complex power y with a branch cut along the negative real axis for the first argument.
+  1-3) Computes complex x raised to a complex power y with a branch cut along the negative real axis for the first argument.
 
-4-6) Additional overloads are provided for all arithmetic types, such that
+  4-6) Additional overloads are provided for all arithmetic types, such that
 
-      1. If either argument is long double or std::complex<long double>, then both arguments are cast to std::complex<long double>           \fI(since C++11)\fP
-      2. Otherwise, if either argument is double, std::complex<double> or integer type, then both arguments are cast to std::complex<double>
-      3. Otherwise, if either argument is float or std::complex<float>, then both arguments are cast to std::complex<float>
+        1. If either argument is long double or std::complex<long double>, then both arguments are cast to std::complex<long double>           \fI(since C++11)\fP
+        2. Otherwise, if either argument is double, std::complex<double> or integer type, then both arguments are cast to std::complex<double>
+        3. Otherwise, if either argument is float or std::complex<float>, then both arguments are cast to std::complex<float>
 
 
 
 .SH Parameters
 
 
-x - base as a complex value
-y - exponent as a complex value
+  x - base as a complex value
+  y - exponent as a complex value
 
 
 .SH Return value
 
-If no errors occur, the complex power xy
-, is returned.
-Errors and special cases are handled as if the operation is implemented by std::exp(y*std::log(x))
-The result of std::pow(0, 0) is implementation-defined.
+  If no errors occur, the complex power xy
+  , is returned.
+  Errors and special cases are handled as if the operation is implemented by std::exp(y*std::log(x))
+  The result of std::pow(0, 0) is implementation-defined.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <complex>
+    #include <iostream>
+    #include <complex>
 
-  int main()
-  {
-      std::cout << std::fixed;
+    int main()
+    {
+        std::cout << std::fixed;
 
-      std::complex<double> z(1, 2);
-      std::cout << "(1,2)^2 = " << std::pow(z, 2) << '\\n';
+        std::complex<double> z(1, 2);
+        std::cout << "(1,2)^2 = " << std::pow(z, 2) << '\\n';
 
-      std::complex<double> z2(-1, 0);  // square root of -1
-      std::cout << "-1^0.5 = " << std::pow(z2, 0.5) << '\\n';
+        std::complex<double> z2(-1, 0);  // square root of -1
+        std::cout << "-1^0.5 = " << std::pow(z2, 0.5) << '\\n';
 
-      std::complex<double> z3(-1, -0.0);  // other side of the cut
-      std::cout << "(-1, -0)^0.5 = " << std::pow(z3, 0.5) << '\\n';
+        std::complex<double> z3(-1, -0.0);  // other side of the cut
+        std::cout << "(-1, -0)^0.5 = " << std::pow(z3, 0.5) << '\\n';
 
-      std::complex<double> i(0, 1); // i^i = exp(-pi/2)
-      std::cout << "i^i = " << std::pow(i, i) << '\\n';
-  }
+        std::complex<double> i(0, 1); // i^i = exp(-pi/2)
+        std::cout << "i^i = " << std::pow(i, i) << '\\n';
+    }
 
 .SH Output:
 
-  (1,2)^2 = (-3.000000,4.000000)
-  -1^0.5 = (0.000000,1.000000)
-  (-1, -0)^0.5 = (0.000000,-1.000000)
-  i^i = (0.207880,0.000000)
+    (1,2)^2 = (-3.000000,4.000000)
+    -1^0.5 = (0.000000,1.000000)
+    (-1, -0)^0.5 = (0.000000,-1.000000)
+    i^i = (0.207880,0.000000)
 
 
 .SH See also
 
 
-                   complex square root in the range of the right half-plane
-sqrt(std::complex) \fI(function template)\fP
+                     complex square root in the range of the right half-plane
+  sqrt(std::complex) \fI(function template)\fP
 
-pow
-powf
-powl               raises a number to the given power (xy)
-                   \fI(function)\fP
+  pow
+  powf
+  powl               raises a number to the given power (xy)
+                     \fI(function)\fP
 
-\fI(C++11)\fP
-\fI(C++11)\fP
-                   applies the function std::pow to two valarrays or a valarray and a value
-pow(std::valarray) \fI(function template)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
+                     applies the function std::pow to two valarrays or a valarray and a value
+  pow(std::valarray) \fI(function template)\fP
 
 
 

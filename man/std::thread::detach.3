@@ -4,84 +4,84 @@ std::thread::detach \- std::thread::detach
 
 .SH Synopsis
 
-void detach();  \fI(since C++11)\fP
+  void detach();  \fI(since C++11)\fP
 
-Separates the thread of execution from the thread object, allowing execution to continue independently. Any allocated resources will be freed once the thread exits.
-After calling detach *this no longer owns any thread.
+  Separates the thread of execution from the thread object, allowing execution to continue independently. Any allocated resources will be freed once the thread exits.
+  After calling detach *this no longer owns any thread.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Postconditions
 
-joinable is false
+  joinable is false
 
 .SH Exceptions
 
-std::system_error if joinable() == false or an error occurs.
+  std::system_error if joinable() == false or an error occurs.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <chrono>
-  #include <thread>
+    #include <iostream>
+    #include <chrono>
+    #include <thread>
 
-  void independentThread()
-  {
-      std::cout << "Starting concurrent thread.\\n";
-      std::this_thread::sleep_for(std::chrono::seconds(2));
-      std::cout << "Exiting concurrent thread.\\n";
-  }
+    void independentThread()
+    {
+        std::cout << "Starting concurrent thread.\\n";
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        std::cout << "Exiting concurrent thread.\\n";
+    }
 
-  void threadCaller()
-  {
-      std::cout << "Starting thread caller.\\n";
-      std::thread t(independentThread);
-      t.detach();
-      std::this_thread::sleep_for(std::chrono::seconds(1));
-      std::cout << "Exiting thread caller.\\n";
-  }
+    void threadCaller()
+    {
+        std::cout << "Starting thread caller.\\n";
+        std::thread t(independentThread);
+        t.detach();
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::cout << "Exiting thread caller.\\n";
+    }
 
-  int main()
-  {
-      threadCaller();
-      std::this_thread::sleep_for(std::chrono::seconds(5));
-  }
+    int main()
+    {
+        threadCaller();
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+    }
 
 .SH Possible output:
 
-  Starting thread caller.
-  Starting concurrent thread.
-  Exiting thread caller.
-  Exiting concurrent thread.
+    Starting thread caller.
+    Starting concurrent thread.
+    Exiting thread caller.
+    Exiting concurrent thread.
 
 
 .SH References
 
 
-* C++11 standard (ISO/IEC 14882:2011):
+  * C++11 standard (ISO/IEC 14882:2011):
 
 
 
-      * 30.3.1.5 thread members [thread.thread.member]
+        * 30.3.1.5 thread members [thread.thread.member]
 
 
 
 .SH See also
 
 
-         waits for a thread to finish its execution
-join     \fI(public member function)\fP
-         checks whether the thread is joinable, i.e. potentially running in parallel context
-joinable \fI(public member function)\fP
+           waits for a thread to finish its execution
+  join     \fI(public member function)\fP
+           checks whether the thread is joinable, i.e. potentially running in parallel context
+  joinable \fI(public member function)\fP
 
 
 

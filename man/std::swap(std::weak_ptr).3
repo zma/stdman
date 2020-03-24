@@ -4,33 +4,33 @@ std::swap(std::weak_ptr) \- std::swap(std::weak_ptr)
 
 .SH Synopsis
 
-template< class T >                                        \fI(since C++11)\fP
-void swap( weak_ptr<T>& lhs, weak_ptr<T>& rhs ) noexcept;
+  template< class T >                                        \fI(since C++11)\fP
+  void swap( weak_ptr<T>& lhs, weak_ptr<T>& rhs ) noexcept;
 
-Specializes the std::swap algorithm for std::weak_ptr. Swaps the pointers of lhs and rhs. Calls lhs.swap(rhs).
+  Specializes the std::swap algorithm for std::weak_ptr. Swaps the pointers of lhs and rhs. Calls lhs.swap(rhs).
 
 
 .SH Parameters
 
 
-lhs, rhs - smart pointers whose contents to swap
+  lhs, rhs - smart pointers whose contents to swap
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-Constant
+  Constant
 
 .SH See also
 
 
-     swaps the values of two objects
-swap \fI(function template)\fP
-     swaps the contents
-swap \fI(public member function)\fP
+       swaps the values of two objects
+  swap \fI(function template)\fP
+       swaps the contents
+  swap \fI(public member function)\fP
 
 
 

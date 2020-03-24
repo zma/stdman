@@ -4,21 +4,21 @@ std::plus \- std::plus
 
 .SH Synopsis
 
-Defined in header <functional>
-template< class T >             \fI(until C++14)\fP
-struct plus;
-template< class T = void >      \fI(since C++14)\fP
-struct plus;
+  Defined in header <functional>
+  template< class T >             \fI(until C++14)\fP
+  struct plus;
+  template< class T = void >      \fI(since C++14)\fP
+  struct plus;
 
-Function object for performing addition. Effectively calls operator+ on two instances of type T.
+  Function object for performing addition. Effectively calls operator+ on two instances of type T.
 
 .SH Specializations
 
 
-The standard library provides a specialization of std::plus when T is not specified, which leaves the parameter types and return type to be deduced.
+  The standard library provides a specialization of std::plus when T is not specified, which leaves the parameter types and return type to be deduced.
 
-           function object implementing x + y deducing argument and return types                                                                     \fI(since C++14)\fP
-plus<void> \fI(class template specialization)\fP
+             function object implementing x + y deducing argument and return types                                                                     \fI(since C++14)\fP
+  plus<void> \fI(class template specialization)\fP
 
 
 
@@ -26,50 +26,50 @@ plus<void> \fI(class template specialization)\fP
 .SH Member types
 
 
-Type                                      Definition \fI(until C++20)\fP
-result_type(deprecated in C++17)          T
-first_argument_type(deprecated in C++17)  T
-second_argument_type(deprecated in C++17) T
+  Type                                      Definition \fI(until C++20)\fP
+  result_type(deprecated in C++17)          T
+  first_argument_type(deprecated in C++17)  T
+  second_argument_type(deprecated in C++17) T
 
 
 
 .SH Member functions
 
 
-           returns the sum of two arguments
-operator() \fI(public member function)\fP
+             returns the sum of two arguments
+  operator() \fI(public member function)\fP
 
 
- std::plus::operator()
+   std::plus::operator()
 
 
-T operator()( const T& lhs, const T& rhs ) const;            \fI(until C++14)\fP
-constexpr T operator()( const T& lhs, const T& rhs ) const;  \fI(since C++14)\fP
+  T operator()( const T& lhs, const T& rhs ) const;            \fI(until C++14)\fP
+  constexpr T operator()( const T& lhs, const T& rhs ) const;  \fI(since C++14)\fP
 
-Returns the sum of lhs and rhs.
+  Returns the sum of lhs and rhs.
 
 .SH Parameters
 
 
-lhs, rhs - values to sum
+  lhs, rhs - values to sum
 
 
 .SH Return value
 
-The result of lhs + rhs.
+  The result of lhs + rhs.
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Possible implementation
 
 
 
-  constexpr T operator()(const T &lhs, const T &rhs) const
-  {
-      return lhs + rhs;
-  }
+    constexpr T operator()(const T &lhs, const T &rhs) const
+    {
+        return lhs + rhs;
+    }
 
 
 

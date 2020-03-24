@@ -4,60 +4,60 @@ std::basic_string<CharT,Traits,Allocator>::back \- std::basic_string<CharT,Trait
 
 .SH Synopsis
 
-CharT& back();              \fI(since C++11)\fP
-const CharT& back() const;  \fI(since C++11)\fP
+  CharT& back();              \fI(since C++11)\fP
+  const CharT& back() const;  \fI(since C++11)\fP
 
-Returns reference to the last character in the string. The behavior is undefined if empty() == true.
+  Returns reference to the last character in the string. The behavior is undefined if empty() == true.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-reference to the last character, equivalent to operator[](size() - 1).
+  reference to the last character, equivalent to operator[](size() - 1).
 
 .SH Complexity
 
-Constant
+  Constant
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <string>
+    #include <iostream>
+    #include <string>
 
-  int main()
-  {
+    int main()
     {
-      std::string s("Exemplary");
-      char& back = s.back();
-      back = 's';
-      std::cout << s << '\\n'; // "Exemplars"
-    }
+      {
+        std::string s("Exemplary");
+        char& back = s.back();
+        back = 's';
+        std::cout << s << '\\n'; // "Exemplars"
+      }
 
-    {
-      std::string const c("Exemplary");
-      char const& back = c.back();
-      std::cout << back << '\\n'; // 'y'
+      {
+        std::string const c("Exemplary");
+        char const& back = c.back();
+        std::cout << back << '\\n'; // 'y'
+      }
     }
-  }
 
 .SH Output:
 
-  Exemplars
-  y
+    Exemplars
+    y
 
 
 .SH See also
 
 
 
-front   accesses the first character
-        \fI(public member function)\fP
-\fI(C++11)\fP
+  front   accesses the first character
+          \fI(public member function)\fP
+  \fI(C++11)\fP
 
 
 

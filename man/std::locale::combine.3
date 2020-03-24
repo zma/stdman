@@ -4,48 +4,48 @@ std::locale::combine \- std::locale::combine
 
 .SH Synopsis
 
-Defined in header <locale>
-template< class Facet >
-locale combine( const locale& other ) const;
+  Defined in header <locale>
+  template< class Facet >
+  locale combine( const locale& other ) const;
 
-Constructs a locale object which is a copy of *this except for the facet of type Facet, which is copied from other.
+  Constructs a locale object which is a copy of *this except for the facet of type Facet, which is copied from other.
 
 .SH Return value
 
-The new, nameless, locale.
+  The new, nameless, locale.
 
 .SH Exceptions
 
-std::runtime_error if other does not implement Facet
+  std::runtime_error if other does not implement Facet
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <locale>
+    #include <iostream>
+    #include <locale>
 
-  int main()
-  {
-      const double number = 1000.25;
-      std::cout << "\\"C\\" locale: " << number << '\\n';
-      std::locale loc = std::locale().combine<std::numpunct<char>>(std::locale("en_US.UTF8"));
-      std::cout.imbue(loc);
-      std::cout << "\\"C\\" locale with en_US numpunct: " << number << '\\n';
-  }
+    int main()
+    {
+        const double number = 1000.25;
+        std::cout << "\\"C\\" locale: " << number << '\\n';
+        std::locale loc = std::locale().combine<std::numpunct<char>>(std::locale("en_US.UTF8"));
+        std::cout.imbue(loc);
+        std::cout << "\\"C\\" locale with en_US numpunct: " << number << '\\n';
+    }
 
 .SH Output:
 
-  "C" locale: 1000.25
-  "C" locale with en_US numpunct: 1,000.25
+    "C" locale: 1000.25
+    "C" locale with en_US numpunct: 1,000.25
 
 
 .SH See also
 
 
-              constructs a new locale
-constructor   \fI(public member function)\fP
+                constructs a new locale
+  constructor   \fI(public member function)\fP
 
 
 

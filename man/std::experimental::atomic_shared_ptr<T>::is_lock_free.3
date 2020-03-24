@@ -4,35 +4,35 @@ std::experimental::atomic_shared_ptr<T>::is_lock_free \- std::experimental::atom
 
 .SH Synopsis
 
-bool is_lock_free() const noexcept;
+  bool is_lock_free() const noexcept;
 
-Checks whether the atomic operations on all objects of this type are lock-free.
+  Checks whether the atomic operations on all objects of this type are lock-free.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-true if the atomic operations on the objects of this type are lock-free, false otherwise.
+  true if the atomic operations on the objects of this type are lock-free, false otherwise.
 
 .SH See also
 
 
 
-std::atomic_is_lock_free(std::shared_ptr)
-std::atomic_load(std::shared_ptr)
-std::atomic_load_explicit(std::shared_ptr)
-std::atomic_store(std::shared_ptr)
-std::atomic_store_explicit(std::shared_ptr)
-std::atomic_exchange(std::shared_ptr)                         specializes atomic operations for std::shared_ptr
-std::atomic_exchange_explicit(std::shared_ptr)                \fI(function template)\fP
-std::atomic_compare_exchange_weak(std::shared_ptr)
-std::atomic_compare_exchange_strong(std::shared_ptr)
-std::atomic_compare_exchange_weak_explicit(std::shared_ptr)
-std::atomic_compare_exchange_strong_explicit(std::shared_ptr)
+  std::atomic_is_lock_free(std::shared_ptr)
+  std::atomic_load(std::shared_ptr)
+  std::atomic_load_explicit(std::shared_ptr)
+  std::atomic_store(std::shared_ptr)
+  std::atomic_store_explicit(std::shared_ptr)
+  std::atomic_exchange(std::shared_ptr)                         specializes atomic operations for std::shared_ptr
+  std::atomic_exchange_explicit(std::shared_ptr)                \fI(function template)\fP
+  std::atomic_compare_exchange_weak(std::shared_ptr)
+  std::atomic_compare_exchange_strong(std::shared_ptr)
+  std::atomic_compare_exchange_weak_explicit(std::shared_ptr)
+  std::atomic_compare_exchange_strong_explicit(std::shared_ptr)
 
-(deprecated in C++20)
+  (deprecated in C++20)
 
 
 

@@ -4,55 +4,55 @@ std::unordered_set<Key,Hash,KeyEqual,Allocator>::equal_range \- std::unordered_s
 
 .SH Synopsis
 
-std::pair<iterator,iterator> equal_range( const Key& key );                   \fB(1)\fP \fI(since C++11)\fP
-std::pair<iterator,iterator> equal_range( const Key& key, std::size_t hash ); \fB(1)\fP \fI(since C++20)\fP
-std::pair<const_iterator,const_iterator> equal_range( const Key& key ) const; \fB(2)\fP \fI(since C++11)\fP
-std::pair<const_iterator,const_iterator> equal_range( const Key& key,         \fB(2)\fP \fI(since C++20)\fP
-std::size_t hash ) const;
-template< class K >                                                           \fB(3)\fP \fI(since C++20)\fP
-std::pair<iterator,iterator> equal_range( const K& x );
-template< class K >                                                           \fB(3)\fP \fI(since C++20)\fP
-std::pair<iterator,iterator> equal_range( const K& x, std::size_t hash );
-template< class K >                                                           \fB(4)\fP \fI(since C++20)\fP
-std::pair<const_iterator,const_iterator> equal_range( const K& x ) const;
-template< class K >
-std::pair<const_iterator,const_iterator> equal_range( const K& x,             \fB(4)\fP \fI(since C++20)\fP
-std::size_t hash ) const;
+  std::pair<iterator,iterator> equal_range( const Key& key );                   \fB(1)\fP \fI(since C++11)\fP
+  std::pair<iterator,iterator> equal_range( const Key& key, std::size_t hash ); \fB(1)\fP \fI(since C++20)\fP
+  std::pair<const_iterator,const_iterator> equal_range( const Key& key ) const; \fB(2)\fP \fI(since C++11)\fP
+  std::pair<const_iterator,const_iterator> equal_range( const Key& key,         \fB(2)\fP \fI(since C++20)\fP
+  std::size_t hash ) const;
+  template< class K >                                                           \fB(3)\fP \fI(since C++20)\fP
+  std::pair<iterator,iterator> equal_range( const K& x );
+  template< class K >                                                           \fB(3)\fP \fI(since C++20)\fP
+  std::pair<iterator,iterator> equal_range( const K& x, std::size_t hash );
+  template< class K >                                                           \fB(4)\fP \fI(since C++20)\fP
+  std::pair<const_iterator,const_iterator> equal_range( const K& x ) const;
+  template< class K >
+  std::pair<const_iterator,const_iterator> equal_range( const K& x,             \fB(4)\fP \fI(since C++20)\fP
+  std::size_t hash ) const;
 
-1,2) Returns a range containing all elements with key key in the container. The range is defined by two iterators, the first pointing to the first element of the wanted range and the second pointing past the last element of the range.
-3,4) Returns a range containing all elements in the container with key equivalent to x. This overload only participates in overload resolution if the qualified-id Hash::transparent_key_equal is valid and denotes a type. This assumes that such Hash is callable with both K and Key type, and that its key_equal is transparent, which, together, allows calling this function without constructing an instance of Key.
+  1,2) Returns a range containing all elements with key key in the container. The range is defined by two iterators, the first pointing to the first element of the wanted range and the second pointing past the last element of the range.
+  3,4) Returns a range containing all elements in the container with key equivalent to x. This overload only participates in overload resolution if the qualified-id Hash::transparent_key_equal is valid and denotes a type. This assumes that such Hash is callable with both K and Key type, and that its key_equal is transparent, which, together, allows calling this function without constructing an instance of Key.
 
-If present, the hash parameter may be used to pass a pre-computed hash value as an optimization. The behavior is undefined if invoking hash_function() on the key passed do not produce the same value as hash. \fI(since C++20)\fP
+  If present, the hash parameter may be used to pass a pre-computed hash value as an optimization. The behavior is undefined if invoking hash_function() on the key passed do not produce the same value as hash. \fI(since C++20)\fP
 
 
 .SH Parameters
 
 
-key  - key value to compare the elements to
-x    - a value of any type that can be transparently compared with a key
-hash - the hash value of the key
+  key  - key value to compare the elements to
+  x    - a value of any type that can be transparently compared with a key
+  hash - the hash value of the key
 
 
 .SH Return value
 
-std::pair containing a pair of iterators defining the wanted range. If there are no such elements, past-the-end (see end()) iterators are returned as both elements of the pair.
+  std::pair containing a pair of iterators defining the wanted range. If there are no such elements, past-the-end (see end()) iterators are returned as both elements of the pair.
 
 .SH Complexity
 
-Average case linear in the number of elements with the key key, worst case linear in the size of the container.
+  Average case linear in the number of elements with the key key, worst case linear in the size of the container.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-     finds element with specific key
-find \fI(public member function)\fP
+       finds element with specific key
+  find \fI(public member function)\fP
 
 
 

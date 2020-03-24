@@ -4,63 +4,63 @@ std::unwrap_reference,std::unwrap_ref_decay \- std::unwrap_reference,std::unwrap
 
 .SH Synopsis
 
-Defined in header <functional>
-template< class T >                                                  \fB(1)\fP \fI(since C++20)\fP
-struct unwrap_reference;
-template< class T >                                                  \fB(2)\fP \fI(since C++20)\fP
-struct unwrap_ref_decay : std::unwrap_reference<std::decay_t<T>> {};
+  Defined in header <functional>
+  template< class T >                                                  \fB(1)\fP \fI(since C++20)\fP
+  struct unwrap_reference;
+  template< class T >                                                  \fB(2)\fP \fI(since C++20)\fP
+  struct unwrap_ref_decay : std::unwrap_reference<std::decay_t<T>> {};
 
-1) If T is std::reference_wrapper<U> for some type U, provides a member typedef type that names U&; otherwise, provides a member typedef type that names T.
-2) If T is std::reference_wrapper<U> for some type U, ignoring cv-qualification and referenceness, provides a member typedef type that names U&; otherwise, provides a member typedef type that names std::decay_t<T>.
+  1) If T is std::reference_wrapper<U> for some type U, provides a member typedef type that names U&; otherwise, provides a member typedef type that names T.
+  2) If T is std::reference_wrapper<U> for some type U, ignoring cv-qualification and referenceness, provides a member typedef type that names U&; otherwise, provides a member typedef type that names std::decay_t<T>.
 
 .SH Member types
 
 
-Name Definition
-type 1) U& if T is std::reference_wrapper<U>; T otherwise
-     2) U& if std::decay_t<T> is std::reference_wrapper<U>; std::decay_t<T> otherwise
+  Name Definition
+  type 1) U& if T is std::reference_wrapper<U>; T otherwise
+       2) U& if std::decay_t<T> is std::reference_wrapper<U>; std::decay_t<T> otherwise
 
 
 .SH Helper types
 
 
-template<class T>                                               \fI(since C++20)\fP
-using unwrap_ref_decay_t = typename unwrap_ref_decay<T>::type;
+  template<class T>                                               \fI(since C++20)\fP
+  using unwrap_ref_decay_t = typename unwrap_ref_decay<T>::type;
 
 
 .SH Possible implementation
 
 
 
-  template <class T>
-  struct unwrap_reference { using type = T; };
-  template <class U>
-  struct unwrap_reference<std::reference_wrapper<U>> { using type = U&; };
+    template <class T>
+    struct unwrap_reference { using type = T; };
+    template <class U>
+    struct unwrap_reference<std::reference_wrapper<U>> { using type = U&; };
 
 
 
 .SH Notes
 
-std::unwrap_ref_decay performs the same transformation as used by std::make_pair and std::make_tuple.
+  std::unwrap_ref_decay performs the same transformation as used by std::make_pair and std::make_tuple.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
 
-reference_wrapper CopyConstructible and CopyAssignable reference wrapper
-                  \fI(class template)\fP
-\fI(C++11)\fP
-                  creates a pair object of type, defined by the argument types
-make_pair         \fI(function template)\fP
-                  creates a tuple object of the type defined by the argument types
-make_tuple        \fI(function template)\fP
+  reference_wrapper CopyConstructible and CopyAssignable reference wrapper
+                    \fI(class template)\fP
+  \fI(C++11)\fP
+                    creates a pair object of type, defined by the argument types
+  make_pair         \fI(function template)\fP
+                    creates a tuple object of the type defined by the argument types
+  make_tuple        \fI(function template)\fP
 
 
 

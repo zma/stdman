@@ -4,50 +4,50 @@ std::chrono::duration<Rep,Period>::count \- std::chrono::duration<Rep,Period>::c
 
 .SH Synopsis
 
-constexpr rep count() const;
+  constexpr rep count() const;
 
-Returns the number of ticks for this duration.
+  Returns the number of ticks for this duration.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The number of ticks for this duration.
+  The number of ticks for this duration.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <chrono>
-  #include <iostream>
-  int main()
-  {
-      std::chrono::milliseconds ms{3}; // 3 milliseconds
-      // 6000 microseconds constructed from 3 milliseconds
-      std::chrono::microseconds us = 2*ms;
-      // 30Hz clock using fractional ticks
-      std::chrono::duration<double, std::ratio<1, 30>> hz30(3.5);
+    #include <chrono>
+    #include <iostream>
+    int main()
+    {
+        std::chrono::milliseconds ms{3}; // 3 milliseconds
+        // 6000 microseconds constructed from 3 milliseconds
+        std::chrono::microseconds us = 2*ms;
+        // 30Hz clock using fractional ticks
+        std::chrono::duration<double, std::ratio<1, 30>> hz30(3.5);
 
-      std::cout <<  "3 ms duration has " << ms.count() << " ticks\\n"
-                <<  "6000 us duration has " << us.count() << " ticks\\n"
-                <<  "3.5 30Hz duration has " << hz30.count() << " ticks\\n";
-  }
+        std::cout <<  "3 ms duration has " << ms.count() << " ticks\\n"
+                  <<  "6000 us duration has " << us.count() << " ticks\\n"
+                  <<  "3.5 30Hz duration has " << hz30.count() << " ticks\\n";
+    }
 
 .SH Output:
 
-  3 ms duration has 3 ticks
-  6000 us duration has 6000 ticks
-  3.5 30Hz duration has 3.5 ticks
+    3 ms duration has 3 ticks
+    6000 us duration has 6000 ticks
+    3.5 30Hz duration has 3.5 ticks
 
 
 .SH See also
 
 
-              converts a duration to another, with a different tick interval
-duration_cast \fI(function template)\fP
+                converts a duration to another, with a different tick interval
+  duration_cast \fI(function template)\fP
 
 
 

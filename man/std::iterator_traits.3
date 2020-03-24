@@ -4,197 +4,197 @@ std::iterator_traits \- std::iterator_traits
 
 .SH Synopsis
 
-Defined in header <iterator>
-template< class Iter >
-struct iterator_traits;
-template< class T >
-struct iterator_traits<T*>;
-template< class T >                \fI(until C++20)\fP
-struct iterator_traits<const T*>;
+  Defined in header <iterator>
+  template< class Iter >
+  struct iterator_traits;
+  template< class T >
+  struct iterator_traits<T*>;
+  template< class T >                \fI(until C++20)\fP
+  struct iterator_traits<const T*>;
 
-std::iterator_traits is the type trait class that provides uniform interface to the properties of LegacyIterator types. This makes it possible to implement algorithms only in terms of iterators.
-The class defines the following types:
+  std::iterator_traits is the type trait class that provides uniform interface to the properties of LegacyIterator types. This makes it possible to implement algorithms only in terms of iterators.
+  The class defines the following types:
 
-* difference_type - a signed integer type that can be used to identify distance between iterators
-* value_type - the type of the values that can be obtained by dereferencing the iterator. This type is void for output iterators.
-* pointer - defines a pointer to the type iterated over (value_type)
-* reference - defines a reference to the type iterated over (value_type)
-* iterator_category - the category of the iterator. Must be one of iterator_category_tags.
+  * difference_type - a signed integer type that can be used to identify distance between iterators
+  * value_type - the type of the values that can be obtained by dereferencing the iterator. This type is void for output iterators.
+  * pointer - defines a pointer to the type iterated over (value_type)
+  * reference - defines a reference to the type iterated over (value_type)
+  * iterator_category - the category of the iterator. Must be one of iterator_category_tags.
 
-The template can be specialized for user-defined iterators so that the information about the iterator can be retrieved even if the type does not provide the usual typedefs.
+  The template can be specialized for user-defined iterators so that the information about the iterator can be retrieved even if the type does not provide the usual typedefs.
 
-User specializations may define the member type iterator_concept to one of iterator_category_tags, to indicate conformance to the iterator concepts. \fI(since C++20)\fP
+  User specializations may define the member type iterator_concept to one of iterator_category_tags, to indicate conformance to the iterator concepts. \fI(since C++20)\fP
 
 
 .SH Template parameters
 
 
-Iter - the iterator type to retrieve properties for
+  Iter - the iterator type to retrieve properties for
 
 
 .SH Member types
 
 
-Member type       Definition
-difference_type   Iter::difference_type
-value_type        Iter::value_type
-pointer           Iter::pointer
-reference         Iter::reference
-iterator_category Iter::iterator_category
+  Member type       Definition
+  difference_type   Iter::difference_type
+  value_type        Iter::value_type
+  pointer           Iter::pointer
+  reference         Iter::reference
+  iterator_category Iter::iterator_category
 
 
-If Iter does not have all five member types difference_type, value_type, pointer, reference, and iterator_category, then this template has no members by any of those names (std::iterator_traits is SFINAE-friendly) \fI(since C++17)\fP
-                                                                                                                                                                                                                      \fI(until C++20)\fP
-If Iter does not have pointer, but has all other four member types, then the member types are declared as follows:
+  If Iter does not have all five member types difference_type, value_type, pointer, reference, and iterator_category, then this template has no members by any of those names (std::iterator_traits is SFINAE-friendly) \fI(since C++17)\fP
+                                                                                                                                                                                                                        \fI(until C++20)\fP
+  If Iter does not have pointer, but has all other four member types, then the member types are declared as follows:
 
-Member type       Definition
-difference_type   Iter::difference_type
-value_type        Iter::value_type
-pointer           void
-reference         Iter::reference
-iterator_category Iter::iterator_category
+  Member type       Definition
+  difference_type   Iter::difference_type
+  value_type        Iter::value_type
+  pointer           void
+  reference         Iter::reference
+  iterator_category Iter::iterator_category
 
-Otherwise, if Iter satisfies the exposition-only concept __LegacyInputIterator, the member types are declared as follows:
+  Otherwise, if Iter satisfies the exposition-only concept __LegacyInputIterator, the member types are declared as follows:
 
-Member type       Definition
-difference_type   std::incrementable_traits<Iter>::difference_type
-value_type        std::readable_traits<Iter>::value_type
-pointer           Iter::pointer if valid, otherwise decltype(std::declval<Iter&>().operator->()) if valid, otherwise void
-reference         Iter::reference if valid, otherwise std::iter_reference_t<Iter>                                                                                                                                     \fI(since C++20)\fP
-                  Iter::iterator_category if valid,
-                  otherwise, std::random_access_iterator_tag if Iter satisfies __LegacyRandomAccessIterator,
-iterator_category otherwise, std::bidirectional_iterator_tag if Iter satisfies __LegacyBidirectionalIterator,
-                  otherwise, std::forward_iterator_tag if Iter satisfies __LegacyForwardIterator,
-                  otherwise, std::input_iterator_tag
+  Member type       Definition
+  difference_type   std::incrementable_traits<Iter>::difference_type
+  value_type        std::readable_traits<Iter>::value_type
+  pointer           Iter::pointer if valid, otherwise decltype(std::declval<Iter&>().operator->()) if valid, otherwise void
+  reference         Iter::reference if valid, otherwise std::iter_reference_t<Iter>                                                                                                                                     \fI(since C++20)\fP
+                    Iter::iterator_category if valid,
+                    otherwise, std::random_access_iterator_tag if Iter satisfies __LegacyRandomAccessIterator,
+  iterator_category otherwise, std::bidirectional_iterator_tag if Iter satisfies __LegacyBidirectionalIterator,
+                    otherwise, std::forward_iterator_tag if Iter satisfies __LegacyForwardIterator,
+                    otherwise, std::input_iterator_tag
 
-Otherwise, if Iter satisfies the exposition-only concept __LegacyIterator, the member types are declared as follows:
+  Otherwise, if Iter satisfies the exposition-only concept __LegacyIterator, the member types are declared as follows:
 
-Member type       Definition
-difference_type   std::incrementable_traits<Iter>::difference_type if valid, otherwise void
-value_type        void
-pointer           void
-reference         void
-iterator_category std::output_iterator_tag
+  Member type       Definition
+  difference_type   std::incrementable_traits<Iter>::difference_type if valid, otherwise void
+  value_type        void
+  pointer           void
+  reference         void
+  iterator_category std::output_iterator_tag
 
-Otherwise, this template has no members by any of those names (std::iterator_traits is SFINAE-friendly).
+  Otherwise, this template has no members by any of those names (std::iterator_traits is SFINAE-friendly).
 
 
 .SH Specializations
 
-This type trait may be specialized for user-provided types that may be used as iterators. The standard library provides two partial specializations for pointer types T*, which makes it possible to use all iterator-based algorithms with raw pointers.
+  This type trait may be specialized for user-provided types that may be used as iterators. The standard library provides two partial specializations for pointer types T*, which makes it possible to use all iterator-based algorithms with raw pointers.
 
 .SH T* specialization member types
 
 
-Only specialized if std::is_object_v<T> is true. \fI(since C++20)\fP
+  Only specialized if std::is_object_v<T> is true. \fI(since C++20)\fP
 
 
-Member type                   Definition
-difference_type               std::ptrdiff_t
+  Member type                   Definition
+  difference_type               std::ptrdiff_t
 
-                              T
-value_type                    \fI(until C++20)\fP
-                              std::remove_cv_t<T>
-                              \fI(since C++20)\fP
-pointer                       T*
-reference                     T&
-iterator_category             std::random_access_iterator_tag
-iterator_concept\fI(since C++20)\fP std::contiguous_iterator_tag
+                                T
+  value_type                    \fI(until C++20)\fP
+                                std::remove_cv_t<T>
+                                \fI(since C++20)\fP
+  pointer                       T*
+  reference                     T&
+  iterator_category             std::random_access_iterator_tag
+  iterator_concept\fI(since C++20)\fP std::contiguous_iterator_tag
 
 
 
 .SH const T* specialization member types
 
 
-Member type       Definition
-difference_type   std::ptrdiff_t                  \fI(until C++20)\fP
-value_type        T
-pointer           const T*
-reference         const T&
-iterator_category std::random_access_iterator_tag
+  Member type       Definition
+  difference_type   std::ptrdiff_t                  \fI(until C++20)\fP
+  value_type        T
+  pointer           const T*
+  reference         const T&
+  iterator_category std::random_access_iterator_tag
 
 
 
 .SH Example
 
-The following example shows a general-purpose reverse() implementation for bidirectional iterators
-
+  The following example shows a general-purpose reverse() implementation for bidirectional iterators
+  
 // Run this code
 
-  #include <iostream>
-  #include <iterator>
-  #include <vector>
-  #include <list>
+    #include <iostream>
+    #include <iterator>
+    #include <vector>
+    #include <list>
 
-  template<class BidirIt>
-  void my_reverse(BidirIt first, BidirIt last)
-  {
-      typename std::iterator_traits<BidirIt>::difference_type n = std::distance(first, last);
-      --n;
-      while(n > 0) {
-          typename std::iterator_traits<BidirIt>::value_type tmp = *first;
-          *first++ = *--last;
-          *last = tmp;
-          n -= 2;
-      }
-  }
+    template<class BidirIt>
+    void my_reverse(BidirIt first, BidirIt last)
+    {
+        typename std::iterator_traits<BidirIt>::difference_type n = std::distance(first, last);
+        --n;
+        while(n > 0) {
+            typename std::iterator_traits<BidirIt>::value_type tmp = *first;
+            *first++ = *--last;
+            *last = tmp;
+            n -= 2;
+        }
+    }
 
-  int main()
-  {
-      std::vector<int> v{1, 2, 3, 4, 5};
-      my_reverse(v.begin(), v.end());
-      for (int n : v) {
-          std::cout << n << ' ';
-      }
-      std::cout << '\\n';
+    int main()
+    {
+        std::vector<int> v{1, 2, 3, 4, 5};
+        my_reverse(v.begin(), v.end());
+        for (int n : v) {
+            std::cout << n << ' ';
+        }
+        std::cout << '\\n';
 
-      std::list<int> l{1, 2, 3, 4, 5};
-      my_reverse(l.begin(), l.end());
-      for (auto n : l) {
-          std::cout << n << ' ';
-      }
-      std::cout << '\\n';
+        std::list<int> l{1, 2, 3, 4, 5};
+        my_reverse(l.begin(), l.end());
+        for (auto n : l) {
+            std::cout << n << ' ';
+        }
+        std::cout << '\\n';
 
-      int a[] = {1, 2, 3, 4, 5};
-      my_reverse(a, a+5);
-      for (int i=0; i<5; ++i) {
-          std::cout << a[i] << ' ';
-      }
-      std::cout << '\\n';
+        int a[] = {1, 2, 3, 4, 5};
+        my_reverse(a, a+5);
+        for (int i=0; i<5; ++i) {
+            std::cout << a[i] << ' ';
+        }
+        std::cout << '\\n';
 
-  //    std::istreambuf_iterator<char> i1(std::cin), i2;
-  //    my_reverse(i1, i2); // compilation error
+    //    std::istreambuf_iterator<char> i1(std::cin), i2;
+    //    my_reverse(i1, i2); // compilation error
 
-  }
+    }
 
 .SH Output:
 
-  5 4 3 2 1
-  5 4 3 2 1
-  5 4 3 2 1
+    5 4 3 2 1
+    5 4 3 2 1
+    5 4 3 2 1
 
 
 .SH See also
 
 
 
-iterator                   base class to ease the definition of required types for simple iterators
-                           \fI(class template)\fP
-(deprecated in C++17)
+  iterator                   base class to ease the definition of required types for simple iterators
+                             \fI(class template)\fP
+  (deprecated in C++17)
 
-input_iterator_tag
-output_iterator_tag
-forward_iterator_tag
-bidirectional_iterator_tag
-random_access_iterator_tag
-contiguous_iterator_tag    empty class types used to indicate iterator categories
-                           \fI(class)\fP
-
-
+  input_iterator_tag
+  output_iterator_tag
+  forward_iterator_tag
+  bidirectional_iterator_tag
+  random_access_iterator_tag
+  contiguous_iterator_tag    empty class types used to indicate iterator categories
+                             \fI(class)\fP
 
 
 
-(C++20)
+
+
+  (C++20)
 
 
 

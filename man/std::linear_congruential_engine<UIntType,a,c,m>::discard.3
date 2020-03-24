@@ -4,35 +4,35 @@ std::linear_congruential_engine<UIntType,a,c,m>::discard \- std::linear_congruen
 
 .SH Synopsis
 
-void discard( unsigned long long z );  \fI(since C++11)\fP
+  void discard( unsigned long long z );  \fI(since C++11)\fP
 
-Advances the internal state by z times. Equivalent to calling operator() z times and discarding the result
+  Advances the internal state by z times. Equivalent to calling operator() z times and discarding the result
 
 .SH Parameters
 
 
-z - integer value specifying the number of times to advance the state by
+  z - integer value specifying the number of times to advance the state by
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
 
- This section is incomplete
+   This section is incomplete
 
 
 .SH Notes
 
-For some engines, "fast jump" algorithms are known, which advance the state by many steps (order of millions) without calculating intermediate state transitions, although not necessarily in constant time.
+  For some engines, "fast jump" algorithms are known, which advance the state by many steps (order of millions) without calculating intermediate state transitions, although not necessarily in constant time.
 
 .SH See also
 
 
-           advances the engine's state and returns the generated value
-operator() \fI(public member function)\fP
+             advances the engine's state and returns the generated value
+  operator() \fI(public member function)\fP
 
 
 

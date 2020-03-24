@@ -4,44 +4,44 @@ std::valarray<T>::min \- std::valarray<T>::min
 
 .SH Synopsis
 
-T min() const;
+  T min() const;
 
-Computes the minimum value of the elements.
-If there are no elements, the behavior is undefined.
-The function can be used only if operator< is defined for type T.
+  Computes the minimum value of the elements.
+  If there are no elements, the behavior is undefined.
+  The function can be used only if operator< is defined for type T.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The minimum of the elements.
+  The minimum of the elements.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <valarray>
-  #include <iostream>
+    #include <valarray>
+    #include <iostream>
 
-  int main()
-  {
-      std::valarray<double> a{1, 2, 3, 4, 5, 6, 7, 8};
-      std::cout << "Minimum value : " << a.min() << "\\n";
-  }
+    int main()
+    {
+        std::valarray<double> a{1, 2, 3, 4, 5, 6, 7, 8};
+        std::cout << "Minimum value : " << a.min() << "\\n";
+    }
 
 .SH Output:
 
-  Minimum value : 1
+    Minimum value : 1
 
 
 .SH See also
 
 
-    returns the largest element
-max \fI(public member function)\fP
+      returns the largest element
+  max \fI(public member function)\fP
 
 
 

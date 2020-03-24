@@ -4,32 +4,32 @@ std::char_traits<CharT>::compare \- std::char_traits<CharT>::compare
 
 .SH Synopsis
 
-static int compare( const char_type* s1, const char_type* s2, std::size_t count );            \fI(until C++17)\fP
-static constexpr int compare( const char_type* s1, const char_type* s2, std::size_t count );  \fI(since C++17)\fP
+  static int compare( const char_type* s1, const char_type* s2, std::size_t count );            \fI(until C++17)\fP
+  static constexpr int compare( const char_type* s1, const char_type* s2, std::size_t count );  \fI(since C++17)\fP
 
-Compares the first count characters of the character strings s1 and s2. The comparison is done lexicographically.
-If count is zero, strings are considered equal.
+  Compares the first count characters of the character strings s1 and s2. The comparison is done lexicographically.
+  If count is zero, strings are considered equal.
 
 .SH Parameters
 
 
-s1, s2 - pointers to character strings to compare
-count  - the number of characters to compare from each character string
+  s1, s2 - pointers to character strings to compare
+  count  - the number of characters to compare from each character string
 
 
 .SH Return value
 
-Negative value if s1 is less than s2.
-0 if s1 is equal to s2.
-Positive value if s1 is greater than s2.
+  Negative value if s1 is less than s2.
+  0 if s1 is equal to s2.
+  Positive value if s1 is greater than s2.
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-Linear in count.
+  Linear in count.
 
 
 

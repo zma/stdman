@@ -4,34 +4,34 @@ std::priority_queue<T,Container,Compare>::emplace \- std::priority_queue<T,Conta
 
 .SH Synopsis
 
-template< class... Args >        \fI(since C++11)\fP
-void emplace( Args&&... args );
+  template< class... Args >        \fI(since C++11)\fP
+  void emplace( Args&&... args );
 
-Pushes a new element to the priority queue. The element is constructed in-place, i.e. no copy or move operations are performed. The constructor of the element is called with exactly the same arguments as supplied to the function.
-Effectively calls c.emplace_back(std::forward<Args>(args)...); std::push_heap(c.begin(), c.end(), comp);
+  Pushes a new element to the priority queue. The element is constructed in-place, i.e. no copy or move operations are performed. The constructor of the element is called with exactly the same arguments as supplied to the function.
+  Effectively calls c.emplace_back(std::forward<Args>(args)...); std::push_heap(c.begin(), c.end(), comp);
 
 .SH Parameters
 
 
-args - arguments to forward to the constructor of the element
+  args - arguments to forward to the constructor of the element
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-Logarithmic number of comparisons plus the complexity of Container::emplace_back.
+  Logarithmic number of comparisons plus the complexity of Container::emplace_back.
 
 
 .SH See also
 
 
-     inserts element and sorts the underlying container
-push \fI(public member function)\fP
-     removes the top element
-pop  \fI(public member function)\fP
+       inserts element and sorts the underlying container
+  push \fI(public member function)\fP
+       removes the top element
+  pop  \fI(public member function)\fP
 
 
 

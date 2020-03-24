@@ -4,59 +4,59 @@ std::match_results<BidirIt,Alloc>::size \- std::match_results<BidirIt,Alloc>::si
 
 .SH Synopsis
 
-size_type size() const noexcept;  \fI(since C++11)\fP
+  size_type size() const noexcept;  \fI(since C++11)\fP
 
-Returns the number of submatches, i.e. std::distance(begin(), end()).
-Returns 0 if *this does not represent the result of a successful match.
+  Returns the number of submatches, i.e. std::distance(begin(), end()).
+  Returns 0 if *this does not represent the result of a successful match.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The number of submatches
+  The number of submatches
 
 .SH Complexity
 
-Constant
+  Constant
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <regex>
-  #include <string>
+    #include <iostream>
+    #include <regex>
+    #include <string>
 
-  int main()
-  {
-      std::regex re("a(a)*b");
-      std::string target("aaab");
-      std::smatch sm;
+    int main()
+    {
+        std::regex re("a(a)*b");
+        std::string target("aaab");
+        std::smatch sm;
 
-      std::cout << sm.size() << '\\n';
+        std::cout << sm.size() << '\\n';
 
-      std::regex_match(target, sm, re);
-      std::cout << sm.size() << '\\n';
-  }
+        std::regex_match(target, sm, re);
+        std::cout << sm.size() << '\\n';
+    }
 
 .SH Output:
 
-  0
-  2
+    0
+    2
 
 
 .SH See also
 
 
-       returns iterator to the beginning of the list of sub-matches
-begin  \fI(public member function)\fP
-cbegin
-       returns iterator to the end of the list of sub-matches
-end    \fI(public member function)\fP
-cend
+         returns iterator to the beginning of the list of sub-matches
+  begin  \fI(public member function)\fP
+  cbegin
+         returns iterator to the end of the list of sub-matches
+  end    \fI(public member function)\fP
+  cend
 
 
 

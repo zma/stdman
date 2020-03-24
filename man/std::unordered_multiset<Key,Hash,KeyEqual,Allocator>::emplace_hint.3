@@ -4,41 +4,41 @@ std::unordered_multiset<Key,Hash,KeyEqual,Allocator>::emplace_hint \- std::unord
 
 .SH Synopsis
 
-template <class... Args>                                       \fI(since C++11)\fP
-iterator emplace_hint( const_iterator hint, Args&&... args );
+  template <class... Args>                                       \fI(since C++11)\fP
+  iterator emplace_hint( const_iterator hint, Args&&... args );
 
-Inserts a new element to the container, using hint as a suggestion where the element should go. The element is constructed in-place, i.e. no copy or move operations are performed.
-The constructor of the element is called with exactly the same arguments as supplied to the function, forwarded with std::forward<Args>(args)....
-If rehashing occurs due to the insertion, all iterators are invalidated. Otherwise iterators are not affected. References are not invalidated. Rehashing occurs only if the new number of elements is greater than max_load_factor()*bucket_count().
+  Inserts a new element to the container, using hint as a suggestion where the element should go. The element is constructed in-place, i.e. no copy or move operations are performed.
+  The constructor of the element is called with exactly the same arguments as supplied to the function, forwarded with std::forward<Args>(args)....
+  If rehashing occurs due to the insertion, all iterators are invalidated. Otherwise iterators are not affected. References are not invalidated. Rehashing occurs only if the new number of elements is greater than max_load_factor()*bucket_count().
 
 .SH Parameters
 
 
-hint - iterator, used as a suggestion as to where to insert the new element
-args - arguments to forward to the constructor of the element
+  hint - iterator, used as a suggestion as to where to insert the new element
+  args - arguments to forward to the constructor of the element
 
 
 .SH Return value
 
-Returns an iterator to the newly inserted element.
+  Returns an iterator to the newly inserted element.
 
 .SH Exceptions
 
-If an exception is thrown by any operation, this function has no effect \fI(strong exception guarantee)\fP.
+  If an exception is thrown by any operation, this function has no effect \fI(strong exception guarantee)\fP.
 
 .SH Complexity
 
-Amortized constant on average, worst case linear in the size of the container.
+  Amortized constant on average, worst case linear in the size of the container.
 
 .SH See also
 
 
-        constructs element in-place
-emplace \fI(public member function)\fP
-        inserts elements
-        or nodes
-insert  \fI(since C++17)\fP
-        \fI(public member function)\fP
+          constructs element in-place
+  emplace \fI(public member function)\fP
+          inserts elements
+          or nodes
+  insert  \fI(since C++17)\fP
+          \fI(public member function)\fP
 
 
 

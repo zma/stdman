@@ -4,110 +4,110 @@ std::rank \- std::rank
 
 .SH Synopsis
 
-Defined in header <type_traits>
-template< class T >              \fI(since C++11)\fP
-struct rank;
+  Defined in header <type_traits>
+  template< class T >              \fI(since C++11)\fP
+  struct rank;
 
-If T is an array type, provides the member constant value equal to the number of dimensions of the array. For any other type, value is 0.
+  If T is an array type, provides the member constant value equal to the number of dimensions of the array. For any other type, value is 0.
 
-Helper variable template
-
-
-template< class T >                                    \fI(since C++17)\fP
-inline constexpr std::size_t rank_v = rank<T>::value;
+  Helper variable template
 
 
-Inherited from std::integral_constant
+  template< class T >                                    \fI(since C++17)\fP
+  inline constexpr std::size_t rank_v = rank<T>::value;
+
+
+  Inherited from std::integral_constant
 
 
 .SH Member constants
 
 
 
-value    the number of dimensions of T or zero
-         \fI(public static member constant)\fP
-\fB[static]\fP
+  value    the number of dimensions of T or zero
+           \fI(public static member constant)\fP
+  \fB[static]\fP
 
 
 .SH Member functions
 
 
-                     converts the object to std::size_t, returns value
-operator std::size_t \fI(public member function)\fP
+                       converts the object to std::size_t, returns value
+  operator std::size_t \fI(public member function)\fP
 
-operator()           returns value
-                     \fI(public member function)\fP
-\fI(C++14)\fP
+  operator()           returns value
+                       \fI(public member function)\fP
+  \fI(C++14)\fP
 
 
 .SH Member types
 
 
-Type       Definition
-value_type std::size_t
-type       std::integral_constant<std::size_t, value>
+  Type       Definition
+  value_type std::size_t
+  type       std::integral_constant<std::size_t, value>
 
 
 .SH Possible implementation
 
 
 
-  template<class T>
-  struct rank : public std::integral_constant<std::size_t, 0> {};
+    template<class T>
+    struct rank : public std::integral_constant<std::size_t, 0> {};
 
-  template<class T>
-  struct rank<T[]> : public std::integral_constant<std::size_t, rank<T>::value + 1> {};
+    template<class T>
+    struct rank<T[]> : public std::integral_constant<std::size_t, rank<T>::value + 1> {};
 
-  template<class T, std::size_t N>
-  struct rank<T[N]> : public std::integral_constant<std::size_t, rank<T>::value + 1> {};
+    template<class T, std::size_t N>
+    struct rank<T[N]> : public std::integral_constant<std::size_t, rank<T>::value + 1> {};
 
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <type_traits>
+    #include <iostream>
+    #include <type_traits>
 
-  int main()
-  {
-      std::cout << std::rank<int>{} << "\\n\\n";
+    int main()
+    {
+        std::cout << std::rank<int>{} << "\\n\\n";
 
-      std::cout << std::rank<int[5]>{} << '\\n';
-      std::cout << std::rank<int[5][5]>{} << '\\n';
-      std::cout << std::rank<int[][5][5]>{} << '\\n';
-  }
+        std::cout << std::rank<int[5]>{} << '\\n';
+        std::cout << std::rank<int[5][5]>{} << '\\n';
+        std::cout << std::rank<int[][5][5]>{} << '\\n';
+    }
 
 .SH Output:
 
-  0
+    0
 
-  1
-  2
-  3
+    1
+    2
+    3
 
 
 .SH See also
 
 
 
-is_array           checks if a type is an array type
-                   \fI(class template)\fP
-\fI(C++11)\fP
+  is_array           checks if a type is an array type
+                     \fI(class template)\fP
+  \fI(C++11)\fP
 
-extent             obtains the size of an array type along a specified dimension
-                   \fI(class template)\fP
-\fI(C++11)\fP
+  extent             obtains the size of an array type along a specified dimension
+                     \fI(class template)\fP
+  \fI(C++11)\fP
 
-remove_extent      removes one extent from the given array type
-                   \fI(class template)\fP
-\fI(C++11)\fP
+  remove_extent      removes one extent from the given array type
+                     \fI(class template)\fP
+  \fI(C++11)\fP
 
-remove_all_extents removes all extents from the given array type
-                   \fI(class template)\fP
-\fI(C++11)\fP
+  remove_all_extents removes all extents from the given array type
+                     \fI(class template)\fP
+  \fI(C++11)\fP
 
 
 

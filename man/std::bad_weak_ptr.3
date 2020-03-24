@@ -4,82 +4,82 @@ std::bad_weak_ptr \- std::bad_weak_ptr
 
 .SH Synopsis
 
-Defined in header <memory>
-class bad_weak_ptr;         \fI(since C++11)\fP
+  Defined in header <memory>
+  class bad_weak_ptr;         \fI(since C++11)\fP
 
-std::bad_weak_ptr is the type of the object thrown as exceptions by the constructors of std::shared_ptr that take std::weak_ptr as the argument, when the std::weak_ptr refers to an already deleted object.
- std-bad weak ptr-inheritance.svg
-Inheritance diagram
+  std::bad_weak_ptr is the type of the object thrown as exceptions by the constructors of std::shared_ptr that take std::weak_ptr as the argument, when the std::weak_ptr refers to an already deleted object.
+   std-bad weak ptr-inheritance.svg
+  Inheritance diagram
 
 .SH Member functions
 
 
-              constructs the bad_weak_ptr object
-constructor   \fI(public member function)\fP
+                constructs the bad_weak_ptr object
+  constructor   \fI(public member function)\fP
 
 
- std::bad_weak_ptr ::bad_weak_ptr()
+   std::bad_weak_ptr ::bad_weak_ptr()
 
 
-bad_weak_ptr() noexcept;
+  bad_weak_ptr() noexcept;
 
-Constructs a new instance of std::bad_weak_ptr. what() returns an implementation-defined null-terminated byte string.
+  Constructs a new instance of std::bad_weak_ptr. what() returns an implementation-defined null-terminated byte string.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
-Inherited from std::exception
+  Inherited from std::exception
 
 
 .SH Member functions
 
 
 
-destructor   destroys the exception object
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  destructor   destroys the exception object
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
-what         returns an explanatory string
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  what         returns an explanatory string
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <memory>
-  #include <iostream>
-  int main()
-  {
-      std::shared_ptr<int> p1(new int(42));
-      std::weak_ptr<int> wp(p1);
-      p1.reset();
-      try {
-          std::shared_ptr<int> p2(wp);
-      } catch(const std::bad_weak_ptr& e) {
-          std::cout << e.what() << '\\n';
-      }
-  }
+    #include <memory>
+    #include <iostream>
+    int main()
+    {
+        std::shared_ptr<int> p1(new int(42));
+        std::weak_ptr<int> wp(p1);
+        p1.reset();
+        try {
+            std::shared_ptr<int> p2(wp);
+        } catch(const std::bad_weak_ptr& e) {
+            std::cout << e.what() << '\\n';
+        }
+    }
 
 .SH Output:
 
-  std::bad_weak_ptr
+    std::bad_weak_ptr
 
 
 .SH See also
 
 
 
-shared_ptr smart pointer with shared object ownership semantics
-           \fI(class template)\fP
-\fI(C++11)\fP
+  shared_ptr smart pointer with shared object ownership semantics
+             \fI(class template)\fP
+  \fI(C++11)\fP
 
-weak_ptr   weak reference to an object managed by std::shared_ptr
-           \fI(class template)\fP
-\fI(C++11)\fP
+  weak_ptr   weak reference to an object managed by std::shared_ptr
+             \fI(class template)\fP
+  \fI(C++11)\fP
 
 
 

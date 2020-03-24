@@ -4,28 +4,28 @@ std::chrono::tzdb \- std::chrono::tzdb
 
 .SH Synopsis
 
-Defined in header <chrono>
-struct tzdb;                \fI(since C++20)\fP
+  Defined in header <chrono>
+  struct tzdb;                \fI(since C++20)\fP
 
-The class tzdb represents a copy of the IANA_time_zone_database. Users cannot construct a tzdb and can only obtain read-only access to one via the free functions std::chrono::get_tzdb_list and std::chrono::get_tzdb.
+  The class tzdb represents a copy of the IANA_time_zone_database. Users cannot construct a tzdb and can only obtain read-only access to one via the free functions std::chrono::get_tzdb_list and std::chrono::get_tzdb.
 
 .SH Member objects
 
 
-Member object Description
-version       A std::string that contains the version of the database
-zones         A sorted std::vector<std::chrono::time_zone> containing description of time zones
-links         A sorted std::vector<std::chrono::link> containing description of alternative names of time zones (links)
-leaps         A sorted std::vector<std::chrono::leaps> containing description of leap seconds
+  Member object Description
+  version       A std::string that contains the version of the database
+  zones         A sorted std::vector<std::chrono::time_zone> containing description of time zones
+  links         A sorted std::vector<std::chrono::link> containing description of alternative names of time zones (links)
+  leaps         A sorted std::vector<std::chrono::leaps> containing description of leap seconds
 
 
 .SH Member functions
 
 
-             locate a time zone with the given name
-locate_zone  \fI(public member function)\fP
-             return the local time zone
-current_zone \fI(public member function)\fP
+               locate a time zone with the given name
+  locate_zone  \fI(public member function)\fP
+               return the local time zone
+  current_zone \fI(public member function)\fP
 
 
 

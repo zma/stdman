@@ -4,58 +4,58 @@ std::uses_allocator<std::tuple> \- std::uses_allocator<std::tuple>
 
 .SH Synopsis
 
-Defined in header <tuple>
-template< class... Types, class Alloc >                                     \fI(since C++11)\fP
-struct uses_allocator< std::tuple<Types...>, Alloc > : std::true_type { };
+  Defined in header <tuple>
+  template< class... Types, class Alloc >                                     \fI(since C++11)\fP
+  struct uses_allocator< std::tuple<Types...>, Alloc > : std::true_type { };
 
-This specialization of std::uses_allocator informs other library components that tuples support uses-allocator construction, even though they do not have a nested allocator_type.
+  This specialization of std::uses_allocator informs other library components that tuples support uses-allocator construction, even though they do not have a nested allocator_type.
 
-Inherited from std::integral_constant
+  Inherited from std::integral_constant
 
 
 .SH Member constants
 
 
 
-value    true
-         \fI(public static member constant)\fP
-\fB[static]\fP
+  value    true
+           \fI(public static member constant)\fP
+  \fB[static]\fP
 
 
 .SH Member functions
 
 
-              converts the object to bool, returns value
-operator bool \fI(public member function)\fP
+                converts the object to bool, returns value
+  operator bool \fI(public member function)\fP
 
-operator()    returns value
-              \fI(public member function)\fP
-\fI(C++14)\fP
+  operator()    returns value
+                \fI(public member function)\fP
+  \fI(C++14)\fP
 
 
 .SH Member types
 
 
-Type       Definition
-value_type bool
-type       std::integral_constant<bool, value>
+  Type       Definition
+  value_type bool
+  type       std::integral_constant<bool, value>
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  // myalloc is a stateful Allocator with a single-argument constructor
-  // that takes an int. It has no default constructor.
+    // myalloc is a stateful Allocator with a single-argument constructor
+    // that takes an int. It has no default constructor.
 
-      typedef std::vector<int, myalloc<int>> innervector_t;
-      typedef std::tuple<int, innervector_t> elem_t;
-      typedef std::scoped_allocator_adaptor< myalloc<elem_t>, myalloc<int>> Alloc;
-      Alloc a(1,2);
-      std::vector<elem_t, Alloc> v(a);
-      v.resize(1);                  // uses allocator #1 for elements of v
-      std::get<1>(v[0]).resize(10); // uses allocator #2 for innervector_t
+        typedef std::vector<int, myalloc<int>> innervector_t;
+        typedef std::tuple<int, innervector_t> elem_t;
+        typedef std::scoped_allocator_adaptor< myalloc<elem_t>, myalloc<int>> Alloc;
+        Alloc a(1,2);
+        std::vector<elem_t, Alloc> v(a);
+        v.resize(1);                  // uses allocator #1 for elements of v
+        std::get<1>(v[0]).resize(10); // uses allocator #2 for innervector_t
 
 
 
@@ -63,9 +63,9 @@ type       std::integral_constant<bool, value>
 
 
 
-uses_allocator checks if the specified type supports uses-allocator construction
-               \fI(class template)\fP
-\fI(C++11)\fP
+  uses_allocator checks if the specified type supports uses-allocator construction
+                 \fI(class template)\fP
+  \fI(C++11)\fP
 
 
 

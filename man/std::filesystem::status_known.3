@@ -4,37 +4,37 @@ std::filesystem::status_known \- std::filesystem::status_known
 
 .SH Synopsis
 
-Defined in header <filesystem>
-bool status_known( std::filesystem::file_status s ) noexcept; \fB(1)\fP \fI(since C++17)\fP
+  Defined in header <filesystem>
+  bool status_known( std::filesystem::file_status s ) noexcept; \fB(1)\fP \fI(since C++17)\fP
 
-Checks if the given file status is known, Equivalent to s.type() != file_type::none.
+  Checks if the given file status is known, Equivalent to s.type() != file_type::none.
 
 .SH Parameters
 
 
-s - file status to check
+  s - file status to check
 
 
 .SH Return value
 
-true if the given file status is a known file status.
+  true if the given file status is a known file status.
 
 .SH Notes
 
-Despite the name, the function checks for the file status of file_type::none (meaning an error occurred), not file_type::unknown (meaning file exists, but its type cannot be determined).
+  Despite the name, the function checks for the file status of file_type::none (meaning an error occurred), not file_type::unknown (meaning file exists, but its type cannot be determined).
 
 .SH See also
 
 
 
-status         determines file attributes
-symlink_status determines file attributes, checking the symlink target
-               \fI(function)\fP
-\fI(C++17)\fP
-\fI(C++17)\fP
-               status of the file designated by this directory entry
-status         symlink_status of the file designated by this directory entry
-symlink_status \fI(public member function of std::filesystem::directory_entry)\fP
+  status         determines file attributes
+  symlink_status determines file attributes, checking the symlink target
+                 \fI(function)\fP
+  \fI(C++17)\fP
+  \fI(C++17)\fP
+                 status of the file designated by this directory entry
+  status         symlink_status of the file designated by this directory entry
+  symlink_status \fI(public member function of std::filesystem::directory_entry)\fP
 
 
 

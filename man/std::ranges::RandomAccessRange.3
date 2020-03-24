@@ -4,12 +4,12 @@ std::ranges::RandomAccessRange \- std::ranges::RandomAccessRange
 
 .SH Synopsis
 
-Defined in header <ranges>
-template<class T>
-concept RandomAccessRange =
-BidirectionalRange<T> && RandomAccessIterator<iterator_t<T>>;
+  Defined in header <ranges>
+  template<class T>
+  concept RandomAccessRange =
+  BidirectionalRange<T> && RandomAccessIterator<iterator_t<T>>;
 
-The RandomAccessRange concept is a refinement of Range for which ranges::begin returns a model of RandomAccessIterator.
+  The RandomAccessRange concept is a refinement of Range for which ranges::begin returns a model of RandomAccessIterator.
 
 
 

@@ -4,80 +4,80 @@ std::experimental::function \- std::experimental::function
 
 .SH Synopsis
 
-Defined in header <experimental/functional>
-template< class >                            (library fundamentals TS)
-class function; /* undefined */
-template< class R, class... Args >           (library fundamentals TS)
-class function<R(Args...)>
+  Defined in header <experimental/functional>
+  template< class >                            (library fundamentals TS)
+  class function; /* undefined */
+  template< class R, class... Args >           (library fundamentals TS)
+  class function<R(Args...)>
 
-std::experimental::function is a modified version of std::function with support for type-erased allocators.
+  std::experimental::function is a modified version of std::function with support for type-erased allocators.
 
 .SH Member types
 
 
-Type           Definition
-allocator_type std::experimental::erased_type
+  Type           Definition
+  allocator_type std::experimental::erased_type
 
 
 .SH Member functions
 
 
-                    constructs a new std::experimental::function instance
-constructor         \fI(public member function)\fP
-                    assigns a new target
-operator=           \fI(public member function)\fP
-                    swaps the contents
-swap                \fI(public member function)\fP
-                    retrieves a pointer to the memory resource used by this object to allocate memory
-get_memory_resource \fI(public member function)\fP
+                      constructs a new std::experimental::function instance
+  constructor         \fI(public member function)\fP
+                      assigns a new target
+  operator=           \fI(public member function)\fP
+                      swaps the contents
+  swap                \fI(public member function)\fP
+                      retrieves a pointer to the memory resource used by this object to allocate memory
+  get_memory_resource \fI(public member function)\fP
 
 
 .SH Non-member functions
 
 
-                                                     specializes the swap algorithm
-std::experimental::swap(std::experimental::function) \fI(function template)\fP
-                                                     compares an std::experimental::function with nullptr
-operator==                                           \fI(function template)\fP
-operator!=
+                                                       specializes the swap algorithm
+  std::experimental::swap(std::experimental::function) \fI(function template)\fP
+                                                       compares an std::experimental::function with nullptr
+  operator==                                           \fI(function template)\fP
+  operator!=
 
 
 .SH Helper classes
 
 
-                                                 specializes the std::uses_allocator type trait
-std::uses_allocator<std::experimental::function> \fI(class template specialization)\fP
+                                                   specializes the std::uses_allocator type trait
+  std::uses_allocator<std::experimental::function> \fI(class template specialization)\fP
 
 
-Members identical to std::function
+  Members identical to std::function
 
 
 .SH Member types
 
 
-Type                 Definition
-result_type          R
-argument_type        T if sizeof...(Args)==1 and T is the first and only type in Args...
-first_argument_type  T1 if sizeof...(Args)==2 and T1 is the first of the two types in Args...
-second_argument_type T2 if sizeof...(Args)==2 and T2 is the second of the two types in Args...
+  Type                 Definition
+  result_type          R
+  argument_type        T if sizeof...(Args)==1 and T is the first and only type in Args...
+  first_argument_type  T1 if sizeof...(Args)==2 and T1 is the first of the two types in Args...
+  second_argument_type T2 if sizeof...(Args)==2 and T2 is the second of the two types in Args...
 
 
 .SH Member functions
 
 
-              destroys a std::function instance
-destructor    \fI(public member function of std::function<R(Args...)>)\fP
-              checks if a valid target is contained
-operator_bool \fI(public member function of std::function<R(Args...)>)\fP
-              invokes the target
-operator()    \fI(public member function of std::function<R(Args...)>)\fP
+                destroys a std::function instance
+  destructor    \fI(public member function of std::function<R(Args...)>)\fP
+                checks if a valid target is contained
+  operator_bool \fI(public member function of std::function<R(Args...)>)\fP
+                invokes the target
+  operator()    \fI(public member function of std::function<R(Args...)>)\fP
 
 .SH Target access
 
-              obtains the typeid of the stored target
-target_type   \fI(public member function of std::function<R(Args...)>)\fP
-              obtains a pointer to the stored target
-target        \fI(public member function of std::function<R(Args...)>)\fP
+                obtains the typeid of the stored target
+  target_type   \fI(public member function of std::function<R(Args...)>)\fP
+                obtains a pointer to the stored target
+  target        \fI(public member function of std::function<R(Args...)>)\fP
 
 
 

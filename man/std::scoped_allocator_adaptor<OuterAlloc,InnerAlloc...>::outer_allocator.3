@@ -4,27 +4,27 @@ std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::outer_allocator \- std:
 
 .SH Synopsis
 
-Defined in header <scoped_allocator>
-outer_allocator_type& outer_allocator() noexcept;             \fB(1)\fP \fI(since C++11)\fP
-const outer_allocator_type& outer_allocator() const noexcept; \fB(2)\fP \fI(since C++11)\fP
+  Defined in header <scoped_allocator>
+  outer_allocator_type& outer_allocator() noexcept;             \fB(1)\fP \fI(since C++11)\fP
+  const outer_allocator_type& outer_allocator() const noexcept; \fB(2)\fP \fI(since C++11)\fP
 
-Obtains a reference to the outer allocator used to declare this class.
-1) returns static_cast<OuterAlloc&>(*this)
-2) returns static_cast<const OuterAlloc&>(*this)
+  Obtains a reference to the outer allocator used to declare this class.
+  1) returns static_cast<OuterAlloc&>(*this)
+  2) returns static_cast<const OuterAlloc&>(*this)
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-A reference to OuterAlloc
+  A reference to OuterAlloc
 
 .SH See also
 
 
-                obtains an inner_allocator reference
-inner_allocator \fI(public member function)\fP
+                  obtains an inner_allocator reference
+  inner_allocator \fI(public member function)\fP
 
 
 

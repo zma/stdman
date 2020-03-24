@@ -4,54 +4,54 @@ std::domain_error \- std::domain_error
 
 .SH Synopsis
 
-Defined in header <stdexcept>
-class domain_error;
+  Defined in header <stdexcept>
+  class domain_error;
 
-Defines a type of object to be thrown as exception. It may be used by the implementation to report domain errors, that is, situations where the inputs are outside of the domain on which an operation is defined.
-The standard library components do not throw this exception (mathematical functions report domain errors as specified in math_errhandling). Third-party libraries, however, use this. For example, boost.math throws std::domain_error if boost::math::policies::throw_on_error is enabled (the default setting).
- std-domain error-inheritance.svg
-Inheritance diagram
+  Defines a type of object to be thrown as exception. It may be used by the implementation to report domain errors, that is, situations where the inputs are outside of the domain on which an operation is defined.
+  The standard library components do not throw this exception (mathematical functions report domain errors as specified in math_errhandling). Third-party libraries, however, use this. For example, boost.math throws std::domain_error if boost::math::policies::throw_on_error is enabled (the default setting).
+   std-domain error-inheritance.svg
+  Inheritance diagram
 
 .SH Member functions
 
 
-              constructs the exception object
-constructor   \fI(public member function)\fP
+                constructs the exception object
+  constructor   \fI(public member function)\fP
 
 
- std::domain_error::domain_error
+   std::domain_error::domain_error
 
 
-explicit domain_error( const std::string& what_arg ); \fB(1)\fP
-explicit domain_error( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
+  explicit domain_error( const std::string& what_arg ); \fB(1)\fP
+  explicit domain_error( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
 
-Constructs the exception object with what_arg as explanatory string that can be accessed through what().
-Because copying std::domain_error is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
+  Constructs the exception object with what_arg as explanatory string that can be accessed through what().
+  Because copying std::domain_error is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
 
 .SH Parameters
 
 
-what_arg - explanatory string
+  what_arg - explanatory string
 
 
 .SH Exceptions
 
-May throw std::bad_alloc
+  May throw std::bad_alloc
 
-Inherited from std::exception
+  Inherited from std::exception
 
 
 .SH Member functions
 
 
 
-destructor   destroys the exception object
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  destructor   destroys the exception object
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
-what         returns an explanatory string
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  what         returns an explanatory string
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
 
 

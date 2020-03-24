@@ -4,14 +4,14 @@ std::experimental::overaligned_tag,std::experimental::overaligned \- std::experi
 
 .SH Synopsis
 
-Defined in header <experimental/simd>
-template < std::size_t N >
-struct overaligned_tag {};
+  Defined in header <experimental/simd>
+  template < std::size_t N >
+  struct overaligned_tag {};
 
-template < std::size_t N >
-inline constexpr overaligned_tag<N> overaligned{};
+  template < std::size_t N >
+  inline constexpr overaligned_tag<N> overaligned{};
 
-This tag type indicates that the buffer of copy_from and copy_to is aligned to N.
+  This tag type indicates that the buffer of copy_from and copy_to is aligned to N.
 
 .SH See also
 

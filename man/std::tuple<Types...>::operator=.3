@@ -4,86 +4,86 @@ std::tuple<Types...>::operator= \- std::tuple<Types...>::operator=
 
 .SH Synopsis
 
-tuple& operator=( const tuple& other );                                        \fI(since C++11)\fP
-                                                                               \fI(until C++20)\fP
-constexpr tuple& operator=( const tuple& other );                              \fI(since C++20)\fP
-tuple& operator=( tuple&& other ) noexcept(/* see below */);                                  \fI(since C++11)\fP
-                                                                                              \fI(until C++20)\fP
-constexpr tuple& operator=( tuple&& other ) noexcept(/* see below */);                        \fI(since C++20)\fP
-template< class... UTypes >                                                                                  \fI(since C++11)\fP
-tuple& operator=( const tuple<UTypes...>& other );                                                           \fI(until C++20)\fP
-template< class... UTypes >                                                                                  \fI(since C++20)\fP
-constexpr tuple& operator=( const tuple<UTypes...>& other );
-template< class... UTypes >                                            \fB(1)\fP                                                  \fI(since C++11)\fP
-tuple& operator=( tuple<UTypes...>&& other );                                                                               \fI(until C++20)\fP
-template< class... UTypes >                                                \fB(2)\fP                                              \fI(since C++20)\fP
-constexpr tuple& operator=( tuple<UTypes...>&& other );                        \fB(3)\fP
-template< class U1, class U2 >                                                                                                             \fI(since C++11)\fP
-tuple& operator=( const pair<U1,U2>& p );                                                     \fB(4)\fP                                          \fI(until C++20)\fP
-template< class U1, class U2 >                                                                                                             \fI(since C++20)\fP
-constexpr tuple& operator=( const pair<U1,U2>& p );                                                          \fB(5)\fP
-template< class U1, class U2 >                                                                                                                            \fI(since C++11)\fP
-tuple& operator=( pair<U1,U2>&& p );                                                                                        \fB(6)\fP                           \fI(until C++20)\fP
-template< class U1, class U2 >                                                                                                                            \fI(since C++20)\fP
-constexpr tuple& operator=( pair<U1,U2>&& p );
+  tuple& operator=( const tuple& other );                                        \fI(since C++11)\fP
+                                                                                 \fI(until C++20)\fP
+  constexpr tuple& operator=( const tuple& other );                              \fI(since C++20)\fP
+  tuple& operator=( tuple&& other ) noexcept(/* see below */);                                  \fI(since C++11)\fP
+                                                                                                \fI(until C++20)\fP
+  constexpr tuple& operator=( tuple&& other ) noexcept(/* see below */);                        \fI(since C++20)\fP
+  template< class... UTypes >                                                                                  \fI(since C++11)\fP
+  tuple& operator=( const tuple<UTypes...>& other );                                                           \fI(until C++20)\fP
+  template< class... UTypes >                                                                                  \fI(since C++20)\fP
+  constexpr tuple& operator=( const tuple<UTypes...>& other );
+  template< class... UTypes >                                            \fB(1)\fP                                                  \fI(since C++11)\fP
+  tuple& operator=( tuple<UTypes...>&& other );                                                                               \fI(until C++20)\fP
+  template< class... UTypes >                                                \fB(2)\fP                                              \fI(since C++20)\fP
+  constexpr tuple& operator=( tuple<UTypes...>&& other );                        \fB(3)\fP
+  template< class U1, class U2 >                                                                                                             \fI(since C++11)\fP
+  tuple& operator=( const pair<U1,U2>& p );                                                     \fB(4)\fP                                          \fI(until C++20)\fP
+  template< class U1, class U2 >                                                                                                             \fI(since C++20)\fP
+  constexpr tuple& operator=( const pair<U1,U2>& p );                                                          \fB(5)\fP
+  template< class U1, class U2 >                                                                                                                            \fI(since C++11)\fP
+  tuple& operator=( pair<U1,U2>&& p );                                                                                        \fB(6)\fP                           \fI(until C++20)\fP
+  template< class U1, class U2 >                                                                                                                            \fI(since C++20)\fP
+  constexpr tuple& operator=( pair<U1,U2>&& p );
 
-Replaces the contents of the tuple with the contents of another tuple or a pair.
-1) Copy assignment operator. Assigns each element of other to the corresponding element of *this.
-2) Move assignment operator. For all i, assigns std::forward<Ti>(get<i>(other)) to get<i>(*this).
-3) For all i, assigns std::get<i>(other) to std::get<i>(*this).
-4) For all i, assigns std::forward<Ui>(std::get<i>(other)) to std::get<i>(*this).
-5) Assigns p.first to the first element of *this and p.second to the second element of *this.
-6) Assigns std::forward<U1>(p.first) to the first element of *this and std::forward<U2>(p.second) to the second element of *this.
+  Replaces the contents of the tuple with the contents of another tuple or a pair.
+  1) Copy assignment operator. Assigns each element of other to the corresponding element of *this.
+  2) Move assignment operator. For all i, assigns std::forward<Ti>(get<i>(other)) to get<i>(*this).
+  3) For all i, assigns std::get<i>(other) to std::get<i>(*this).
+  4) For all i, assigns std::forward<Ui>(std::get<i>(other)) to std::get<i>(*this).
+  5) Assigns p.first to the first element of *this and p.second to the second element of *this.
+  6) Assigns std::forward<U1>(p.first) to the first element of *this and std::forward<U2>(p.second) to the second element of *this.
 
-The behavior of these functions is undefined unless:
+  The behavior of these functions is undefined unless:
 
-* For \fB(1)\fP, std::is_copy_assignable<T_i>::value is true for all T_i in Types.
-* For \fB(2)\fP, std::is_move_assignable<T_i>::value is true for all T_i in Types.
-* For \fB(3)\fP, sizeof...(UTypes) == sizeof...(Types) and std::is_assignable<T_i&, const U_i&>::value is true for all corresponding pairs of types T_i in Types and U_i in UTypes.                                                                    \fI(until C++17)\fP
-* For \fB(4)\fP, sizeof...(UTypes) == sizeof...(Types) and std::is_assignable<T_i&, U_i&&>::value is true for all corresponding pairs of types T_i in Types and U_i in UTypes.
-* For \fB(5)\fP, sizeof...(Types) == 2 and std::is_assignable<T_0&, const U1&>::value and std::is_assignable<T_1&, const U2&>::value are both true, where T_0 and T_1 are the two types constituting Types.
-* For \fB(6)\fP, sizeof...(Types) == 2 and std::is_assignable<T_0&, U1&&>::value and std::is_assignable<T_1&, U2&&>::value are both true, where T_0 and T_1 are the two types constituting Types.
+  * For \fB(1)\fP, std::is_copy_assignable<T_i>::value is true for all T_i in Types.
+  * For \fB(2)\fP, std::is_move_assignable<T_i>::value is true for all T_i in Types.
+  * For \fB(3)\fP, sizeof...(UTypes) == sizeof...(Types) and std::is_assignable<T_i&, const U_i&>::value is true for all corresponding pairs of types T_i in Types and U_i in UTypes.                                                                    \fI(until C++17)\fP
+  * For \fB(4)\fP, sizeof...(UTypes) == sizeof...(Types) and std::is_assignable<T_i&, U_i&&>::value is true for all corresponding pairs of types T_i in Types and U_i in UTypes.
+  * For \fB(5)\fP, sizeof...(Types) == 2 and std::is_assignable<T_0&, const U1&>::value and std::is_assignable<T_1&, const U2&>::value are both true, where T_0 and T_1 are the two types constituting Types.
+  * For \fB(6)\fP, sizeof...(Types) == 2 and std::is_assignable<T_0&, U1&&>::value and std::is_assignable<T_1&, U2&&>::value are both true, where T_0 and T_1 are the two types constituting Types.
 
-These functions do not participate in overload resolution (or, for the copy assignment operator, is defined as deleted) if any required assignment operation is invalid or if there is a size mismatch. Specifically:
+  These functions do not participate in overload resolution (or, for the copy assignment operator, is defined as deleted) if any required assignment operation is invalid or if there is a size mismatch. Specifically:
 
-* \fB(1)\fP is defined as deleted unless std::is_copy_assignable<T_i>::value is true for all T_i in Types.
-* \fB(2)\fP does not participate in overload resolution unless std::is_move_assignable<T_i>::value is true for all T_i in Types.
-* \fB(3)\fP does not participate in overload resolution unless sizeof...(UTypes) == sizeof...(Types) and std::is_assignable<T_i&, const U_i&>::value is true for all corresponding pairs of types T_i in Types and U_i in UTypes.                      \fI(since C++17)\fP
-* \fB(4)\fP does not participate in overload resolution unless sizeof...(UTypes) == sizeof...(Types) and std::is_assignable<T_i&, U_i&&>::value is true for all corresponding pairs of types T_i in Types and U_i in UTypes.
-* \fB(5)\fP does not participate in overload resolution unless sizeof...(Types) == 2, std::is_assignable<T_0&, const U1&>::value and std::is_assignable<T_1&, const U2&>::value are both true, where T_0 and T_1 are the two types constituting Types.
-* \fB(6)\fP does not participate in overload resolution unless std::is_assignable<T_0&, U1&&>::value and std::is_assignable<T_1&, U2&&>::value are both true, where T_0 and T_1 are the two types constituting Types.
+  * \fB(1)\fP is defined as deleted unless std::is_copy_assignable<T_i>::value is true for all T_i in Types.
+  * \fB(2)\fP does not participate in overload resolution unless std::is_move_assignable<T_i>::value is true for all T_i in Types.
+  * \fB(3)\fP does not participate in overload resolution unless sizeof...(UTypes) == sizeof...(Types) and std::is_assignable<T_i&, const U_i&>::value is true for all corresponding pairs of types T_i in Types and U_i in UTypes.                      \fI(since C++17)\fP
+  * \fB(4)\fP does not participate in overload resolution unless sizeof...(UTypes) == sizeof...(Types) and std::is_assignable<T_i&, U_i&&>::value is true for all corresponding pairs of types T_i in Types and U_i in UTypes.
+  * \fB(5)\fP does not participate in overload resolution unless sizeof...(Types) == 2, std::is_assignable<T_0&, const U1&>::value and std::is_assignable<T_1&, const U2&>::value are both true, where T_0 and T_1 are the two types constituting Types.
+  * \fB(6)\fP does not participate in overload resolution unless std::is_assignable<T_0&, U1&&>::value and std::is_assignable<T_1&, U2&&>::value are both true, where T_0 and T_1 are the two types constituting Types.
 
 
 
 .SH Parameters
 
 
-other - tuple to replace the contents of this tuple
-p     - pair to replace the contents of this 2-tuple
+  other - tuple to replace the contents of this tuple
+  p     - pair to replace the contents of this 2-tuple
 
 
 .SH Return value
 
-*this
+  *this
 
 .SH Exceptions
 
-1) \fI(none)\fP
-2)
-noexcept specification:
-noexcept(
-is_nothrow_move_assignable<T0>::value &&
-is_nothrow_move_assignable<T1>::value &&
-is_nothrow_move_assignable<T2>::value &&
-...
-)
-3-6) \fI(none)\fP
+  1) \fI(none)\fP
+  2)
+  noexcept specification:
+  noexcept(
+  is_nothrow_move_assignable<T0>::value &&
+  is_nothrow_move_assignable<T1>::value &&
+  is_nothrow_move_assignable<T2>::value &&
+  ...
+  )
+  3-6) \fI(none)\fP
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also

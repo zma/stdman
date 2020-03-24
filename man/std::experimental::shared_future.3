@@ -4,74 +4,74 @@ std::experimental::shared_future \- std::experimental::shared_future
 
 .SH Synopsis
 
-Defined in header <experimental/shared_future>
-template< class T > class shared_future;       \fB(1)\fP (concurrency TS)
-template< class T > class shared_future<T&>;   \fB(2)\fP (concurrency TS)
-template<> class shared_future<void>;          \fB(3)\fP (concurrency TS)
+  Defined in header <experimental/shared_future>
+  template< class T > class shared_future;       \fB(1)\fP (concurrency TS)
+  template< class T > class shared_future<T&>;   \fB(2)\fP (concurrency TS)
+  template<> class shared_future<void>;          \fB(3)\fP (concurrency TS)
 
-The class template std::experimental::shared_future extends std::shared_future with the following operations:
+  The class template std::experimental::shared_future extends std::shared_future with the following operations:
 
-* an unwrapping constructor from future<shared_future<T>>;
-* a member function is_ready to query whether the associated shared state is ready; and
-* a member function then to attach a continuation to the future.
+  * an unwrapping constructor from future<shared_future<T>>;
+  * a member function is_ready to query whether the associated shared state is ready; and
+  * a member function then to attach a continuation to the future.
 
-There is no interoperation between std::experimental::shared_future and std::shared_future.
-
-.SH Member functions
-
-
-              constructs a shared_future
-constructor   \fI(public member function)\fP
-              checks if the shared state is ready
-is_ready      \fI(public member function)\fP
-              attaches a continuation to a shared_future
-then          \fI(public member function)\fP
-              assigns the contents
-operator=     \fI(public member function)\fP
-
-
-
-Members identical to std::shared_future
-
+  There is no interoperation between std::experimental::shared_future and std::shared_future.
 
 .SH Member functions
 
 
-             destructs the future object
-destructor   \fI(public member function of std::shared_future<T>)\fP
+                constructs a shared_future
+  constructor   \fI(public member function)\fP
+                checks if the shared state is ready
+  is_ready      \fI(public member function)\fP
+                attaches a continuation to a shared_future
+  then          \fI(public member function)\fP
+                assigns the contents
+  operator=     \fI(public member function)\fP
+
+
+
+  Members identical to std::shared_future
+
+
+.SH Member functions
+
+
+               destructs the future object
+  destructor   \fI(public member function of std::shared_future<T>)\fP
 
 .SH Getting the result
 
-             returns the result
-get          \fI(public member function of std::shared_future<T>)\fP
+               returns the result
+  get          \fI(public member function of std::shared_future<T>)\fP
 
 .SH State
 
-             checks if the future has a shared state
-valid        \fI(public member function of std::shared_future<T>)\fP
-             waits for the result to become available
-wait         \fI(public member function of std::shared_future<T>)\fP
-             waits for the result, returns if it is not available for the specified timeout duration
-wait_for     \fI(public member function of std::shared_future<T>)\fP
-             waits for the result, returns if it is not available until specified time point has been reached
-wait_until   \fI(public member function of std::shared_future<T>)\fP
+               checks if the future has a shared state
+  valid        \fI(public member function of std::shared_future<T>)\fP
+               waits for the result to become available
+  wait         \fI(public member function of std::shared_future<T>)\fP
+               waits for the result, returns if it is not available for the specified timeout duration
+  wait_for     \fI(public member function of std::shared_future<T>)\fP
+               waits for the result, returns if it is not available until specified time point has been reached
+  wait_until   \fI(public member function of std::shared_future<T>)\fP
 
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
 
-future           A version of std::future enhanced with continuations and other features
-                 \fI(class template)\fP
-(concurrency TS)
+  future           A version of std::future enhanced with continuations and other features
+                   \fI(class template)\fP
+  (concurrency TS)
 
 
 

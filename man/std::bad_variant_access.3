@@ -4,85 +4,85 @@ std::bad_variant_access \- std::bad_variant_access
 
 .SH Synopsis
 
-Defined in header <variant>
-class bad_variant_access : public std::exception  \fI(since C++17)\fP
+  Defined in header <variant>
+  class bad_variant_access : public std::exception  \fI(since C++17)\fP
 
-std::bad_variant_access is the type of the exception thrown in the following situations:
+  std::bad_variant_access is the type of the exception thrown in the following situations:
 
-* std::get(std::variant) called with an index or type that does not match the currently active alternative
-* std::visit called to visit a variant that is valueless_by_exception
+  * std::get(std::variant) called with an index or type that does not match the currently active alternative
+  * std::visit called to visit a variant that is valueless_by_exception
 
 
 .SH Member functions
 
 
-              constructs the bad_variant_access object
-constructor   \fI(public member function)\fP
+                constructs the bad_variant_access object
+  constructor   \fI(public member function)\fP
 
 
- std::bad_variant_access ::bad_variant_access()
+   std::bad_variant_access ::bad_variant_access()
 
 
-bad_variant_access() noexcept;
+  bad_variant_access() noexcept;
 
-Constructs a new instance of std::bad_variant_access.
+  Constructs a new instance of std::bad_variant_access.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
-Inherited from std::exception
+  Inherited from std::exception
 
 
 .SH Member functions
 
 
 
-destructor   destroys the exception object
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  destructor   destroys the exception object
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
-what         returns an explanatory string
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  what         returns an explanatory string
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <variant>
-  #include <iostream>
+    #include <variant>
+    #include <iostream>
 
-  int main()
-  {
-      std::variant<int, float> v;
-      v = 12;
-      try {
-        std::get<float>(v);
-      }
-      catch(const std::bad_variant_access& e) {
-          std::cout << e.what() << '\\n';
-      }
-  }
+    int main()
+    {
+        std::variant<int, float> v;
+        v = 12;
+        try {
+          std::get<float>(v);
+        }
+        catch(const std::bad_variant_access& e) {
+            std::cout << e.what() << '\\n';
+        }
+    }
 
 .SH Possible output:
 
-  bad_variant_access
+    bad_variant_access
 
 
 .SH See also
 
 
 
-std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
-                       \fI(function template)\fP
-\fI(C++17)\fP
+  std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
+                         \fI(function template)\fP
+  \fI(C++17)\fP
 
-visit                  calls the provided functor with the arguments held by one or more variants
-                       \fI(function template)\fP
-\fI(C++17)\fP
+  visit                  calls the provided functor with the arguments held by one or more variants
+                         \fI(function template)\fP
+  \fI(C++17)\fP
 
 
 

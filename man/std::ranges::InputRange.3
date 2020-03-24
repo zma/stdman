@@ -4,11 +4,11 @@ std::ranges::InputRange \- std::ranges::InputRange
 
 .SH Synopsis
 
-Defined in header <ranges>
-template<class T>
-concept InputRange = Range<T> && InputIterator<iterator_t<T>>;
+  Defined in header <ranges>
+  template<class T>
+  concept InputRange = Range<T> && InputIterator<iterator_t<T>>;
 
-The InputRange concept is a refinement of Range for which ranges::begin returns a model of InputIterator.
+  The InputRange concept is a refinement of Range for which ranges::begin returns a model of InputIterator.
 
 
 

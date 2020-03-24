@@ -4,45 +4,45 @@ std::unique_ptr<T,Deleter>::operatorbool \- std::unique_ptr<T,Deleter>::operator
 
 .SH Synopsis
 
-explicit operator bool() const noexcept;  \fI(since C++11)\fP
+  explicit operator bool() const noexcept;  \fI(since C++11)\fP
 
-Checks whether *this owns an object, i.e. whether get() != nullptr.
+  Checks whether *this owns an object, i.e. whether get() != nullptr.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-true if *this owns an object, false otherwise.
+  true if *this owns an object, false otherwise.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <memory>
+    #include <iostream>
+    #include <memory>
 
-  int main()
-  {
-      std::unique_ptr<int> ptr(new int(42));
+    int main()
+    {
+        std::unique_ptr<int> ptr(new int(42));
 
-      if (ptr) std::cout << "before reset, ptr is: " << *ptr << '\\n';
-      ptr.reset();
-      if (ptr) std::cout << "after reset, ptr is: " << *ptr << '\\n';
-  }
+        if (ptr) std::cout << "before reset, ptr is: " << *ptr << '\\n';
+        ptr.reset();
+        if (ptr) std::cout << "after reset, ptr is: " << *ptr << '\\n';
+    }
 
 .SH Output:
 
-  before reset, ptr is: 42
+    before reset, ptr is: 42
 
 
 .SH See also
 
 
-    returns a pointer to the managed object
-get \fI(public member function)\fP
+      returns a pointer to the managed object
+  get \fI(public member function)\fP
 
 
 

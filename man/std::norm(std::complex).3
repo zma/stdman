@@ -4,49 +4,49 @@ std::norm(std::complex) \- std::norm(std::complex)
 
 .SH Synopsis
 
-Defined in header <complex>
-template< class T >                                   \fI(until C++20)\fP
-T norm( const std::complex<T>& z );
-template< class T >                                   \fI(since C++20)\fP
-constexpr T norm( const std::complex<T>& z );
-float norm( float z );
-template< class DoubleOrInteger >             \fB(1)\fP                   \fI(since C++11)\fP
-double norm( DoubleOrInteger z );                                   \fI(until C++20)\fP
-long double norm( long double z );                \fB(2)\fP
-constexpr float norm( float z );
-template< class DoubleOrInteger >                                   \fI(since C++20)\fP
-constexpr double norm( DoubleOrInteger z );
-constexpr long double norm( long double z );
+  Defined in header <complex>
+  template< class T >                                   \fI(until C++20)\fP
+  T norm( const std::complex<T>& z );
+  template< class T >                                   \fI(since C++20)\fP
+  constexpr T norm( const std::complex<T>& z );
+  float norm( float z );
+  template< class DoubleOrInteger >             \fB(1)\fP                   \fI(since C++11)\fP
+  double norm( DoubleOrInteger z );                                   \fI(until C++20)\fP
+  long double norm( long double z );                \fB(2)\fP
+  constexpr float norm( float z );
+  template< class DoubleOrInteger >                                   \fI(since C++20)\fP
+  constexpr double norm( DoubleOrInteger z );
+  constexpr long double norm( long double z );
 
-1) Returns the squared magnitude of the complex number z.
+  1) Returns the squared magnitude of the complex number z.
 
-2) Additional overloads are provided for float, double, long double, and all integer types, which are treated as complex numbers with zero imaginary component. \fI(since C++11)\fP
+  2) Additional overloads are provided for float, double, long double, and all integer types, which are treated as complex numbers with zero imaginary component. \fI(since C++11)\fP
 
 
 .SH Parameters
 
 
-z - complex value
+  z - complex value
 
 
 .SH Return value
 
-the squared magnitude of z
+  the squared magnitude of z
 
 .SH Notes
 
-The norm calculated by this function is also known as field_norm or absolute_square.
-The Euclidean norm of a complex number is provided by std::abs, which is more costly to compute. In some situations, it may be replaced by std::norm, for example, if abs(z1) > abs(z2) then norm(z1) > norm(z2).
+  The norm calculated by this function is also known as field_norm or absolute_square.
+  The Euclidean norm of a complex number is provided by std::abs, which is more costly to compute. In some situations, it may be replaced by std::norm, for example, if abs(z1) > abs(z2) then norm(z1) > norm(z2).
 
 .SH See also
 
 
-                  returns the magnitude of a complex number
-abs(std::complex) \fI(function template)\fP
-                  returns the complex conjugate
-conj              \fI(function template)\fP
-                  constructs a complex number from magnitude and phase angle
-polar             \fI(function template)\fP
+                    returns the magnitude of a complex number
+  abs(std::complex) \fI(function template)\fP
+                    returns the complex conjugate
+  conj              \fI(function template)\fP
+                    constructs a complex number from magnitude and phase angle
+  polar             \fI(function template)\fP
 
 
 

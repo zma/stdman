@@ -4,58 +4,58 @@ std::experimental::pmr::memory_resource \- std::experimental::pmr::memory_resour
 
 .SH Synopsis
 
-Defined in header <experimental/memory_resource>
-class memory_resource;                            (library fundamentals TS)
+  Defined in header <experimental/memory_resource>
+  class memory_resource;                            (library fundamentals TS)
 
-The class std::experimental::pmr::memory_resource is an abstract interface to an unbounded set of classes encapsulating memory resources.
+  The class std::experimental::pmr::memory_resource is an abstract interface to an unbounded set of classes encapsulating memory resources.
 
 .SH Member functions
 
 
 
-constructor           constructs a new memory_resource
-                      \fI(public member function)\fP
-(implicitly declared)
+  constructor           constructs a new memory_resource
+                        \fI(public member function)\fP
+  (implicitly declared)
 
-destructor            destructs an memory_resource
-                      \fI(virtual public member function)\fP
-\fB[virtual]\fP
+  destructor            destructs an memory_resource
+                        \fI(virtual public member function)\fP
+  \fB[virtual]\fP
 
-operator=             Implicitly declared copy assignment operator
-                      \fI(public member function)\fP
-(implicitly declared)
+  operator=             Implicitly declared copy assignment operator
+                        \fI(public member function)\fP
+  (implicitly declared)
 
 .SH Public member functions
 
-                      allocates memory
-allocate              \fI(public member function)\fP
-                      deallocates memory
-deallocate            \fI(public member function)\fP
-                      compare for equality with another memory_resource
-is_equal              \fI(public member function)\fP
+                        allocates memory
+  allocate              \fI(public member function)\fP
+                        deallocates memory
+  deallocate            \fI(public member function)\fP
+                        compare for equality with another memory_resource
+  is_equal              \fI(public member function)\fP
 
 .SH Protected member functions
 
 
-do_allocate           allocates memory
-                      \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_allocate           allocates memory
+                        \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_deallocate         deallocates memory
-                      \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_deallocate         deallocates memory
+                        \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_is_equal           compare for equality with another memory_resource
-                      \fI(virtual protected member function)\fP
-\fB[virtual]\fP
-
-
-Non-member-functions
+  do_is_equal           compare for equality with another memory_resource
+                        \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
 
-           compare two memory_resources
-operator== \fI(function)\fP
-operator!=
+  Non-member-functions
+
+
+             compare two memory_resources
+  operator== \fI(function)\fP
+  operator!=
 
 
 

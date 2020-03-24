@@ -4,60 +4,60 @@ std::basic_string_view<CharT,Traits>::begin,std::basic_string_view<CharT,Traits>
 
 .SH Synopsis
 
-constexpr const_iterator begin() const noexcept;   \fI(since C++17)\fP
-constexpr const_iterator cbegin() const noexcept;  \fI(since C++17)\fP
+  constexpr const_iterator begin() const noexcept;   \fI(since C++17)\fP
+  constexpr const_iterator cbegin() const noexcept;  \fI(since C++17)\fP
 
-Returns an iterator to the first character of the view.
- range-begin-end.svg
+  Returns an iterator to the first character of the view.
+   range-begin-end.svg
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-const_iterator to the first character
+  const_iterator to the first character
 
 .SH Complexity
 
-Constant
+  Constant
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <string_view>
+    #include <iostream>
+    #include <string_view>
 
-  int main()
-  {
-      std::string_view str_view("abcd");
+    int main()
+    {
+        std::string_view str_view("abcd");
 
-      auto begin = str_view.begin();
-      auto cbegin = str_view.cbegin();
+        auto begin = str_view.begin();
+        auto cbegin = str_view.cbegin();
 
-      std::cout << *begin << '\\n';
-      std::cout << *cbegin << '\\n';
+        std::cout << *begin << '\\n';
+        std::cout << *cbegin << '\\n';
 
-      std::cout << std::boolalpha << (begin == cbegin) << '\\n';
-      std::cout << std::boolalpha << (*begin == *cbegin) << '\\n';
-  }
+        std::cout << std::boolalpha << (begin == cbegin) << '\\n';
+        std::cout << std::boolalpha << (*begin == *cbegin) << '\\n';
+    }
 
 .SH Output:
 
-  a
-  a
-  true
-  true
+    a
+    a
+    true
+    true
 
 
 .SH See also
 
 
-     returns an iterator to the end
-end  \fI(public member function)\fP
-cend
+       returns an iterator to the end
+  end  \fI(public member function)\fP
+  cend
 
 
 

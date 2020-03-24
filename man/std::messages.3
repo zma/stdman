@@ -4,83 +4,83 @@ std::messages \- std::messages
 
 .SH Synopsis
 
-Defined in header <locale>
-template< class CharT >
-class messages;
+  Defined in header <locale>
+  template< class CharT >
+  class messages;
 
-Class template std::messages is a standard locale facet that encapsulates retrieval of strings from message catalogs, such as the ones provided by GNU gettext or by POSIX catgets.
-The source of the messages is implementation-defined.
- std-messages-inheritance.svg
-Inheritance diagram
-Two standalone (locale-independent) specializations are provided by the standard library:
+  Class template std::messages is a standard locale facet that encapsulates retrieval of strings from message catalogs, such as the ones provided by GNU gettext or by POSIX catgets.
+  The source of the messages is implementation-defined.
+   std-messages-inheritance.svg
+  Inheritance diagram
+  Two standalone (locale-independent) specializations are provided by the standard library:
 
-Defined in header <locale>
-std::messages<char>    accesses narrow string message catalog
-std::messages<wchar_t> accesses wide string message catalog
+  Defined in header <locale>
+  std::messages<char>    accesses narrow string message catalog
+  std::messages<wchar_t> accesses wide string message catalog
 
-In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
+  In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 
 
-Member type Definition
-char_type   CharT
-string_type std::basic_string<CharT>
+  Member type Definition
+  char_type   CharT
+  string_type std::basic_string<CharT>
 
 
 .SH Member functions
 
 
-              constructs a new messages facet
-constructor   \fI(public member function)\fP
-              destructs a messages facet
-destructor    \fI(protected member function)\fP
-              invokes do_open
-open          \fI(public member function)\fP
-              invokes do_get
-get           \fI(public member function)\fP
-              invokes do_close
-close         \fI(public member function)\fP
+                constructs a new messages facet
+  constructor   \fI(public member function)\fP
+                destructs a messages facet
+  destructor    \fI(protected member function)\fP
+                invokes do_open
+  open          \fI(public member function)\fP
+                invokes do_get
+  get           \fI(public member function)\fP
+                invokes do_close
+  close         \fI(public member function)\fP
 
 
 .SH Member objects
 
 
-                          id of the locale
-static std::locale::id id \fI(public member object)\fP
+                            id of the locale
+  static std::locale::id id \fI(public member object)\fP
 
 
 .SH Protected member functions
 
 
 
-do_open   opens a named message catalog
-          \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_open   opens a named message catalog
+            \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_get    retrieves a message from an open message catalog
-          \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_get    retrieves a message from an open message catalog
+            \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_close  closes a message catalog
-          \fI(virtual protected member function)\fP
-\fB[virtual]\fP
-
-
-Inherited from std::messages_base
+  do_close  closes a message catalog
+            \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
 
-Type    Definition
-catalog /*unspecified signed integer type*/
+  Inherited from std::messages_base
+
+
+  Type    Definition
+  catalog /*unspecified signed integer type*/
 
 
 .SH See also
 
 
-                defines messages catalog type
-messages_base   \fI(class template)\fP
-                creates a messages facet for the named locale
-messages_byname \fI(class template)\fP
+                  defines messages catalog type
+  messages_base   \fI(class template)\fP
+                  creates a messages facet for the named locale
+  messages_byname \fI(class template)\fP
 
 
 

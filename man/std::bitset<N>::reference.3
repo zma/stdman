@@ -4,109 +4,109 @@ std::bitset<N>::reference \- std::bitset<N>::reference
 
 .SH Synopsis
 
-class reference;
+  class reference;
 
-The std::bitset class includes std::bitset::reference as a publicly-accessible nested class. This class is used as a proxy object to allow users to interact with individual bits of a bitset, since standard C++ types (like references and pointers) are not built with enough precision to specify individual bits.
-The primary use of std::bitset::reference is to provide an l-value that can be returned from operator[].
-Any reads or writes to a bitset that happen via a std::bitset::reference potentially read or write to the entire underlying bitset.
+  The std::bitset class includes std::bitset::reference as a publicly-accessible nested class. This class is used as a proxy object to allow users to interact with individual bits of a bitset, since standard C++ types (like references and pointers) are not built with enough precision to specify individual bits.
+  The primary use of std::bitset::reference is to provide an l-value that can be returned from operator[].
+  Any reads or writes to a bitset that happen via a std::bitset::reference potentially read or write to the entire underlying bitset.
 
 .SH Member functions
 
 
-              constructs the reference. Accessible only to std::bitset itself
-constructor   (private member function)
-              destroys the reference
-destructor    \fI(public member function)\fP
-              assigns a bool to the referenced bit
-operator=     \fI(public member function)\fP
-              returns the referenced bit
-operator bool \fI(public member function)\fP
-              returns inverted referenced bit
-operator~     \fI(public member function)\fP
-              flips the referenced bit
-flip          \fI(public member function)\fP
+                constructs the reference. Accessible only to std::bitset itself
+  constructor   (private member function)
+                destroys the reference
+  destructor    \fI(public member function)\fP
+                assigns a bool to the referenced bit
+  operator=     \fI(public member function)\fP
+                returns the referenced bit
+  operator bool \fI(public member function)\fP
+                returns inverted referenced bit
+  operator~     \fI(public member function)\fP
+                flips the referenced bit
+  flip          \fI(public member function)\fP
 
 
- std::bitset<N>::reference::~reference
+   std::bitset<N>::reference::~reference
 
 
-~reference();
+  ~reference();
 
-Destroys the reference.
+  Destroys the reference.
 
- std::bitset<N>::reference::operator=
+   std::bitset<N>::reference::operator=
 
 
-reference& operator=( bool x );                              \fI(until C++11)\fP
-reference& operator=( bool x ) noexcept;             \fB(1)\fP     \fI(since C++11)\fP
-reference& operator=( const reference& x );              \fB(2)\fP               \fI(until C++11)\fP
-reference& operator=( const reference& x ) noexcept;                       \fI(since C++11)\fP
+  reference& operator=( bool x );                              \fI(until C++11)\fP
+  reference& operator=( bool x ) noexcept;             \fB(1)\fP     \fI(since C++11)\fP
+  reference& operator=( const reference& x );              \fB(2)\fP               \fI(until C++11)\fP
+  reference& operator=( const reference& x ) noexcept;                       \fI(since C++11)\fP
 
-Assigns a value to the referenced bit.
+  Assigns a value to the referenced bit.
 
 .SH Parameters
 
 
-x - value to assign
+  x - value to assign
 
 
 .SH Return value
 
-*this
+  *this
 
- std::bitset<N>::reference::operator bool
-
-
-operator bool() const;           \fI(until C++11)\fP
-operator bool() const noexcept;  \fI(since C++11)\fP
-
-Returns the value of the referenced bit.
-
-.SH Parameters
-
-\fI(none)\fP
-
-.SH Return value
-
-The referenced bit.
-
- std::bitset<N>::reference::operator~
+   std::bitset<N>::reference::operator bool
 
 
-bool operator~() const;           \fI(until C++11)\fP
-bool operator~() const noexcept;  \fI(since C++11)\fP
+  operator bool() const;           \fI(until C++11)\fP
+  operator bool() const noexcept;  \fI(since C++11)\fP
 
-Returns the inverse of the referenced bit.
+  Returns the value of the referenced bit.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The inverse of the referenced bit.
+  The referenced bit.
 
- std::bitset<N>::reference::flip
+   std::bitset<N>::reference::operator~
 
 
-reference& flip();           \fI(until C++11)\fP
-reference& flip() noexcept;  \fI(since C++11)\fP
+  bool operator~() const;           \fI(until C++11)\fP
+  bool operator~() const noexcept;  \fI(since C++11)\fP
 
-Inverts the referenced bit.
+  Returns the inverse of the referenced bit.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-*this
+  The inverse of the referenced bit.
+
+   std::bitset<N>::reference::flip
+
+
+  reference& flip();           \fI(until C++11)\fP
+  reference& flip() noexcept;  \fI(since C++11)\fP
+
+  Inverts the referenced bit.
+
+.SH Parameters
+
+  \fI(none)\fP
+
+.SH Return value
+
+  *this
 
 .SH See also
 
 
-           accesses specific bit
-operator[] \fI(public member function)\fP
+             accesses specific bit
+  operator[] \fI(public member function)\fP
 
 
 

@@ -4,42 +4,42 @@ std::swap(std::unordered_multimap) \- std::swap(std::unordered_multimap)
 
 .SH Synopsis
 
-template< class Key, class T, class Hash, class KeyEqual, class Alloc >          \fI(since C++11)\fP
-void swap( unordered_multimap<Key,T,Hash,KeyEqual,Alloc>& lhs,                   \fI(until C++17)\fP
-unordered_multimap<Key,T,Hash,KeyEqual,Alloc>& rhs );
-template< class Key, class T, class Hash, class KeyEqual, class Alloc >
-void swap( unordered_multimap<Key,T,Hash,KeyEqual,Alloc>& lhs,                   \fI(since C++17)\fP
-unordered_multimap<Key,T,Hash,KeyEqual,Alloc>& rhs ) noexcept(/* see below */);
+  template< class Key, class T, class Hash, class KeyEqual, class Alloc >          \fI(since C++11)\fP
+  void swap( unordered_multimap<Key,T,Hash,KeyEqual,Alloc>& lhs,                   \fI(until C++17)\fP
+  unordered_multimap<Key,T,Hash,KeyEqual,Alloc>& rhs );
+  template< class Key, class T, class Hash, class KeyEqual, class Alloc >
+  void swap( unordered_multimap<Key,T,Hash,KeyEqual,Alloc>& lhs,                   \fI(since C++17)\fP
+  unordered_multimap<Key,T,Hash,KeyEqual,Alloc>& rhs ) noexcept(/* see below */);
 
-Specializes the std::swap algorithm for std::unordered_multimap. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
+  Specializes the std::swap algorithm for std::unordered_multimap. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
 
 .SH Parameters
 
 
-lhs, rhs - containers whose contents to swap
+  lhs, rhs - containers whose contents to swap
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH Exceptions
 
 
-noexcept specification:           \fI(since C++17)\fP
-noexcept(noexcept(lhs.swap(rhs)))
+  noexcept specification:           \fI(since C++17)\fP
+  noexcept(noexcept(lhs.swap(rhs)))
 
 
 .SH See also
 
 
-     swaps the contents
-swap \fI(public member function)\fP
+       swaps the contents
+  swap \fI(public member function)\fP
 
 
 

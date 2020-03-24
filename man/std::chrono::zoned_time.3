@@ -4,57 +4,57 @@ std::chrono::zoned_time \- std::chrono::zoned_time
 
 .SH Synopsis
 
-Defined in header <chrono>
-template <
-class Duration,                                    \fI(since C++20)\fP
-class TimeZonePtr = const std::chrono::time_zone*
-> class zoned_time;
+  Defined in header <chrono>
+  template <
+  class Duration,                                    \fI(since C++20)\fP
+  class TimeZonePtr = const std::chrono::time_zone*
+  > class zoned_time;
 
-The class zoned_time represents a logical pairing of a time zone and a std::chrono::time_point whose resolution is Duration.
-An invariant of zoned_time is that it always refers to a valid time zone and represents an existing and unambiguous time point in that time zone. Consistent with this invariant, zoned_time has no move constructor or move assignment operator; attempts to move a zoned_time will perform a copy.
-The program is ill-formed if Duration is not a specialization of std::chrono::duration.
-The template parameter TimeZonePtr allows users to supply their own time zone pointer types and further customize the behavior of zoned_time via std::chrono::zoned_traits. Custom time zone types need not support all the operations supported by std::chrono::time_zone, only those used by the functions actually called on the zoned_time.
-TimeZonePtr must be MoveConstructible. Move-only TimeZonePtrs are allowed but difficult to use, as the zoned_time will be immovable and it is not possible to access the stored TimeZonePtr.
+  The class zoned_time represents a logical pairing of a time zone and a std::chrono::time_point whose resolution is Duration.
+  An invariant of zoned_time is that it always refers to a valid time zone and represents an existing and unambiguous time point in that time zone. Consistent with this invariant, zoned_time has no move constructor or move assignment operator; attempts to move a zoned_time will perform a copy.
+  The program is ill-formed if Duration is not a specialization of std::chrono::duration.
+  The template parameter TimeZonePtr allows users to supply their own time zone pointer types and further customize the behavior of zoned_time via std::chrono::zoned_traits. Custom time zone types need not support all the operations supported by std::chrono::time_zone, only those used by the functions actually called on the zoned_time.
+  TimeZonePtr must be MoveConstructible. Move-only TimeZonePtrs are allowed but difficult to use, as the zoned_time will be immovable and it is not possible to access the stored TimeZonePtr.
 
 .SH Member types
 
 
-Member type Definition
-duration    std::common_type_t<Duration, std::chrono::seconds>
+  Member type Definition
+  duration    std::common_type_t<Duration, std::chrono::seconds>
 
 
 .SH Member functions
 
 
-                    constructs a zoned_time
-constructor         \fI(public member function)\fP
-                    assigns value to a zoned_time
-operator=           \fI(public member function)\fP
-                    obtains a copy of the time zone pointer
-get_time_zone       \fI(public member function)\fP
-                    obtains the stored time point as a local_time
-operator_local_time \fI(public member function)\fP
-get_local_time
-                    obtains the stored time point as a sys_time
-operator_sys_time   \fI(public member function)\fP
-get_sys_time
-                    obtain information about the time zone at the stored time point
-get_info            \fI(public member function)\fP
+                      constructs a zoned_time
+  constructor         \fI(public member function)\fP
+                      assigns value to a zoned_time
+  operator=           \fI(public member function)\fP
+                      obtains a copy of the time zone pointer
+  get_time_zone       \fI(public member function)\fP
+                      obtains the stored time point as a local_time
+  operator_local_time \fI(public member function)\fP
+  get_local_time
+                      obtains the stored time point as a sys_time
+  operator_sys_time   \fI(public member function)\fP
+  get_sys_time
+                      obtain information about the time zone at the stored time point
+  get_info            \fI(public member function)\fP
 
 
-Nonmember functions
+  Nonmember functions
 
 
-           compares two zoned_time objects
-operator== \fI(function template)\fP
-operator!=
-           outputs a zoned_time into a stream
-operator<< \fI(function template)\fP
-           outputs a zoned_time into a stream according to the provided format
-to_stream  \fI(function template)\fP
+             compares two zoned_time objects
+  operator== \fI(function template)\fP
+  operator!=
+             outputs a zoned_time into a stream
+  operator<< \fI(function template)\fP
+             outputs a zoned_time into a stream according to the provided format
+  to_stream  \fI(function template)\fP
 
 
-Deduction_guides
+  Deduction_guides
 
 
 

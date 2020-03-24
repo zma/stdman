@@ -4,29 +4,29 @@ std::pmr::monotonic_buffer_resource::do_is_equal \- std::pmr::monotonic_buffer_r
 
 .SH Synopsis
 
-virtual bool do_is_equal(const std::pmr::memory_resource& other) const noexcept;  \fI(since C++17)\fP
+  virtual bool do_is_equal(const std::pmr::memory_resource& other) const noexcept;  \fI(since C++17)\fP
 
-Compare *this with other for identity - memory allocated using a monotonic_buffer_resource can only be deallocated using that same resource.
+  Compare *this with other for identity - memory allocated using a monotonic_buffer_resource can only be deallocated using that same resource.
 
 .SH Return value
 
-this == &other
+  this == &other
 
-Defect report
+  Defect report
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                  Correct behavior
-LWG_3000 C++17      unnecessary dynamic_cast was performed removed
+  DR       Applied to Behavior as published                  Correct behavior
+  LWG_3000 C++17      unnecessary dynamic_cast was performed removed
 
 
 .SH See also
 
 
 
-do_is_equal compare for equality with another memory_resource
-            (virtual private member function of std::pmr::memory_resource)
-\fB[virtual]\fP
+  do_is_equal compare for equality with another memory_resource
+              (virtual private member function of std::pmr::memory_resource)
+  \fB[virtual]\fP
 
 
 

@@ -4,17 +4,17 @@ std::chrono::operator==,!=,<,<=,>,>=(std::chrono::month_weekday) \- std::chrono:
 
 .SH Synopsis
 
-constexpr bool operator==(const std::chrono::month_weekday& x,  \fI(since C++20)\fP
-const std::chrono::month_weekday& y) noexcept;
-constexpr bool operator!=(const std::chrono::month_weekday& x,  \fI(since C++20)\fP
-const std::chrono::month_weekday& y) noexcept;
+  constexpr bool operator==(const std::chrono::month_weekday& x,  \fI(since C++20)\fP
+  const std::chrono::month_weekday& y) noexcept;
+  constexpr bool operator!=(const std::chrono::month_weekday& x,  \fI(since C++20)\fP
+  const std::chrono::month_weekday& y) noexcept;
 
-Compares the two month_weekday objects x and y.
+  Compares the two month_weekday objects x and y.
 
 .SH Return values
 
-1) x.month() == y.month() && x.weekday_indexed() == y.weekday_indexed().
-2) !(x == y).
+  1) x.month() == y.month() && x.weekday_indexed() == y.weekday_indexed().
+  2) !(x == y).
 
 
 

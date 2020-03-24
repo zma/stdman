@@ -4,48 +4,48 @@ std::unexpected \- std::unexpected
 
 .SH Synopsis
 
-Defined in header <exception>
-void unexpected();               \fI(until C++11)\fP
-                                 \fI(since C++11)\fP
-[[noreturn]] void unexpected();  \fB(deprecated)\fP
-                                 (removed in C++17)
+  Defined in header <exception>
+  void unexpected();               \fI(until C++11)\fP
+                                   \fI(since C++11)\fP
+  [[noreturn]] void unexpected();  \fB(deprecated)\fP
+                                   (removed in C++17)
 
-std::unexpected() is called by the C++ runtime when a dynamic_exception_specification is violated: an exception is thrown from a function whose exception specification forbids exceptions of this type.
-std::unexpected() may also be called directly from the program.
-In either case, std::unexpected calls the currently installed std::unexpected_handler. The default std::unexpected_handler calls std::terminate.
+  std::unexpected() is called by the C++ runtime when a dynamic_exception_specification is violated: an exception is thrown from a function whose exception specification forbids exceptions of this type.
+  std::unexpected() may also be called directly from the program.
+  In either case, std::unexpected calls the currently installed std::unexpected_handler. The default std::unexpected_handler calls std::terminate.
 
-If a destructor reset the unexpected handler during stack unwinding and the unwinding later led to unexpected being called, the handler that was installed at the end of the throw expression is the one that will be called. (note: it was ambiguous whether re-throwing applied the new handlers) \fI(until C++11)\fP
-If a destructor reset the unexpected handler during stack unwinding, it is unspecified which handler is called if the unwinding later led to unexpected being called.                                                                                                                               \fI(since C++11)\fP
+  If a destructor reset the unexpected handler during stack unwinding and the unwinding later led to unexpected being called, the handler that was installed at the end of the throw expression is the one that will be called. (note: it was ambiguous whether re-throwing applied the new handlers) \fI(until C++11)\fP
+  If a destructor reset the unexpected handler during stack unwinding, it is unspecified which handler is called if the unwinding later led to unexpected being called.                                                                                                                               \fI(since C++11)\fP
 
 
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Exceptions
 
-Throw any exception thrown by the currently installed std::unexpected_handler
+  Throw any exception thrown by the currently installed std::unexpected_handler
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                                                                           Correct behavior
-LWG_2111 C++11      effect of calling set_unexpected during stack unwinding differs from C++98 and breaks some ABIs made unspecified
+  DR       Applied to Behavior as published                                                                           Correct behavior
+  LWG_2111 C++11      effect of calling set_unexpected during stack unwinding differs from C++98 and breaks some ABIs made unspecified
 
 
 .SH See also
 
 
 
-unexpected_handler the type of the function called by std::unexpected
-                   \fI(typedef)\fP
-(removed in C++17)
+  unexpected_handler the type of the function called by std::unexpected
+                     \fI(typedef)\fP
+  (removed in C++17)
 
 
 

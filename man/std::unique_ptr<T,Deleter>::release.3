@@ -4,62 +4,62 @@ std::unique_ptr<T,Deleter>::release \- std::unique_ptr<T,Deleter>::release
 
 .SH Synopsis
 
-pointer release() noexcept;  \fI(since C++11)\fP
+  pointer release() noexcept;  \fI(since C++11)\fP
 
-Releases the ownership of the managed object if any. get() returns nullptr after the call.
+  Releases the ownership of the managed object if any. get() returns nullptr after the call.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-Pointer to the managed object or nullptr if there was no managed object, i.e. the value which would be returned by get() before the call.
+  Pointer to the managed object or nullptr if there was no managed object, i.e. the value which would be returned by get() before the call.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <memory>
-  #include <iostream>
-  #include <cassert>
+    #include <memory>
+    #include <iostream>
+    #include <cassert>
 
-  struct Foo {
-      Foo() { std::cout << "Foo\\n"; }
-      ~Foo() { std::cout << "~Foo\\n"; }
-  };
+    struct Foo {
+        Foo() { std::cout << "Foo\\n"; }
+        ~Foo() { std::cout << "~Foo\\n"; }
+    };
 
-  int main()
-  {
-      std::cout << "Creating new Foo...\\n";
-      std::unique_ptr<Foo> up(new Foo());
+    int main()
+    {
+        std::cout << "Creating new Foo...\\n";
+        std::unique_ptr<Foo> up(new Foo());
 
-      std::cout << "About to release Foo...\\n";
-      Foo* fp = up.release();
+        std::cout << "About to release Foo...\\n";
+        Foo* fp = up.release();
 
-      assert (up.get() == nullptr);
-      std::cout << "Foo is no longer owned by unique_ptr...\\n";
+        assert (up.get() == nullptr);
+        std::cout << "Foo is no longer owned by unique_ptr...\\n";
 
-      delete fp;
-  }
+        delete fp;
+    }
 
 .SH Output:
 
-  Creating new Foo...
-  Foo
-  About to release Foo...
-  Foo is no longer owned by unique_ptr...
-  ~Foo
+    Creating new Foo...
+    Foo
+    About to release Foo...
+    Foo is no longer owned by unique_ptr...
+    ~Foo
 
 
 .SH See also
 
 
-      returns a pointer to the managed object
-get   \fI(public member function)\fP
-      replaces the managed object
-reset \fI(public member function)\fP
+        returns a pointer to the managed object
+  get   \fI(public member function)\fP
+        replaces the managed object
+  reset \fI(public member function)\fP
 
 
 

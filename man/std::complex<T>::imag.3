@@ -4,50 +4,50 @@ std::complex<T>::imag \- std::complex<T>::imag
 
 .SH Synopsis
 
-primary template complex<T>
-T imag() const;                                   \fI(until C++14)\fP
-constexpr T imag() const;                         \fI(since C++14)\fP
-void imag( T value );                                           \fI(until C++20)\fP
-constexpr void imag( T value );                                 \fI(since C++20)\fP
-specialization complex<float>
-float imag() const;                                                           \fI(until C++11)\fP
-constexpr float imag();                                                       \fI(since C++11)\fP
-                                                                              \fI(until C++14)\fP
-constexpr float imag() const;                                                 \fI(since C++14)\fP
-void imag( float value );                                                                    \fI(until C++20)\fP
-constexpr void imag( float value );                                                          \fI(since C++20)\fP
-specialization complex<double>
-double imag() const;                      \fB(1)\fP                                                              \fI(until C++11)\fP
-constexpr double imag();                      \fB(2)\fP                                                          \fI(since C++11)\fP
-                                                  \fB(1)\fP                                                      \fI(until C++14)\fP
-constexpr double imag() const;                                                                             \fI(since C++14)\fP
-void imag( double value );                                      \fB(2)\fP                                                       \fI(until C++20)\fP
-constexpr void imag( double value );                                                                                      \fI(since C++20)\fP
-specialization complex<long double>                                           \fB(1)\fP
-long double imag() const;                                                                                                               \fI(until C++11)\fP
-constexpr long double imag();                                                                \fB(2)\fP                                        \fI(since C++11)\fP
-                                                                                                           \fB(1)\fP                          \fI(until C++14)\fP
-constexpr long double imag() const;                                                                                                     \fI(since C++14)\fP
-void imag( long double value );                                                                                           \fB(2)\fP                          \fI(until C++20)\fP
-constexpr void imag( long double value );                                                                                                              \fI(since C++20)\fP
+  primary template complex<T>
+  T imag() const;                                   \fI(until C++14)\fP
+  constexpr T imag() const;                         \fI(since C++14)\fP
+  void imag( T value );                                           \fI(until C++20)\fP
+  constexpr void imag( T value );                                 \fI(since C++20)\fP
+  specialization complex<float>
+  float imag() const;                                                           \fI(until C++11)\fP
+  constexpr float imag();                                                       \fI(since C++11)\fP
+                                                                                \fI(until C++14)\fP
+  constexpr float imag() const;                                                 \fI(since C++14)\fP
+  void imag( float value );                                                                    \fI(until C++20)\fP
+  constexpr void imag( float value );                                                          \fI(since C++20)\fP
+  specialization complex<double>
+  double imag() const;                      \fB(1)\fP                                                              \fI(until C++11)\fP
+  constexpr double imag();                      \fB(2)\fP                                                          \fI(since C++11)\fP
+                                                    \fB(1)\fP                                                      \fI(until C++14)\fP
+  constexpr double imag() const;                                                                             \fI(since C++14)\fP
+  void imag( double value );                                      \fB(2)\fP                                                       \fI(until C++20)\fP
+  constexpr void imag( double value );                                                                                      \fI(since C++20)\fP
+  specialization complex<long double>                                           \fB(1)\fP
+  long double imag() const;                                                                                                               \fI(until C++11)\fP
+  constexpr long double imag();                                                                \fB(2)\fP                                        \fI(since C++11)\fP
+                                                                                                             \fB(1)\fP                          \fI(until C++14)\fP
+  constexpr long double imag() const;                                                                                                     \fI(since C++14)\fP
+  void imag( long double value );                                                                                           \fB(2)\fP                          \fI(until C++20)\fP
+  constexpr void imag( long double value );                                                                                                              \fI(since C++20)\fP
 
-Accesses the imaginary part of the complex number.
-1) Returns the imaginary part.
-2) Sets the imaginary part to value.
+  Accesses the imaginary part of the complex number.
+  1) Returns the imaginary part.
+  2) Sets the imaginary part to value.
 
 .SH Parameters
 
 
-value - the value to set the imaginary part to
+  value - the value to set the imaginary part to
 
 
 .SH See also
 
 
-     returns the imaginary component
-imag \fI(function template)\fP
-     accesses the real part of the complex number
-real \fI(public member function)\fP
+       returns the imaginary component
+  imag \fI(function template)\fP
+       accesses the real part of the complex number
+  real \fI(public member function)\fP
 
 
 

@@ -4,64 +4,64 @@ std::memchr \- std::memchr
 
 .SH Synopsis
 
-Defined in header <cstring>
-const void* memchr( const void* ptr, int ch, std::size_t count );
-void* memchr( void* ptr, int ch, std::size_t count );
+  Defined in header <cstring>
+  const void* memchr( const void* ptr, int ch, std::size_t count );
+  void* memchr( void* ptr, int ch, std::size_t count );
 
-Converts ch to unsigned char and locates the first occurrence of that value in the initial count characters (each interpreted as unsigned char) of the object pointed to by ptr.
+  Converts ch to unsigned char and locates the first occurrence of that value in the initial count characters (each interpreted as unsigned char) of the object pointed to by ptr.
 
-This function behaves as if it reads the characters sequentially and stops as soon as a matching character is found: if the array pointed to by ptr is smaller than count, but the match is found within the array, the behavior is well-defined \fI(since C++17)\fP
+  This function behaves as if it reads the characters sequentially and stops as soon as a matching character is found: if the array pointed to by ptr is smaller than count, but the match is found within the array, the behavior is well-defined \fI(since C++17)\fP
 
 
 .SH Parameters
 
 
-ptr   - pointer to the object to be examined
-ch    - character to search for
-count - max number of characters to examine
+  ptr   - pointer to the object to be examined
+  ch    - character to search for
+  count - max number of characters to examine
 
 
 .SH Return value
 
-Pointer to the location of the character, or NULL if no such character is found.
+  Pointer to the location of the character, or NULL if no such character is found.
 
 .SH Example
 
-Search an array of characters.
-
+  Search an array of characters.
+  
 // Run this code
 
-  #include <iostream>
-  #include <cstring>
+    #include <iostream>
+    #include <cstring>
 
-  int main()
-  {
-      char arr[] = {'a','\\0','a','A','a','a','A','a'};
-      char *pc = (char*)std::memchr(arr,'A',sizeof arr);
-      if (pc != NULL)
-         std::cout << "search character found\\n";
-      else
-         std::cout << "search character not found\\n";
-  }
+    int main()
+    {
+        char arr[] = {'a','\\0','a','A','a','a','A','a'};
+        char *pc = (char*)std::memchr(arr,'A',sizeof arr);
+        if (pc != NULL)
+           std::cout << "search character found\\n";
+        else
+           std::cout << "search character not found\\n";
+    }
 
 .SH Output:
 
-  search character found
+    search character found
 
 
 .SH See also
 
 
-            finds the first occurrence of a character
-strchr      \fI(function)\fP
+              finds the first occurrence of a character
+  strchr      \fI(function)\fP
 
-find
-find_if
-find_if_not finds the first element satisfying specific criteria
-            \fI(function template)\fP
+  find
+  find_if
+  find_if_not finds the first element satisfying specific criteria
+              \fI(function template)\fP
 
 
-\fI(C++11)\fP
+  \fI(C++11)\fP
 
 
 

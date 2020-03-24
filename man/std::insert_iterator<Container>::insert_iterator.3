@@ -4,20 +4,20 @@ std::insert_iterator<Container>::insert_iterator \- std::insert_iterator<Contain
 
 .SH Synopsis
 
-insert_iterator() = default;                                                \fB(1)\fP \fI(since C++20)\fP
-insert_iterator( Container& c, typename Container::iterator i );            \fB(2)\fP               \fI(until C++20)\fP
-constexpr insert_iterator( Container& c, ranges::iterator_t<Container> i );                   \fI(since C++20)\fP
+  insert_iterator() = default;                                                \fB(1)\fP \fI(since C++20)\fP
+  insert_iterator( Container& c, typename Container::iterator i );            \fB(2)\fP               \fI(until C++20)\fP
+  constexpr insert_iterator( Container& c, ranges::iterator_t<Container> i );                   \fI(since C++20)\fP
 
 
-1) Initializes the underlying pointer to container with nullptr and value-initializes the underlying iterator. \fI(since C++20)\fP
+  1) Initializes the underlying pointer to container with nullptr and value-initializes the underlying iterator. \fI(since C++20)\fP
 
-2) Initializes the underlying pointer to the container to std::addressof(c) and the underlying iterator to i.
+  2) Initializes the underlying pointer to the container to std::addressof(c) and the underlying iterator to i.
 
 .SH Parameters
 
 
-c - container to initialize the inserter with
-i - iterator to initialize the inserter with
+  c - container to initialize the inserter with
+  i - iterator to initialize the inserter with
 
 
 

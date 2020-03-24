@@ -4,74 +4,74 @@ std::shared_future<T>::wait \- std::shared_future<T>::wait
 
 .SH Synopsis
 
-void wait() const;  \fI(since C++11)\fP
+  void wait() const;  \fI(since C++11)\fP
 
-Blocks until the result becomes available. valid() == true after the call.
-The behavior is undefined if valid()== false before the call to this function.
+  Blocks until the result becomes available. valid() == true after the call.
+  The behavior is undefined if valid()== false before the call to this function.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Notes
 
-The implementations are encouraged to detect the case when valid == false before the call and throw a std::future_error with an error condition of std::future_errc::no_state.
-Calling wait on the same std::shared_future from multiple threads is not safe; the intended use is for each thread that waits on the same shared state to have a copy of a std::shared_future.
+  The implementations are encouraged to detect the case when valid == false before the call and throw a std::future_error with an error condition of std::future_errc::no_state.
+  Calling wait on the same std::shared_future from multiple threads is not safe; the intended use is for each thread that waits on the same shared state to have a copy of a std::shared_future.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <future>
-  #include <thread>
+    #include <iostream>
+    #include <future>
+    #include <thread>
 
-  int fib(int n)
-  {
-    if (n < 3) return 1;
-    else return fib(n-1) + fib(n-2);
-  }
+    int fib(int n)
+    {
+      if (n < 3) return 1;
+      else return fib(n-1) + fib(n-2);
+    }
 
-  int main()
-  {
-      std::shared_future<int> f1 = std::async(std::launch::async, [](){
-          return fib(20);
-      });
-      std::shared_future<int> f2 = std::async(std::launch::async, [](){
-          return fib(25);
-      });
+    int main()
+    {
+        std::shared_future<int> f1 = std::async(std::launch::async, [](){
+            return fib(20);
+        });
+        std::shared_future<int> f2 = std::async(std::launch::async, [](){
+            return fib(25);
+        });
 
-      std::cout << "waiting...\\n";
-      f1.wait();
-      f2.wait();
+        std::cout << "waiting...\\n";
+        f1.wait();
+        f2.wait();
 
-      std::cout << "f1: " << f1.get() << '\\n';
-      std::cout << "f2: " << f2.get() << '\\n';
-  }
+        std::cout << "f1: " << f1.get() << '\\n';
+        std::cout << "f2: " << f2.get() << '\\n';
+    }
 
 .SH Output:
 
-  waiting...
-  f1: 6765
-  f2: 75025
+    waiting...
+    f1: 6765
+    f2: 75025
 
 
 .SH See also
 
 
-           waits for the result, returns if it is not available for the specified timeout duration
-wait_for   \fI(public member function)\fP
-           waits for the result, returns if it is not available until specified time point has been reached
-wait_until \fI(public member function)\fP
+             waits for the result, returns if it is not available for the specified timeout duration
+  wait_for   \fI(public member function)\fP
+             waits for the result, returns if it is not available until specified time point has been reached
+  wait_until \fI(public member function)\fP
 
 
 

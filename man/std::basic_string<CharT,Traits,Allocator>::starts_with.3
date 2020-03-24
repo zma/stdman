@@ -4,52 +4,52 @@ std::basic_string<CharT,Traits,Allocator>::starts_with \- std::basic_string<Char
 
 .SH Synopsis
 
-bool starts_with(std::basic_string_view<CharT, Traits> x) const noexcept; \fB(1)\fP \fI(since C++20)\fP
-bool starts_with(CharT x) const noexcept;                                 \fB(2)\fP \fI(since C++20)\fP
-bool starts_with(const CharT* x) const;                                   \fB(3)\fP \fI(since C++20)\fP
+  bool starts_with(std::basic_string_view<CharT, Traits> x) const noexcept; \fB(1)\fP \fI(since C++20)\fP
+  bool starts_with(CharT x) const noexcept;                                 \fB(2)\fP \fI(since C++20)\fP
+  bool starts_with(const CharT* x) const;                                   \fB(3)\fP \fI(since C++20)\fP
 
-Checks if the string begins with the given prefix, where
-1) the prefix is a string view (which may be a result of implicit conversion from another std::basic_string)
-2) the prefix is a single character
-3) the prefix is a C-style string
-All three overloads effectively return std::basic_string_view<CharT, Traits>(data(), size()).starts_with(x);
+  Checks if the string begins with the given prefix, where
+  1) the prefix is a string view (which may be a result of implicit conversion from another std::basic_string)
+  2) the prefix is a single character
+  3) the prefix is a C-style string
+  All three overloads effectively return std::basic_string_view<CharT, Traits>(data(), size()).starts_with(x);
 
 .SH Parameters
 
 
-x - a character sequence or a single character to compare to the start of the string
+  x - a character sequence or a single character to compare to the start of the string
 
 
 .SH Return value
 
-true if the string begins with the provided prefix, false otherwise.
+  true if the string begins with the provided prefix, false otherwise.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
 
-ends_with   checks if the string ends with the given suffix
-            \fI(public member function)\fP
-(C++20)
+  ends_with   checks if the string ends with the given suffix
+              \fI(public member function)\fP
+  (C++20)
 
-starts_with checks if the string view starts with the given prefix
-            \fI(public member function of std::basic_string_view<CharT,Traits>)\fP
-(C++20)
+  starts_with checks if the string view starts with the given prefix
+              \fI(public member function of std::basic_string_view<CharT,Traits>)\fP
+  (C++20)
 
-ends_with   checks if the string view ends with the given suffix
-            \fI(public member function of std::basic_string_view<CharT,Traits>)\fP
-(C++20)
-            compares two strings
-compare     \fI(public member function)\fP
-            returns a substring
-substr      \fI(public member function)\fP
+  ends_with   checks if the string view ends with the given suffix
+              \fI(public member function of std::basic_string_view<CharT,Traits>)\fP
+  (C++20)
+              compares two strings
+  compare     \fI(public member function)\fP
+              returns a substring
+  substr      \fI(public member function)\fP
 
 
 

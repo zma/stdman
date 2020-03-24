@@ -4,92 +4,92 @@ std::front_insert_iterator \- std::front_insert_iterator
 
 .SH Synopsis
 
-Defined in header <iterator>
-template< class Container >
-class front_insert_iterator : public std::iterator< std::output_iterator_tag,  \fI(until C++17)\fP
-void,void,void,void >
-template< class Container >                                                    \fI(since C++17)\fP
-class front_insert_iterator;
+  Defined in header <iterator>
+  template< class Container >
+  class front_insert_iterator : public std::iterator< std::output_iterator_tag,  \fI(until C++17)\fP
+  void,void,void,void >
+  template< class Container >                                                    \fI(since C++17)\fP
+  class front_insert_iterator;
 
-std::front_insert_iterator is an LegacyOutputIterator that prepends elements to a container for which it was constructed. The container's push_front() member function is called whenever the iterator (whether dereferenced or not) is assigned to. Incrementing the std::front_insert_iterator is a no-op.
+  std::front_insert_iterator is an LegacyOutputIterator that prepends elements to a container for which it was constructed. The container's push_front() member function is called whenever the iterator (whether dereferenced or not) is assigned to. Incrementing the std::front_insert_iterator is a no-op.
 
 .SH Member types
 
 
-Member type    Definition
-container_type Container
+  Member type    Definition
+  container_type Container
 
 
 .SH Member functions
 
 
-                constructs a new front_insert_iterator
-constructor     \fI(public member function)\fP
-                inserts an object into the associated container
-operator=       \fI(public member function)\fP
-                no-op
-operator*       \fI(public member function)\fP
-                no-op
-operator++      \fI(public member function)\fP
-operator++(int)
+                  constructs a new front_insert_iterator
+  constructor     \fI(public member function)\fP
+                  inserts an object into the associated container
+  operator=       \fI(public member function)\fP
+                  no-op
+  operator*       \fI(public member function)\fP
+                  no-op
+  operator++      \fI(public member function)\fP
+  operator++(int)
 
 
 .SH Member objects
 
 
-Member name           Definition
-container (protected) a pointer of type Container*
+  Member name           Definition
+  container (protected) a pointer of type Container*
 
 
 .SH Member types
 
 
-Member type       Definition
-value_type        void
-difference_type   void
-pointer           void
-reference         void
-iterator_category std::output_iterator_tag
+  Member type       Definition
+  value_type        void
+  difference_type   void
+  pointer           void
+  reference         void
+  iterator_category std::output_iterator_tag
 
 
-These member types are required to be obtained by inheriting from std::iterator<std::output_iterator_tag, void, void, void, void>. \fI(until C++17)\fP
+  These member types are required to be obtained by inheriting from std::iterator<std::output_iterator_tag, void, void, void, void>. \fI(until C++17)\fP
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <vector>
-  #include <deque>
-  #include <iostream>
-  #include <iterator>
-  #include <algorithm>
-  int main()
-  {
-      std::vector<int> v{1,2,3,4,5};
-      std::deque<int> d;
-      std::copy(v.begin(), v.end(),
-                std::front_insert_iterator<std::deque<int>>(d)); // or std::front_inserter(d)
-      for(int n : d)
-          std::cout << n << ' ';
-      std::cout << '\\n';
-  }
+    #include <vector>
+    #include <deque>
+    #include <iostream>
+    #include <iterator>
+    #include <algorithm>
+    int main()
+    {
+        std::vector<int> v{1,2,3,4,5};
+        std::deque<int> d;
+        std::copy(v.begin(), v.end(),
+                  std::front_insert_iterator<std::deque<int>>(d)); // or std::front_inserter(d)
+        for(int n : d)
+            std::cout << n << ' ';
+        std::cout << '\\n';
+    }
 
 .SH Output:
 
-  5 4 3 2 1
+    5 4 3 2 1
 
 
 .SH See also
 
 
-                     creates a std::front_insert_iterator of type inferred from the argument
-front_inserter       \fI(function template)\fP
-                     iterator adaptor for insertion at the end of a container
-back_insert_iterator \fI(class template)\fP
-                     iterator adaptor for insertion into a container
-insert_iterator      \fI(class template)\fP
+                       creates a std::front_insert_iterator of type inferred from the argument
+  front_inserter       \fI(function template)\fP
+                       iterator adaptor for insertion at the end of a container
+  back_insert_iterator \fI(class template)\fP
+                       iterator adaptor for insertion into a container
+  insert_iterator      \fI(class template)\fP
 
 
 

@@ -4,90 +4,90 @@ std::chrono::system_clock \- std::chrono::system_clock
 
 .SH Synopsis
 
-Defined in header <chrono>
-class system_clock;         \fI(since C++11)\fP
+  Defined in header <chrono>
+  class system_clock;         \fI(since C++11)\fP
 
-Class std::chrono::system_clock represents the system-wide real time wall clock.
-It may not be monotonic: on most systems, the system time can be adjusted at any moment. It is the only C++ clock that has the ability to map its time points to C-style time
-, and, therefore, to be displayed
-\fI(until C++20)\fP.
-std::chrono::system_clock meets the requirements of TrivialClock.
+  Class std::chrono::system_clock represents the system-wide real time wall clock.
+  It may not be monotonic: on most systems, the system time can be adjusted at any moment. It is the only C++ clock that has the ability to map its time points to C-style time
+  , and, therefore, to be displayed
+  \fI(until C++20)\fP.
+  std::chrono::system_clock meets the requirements of TrivialClock.
 
-The epoch of system_clock is unspecified, but most implementations use Unix Time (i.e., time since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970, not counting leap seconds). \fI(until C++20)\fP
-system_clock measures Unix Time (i.e., time since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970, not counting leap seconds).                                                  \fI(since C++20)\fP
-
-
-Time point family
+  The epoch of system_clock is unspecified, but most implementations use Unix Time (i.e., time since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970, not counting leap seconds). \fI(until C++20)\fP
+  system_clock measures Unix Time (i.e., time since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970, not counting leap seconds).                                                  \fI(since C++20)\fP
 
 
-Defined in namespace std::chrono
-template<class Duration>                                                        \fI(since C++20)\fP
-using sys_time = std::chrono::time_point<std::chrono::system_clock, Duration>;
-using sys_seconds = sys_time<std::chrono::seconds>;                             \fI(since C++20)\fP
-using sys_days = sys_time<std::chrono::days>;                                   \fI(since C++20)\fP
+  Time point family
+
+
+  Defined in namespace std::chrono
+  template<class Duration>                                                        \fI(since C++20)\fP
+  using sys_time = std::chrono::time_point<std::chrono::system_clock, Duration>;
+  using sys_seconds = sys_time<std::chrono::seconds>;                             \fI(since C++20)\fP
+  using sys_days = sys_time<std::chrono::days>;                                   \fI(since C++20)\fP
 
 
 
-operator<<_(std::chrono::sys_time)  performs stream output on a sys_time
-                                    \fI(function template)\fP
-(C++20)
+  operator<<_(std::chrono::sys_time)  performs stream output on a sys_time
+                                      \fI(function template)\fP
+  (C++20)
 
-from_stream_(std::chrono::sys_time) parses a sys_time from a stream according to the provided format
-                                    \fI(function template)\fP
-(C++20)
+  from_stream_(std::chrono::sys_time) parses a sys_time from a stream according to the provided format
+                                      \fI(function template)\fP
+  (C++20)
 
-to_stream_(std::chrono::sys_time)   outputs a sys_time into a stream according to the provided format
-                                    \fI(function template)\fP
-(C++20)
+  to_stream_(std::chrono::sys_time)   outputs a sys_time into a stream according to the provided format
+                                      \fI(function template)\fP
+  (C++20)
 
 
 .SH Member types
 
 
-Member type Definition
-rep         signed arithmetic type representing the number of ticks in the clock's duration
-period      a std::ratio type representing the tick period of the clock, in seconds
-duration    std::chrono::duration<rep, period>, capable of representing negative durations
-time_point  std::chrono::time_point<std::chrono::system_clock>
+  Member type Definition
+  rep         signed arithmetic type representing the number of ticks in the clock's duration
+  period      a std::ratio type representing the tick period of the clock, in seconds
+  duration    std::chrono::duration<rep, period>, capable of representing negative durations
+  time_point  std::chrono::time_point<std::chrono::system_clock>
 
 
 .SH Member constants
 
 
 
-constexpr bool is_steady true if the time between ticks is always constant, i.e. calls to now() return values that increase monotonically even in case of some external clock adjustment, otherwise false
-                         \fI(public static member constant)\fP
-\fB[static]\fP
+  constexpr bool is_steady true if the time between ticks is always constant, i.e. calls to now() return values that increase monotonically even in case of some external clock adjustment, otherwise false
+                           \fI(public static member constant)\fP
+  \fB[static]\fP
 
 
 .SH Member functions
 
 
 
-now         returns a std::chrono::time_point representing the current point in time
-            \fI(public static member function)\fP
-\fB[static]\fP
+  now         returns a std::chrono::time_point representing the current point in time
+              \fI(public static member function)\fP
+  \fB[static]\fP
 
-to_time_t   converts a system clock time point to std::time_t
-            \fI(public static member function)\fP
-\fB[static]\fP
+  to_time_t   converts a system clock time point to std::time_t
+              \fI(public static member function)\fP
+  \fB[static]\fP
 
-from_time_t converts std::time_t to a system clock time point
-            \fI(public static member function)\fP
-\fB[static]\fP
+  from_time_t converts std::time_t to a system clock time point
+              \fI(public static member function)\fP
+  \fB[static]\fP
 
 
 .SH See also
 
 
 
-steady_clock          monotonic clock that will never be adjusted
-                      \fI(class)\fP
-\fI(C++11)\fP
+  steady_clock          monotonic clock that will never be adjusted
+                        \fI(class)\fP
+  \fI(C++11)\fP
 
-high_resolution_clock the clock with the shortest tick period available
-                      \fI(class)\fP
-\fI(C++11)\fP
+  high_resolution_clock the clock with the shortest tick period available
+                        \fI(class)\fP
+  \fI(C++11)\fP
 
 
 

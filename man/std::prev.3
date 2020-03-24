@@ -4,88 +4,88 @@ std::prev \- std::prev
 
 .SH Synopsis
 
-Defined in header <iterator>
-template< class BidirIt >
-BidirIt prev(                                                     \fI(since C++11)\fP
-BidirIt it,                                                       \fI(until C++17)\fP
-typename std::iterator_traits<BidirIt>::difference_type n = 1 );
-template< class BidirIt >
-constexpr BidirIt prev(                                           \fI(since C++17)\fP
-BidirIt it,
-typename std::iterator_traits<BidirIt>::difference_type n = 1 );
+  Defined in header <iterator>
+  template< class BidirIt >
+  BidirIt prev(                                                     \fI(since C++11)\fP
+  BidirIt it,                                                       \fI(until C++17)\fP
+  typename std::iterator_traits<BidirIt>::difference_type n = 1 );
+  template< class BidirIt >
+  constexpr BidirIt prev(                                           \fI(since C++17)\fP
+  BidirIt it,
+  typename std::iterator_traits<BidirIt>::difference_type n = 1 );
 
-Return the nth predecessor of iterator it.
+  Return the nth predecessor of iterator it.
 
 .SH Parameters
 
 
-it - an iterator
-n  - number of elements it should be descended
+  it - an iterator
+  n  - number of elements it should be descended
 .SH Type requirements
--
-BidirIt must meet the requirements of LegacyBidirectionalIterator.
+  -
+  BidirIt must meet the requirements of LegacyBidirectionalIterator.
 
 
 .SH Return value
 
-The nth predecessor of iterator it.
+  The nth predecessor of iterator it.
 
 .SH Complexity
 
-Linear.
-However, if BidirIt additionally meets the requirements of LegacyRandomAccessIterator, complexity is constant.
+  Linear.
+  However, if BidirIt additionally meets the requirements of LegacyRandomAccessIterator, complexity is constant.
 
 .SH Possible implementation
 
 
 
-  template<class BidirIt>
-  BidirIt prev(BidirIt it, typename std::iterator_traits<BidirIt>::difference_type n = 1)
-  {
-      std::advance(it, -n);
-      return it;
-  }
+    template<class BidirIt>
+    BidirIt prev(BidirIt it, typename std::iterator_traits<BidirIt>::difference_type n = 1)
+    {
+        std::advance(it, -n);
+        return it;
+    }
 
 
 
 .SH Notes
 
-Although the expression --c.end() often compiles, it is not guaranteed to do so: c.end() is an rvalue expression, and there is no iterator requirement that specifies that decrement of an rvalue is guaranteed to work. In particular, when iterators are implemented as pointers, --c.end() does not compile, while std::prev(c.end()) does.
+  Although the expression --c.end() often compiles, it is not guaranteed to do so: c.end() is an rvalue expression, and there is no iterator requirement that specifies that decrement of an rvalue is guaranteed to work. In particular, when iterators are implemented as pointers, --c.end() does not compile, while std::prev(c.end()) does.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <iterator>
-  #include <vector>
+    #include <iostream>
+    #include <iterator>
+    #include <vector>
 
-  int main()
-  {
-      std::vector<int> v{ 3, 1, 4 };
+    int main()
+    {
+        std::vector<int> v{ 3, 1, 4 };
 
-      auto it = v.end();
+        auto it = v.end();
 
-      auto pv = std::prev(it, 2);
+        auto pv = std::prev(it, 2);
 
-      std::cout << *pv << '\\n';
-  }
+        std::cout << *pv << '\\n';
+    }
 
 .SH Output:
 
-  1
+    1
 
 
 .SH See also
 
 
 
-next    increment an iterator
-        \fI(function template)\fP
-\fI(C++11)\fP
-        advances an iterator by given distance
-advance \fI(function template)\fP
+  next    increment an iterator
+          \fI(function template)\fP
+  \fI(C++11)\fP
+          advances an iterator by given distance
+  advance \fI(function template)\fP
 
 
 

@@ -4,52 +4,52 @@ std::slice_array \- std::slice_array
 
 .SH Synopsis
 
-Defined in header <valarray>
-template< class T > class slice_array;
+  Defined in header <valarray>
+  template< class T > class slice_array;
 
-std::slice_array is a helper template used by std::slice subscript operator. It has reference semantics to a subset of the array specified by the std::slice object.
+  std::slice_array is a helper template used by std::slice subscript operator. It has reference semantics to a subset of the array specified by the std::slice object.
 
 .SH Member types
 
 
-Type       Definition
-value_type T
+  Type       Definition
+  value_type T
 
 
 .SH Member functions
 
 
-              constructs a slice_array
-constructor   \fI(public member function)\fP
-              destroys a slice_array
-destructor    \fI(public member function)\fP
-              assigns contents
-operator=     \fI(public member function)\fP
+                constructs a slice_array
+  constructor   \fI(public member function)\fP
+                destroys a slice_array
+  destructor    \fI(public member function)\fP
+                assigns contents
+  operator=     \fI(public member function)\fP
 
-operator+=
-operator-=
-operator*=
-operator/=    performs arithmetic operation on the array referred by slice.
-operator%=    \fI(public member function)\fP
-operator&=
-operator|=
-operator^=
-operator<<=
-operator>>=
+  operator+=
+  operator-=
+  operator*=
+  operator/=    performs arithmetic operation on the array referred by slice.
+  operator%=    \fI(public member function)\fP
+  operator&=
+  operator|=
+  operator^=
+  operator<<=
+  operator>>=
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-             proxy to a subset of a valarray after applying a gslice
-gslice_array \fI(class template)\fP
+               proxy to a subset of a valarray after applying a gslice
+  gslice_array \fI(class template)\fP
 
 
 

@@ -4,30 +4,30 @@ std::filesystem::path::empty \- std::filesystem::path::empty
 
 .SH Synopsis
 
-bool empty() const noexcept;                \fI(since C++17)\fP
-                                            \fI(until C++20)\fP
-[[nodiscard]] bool empty() const noexcept;  \fI(since C++20)\fP
+  bool empty() const noexcept;                \fI(since C++17)\fP
+                                              \fI(until C++20)\fP
+  [[nodiscard]] bool empty() const noexcept;  \fI(since C++20)\fP
 
-Checks if the path in generic format is empty.
+  Checks if the path in generic format is empty.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-true if the path is empty, false otherwise.
+  true if the path is empty, false otherwise.
 
 .SH Notes
 
-An empty path can be obtained by calling clear and by default-constructing a path. It can also be returned by a path decomposition function (such as extension) if the corresponding component is not present in the path.
-An empty path is classified as a relative path.
+  An empty path can be obtained by calling clear and by default-constructing a path. It can also be returned by a path decomposition function (such as extension) if the corresponding component is not present in the path.
+  An empty path is classified as a relative path.
 
 .SH See also
 
 
-              constructs a path
-constructor   \fI(public member function)\fP
+                constructs a path
+  constructor   \fI(public member function)\fP
 
 
 

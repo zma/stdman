@@ -4,32 +4,32 @@ std::basic_syncbuf<CharT,Traits,Allocator>::~basic_syncbuf \- std::basic_syncbuf
 
 .SH Synopsis
 
-~basic_syncbuf();
+  ~basic_syncbuf();
 
-Calls emit() to transmit all pending output (and delayed flush, if any) to the wrapped stream. If an exception is thrown by this call, it is caught and ignored.
+  Calls emit() to transmit all pending output (and delayed flush, if any) to the wrapped stream. If an exception is thrown by this call, it is caught and ignored.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Notes
 
-Normally called by the destructor of the owning std::basic_osyncstream.
+  Normally called by the destructor of the owning std::basic_osyncstream.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-              destroys the basic_osyncstream and emits its internal buffer
-destructor    \fI(public member function of std::basic_osyncstream<CharT,Traits,Allocator>)\fP
-              constructs a basic_syncbuf object
-constructor   \fI(public member function)\fP
+                destroys the basic_osyncstream and emits its internal buffer
+  destructor    \fI(public member function of std::basic_osyncstream<CharT,Traits,Allocator>)\fP
+                constructs a basic_syncbuf object
+  constructor   \fI(public member function)\fP
 
 
 

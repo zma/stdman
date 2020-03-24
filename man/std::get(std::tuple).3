@@ -4,88 +4,88 @@ std::get(std::tuple) \- std::get(std::tuple)
 
 .SH Synopsis
 
-template< std::size_t I, class... Types >                          \fI(since C++11)\fP
-typename std::tuple_element<I, tuple<Types...> >::type&        \fB(1)\fP (constexpr since C++14)
-get( tuple<Types...>& t ) noexcept;
-template< std::size_t I, class... Types >                          \fI(since C++11)\fP
-typename std::tuple_element<I, tuple<Types...> >::type&&       \fB(2)\fP (constexpr since C++14)
-get( tuple<Types...>&& t ) noexcept;
-template< std::size_t I, class... Types >                          \fI(since C++11)\fP
-typename std::tuple_element<I, tuple<Types...> >::type const&  \fB(3)\fP (constexpr since C++14)
-get( const tuple<Types...>& t ) noexcept;
-template< std::size_t I, class... Types >                          \fI(since C++11)\fP
-typename std::tuple_element<I, tuple<Types...> >::type const&& \fB(4)\fP (constexpr since C++14)
-get( const tuple<Types...>&& t ) noexcept;
-template< class T, class... Types >                            \fB(5)\fP \fI(since C++14)\fP
-constexpr T& get(tuple<Types...>& t) noexcept;
-template< class T, class... Types >                            \fB(6)\fP \fI(since C++14)\fP
-constexpr T&& get(tuple<Types...>&& t) noexcept;
-template< class T, class... Types >                            \fB(7)\fP \fI(since C++14)\fP
-constexpr const T& get(const tuple<Types...>& t) noexcept;
-template< class T, class... Types >                            \fB(8)\fP \fI(since C++14)\fP
-constexpr const T&& get(const tuple<Types...>&& t) noexcept;
+  template< std::size_t I, class... Types >                          \fI(since C++11)\fP
+  typename std::tuple_element<I, tuple<Types...> >::type&        \fB(1)\fP (constexpr since C++14)
+  get( tuple<Types...>& t ) noexcept;
+  template< std::size_t I, class... Types >                          \fI(since C++11)\fP
+  typename std::tuple_element<I, tuple<Types...> >::type&&       \fB(2)\fP (constexpr since C++14)
+  get( tuple<Types...>&& t ) noexcept;
+  template< std::size_t I, class... Types >                          \fI(since C++11)\fP
+  typename std::tuple_element<I, tuple<Types...> >::type const&  \fB(3)\fP (constexpr since C++14)
+  get( const tuple<Types...>& t ) noexcept;
+  template< std::size_t I, class... Types >                          \fI(since C++11)\fP
+  typename std::tuple_element<I, tuple<Types...> >::type const&& \fB(4)\fP (constexpr since C++14)
+  get( const tuple<Types...>&& t ) noexcept;
+  template< class T, class... Types >                            \fB(5)\fP \fI(since C++14)\fP
+  constexpr T& get(tuple<Types...>& t) noexcept;
+  template< class T, class... Types >                            \fB(6)\fP \fI(since C++14)\fP
+  constexpr T&& get(tuple<Types...>&& t) noexcept;
+  template< class T, class... Types >                            \fB(7)\fP \fI(since C++14)\fP
+  constexpr const T& get(const tuple<Types...>& t) noexcept;
+  template< class T, class... Types >                            \fB(8)\fP \fI(since C++14)\fP
+  constexpr const T&& get(const tuple<Types...>&& t) noexcept;
 
-1-4) Extracts the Ith element from the tuple. I must be an integer value in [0, sizeof...(Types)).
-5-8) Extracts the element of the tuple t whose type is T. Fails to compile unless the tuple has exactly one element of that type.
+  1-4) Extracts the Ith element from the tuple. I must be an integer value in [0, sizeof...(Types)).
+  5-8) Extracts the element of the tuple t whose type is T. Fails to compile unless the tuple has exactly one element of that type.
 
 .SH Parameters
 
 
-t - tuple whose contents to extract
+  t - tuple whose contents to extract
 
 
 .SH Return value
 
-A reference to the selected element of t.
+  A reference to the selected element of t.
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                    Correct behavior
-LWG_2485 C++11      there are no overloads for const tuple&& the overloads are added
+  DR       Applied to Behavior as published                    Correct behavior
+  LWG_2485 C++11      there are no overloads for const tuple&& the overloads are added
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <string>
-  #include <tuple>
+    #include <iostream>
+    #include <string>
+    #include <tuple>
 
-  int main()
-  {
-      auto t = std::make_tuple(1, "Foo", 3.14);
-      // index-based access
-      std::cout << "(" << std::get<0>(t) << ", " << std::get<1>(t)
-                << ", " << std::get<2>(t) << ")\\n";
-      // type-based access
-      std::cout << "(" << std::get<int>(t) << ", " << std::get<const char*>(t)
-                << ", " << std::get<double>(t) << ")\\n";
-      // Note: std::tie and structured binding may also be used to decompose a tuple
-  }
+    int main()
+    {
+        auto t = std::make_tuple(1, "Foo", 3.14);
+        // index-based access
+        std::cout << "(" << std::get<0>(t) << ", " << std::get<1>(t)
+                  << ", " << std::get<2>(t) << ")\\n";
+        // type-based access
+        std::cout << "(" << std::get<int>(t) << ", " << std::get<const char*>(t)
+                  << ", " << std::get<double>(t) << ")\\n";
+        // Note: std::tie and structured binding may also be used to decompose a tuple
+    }
 
 .SH Output:
 
-  (1, Foo, 3.14)
-  (1, Foo, 3.14)
+    (1, Foo, 3.14)
+    (1, Foo, 3.14)
 
 
 .SH See also
 
 
-                       accesses an element of an array
-std::get(std::array)   \fI(function template)\fP
+                         accesses an element of an array
+  std::get(std::array)   \fI(function template)\fP
 
-std::get(std::pair)    accesses an element of a pair
-                       \fI(function template)\fP
-\fI(C++11)\fP
+  std::get(std::pair)    accesses an element of a pair
+                         \fI(function template)\fP
+  \fI(C++11)\fP
 
-std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
-                       \fI(function template)\fP
-\fI(C++17)\fP
+  std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
+                         \fI(function template)\fP
+  \fI(C++17)\fP
 
 
 

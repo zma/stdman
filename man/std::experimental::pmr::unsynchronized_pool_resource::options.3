@@ -4,20 +4,20 @@ std::experimental::pmr::unsynchronized_pool_resource::options \- std::experiment
 
 .SH Synopsis
 
-pool_options options() const;  (library fundamentals TS)
+  pool_options options() const;  (library fundamentals TS)
 
-Returns the options that controls the pooling behavior of this resource.
-The values in the returned struct may differ from those supplied to the constructor in the following ways:
+  Returns the options that controls the pooling behavior of this resource.
+  The values in the returned struct may differ from those supplied to the constructor in the following ways:
 
-* Values of zero will be replaced with implementation-specified defaults;
-* Sizes may be rounded to an unspecified granularity.
+  * Values of zero will be replaced with implementation-specified defaults;
+  * Sizes may be rounded to an unspecified granularity.
 
 
 .SH See also
 
 
-              Constructs a unsynchronized_pool_resource
-constructor   \fI(public member function)\fP
+                Constructs a unsynchronized_pool_resource
+  constructor   \fI(public member function)\fP
 
 
 

@@ -4,43 +4,43 @@ std::experimental::filesystem::directory_entry \- std::experimental::filesystem:
 
 .SH Synopsis
 
-Defined in header <experimental/filesystem>
-class directory_entry;                       (filesystem TS)
+  Defined in header <experimental/filesystem>
+  class directory_entry;                       (filesystem TS)
 
-Represents a directory entry. The objects stores a path and two file_status objects: one for file status and the second for the pointed-to file status if the directory entry refers to a symbolic link.
+  Represents a directory entry. The objects stores a path and two file_status objects: one for file status and the second for the pointed-to file status if the directory entry refers to a symbolic link.
 
 .SH Member functions
 
 
-                     constructs a directory entry
-constructor          \fI(public member function)\fP
-                     default destructor
-destructor           \fI(public member function)\fP
+                       constructs a directory entry
+  constructor          \fI(public member function)\fP
+                       default destructor
+  destructor           \fI(public member function)\fP
 
 .SH Modifiers
 
-                     assigns contents
-operator=            \fI(public member function)\fP
-                     assigns contents
-assign               \fI(public member function)\fP
-                     sets the filename
-replace_filename     \fI(public member function)\fP
+                       assigns contents
+  operator=            \fI(public member function)\fP
+                       assigns contents
+  assign               \fI(public member function)\fP
+                       sets the filename
+  replace_filename     \fI(public member function)\fP
 
 .SH Observers
 
-                     returns the path the entry refers to
-path                 \fI(public member function)\fP
-operator_const_path&
-                     cached status of the file designated by this directory entry
-status               cached symlink_status of the file designated by this directory entry
-symlink_status       \fI(public member function)\fP
+                       returns the path the entry refers to
+  path                 \fI(public member function)\fP
+  operator_const_path&
+                       cached status of the file designated by this directory entry
+  status               cached symlink_status of the file designated by this directory entry
+  symlink_status       \fI(public member function)\fP
 
-operator==
-operator!=           compares two directory entries
-operator<            \fI(public member function)\fP
-operator<=
-operator>
-operator>=
+  operator==
+  operator!=           compares two directory entries
+  operator<            \fI(public member function)\fP
+  operator<=
+  operator>
+  operator>=
 
 
 

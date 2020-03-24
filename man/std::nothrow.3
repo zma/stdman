@@ -4,52 +4,52 @@ std::nothrow \- std::nothrow
 
 .SH Synopsis
 
-Defined in header <new>
-extern const std::nothrow_t nothrow;
+  Defined in header <new>
+  extern const std::nothrow_t nothrow;
 
-std::nothrow is a constant of type std::nothrow_t used to disambiguate the overloads of throwing and non-throwing allocation_functions.
+  std::nothrow is a constant of type std::nothrow_t used to disambiguate the overloads of throwing and non-throwing allocation_functions.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <new>
+    #include <iostream>
+    #include <new>
 
-  int main()
-  {
-      try {
-          while (true) {
-              new int[100000000ul];   // throwing overload
-          }
-      } catch (const std::bad_alloc& e) {
-          std::cout << e.what() << '\\n';
-      }
+    int main()
+    {
+        try {
+            while (true) {
+                new int[100000000ul];   // throwing overload
+            }
+        } catch (const std::bad_alloc& e) {
+            std::cout << e.what() << '\\n';
+        }
 
-      while (true) {
-          int* p = new(std::nothrow) int[100000000ul]; // non-throwing overload
-          if (p == nullptr) {
-              std::cout << "Allocation returned nullptr\\n";
-              break;
-          }
-      }
-  }
+        while (true) {
+            int* p = new(std::nothrow) int[100000000ul]; // non-throwing overload
+            if (p == nullptr) {
+                std::cout << "Allocation returned nullptr\\n";
+                break;
+            }
+        }
+    }
 
 .SH Output:
 
-  std::bad_alloc
-  Allocation returned nullptr
+    std::bad_alloc
+    Allocation returned nullptr
 
 
 .SH See also
 
 
-               tag type used to select an non-throwing allocation function
-nothrow_t      \fI(class)\fP
-               allocation functions
-operator_new   \fI(function)\fP
-operator_new[]
+                 tag type used to select an non-throwing allocation function
+  nothrow_t      \fI(class)\fP
+                 allocation functions
+  operator_new   \fI(function)\fP
+  operator_new[]
 
 
 

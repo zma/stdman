@@ -4,27 +4,27 @@ std::experimental::atomic_weak_ptr<T>::operatorweak_ptr<T> \- std::experimental:
 
 .SH Synopsis
 
-operator weak_ptr<T>() const noexcept;
+  operator weak_ptr<T>() const noexcept;
 
-Atomically loads and returns the current value of the atomic_weak_ptr. Equivalent to load().
+  Atomically loads and returns the current value of the atomic_weak_ptr. Equivalent to load().
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The current value of the atomic_weak_ptr.
+  The current value of the atomic_weak_ptr.
 
-Remarks
+  Remarks
 
-All associated use_count increments are guaranteed to be performed as part of the atomic operation.
+  All associated use_count increments are guaranteed to be performed as part of the atomic operation.
 
 .SH See also
 
 
-     atomically obtains the value of the atomic object
-load \fI(public member function)\fP
+       atomically obtains the value of the atomic object
+  load \fI(public member function)\fP
 
 
 

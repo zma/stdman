@@ -4,71 +4,71 @@ std::experimental::promise(libraryfundamentalsTS) \- std::experimental::promise(
 
 .SH Synopsis
 
-Defined in header <experimental/future>
-template< class R > class promise;      \fB(1)\fP (library fundamentals TS)
-template< class R > class promise<R&>;  \fB(2)\fP (library fundamentals TS)
-template<> class promise<void>;         \fB(3)\fP (library fundamentals TS)
+  Defined in header <experimental/future>
+  template< class R > class promise;      \fB(1)\fP (library fundamentals TS)
+  template< class R > class promise<R&>;  \fB(2)\fP (library fundamentals TS)
+  template<> class promise<void>;         \fB(3)\fP (library fundamentals TS)
 
-std::experimental::fundamentals_v1::promise (and std::experimental::fundamentals_v2::promise) is a modified version of std::promise provided by the library fundamentals TS with support for type-erased allocators.
+  std::experimental::fundamentals_v1::promise (and std::experimental::fundamentals_v2::promise) is a modified version of std::promise provided by the library fundamentals TS with support for type-erased allocators.
 
 .SH Member types
 
 
-Member type    Definition
-allocator_type std::experimental::erased_type
+  Member type    Definition
+  allocator_type std::experimental::erased_type
 
 
 .SH Member functions
 
 
-                    constructs the promise object
-constructor         \fI(public member function)\fP
-                    retrieves a pointer to the memory resource used by this object to allocate memory
-get_memory_resource \fI(public member function)\fP
+                      constructs the promise object
+  constructor         \fI(public member function)\fP
+                      retrieves a pointer to the memory resource used by this object to allocate memory
+  get_memory_resource \fI(public member function)\fP
 
 
-Non-member function
+  Non-member function
 
 
-                                                    specializes the swap algorithm
-std::experimental::swap(std::experimental::promise) \fI(function template)\fP
+                                                      specializes the swap algorithm
+  std::experimental::swap(std::experimental::promise) \fI(function template)\fP
 
 
 .SH Helper classes
 
 
-                                                specializes the std::uses_allocator type trait
-std::uses_allocator<std::experimental::promise> \fI(class template specialization)\fP
+                                                  specializes the std::uses_allocator type trait
+  std::uses_allocator<std::experimental::promise> \fI(class template specialization)\fP
 
 
-Members identical to std::promise
+  Members identical to std::promise
 
 
 .SH Member functions
 
 
-                             destructs the promise object
-destructor                   \fI(public member function of std::promise<R>)\fP
-                             assigns the shared state
-operator=                    \fI(public member function of std::promise<R>)\fP
-                             swaps two promise objects
-swap                         \fI(public member function of std::promise<R>)\fP
+                               destructs the promise object
+  destructor                   \fI(public member function of std::promise<R>)\fP
+                               assigns the shared state
+  operator=                    \fI(public member function of std::promise<R>)\fP
+                               swaps two promise objects
+  swap                         \fI(public member function of std::promise<R>)\fP
 
 .SH Getting the result
 
-                             returns a future associated with the promised result
-get_future                   \fI(public member function of std::promise<R>)\fP
+                               returns a future associated with the promised result
+  get_future                   \fI(public member function of std::promise<R>)\fP
 
 .SH Setting the result
 
-                             sets the result to specific value
-set_value                    \fI(public member function of std::promise<R>)\fP
-                             sets the result to specific value while delivering the notification only at thread exit
-set_value_at_thread_exit     \fI(public member function of std::promise<R>)\fP
-                             sets the result to indicate an exception
-set_exception                \fI(public member function of std::promise<R>)\fP
-                             sets the result to indicate an exception while delivering the notification only at thread exit
-set_exception_at_thread_exit \fI(public member function of std::promise<R>)\fP
+                               sets the result to specific value
+  set_value                    \fI(public member function of std::promise<R>)\fP
+                               sets the result to specific value while delivering the notification only at thread exit
+  set_value_at_thread_exit     \fI(public member function of std::promise<R>)\fP
+                               sets the result to indicate an exception
+  set_exception                \fI(public member function of std::promise<R>)\fP
+                               sets the result to indicate an exception while delivering the notification only at thread exit
+  set_exception_at_thread_exit \fI(public member function of std::promise<R>)\fP
 
 
 

@@ -4,75 +4,75 @@ std::chrono::ceil(std::chrono::duration) \- std::chrono::ceil(std::chrono::durat
 
 .SH Synopsis
 
-Defined in header <chrono>
-template <class ToDuration, class Rep, class Period>        \fI(since C++17)\fP
-constexpr ToDuration ceil(const duration<Rep, Period>& d);
+  Defined in header <chrono>
+  template <class ToDuration, class Rep, class Period>        \fI(since C++17)\fP
+  constexpr ToDuration ceil(const duration<Rep, Period>& d);
 
-Returns the smallest duration t representable in ToDuration that is greater or equal to d.
-The function does not participate in the overload resolution unless ToDuration is an instance of std::chrono::duration.
+  Returns the smallest duration t representable in ToDuration that is greater or equal to d.
+  The function does not participate in the overload resolution unless ToDuration is an instance of std::chrono::duration.
 
 .SH Parameters
 
 
-d - duration to convert
+  d - duration to convert
 
 
 .SH Return value
 
-d rounded up to a duration of type ToDuration.
+  d rounded up to a duration of type ToDuration.
 
 .SH Possible implementation
 
 
 
-  template <class T> struct is_duration : std::false_type {};
-  template <class Rep, class Period> struct is_duration<
-      std::chrono::duration<Rep, Period>> : std::true_type {};
+    template <class T> struct is_duration : std::false_type {};
+    template <class Rep, class Period> struct is_duration<
+        std::chrono::duration<Rep, Period>> : std::true_type {};
 
-  template <class To, class Rep, class Period,
-            class = enable_if_t<is_duration<To>{}>>
-  constexpr To ceil(const std::chrono::duration<Rep, Period>& d)
-  {
-      To t = std::chrono::duration_cast<To>(d);
-      if (t < d)
-          return t + To{1};
-      return t;
-  }
+    template <class To, class Rep, class Period,
+              class = enable_if_t<is_duration<To>{}>>
+    constexpr To ceil(const std::chrono::duration<Rep, Period>& d)
+    {
+        To t = std::chrono::duration_cast<To>(d);
+        if (t < d)
+            return t + To{1};
+        return t;
+    }
 
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-                              converts a duration to another, with a different tick interval
-duration_cast                 \fI(function template)\fP
+                                converts a duration to another, with a different tick interval
+  duration_cast                 \fI(function template)\fP
 
-floor(std::chrono::duration)  converts a duration to another, rounding down
-                              \fI(function template)\fP
-\fI(C++17)\fP
+  floor(std::chrono::duration)  converts a duration to another, rounding down
+                                \fI(function template)\fP
+  \fI(C++17)\fP
 
-round(std::chrono::duration)  converts a duration to another, rounding to nearest, ties to even
-                              \fI(function template)\fP
-\fI(C++17)\fP
+  round(std::chrono::duration)  converts a duration to another, rounding to nearest, ties to even
+                                \fI(function template)\fP
+  \fI(C++17)\fP
 
-ceil(std::chrono::time_point) converts a time_point to another, rounding up
-                              \fI(function template)\fP
-\fI(C++17)\fP
+  ceil(std::chrono::time_point) converts a time_point to another, rounding up
+                                \fI(function template)\fP
+  \fI(C++17)\fP
 
-ceil
-ceilf
-ceill                         nearest integer not less than the given value
-                              \fI(function)\fP
+  ceil
+  ceilf
+  ceill                         nearest integer not less than the given value
+                                \fI(function)\fP
 
-\fI(C++11)\fP
-\fI(C++11)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
 
 
 

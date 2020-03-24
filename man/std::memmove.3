@@ -4,72 +4,72 @@ std::memmove \- std::memmove
 
 .SH Synopsis
 
-Defined in header <cstring>
-void* memmove( void* dest, const void* src, std::size_t count );
+  Defined in header <cstring>
+  void* memmove( void* dest, const void* src, std::size_t count );
 
-Copies count characters from the object pointed to by src to the object pointed to by dest. Both objects are reinterpreted as arrays of unsigned char.
-The objects may overlap: copying takes place as if the characters were copied to a temporary character array and then the characters were copied from the array to dest.
-If the objects are potentially-overlapping or not TriviallyCopyable, the behavior of memmove is not specified and may_be_undefined.
+  Copies count characters from the object pointed to by src to the object pointed to by dest. Both objects are reinterpreted as arrays of unsigned char.
+  The objects may overlap: copying takes place as if the characters were copied to a temporary character array and then the characters were copied from the array to dest.
+  If the objects are potentially-overlapping or not TriviallyCopyable, the behavior of memmove is not specified and may_be_undefined.
 
 .SH Parameters
 
 
-dest  - pointer to the memory location to copy to
-src   - pointer to the memory location to copy from
-count - number of bytes to copy
+  dest  - pointer to the memory location to copy to
+  src   - pointer to the memory location to copy from
+  count - number of bytes to copy
 
 
 .SH Return value
 
-dest
+  dest
 
 .SH Notes
 
-Despite being specified "as if" a temporary buffer is used, actual implementations of this function do not incur the overhead of double copying or extra memory. For small count, it may load up and write out registers; for larger blocks, a common approach (glibc and bsd libc) is to copy bytes forwards from the beginning of the buffer if the destination starts before the source, and backwards from the end otherwise, with a fall back to std::memcpy when there is no overlap at all.
+  Despite being specified "as if" a temporary buffer is used, actual implementations of this function do not incur the overhead of double copying or extra memory. For small count, it may load up and write out registers; for larger blocks, a common approach (glibc and bsd libc) is to copy bytes forwards from the beginning of the buffer if the destination starts before the source, and backwards from the end otherwise, with a fall back to std::memcpy when there is no overlap at all.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <cstring>
+    #include <iostream>
+    #include <cstring>
 
-  int main()
-  {
-      char str[] = "1234567890";
-      std::cout << str << '\\n';
-      std::memmove(str + 4, str + 3, 3); // copies from [4, 5, 6] to [5, 6, 7]
-      std::cout << str << '\\n';
-  }
+    int main()
+    {
+        char str[] = "1234567890";
+        std::cout << str << '\\n';
+        std::memmove(str + 4, str + 3, 3); // copies from [4, 5, 6] to [5, 6, 7]
+        std::cout << str << '\\n';
+    }
 
 .SH Output:
 
-  1234567890
-  1234456890
+    1234567890
+    1234456890
 
 
 .SH See also
 
 
-                      copies one buffer to another
-memcpy                \fI(function)\fP
-                      fills a buffer with a character
-memset                \fI(function)\fP
-                      copies a certain amount of wide characters between two, possibly overlapping, arrays
-wmemmove              \fI(function)\fP
+                        copies one buffer to another
+  memcpy                \fI(function)\fP
+                        fills a buffer with a character
+  memset                \fI(function)\fP
+                        copies a certain amount of wide characters between two, possibly overlapping, arrays
+  wmemmove              \fI(function)\fP
 
-copy
-copy_if               copies a range of elements to a new location
-                      \fI(function template)\fP
+  copy
+  copy_if               copies a range of elements to a new location
+                        \fI(function template)\fP
 
-\fI(C++11)\fP
-                      copies a range of elements in backwards order
-copy_backward         \fI(function template)\fP
+  \fI(C++11)\fP
+                        copies a range of elements in backwards order
+  copy_backward         \fI(function template)\fP
 
-is_trivially_copyable checks if a type is trivially copyable
-                      \fI(class template)\fP
-\fI(C++11)\fP
+  is_trivially_copyable checks if a type is trivially copyable
+                        \fI(class template)\fP
+  \fI(C++11)\fP
 
 
 

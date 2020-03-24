@@ -4,59 +4,59 @@ std::random_device::random_device \- std::random_device::random_device
 
 .SH Synopsis
 
-random_device() : random_device(/*implementation-defined*/) {} \fB(1)\fP \fI(since C++11)\fP
-explicit random_device(const std::string& token);              \fB(2)\fP \fI(since C++11)\fP
-random_device(const random_device& ) = delete;                 \fB(3)\fP \fI(since C++11)\fP
+  random_device() : random_device(/*implementation-defined*/) {} \fB(1)\fP \fI(since C++11)\fP
+  explicit random_device(const std::string& token);              \fB(2)\fP \fI(since C++11)\fP
+  random_device(const random_device& ) = delete;                 \fB(3)\fP \fI(since C++11)\fP
 
-1) Default constructs a new std::random_device object with an implementation-defined token.
-2) Constructs a new std::random_device object, making use of the argument token in an implementation-defined manner.
-3) The copy constructor is deleted: std::random_device is not copyable nor movable.
+  1) Default constructs a new std::random_device object with an implementation-defined token.
+  2) Constructs a new std::random_device object, making use of the argument token in an implementation-defined manner.
+  3) The copy constructor is deleted: std::random_device is not copyable nor movable.
 
 .SH Exceptions
 
-Throws an implementation-defined exceptions derived from std::exception on failure.
+  Throws an implementation-defined exceptions derived from std::exception on failure.
 
 .SH Notes
 
-The implementations in libc++ and libstdc++ expect token to be the name of a character device that produces random numbers when read from, with the default value "/dev/urandom", although where the CPU instruction RDRND is available, libstdc++ uses that as the default.
+  The implementations in libc++ and libstdc++ expect token to be the name of a character device that produces random numbers when read from, with the default value "/dev/urandom", although where the CPU instruction RDRND is available, libstdc++ uses that as the default.
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR      Applied to Behavior as published            Correct behavior
-P0935R0 C++11      default constructor was explicit made implicit
+  DR      Applied to Behavior as published            Correct behavior
+  P0935R0 C++11      default constructor was explicit made implicit
 
 
 .SH Example
 
-Demonstrates the two commonly available types of std::random_device on Linux
-
+  Demonstrates the two commonly available types of std::random_device on Linux
+  
 // Run this code
 
-  #include <iostream>
-  #include <random>
+    #include <iostream>
+    #include <random>
 
-  int main()
-  {
+    int main()
+    {
 
-      std::uniform_int_distribution<int> d(0, 10);
+        std::uniform_int_distribution<int> d(0, 10);
 
-      std::random_device rd1; // uses RDRND or /dev/urandom
-      for(int n = 0; n < 10; ++n)
-          std::cout << d(rd1) << ' ';
-      std::cout << '\\n';
+        std::random_device rd1; // uses RDRND or /dev/urandom
+        for(int n = 0; n < 10; ++n)
+            std::cout << d(rd1) << ' ';
+        std::cout << '\\n';
 
-      std::random_device rd2("/dev/random"); // much slower on Linux
-      for(int n = 0; n < 10; ++n)
-          std::cout << d(rd2) << ' ';
-      std::cout << '\\n';
-  }
+        std::random_device rd2("/dev/random"); // much slower on Linux
+        for(int n = 0; n < 10; ++n)
+            std::cout << d(rd2) << ' ';
+        std::cout << '\\n';
+    }
 
 .SH Possible output:
 
-  7 10 7 0 4 4 6 9 4 7
-  2 4 10 6 3 2 0 6 3 7
+    7 10 7 0 4 4 6 9 4 7
+    2 4 10 6 3 2 0 6 3 7
 
 
 

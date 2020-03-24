@@ -4,91 +4,91 @@ std::back_insert_iterator \- std::back_insert_iterator
 
 .SH Synopsis
 
-Defined in header <iterator>
-template< class Container >
-class back_insert_iterator : public std::iterator< std::output_iterator_tag,  \fI(until C++17)\fP
-void, void, void, void >
-template< class Container >                                                   \fI(since C++17)\fP
-class back_insert_iterator;
+  Defined in header <iterator>
+  template< class Container >
+  class back_insert_iterator : public std::iterator< std::output_iterator_tag,  \fI(until C++17)\fP
+  void, void, void, void >
+  template< class Container >                                                   \fI(since C++17)\fP
+  class back_insert_iterator;
 
-std::back_insert_iterator is an LegacyOutputIterator that appends to a container for which it was constructed. The container's push_back() member function is called whenever the iterator (whether dereferenced or not) is assigned to. Incrementing the std::back_insert_iterator is a no-op.
+  std::back_insert_iterator is an LegacyOutputIterator that appends to a container for which it was constructed. The container's push_back() member function is called whenever the iterator (whether dereferenced or not) is assigned to. Incrementing the std::back_insert_iterator is a no-op.
 
 .SH Member types
 
 
-Member type    Definition
-container_type Container
+  Member type    Definition
+  container_type Container
 
 
 .SH Member functions
 
 
-                constructs a new back_insert_iterator
-constructor     \fI(public member function)\fP
-                inserts an object into the associated container
-operator=       \fI(public member function)\fP
-                no-op
-operator*       \fI(public member function)\fP
-                no-op
-operator++      \fI(public member function)\fP
-operator++(int)
+                  constructs a new back_insert_iterator
+  constructor     \fI(public member function)\fP
+                  inserts an object into the associated container
+  operator=       \fI(public member function)\fP
+                  no-op
+  operator*       \fI(public member function)\fP
+                  no-op
+  operator++      \fI(public member function)\fP
+  operator++(int)
 
 
 .SH Member objects
 
 
-Member name           Definition
-container (protected) a pointer of type Container*
+  Member name           Definition
+  container (protected) a pointer of type Container*
 
 
 .SH Member types
 
 
-Member type       Definition
-value_type        void
-difference_type   void
-pointer           void
-reference         void
-iterator_category std::output_iterator_tag
+  Member type       Definition
+  value_type        void
+  difference_type   void
+  pointer           void
+  reference         void
+  iterator_category std::output_iterator_tag
 
 
-These member types are required to be obtained by inheriting from std::iterator<std::output_iterator_tag, void, void, void, void>. \fI(until C++17)\fP
+  These member types are required to be obtained by inheriting from std::iterator<std::output_iterator_tag, void, void, void, void>. \fI(until C++17)\fP
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <iterator>
-  #include <algorithm>
-  #include <vector>
+    #include <iostream>
+    #include <iterator>
+    #include <algorithm>
+    #include <vector>
 
-  int main()
-  {
-      std::vector<int> v;
-      std::generate_n(std::back_insert_iterator<std::vector<int>>(v), // can be simplified
-                      10, [n=0]() mutable { return ++n; });        // with std::back_inserter
-      for (int n : v)
-          std::cout << n << ' ';
-      std::cout << '\\n';
-  }
+    int main()
+    {
+        std::vector<int> v;
+        std::generate_n(std::back_insert_iterator<std::vector<int>>(v), // can be simplified
+                        10, [n=0]() mutable { return ++n; });        // with std::back_inserter
+        for (int n : v)
+            std::cout << n << ' ';
+        std::cout << '\\n';
+    }
 
 .SH Output:
 
-  1 2 3 4 5 6 7 8 9 10
+    1 2 3 4 5 6 7 8 9 10
 
 
 .SH See also
 
 
-                      creates a std::back_insert_iterator of type inferred from the argument
-back_inserter         \fI(function template)\fP
-                      iterator adaptor for insertion at the front of a container
-front_insert_iterator \fI(class template)\fP
-                      iterator adaptor for insertion into a container
-insert_iterator       \fI(class template)\fP
+                        creates a std::back_insert_iterator of type inferred from the argument
+  back_inserter         \fI(function template)\fP
+                        iterator adaptor for insertion at the front of a container
+  front_insert_iterator \fI(class template)\fP
+                        iterator adaptor for insertion into a container
+  insert_iterator       \fI(class template)\fP
 
 
 

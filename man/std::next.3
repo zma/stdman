@@ -4,91 +4,91 @@ std::next \- std::next
 
 .SH Synopsis
 
-Defined in header <iterator>
-template< class ForwardIt >
-ForwardIt next(                                                     \fI(since C++11)\fP
-ForwardIt it,                                                       \fI(until C++17)\fP
-typename std::iterator_traits<ForwardIt>::difference_type n = 1 );
-template< class InputIt >
-constexpr InputIt next(                                             \fI(since C++17)\fP
-InputIt it,
-typename std::iterator_traits<InputIt>::difference_type n = 1 );
+  Defined in header <iterator>
+  template< class ForwardIt >
+  ForwardIt next(                                                     \fI(since C++11)\fP
+  ForwardIt it,                                                       \fI(until C++17)\fP
+  typename std::iterator_traits<ForwardIt>::difference_type n = 1 );
+  template< class InputIt >
+  constexpr InputIt next(                                             \fI(since C++17)\fP
+  InputIt it,
+  typename std::iterator_traits<InputIt>::difference_type n = 1 );
 
-Return the nth successor of iterator it.
+  Return the nth successor of iterator it.
 
 .SH Parameters
 
 
-it - an iterator
-n  - number of elements to advance
+  it - an iterator
+  n  - number of elements to advance
 .SH Type requirements
--
-ForwardIt must meet the requirements of LegacyForwardIterator.
--
-InputIt must meet the requirements of LegacyInputIterator.
+  -
+  ForwardIt must meet the requirements of LegacyForwardIterator.
+  -
+  InputIt must meet the requirements of LegacyInputIterator.
 
 
 .SH Return value
 
-The nth successor of iterator it.
+  The nth successor of iterator it.
 
 .SH Complexity
 
-Linear.
-However, if InputIt or ForwardIt additionally meets the requirements of LegacyRandomAccessIterator, complexity is constant.
+  Linear.
+  However, if InputIt or ForwardIt additionally meets the requirements of LegacyRandomAccessIterator, complexity is constant.
 
 .SH Possible implementation
 
 
 
-  template<class ForwardIt>
-  ForwardIt next(ForwardIt it,
-                 typename std::iterator_traits<ForwardIt>::difference_type n = 1)
-  {
-      std::advance(it, n);
-      return it;
-  }
+    template<class ForwardIt>
+    ForwardIt next(ForwardIt it,
+                   typename std::iterator_traits<ForwardIt>::difference_type n = 1)
+    {
+        std::advance(it, n);
+        return it;
+    }
 
 
 
 .SH Notes
 
-Although the expression ++c.begin() often compiles, it is not guaranteed to do so: c.begin() is an rvalue expression, and there is no LegacyBidirectionalIterator requirement that specifies that increment of an rvalue is guaranteed to work. In particular, when iterators are implemented as pointers, ++c.begin() does not compile, while std::next(c.begin()) does.
+  Although the expression ++c.begin() often compiles, it is not guaranteed to do so: c.begin() is an rvalue expression, and there is no LegacyBidirectionalIterator requirement that specifies that increment of an rvalue is guaranteed to work. In particular, when iterators are implemented as pointers, ++c.begin() does not compile, while std::next(c.begin()) does.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <iterator>
-  #include <vector>
+    #include <iostream>
+    #include <iterator>
+    #include <vector>
 
-  int main()
-  {
-      std::vector<int> v{ 3, 1, 4 };
+    int main()
+    {
+        std::vector<int> v{ 3, 1, 4 };
 
-      auto it = v.begin();
+        auto it = v.begin();
 
-      auto nx = std::next(it, 2);
+        auto nx = std::next(it, 2);
 
-      std::cout << *it << ' ' << *nx << '\\n';
-  }
+        std::cout << *it << ' ' << *nx << '\\n';
+    }
 
 .SH Output:
 
-  3 4
+    3 4
 
 
 .SH See also
 
 
 
-prev    decrement an iterator
-        \fI(function template)\fP
-\fI(C++11)\fP
-        advances an iterator by given distance
-advance \fI(function template)\fP
+  prev    decrement an iterator
+          \fI(function template)\fP
+  \fI(C++11)\fP
+          advances an iterator by given distance
+  advance \fI(function template)\fP
 
 
 

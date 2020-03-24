@@ -4,27 +4,27 @@ std::UnsignedIntegral \- std::UnsignedIntegral
 
 .SH Synopsis
 
-Defined in header <concepts>
-template < class T >                                                     \fI(since C++20)\fP
-concept UnsignedIntegral = std::Integral<T> && !std::SignedIntegral<T>;
+  Defined in header <concepts>
+  template < class T >                                                     \fI(since C++20)\fP
+  concept UnsignedIntegral = std::Integral<T> && !std::SignedIntegral<T>;
 
-The concept UnsignedIntegral<T> is satisfied if and only if T is an integral type and std::is_signed_v<T> is false.
+  The concept UnsignedIntegral<T> is satisfied if and only if T is an integral type and std::is_signed_v<T> is false.
 
 .SH Notes
 
-UnsignedIntegral<T> may be satisfied by a type that is not a unsigned_integer_type, for example, bool.
+  UnsignedIntegral<T> may be satisfied by a type that is not a unsigned_integer_type, for example, bool.
 
 .SH See also
 
 
 
-is_integral checks if a type is an integral type
-            \fI(class template)\fP
-\fI(C++11)\fP
+  is_integral checks if a type is an integral type
+              \fI(class template)\fP
+  \fI(C++11)\fP
 
-is_signed   checks if a type is a signed arithmetic type
-            \fI(class template)\fP
-\fI(C++11)\fP
+  is_signed   checks if a type is a signed arithmetic type
+              \fI(class template)\fP
+  \fI(C++11)\fP
 
 
 

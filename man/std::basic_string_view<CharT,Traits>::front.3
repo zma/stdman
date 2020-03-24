@@ -4,29 +4,29 @@ std::basic_string_view<CharT,Traits>::front \- std::basic_string_view<CharT,Trai
 
 .SH Synopsis
 
-constexpr const_reference front() const;  \fI(since C++17)\fP
+  constexpr const_reference front() const;  \fI(since C++17)\fP
 
-Returns reference to the first character in the view. The behavior is undefined if empty() == true.
+  Returns reference to the first character in the view. The behavior is undefined if empty() == true.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-reference to the first character, equivalent to operator[]\fB(0)\fP.
+  reference to the first character, equivalent to operator[]\fB(0)\fP.
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH See also
 
 
-      accesses the last character
-back  \fI(public member function)\fP
-      checks whether the view is empty
-empty \fI(public member function)\fP
+        accesses the last character
+  back  \fI(public member function)\fP
+        checks whether the view is empty
+  empty \fI(public member function)\fP
 
 
 

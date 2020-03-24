@@ -4,27 +4,27 @@ std::SignedIntegral \- std::SignedIntegral
 
 .SH Synopsis
 
-Defined in header <concepts>
-template < class T >                                               \fI(since C++20)\fP
-concept SignedIntegral = std::Integral<T> && std::is_signed_v<T>;
+  Defined in header <concepts>
+  template < class T >                                               \fI(since C++20)\fP
+  concept SignedIntegral = std::Integral<T> && std::is_signed_v<T>;
 
-The concept SignedIntegral<T> is satisfied if and only if T is an integral type and std::is_signed_v<T> is true.
+  The concept SignedIntegral<T> is satisfied if and only if T is an integral type and std::is_signed_v<T> is true.
 
 .SH Notes
 
-SignedIntegral<T> may be satisfied by a type that is not a signed_integer_type, for example, char (on a system where char is signed).
+  SignedIntegral<T> may be satisfied by a type that is not a signed_integer_type, for example, char (on a system where char is signed).
 
 .SH See also
 
 
 
-is_integral checks if a type is an integral type
-            \fI(class template)\fP
-\fI(C++11)\fP
+  is_integral checks if a type is an integral type
+              \fI(class template)\fP
+  \fI(C++11)\fP
 
-is_signed   checks if a type is a signed arithmetic type
-            \fI(class template)\fP
-\fI(C++11)\fP
+  is_signed   checks if a type is a signed arithmetic type
+              \fI(class template)\fP
+  \fI(C++11)\fP
 
 
 

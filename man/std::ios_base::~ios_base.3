@@ -4,11 +4,11 @@ std::ios_base::~ios_base \- std::ios_base::~ios_base
 
 .SH Synopsis
 
-virtual ~ios_base();
+  virtual ~ios_base();
 
-Destroys the ios_base object.
-Before any of the member functions would yield undefined results, calls callbacks, registered by register_callback() passing erase_event as parameter.
-No operations on rdbuf are performed, it is not destroyed.
+  Destroys the ios_base object.
+  Before any of the member functions would yield undefined results, calls callbacks, registered by register_callback() passing erase_event as parameter.
+  No operations on rdbuf are performed, it is not destroyed.
 
 
 

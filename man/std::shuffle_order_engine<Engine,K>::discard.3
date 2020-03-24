@@ -4,29 +4,29 @@ std::shuffle_order_engine<Engine,K>::discard \- std::shuffle_order_engine<Engine
 
 .SH Synopsis
 
-void discard( unsigned long long z );  \fI(since C++11)\fP
+  void discard( unsigned long long z );  \fI(since C++11)\fP
 
-Advances the internal state by z times. Equivalent to calling operator() z times and discarding the result. The state of the underlying engine may be advanced by more than z times.
+  Advances the internal state by z times. Equivalent to calling operator() z times and discarding the result. The state of the underlying engine may be advanced by more than z times.
 
 .SH Parameters
 
 
-z - integer value specifying the number of times to advance the state by
+  z - integer value specifying the number of times to advance the state by
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH See also
 
 
-           advances the state of the underlying engine and returns the generated value
-operator() \fI(public member function)\fP
+             advances the state of the underlying engine and returns the generated value
+  operator() \fI(public member function)\fP
 
 
 

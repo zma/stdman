@@ -4,94 +4,94 @@ std::pmr::polymorphic_allocator \- std::pmr::polymorphic_allocator
 
 .SH Synopsis
 
-template< class T >              \fI(since C++17)\fP
-class polymorphic_allocator;     \fI(until C++20)\fP
-template< class T = std::byte >  \fI(since C++20)\fP
-class polymorphic_allocator;
+  template< class T >              \fI(since C++17)\fP
+  class polymorphic_allocator;     \fI(until C++20)\fP
+  template< class T = std::byte >  \fI(since C++20)\fP
+  class polymorphic_allocator;
 
-The class template std::pmr::polymorphic_allocator is an Allocator whose allocation behavior depends on the memory resource it is constructed with. Thus, different instances of polymorphic_allocator can exhibit entirely different allocation behavior. This runtime polymorphism allows objects using polymorphic_allocator to behave as if they used different allocator types at run time despite the identical static allocator type.
-All specializations of polymorphic_allocator meet the Allocator_completeness_requirements.
+  The class template std::pmr::polymorphic_allocator is an Allocator whose allocation behavior depends on the memory resource it is constructed with. Thus, different instances of polymorphic_allocator can exhibit entirely different allocation behavior. This runtime polymorphism allows objects using polymorphic_allocator to behave as if they used different allocator types at run time despite the identical static allocator type.
+  All specializations of polymorphic_allocator meet the Allocator_completeness_requirements.
 
 .SH Member types
 
 
-Member type definition
-value_type  T
+  Member type definition
+  value_type  T
 
 
 .SH Member functions
 
 
-                                      Constructs a polymorphic_allocator
-constructor                           \fI(public member function)\fP
+                                        Constructs a polymorphic_allocator
+  constructor                           \fI(public member function)\fP
 
-destructor                            Implicitly declared destructor
-                                      \fI(public member function)\fP
-(implicitly declared)
+  destructor                            Implicitly declared destructor
+                                        \fI(public member function)\fP
+  (implicitly declared)
 
-operator=                             Copy assignment operator is deleted
-                                      \fI(public member function)\fP
-[deleted]
+  operator=                             Copy assignment operator is deleted
+                                        \fI(public member function)\fP
+  [deleted]
 
 .SH Public member functions
 
-                                      Allocate memory
-allocate                              \fI(public member function)\fP
-                                      Deallocate memory
-deallocate                            \fI(public member function)\fP
-                                      Constructs an object in allocated storage
-construct                             \fI(public member function)\fP
-                                      Destroys an object in allocated storage
-destroy                               \fI(public member function)\fP
+                                        Allocate memory
+  allocate                              \fI(public member function)\fP
+                                        Deallocate memory
+  deallocate                            \fI(public member function)\fP
+                                        Constructs an object in allocated storage
+  construct                             \fI(public member function)\fP
+                                        Destroys an object in allocated storage
+  destroy                               \fI(public member function)\fP
 
-allocate_bytes                        Allocate raw aligned memory from the underlying resource
-                                      \fI(public member function)\fP
-(C++20)
+  allocate_bytes                        Allocate raw aligned memory from the underlying resource
+                                        \fI(public member function)\fP
+  (C++20)
 
-deallocate_bytes                      Free raw memory obtained from allocate_bytes
-                                      \fI(public member function)\fP
-(C++20)
+  deallocate_bytes                      Free raw memory obtained from allocate_bytes
+                                        \fI(public member function)\fP
+  (C++20)
 
-allocate_object                       Allocates raw memory suitable for an object or an array
-                                      \fI(public member function)\fP
-(C++20)
+  allocate_object                       Allocates raw memory suitable for an object or an array
+                                        \fI(public member function)\fP
+  (C++20)
 
-deallocate_object                     Frees raw memory obtained by allocate_object
-                                      \fI(public member function)\fP
-(C++20)
+  deallocate_object                     Frees raw memory obtained by allocate_object
+                                        \fI(public member function)\fP
+  (C++20)
 
-new_object                            Allocates and constructs an object
-                                      \fI(public member function)\fP
-(C++20)
+  new_object                            Allocates and constructs an object
+                                        \fI(public member function)\fP
+  (C++20)
 
-delete_object                         Destroys and deallocates an object
-                                      \fI(public member function)\fP
-(C++20)
-                                      Create a new polymorphic_allocator for use by a container's copy constructor
-select_on_container_copy_construction \fI(public member function)\fP
-                                      Returns a pointer to the underlying memory resource
-resource                              \fI(public member function)\fP
+  delete_object                         Destroys and deallocates an object
+                                        \fI(public member function)\fP
+  (C++20)
+                                        Create a new polymorphic_allocator for use by a container's copy constructor
+  select_on_container_copy_construction \fI(public member function)\fP
+                                        Returns a pointer to the underlying memory resource
+  resource                              \fI(public member function)\fP
 
 
 .SH Non-member functions
 
 
-           compare two polymorphic_allocators
-operator== \fI(function)\fP
-operator!=
+             compare two polymorphic_allocators
+  operator== \fI(function)\fP
+  operator!=
 
 
 .SH Notes
 
-polymorphic_allocator does not propagate on container copy assignment, move assignment, or swap. As a result, move assignment of a polymorphic_allocator-using container can throw, and swapping two polymorphic_allocator-using containers whose allocators do not compare equal results in undefined behavior.
+  polymorphic_allocator does not propagate on container copy assignment, move assignment, or swap. As a result, move assignment of a polymorphic_allocator-using container can throw, and swapping two polymorphic_allocator-using containers whose allocators do not compare equal results in undefined behavior.
 
 .SH See also
 
 
 
-memory_resource an abstract interface for classes that encapsulate memory resources
-                \fI(class)\fP
-\fI(C++17)\fP
+  memory_resource an abstract interface for classes that encapsulate memory resources
+                  \fI(class)\fP
+  \fI(C++17)\fP
 
 
 

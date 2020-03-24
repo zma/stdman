@@ -4,47 +4,47 @@ std::tm \- std::tm
 
 .SH Synopsis
 
-Defined in header <ctime>
-struct tm;
+  Defined in header <ctime>
+  struct tm;
 
-Structure holding a calendar date and time broken down into its components.
+  Structure holding a calendar date and time broken down into its components.
 
 .SH Member objects
 
 
-             seconds after the minute – [0, 61]\fI(until C++11)\fP / [0, 60] \fI(since C++11)\fP[note_1]
-int tm_sec   \fI(public member object)\fP
-             minutes after the hour – [0, 59]
-int tm_min   \fI(public member object)\fP
-             hours since midnight – [0, 23]
-int tm_hour  \fI(public member object)\fP
-             day of the month – [1, 31]
-int tm_mday  \fI(public member object)\fP
-             months since January – [0, 11]
-int tm_mon   \fI(public member object)\fP
-             years since 1900
-int tm_year  \fI(public member object)\fP
-             days since Sunday – [0, 6]
-int tm_wday  \fI(public member object)\fP
-             days since January 1 – [0, 365]
-int tm_yday  \fI(public member object)\fP
-             Daylight Saving Time flag. The value is positive if DST is in effect, zero if not and negative if no information is available
-int tm_isdst \fI(public member object)\fP
+               seconds after the minute – [0, 61]\fI(until C++11)\fP / [0, 60] \fI(since C++11)\fP[note_1]
+  int tm_sec   \fI(public member object)\fP
+               minutes after the hour – [0, 59]
+  int tm_min   \fI(public member object)\fP
+               hours since midnight – [0, 23]
+  int tm_hour  \fI(public member object)\fP
+               day of the month – [1, 31]
+  int tm_mday  \fI(public member object)\fP
+               months since January – [0, 11]
+  int tm_mon   \fI(public member object)\fP
+               years since 1900
+  int tm_year  \fI(public member object)\fP
+               days since Sunday – [0, 6]
+  int tm_wday  \fI(public member object)\fP
+               days since January 1 – [0, 365]
+  int tm_yday  \fI(public member object)\fP
+               Daylight Saving Time flag. The value is positive if DST is in effect, zero if not and negative if no information is available
+  int tm_isdst \fI(public member object)\fP
 
 
 .SH Notes
 
 
-  1. ↑ Range allows for a positive leap second. Two leap seconds in the same minute are not allowed (the range 0..61 was a defect introduced in C89 and corrected in C99)
+    1. ↑ Range allows for a positive leap second. Two leap seconds in the same minute are not allowed (the range 0..61 was a defect introduced in C89 and corrected in C99)
 
 
 .SH See also
 
 
-          converts time since epoch to calendar time expressed as local time
-localtime \fI(function)\fP
-          converts time since epoch to calendar time expressed as Universal Coordinated Time
-gmtime    \fI(function)\fP
+            converts time since epoch to calendar time expressed as local time
+  localtime \fI(function)\fP
+            converts time since epoch to calendar time expressed as Universal Coordinated Time
+  gmtime    \fI(function)\fP
 
 
 

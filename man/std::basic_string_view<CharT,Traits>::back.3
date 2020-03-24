@@ -4,29 +4,29 @@ std::basic_string_view<CharT,Traits>::back \- std::basic_string_view<CharT,Trait
 
 .SH Synopsis
 
-constexpr const_reference back() const;  \fI(since C++17)\fP
+  constexpr const_reference back() const;  \fI(since C++17)\fP
 
-Returns reference to the last character in the view. The behavior is undefined if empty() == true.
+  Returns reference to the last character in the view. The behavior is undefined if empty() == true.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-Reference to the last character, equivalent to operator[](size() - 1).
+  Reference to the last character, equivalent to operator[](size() - 1).
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH See also
 
 
-      accesses the first character
-front \fI(public member function)\fP
-      checks whether the view is empty
-empty \fI(public member function)\fP
+        accesses the first character
+  front \fI(public member function)\fP
+        checks whether the view is empty
+  empty \fI(public member function)\fP
 
 
 

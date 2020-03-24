@@ -4,149 +4,149 @@ std::pair<T1,T2>::pair \- std::pair<T1,T2>::pair
 
 .SH Synopsis
 
-pair();                                             \fI(until C++11)\fP
-constexpr pair();                                   \fI(since C++11)\fP
-                                                    (conditionally explicit)
-pair( const T1& x, const T2& y );                                            \fI(until C++11)\fP
-                                                                             \fI(since C++11)\fP
-pair( const T1& x, const T2& y );                                            \fI(until C++14)\fP
-                                                                             (conditionally explicit)
-constexpr pair( const T1& x, const T2& y );                                  \fI(since C++14)\fP
-                                                                             (conditionally explicit)
-template< class U1, class U2 >                                                                        \fI(since C++11)\fP
-pair( U1&& x, U2&& y );                                                                               \fI(until C++14)\fP
-                                                                                                      (conditionally explicit)
-template< class U1, class U2 >                                                                        \fI(since C++14)\fP
-constexpr pair( U1&& x, U2&& y );                                                                     (conditionally explicit)
-template< class U1, class U2 >                                                                                                 \fI(until C++11)\fP
-pair( const pair<U1, U2>& p );
-template< class U1, class U2 >                                                                                                 \fI(since C++11)\fP
-pair( const pair<U1, U2>& p );              \fB(1)\fP                                                                                \fI(until C++14)\fP
-                                                                                                                               (conditionally explicit)
-template< class U1, class U2 >                  \fB(2)\fP                                                                            \fI(since C++14)\fP
-constexpr pair( const pair<U1, U2>& p );                                                                                       (conditionally explicit)
-template< class U1, class U2 >                                                                                                                          \fI(since C++11)\fP
-pair( pair<U1, U2>&& p );                           \fB(3)\fP                                                                                                 \fI(until C++14)\fP
-                                                                                                                                                        (conditionally explicit)
-template< class U1, class U2 >                                               \fB(4)\fP                                                                        \fI(since C++14)\fP
-constexpr pair( pair<U1, U2>&& p );                                                                                                                     (conditionally explicit)
-template< class... Args1, class... Args2 >
-pair( std::piecewise_construct_t,                                                                                                                                                \fI(since C++11)\fP
-std::tuple<Args1...> first_args,                                                                      \fB(5)\fP                                                                        \fI(until C++20)\fP
-std::tuple<Args2...> second_args );
-template< class... Args1, class... Args2 >                                                                                     \fB(6)\fP
-constexpr pair( std::piecewise_construct_t,                                                                                                                                      \fI(since C++20)\fP
-std::tuple<Args1...> first_args,
-std::tuple<Args2...> second_args );
-pair( const pair& p ) = default;                                                                                                                        \fB(7)\fP
-pair( pair&& p ) = default;                                                                                                                             \fB(8)\fP                      \fI(since C++11)\fP
+  pair();                                             \fI(until C++11)\fP
+  constexpr pair();                                   \fI(since C++11)\fP
+                                                      (conditionally explicit)
+  pair( const T1& x, const T2& y );                                            \fI(until C++11)\fP
+                                                                               \fI(since C++11)\fP
+  pair( const T1& x, const T2& y );                                            \fI(until C++14)\fP
+                                                                               (conditionally explicit)
+  constexpr pair( const T1& x, const T2& y );                                  \fI(since C++14)\fP
+                                                                               (conditionally explicit)
+  template< class U1, class U2 >                                                                        \fI(since C++11)\fP
+  pair( U1&& x, U2&& y );                                                                               \fI(until C++14)\fP
+                                                                                                        (conditionally explicit)
+  template< class U1, class U2 >                                                                        \fI(since C++14)\fP
+  constexpr pair( U1&& x, U2&& y );                                                                     (conditionally explicit)
+  template< class U1, class U2 >                                                                                                 \fI(until C++11)\fP
+  pair( const pair<U1, U2>& p );
+  template< class U1, class U2 >                                                                                                 \fI(since C++11)\fP
+  pair( const pair<U1, U2>& p );              \fB(1)\fP                                                                                \fI(until C++14)\fP
+                                                                                                                                 (conditionally explicit)
+  template< class U1, class U2 >                  \fB(2)\fP                                                                            \fI(since C++14)\fP
+  constexpr pair( const pair<U1, U2>& p );                                                                                       (conditionally explicit)
+  template< class U1, class U2 >                                                                                                                          \fI(since C++11)\fP
+  pair( pair<U1, U2>&& p );                           \fB(3)\fP                                                                                                 \fI(until C++14)\fP
+                                                                                                                                                          (conditionally explicit)
+  template< class U1, class U2 >                                               \fB(4)\fP                                                                        \fI(since C++14)\fP
+  constexpr pair( pair<U1, U2>&& p );                                                                                                                     (conditionally explicit)
+  template< class... Args1, class... Args2 >
+  pair( std::piecewise_construct_t,                                                                                                                                                \fI(since C++11)\fP
+  std::tuple<Args1...> first_args,                                                                      \fB(5)\fP                                                                        \fI(until C++20)\fP
+  std::tuple<Args2...> second_args );
+  template< class... Args1, class... Args2 >                                                                                     \fB(6)\fP
+  constexpr pair( std::piecewise_construct_t,                                                                                                                                      \fI(since C++20)\fP
+  std::tuple<Args1...> first_args,
+  std::tuple<Args2...> second_args );
+  pair( const pair& p ) = default;                                                                                                                        \fB(7)\fP
+  pair( pair&& p ) = default;                                                                                                                             \fB(8)\fP                      \fI(since C++11)\fP
 
 
-Constructs a new pair.
-1) Default constructor. Value-initializes both elements of the pair, first and second.
+  Constructs a new pair.
+  1) Default constructor. Value-initializes both elements of the pair, first and second.
 
 
-* This constructor participates in overload resolution if and only if std::is_default_constructible_v<first_type> and std::is_default_constructible_v<second_type> are both true. \fI(since C++11)\fP
-* This constructor is explicit if and only if either first_type or second_type is not implicitly default-constructible.
+  * This constructor participates in overload resolution if and only if std::is_default_constructible_v<first_type> and std::is_default_constructible_v<second_type> are both true. \fI(since C++11)\fP
+  * This constructor is explicit if and only if either first_type or second_type is not implicitly default-constructible.
 
 
-2) Initializes first with x and second with y.
+  2) Initializes first with x and second with y.
 
 
-* This constructor participates in overload resolution if and only if std::is_copy_constructible_v<first_type> and std::is_copy_constructible_v<second_type> are both true.     \fI(since C++11)\fP
-* This constructor is explicit if and only if std::is_convertible_v<const first_type&, first_type> is false or std::is_convertible_v<const second_type&, second_type> is false.
+  * This constructor participates in overload resolution if and only if std::is_copy_constructible_v<first_type> and std::is_copy_constructible_v<second_type> are both true.     \fI(since C++11)\fP
+  * This constructor is explicit if and only if std::is_convertible_v<const first_type&, first_type> is false or std::is_convertible_v<const second_type&, second_type> is false.
 
 
-3) Initializes first with std::forward<U1>(x) and second with std::forward<U2>(y).
+  3) Initializes first with std::forward<U1>(x) and second with std::forward<U2>(y).
 
-* This constructor participates in overload resolution if and only if std::is_constructible_v<first_type, U1&&> and std::is_constructible_v<second_type, U2&&> are both true.
-* This constructor is explicit if and only if std::is_convertible_v<U1&&, first_type> is false or std::is_convertible_v<U2&&, second_type> is false.
+  * This constructor participates in overload resolution if and only if std::is_constructible_v<first_type, U1&&> and std::is_constructible_v<second_type, U2&&> are both true.
+  * This constructor is explicit if and only if std::is_convertible_v<U1&&, first_type> is false or std::is_convertible_v<U2&&, second_type> is false.
 
-4) Initializes first with p.first and second with p.second.
-
-
-* This constructor participates in overload resolution if and only if std::is_constructible_v<first_type, const U1&> and std::is_constructible_v<second_type, const U2&> are both true. \fI(since C++11)\fP
-* This constructor is explicit if and only if std::is_convertible_v<const U1&, first_type> is false or std::is_convertible_v<const U2&, second_type> is false.
+  4) Initializes first with p.first and second with p.second.
 
 
-5) Initializes first with std::forward<U1>(p.first) and second with std::forward<U2>(p.second).
+  * This constructor participates in overload resolution if and only if std::is_constructible_v<first_type, const U1&> and std::is_constructible_v<second_type, const U2&> are both true. \fI(since C++11)\fP
+  * This constructor is explicit if and only if std::is_convertible_v<const U1&, first_type> is false or std::is_convertible_v<const U2&, second_type> is false.
 
-* This constructor participates in overload resolution if and only if std::is_constructible_v<first_type, U1&&> and std::is_constructible_v<second_type, U2&&> are both true.
-* This constructor is explicit if and only if std::is_convertible_v<U1&&, first_type> is false or std::is_convertible_v<U2&&, second_type> is false.
 
-6) Forwards the elements of first_args to the constructor of first and forwards the elements of second_args to the constructor of second. This is the only non-default constructor that can be used to create a pair of non-copyable non-movable types.
-7) Copy constructor is defaulted, and is constexpr if copying of both elements satisfies the requirements on constexpr functions.
-8) Move constructor is defaulted, and is constexpr if moving of both elements satisfies the requirements on constexpr functions.
+  5) Initializes first with std::forward<U1>(p.first) and second with std::forward<U2>(p.second).
+
+  * This constructor participates in overload resolution if and only if std::is_constructible_v<first_type, U1&&> and std::is_constructible_v<second_type, U2&&> are both true.
+  * This constructor is explicit if and only if std::is_convertible_v<U1&&, first_type> is false or std::is_convertible_v<U2&&, second_type> is false.
+
+  6) Forwards the elements of first_args to the constructor of first and forwards the elements of second_args to the constructor of second. This is the only non-default constructor that can be used to create a pair of non-copyable non-movable types.
+  7) Copy constructor is defaulted, and is constexpr if copying of both elements satisfies the requirements on constexpr functions.
+  8) Move constructor is defaulted, and is constexpr if moving of both elements satisfies the requirements on constexpr functions.
 
 .SH Parameters
 
 
-x           - value to initialize the first element of this pair
-y           - value to initialize the second element of this pair
-p           - pair of values used to initialize both elements of this pair
-first_args  - tuple of constructor arguments to initialize the first element of this pair
-second_args - tuple of constructor arguments to initialize the second element of this pair
+  x           - value to initialize the first element of this pair
+  y           - value to initialize the second element of this pair
+  p           - pair of values used to initialize both elements of this pair
+  first_args  - tuple of constructor arguments to initialize the first element of this pair
+  second_args - tuple of constructor arguments to initialize the second element of this pair
 
 
 .SH Exceptions
 
-Does not throw exceptions unless one of the specified operations (e.g. constructor of an element) throws.
+  Does not throw exceptions unless one of the specified operations (e.g. constructor of an element) throws.
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                                      Correct behavior
-N4387    C++11      some constructors were implicit-only, preventing some uses constructors made conditionally-explicit
-LWG_2510 C++11      default constructor was implicit                           made conditionally-explicit
+  DR       Applied to Behavior as published                                      Correct behavior
+  N4387    C++11      some constructors were implicit-only, preventing some uses constructors made conditionally-explicit
+  LWG_2510 C++11      default constructor was implicit                           made conditionally-explicit
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <utility>
-  #include <string>
-  #include <complex>
-  #include <tuple>
-  #include <iostream>
+    #include <utility>
+    #include <string>
+    #include <complex>
+    #include <tuple>
+    #include <iostream>
 
-  int main()
-  {
-      std::pair<int, float> p1;
-      std::cout << "Value-initialized: "
-                << p1.first << ", " << p1.second << '\\n';
+    int main()
+    {
+        std::pair<int, float> p1;
+        std::cout << "Value-initialized: "
+                  << p1.first << ", " << p1.second << '\\n';
 
-      std::pair<int, double> p2(42, 0.123);
-      std::cout << "Initialized with two values: "
-                << p2.first << ", " << p2.second << '\\n';
+        std::pair<int, double> p2(42, 0.123);
+        std::cout << "Initialized with two values: "
+                  << p2.first << ", " << p2.second << '\\n';
 
-      std::pair<char, int> p4(p2);
-      std::cout << "Implicitly converted: "
-                << p4.first << ", " << p4.second << '\\n';
+        std::pair<char, int> p4(p2);
+        std::cout << "Implicitly converted: "
+                  << p4.first << ", " << p4.second << '\\n';
 
-      std::pair<std::complex<double>, std::string> p6(
-                      std::piecewise_construct,
-                      std::forward_as_tuple(0.123, 7.7),
-                      std::forward_as_tuple(10, 'a'));
-      std::cout << "Piecewise constructed: "
-                << p6.first << ", " << p6.second << '\\n';
-  }
+        std::pair<std::complex<double>, std::string> p6(
+                        std::piecewise_construct,
+                        std::forward_as_tuple(0.123, 7.7),
+                        std::forward_as_tuple(10, 'a'));
+        std::cout << "Piecewise constructed: "
+                  << p6.first << ", " << p6.second << '\\n';
+    }
 
 .SH Output:
 
-  Value-initialized: 0, 0
-  Initialized with two values: 42, 0.123
-  Implicitly converted: *, 0
-  Piecewise constructed: (0.123,7.7), aaaaaaaaaa
+    Value-initialized: 0, 0
+    Initialized with two values: 42, 0.123
+    Implicitly converted: *, 0
+    Piecewise constructed: (0.123,7.7), aaaaaaaaaa
 
 
 .SH See also
 
 
-          creates a pair object of type, defined by the argument types
-make_pair \fI(function template)\fP
+            creates a pair object of type, defined by the argument types
+  make_pair \fI(function template)\fP
 
 
 

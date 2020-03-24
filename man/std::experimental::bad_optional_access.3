@@ -4,34 +4,34 @@ std::experimental::bad_optional_access \- std::experimental::bad_optional_access
 
 .SH Synopsis
 
-Defined in header <experimental/optional>
-class bad_optional_access;                 (library fundamentals TS)
+  Defined in header <experimental/optional>
+  class bad_optional_access;                 (library fundamentals TS)
 
-Defines a type of object to be thrown by std::experimental::optional::value when accessing an optional object that does not contain a value.
- std-bad optional access-inheritance.svg
-Inheritance diagram
-
-.SH Member functions
-
-
-              constructs the exception object
-constructor   \fI(public member function)\fP
-
-
-Inherited from std::exception
-
+  Defines a type of object to be thrown by std::experimental::optional::value when accessing an optional object that does not contain a value.
+   std-bad optional access-inheritance.svg
+  Inheritance diagram
 
 .SH Member functions
 
 
+                constructs the exception object
+  constructor   \fI(public member function)\fP
 
-destructor   destroys the exception object
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
 
-what         returns an explanatory string
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  Inherited from std::exception
+
+
+.SH Member functions
+
+
+
+  destructor   destroys the exception object
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
+
+  what         returns an explanatory string
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
 
 

@@ -4,26 +4,26 @@ std::Copyable \- std::Copyable
 
 .SH Synopsis
 
-Defined in header <concepts>
-template <class T>
-concept Copyable =
-std::CopyConstructible<T> &&    \fI(since C++20)\fP
-std::Movable<T> &&
-std::Assignable<T&, const T&>;
+  Defined in header <concepts>
+  template <class T>
+  concept Copyable =
+  std::CopyConstructible<T> &&    \fI(since C++20)\fP
+  std::Movable<T> &&
+  std::Assignable<T&, const T&>;
 
-The concept Copyable<T> specifies that T is an Movable object type that can also copied (that is, it supports copy construction and copy assignment).
+  The concept Copyable<T> specifies that T is an Movable object type that can also copied (that is, it supports copy construction and copy assignment).
 
 .SH Notes
 
-It is intended that Copyable<T> also requires std::Assignable<T&, const T> (assignment from const rvalue) and std::Assignable<T&, T&> (assignment from non-const lvalue) to be satisfied.
+  It is intended that Copyable<T> also requires std::Assignable<T&, const T> (assignment from const rvalue) and std::Assignable<T&, T&> (assignment from non-const lvalue) to be satisfied.
 
 .SH See also
 
 
 
-Movable specifies that an object of a type can be moved and swapped
-        (concept)
-(C++20)
+  Movable specifies that an object of a type can be moved and swapped
+          (concept)
+  (C++20)
 
 
 

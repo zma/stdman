@@ -4,104 +4,104 @@ std::tie \- std::tie
 
 .SH Synopsis
 
-Defined in header <tuple>
-template< class... Types >                        \fI(since C++11)\fP
-tuple<Types&...> tie( Types&... args ) noexcept;  (constexpr since C++14)
+  Defined in header <tuple>
+  template< class... Types >                        \fI(since C++11)\fP
+  tuple<Types&...> tie( Types&... args ) noexcept;  (constexpr since C++14)
 
-Creates a tuple of lvalue references to its arguments or instances of std::ignore.
+  Creates a tuple of lvalue references to its arguments or instances of std::ignore.
 
 .SH Parameters
 
 
-args - zero or more lvalue arguments to construct the tuple from
+  args - zero or more lvalue arguments to construct the tuple from
 
 
 .SH Return value
 
-A std::tuple object containing lvalue references.
+  A std::tuple object containing lvalue references.
 
 .SH Possible implementation
 
 
 
-  namespace detail {
-  struct ignore_t {
-      template <typename T>
-      const ignore_t& operator=(const T&) const { return *this; }
-  };
-  }
-  const detail::ignore_t ignore;
+    namespace detail {
+    struct ignore_t {
+        template <typename T>
+        const ignore_t& operator=(const T&) const { return *this; }
+    };
+    }
+    const detail::ignore_t ignore;
 
-  template <typename... Args>
-  auto tie(Args&... args) {
-      return std::tuple<Args&...>(args...);
-  }
+    template <typename... Args>
+    auto tie(Args&... args) {
+        return std::tuple<Args&...>(args...);
+    }
 
 
 
 .SH Notes
 
-std::tie may be used to unpack a std::pair because std::tuple has a converting_assignment from pairs:
+  std::tie may be used to unpack a std::pair because std::tuple has a converting_assignment from pairs:
 
-  bool result;
-  std::tie(std::ignore, result) = set.insert(value);
+    bool result;
+    std::tie(std::ignore, result) = set.insert(value);
 
 
 .SH Example
 
-std::tie can be used to introduce lexicographical comparison to a struct or to unpack a tuple:
-
+  std::tie can be used to introduce lexicographical comparison to a struct or to unpack a tuple:
+  
 // Run this code
 
-  #include <iostream>
-  #include <string>
-  #include <set>
-  #include <tuple>
+    #include <iostream>
+    #include <string>
+    #include <set>
+    #include <tuple>
 
-  struct S {
-      int n;
-      std::string s;
-      float d;
-      bool operator<(const S& rhs) const
-      {
-          // compares n to rhs.n,
-          // then s to rhs.s,
-          // then d to rhs.d
-          return std::tie(n, s, d) < std::tie(rhs.n, rhs.s, rhs.d);
-      }
-  };
+    struct S {
+        int n;
+        std::string s;
+        float d;
+        bool operator<(const S& rhs) const
+        {
+            // compares n to rhs.n,
+            // then s to rhs.s,
+            // then d to rhs.d
+            return std::tie(n, s, d) < std::tie(rhs.n, rhs.s, rhs.d);
+        }
+    };
 
-  int main()
-  {
-      std::set<S> set_of_s; // S is LessThanComparable
+    int main()
+    {
+        std::set<S> set_of_s; // S is LessThanComparable
 
-      S value{42, "Test", 3.14};
-      std::set<S>::iterator iter;
-      bool inserted;
+        S value{42, "Test", 3.14};
+        std::set<S>::iterator iter;
+        bool inserted;
 
-      // unpacks the return value of insert into iter and inserted
-      std::tie(iter, inserted) = set_of_s.insert(value);
+        // unpacks the return value of insert into iter and inserted
+        std::tie(iter, inserted) = set_of_s.insert(value);
 
-      if (inserted)
-          std::cout << "Value was inserted successfully\\n";
-  }
+        if (inserted)
+            std::cout << "Value was inserted successfully\\n";
+    }
 
 .SH Output:
 
-  Value was inserted successfully
+    Value was inserted successfully
 
 
 .SH See also
 
 
-                 creates a tuple object of the type defined by the argument types
-make_tuple       \fI(function template)\fP
-                 creates a tuple of rvalue references
-forward_as_tuple \fI(function template)\fP
-                 creates a tuple by concatenating any number of tuples
-tuple_cat        \fI(function template)\fP
-                 placeholder to skip an element when unpacking a tuple using tie
-ignore           (constant)
+                   creates a tuple object of the type defined by the argument types
+  make_tuple       \fI(function template)\fP
+                   creates a tuple of rvalue references
+  forward_as_tuple \fI(function template)\fP
+                   creates a tuple by concatenating any number of tuples
+  tuple_cat        \fI(function template)\fP
+                   placeholder to skip an element when unpacking a tuple using tie
+  ignore           (constant)
 
 
 

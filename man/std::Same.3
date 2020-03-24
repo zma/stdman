@@ -4,24 +4,24 @@ std::Same \- std::Same
 
 .SH Synopsis
 
-Defined in header <concepts>
-template < class T, class U >    \fI(since C++20)\fP
-concept Same = /* see below */;
+  Defined in header <concepts>
+  template < class T, class U >    \fI(since C++20)\fP
+  concept Same = /* see below */;
 
-The concept Same<T, U> is satisfied if and only if T and U denote the same type.
-std::Same<T, U> subsumes std::Same<U, T> and vice versa.
+  The concept Same<T, U> is satisfied if and only if T and U denote the same type.
+  std::Same<T, U> subsumes std::Same<U, T> and vice versa.
 
 .SH Possible implementation
 
 
 
-  namespace detail {
-      template< class T, class U >
-      concept SameHelper = std::is_same_v<T, U>;
-  }
+    namespace detail {
+        template< class T, class U >
+        concept SameHelper = std::is_same_v<T, U>;
+    }
 
-  template< class T, class U >
-  concept Same = detail::SameHelper<T, U> && detail::SameHelper<U, T>;
+    template< class T, class U >
+    concept Same = detail::SameHelper<T, U> && detail::SameHelper<U, T>;
 
 
 
@@ -29,9 +29,9 @@ std::Same<T, U> subsumes std::Same<U, T> and vice versa.
 
 
 
-is_same checks if two types are the same
-        \fI(class template)\fP
-\fI(C++11)\fP
+  is_same checks if two types are the same
+          \fI(class template)\fP
+  \fI(C++11)\fP
 
 
 

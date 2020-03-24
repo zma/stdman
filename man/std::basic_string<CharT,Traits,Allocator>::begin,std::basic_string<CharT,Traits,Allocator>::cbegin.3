@@ -4,63 +4,63 @@ std::basic_string<CharT,Traits,Allocator>::begin,std::basic_string<CharT,Traits,
 
 .SH Synopsis
 
-iterator begin();                               \fI(until C++11)\fP
-iterator begin() noexcept;                      \fI(since C++11)\fP
-const_iterator begin() const;           \fB(1)\fP                   \fI(until C++11)\fP
-const_iterator begin() const noexcept;      \fB(2)\fP               \fI(since C++11)\fP
-const_iterator cbegin() const noexcept;         \fB(3)\fP           \fI(since C++11)\fP
+  iterator begin();                               \fI(until C++11)\fP
+  iterator begin() noexcept;                      \fI(since C++11)\fP
+  const_iterator begin() const;           \fB(1)\fP                   \fI(until C++11)\fP
+  const_iterator begin() const noexcept;      \fB(2)\fP               \fI(since C++11)\fP
+  const_iterator cbegin() const noexcept;         \fB(3)\fP           \fI(since C++11)\fP
 
-Returns an iterator to the first character of the string.
-begin() returns a mutable or constant iterator, depending on the constness of *this.
-cbegin() always returns a constant iterator. It is equivalent to const_cast<const basic_string&>(*this).begin().
- range-begin-end.svg
+  Returns an iterator to the first character of the string.
+  begin() returns a mutable or constant iterator, depending on the constness of *this.
+  cbegin() always returns a constant iterator. It is equivalent to const_cast<const basic_string&>(*this).begin().
+   range-begin-end.svg
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-iterator to the first character
+  iterator to the first character
 
 .SH Complexity
 
-Constant
+  Constant
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <string>
-  #include <iostream>
+    #include <string>
+    #include <iostream>
 
-  int main()
-  {
-      std::string s("Exemplar");
-      *s.begin() = 'e';
-      std::cout << s <<'\\n';
+    int main()
+    {
+        std::string s("Exemplar");
+        *s.begin() = 'e';
+        std::cout << s <<'\\n';
 
-      auto i = s.cbegin();
-      std::cout << *i << '\\n';
-  //  *i = 'E'; // error: i is a constant iterator
-  }
+        auto i = s.cbegin();
+        std::cout << *i << '\\n';
+    //  *i = 'E'; // error: i is a constant iterator
+    }
 
 .SH Output:
 
-  exemplar
-  e
+    exemplar
+    e
 
 
 .SH See also
 
 
 
-end_
-cend    returns an iterator to the end
-        \fI(public member function)\fP
+  end_
+  cend    returns an iterator to the end
+          \fI(public member function)\fP
 
-\fI(C++11)\fP
+  \fI(C++11)\fP
 
 
 

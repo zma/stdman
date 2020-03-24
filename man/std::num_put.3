@@ -4,121 +4,121 @@ std::num_put \- std::num_put
 
 .SH Synopsis
 
-Defined in header <locale>
-template<
-class CharT,
-class OutputIt = std::ostreambuf_iterator<CharT>
-> class num_put;
+  Defined in header <locale>
+  template<
+  class CharT,
+  class OutputIt = std::ostreambuf_iterator<CharT>
+  > class num_put;
 
-Class std::num_put encapsulates the rules for formatting numeric values as strings. Specifically, the types bool, long, unsigned long, long long, unsigned long long, double, long double, void*, and of all types implicitly convertible to these (such as int or float) are supported. The standard formatting output operators (such as cout << n;) use the std::num_put facet of the I/O stream's locale to generate text representation of numbers.
- std-num put-inheritance.svg
-Inheritance diagram
+  Class std::num_put encapsulates the rules for formatting numeric values as strings. Specifically, the types bool, long, unsigned long, long long, unsigned long long, double, long double, void*, and of all types implicitly convertible to these (such as int or float) are supported. The standard formatting output operators (such as cout << n;) use the std::num_put facet of the I/O stream's locale to generate text representation of numbers.
+   std-num put-inheritance.svg
+  Inheritance diagram
 
 .SH Type requirements
 
 
--
-OutputIt must meet the requirements of LegacyOutputIterator.
+  -
+  OutputIt must meet the requirements of LegacyOutputIterator.
 
 
 .SH Specializations
 
-Two standalone (locale-independent) full specializations and two partial specializations are provided by the standard library:
+  Two standalone (locale-independent) full specializations and two partial specializations are provided by the standard library:
 
-Defined in header <locale>
-std::num_put<char>              creates narrow string representations of numbers
-std::num_put<wchar_t>           creates wide string representations of numbers
-std::num_put<char, OutputIt>    creates narrow string representations of numbers using custom output iterator
-std::num_put<wchar_t, OutputIt> creates wide string representations of numbers using custom output iterator
+  Defined in header <locale>
+  std::num_put<char>              creates narrow string representations of numbers
+  std::num_put<wchar_t>           creates wide string representations of numbers
+  std::num_put<char, OutputIt>    creates narrow string representations of numbers using custom output iterator
+  std::num_put<wchar_t, OutputIt> creates wide string representations of numbers using custom output iterator
 
-In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
+  In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 
 
-Member type Definition
-char_type   CharT
-iter_type   OutputIt
+  Member type Definition
+  char_type   CharT
+  iter_type   OutputIt
 
 
 .SH Member functions
 
 
-              constructs a new num_put facet
-constructor   \fI(public member function)\fP
-              destructs a num_put facet
-destructor    \fI(protected member function)\fP
-              invokes do_put
-put           \fI(public member function)\fP
+                constructs a new num_put facet
+  constructor   \fI(public member function)\fP
+                destructs a num_put facet
+  destructor    \fI(protected member function)\fP
+                invokes do_put
+  put           \fI(public member function)\fP
 
 
 .SH Protected member functions
 
 
 
-do_put    formats a number and writes to output stream
-          \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_put    formats a number and writes to output stream
+            \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
 
 .SH Member objects
 
 
-                          id of the locale
-static std::locale::id id \fI(public member object)\fP
+                            id of the locale
+  static std::locale::id id \fI(public member object)\fP
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <locale>
-  #include <string>
-  #include <iterator>
+    #include <iostream>
+    #include <locale>
+    #include <string>
+    #include <iterator>
 
-  int main()
-  {
-      double n = 1234567.89;
-      std::cout.imbue(std::locale("de_DE"));
-      std::cout << "Direct conversion to string:\\n"
-                << std::to_string(n) << '\\n'
-                << "Output using a german locale:\\n"
-                << std::fixed << n << '\\n'
-                << "Output using an american locale:\\n";
-      // use the facet directly
-      std::cout.imbue(std::locale("en_US.UTF-8"));
-      auto& f = std::use_facet<std::num_put<char>>(std::cout.getloc());
-      f.put(std::ostreambuf_iterator<char>(std::cout), std::cout, ' ', n);
-      std::cout << '\\n';
-  }
+    int main()
+    {
+        double n = 1234567.89;
+        std::cout.imbue(std::locale("de_DE"));
+        std::cout << "Direct conversion to string:\\n"
+                  << std::to_string(n) << '\\n'
+                  << "Output using a german locale:\\n"
+                  << std::fixed << n << '\\n'
+                  << "Output using an american locale:\\n";
+        // use the facet directly
+        std::cout.imbue(std::locale("en_US.UTF-8"));
+        auto& f = std::use_facet<std::num_put<char>>(std::cout.getloc());
+        f.put(std::ostreambuf_iterator<char>(std::cout), std::cout, ' ', n);
+        std::cout << '\\n';
+    }
 
 .SH Output:
 
-  Direct conversion to string:
-  1234567.890000
-  Output using a german locale:
-  1.234.567,890000
-  Output using an american locale:
-  1,234,567.890000
+    Direct conversion to string:
+    1234567.890000
+    Output using a german locale:
+    1.234.567,890000
+    Output using an american locale:
+    1,234,567.890000
 
 
 .SH See also
 
 
-           defines numeric punctuation rules
-numpunct   \fI(class template)\fP
-           parses numeric values from an input character sequence
-num_get    \fI(class template)\fP
+             defines numeric punctuation rules
+  numpunct   \fI(class template)\fP
+             parses numeric values from an input character sequence
+  num_get    \fI(class template)\fP
 
-to_string  converts an integral or floating point value to string
-           \fI(function)\fP
-\fI(C++11)\fP
+  to_string  converts an integral or floating point value to string
+             \fI(function)\fP
+  \fI(C++11)\fP
 
-to_wstring converts an integral or floating point value to wstring
-           \fI(function)\fP
-\fI(C++11)\fP
+  to_wstring converts an integral or floating point value to wstring
+             \fI(function)\fP
+  \fI(C++11)\fP
 
 
 

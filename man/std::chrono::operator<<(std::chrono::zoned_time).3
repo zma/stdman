@@ -4,22 +4,22 @@ std::chrono::operator<<(std::chrono::zoned_time) \- std::chrono::operator<<(std:
 
 .SH Synopsis
 
-template <class CharT, class Traits, class Duration, class TimeZonePtr>
-std::basic_ostream<CharT, Traits>&                                       \fI(since C++20)\fP
-operator<<(std::basic_ostream<CharT, Traits>& os,
-const std::chrono::zoned_time<Duration, TimeZonePtr>& tp);
+  template <class CharT, class Traits, class Duration, class TimeZonePtr>
+  std::basic_ostream<CharT, Traits>&                                       \fI(since C++20)\fP
+  operator<<(std::basic_ostream<CharT, Traits>& os,
+  const std::chrono::zoned_time<Duration, TimeZonePtr>& tp);
 
-Outputs tp to the stream os, as if by std::chrono::to_stream(os, fmt, tp), where fmt is "%F %T %Z" widened to CharT.
+  Outputs tp to the stream os, as if by std::chrono::to_stream(os, fmt, tp), where fmt is "%F %T %Z" widened to CharT.
 
 .SH Return value
 
-os.
+  os.
 
 .SH See also
 
 
-          outputs a zoned_time into a stream according to the provided format
-to_stream \fI(function template)\fP
+            outputs a zoned_time into a stream according to the provided format
+  to_stream \fI(function template)\fP
 
 
 

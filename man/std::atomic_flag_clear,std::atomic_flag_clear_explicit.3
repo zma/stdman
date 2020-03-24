@@ -4,26 +4,26 @@ std::atomic_flag_clear,std::atomic_flag_clear_explicit \- std::atomic_flag_clear
 
 .SH Synopsis
 
-Defined in header <atomic>
-void atomic_flag_clear( volatile std::atomic_flag* p ) noexcept;
-void atomic_flag_clear( std::atomic_flag* p ) noexcept;
-void atomic_flag_clear_explicit( volatile std::atomic_flag* p,   \fB(1)\fP \fI(since C++11)\fP
-std::memory_order order ) noexcept;                                                \fB(2)\fP \fI(since C++11)\fP
-void atomic_flag_clear_explicit( std::atomic_flag* p,
-std::memory_order order ) noexcept;
+  Defined in header <atomic>
+  void atomic_flag_clear( volatile std::atomic_flag* p ) noexcept;
+  void atomic_flag_clear( std::atomic_flag* p ) noexcept;
+  void atomic_flag_clear_explicit( volatile std::atomic_flag* p,   \fB(1)\fP \fI(since C++11)\fP
+  std::memory_order order ) noexcept;                                                \fB(2)\fP \fI(since C++11)\fP
+  void atomic_flag_clear_explicit( std::atomic_flag* p,
+  std::memory_order order ) noexcept;
 
-Atomically changes the state of a std::atomic_flag pointed to by p to clear (false).
+  Atomically changes the state of a std::atomic_flag pointed to by p to clear (false).
 
 .SH Parameters
 
 
-p     - pointer to std::atomic_flag to access
-order - the memory synchronization ordering for this operation: only std::memory_order_relaxed, std::memory_order_release, or std::memory_order_seq_cst are permitted.
+  p     - pointer to std::atomic_flag to access
+  order - the memory synchronization ordering for this operation: only std::memory_order_relaxed, std::memory_order_release, or std::memory_order_seq_cst are permitted.
 
 
 .SH Return value
 
-none.
+  none.
 
 
 .SH Possible implementation
@@ -31,33 +31,33 @@ none.
 
 .SH First version
 
-  void atomic_flag_clear(volatile std::atomic_flag* p)
-  {
-      p->clear();
-  }
+    void atomic_flag_clear(volatile std::atomic_flag* p)
+    {
+        p->clear();
+    }
 
 .SH Second version
 
-  void atomic_flag_clear(std::atomic_flag* p)
-  {
-      p->clear();
-  }
+    void atomic_flag_clear(std::atomic_flag* p)
+    {
+        p->clear();
+    }
 
-Third version
+  Third version
 
-  void atomic_flag_clear_explicit(volatile std::atomic_flag* p,
-                                  std::memory_order order)
-  {
-      p->clear(order);
-  }
+    void atomic_flag_clear_explicit(volatile std::atomic_flag* p,
+                                    std::memory_order order)
+    {
+        p->clear(order);
+    }
 
-Fourth version
+  Fourth version
 
-  void atomic_flag_clear_explicit(std::atomic_flag* p,
-                                  std::memory_order order)
-  {
-      p->clear(order);
-  }
+    void atomic_flag_clear_explicit(std::atomic_flag* p,
+                                    std::memory_order order)
+    {
+        p->clear(order);
+    }
 
 
 
@@ -65,19 +65,19 @@ Fourth version
 
 
 
-atomic_flag                       the lock-free boolean atomic type
-                                  \fI(class)\fP
-\fI(C++11)\fP
+  atomic_flag                       the lock-free boolean atomic type
+                                    \fI(class)\fP
+  \fI(C++11)\fP
 
-atomic_flag_test_and_set
-atomic_flag_test_and_set_explicit atomically sets the flag to true and returns its previous value
-                                  \fI(function)\fP
-\fI(C++11)\fP
-\fI(C++11)\fP
+  atomic_flag_test_and_set
+  atomic_flag_test_and_set_explicit atomically sets the flag to true and returns its previous value
+                                    \fI(function)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
 
-memory_order                      defines memory ordering constraints for the given atomic operation
-                                  \fI(enum)\fP
-\fI(C++11)\fP
+  memory_order                      defines memory ordering constraints for the given atomic operation
+                                    \fI(enum)\fP
+  \fI(C++11)\fP
 
 
 

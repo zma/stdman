@@ -4,66 +4,66 @@ std::error_condition \- std::error_condition
 
 .SH Synopsis
 
-Defined in header <system_error>
-class error_condition;            \fI(since C++11)\fP
+  Defined in header <system_error>
+  class error_condition;            \fI(since C++11)\fP
 
-std::error_condition is a platform-independent error code. Like std::error_code, it is uniquely identified by an integer value and a std::error_category, but unlike std::error_code, the value is not platform-dependent.
-A typical implementation holds one integer data member (the value) and a pointer to an std::error_category.
+  std::error_condition is a platform-independent error code. Like std::error_code, it is uniquely identified by an integer value and a std::error_category, but unlike std::error_code, the value is not platform-dependent.
+  A typical implementation holds one integer data member (the value) and a pointer to an std::error_category.
 
 .SH Member functions
 
 
-              constructs an error_condition
-constructor   \fI(public member function)\fP
-              replaces the contents
-operator=     \fI(public member function)\fP
-              replaces the contents
-assign        \fI(public member function)\fP
-              sets the error_condition to value 0 in generic_category
-clear         \fI(public member function)\fP
-              obtains the value of the error_condition
-value         \fI(public member function)\fP
-              obtains the error_category for this error_condition
-category      \fI(public member function)\fP
-              obtains the explanatory string
-message       \fI(public member function)\fP
-              checks if the value is non-zero
-operator_bool \fI(public member function)\fP
+                constructs an error_condition
+  constructor   \fI(public member function)\fP
+                replaces the contents
+  operator=     \fI(public member function)\fP
+                replaces the contents
+  assign        \fI(public member function)\fP
+                sets the error_condition to value 0 in generic_category
+  clear         \fI(public member function)\fP
+                obtains the value of the error_condition
+  value         \fI(public member function)\fP
+                obtains the error_category for this error_condition
+  category      \fI(public member function)\fP
+                obtains the explanatory string
+  message       \fI(public member function)\fP
+                checks if the value is non-zero
+  operator_bool \fI(public member function)\fP
 
 
 .SH Non-member functions
 
 
 
-operator== compares error_conditions and error_codes
-operator!= \fI(function)\fP
-operator<
+  operator== compares error_conditions and error_codes
+  operator!= \fI(function)\fP
+  operator<
 
 
 .SH Helper classes
 
 
 
-is_error_condition_enum         identifies an enumeration as an std::error_condition
-                                \fI(class template)\fP
-\fI(C++11)\fP
+  is_error_condition_enum         identifies an enumeration as an std::error_condition
+                                  \fI(class template)\fP
+  \fI(C++11)\fP
 
-std::hash<std::error_condition> hash support for std::error_condition
-                                \fI(class template specialization)\fP
-\fI(C++17)\fP
+  std::hash<std::error_condition> hash support for std::error_condition
+                                  \fI(class template specialization)\fP
+  \fI(C++17)\fP
 
 
 .SH See also
 
 
 
-error_code     holds a platform-dependent error code
-               \fI(class)\fP
-\fI(C++11)\fP
+  error_code     holds a platform-dependent error code
+                 \fI(class)\fP
+  \fI(C++11)\fP
 
-error_category base class for error categories
-               \fI(class)\fP
-\fI(C++11)\fP
+  error_category base class for error categories
+                 \fI(class)\fP
+  \fI(C++11)\fP
 
 
 

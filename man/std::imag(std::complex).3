@@ -4,42 +4,42 @@ std::imag(std::complex) \- std::imag(std::complex)
 
 .SH Synopsis
 
-Defined in header <complex>
-template< class T >                                   \fI(until C++14)\fP
-T imag( const std::complex<T>& z );
-template< class T >                                   \fI(since C++14)\fP
-constexpr T imag( const std::complex<T>& z );
-float imag( float z );
-template< class DoubleOrInteger >             \fB(1)\fP                   \fI(since C++11)\fP
-double imag( DoubleOrInteger z );                                   \fI(until C++14)\fP
-long double imag( long double z );                \fB(2)\fP
-constexpr float imag( float z );
-template< class DoubleOrInteger >                                   \fI(since C++14)\fP
-constexpr double imag( DoubleOrInteger z );
-constexpr long double imag( long double z );
+  Defined in header <complex>
+  template< class T >                                   \fI(until C++14)\fP
+  T imag( const std::complex<T>& z );
+  template< class T >                                   \fI(since C++14)\fP
+  constexpr T imag( const std::complex<T>& z );
+  float imag( float z );
+  template< class DoubleOrInteger >             \fB(1)\fP                   \fI(since C++11)\fP
+  double imag( DoubleOrInteger z );                                   \fI(until C++14)\fP
+  long double imag( long double z );                \fB(2)\fP
+  constexpr float imag( float z );
+  template< class DoubleOrInteger >                                   \fI(since C++14)\fP
+  constexpr double imag( DoubleOrInteger z );
+  constexpr long double imag( long double z );
 
-1) Returns the imaginary component of the complex number z, i.e. z.imag().
+  1) Returns the imaginary component of the complex number z, i.e. z.imag().
 
-2) Additional overloads are provided for float, double, long double, and all integer types, which are treated as complex numbers with zero imaginary component. \fI(since C++11)\fP
+  2) Additional overloads are provided for float, double, long double, and all integer types, which are treated as complex numbers with zero imaginary component. \fI(since C++11)\fP
 
 
 .SH Parameters
 
 
-z - complex value
+  z - complex value
 
 
 .SH Return value
 
-the imaginary component of z
+  the imaginary component of z
 
 .SH See also
 
 
-     accesses the imaginary part of the complex number
-imag \fI(public member function)\fP
-     returns the real component
-real \fI(function template)\fP
+       accesses the imaginary part of the complex number
+  imag \fI(public member function)\fP
+       returns the real component
+  real \fI(function template)\fP
 
 
 

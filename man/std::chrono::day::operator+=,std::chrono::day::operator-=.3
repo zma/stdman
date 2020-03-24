@@ -4,39 +4,39 @@ std::chrono::day::operator+=,std::chrono::day::operator-= \- std::chrono::day::o
 
 .SH Synopsis
 
-constexpr std::chrono::day& operator+=(const std::chrono::days& d) noexcept; \fB(1)\fP \fI(since C++20)\fP
-constexpr std::chrono::day& operator-=(const std::chrono::days& d) noexcept; \fB(2)\fP \fI(since C++20)\fP
+  constexpr std::chrono::day& operator+=(const std::chrono::days& d) noexcept; \fB(1)\fP \fI(since C++20)\fP
+  constexpr std::chrono::day& operator-=(const std::chrono::days& d) noexcept; \fB(2)\fP \fI(since C++20)\fP
 
-Adds or subtracts d.count() days from the day value.
-1) Equivalent to *this = *this + d;
-2) Equivalent to *this = *this - d;
+  Adds or subtracts d.count() days from the day value.
+  1) Equivalent to *this = *this + d;
+  2) Equivalent to *this = *this - d;
 
 .SH Return value
 
-A reference to this day after modification
+  A reference to this day after modification
 
 .SH Notes
 
-If the result would be outside the range [0, 255], the actual stored value is unspecified.
+  If the result would be outside the range [0, 255], the actual stored value is unspecified.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
 
-operator++      increments or decrements the day
-operator++(int) \fI(public member function)\fP
-operator--
-operator--(int)
-                adds or subtracts a number of days and a day, or find the difference between two days
-operator+       \fI(function)\fP
-operator-
+  operator++      increments or decrements the day
+  operator++(int) \fI(public member function)\fP
+  operator--
+  operator--(int)
+                  adds or subtracts a number of days and a day, or find the difference between two days
+  operator+       \fI(function)\fP
+  operator-
 
 
 

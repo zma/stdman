@@ -4,23 +4,23 @@ std::unique_lock<Mutex>::operatorbool \- std::unique_lock<Mutex>::operatorbool
 
 .SH Synopsis
 
-explicit operator bool() const noexcept;  \fI(since C++11)\fP
+  explicit operator bool() const noexcept;  \fI(since C++11)\fP
 
-Checks whether *this owns a locked mutex or not. Effectively calls owns_lock().
+  Checks whether *this owns a locked mutex or not. Effectively calls owns_lock().
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-true if *this has an associated mutex and has acquired ownership of it, false otherwise.
+  true if *this has an associated mutex and has acquired ownership of it, false otherwise.
 
 .SH See also
 
 
-          tests whether the lock owns its associated mutex
-owns_lock \fI(public member function)\fP
+            tests whether the lock owns its associated mutex
+  owns_lock \fI(public member function)\fP
 
 
 

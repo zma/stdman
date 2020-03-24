@@ -4,39 +4,39 @@ std::make_error_condition(std::errc) \- std::make_error_condition(std::errc)
 
 .SH Synopsis
 
-Defined in header <system_error>
-std::error_condition make_error_condition( std::errc e ) noexcept;  \fI(since C++11)\fP
+  Defined in header <system_error>
+  std::error_condition make_error_condition( std::errc e ) noexcept;  \fI(since C++11)\fP
 
-Creates an error condition for an errc value e. Sets the error code to int(e) and error category to std::generic_category.
+  Creates an error condition for an errc value e. Sets the error code to int(e) and error category to std::generic_category.
 
 .SH Parameters
 
 
-e - standard error code
+  e - standard error code
 
 
 .SH Return value
 
-Error condition for e.
+  Error condition for e.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <system_error>
-  #include <string>
-  #include <iostream>
+    #include <system_error>
+    #include <string>
+    #include <iostream>
 
-  int main()
-  {
-      auto err = std::make_error_condition(std::errc::invalid_argument);
-      std::cout << err.message() << '\\n';
-  }
+    int main()
+    {
+        auto err = std::make_error_condition(std::errc::invalid_argument);
+        std::cout << err.message() << '\\n';
+    }
 
 .SH Possible output:
 
-  Invalid argument
+    Invalid argument
 
 
 

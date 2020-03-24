@@ -4,73 +4,73 @@ std::error_category \- std::error_category
 
 .SH Synopsis
 
-Defined in header <system_error>
-class error_category;             \fI(since C++11)\fP
+  Defined in header <system_error>
+  class error_category;             \fI(since C++11)\fP
 
-std::error_category serves as the base class for specific error category types, such as std::system_category, std::iostream_category, etc. Each specific category class defines the error_code - error_condition mapping and holds the explanatory strings for all error_conditions. The objects of error category classes are treated as singletons, passed by reference.
+  std::error_category serves as the base class for specific error category types, such as std::system_category, std::iostream_category, etc. Each specific category class defines the error_code - error_condition mapping and holds the explanatory strings for all error_conditions. The objects of error category classes are treated as singletons, passed by reference.
 
 .SH Member functions
 
 
-                        constructs an error_category
-constructor             \fI(public member function)\fP
+                          constructs an error_category
+  constructor             \fI(public member function)\fP
 
-destructor              destructs an error_category
-                        \fI(virtual public member function)\fP
-\fB[virtual]\fP
+  destructor              destructs an error_category
+                          \fI(virtual public member function)\fP
+  \fB[virtual]\fP
 
-operator=               not copy assignable
-                        \fI(public member function)\fP
-[deleted]
+  operator=               not copy assignable
+                          \fI(public member function)\fP
+  [deleted]
 
-name                    obtains the name of the category
-                        \fI(virtual public member function)\fP
-\fB[virtual]\fP
+  name                    obtains the name of the category
+                          \fI(virtual public member function)\fP
+  \fB[virtual]\fP
 
-default_error_condition maps error_code to error_condition
-                        \fI(virtual public member function)\fP
-\fB[virtual]\fP
+  default_error_condition maps error_code to error_condition
+                          \fI(virtual public member function)\fP
+  \fB[virtual]\fP
 
-equivalent              compares error_code and error_condition for equivalence
-                        \fI(virtual public member function)\fP
-\fB[virtual]\fP
+  equivalent              compares error_code and error_condition for equivalence
+                          \fI(virtual public member function)\fP
+  \fB[virtual]\fP
 
-message                 obtains the explanatory string
-                        \fI(virtual public member function)\fP
-\fB[virtual]\fP
+  message                 obtains the explanatory string
+                          \fI(virtual public member function)\fP
+  \fB[virtual]\fP
 
-operator==              compares two error categories
-operator!=              \fI(function)\fP
-operator<
-
-
-Specific error categories
+  operator==              compares two error categories
+  operator!=              \fI(function)\fP
+  operator<
 
 
+  Specific error categories
 
-generic_category  identifies the generic error category
-                  \fI(function)\fP
-\fI(C++11)\fP
 
-system_category   identifies the operating system error category
-                  \fI(function)\fP
-\fI(C++11)\fP
 
-iostream_category identifies the iostream error category
-                  \fI(function)\fP
-\fI(C++11)\fP
+  generic_category  identifies the generic error category
+                    \fI(function)\fP
+  \fI(C++11)\fP
 
-future_category   identifies the future error category
-                  \fI(function)\fP
-\fI(C++11)\fP
+  system_category   identifies the operating system error category
+                    \fI(function)\fP
+  \fI(C++11)\fP
 
-error_condition   holds a portable error code
-                  \fI(class)\fP
-\fI(C++11)\fP
+  iostream_category identifies the iostream error category
+                    \fI(function)\fP
+  \fI(C++11)\fP
 
-error_code        holds a platform-dependent error code
-                  \fI(class)\fP
-\fI(C++11)\fP
+  future_category   identifies the future error category
+                    \fI(function)\fP
+  \fI(C++11)\fP
+
+  error_condition   holds a portable error code
+                    \fI(class)\fP
+  \fI(C++11)\fP
+
+  error_code        holds a platform-dependent error code
+                    \fI(class)\fP
+  \fI(C++11)\fP
 
 
 

@@ -4,56 +4,56 @@ std::list<T,Allocator>::front \- std::list<T,Allocator>::front
 
 .SH Synopsis
 
-reference front();
-const_reference front() const;
+  reference front();
+  const_reference front() const;
 
-Returns a reference to the first element in the container.
-Calling front on an empty container is undefined.
+  Returns a reference to the first element in the container.
+  Calling front on an empty container is undefined.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-reference to the first element
+  reference to the first element
 
 .SH Complexity
 
-Constant
+  Constant
 
 .SH Notes
 
-For a container c, the expression c.front() is equivalent to *c.begin().
+  For a container c, the expression c.front() is equivalent to *c.begin().
 
 .SH Example
 
-The following code uses front to display the first element of a std::list<char>:
-
+  The following code uses front to display the first element of a std::list<char>:
+  
 // Run this code
 
-  #include <list>
-  #include <iostream>
+    #include <list>
+    #include <iostream>
 
-  int main()
-  {
-      std::list<char> letters {'o', 'm', 'g', 'w', 't', 'f'};
+    int main()
+    {
+        std::list<char> letters {'o', 'm', 'g', 'w', 't', 'f'};
 
-      if (!letters.empty()) {
-          std::cout << "The first character is: " << letters.front() << '\\n';
-      }
-  }
+        if (!letters.empty()) {
+            std::cout << "The first character is: " << letters.front() << '\\n';
+        }
+    }
 
 .SH Output:
 
-  The first character is o
+    The first character is o
 
 
 .SH See also
 
 
-     access the last element
-back \fI(public member function)\fP
+       access the last element
+  back \fI(public member function)\fP
 
 
 

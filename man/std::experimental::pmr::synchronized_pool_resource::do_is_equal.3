@@ -4,21 +4,21 @@ std::experimental::pmr::synchronized_pool_resource::do_is_equal \- std::experime
 
 .SH Synopsis
 
-virtual bool do_is_equal(const memory_resource& other) const noexcept;  (library fundamentals TS)
+  virtual bool do_is_equal(const memory_resource& other) const noexcept;  (library fundamentals TS)
 
-Compare *this with other for identity - memory allocated using a synchronized_pool_resource can only be deallocated using that same resource.
+  Compare *this with other for identity - memory allocated using a synchronized_pool_resource can only be deallocated using that same resource.
 
 .SH Return value
 
-this == dynamic_cast<const synchronized_pool_resource*>(&other)
+  this == dynamic_cast<const synchronized_pool_resource*>(&other)
 
 .SH See also
 
 
 
-do_is_equal compare for equality with another memory_resource
-            \fI(virtual protected member function of std::experimental::pmr::memory_resource)\fP
-\fB[virtual]\fP
+  do_is_equal compare for equality with another memory_resource
+              \fI(virtual protected member function of std::experimental::pmr::memory_resource)\fP
+  \fB[virtual]\fP
 
 
 

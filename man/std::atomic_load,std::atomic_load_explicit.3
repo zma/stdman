@@ -4,51 +4,51 @@ std::atomic_load,std::atomic_load_explicit \- std::atomic_load,std::atomic_load_
 
 .SH Synopsis
 
-Defined in header <atomic>
-template< class T >
-T atomic_load( const std::atomic<T>* obj ) noexcept;
-template< class T >
-T atomic_load( const volatile std::atomic<T>* obj ) noexcept;
-template< class T >                                           \fB(1)\fP \fI(since C++11)\fP
-T atomic_load_explicit( const std::atomic<T>* obj,
-std::memory_order order ) noexcept;                                             \fB(2)\fP \fI(since C++11)\fP
-template< class T >
-T atomic_load_explicit( const volatile std::atomic<T>* obj,
-std::memory_order order ) noexcept;
+  Defined in header <atomic>
+  template< class T >
+  T atomic_load( const std::atomic<T>* obj ) noexcept;
+  template< class T >
+  T atomic_load( const volatile std::atomic<T>* obj ) noexcept;
+  template< class T >                                           \fB(1)\fP \fI(since C++11)\fP
+  T atomic_load_explicit( const std::atomic<T>* obj,
+  std::memory_order order ) noexcept;                                             \fB(2)\fP \fI(since C++11)\fP
+  template< class T >
+  T atomic_load_explicit( const volatile std::atomic<T>* obj,
+  std::memory_order order ) noexcept;
 
-1) Atomically obtains the value pointed to by obj as if by obj->load()
-2) Atomically obtains the value pointed to by obj as if by obj->load(order)
+  1) Atomically obtains the value pointed to by obj as if by obj->load()
+  2) Atomically obtains the value pointed to by obj as if by obj->load(order)
 
 .SH Parameters
 
 
-obj   - pointer to the atomic object to modify
-order - the memory synchronization ordering for this operation: only std::memory_order_relaxed, std::memory_order_consume, std::memory_order_acquire and std::memory_order_seq_cst are permitted.
+  obj   - pointer to the atomic object to modify
+  order - the memory synchronization ordering for this operation: only std::memory_order_relaxed, std::memory_order_consume, std::memory_order_acquire and std::memory_order_seq_cst are permitted.
 
 
 .SH Return value
 
-The value that is held by the atomic object pointed to by obj
+  The value that is held by the atomic object pointed to by obj
 
 
 .SH See also
 
 
-                                           atomically obtains the value of the atomic object
-load                                       \fI(public member function of std::atomic<T>)\fP
+                                             atomically obtains the value of the atomic object
+  load                                       \fI(public member function of std::atomic<T>)\fP
 
-atomic_store
-atomic_store_explicit                      atomically replaces the value of the atomic object with a non-atomic argument
-                                           \fI(function template)\fP
-\fI(C++11)\fP
-\fI(C++11)\fP
+  atomic_store
+  atomic_store_explicit                      atomically replaces the value of the atomic object with a non-atomic argument
+                                             \fI(function template)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
 
-memory_order                               defines memory ordering constraints for the given atomic operation
-                                           \fI(enum)\fP
-\fI(C++11)\fP
-                                           specializes atomic operations for std::shared_ptr
-std::atomic_load(std::shared_ptr)_         \fI(function template)\fP
-std::atomic_load_explicit(std::shared_ptr)
+  memory_order                               defines memory ordering constraints for the given atomic operation
+                                             \fI(enum)\fP
+  \fI(C++11)\fP
+                                             specializes atomic operations for std::shared_ptr
+  std::atomic_load(std::shared_ptr)_         \fI(function template)\fP
+  std::atomic_load_explicit(std::shared_ptr)
 
 
 

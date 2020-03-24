@@ -4,27 +4,27 @@ std::experimental::atomic_shared_ptr<T>::operatorshared_ptr<T> \- std::experimen
 
 .SH Synopsis
 
-operator shared_ptr<T>() const noexcept;
+  operator shared_ptr<T>() const noexcept;
 
-Atomically loads and returns the current value of the atomic_shared_ptr. Equivalent to load().
+  Atomically loads and returns the current value of the atomic_shared_ptr. Equivalent to load().
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The current value of the atomic_shared_ptr.
+  The current value of the atomic_shared_ptr.
 
-Remarks
+  Remarks
 
-All associated use_count increments are guaranteed to be performed as part of the atomic operation.
+  All associated use_count increments are guaranteed to be performed as part of the atomic operation.
 
 .SH See also
 
 
-     atomically obtains the value of the atomic object
-load \fI(public member function)\fP
+       atomically obtains the value of the atomic object
+  load \fI(public member function)\fP
 
 
 

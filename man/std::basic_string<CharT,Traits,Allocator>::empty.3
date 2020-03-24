@@ -4,59 +4,59 @@ std::basic_string<CharT,Traits,Allocator>::empty \- std::basic_string<CharT,Trai
 
 .SH Synopsis
 
-bool empty() const;                         \fI(until C++11)\fP
-bool empty() const noexcept;                \fI(since C++11)\fP
-                                            \fI(until C++20)\fP
-[[nodiscard]] bool empty() const noexcept;  \fI(since C++20)\fP
+  bool empty() const;                         \fI(until C++11)\fP
+  bool empty() const noexcept;                \fI(since C++11)\fP
+                                              \fI(until C++20)\fP
+  [[nodiscard]] bool empty() const noexcept;  \fI(since C++20)\fP
 
-Checks if the string has no characters, i.e. whether begin() == end().
+  Checks if the string has no characters, i.e. whether begin() == end().
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-true if the string is empty, false otherwise
+  true if the string is empty, false otherwise
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <string>
+    #include <iostream>
+    #include <string>
 
-  int main()
-  {
-      std::string s;
-      std::boolalpha(std::cout);
-      std::cout << "s.empty():" << s.empty() << "\\t s:'" << s << "'\\n";
+    int main()
+    {
+        std::string s;
+        std::boolalpha(std::cout);
+        std::cout << "s.empty():" << s.empty() << "\\t s:'" << s << "'\\n";
 
-      s = "Exemplar";
-      std::cout << "s.empty():" << s.empty() << "\\t s:'" << s << "'\\n";
+        s = "Exemplar";
+        std::cout << "s.empty():" << s.empty() << "\\t s:'" << s << "'\\n";
 
-      s = "";
-      std::cout << "s.empty():" << s.empty() << "\\t s:'" << s << "'\\n";
-  }
+        s = "";
+        std::cout << "s.empty():" << s.empty() << "\\t s:'" << s << "'\\n";
+    }
 
 .SH Output:
 
-  s.empty():true	 s:''
-  s.empty():false	 s:'Exemplar'
-  s.empty():true	 s:''
+    s.empty():true	 s:''
+    s.empty():false	 s:'Exemplar'
+    s.empty():true	 s:''
 
 
 .SH See also
 
 
-       returns the number of characters
-size   \fI(public member function)\fP
-length
+         returns the number of characters
+  size   \fI(public member function)\fP
+  length
 
 
 

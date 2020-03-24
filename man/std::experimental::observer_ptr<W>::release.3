@@ -4,32 +4,32 @@ std::experimental::observer_ptr<W>::release \- std::experimental::observer_ptr<W
 
 .SH Synopsis
 
-constexpr element_type* release() noexcept;  (library fundamentals TS v2)
+  constexpr element_type* release() noexcept;  (library fundamentals TS v2)
 
-Stop watching the watched object, if any. get() returns nullptr after the call.
+  Stop watching the watched object, if any. get() returns nullptr after the call.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-A pointer to the previously watched object, or nullptr if there was no watched object, i.e. the value which would be returned by get() before the call.
+  A pointer to the previously watched object, or nullptr if there was no watched object, i.e. the value which would be returned by get() before the call.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-      returns a pointer to the watched object
-get   \fI(public member function)\fP
-      replaces the watched object
-reset \fI(public member function)\fP
+        returns a pointer to the watched object
+  get   \fI(public member function)\fP
+        replaces the watched object
+  reset \fI(public member function)\fP
 
 
 

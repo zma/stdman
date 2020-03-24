@@ -4,35 +4,35 @@ std::tan(std::valarray) \- std::tan(std::valarray)
 
 .SH Synopsis
 
-Defined in header <valarray>
-template< class T >
-valarray<T> tan( const valarray<T>& va );
+  Defined in header <valarray>
+  template< class T >
+  valarray<T> tan( const valarray<T>& va );
 
-For each element in va computes tangent of the value of the element.
+  For each element in va computes tangent of the value of the element.
 
 .SH Parameters
 
 
-va - value array to apply the operation to
+  va - value array to apply the operation to
 
 
 .SH Return value
 
-Value array containing tangents of the values in va.
+  Value array containing tangents of the values in va.
 
 .SH Notes
 
-Unqualified function (tan) is used to perform the computation. If such function is not available, std::tan is used due to argument dependent lookup.
-The function can be implemented with the return type different from std::valarray. In this case, the replacement type has the following properties:
+  Unqualified function (tan) is used to perform the computation. If such function is not available, std::tan is used due to argument dependent lookup.
+  The function can be implemented with the return type different from std::valarray. In this case, the replacement type has the following properties:
 
 
-      * All const member functions of std::valarray are provided.
-      * std::valarray, std::slice_array, std::gslice_array, std::mask_array and std::indirect_array can be constructed from the replacement type.
-      * All functions accepting an argument of type const std::valarray&
-        except begin() and end()
-        \fI(since C++11)\fP should also accept the replacement type.
-      * All functions accepting two arguments of type const std::valarray& should accept every combination of const std::valarray& and the replacement type.
-      * The return type does not add more than two levels of template nesting over the most deeply-nested argument type.
+        * All const member functions of std::valarray are provided.
+        * std::valarray, std::slice_array, std::gslice_array, std::mask_array and std::indirect_array can be constructed from the replacement type.
+        * All functions accepting an argument of type const std::valarray&
+          except begin() and end()
+          \fI(since C++11)\fP should also accept the replacement type.
+        * All functions accepting two arguments of type const std::valarray& should accept every combination of const std::valarray& and the replacement type.
+        * The return type does not add more than two levels of template nesting over the most deeply-nested argument type.
 
 
 
@@ -40,44 +40,44 @@ The function can be implemented with the return type different from std::valarra
 
 
 
-  template<class T>
-  valarray<T> tan(const valarray<T>& va)
-  {
-      valarray<T> other = va;
-      for (T &i : other) {
-          i = tan(i);
-      }
-      return other;
-  }
+    template<class T>
+    valarray<T> tan(const valarray<T>& va)
+    {
+        valarray<T> other = va;
+        for (T &i : other) {
+            i = tan(i);
+        }
+        return other;
+    }
 
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-                    applies the function std::sin to each element of valarray
-sin(std::valarray)  \fI(function template)\fP
-                    applies the function std::cos to each element of valarray
-cos(std::valarray)  \fI(function template)\fP
-                    applies the function std::atan to each element of valarray
-atan(std::valarray) \fI(function template)\fP
+                      applies the function std::sin to each element of valarray
+  sin(std::valarray)  \fI(function template)\fP
+                      applies the function std::cos to each element of valarray
+  cos(std::valarray)  \fI(function template)\fP
+                      applies the function std::atan to each element of valarray
+  atan(std::valarray) \fI(function template)\fP
 
-tan
-tanf
-tanl                computes tangent (tan(x))
-                    \fI(function)\fP
+  tan
+  tanf
+  tanl                computes tangent (tan(x))
+                      \fI(function)\fP
 
-\fI(C++11)\fP
-\fI(C++11)\fP
-                    computes tangent of a complex number (tan(z))
-tan(std::complex)   \fI(function template)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
+                      computes tangent of a complex number (tan(z))
+  tan(std::complex)   \fI(function template)\fP
 
 
 

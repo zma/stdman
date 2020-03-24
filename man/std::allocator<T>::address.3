@@ -4,29 +4,29 @@ std::allocator<T>::address \- std::allocator<T>::address
 
 .SH Synopsis
 
-pointer address( reference x ) const;              (deprecated in C++17)
-                                                   (removed in C++20)
-const_pointer address( const_reference x ) const;  (deprecated in C++17)
-                                                   (removed in C++20)
+  pointer address( reference x ) const;              (deprecated in C++17)
+                                                     (removed in C++20)
+  const_pointer address( const_reference x ) const;  (deprecated in C++17)
+                                                     (removed in C++20)
 
-Returns the actual address of x even in presence of overloaded operator&.
+  Returns the actual address of x even in presence of overloaded operator&.
 
 .SH Parameters
 
 
-x - the object to acquire address of
+  x - the object to acquire address of
 
 
 .SH Return value
 
-The actual address of x.
+  The actual address of x.
 
 .SH Exceptions
 
 
-\fI(none)\fP                  \fI(until C++11)\fP
-noexcept specification: \fI(since C++11)\fP
-noexcept
+  \fI(none)\fP                  \fI(until C++11)\fP
+  noexcept specification: \fI(since C++11)\fP
+  noexcept
 
 
 

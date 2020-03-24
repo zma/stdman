@@ -4,60 +4,60 @@ std::ios_base::flags \- std::ios_base::flags
 
 .SH Synopsis
 
-fmtflags flags() const;           \fB(1)\fP
-fmtflags flags( fmtflags flags ); \fB(2)\fP
+  fmtflags flags() const;           \fB(1)\fP
+  fmtflags flags( fmtflags flags ); \fB(2)\fP
 
-Manages format flags.
-1) returns current formatting setting
-2) replaces current settings with given ones.
+  Manages format flags.
+  1) returns current formatting setting
+  2) replaces current settings with given ones.
 
 .SH Parameters
 
 
-        new formatting setting. It can be a combination of the following constants:
+          new formatting setting. It can be a combination of the following constants:
 
-        Constant    Explanation
-        dec         use decimal base for integer I/O: see std::dec
-        oct         use octal base for integer I/O: see std::oct
-        hex         use hexadecimal base for integer I/O: see std::hex
-        basefield   dec|oct|hex. Useful for masking operations
-        left        left adjustment (adds fill characters to the right): see std::left
-        right       right adjustment (adds fill characters to the left): see std::right
-        internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
-        adjustfield left|right|internal. Useful for masking operations
-flags - scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
-        fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
-        floatfield  scientific|fixed. Useful for masking operations
-        boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
-        showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
-        showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
-        showpos     generate a + character for non-negative numeric output: see std::showpos
-        skipws      skip leading whitespace before certain input operations: see std::skipws
-        unitbuf     flush the output after each output operation: see std::unitbuf
-        uppercase   replace certain lowercase letters with their uppercase
-                    equivalents in certain output operations: see std::uppercase
+          Constant    Explanation
+          dec         use decimal base for integer I/O: see std::dec
+          oct         use octal base for integer I/O: see std::oct
+          hex         use hexadecimal base for integer I/O: see std::hex
+          basefield   dec|oct|hex. Useful for masking operations
+          left        left adjustment (adds fill characters to the right): see std::left
+          right       right adjustment (adds fill characters to the left): see std::right
+          internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
+          adjustfield left|right|internal. Useful for masking operations
+  flags - scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
+          fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
+          floatfield  scientific|fixed. Useful for masking operations
+          boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
+          showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
+          showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
+          showpos     generate a + character for non-negative numeric output: see std::showpos
+          skipws      skip leading whitespace before certain input operations: see std::skipws
+          unitbuf     flush the output after each output operation: see std::unitbuf
+          uppercase   replace certain lowercase letters with their uppercase
+                      equivalents in certain output operations: see std::uppercase
 
 
 
 
 .SH Return value
 
-the formatting flags before the call to the function
+  the formatting flags before the call to the function
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-       sets specific format flag
-setf   \fI(public member function)\fP
-       clears specific format flag
-unsetf \fI(public member function)\fP
+         sets specific format flag
+  setf   \fI(public member function)\fP
+         clears specific format flag
+  unsetf \fI(public member function)\fP
 
 
 

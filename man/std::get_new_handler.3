@@ -4,32 +4,32 @@ std::get_new_handler \- std::get_new_handler
 
 .SH Synopsis
 
-Defined in header <new>
-std::new_handler get_new_handler() noexcept;  \fI(since C++11)\fP
+  Defined in header <new>
+  std::new_handler get_new_handler() noexcept;  \fI(since C++11)\fP
 
-Returns the currently installed new-handler, which may be a null pointer.
+  Returns the currently installed new-handler, which may be a null pointer.
 
-This function is thread-safe. Previous call to std::set_new_handler synchronizes-with (see std::memory_order) the subsequent calls to std::get_new_handler. \fI(since C++11)\fP
+  This function is thread-safe. Previous call to std::set_new_handler synchronizes-with (see std::memory_order) the subsequent calls to std::get_new_handler. \fI(since C++11)\fP
 
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The currently installed new-handler, which may be a null pointer value.
+  The currently installed new-handler, which may be a null pointer value.
 
 .SH See also
 
 
-                allocation functions
-operator_new    \fI(function)\fP
-operator_new[]
-                registers a new handler
-set_new_handler \fI(function)\fP
-                function pointer type of the new handler
-new_handler     \fI(typedef)\fP
+                  allocation functions
+  operator_new    \fI(function)\fP
+  operator_new[]
+                  registers a new handler
+  set_new_handler \fI(function)\fP
+                  function pointer type of the new handler
+  new_handler     \fI(typedef)\fP
 
 
 

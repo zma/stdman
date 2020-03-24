@@ -4,61 +4,61 @@ std::experimental::filesystem::path::replace_filename \- std::experimental::file
 
 .SH Synopsis
 
-path& replace_filename( const path& replacement );  (filesystem TS)
+  path& replace_filename( const path& replacement );  (filesystem TS)
 
-Replaces a single filename component with replacement.
-Equivalent to the following:
+  Replaces a single filename component with replacement.
+  Equivalent to the following:
 
-  remove_filename();
-  operator/=(replacement);
+    remove_filename();
+    operator/=(replacement);
 
-The behavior is undefined if the path has no filename component (has_filename returns false).
+  The behavior is undefined if the path has no filename component (has_filename returns false).
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-*this
+  *this
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <experimental/filesystem>
-  namespace fs = std::experimental::filesystem;
+    #include <iostream>
+    #include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
 
-  int main()
-  {
+    int main()
+    {
 
-      std::cout << fs::path("/foo").replace_filename("bar") << '\\n'
-                << fs::path("/").replace_filename("bar") << '\\n';
-  }
+        std::cout << fs::path("/foo").replace_filename("bar") << '\\n'
+                  << fs::path("/").replace_filename("bar") << '\\n';
+    }
 
 .SH Output:
 
-  "/bar"
-  "bar"
+    "/bar"
+    "bar"
 
 
 .SH See also
 
 
-                  replaces the extension
-replace_extension \fI(public member function)\fP
-                  returns the filename path component
-filename          \fI(public member function)\fP
-                  removes filename path component
-remove_filename   \fI(public member function)\fP
-                  checks if the corresponding path element is not empty
-has_filename      \fI(public member function)\fP
+                    replaces the extension
+  replace_extension \fI(public member function)\fP
+                    returns the filename path component
+  filename          \fI(public member function)\fP
+                    removes filename path component
+  remove_filename   \fI(public member function)\fP
+                    checks if the corresponding path element is not empty
+  has_filename      \fI(public member function)\fP
 
 
 

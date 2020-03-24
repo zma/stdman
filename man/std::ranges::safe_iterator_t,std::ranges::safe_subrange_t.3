@@ -4,23 +4,23 @@ std::ranges::safe_iterator_t,std::ranges::safe_subrange_t \- std::ranges::safe_i
 
 .SH Synopsis
 
-Defined in header <ranges>
-template<Range R>
-using safe_iterator_t = std::conditional_t<__ForwardingRange<R>, \fB(1)\fP \fI(since C++20)\fP
-ranges::iterator_t<R>, ranges::dangling>;
-template<Range R>
-using safe_subrange_t = std::conditional_t<__ForwardingRange<R>, \fB(2)\fP \fI(since C++20)\fP
-ranges::subrange<ranges::iterator_t<R>>, ranges::dangling>;
+  Defined in header <ranges>
+  template<Range R>
+  using safe_iterator_t = std::conditional_t<__ForwardingRange<R>, \fB(1)\fP \fI(since C++20)\fP
+  ranges::iterator_t<R>, ranges::dangling>;
+  template<Range R>
+  using safe_subrange_t = std::conditional_t<__ForwardingRange<R>, \fB(2)\fP \fI(since C++20)\fP
+  ranges::subrange<ranges::iterator_t<R>>, ranges::dangling>;
 
-1) Same as ranges::iterator_t when R models exposition-only concept __ForwardingRange, otherwise yields ranges::dangling instead.
-2) Similar to \fB(1)\fP, but it yields a specialization of ranges::subrange when the the same condition is met.
-These two alias templates are used by some constrained_algorithms to avoid returning potentially dangling iterators or views.
+  1) Same as ranges::iterator_t when R models exposition-only concept __ForwardingRange, otherwise yields ranges::dangling instead.
+  2) Similar to \fB(1)\fP, but it yields a specialization of ranges::subrange when the the same condition is met.
+  These two alias templates are used by some constrained_algorithms to avoid returning potentially dangling iterators or views.
 
 .SH See also
 
 
-         a placeholder type indicating that an iterator or a subrange should not be returned since it would be dangling
-dangling \fI(class)\fP
+           a placeholder type indicating that an iterator or a subrange should not be returned since it would be dangling
+  dangling \fI(class)\fP
 
 
 

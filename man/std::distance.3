@@ -4,69 +4,69 @@ std::distance \- std::distance
 
 .SH Synopsis
 
-Defined in header <iterator>
-template< class InputIt >
-typename std::iterator_traits<InputIt>::difference_type             \fI(until C++17)\fP
-distance( InputIt first, InputIt last );
-template< class InputIt >
-constexpr typename std::iterator_traits<InputIt>::difference_type   \fI(since C++17)\fP
-distance( InputIt first, InputIt last );
+  Defined in header <iterator>
+  template< class InputIt >
+  typename std::iterator_traits<InputIt>::difference_type             \fI(until C++17)\fP
+  distance( InputIt first, InputIt last );
+  template< class InputIt >
+  constexpr typename std::iterator_traits<InputIt>::difference_type   \fI(since C++17)\fP
+  distance( InputIt first, InputIt last );
 
-Returns the number of hops from first to last.
+  Returns the number of hops from first to last.
 
-The behavior is undefined if last is not reachable from first by (possibly repeatedly) incrementing first.                                                                                                                                                                                             \fI(until C++11)\fP
-If InputIt is not LegacyRandomAccessIterator, the behavior is undefined if last is not reachable from first by (possibly repeatedly) incrementing first. If InputIt is LegacyRandomAccessIterator, the behavior is undefined if last is not reachable from first and first is not reachable from last. \fI(since C++11)\fP
-first                                                                                                                                                                                                                                                                                                  -             iterator pointing to the first element
-last                                                                                                                                                                                                                                                                                                   -             iterator pointing to the end of the range
+  The behavior is undefined if last is not reachable from first by (possibly repeatedly) incrementing first.                                                                                                                                                                                             \fI(until C++11)\fP
+  If InputIt is not LegacyRandomAccessIterator, the behavior is undefined if last is not reachable from first by (possibly repeatedly) incrementing first. If InputIt is LegacyRandomAccessIterator, the behavior is undefined if last is not reachable from first and first is not reachable from last. \fI(since C++11)\fP
+  first                                                                                                                                                                                                                                                                                                  -             iterator pointing to the first element
+  last                                                                                                                                                                                                                                                                                                   -             iterator pointing to the end of the range
 .SH Type requirements
--
-InputIt must meet the requirements of LegacyInputIterator. The operation is more efficient if InputIt additionally meets the requirements of LegacyRandomAccessIterator
+  -
+  InputIt must meet the requirements of LegacyInputIterator. The operation is more efficient if InputIt additionally meets the requirements of LegacyRandomAccessIterator
 
 
 .SH Return value
 
-The number of increments needed to go from first to last.
-The value may be negative if random-access iterators are used and first is reachable from last
-\fI(since C++11)\fP
+  The number of increments needed to go from first to last.
+  The value may be negative if random-access iterators are used and first is reachable from last
+  \fI(since C++11)\fP
 
 .SH Complexity
 
-Linear.
-However, if InputIt additionally meets the requirements of LegacyRandomAccessIterator, complexity is constant.
+  Linear.
+  However, if InputIt additionally meets the requirements of LegacyRandomAccessIterator, complexity is constant.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <iterator>
-  #include <vector>
+    #include <iostream>
+    #include <iterator>
+    #include <vector>
 
-  int main()
-  {
-      std::vector<int> v{ 3, 1, 4 };
-      std::cout << "distance(first, last) = "
-                << std::distance(v.begin(), v.end()) << '\\n'
-                << "distance(last, first) = "
-                << std::distance(v.end(), v.begin()) << '\\n';
-                 //the behavior is undefined \fI(until C++11)\fP
-  }
+    int main()
+    {
+        std::vector<int> v{ 3, 1, 4 };
+        std::cout << "distance(first, last) = "
+                  << std::distance(v.begin(), v.end()) << '\\n'
+                  << "distance(last, first) = "
+                  << std::distance(v.end(), v.begin()) << '\\n';
+                   //the behavior is undefined \fI(until C++11)\fP
+    }
 
 .SH Output:
 
-  distance(first, last) = 3
-  distance(last, first) = -3
+    distance(first, last) = 3
+    distance(last, first) = -3
 
 
 .SH See also
 
 
-         advances an iterator by given distance
-advance  \fI(function template)\fP
-         returns the number of elements satisfying specific criteria
-count    \fI(function template)\fP
-count_if
+           advances an iterator by given distance
+  advance  \fI(function template)\fP
+           returns the number of elements satisfying specific criteria
+  count    \fI(function template)\fP
+  count_if
 
 
 

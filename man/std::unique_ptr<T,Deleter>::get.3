@@ -4,44 +4,44 @@ std::unique_ptr<T,Deleter>::get \- std::unique_ptr<T,Deleter>::get
 
 .SH Synopsis
 
-pointer get() const noexcept;  \fI(since C++11)\fP
+  pointer get() const noexcept;  \fI(since C++11)\fP
 
-Returns a pointer to the managed object or nullptr if no object is owned.
+  Returns a pointer to the managed object or nullptr if no object is owned.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-Pointer to the managed object or nullptr if no object is owned.
+  Pointer to the managed object or nullptr if no object is owned.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <string>
-  #include <memory>
+    #include <iostream>
+    #include <string>
+    #include <memory>
 
-  int main()
-  {
-      std::unique_ptr<std::string> s_p(new std::string("Hello, world!"));
-      std::string *s = s_p.get();
-      std::cout << *s << '\\n';
-  }
+    int main()
+    {
+        std::unique_ptr<std::string> s_p(new std::string("Hello, world!"));
+        std::string *s = s_p.get();
+        std::cout << *s << '\\n';
+    }
 
 .SH Output:
 
-  Hello, world!
+    Hello, world!
 
 
 .SH See also
 
 
-        returns a pointer to the managed object and releases the ownership
-release \fI(public member function)\fP
+          returns a pointer to the managed object and releases the ownership
+  release \fI(public member function)\fP
 
 
 

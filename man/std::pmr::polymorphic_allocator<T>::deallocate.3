@@ -4,43 +4,43 @@ std::pmr::polymorphic_allocator<T>::deallocate \- std::pmr::polymorphic_allocato
 
 .SH Synopsis
 
-void deallocate(T* p, std::size_t n );  \fI(since C++17)\fP
+  void deallocate(T* p, std::size_t n );  \fI(since C++17)\fP
 
-Deallocates the storage pointed to by p, which must have been allocated from a std::pmr::memory_resource x that compares equal to *resource() using x.allocate(n * sizeof(T), alignof(T)).
-Equivalent to this->resource()->deallocate(p, n * sizeof(T), alignof(T));
+  Deallocates the storage pointed to by p, which must have been allocated from a std::pmr::memory_resource x that compares equal to *resource() using x.allocate(n * sizeof(T), alignof(T)).
+  Equivalent to this->resource()->deallocate(p, n * sizeof(T), alignof(T));
 
 .SH Parameters
 
 
-p - pointer to memory to deallocate
-n - the number of objects originally allocated
+  p - pointer to memory to deallocate
+  n - the number of objects originally allocated
 
 
 .SH Exceptions
 
-Throws nothing.
+  Throws nothing.
 
 .SH See also
 
 
 
-deallocate_bytes  Free raw memory obtained from allocate_bytes
-                  \fI(public member function)\fP
-(C++20)
+  deallocate_bytes  Free raw memory obtained from allocate_bytes
+                    \fI(public member function)\fP
+  (C++20)
 
-deallocate_object Frees raw memory obtained by allocate_object
-                  \fI(public member function)\fP
-(C++20)
+  deallocate_object Frees raw memory obtained by allocate_object
+                    \fI(public member function)\fP
+  (C++20)
 
-delete_object     Destroys and deallocates an object
-                  \fI(public member function)\fP
-(C++20)
+  delete_object     Destroys and deallocates an object
+                    \fI(public member function)\fP
+  (C++20)
 
-deallocate        deallocates storage using the allocator
-                  \fI(public static member function of std::allocator_traits<Alloc>)\fP
-\fB[static]\fP
-                  deallocates memory
-deallocate        \fI(public member function of std::pmr::memory_resource)\fP
+  deallocate        deallocates storage using the allocator
+                    \fI(public static member function of std::allocator_traits<Alloc>)\fP
+  \fB[static]\fP
+                    deallocates memory
+  deallocate        \fI(public member function of std::pmr::memory_resource)\fP
 
 
 

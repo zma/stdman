@@ -4,67 +4,67 @@ std::experimental::filesystem::path::filename \- std::experimental::filesystem::
 
 .SH Synopsis
 
-path filename() const;  (filesystem TS)
+  path filename() const;  (filesystem TS)
 
-Returns the filename component of the path.
-Equivalent to empty() ? path() : *--end().
+  Returns the filename component of the path.
+  Equivalent to empty() ? path() : *--end().
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The filename identified by the path.
+  The filename identified by the path.
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <experimental/filesystem>
-  namespace fs = std::experimental::filesystem;
+    #include <iostream>
+    #include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
 
-  int main()
-  {
-      std::cout << fs::path("/foo/bar.txt").filename() << '\\n'
-                << fs::path("/foo/.bar").filename() << '\\n'
-                << fs::path("/foo/bar/").filename() << '\\n'
-                << fs::path("/foo/.").filename() << '\\n'
-                << fs::path("/foo/..").filename() << '\\n'
-                << fs::path(".").filename() << '\\n'
-                << fs::path("..").filename() << '\\n'
-                << fs::path("/").filename() << '\\n';
-  }
+    int main()
+    {
+        std::cout << fs::path("/foo/bar.txt").filename() << '\\n'
+                  << fs::path("/foo/.bar").filename() << '\\n'
+                  << fs::path("/foo/bar/").filename() << '\\n'
+                  << fs::path("/foo/.").filename() << '\\n'
+                  << fs::path("/foo/..").filename() << '\\n'
+                  << fs::path(".").filename() << '\\n'
+                  << fs::path("..").filename() << '\\n'
+                  << fs::path("/").filename() << '\\n';
+    }
 
 .SH Output:
 
-  "bar.txt"
-  ".bar"
-  "."
-  "."
-  ".."
-  "."
-  ".."
-  "/"
+    "bar.txt"
+    ".bar"
+    "."
+    "."
+    ".."
+    "."
+    ".."
+    "/"
 
 
 .SH See also
 
 
-                 returns the file extension path component
-extension        \fI(public member function)\fP
-                 returns the stem path component
-stem             \fI(public member function)\fP
-                 replaces the last path component with another path
-replace_filename \fI(public member function)\fP
-                 checks if the corresponding path element is not empty
-has_filename     \fI(public member function)\fP
+                   returns the file extension path component
+  extension        \fI(public member function)\fP
+                   returns the stem path component
+  stem             \fI(public member function)\fP
+                   replaces the last path component with another path
+  replace_filename \fI(public member function)\fP
+                   checks if the corresponding path element is not empty
+  has_filename     \fI(public member function)\fP
 
 
 

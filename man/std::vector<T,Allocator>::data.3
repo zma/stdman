@@ -4,36 +4,36 @@ std::vector<T,Allocator>::data \- std::vector<T,Allocator>::data
 
 .SH Synopsis
 
-T* data() noexcept;              \fI(since C++11)\fP
-const T* data() const noexcept;  \fI(since C++11)\fP
+  T* data() noexcept;              \fI(since C++11)\fP
+  const T* data() const noexcept;  \fI(since C++11)\fP
 
-Returns pointer to the underlying array serving as element storage. The pointer is such that range [data(); data() + size()) is always a valid range, even if the container is empty (data() is not dereferenceable in that case).
+  Returns pointer to the underlying array serving as element storage. The pointer is such that range [data(); data() + size()) is always a valid range, even if the container is empty (data() is not dereferenceable in that case).
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-Pointer to the underlying element storage. For non-empty containers, the returned pointer compares equal to the address of the first element.
+  Pointer to the underlying element storage. For non-empty containers, the returned pointer compares equal to the address of the first element.
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH Notes
 
-If size() is 0, data() may or may not return a null pointer.
+  If size() is 0, data() may or may not return a null pointer.
 
 .SH See also
 
 
-      access the first element
-front \fI(public member function)\fP
-      access the last element
-back  \fI(public member function)\fP
-      returns the number of elements
-size  \fI(public member function)\fP
+        access the first element
+  front \fI(public member function)\fP
+        access the last element
+  back  \fI(public member function)\fP
+        returns the number of elements
+  size  \fI(public member function)\fP
 
 
 

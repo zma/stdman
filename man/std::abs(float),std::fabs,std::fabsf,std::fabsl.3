@@ -4,105 +4,105 @@ std::abs(float),std::fabs,std::fabsf,std::fabsl \- std::abs(float),std::fabs,std
 
 .SH Synopsis
 
-Defined in header <cmath>
-Defined in header <cstdlib>               \fI(since C++17)\fP
-float abs( float arg );               \fB(1)\fP
-double abs( double arg );             \fB(2)\fP
-long double abs( long double arg );   \fB(3)\fP
-Defined in header <cmath>
-float fabs ( float arg );
-float fabsf( float arg );                               \fI(since C++11)\fP
-double fabs ( double arg );           \fB(4)\fP \fB(5)\fP
-long double fabs ( long double arg );
-long double fabsl( long double arg );     \fB(6)\fP                         \fI(since C++11)\fP
-double fabs ( IntegralType arg );                       \fB(7)\fP           \fI(since C++11)\fP
+  Defined in header <cmath>
+  Defined in header <cstdlib>               \fI(since C++17)\fP
+  float abs( float arg );               \fB(1)\fP
+  double abs( double arg );             \fB(2)\fP
+  long double abs( long double arg );   \fB(3)\fP
+  Defined in header <cmath>
+  float fabs ( float arg );
+  float fabsf( float arg );                               \fI(since C++11)\fP
+  double fabs ( double arg );           \fB(4)\fP \fB(5)\fP
+  long double fabs ( long double arg );
+  long double fabsl( long double arg );     \fB(6)\fP                         \fI(since C++11)\fP
+  double fabs ( IntegralType arg );                       \fB(7)\fP           \fI(since C++11)\fP
 
-1-6) Computes the absolute value of a floating point value arg.
-7) A set of overloads or a function template accepting an argument of any integral_type. Equivalent to \fB(5)\fP (the argument is cast to double).
+  1-6) Computes the absolute value of a floating point value arg.
+  7) A set of overloads or a function template accepting an argument of any integral_type. Equivalent to \fB(5)\fP (the argument is cast to double).
 
-For integral arguments, the_integral_overloads_of_std::abs are likely better matches. If std::abs is called with an argument of type X such that std::is_unsigned<X>::value is true and X cannot be converted to int by integral_promotion, the program is ill-formed. \fI(since C++17)\fP
+  For integral arguments, the_integral_overloads_of_std::abs are likely better matches. If std::abs is called with an argument of type X such that std::is_unsigned<X>::value is true and X cannot be converted to int by integral_promotion, the program is ill-formed. \fI(since C++17)\fP
 
 
 .SH Parameters
 
 
-arg - Value of a floating-point or Integral_type
+  arg - Value of a floating-point or Integral_type
 
 
 .SH Return value
 
-If successful, returns the absolute value of arg (|arg|). The value returned is exact and does not depend on any rounding modes.
+  If successful, returns the absolute value of arg (|arg|). The value returned is exact and does not depend on any rounding modes.
 
 .SH Error handling
 
-This function is not subject to any of the error conditions specified in math_errhandling.
-If the implementation supports IEEE floating-point arithmetic (IEC 60559),
+  This function is not subject to any of the error conditions specified in math_errhandling.
+  If the implementation supports IEEE floating-point arithmetic (IEC 60559),
 
-* If the argument is ±0, +0 is returned
-* If the argument is ±∞, +∞ is returned
-* If the argument is NaN, NaN is returned
+  * If the argument is ±0, +0 is returned
+  * If the argument is ±∞, +∞ is returned
+  * If the argument is NaN, NaN is returned
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <cmath>
+    #include <iostream>
+    #include <cmath>
 
-  int main()
-  {
-      std::cout << "abs(+3.0) = " << std::abs(+3.0) << '\\n'
-                << "abs(-3.0) = " << std::abs(-3.0) << '\\n';
-      // special values
-      std::cout << "abs(-0.0) = " << std::abs(-0.0) << '\\n'
-                << "abs(-Inf) = " << std::abs(-INFINITY) << '\\n';
-  }
+    int main()
+    {
+        std::cout << "abs(+3.0) = " << std::abs(+3.0) << '\\n'
+                  << "abs(-3.0) = " << std::abs(-3.0) << '\\n';
+        // special values
+        std::cout << "abs(-0.0) = " << std::abs(-0.0) << '\\n'
+                  << "abs(-Inf) = " << std::abs(-INFINITY) << '\\n';
+    }
 
 .SH Possible output:
 
-  abs(+3.0) = 3
-  abs(-3.0) = 3
-  abs(-0.0) = 0
-  abs(-Inf) = inf
+    abs(+3.0) = 3
+    abs(-3.0) = 3
+    abs(-0.0) = 0
+    abs(-Inf) = inf
 
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                                                                  Correct behavior
-LWG_2735 C++11      std::abs was erroneously required to have overloads for integer types returning double removed the requirement
+  DR       Applied to Behavior as published                                                                  Correct behavior
+  LWG_2735 C++11      std::abs was erroneously required to have overloads for integer types returning double removed the requirement
 
 
 .SH See also
 
 
 
-abs(int)
-labs
-llabs              computes absolute value of an integral value (|x|)
-                   \fI(function)\fP
+  abs(int)
+  labs
+  llabs              computes absolute value of an integral value (|x|)
+                     \fI(function)\fP
 
 
-\fI(C++11)\fP
+  \fI(C++11)\fP
 
-copysign
-copysignf
-copysignl          copies the sign of a floating point value
-                   \fI(function)\fP
-\fI(C++11)\fP
-\fI(C++11)\fP
-\fI(C++11)\fP
+  copysign
+  copysignf
+  copysignl          copies the sign of a floating point value
+                     \fI(function)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
 
-signbit            checks if the given number is negative
-                   \fI(function)\fP
-\fI(C++11)\fP
-                   returns the magnitude of a complex number
-abs(std::complex)  \fI(function template)\fP
-                   applies the function std::abs to each element of valarray
-abs(std::valarray) \fI(function template)\fP
+  signbit            checks if the given number is negative
+                     \fI(function)\fP
+  \fI(C++11)\fP
+                     returns the magnitude of a complex number
+  abs(std::complex)  \fI(function template)\fP
+                     applies the function std::abs to each element of valarray
+  abs(std::valarray) \fI(function template)\fP
 
 
 

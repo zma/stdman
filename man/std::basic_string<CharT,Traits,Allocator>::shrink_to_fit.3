@@ -4,64 +4,64 @@ std::basic_string<CharT,Traits,Allocator>::shrink_to_fit \- std::basic_string<Ch
 
 .SH Synopsis
 
-void shrink_to_fit();  \fI(since C++11)\fP
+  void shrink_to_fit();  \fI(since C++11)\fP
 
-Requests the removal of unused capacity.
-It is a non-binding request to reduce capacity() to size(). It depends on the implementation if the request is fulfilled.
-If (and only if) reallocation takes place, all pointers, references, and iterators are invalidated.
+  Requests the removal of unused capacity.
+  It is a non-binding request to reduce capacity() to size(). It depends on the implementation if the request is fulfilled.
+  If (and only if) reallocation takes place, all pointers, references, and iterators are invalidated.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
 
-(unspecified)                    \fI(until C++17)\fP
-Linear in the size of the string \fI(since C++17)\fP
+  (unspecified)                    \fI(until C++17)\fP
+  Linear in the size of the string \fI(since C++17)\fP
 
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <string>
+    #include <iostream>
+    #include <string>
 
-  int main()
-  {
-      std::string s;
-      std::cout << "Default-constructed capacity is " << s.capacity() << '\\n';
-      s.resize(100);
-      std::cout << "Capacity of a 100-element string is " << s.capacity() << '\\n';
-      s.clear();
-      std::cout << "Capacity after clear() is " << s.capacity() << '\\n';
-      s.shrink_to_fit();
-      std::cout << "Capacity after shrink_to_fit() is " << s.capacity() << '\\n';
-  }
+    int main()
+    {
+        std::string s;
+        std::cout << "Default-constructed capacity is " << s.capacity() << '\\n';
+        s.resize(100);
+        std::cout << "Capacity of a 100-element string is " << s.capacity() << '\\n';
+        s.clear();
+        std::cout << "Capacity after clear() is " << s.capacity() << '\\n';
+        s.shrink_to_fit();
+        std::cout << "Capacity after shrink_to_fit() is " << s.capacity() << '\\n';
+    }
 
 .SH Possible output:
 
-  Default-constructed capacity is 0
-  Capacity of a 100-element string is 100
-  Capacity after clear() is 100
-  Capacity after shrink_to_fit() is 0
+    Default-constructed capacity is 0
+    Capacity of a 100-element string is 100
+    Capacity after clear() is 100
+    Capacity after shrink_to_fit() is 0
 
 
 .SH See also
 
 
-         returns the number of characters
-size     \fI(public member function)\fP
-length
-         returns the number of characters that can be held in currently allocated storage
-capacity \fI(public member function)\fP
+           returns the number of characters
+  size     \fI(public member function)\fP
+  length
+           returns the number of characters that can be held in currently allocated storage
+  capacity \fI(public member function)\fP
 
 
 

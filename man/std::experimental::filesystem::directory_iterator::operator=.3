@@ -4,29 +4,34 @@ std::experimental::filesystem::directory_iterator::operator= \- std::experimenta
 
 .SH Synopsis
 
-directory_iterator& operator=(const directory_iterator&) = default;
-                                                                     (filesystem TS)
-directory_iterator& operator=(directory_iterator&&) = default;
+  directory_iterator& operator++();
+                                                             (filesystem TS)
+  directory_iterator& increment( error_code& ec ) noexcept;
 
+  Advances the iterator to the next entry.
 
- This section is incomplete
+   This section is incomplete
 
 
 .SH Parameters
 
 
- This section is incomplete
+  ec - error code to store error status to
 
 
 .SH Return value
 
-*this
+  *this
 
 .SH Exceptions
 
+  1)
 
- This section is incomplete
+   This section is incomplete
 
+  2)
+  noexcept specification:
+  noexcept
 
 
 

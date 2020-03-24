@@ -4,46 +4,46 @@ std::pmr::polymorphic_allocator<T>::deallocate_bytes \- std::pmr::polymorphic_al
 
 .SH Synopsis
 
-void deallocate_bytes( void* p,
-std::size_t nbytes,                                   \fI(since C++20)\fP
-std::size_t alignment = alignof(std::max_align_t) );
+  void deallocate_bytes( void* p,
+  std::size_t nbytes,                                   \fI(since C++20)\fP
+  std::size_t alignment = alignof(std::max_align_t) );
 
-Deallocates the storage pointed to by p, which must have been allocated from a std::pmr::memory_resource x that compares equal to *resource(). using x.allocate(nbytes, alignment), typically through a call to allocate_bytes(nbytes, alignment.
-Equivalent to resorce()->deallocate(p, nbytes, alignment);
+  Deallocates the storage pointed to by p, which must have been allocated from a std::pmr::memory_resource x that compares equal to *resource(). using x.allocate(nbytes, alignment), typically through a call to allocate_bytes(nbytes, alignment.
+  Equivalent to resorce()->deallocate(p, nbytes, alignment);
 
 .SH Parameters
 
 
-p         - pointer to memory to deallocate
-nbytes    - the number of bytes originally allocated
-alignment - the alignment originally allocated
+  p         - pointer to memory to deallocate
+  nbytes    - the number of bytes originally allocated
+  alignment - the alignment originally allocated
 
 
 .SH Exceptions
 
-Throws nothing.
+  Throws nothing.
 
 .SH Notes
 
-This function was introduced for use with the fully-specialized allocator std::polymorphic_allocator<>, but it may be useful in any specialization.
+  This function was introduced for use with the fully-specialized allocator std::polymorphic_allocator<>, but it may be useful in any specialization.
 
 .SH See also
 
 
 
-deallocate_object Frees raw memory obtained by allocate_object
-                  \fI(public member function)\fP
-(C++20)
+  deallocate_object Frees raw memory obtained by allocate_object
+                    \fI(public member function)\fP
+  (C++20)
 
-delete_object     Destroys and deallocates an object
-                  \fI(public member function)\fP
-(C++20)
+  delete_object     Destroys and deallocates an object
+                    \fI(public member function)\fP
+  (C++20)
 
-deallocate        deallocates storage using the allocator
-                  \fI(public static member function of std::allocator_traits<Alloc>)\fP
-\fB[static]\fP
-                  deallocates memory
-deallocate        \fI(public member function of std::pmr::memory_resource)\fP
+  deallocate        deallocates storage using the allocator
+                    \fI(public static member function of std::allocator_traits<Alloc>)\fP
+  \fB[static]\fP
+                    deallocates memory
+  deallocate        \fI(public member function of std::pmr::memory_resource)\fP
 
 
 

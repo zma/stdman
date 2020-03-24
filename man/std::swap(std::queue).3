@@ -4,44 +4,44 @@ std::swap(std::queue) \- std::swap(std::queue)
 
 .SH Synopsis
 
-template< class T, class Container >
-void swap( queue<T,Container>& lhs,                   \fI(until C++17)\fP
-queue<T,Container>& rhs );
-template< class T, class Container >
-void swap( queue<T,Container>& lhs,                   \fI(since C++17)\fP
-queue<T,Container>& rhs ) noexcept(/* see below */);
+  template< class T, class Container >
+  void swap( queue<T,Container>& lhs,                   \fI(until C++17)\fP
+  queue<T,Container>& rhs );
+  template< class T, class Container >
+  void swap( queue<T,Container>& lhs,                   \fI(since C++17)\fP
+  queue<T,Container>& rhs ) noexcept(/* see below */);
 
-Specializes the std::swap algorithm for std::queue. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
+  Specializes the std::swap algorithm for std::queue. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
-This overload only participates in overload resolution if std::is_swappable<Container>::value is true. \fI(since C++17)\fP
+  This overload only participates in overload resolution if std::is_swappable<Container>::value is true. \fI(since C++17)\fP
 
 
 .SH Parameters
 
 
-lhs, rhs - containers whose contents to swap
+  lhs, rhs - containers whose contents to swap
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-Same as swapping the underlying container.
+  Same as swapping the underlying container.
 
 .SH Exceptions
 
 
-noexcept specification:           \fI(since C++17)\fP
-noexcept(noexcept(lhs.swap(rhs)))
+  noexcept specification:           \fI(since C++17)\fP
+  noexcept(noexcept(lhs.swap(rhs)))
 
 
 .SH See also
 
 
-     swaps the contents
-swap \fI(public member function)\fP
+       swaps the contents
+  swap \fI(public member function)\fP
 
 
 

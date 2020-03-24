@@ -4,54 +4,54 @@ std::filesystem::path::operator= \- std::filesystem::path::operator=
 
 .SH Synopsis
 
-path& operator=( const path& p );        \fB(1)\fP \fI(since C++17)\fP
-path& operator=( path&& p ) noexcept;    \fB(2)\fP \fI(since C++17)\fP
-path& operator=( string_type&& source ); \fB(3)\fP \fI(since C++17)\fP
-template< class Source >                 \fB(4)\fP \fI(since C++17)\fP
-path& operator=( const Source& source );
+  path& operator=( const path& p );        \fB(1)\fP \fI(since C++17)\fP
+  path& operator=( path&& p ) noexcept;    \fB(2)\fP \fI(since C++17)\fP
+  path& operator=( string_type&& source ); \fB(3)\fP \fI(since C++17)\fP
+  template< class Source >                 \fB(4)\fP \fI(since C++17)\fP
+  path& operator=( const Source& source );
 
-1) Replaces the contents of *this with a pathname whose both native and generic format representations equal those of p.
-2) Replaces the contents of *this with a pathname whose both native and generic format representations equal those of p, possibly using move semantics: p is left in a valid, but unspecified state.
-3) Replaces the contents of *this with a new path value constructed from detected-format source, which is left in valid, but unspecified state. Equivalent to assign(std::move(source)).
-4) Replaces the contents of *this with a new path value constructed from detected-format source as if by overload \fB(4)\fP of the path_constructor. Equivalent to assign(source).
+  1) Replaces the contents of *this with a pathname whose both native and generic format representations equal those of p.
+  2) Replaces the contents of *this with a pathname whose both native and generic format representations equal those of p, possibly using move semantics: p is left in a valid, but unspecified state.
+  3) Replaces the contents of *this with a new path value constructed from detected-format source, which is left in valid, but unspecified state. Equivalent to assign(std::move(source)).
+  4) Replaces the contents of *this with a new path value constructed from detected-format source as if by overload \fB(4)\fP of the path_constructor. Equivalent to assign(source).
 
 .SH Parameters
 
 
-p      - a path to assign
-         a std::basic_string, std::basic_string_view, pointer to a null-terminated character/wide character string, or an input iterator that points to a null-terminated character/wide character sequence. The character type must be one of char,
-source - char8_t,
-         \fI(since C++20)\fPchar16_t, char32_t, wchar_t
+  p      - a path to assign
+           a std::basic_string, std::basic_string_view, pointer to a null-terminated character/wide character string, or an input iterator that points to a null-terminated character/wide character sequence. The character type must be one of char,
+  source - char8_t,
+           \fI(since C++20)\fPchar16_t, char32_t, wchar_t
 
 
 .SH Return value
 
-*this
+  *this
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <filesystem>
-  namespace fs = std::filesystem;
-  int main()
-  {
-      fs::path p = "C:/users/abcdef/AppData/Local";
-      p = p / "Temp"; // move assignment
-      const wchar_t* wstr = L"D:/猫.txt";
-      p = wstr; // assignment from a source
-  }
+    #include <filesystem>
+    namespace fs = std::filesystem;
+    int main()
+    {
+        fs::path p = "C:/users/abcdef/AppData/Local";
+        p = p / "Temp"; // move assignment
+        const wchar_t* wstr = L"D:/猫.txt";
+        p = wstr; // assignment from a source
+    }
 
 
 
 .SH See also
 
 
-              assigns contents
-assign        \fI(public member function)\fP
-              constructs a path
-constructor   \fI(public member function)\fP
+                assigns contents
+  assign        \fI(public member function)\fP
+                constructs a path
+  constructor   \fI(public member function)\fP
 
 
 

@@ -4,58 +4,58 @@ std::experimental::filesystem::path::stem \- std::experimental::filesystem::path
 
 .SH Synopsis
 
-path stem() const;  (filesystem TS)
+  path stem() const;  (filesystem TS)
 
-Returns the filename identified by the path stripped of its extension.
-Returns the substring from the beginning of filename() up to and not including the last period (.) character.
-If the filename is one of the special filesystem components dot or dot-dot, or if it has no periods, the function returns the entire filename().
+  Returns the filename identified by the path stripped of its extension.
+  Returns the substring from the beginning of filename() up to and not including the last period (.) character.
+  If the filename is one of the special filesystem components dot or dot-dot, or if it has no periods, the function returns the entire filename().
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The stem of the filename identified by the path.
+  The stem of the filename identified by the path.
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <experimental/filesystem>
-  namespace fs = std::experimental::filesystem;
+    #include <iostream>
+    #include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
 
-  int main()
-  {
-      std::cout << fs::path("/foo/bar.txt").stem() << '\\n'
-                << fs::path("/foo/.bar").stem() << '\\n';
+    int main()
+    {
+        std::cout << fs::path("/foo/bar.txt").stem() << '\\n'
+                  << fs::path("/foo/.bar").stem() << '\\n';
 
-      for (fs::path p = "foo.bar.baz.tar"; !p.extension().empty(); p = p.stem())
-          std::cout << p.extension() << '\\n';
-  }
+        for (fs::path p = "foo.bar.baz.tar"; !p.extension().empty(); p = p.stem())
+            std::cout << p.extension() << '\\n';
+    }
 
 .SH Output:
 
-  "bar"
-  ""
-  ".tar"
-  ".baz"
-  ".bar"
+    "bar"
+    ""
+    ".tar"
+    ".baz"
+    ".bar"
 
 
 .SH See also
 
 
-          returns the filename path component
-filename  \fI(public member function)\fP
-          returns the file extension path component
-extension \fI(public member function)\fP
+            returns the filename path component
+  filename  \fI(public member function)\fP
+            returns the file extension path component
+  extension \fI(public member function)\fP
 
 
 

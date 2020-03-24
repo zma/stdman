@@ -4,39 +4,39 @@ std::basic_ifstream<CharT,Traits>::close \- std::basic_ifstream<CharT,Traits>::c
 
 .SH Synopsis
 
-void close();
+  void close();
 
-Closes the associated file.
-Effectively calls rdbuf()->close(). If an error occurs during operation, setstate(failbit) is called.
+  Closes the associated file.
+  Effectively calls rdbuf()->close(). If an error occurs during operation, setstate(failbit) is called.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Notes
 
-This function is called by the destructor of basic_ifstream when the stream object goes out of scope and is not usually invoked directly.
+  This function is called by the destructor of basic_ifstream when the stream object goes out of scope and is not usually invoked directly.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-        checks if the stream has an associated file
-is_open \fI(public member function)\fP
-        opens a file and associates it with the stream
-open    \fI(public member function)\fP
-        flushes the put area buffer and closes the associated file
-close   \fI(public member function of std::basic_filebuf<CharT,Traits>)\fP
+          checks if the stream has an associated file
+  is_open \fI(public member function)\fP
+          opens a file and associates it with the stream
+  open    \fI(public member function)\fP
+          flushes the put area buffer and closes the associated file
+  close   \fI(public member function of std::basic_filebuf<CharT,Traits>)\fP
 
 
 

@@ -4,83 +4,83 @@ std::atan2(std::valarray) \- std::atan2(std::valarray)
 
 .SH Synopsis
 
-Defined in header <valarray>
-template< class T >                                                             \fB(1)\fP
-std::valarray<T> atan2( const std::valarray<T>& y, const std::valarray<T>& x );
-template< class T >
-std::valarray<T> atan2( const std::valarray<T>& y,                              \fB(2)\fP
-const typename std::valarray<T>::value_type& vx );
-template< class T >
-std::valarray<T> atan2( const typename std::valarray<T>::value_type& vy,        \fB(3)\fP
-const std::valarray<T>& x );
+  Defined in header <valarray>
+  template< class T >                                                             \fB(1)\fP
+  std::valarray<T> atan2( const std::valarray<T>& y, const std::valarray<T>& x );
+  template< class T >
+  std::valarray<T> atan2( const std::valarray<T>& y,                              \fB(2)\fP
+  const typename std::valarray<T>::value_type& vx );
+  template< class T >
+  std::valarray<T> atan2( const typename std::valarray<T>::value_type& vy,        \fB(3)\fP
+  const std::valarray<T>& x );
 
-Computes the inverse tangent of y/x using the signs of arguments to correctly determine quadrant.
-1) Computes the inverse tangent of each pair of corresponding values from y and x.
-The behavior is undefined if x.size() != y.size().
-2) Computes the inverse tangent of vx and each value in the numeric array y.
-3) Computes the inverse tangent of vy and each value in the numeric array x.
+  Computes the inverse tangent of y/x using the signs of arguments to correctly determine quadrant.
+  1) Computes the inverse tangent of each pair of corresponding values from y and x.
+  The behavior is undefined if x.size() != y.size().
+  2) Computes the inverse tangent of vx and each value in the numeric array y.
+  3) Computes the inverse tangent of vy and each value in the numeric array x.
 
 .SH Parameters
 
 
-x, y   - numeric arrays to compute inverse tangent of
-vy, vx - values to compute inverse tangent of
+  x, y   - numeric arrays to compute inverse tangent of
+  vy, vx - values to compute inverse tangent of
 
 
 .SH Return value
 
-A numeric array containing the results of computation of inverse tangent.
+  A numeric array containing the results of computation of inverse tangent.
 
 .SH Notes
 
-Unqualified function (atan2) is used to perform the computation. If such function is not available, std::atan2 is used due to argument dependent lookup.
-The function can be implemented with the return type different from std::valarray. In this case, the replacement type has the following properties:
+  Unqualified function (atan2) is used to perform the computation. If such function is not available, std::atan2 is used due to argument dependent lookup.
+  The function can be implemented with the return type different from std::valarray. In this case, the replacement type has the following properties:
 
 
-      * All const member functions of std::valarray are provided.
-      * std::valarray, std::slice_array, std::gslice_array, std::mask_array and std::indirect_array can be constructed from the replacement type.
-      * All functions accepting an argument of type const std::valarray&
-        except begin() and end()
-        \fI(since C++11)\fP should also accept the replacement type.
-      * All functions accepting two arguments of type const std::valarray& should accept every combination of const std::valarray& and the replacement type.
-      * The return type does not add more than two levels of template nesting over the most deeply-nested argument type.
+        * All const member functions of std::valarray are provided.
+        * std::valarray, std::slice_array, std::gslice_array, std::mask_array and std::indirect_array can be constructed from the replacement type.
+        * All functions accepting an argument of type const std::valarray&
+          except begin() and end()
+          \fI(since C++11)\fP should also accept the replacement type.
+        * All functions accepting two arguments of type const std::valarray& should accept every combination of const std::valarray& and the replacement type.
+        * The return type does not add more than two levels of template nesting over the most deeply-nested argument type.
 
 
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                                                                      Correct behavior
-LWG_3074 C++98      T is deduced from both the scalar and the valarray for (2-3), disallowing mixed-type calls only deduce T from the valarray
+  DR       Applied to Behavior as published                                                                      Correct behavior
+  LWG_3074 C++98      T is deduced from both the scalar and the valarray for (2-3), disallowing mixed-type calls only deduce T from the valarray
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-                    applies the function std::asin to each element of valarray
-asin(std::valarray) \fI(function template)\fP
-                    applies the function std::acos to each element of valarray
-acos(std::valarray) \fI(function template)\fP
-                    applies the function std::atan to each element of valarray
-atan(std::valarray) \fI(function template)\fP
+                      applies the function std::asin to each element of valarray
+  asin(std::valarray) \fI(function template)\fP
+                      applies the function std::acos to each element of valarray
+  acos(std::valarray) \fI(function template)\fP
+                      applies the function std::atan to each element of valarray
+  atan(std::valarray) \fI(function template)\fP
 
-atan2
-atan2f
-atan2l              arc tangent, using signs to determine quadrants
-                    \fI(function)\fP
+  atan2
+  atan2f
+  atan2l              arc tangent, using signs to determine quadrants
+                      \fI(function)\fP
 
-\fI(C++11)\fP
-\fI(C++11)\fP
-                    returns the phase angle
-arg                 \fI(function template)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
+                      returns the phase angle
+  arg                 \fI(function template)\fP
 
 
 

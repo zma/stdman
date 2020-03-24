@@ -4,68 +4,68 @@ std::thread \- std::thread
 
 .SH Synopsis
 
-Defined in header <thread>
-class thread;               \fI(since C++11)\fP
+  Defined in header <thread>
+  class thread;               \fI(since C++11)\fP
 
-The class thread represents a_single_thread_of_execution. Threads allow multiple functions to execute concurrently.
-Threads begin execution immediately upon construction of the associated thread object (pending any OS scheduling delays), starting at the top-level function provided as a constructor_argument. The return value of the top-level function is ignored and if it terminates by throwing an exception, std::terminate is called. The top-level function may communicate its return value or an exception to the caller via std::promise or by modifying shared variables (which may require synchronization, see std::mutex and std::atomic)
-std::thread objects may also be in the state that does not represent any thread (after default construction, move from, detach, or join), and a thread of execution may be not associated with any thread objects (after detach).
-No two std::thread objects may represent the same thread of execution; std::thread is not CopyConstructible or CopyAssignable, although it is MoveConstructible and MoveAssignable.
+  The class thread represents a_single_thread_of_execution. Threads allow multiple functions to execute concurrently.
+  Threads begin execution immediately upon construction of the associated thread object (pending any OS scheduling delays), starting at the top-level function provided as a constructor_argument. The return value of the top-level function is ignored and if it terminates by throwing an exception, std::terminate is called. The top-level function may communicate its return value or an exception to the caller via std::promise or by modifying shared variables (which may require synchronization, see std::mutex and std::atomic)
+  std::thread objects may also be in the state that does not represent any thread (after default construction, move from, detach, or join), and a thread of execution may be not associated with any thread objects (after detach).
+  No two std::thread objects may represent the same thread of execution; std::thread is not CopyConstructible or CopyAssignable, although it is MoveConstructible and MoveAssignable.
 
 .SH Member types
 
 
-Member type        Definition
-native_handle_type implementation-defined
+  Member type        Definition
+  native_handle_type implementation-defined
 
 
 .SH Member classes
 
 
-   represents the id of a thread
-id \fI(public member class)\fP
+     represents the id of a thread
+  id \fI(public member class)\fP
 
 
 .SH Member functions
 
 
-                     constructs new thread object
-constructor          \fI(public member function)\fP
-                     destructs the thread object, underlying thread must be joined or detached
-destructor           \fI(public member function)\fP
-                     moves the thread object
-operator=            \fI(public member function)\fP
+                       constructs new thread object
+  constructor          \fI(public member function)\fP
+                       destructs the thread object, underlying thread must be joined or detached
+  destructor           \fI(public member function)\fP
+                       moves the thread object
+  operator=            \fI(public member function)\fP
 
 .SH Observers
 
-                     checks whether the thread is joinable, i.e. potentially running in parallel context
-joinable             \fI(public member function)\fP
-                     returns the id of the thread
-get_id               \fI(public member function)\fP
-                     returns the underlying implementation-defined thread handle
-native_handle        \fI(public member function)\fP
+                       checks whether the thread is joinable, i.e. potentially running in parallel context
+  joinable             \fI(public member function)\fP
+                       returns the id of the thread
+  get_id               \fI(public member function)\fP
+                       returns the underlying implementation-defined thread handle
+  native_handle        \fI(public member function)\fP
 
-hardware_concurrency returns the number of concurrent threads supported by the implementation
-                     \fI(public static member function)\fP
-\fB[static]\fP
+  hardware_concurrency returns the number of concurrent threads supported by the implementation
+                       \fI(public static member function)\fP
+  \fB[static]\fP
 
 .SH Operations
 
-                     waits for a thread to finish its execution
-join                 \fI(public member function)\fP
-                     permits the thread to execute independently from the thread handle
-detach               \fI(public member function)\fP
-                     swaps two thread objects
-swap                 \fI(public member function)\fP
+                       waits for a thread to finish its execution
+  join                 \fI(public member function)\fP
+                       permits the thread to execute independently from the thread handle
+  detach               \fI(public member function)\fP
+                       swaps two thread objects
+  swap                 \fI(public member function)\fP
 
 
 .SH Non-member functions
 
 
 
-std::swap(std::thread) specializes the std::swap algorithm
-                       \fI(function template)\fP
-\fI(C++11)\fP
+  std::swap(std::thread) specializes the std::swap algorithm
+                         \fI(function template)\fP
+  \fI(C++11)\fP
 
 
 

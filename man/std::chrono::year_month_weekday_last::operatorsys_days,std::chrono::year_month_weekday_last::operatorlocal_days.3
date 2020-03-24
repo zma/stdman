@@ -4,12 +4,12 @@ std::chrono::year_month_weekday_last::operatorsys_days,std::chrono::year_month_w
 
 .SH Synopsis
 
-constexpr operator std::chrono::sys_days() const noexcept;            \fB(1)\fP \fI(since C++20)\fP
-explicit constexpr operator std::chrono::local_days() const noexcept; \fB(2)\fP \fI(since C++20)\fP
+  constexpr operator std::chrono::sys_days() const noexcept;            \fB(1)\fP \fI(since C++20)\fP
+  explicit constexpr operator std::chrono::local_days() const noexcept; \fB(2)\fP \fI(since C++20)\fP
 
-Converts *this to a std::chrono::time_point representing the same date as this year_month_weekday_last.
-1) If ok() is true, returns a sys_days that represents the last weekday() of the year() and month(). Otherwise, the returned value is unspecified.
-2) Same as \fB(1)\fP, but returns local_days instead of sys_days. Equivalent to local_days(sys_days(*this).time_since_epoch()).
+  Converts *this to a std::chrono::time_point representing the same date as this year_month_weekday_last.
+  1) If ok() is true, returns a sys_days that represents the last weekday() of the year() and month(). Otherwise, the returned value is unspecified.
+  2) Same as \fB(1)\fP, but returns local_days instead of sys_days. Equivalent to local_days(sys_days(*this).time_since_epoch()).
 
 
 

@@ -4,64 +4,64 @@ std::filesystem::filesystem_error \- std::filesystem::filesystem_error
 
 .SH Synopsis
 
-Defined in header <filesystem>
-class filesystem_error;         \fI(since C++17)\fP
+  Defined in header <filesystem>
+  class filesystem_error;         \fI(since C++17)\fP
 
-The class std::filesystem::filesystem_error defines an exception object that is thrown on failure by the throwing overloads of the functions in the filesystem library.
- std-filesystem-filesystem error-inheritance.svg
-Inheritance diagram
-
-.SH Member functions
-
-
-              constructs the error object
-constructor   \fI(public member function)\fP
-              returns the paths that were involved in the operation that caused the error
-path1         \fI(public member function)\fP
-path2
-              returns the explanatory string
-what          \fI(public member function)\fP
-
-
-Inherited from std::system_error
-
+  The class std::filesystem::filesystem_error defines an exception object that is thrown on failure by the throwing overloads of the functions in the filesystem library.
+   std-filesystem-filesystem error-inheritance.svg
+  Inheritance diagram
 
 .SH Member functions
 
 
-          returns error code
-code      \fI(public member function of std::system_error)\fP
-
-what      returns explanatory string
-          \fI(virtual public member function of std::system_error)\fP
-\fB[virtual]\fP
-
-
-Inherited from std::runtime_error
+                constructs the error object
+  constructor   \fI(public member function)\fP
+                returns the paths that were involved in the operation that caused the error
+  path1         \fI(public member function)\fP
+  path2
+                returns the explanatory string
+  what          \fI(public member function)\fP
 
 
-
-Inherited from std::exception
+  Inherited from std::system_error
 
 
 .SH Member functions
 
 
+            returns error code
+  code      \fI(public member function of std::system_error)\fP
 
-destructor   destroys the exception object
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  what      returns explanatory string
+            \fI(virtual public member function of std::system_error)\fP
+  \fB[virtual]\fP
 
-what         returns an explanatory string
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+
+  Inherited from std::runtime_error
+
+
+
+  Inherited from std::exception
+
+
+.SH Member functions
+
+
+
+  destructor   destroys the exception object
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
+
+  what         returns an explanatory string
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 

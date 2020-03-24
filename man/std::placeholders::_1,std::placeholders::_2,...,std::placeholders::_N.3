@@ -4,80 +4,80 @@ std::placeholders::_1,std::placeholders::_2,...,std::placeholders::_N \- std::pl
 
 .SH Synopsis
 
-Defined in header <functional>
-/*see below*/ _1;
-/*see below*/ _2;
-.
-.
-/*see below*/ _N;
+  Defined in header <functional>
+  /*see below*/ _1;
+  /*see below*/ _2;
+  .
+  .
+  /*see below*/ _N;
 
-The std::placeholders namespace contains the placeholder objects [_1, . . . _N] where N is an implementation defined maximum number.
-When used as an argument in a std::bind expression, the placeholder objects are stored in the generated function object, and when that function object is invoked with unbound arguments, each placeholder _N is replaced by the corresponding Nth unbound argument.
+  The std::placeholders namespace contains the placeholder objects [_1, . . . _N] where N is an implementation defined maximum number.
+  When used as an argument in a std::bind expression, the placeholder objects are stored in the generated function object, and when that function object is invoked with unbound arguments, each placeholder _N is replaced by the corresponding Nth unbound argument.
 
-Each placeholder is declared as if by extern /*unspecified*/ _1;                                                                                                                                  \fI(until C++17)\fP
-Implementations are encouraged to declare the placeholders as if by inline constexpr /*unspecified*/ _1;, although declaring them by extern /*unspecified*/ _1; is still allowed by the standard. \fI(since C++17)\fP
+  Each placeholder is declared as if by extern /*unspecified*/ _1;                                                                                                                                  \fI(until C++17)\fP
+  Implementations are encouraged to declare the placeholders as if by inline constexpr /*unspecified*/ _1;, although declaring them by extern /*unspecified*/ _1; is still allowed by the standard. \fI(since C++17)\fP
 
-The types of the placeholder objects are DefaultConstructible and CopyConstructible, their default copy/move constructors do not throw exceptions, and for any placeholder _N, the type std::is_placeholder<decltype(_N)> is defined and is derived from std::integral_constant<int, N>.
+  The types of the placeholder objects are DefaultConstructible and CopyConstructible, their default copy/move constructors do not throw exceptions, and for any placeholder _N, the type std::is_placeholder<decltype(_N)> is defined and is derived from std::integral_constant<int, N>.
 
 .SH Example
 
-The following code shows the creation of function objects with a placeholder argument.
-
+  The following code shows the creation of function objects with a placeholder argument.
+  
 // Run this code
 
-  #include <functional>
-  #include <string>
-  #include <iostream>
+    #include <functional>
+    #include <string>
+    #include <iostream>
 
-  void goodbye(const std::string& s)
-  {
-      std::cout << "Goodbye " << s << '\\n';
-  }
+    void goodbye(const std::string& s)
+    {
+        std::cout << "Goodbye " << s << '\\n';
+    }
 
-  class Object {
-  public:
-      void hello(const std::string& s)
-      {
-          std::cout << "Hello " << s << '\\n';
-      }
-  };
+    class Object {
+    public:
+        void hello(const std::string& s)
+        {
+            std::cout << "Hello " << s << '\\n';
+        }
+    };
 
-  int main()
-  {
-      typedef std::function<void(const std::string&)> ExampleFunction;
-      Object instance;
-      std::string str("World");
-      ExampleFunction f = std::bind(&Object::hello, &instance,
-                                    std::placeholders::_1);
+    int main()
+    {
+        typedef std::function<void(const std::string&)> ExampleFunction;
+        Object instance;
+        std::string str("World");
+        ExampleFunction f = std::bind(&Object::hello, &instance,
+                                      std::placeholders::_1);
 
-      // equivalent to instance.hello(str)
-      f(str);
-      f = std::bind(&goodbye, std::placeholders::_1);
+        // equivalent to instance.hello(str)
+        f(str);
+        f = std::bind(&goodbye, std::placeholders::_1);
 
-      // equivalent to goodbye(str)
-      f(str);
-      return 0;
-  }
+        // equivalent to goodbye(str)
+        f(str);
+        return 0;
+    }
 
 .SH Output:
 
-  Hello World
-  Goodbye World
+    Hello World
+    Goodbye World
 
 
 .SH See also
 
 
 
-bind           binds one or more arguments to a function object
-               \fI(function template)\fP
-\fI(C++11)\fP
+  bind           binds one or more arguments to a function object
+                 \fI(function template)\fP
+  \fI(C++11)\fP
 
-is_placeholder indicates that an object is a standard placeholder or can be used as one
-               \fI(class template)\fP
-\fI(C++11)\fP
-               placeholder to skip an element when unpacking a tuple using tie
-ignore         (constant)
+  is_placeholder indicates that an object is a standard placeholder or can be used as one
+                 \fI(class template)\fP
+  \fI(C++11)\fP
+                 placeholder to skip an element when unpacking a tuple using tie
+  ignore         (constant)
 
 
 

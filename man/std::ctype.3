@@ -4,224 +4,224 @@ std::ctype \- std::ctype
 
 .SH Synopsis
 
-Defined in header <locale>
-template< class CharT >
-class ctype;
+  Defined in header <locale>
+  template< class CharT >
+  class ctype;
 
-Class ctype encapsulates character classification features. All stream input operations performed through std::basic_istream<charT> use the std::ctype<charT> of the locale imbued in the stream to identify whitespace characters for input tokenization. Stream output operations apply std::ctype<charT>::widen() to narrow-character arguments prior to output.
- std-ctype-inheritance.svg
-Inheritance diagram
-Two standalone (locale-independent) specializations are provided by the standard library:
+  Class ctype encapsulates character classification features. All stream input operations performed through std::basic_istream<charT> use the std::ctype<charT> of the locale imbued in the stream to identify whitespace characters for input tokenization. Stream output operations apply std::ctype<charT>::widen() to narrow-character arguments prior to output.
+   std-ctype-inheritance.svg
+  Inheritance diagram
+  Two standalone (locale-independent) specializations are provided by the standard library:
 
-Defined in header <locale>
-std::ctype<char>    provides narrow character equivalents of the minimal "C" locale classification. This specialization uses table lookup for character classification
-std::ctype<wchar_t> provides wide character classification appropriate to the native character set
+  Defined in header <locale>
+  std::ctype<char>    provides narrow character equivalents of the minimal "C" locale classification. This specialization uses table lookup for character classification
+  std::ctype<wchar_t> provides wide character classification appropriate to the native character set
 
-In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
+  In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 
 
-Member type Definition
-char_type   CharT
+  Member type Definition
+  char_type   CharT
 
 
 .SH Member functions
 
 
-              constructs a new ctype facet
-constructor   \fI(public member function)\fP
-              destructs a ctype facet
-destructor    \fI(protected member function)\fP
-              invokes do_is
-is            \fI(public member function)\fP
-              invokes do_scan_is
-scan_is       \fI(public member function)\fP
-              invokes do_scan_not
-scan_not      \fI(public member function)\fP
-              invokes do_toupper
-toupper       \fI(public member function)\fP
-              invokes do_tolower
-tolower       \fI(public member function)\fP
-              invokes do_widen
-widen         \fI(public member function)\fP
-              invokes do_narrow
-narrow        \fI(public member function)\fP
+                constructs a new ctype facet
+  constructor   \fI(public member function)\fP
+                destructs a ctype facet
+  destructor    \fI(protected member function)\fP
+                invokes do_is
+  is            \fI(public member function)\fP
+                invokes do_scan_is
+  scan_is       \fI(public member function)\fP
+                invokes do_scan_not
+  scan_not      \fI(public member function)\fP
+                invokes do_toupper
+  toupper       \fI(public member function)\fP
+                invokes do_tolower
+  tolower       \fI(public member function)\fP
+                invokes do_widen
+  widen         \fI(public member function)\fP
+                invokes do_narrow
+  narrow        \fI(public member function)\fP
 
 
 .SH Member objects
 
 
-                          id of the locale
-static std::locale::id id \fI(public member object)\fP
+                            id of the locale
+  static std::locale::id id \fI(public member object)\fP
 
 
 .SH Protected member functions
 
 
 
-do_is       classifies a character or a character sequence
-            \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_is       classifies a character or a character sequence
+              \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_scan_is  locates the first character in a sequence that conforms to given classification
-            \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_scan_is  locates the first character in a sequence that conforms to given classification
+              \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_scan_not locates the first character in a sequence that fails given classification
-            \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_scan_not locates the first character in a sequence that fails given classification
+              \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_toupper  converts a character or characters to uppercase
-            \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_toupper  converts a character or characters to uppercase
+              \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_tolower  converts a character or characters to lowercase
-            \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_tolower  converts a character or characters to lowercase
+              \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_widen    converts a character or characters from char to charT
-            \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_widen    converts a character or characters from char to charT
+              \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-do_narrow   converts a character or characters from charT to char
-            \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  do_narrow   converts a character or characters from charT to char
+              \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
 
-Inherited from std::ctype_base
+  Inherited from std::ctype_base
 
 
 .SH Member types
 
 
-Type Definition
-mask unspecified bitmask type (enumeration, integer type, or bitset)
+  Type Definition
+  mask unspecified bitmask type (enumeration, integer type, or bitset)
 
 
 .SH Member constants
 
 
 
-space            the value of mask identifying whitespace character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  space            the value of mask identifying whitespace character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-print            the value of mask identifying printable character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  print            the value of mask identifying printable character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-cntrl            the value of mask identifying control character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  cntrl            the value of mask identifying control character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-upper            the value of mask identifying uppercase character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  upper            the value of mask identifying uppercase character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-lower            the value of mask identifying lowercase character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  lower            the value of mask identifying lowercase character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-alpha            the value of mask identifying alphabetic character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  alpha            the value of mask identifying alphabetic character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-digit            the value of mask identifying digit character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  digit            the value of mask identifying digit character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-punct            the value of mask identifying punctuation character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  punct            the value of mask identifying punctuation character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-xdigit           the value of mask identifying hexadecimal digit character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  xdigit           the value of mask identifying hexadecimal digit character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-blank            the value of mask identifying blank character classification
-                 \fI(public static member constant)\fP
-\fB[static]\fP \fI(C++11)\fP
+  blank            the value of mask identifying blank character classification
+                   \fI(public static member constant)\fP
+  \fB[static]\fP \fI(C++11)\fP
 
-alnum            alpha | digit
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  alnum            alpha | digit
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
-graph            alnum | punct
-                 \fI(public static member constant)\fP
-\fB[static]\fP
+  graph            alnum | punct
+                   \fI(public static member constant)\fP
+  \fB[static]\fP
 
 
 .SH Example
 
-The following example demonstrates modification of a ctype other than ctype<char> to tokenize a CSV file
-
+  The following example demonstrates modification of a ctype other than ctype<char> to tokenize a CSV file
+  
 // Run this code
 
-  #include <iostream>
-  #include <locale>
-  #include <sstream>
+    #include <iostream>
+    #include <locale>
+    #include <sstream>
 
-  struct csv_whitespace : std::ctype<wchar_t>
-  {
-      bool do_is(mask m, char_type c) const
-      {
-          if ((m & space) && c == L' ') {
-              return false; // space will NOT be classified as whitespace
-          }
-          if ((m & space) && c == L',') {
-              return true; // comma will be classified as whitespace
-          }
-          return ctype::do_is(m, c); // leave the rest to the parent class
-      }
-  };
+    struct csv_whitespace : std::ctype<wchar_t>
+    {
+        bool do_is(mask m, char_type c) const
+        {
+            if ((m & space) && c == L' ') {
+                return false; // space will NOT be classified as whitespace
+            }
+            if ((m & space) && c == L',') {
+                return true; // comma will be classified as whitespace
+            }
+            return ctype::do_is(m, c); // leave the rest to the parent class
+        }
+    };
 
-  int main()
-  {
-      std::wstring in = L"Column 1,Column 2,Column 3\\n123,456,789";
-      std::wstring token;
+    int main()
+    {
+        std::wstring in = L"Column 1,Column 2,Column 3\\n123,456,789";
+        std::wstring token;
 
-      std::wcout << "default locale:\\n";
-      std::wistringstream s1(in);
-      while (s1 >> token) {
-          std::wcout << "  " << token << '\\n';
-      }
+        std::wcout << "default locale:\\n";
+        std::wistringstream s1(in);
+        while (s1 >> token) {
+            std::wcout << "  " << token << '\\n';
+        }
 
-      std::wcout << "locale with modified ctype:\\n";
-      std::wistringstream s2(in);
-      csv_whitespace* my_ws = new csv_whitespace;
-      s2.imbue(std::locale(s2.getloc(), my_ws));
-      while (s2 >> token) {
-          std::wcout << "  " << token<< '\\n';
-      }
-  }
+        std::wcout << "locale with modified ctype:\\n";
+        std::wistringstream s2(in);
+        csv_whitespace* my_ws = new csv_whitespace;
+        s2.imbue(std::locale(s2.getloc(), my_ws));
+        while (s2 >> token) {
+            std::wcout << "  " << token<< '\\n';
+        }
+    }
 
 .SH Output:
 
-  default locale:
-    Column
-    1,Column
-    2,Column
-    3
-    123,456,789
-  locale with modified ctype:
-    Column 1
-    Column 2
-    Column 3
-    123
-    456
-    789
+    default locale:
+      Column
+      1,Column
+      2,Column
+      3
+      123,456,789
+    locale with modified ctype:
+      Column 1
+      Column 2
+      Column 3
+      123
+      456
+      789
 
 
 .SH See also
 
 
-             specialization of std::ctype for type char
-ctype<char>  \fI(class template specialization)\fP
-             defines character classification categories
-ctype_base   \fI(class template)\fP
-             creates a ctype facet for the named locale
-ctype_byname \fI(class template)\fP
+               specialization of std::ctype for type char
+  ctype<char>  \fI(class template specialization)\fP
+               defines character classification categories
+  ctype_base   \fI(class template)\fP
+               creates a ctype facet for the named locale
+  ctype_byname \fI(class template)\fP
 
 
 

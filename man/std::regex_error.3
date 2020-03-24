@@ -4,64 +4,64 @@ std::regex_error \- std::regex_error
 
 .SH Synopsis
 
-Defined in header <regex>
-class regex_error;         \fI(since C++11)\fP
+  Defined in header <regex>
+  class regex_error;         \fI(since C++11)\fP
 
-Defines the type of exception object thrown to report errors in the regular expressions library.
- std-regex error-inheritance.svg
-Inheritance diagram
-
-.SH Member functions
-
-
-              constructs a regex_error object
-constructor   \fI(public member function)\fP
-              gets the std::regex_constants::error_type for a regex_error
-code          \fI(public member function)\fP
-
-
-Inherited from std::exception
-
+  Defines the type of exception object thrown to report errors in the regular expressions library.
+   std-regex error-inheritance.svg
+  Inheritance diagram
 
 .SH Member functions
 
 
+                constructs a regex_error object
+  constructor   \fI(public member function)\fP
+                gets the std::regex_constants::error_type for a regex_error
+  code          \fI(public member function)\fP
 
-destructor   destroys the exception object
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
 
-what         returns an explanatory string
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  Inherited from std::exception
+
+
+.SH Member functions
+
+
+
+  destructor   destroys the exception object
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
+
+  what         returns an explanatory string
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <regex>
-  #include <iostream>
+    #include <regex>
+    #include <iostream>
 
-  int main()
-  {
-      try {
-          std::regex re("[a-b][a");
-      }
+    int main()
+    {
+        try {
+            std::regex re("[a-b][a");
+        }
 
-      catch (const std::regex_error& e) {
-          std::cout << "regex_error caught: " << e.what() << '\\n';
-          if (e.code() == std::regex_constants::error_brack) {
-              std::cout << "The code was error_brack\\n";
-          }
-      }
-  }
+        catch (const std::regex_error& e) {
+            std::cout << "regex_error caught: " << e.what() << '\\n';
+            if (e.code() == std::regex_constants::error_brack) {
+                std::cout << "The code was error_brack\\n";
+            }
+        }
+    }
 
 .SH Possible output:
 
-  regex_error caught: The expression contained mismatched [ and ].
-  The code was error_brack
+    regex_error caught: The expression contained mismatched [ and ].
+    The code was error_brack
 
 
 

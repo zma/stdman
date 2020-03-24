@@ -4,31 +4,31 @@ std::char_traits<CharT>::move \- std::char_traits<CharT>::move
 
 .SH Synopsis
 
-static char_type* move( char_type* dest, const char_type* src, std::size_t count );            \fI(until C++20)\fP
-static constexpr char_type* move( char_type* dest, const char_type* src, std::size_t count );  \fI(since C++20)\fP
+  static char_type* move( char_type* dest, const char_type* src, std::size_t count );            \fI(until C++20)\fP
+  static constexpr char_type* move( char_type* dest, const char_type* src, std::size_t count );  \fI(since C++20)\fP
 
-Copies count character from character string pointed to by src to character string pointed to by dest.
-Performs correctly even if the copied character ranges overlap, i.e. src is in [dest, dest + count).
+  Copies count character from character string pointed to by src to character string pointed to by dest.
+  Performs correctly even if the copied character ranges overlap, i.e. src is in [dest, dest + count).
 
 .SH Parameters
 
 
-dest  - pointer to a character string to copy to
-src   - pointer to a character string to copy from
-count - the number of characters to copy
+  dest  - pointer to a character string to copy to
+  src   - pointer to a character string to copy from
+  count - the number of characters to copy
 
 
 .SH Return value
 
-dest
+  dest
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-Linear.
+  Linear.
 
 
 

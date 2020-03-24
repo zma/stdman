@@ -4,48 +4,48 @@ std::unordered_multiset<Key,Hash,KeyEqual,Allocator>::emplace \- std::unordered_
 
 .SH Synopsis
 
-template< class... Args >            \fI(since C++11)\fP
-iterator emplace( Args&&... args );
+  template< class... Args >            \fI(since C++11)\fP
+  iterator emplace( Args&&... args );
 
-Inserts a new element into the container constructed in-place with the given args .
-Careful use of emplace allows the new element to be constructed while avoiding unnecessary copy or move operations. The constructor of the new element is called with exactly the same arguments as supplied to emplace, forwarded via std::forward<Args>(args)....
+  Inserts a new element into the container constructed in-place with the given args .
+  Careful use of emplace allows the new element to be constructed while avoiding unnecessary copy or move operations. The constructor of the new element is called with exactly the same arguments as supplied to emplace, forwarded via std::forward<Args>(args)....
 
-If rehashing occurs due to the insertion, all iterators are invalidated. Otherwise iterators are not affected. References are not invalidated. Rehashing occurs only if the new number of elements is greater than max_load_factor()*bucket_count().
+  If rehashing occurs due to the insertion, all iterators are invalidated. Otherwise iterators are not affected. References are not invalidated. Rehashing occurs only if the new number of elements is greater than max_load_factor()*bucket_count().
 
 .SH Parameters
 
 
-args - arguments to forward to the constructor of the element
+  args - arguments to forward to the constructor of the element
 
 
 .SH Return value
 
-Returns an iterator to the inserted element.
+  Returns an iterator to the inserted element.
 
 .SH Exceptions
 
-If an exception is thrown by any operation, this function has no effect.
+  If an exception is thrown by any operation, this function has no effect.
 
 .SH Complexity
 
-Amortized constant on average, worst case linear in the size of the container.
+  Amortized constant on average, worst case linear in the size of the container.
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-             constructs elements in-place using a hint
-emplace_hint \fI(public member function)\fP
-             inserts elements
-             or nodes
-insert       \fI(since C++17)\fP
-             \fI(public member function)\fP
+               constructs elements in-place using a hint
+  emplace_hint \fI(public member function)\fP
+               inserts elements
+               or nodes
+  insert       \fI(since C++17)\fP
+               \fI(public member function)\fP
 
 
 

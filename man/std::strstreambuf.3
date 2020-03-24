@@ -4,19 +4,19 @@ std::strstreambuf \- std::strstreambuf
 
 .SH Synopsis
 
-Defined in header <strstream>
-class strstreambuf : public std::basic_streambuf<char>  (deprecated in C++98)
+  Defined in header <strstream>
+  class strstreambuf : public std::basic_streambuf<char>  (deprecated in C++98)
 
-std::strstreambuf is a std::basic_streambuf whose associated character sequence is a character array, which may be constant (e.g. a string literal), modifyable but not dynamic (e.g. a stack-allocated array), or dynamic, in which case the std::strstreambuf may be allowed to reallocate the array as necessary to accomodate output (e.g. by calling delete[] and new[] or user-provided functions).
-Typical implementation of a std::strstreambuf holds four private data members:
-1) buffer state, a bitmask type which can represent any combination of the four values "allocated" (destructor will deallocate), "constant" (output not allowed), "dynamic" (output may reallocate), or "frozen" (deallocation and reallocation are not allowed)
-2) allocated buffer size (the beginning of the buffer does not need a special data member, it may be stored in the inherited pointer eback())
-3) pointer to user-provided allocation function
-4) pointer to user-provided deallocation function.
+  std::strstreambuf is a std::basic_streambuf whose associated character sequence is a character array, which may be constant (e.g. a string literal), modifyable but not dynamic (e.g. a stack-allocated array), or dynamic, in which case the std::strstreambuf may be allowed to reallocate the array as necessary to accomodate output (e.g. by calling delete[] and new[] or user-provided functions).
+  Typical implementation of a std::strstreambuf holds four private data members:
+  1) buffer state, a bitmask type which can represent any combination of the four values "allocated" (destructor will deallocate), "constant" (output not allowed), "dynamic" (output may reallocate), or "frozen" (deallocation and reallocation are not allowed)
+  2) allocated buffer size (the beginning of the buffer does not need a special data member, it may be stored in the inherited pointer eback())
+  3) pointer to user-provided allocation function
+  4) pointer to user-provided deallocation function.
 
 .SH Notes
 
-After any call to str() on a stream with a dynamic buffer, a call to freeze(false) is required to allow the strstreambuf destructor to deallocate the buffer when necessary.
+  After any call to str() on a stream with a dynamic buffer, a call to freeze(false) is required to allow the strstreambuf destructor to deallocate the buffer when necessary.
 
 .SH Member functions
 
@@ -24,212 +24,212 @@ After any call to str() on a stream with a dynamic buffer, a call to freeze(fals
 
 .SH Public member functions
 
-              constructs a strstreambuf object
-constructor   \fI(public member function)\fP
+                constructs a strstreambuf object
+  constructor   \fI(public member function)\fP
 
-destructor    destructs a strstreambuf object, optionally deallocating the character array
-              \fI(virtual public member function)\fP
-\fB[virtual]\fP
-              sets/clears the frozen state of the buffer
-freeze        \fI(public member function)\fP
-              marks the buffer frozen and returns the beginning pointer of the input sequence
-str           \fI(public member function)\fP
-              returns the next pointer minus the beginning pointer in the output sequence: the number of characters written
-pcount        \fI(public member function)\fP
+  destructor    destructs a strstreambuf object, optionally deallocating the character array
+                \fI(virtual public member function)\fP
+  \fB[virtual]\fP
+                sets/clears the frozen state of the buffer
+  freeze        \fI(public member function)\fP
+                marks the buffer frozen and returns the beginning pointer of the input sequence
+  str           \fI(public member function)\fP
+                returns the next pointer minus the beginning pointer in the output sequence: the number of characters written
+  pcount        \fI(public member function)\fP
 
 .SH Protected member functions
 
 
-underflow     reads a character from the input sequence without advancing the next pointer
-              \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  underflow     reads a character from the input sequence without advancing the next pointer
+                \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-pbackfail     backs out the input sequence to unget a character
-              \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  pbackfail     backs out the input sequence to unget a character
+                \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-overflow      appends a character to the output sequence, may reallocate or initially allocate the buffer if dynamic and not frozen
-              \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  overflow      appends a character to the output sequence, may reallocate or initially allocate the buffer if dynamic and not frozen
+                \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-setbuf        attempts to replace the controlled character sequence with an array
-              \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  setbuf        attempts to replace the controlled character sequence with an array
+                \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-seekoff       repositions the next pointer in the input sequence, output sequence, or both, using relative addressing
-              \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  seekoff       repositions the next pointer in the input sequence, output sequence, or both, using relative addressing
+                \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
-seekpos       repositions the next pointer in the input sequence, output sequence, or both using absolute addressing
-              \fI(virtual protected member function)\fP
-\fB[virtual]\fP
+  seekpos       repositions the next pointer in the input sequence, output sequence, or both using absolute addressing
+                \fI(virtual protected member function)\fP
+  \fB[virtual]\fP
 
 
-Inherited from std::basic_streambuf
+  Inherited from std::basic_streambuf
 
 
 .SH Member types
 
 
-Member type Definition
-char_type   CharT
-traits_type Traits; the program is ill-formed if Traits::char_type is not CharT.
-int_type    Traits::int_type
-pos_type    Traits::pos_type
-off_type    Traits::off_type
+  Member type Definition
+  char_type   CharT
+  traits_type Traits; the program is ill-formed if Traits::char_type is not CharT.
+  int_type    Traits::int_type
+  pos_type    Traits::pos_type
+  off_type    Traits::off_type
 
 
 .SH Member functions
 
 
 
-destructor            destructs the basic_streambuf object
-                      \fI(virtual public member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  destructor            destructs the basic_streambuf object
+                        \fI(virtual public member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
 .SH Locales
 
-                      invokes imbue()
-pubimbue              \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
-                      obtains a copy of the associated locale
-getloc                \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        invokes imbue()
+  pubimbue              \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        obtains a copy of the associated locale
+  getloc                \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
 
 .SH Positioning
 
-                      invokes setbuf()
-pubsetbuf             \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
-                      invokes seekoff()
-pubseekoff            \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
-                      invokes seekpos()
-pubseekpos            \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
-                      invokes sync()
-pubsync               \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        invokes setbuf()
+  pubsetbuf             \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        invokes seekoff()
+  pubseekoff            \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        invokes seekpos()
+  pubseekpos            \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        invokes sync()
+  pubsync               \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
 
 .SH Get area
 
-                      obtains the number of characters immediately available in the get area
-in_avail              \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
-                      advances the input sequence, then reads one character without advancing again
-snextc                \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
-                      reads one character from the input sequence and advances the sequence
-sbumpc                \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        obtains the number of characters immediately available in the get area
+  in_avail              \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        advances the input sequence, then reads one character without advancing again
+  snextc                \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        reads one character from the input sequence and advances the sequence
+  sbumpc                \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
 
-stossc                advances the input sequence as if by calling sbumpc() and discarding the result
-                      \fI(public member function)\fP
-(deprecated in C++98)
-(removed in C++17)
-                      reads one character from the input sequence without advancing the sequence
-sgetc                 \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
-                      invokes xsgetn()
-sgetn                 \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+  stossc                advances the input sequence as if by calling sbumpc() and discarding the result
+                        \fI(public member function)\fP
+  (deprecated in C++98)
+  (removed in C++17)
+                        reads one character from the input sequence without advancing the sequence
+  sgetc                 \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        invokes xsgetn()
+  sgetn                 \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
 
 .SH Put area
 
-                      writes one character to the put area and advances the next pointer
-sputc                 \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
-                      invokes xsputn()
-sputn                 \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        writes one character to the put area and advances the next pointer
+  sputc                 \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        invokes xsputn()
+  sputn                 \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
 
 .SH Putback
 
-                      puts one character back in the input sequence
-sputbackc             \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
-                      moves the next pointer in the input sequence back by one
-sungetc               \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        puts one character back in the input sequence
+  sputbackc             \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
+                        moves the next pointer in the input sequence back by one
+  sungetc               \fI(public member function of std::basic_streambuf<CharT,Traits>)\fP
 
 
 .SH Protected member functions
 
 
-              constructs a basic_streambuf object
-constructor   \fI(protected member function)\fP
+                constructs a basic_streambuf object
+  constructor   \fI(protected member function)\fP
 
-operator=     replaces a basic_streambuf object
-              \fI(protected member function)\fP
-\fI(C++11)\fP
+  operator=     replaces a basic_streambuf object
+                \fI(protected member function)\fP
+  \fI(C++11)\fP
 
-swap          swaps two basic_streambuf objects
-              \fI(protected member function)\fP
-\fI(C++11)\fP
+  swap          swaps two basic_streambuf objects
+                \fI(protected member function)\fP
+  \fI(C++11)\fP
 
 .SH Locales
 
 
-imbue         changes the associated locale
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  imbue         changes the associated locale
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
 .SH Positioning
 
 
-setbuf        replaces the buffer with user-defined array, if permitted
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  setbuf        replaces the buffer with user-defined array, if permitted
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
-seekoff       repositions the next pointer in the input sequence, output sequence, or both, using relative addressing
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  seekoff       repositions the next pointer in the input sequence, output sequence, or both, using relative addressing
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
-seekpos       repositions the next pointer in the input sequence, output sequence, or both using absolute addressing
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  seekpos       repositions the next pointer in the input sequence, output sequence, or both using absolute addressing
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
-sync          synchronizes the buffers with the associated character sequence
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  sync          synchronizes the buffers with the associated character sequence
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
 .SH Get area
 
 
-showmanyc     obtains the number of characters available for input in the associated input sequence, if known
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  showmanyc     obtains the number of characters available for input in the associated input sequence, if known
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
-underflow     reads characters from the associated input sequence to the get area
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  underflow     reads characters from the associated input sequence to the get area
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
-uflow         reads characters from the associated input sequence to the get area and advances the next pointer
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  uflow         reads characters from the associated input sequence to the get area and advances the next pointer
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
-xsgetn        reads multiple characters from the input sequence
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  xsgetn        reads multiple characters from the input sequence
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
-eback         returns a pointer to the beginning, current character and the end of the get area
-gptr          \fI(protected member function)\fP
-egptr
-              advances the next pointer in the input sequence
-gbump         \fI(protected member function)\fP
-              repositions the beginning, next, and end pointers of the input sequence
-setg          \fI(protected member function)\fP
+  eback         returns a pointer to the beginning, current character and the end of the get area
+  gptr          \fI(protected member function)\fP
+  egptr
+                advances the next pointer in the input sequence
+  gbump         \fI(protected member function)\fP
+                repositions the beginning, next, and end pointers of the input sequence
+  setg          \fI(protected member function)\fP
 
 .SH Put area
 
 
-xsputn        writes multiple characters to the output sequence
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  xsputn        writes multiple characters to the output sequence
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
-overflow      writes characters to the associated output sequence from the put area
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  overflow      writes characters to the associated output sequence from the put area
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
-pbase         returns a pointer to the beginning, current character and the end of the put area
-pptr          \fI(protected member function)\fP
-epptr
-              advances the next pointer of the output sequence
-pbump         \fI(protected member function)\fP
-              repositions the beginning, next, and end pointers of the output sequence
-setp          \fI(protected member function)\fP
+  pbase         returns a pointer to the beginning, current character and the end of the put area
+  pptr          \fI(protected member function)\fP
+  epptr
+                advances the next pointer of the output sequence
+  pbump         \fI(protected member function)\fP
+                repositions the beginning, next, and end pointers of the output sequence
+  setp          \fI(protected member function)\fP
 
 .SH Putback
 
 
-pbackfail     puts a character back into the input sequence, possibly modifying the input sequence
-              \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
-\fB[virtual]\fP
+  pbackfail     puts a character back into the input sequence, possibly modifying the input sequence
+                \fI(virtual protected member function of std::basic_streambuf<CharT,Traits>)\fP
+  \fB[virtual]\fP
 
 
 

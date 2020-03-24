@@ -4,48 +4,48 @@ std::experimental::basic_string_view<CharT,Traits>::operator= \- std::experiment
 
 .SH Synopsis
 
-basic_string_view& operator=( const basic_string_view& view ) noexcept = default;  (library fundamentals TS)
+  basic_string_view& operator=( const basic_string_view& view ) noexcept = default;  (library fundamentals TS)
 
-Replaces the view with that of view.
+  Replaces the view with that of view.
 
 .SH Parameters
 
 
-view - view to copy
+  view - view to copy
 
 
 .SH Return value
 
-*this
+  *this
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <experimental/string_view>
-  int main()
-  {
-      std::experimental::string_view v = "Hello, world";
-      v = v.substr(7);
-      std::cout << v << '\\n';
-  }
+    #include <iostream>
+    #include <experimental/string_view>
+    int main()
+    {
+        std::experimental::string_view v = "Hello, world";
+        v = v.substr(7);
+        std::cout << v << '\\n';
+    }
 
 .SH Output:
 
-  world
+    world
 
 
 .SH See also
 
 
-              constructs a basic_string_view
-constructor   \fI(public member function)\fP
+                constructs a basic_string_view
+  constructor   \fI(public member function)\fP
 
 
 

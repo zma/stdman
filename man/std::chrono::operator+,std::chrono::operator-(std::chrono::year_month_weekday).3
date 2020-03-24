@@ -4,27 +4,27 @@ std::chrono::operator+,std::chrono::operator-(std::chrono::year_month_weekday) \
 
 .SH Synopsis
 
-constexpr std::chrono::year_month_weekday                                                       \fB(1)\fP \fI(since C++20)\fP
-operator+(const std::chrono::year_month_weekday& ymwd, const std::chrono::months& dm) noexcept;
-constexpr std::chrono::year_month_weekday                                                       \fB(2)\fP \fI(since C++20)\fP
-operator+(const std::chrono::months& dm, const std::chrono::year_month_weekday& ymwd) noexcept;
-constexpr std::chrono::year_month_weekday                                                       \fB(3)\fP \fI(since C++20)\fP
-operator+(const std::chrono::year_month_weekday& ymwd, const std::chrono::years& dy) noexcept;
-constexpr std::chrono::year_month_weekday                                                       \fB(4)\fP \fI(since C++20)\fP
-operator+(const std::chrono::years& dy, const std::chrono::year_month_weekday& ymwd) noexcept;
-constexpr std::chrono::year_month_weekday                                                       \fB(5)\fP \fI(since C++20)\fP
-operator-(const std::chrono::year_month_weekday& ymwd, const std::chrono::months& dm) noexcept;
-constexpr std::chrono::year_month_weekday                                                       \fB(6)\fP \fI(since C++20)\fP
-operator-(const std::chrono::year_month_weekday& ymwd, const std::chrono::years& dy) noexcept;
+  constexpr std::chrono::year_month_weekday                                                       \fB(1)\fP \fI(since C++20)\fP
+  operator+(const std::chrono::year_month_weekday& ymwd, const std::chrono::months& dm) noexcept;
+  constexpr std::chrono::year_month_weekday                                                       \fB(2)\fP \fI(since C++20)\fP
+  operator+(const std::chrono::months& dm, const std::chrono::year_month_weekday& ymwd) noexcept;
+  constexpr std::chrono::year_month_weekday                                                       \fB(3)\fP \fI(since C++20)\fP
+  operator+(const std::chrono::year_month_weekday& ymwd, const std::chrono::years& dy) noexcept;
+  constexpr std::chrono::year_month_weekday                                                       \fB(4)\fP \fI(since C++20)\fP
+  operator+(const std::chrono::years& dy, const std::chrono::year_month_weekday& ymwd) noexcept;
+  constexpr std::chrono::year_month_weekday                                                       \fB(5)\fP \fI(since C++20)\fP
+  operator-(const std::chrono::year_month_weekday& ymwd, const std::chrono::months& dm) noexcept;
+  constexpr std::chrono::year_month_weekday                                                       \fB(6)\fP \fI(since C++20)\fP
+  operator-(const std::chrono::year_month_weekday& ymwd, const std::chrono::years& dy) noexcept;
 
-1-2) Adds dm.count() months to the date represented by ymwd. The result has the same year() and month() as std::chrono::year_month(ymwd.year(), ymwd.month()) + dm and the same weekday() and index() as ymwd.
-3-4) Adds dy.count() years to the date represented by ymwd. The result is equivalent to std::chrono::year_month_weekday(ymwd.year() + dy, ymwd.month(), ymwd.weekday_indexed()).
-5) Subtracts dm.count() months from the date represented by ymwd. Equivalent to ymwd + -dm.
-6) Subtracts dy.count() years from the date represented by ymwd. Equivalent to ymwd + -dy.
+  1-2) Adds dm.count() months to the date represented by ymwd. The result has the same year() and month() as std::chrono::year_month(ymwd.year(), ymwd.month()) + dm and the same weekday() and index() as ymwd.
+  3-4) Adds dy.count() years to the date represented by ymwd. The result is equivalent to std::chrono::year_month_weekday(ymwd.year() + dy, ymwd.month(), ymwd.weekday_indexed()).
+  5) Subtracts dm.count() months from the date represented by ymwd. Equivalent to ymwd + -dm.
+  6) Subtracts dy.count() years from the date represented by ymwd. Equivalent to ymwd + -dy.
 
 .SH Notes
 
-Even if ymwd.ok() is true, the resulting year_month_weekday may not represent a valid date if ymwd.index() is 5.
+  Even if ymwd.ok() is true, the resulting year_month_weekday may not represent a valid date if ymwd.index() is 5.
 
 
 

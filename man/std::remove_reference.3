@@ -4,88 +4,88 @@ std::remove_reference \- std::remove_reference
 
 .SH Synopsis
 
-Defined in header <type_traits>
-template< class T >              \fI(since C++11)\fP
-struct remove_reference;
+  Defined in header <type_traits>
+  template< class T >              \fI(since C++11)\fP
+  struct remove_reference;
 
-If the type T is a reference type, provides the member typedef type which is the type referred to by T. Otherwise type is T.
+  If the type T is a reference type, provides the member typedef type which is the type referred to by T. Otherwise type is T.
 
 .SH Member types
 
 
-Name Definition
-type the type referred by T or T if it is not a reference
+  Name Definition
+  type the type referred by T or T if it is not a reference
 
 
 .SH Helper types
 
 
-template< class T >                                             \fI(since C++14)\fP
-using remove_reference_t = typename remove_reference<T>::type;
+  template< class T >                                             \fI(since C++14)\fP
+  using remove_reference_t = typename remove_reference<T>::type;
 
 
 .SH Possible implementation
 
 
 
-  template< class T > struct remove_reference      {typedef T type;};
-  template< class T > struct remove_reference<T&>  {typedef T type;};
-  template< class T > struct remove_reference<T&&> {typedef T type;};
+    template< class T > struct remove_reference      {typedef T type;};
+    template< class T > struct remove_reference<T&>  {typedef T type;};
+    template< class T > struct remove_reference<T&&> {typedef T type;};
 
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream> // std::cout
-  #include <type_traits> // std::is_same
+    #include <iostream> // std::cout
+    #include <type_traits> // std::is_same
 
-  template<class T1, class T2>
-  void print_is_same() {
-    std::cout << std::is_same<T1, T2>() << '\\n';
-  }
+    template<class T1, class T2>
+    void print_is_same() {
+      std::cout << std::is_same<T1, T2>() << '\\n';
+    }
 
-  int main() {
-    std::cout << std::boolalpha;
+    int main() {
+      std::cout << std::boolalpha;
 
-    print_is_same<int, int>();
-    print_is_same<int, int &>();
-    print_is_same<int, int &&>();
+      print_is_same<int, int>();
+      print_is_same<int, int &>();
+      print_is_same<int, int &&>();
 
-    print_is_same<int, std::remove_reference<int>::type>();
-    print_is_same<int, std::remove_reference<int &>::type>();
-    print_is_same<int, std::remove_reference<int &&>::type>();
-  }
+      print_is_same<int, std::remove_reference<int>::type>();
+      print_is_same<int, std::remove_reference<int &>::type>();
+      print_is_same<int, std::remove_reference<int &&>::type>();
+    }
 
 .SH Output:
 
-  true
-  false
-  false
-  true
-  true
-  true
+    true
+    false
+    false
+    true
+    true
+    true
 
 
 .SH See also
 
 
 
-is_reference         checks if a type is either a lvalue reference or rvalue reference
-                     \fI(class template)\fP
-\fI(C++11)\fP
+  is_reference         checks if a type is either a lvalue reference or rvalue reference
+                       \fI(class template)\fP
+  \fI(C++11)\fP
 
-add_lvalue_reference
-add_rvalue_reference adds a lvalue or rvalue reference to the given type
-                     \fI(class template)\fP
-\fI(C++11)\fP
-\fI(C++11)\fP
+  add_lvalue_reference
+  add_rvalue_reference adds a lvalue or rvalue reference to the given type
+                       \fI(class template)\fP
+  \fI(C++11)\fP
+  \fI(C++11)\fP
 
-remove_cvref         combines std::remove_cv and std::remove_reference
-                     \fI(class template)\fP
-(C++20)
+  remove_cvref         combines std::remove_cv and std::remove_reference
+                       \fI(class template)\fP
+  (C++20)
 
 
 

@@ -4,74 +4,74 @@ std::chrono::year \- std::chrono::year
 
 .SH Synopsis
 
-Defined in header <chrono>
-class year;                 \fI(since C++20)\fP
+  Defined in header <chrono>
+  class year;                 \fI(since C++20)\fP
 
-The class year represents a year in the proleptic_Gregorian_calendar. Its range is [-32767, 32767].
-year is a TriviallyCopyable StandardLayoutType.
+  The class year represents a year in the proleptic_Gregorian_calendar. Its range is [-32767, 32767].
+  year is a TriviallyCopyable StandardLayoutType.
 
 .SH Member functions
 
 
-                constructs a year
-constructor     \fI(public member function)\fP
+                  constructs a year
+  constructor     \fI(public member function)\fP
 
-operator++      increments or decrements the year
-operator++(int) \fI(public member function)\fP
-operator--
-operator--(int)
-                adds or subtracts a number of years from a year
-operator+=      \fI(public member function)\fP
-operator-=
-                applies unary operators to year
-operator+       \fI(public member function)\fP
-operator-
-                determines if the year is a leap year
-is_leap         \fI(public member function)\fP
-                retrieve the year value
-operator_int    \fI(public member function)\fP
-                checks if the stored year value is valid
-ok              \fI(public member function)\fP
+  operator++      increments or decrements the year
+  operator++(int) \fI(public member function)\fP
+  operator--
+  operator--(int)
+                  adds or subtracts a number of years from a year
+  operator+=      \fI(public member function)\fP
+  operator-=
+                  applies unary operators to year
+  operator+       \fI(public member function)\fP
+  operator-
+                  determines if the year is a leap year
+  is_leap         \fI(public member function)\fP
+                  retrieve the year value
+  operator_int    \fI(public member function)\fP
+                  checks if the stored year value is valid
+  ok              \fI(public member function)\fP
 
-min             returns the smallest possible year value
-                \fI(public static member function)\fP
-\fB[static]\fP
+  min             returns the smallest possible year value
+                  \fI(public static member function)\fP
+  \fB[static]\fP
 
-max             returns the largest possible year
-                \fI(public static member function)\fP
-\fB[static]\fP
-
-
-
-Nonmember functions
+  max             returns the largest possible year
+                  \fI(public static member function)\fP
+  \fB[static]\fP
 
 
 
-operator==
-operator!=  compares two year objects
-operator<   \fI(function)\fP
-operator<=
-operator>
-operator>=
-            performs arithmetic on years
-operator+   \fI(public member function)\fP
-operator-
-            outputs a year into a stream
-operator<<  \fI(function template)\fP
-            outputs a year into a stream according to the provided format
-to_stream   \fI(function template)\fP
-            parses a year from a stream according to the provided format
-from_stream \fI(function template)\fP
+  Nonmember functions
+
+
+
+  operator==
+  operator!=  compares two year objects
+  operator<   \fI(function)\fP
+  operator<=
+  operator>
+  operator>=
+              performs arithmetic on years
+  operator+   \fI(public member function)\fP
+  operator-
+              outputs a year into a stream
+  operator<<  \fI(function template)\fP
+              outputs a year into a stream according to the provided format
+  to_stream   \fI(function template)\fP
+              parses a year from a stream according to the provided format
+  from_stream \fI(function template)\fP
 
 
 .SH Literals
 
 
-Defined in inline namespace std::literals::chrono_literals
+  Defined in inline namespace std::literals::chrono_literals
 
-operator""y A std::chrono::year literal representing a particular year
-            \fI(function)\fP
-(C++20)
+  operator""y A std::chrono::year literal representing a particular year
+              \fI(function)\fP
+  (C++20)
 
 
 

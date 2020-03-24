@@ -4,42 +4,42 @@ std::real(std::complex) \- std::real(std::complex)
 
 .SH Synopsis
 
-Defined in header <complex>
-template< class T >                                   \fI(until C++14)\fP
-T real( const std::complex<T>& z );
-template< class T >                                   \fI(since C++14)\fP
-constexpr T real( const std::complex<T>& z );
-float real( float z );
-template< class DoubleOrInteger >             \fB(1)\fP                   \fI(since C++11)\fP
-double real( DoubleOrInteger z );                                   \fI(until C++14)\fP
-long double real( long double z );                \fB(2)\fP
-constexpr float real( float z );
-template< class DoubleOrInteger >                                   \fI(since C++14)\fP
-constexpr double real( DoubleOrInteger z );
-constexpr long double real( long double z );
+  Defined in header <complex>
+  template< class T >                                   \fI(until C++14)\fP
+  T real( const std::complex<T>& z );
+  template< class T >                                   \fI(since C++14)\fP
+  constexpr T real( const std::complex<T>& z );
+  float real( float z );
+  template< class DoubleOrInteger >             \fB(1)\fP                   \fI(since C++11)\fP
+  double real( DoubleOrInteger z );                                   \fI(until C++14)\fP
+  long double real( long double z );                \fB(2)\fP
+  constexpr float real( float z );
+  template< class DoubleOrInteger >                                   \fI(since C++14)\fP
+  constexpr double real( DoubleOrInteger z );
+  constexpr long double real( long double z );
 
-1) Returns the real component of the complex number z, i.e. z.real().
+  1) Returns the real component of the complex number z, i.e. z.real().
 
-2) Additional overloads are provided for float, double, long double, and all integer types, which are treated as complex numbers with zero imaginary component. \fI(since C++11)\fP
+  2) Additional overloads are provided for float, double, long double, and all integer types, which are treated as complex numbers with zero imaginary component. \fI(since C++11)\fP
 
 
 .SH Parameters
 
 
-z - complex value
+  z - complex value
 
 
 .SH Return value
 
-the real component of z
+  the real component of z
 
 .SH See also
 
 
-     accesses the real part of the complex number
-real \fI(public member function)\fP
-     returns the imaginary component
-imag \fI(function template)\fP
+       accesses the real part of the complex number
+  real \fI(public member function)\fP
+       returns the imaginary component
+  imag \fI(function template)\fP
 
 
 

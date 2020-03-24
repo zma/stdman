@@ -4,28 +4,28 @@ std::experimental::source_location::source_location \- std::experimental::source
 
 .SH Synopsis
 
-constexpr source_location() noexcept;                      \fB(1)\fP (library fundamentals TS v2)
-source_location( const source_location& other ) = default; \fB(2)\fP (library fundamentals TS v2)
-                                                               (implicitly declared)
-source_location( source_location&& other ) = default;      \fB(3)\fP (library fundamentals TS v2)
-                                                               (implicitly declared)
+  constexpr source_location() noexcept;                      \fB(1)\fP (library fundamentals TS v2)
+  source_location( const source_location& other ) = default; \fB(2)\fP (library fundamentals TS v2)
+                                                                 (implicitly declared)
+  source_location( source_location&& other ) = default;      \fB(3)\fP (library fundamentals TS v2)
+                                                                 (implicitly declared)
 
-1) Constructs an source_location object whose values are implementation defined.
-2-3) Implicitly declared copy and move constructors.
+  1) Constructs an source_location object whose values are implementation defined.
+  2-3) Implicitly declared copy and move constructors.
 
 .SH Parameters
 
 
-other - another source_location to copy from
+  other - another source_location to copy from
 
 
 .SH See also
 
 
 
-current  constructs a new source_location
-         \fI(public static member function)\fP
-\fB[static]\fP
+  current  constructs a new source_location
+           \fI(public static member function)\fP
+  \fB[static]\fP
 
 
 

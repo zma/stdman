@@ -4,50 +4,50 @@ std::at_quick_exit \- std::at_quick_exit
 
 .SH Synopsis
 
-Defined in header <cstdlib>
-int at_quick_exit( /*atexit-handler*/* func ) noexcept;            \fB(1)\fP \fI(since C++11)\fP
-int at_quick_exit( /*c-atexit-handler*/* func ) noexcept;
-extern "C++" using /*atexit-handler*/ = void(); // exposition-only \fB(2)\fP
-extern "C" using /*c-atexit-handler*/ = void(); // exposition-only
+  Defined in header <cstdlib>
+  int at_quick_exit( /*atexit-handler*/* func ) noexcept;            \fB(1)\fP \fI(since C++11)\fP
+  int at_quick_exit( /*c-atexit-handler*/* func ) noexcept;
+  extern "C++" using /*atexit-handler*/ = void(); // exposition-only \fB(2)\fP
+  extern "C" using /*c-atexit-handler*/ = void(); // exposition-only
 
-Registers the function pointed to by func to be called on quick program termination (via std::quick_exit).
-Calling the function from several threads does not induce a data race. The implementation shall support the registration of at least 32 functions.
-The registered functions will not be called on normal_program_termination. If a function need to be called in that case, std::atexit must be used.
+  Registers the function pointed to by func to be called on quick program termination (via std::quick_exit).
+  Calling the function from several threads does not induce a data race. The implementation shall support the registration of at least 32 functions.
+  The registered functions will not be called on normal_program_termination. If a function need to be called in that case, std::atexit must be used.
 
 .SH Parameters
 
 
-func - pointer to a function to be called on quick program termination
+  func - pointer to a function to be called on quick program termination
 
 
 .SH Return value
 
-0 if the registration succeeds, nonzero value otherwise.
+  0 if the registration succeeds, nonzero value otherwise.
 
 .SH Notes
 
-The two overloads are distinct because the types of the parameter func are distinct (language_linkage is part of its type)
+  The two overloads are distinct because the types of the parameter func are distinct (language_linkage is part of its type)
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-           causes abnormal program termination (without cleaning up)
-abort      \fI(function)\fP
-           causes normal program termination with cleaning up
-exit       \fI(function)\fP
-           registers a function to be called on std::exit() invocation
-atexit     \fI(function)\fP
+             causes abnormal program termination (without cleaning up)
+  abort      \fI(function)\fP
+             causes normal program termination with cleaning up
+  exit       \fI(function)\fP
+             registers a function to be called on std::exit() invocation
+  atexit     \fI(function)\fP
 
-quick_exit causes quick program termination without completely cleaning up
-           \fI(function)\fP
-\fI(C++11)\fP
+  quick_exit causes quick program termination without completely cleaning up
+             \fI(function)\fP
+  \fI(C++11)\fP
 
 
 

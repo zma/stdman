@@ -4,94 +4,94 @@ std::experimental::observer_ptr \- std::experimental::observer_ptr
 
 .SH Synopsis
 
-Defined in header <experimental/memory>
-template< class W >                      (library fundamentals TS v2)
-class observer_ptr;
+  Defined in header <experimental/memory>
+  template< class W >                      (library fundamentals TS v2)
+  class observer_ptr;
 
-std::experimental::observer_ptr is a non-owning pointer, or observer. The observer stores a pointer to a second object, known as the watched object. An observer_ptr may also have no watched object.
-An observer is not responsible in any way for the watched object; there is no inherent relationship between an observer and the object it watches.
-It is intended as a near drop-in replacement for raw pointer types, with the advantage that, as a vocabulary type, it indicates its intended use without need for detailed analysis by code readers.
-Specializations of observer_ptr satisfy the requirements of CopyConstructible and CopyAssignable.
+  std::experimental::observer_ptr is a non-owning pointer, or observer. The observer stores a pointer to a second object, known as the watched object. An observer_ptr may also have no watched object.
+  An observer is not responsible in any way for the watched object; there is no inherent relationship between an observer and the object it watches.
+  It is intended as a near drop-in replacement for raw pointer types, with the advantage that, as a vocabulary type, it indicates its intended use without need for detailed analysis by code readers.
+  Specializations of observer_ptr satisfy the requirements of CopyConstructible and CopyAssignable.
 
 .SH Type requirements
--
-W shall not be a reference type, but may be an incomplete type.
+  -
+  W shall not be a reference type, but may be an incomplete type.
 
 
 .SH Member types
 
 
-Member type  Definition
-element_type W, the type of the object watched by this observer_ptr
+  Member type  Definition
+  element_type W, the type of the object watched by this observer_ptr
 
 
 .SH Member functions
 
 
-                       constructs a new observer_ptr
-constructor            \fI(public member function)\fP
+                         constructs a new observer_ptr
+  constructor            \fI(public member function)\fP
 
-destructor             destructs an observer_ptr
-                       \fI(public member function)\fP
-(implicitly declared)
+  destructor             destructs an observer_ptr
+                         \fI(public member function)\fP
+  (implicitly declared)
 
-operator=              implicitly declared copy and move assignment operators that assign the stored pointer
-                       \fI(public member function)\fP
-(implicitly declared)
+  operator=              implicitly declared copy and move assignment operators that assign the stored pointer
+                         \fI(public member function)\fP
+  (implicitly declared)
 
 .SH Modifiers
 
-                       returns a pointer to the watched object and stops watching the object
-release                \fI(public member function)\fP
-                       replaces the watched object
-reset                  \fI(public member function)\fP
-                       swaps the watched objects
-swap                   \fI(public member function)\fP
+                         returns a pointer to the watched object and stops watching the object
+  release                \fI(public member function)\fP
+                         replaces the watched object
+  reset                  \fI(public member function)\fP
+                         swaps the watched objects
+  swap                   \fI(public member function)\fP
 
 .SH Observers
 
-                       returns a pointer to the watched object
-get                    \fI(public member function)\fP
-                       checks if there is an associated watched object
-operator_bool          \fI(public member function)\fP
-                       dereferences pointer to the watched object
-operator*              \fI(public member function)\fP
-operator->
+                         returns a pointer to the watched object
+  get                    \fI(public member function)\fP
+                         checks if there is an associated watched object
+  operator_bool          \fI(public member function)\fP
+                         dereferences pointer to the watched object
+  operator*              \fI(public member function)\fP
+  operator->
 
 .SH Conversions
 
-                       explicit conversion function to the stored pointer
-operator_element_type* \fI(public member function)\fP
+                         explicit conversion function to the stored pointer
+  operator_element_type* \fI(public member function)\fP
 
 
 .SH Non-member functions
 
 
-                                                         creates a observer_ptr that watches an object
-make_observer                                            \fI(function template)\fP
+                                                           creates a observer_ptr that watches an object
+  make_observer                                            \fI(function template)\fP
 
-operator==
-operator!=                                               compares to another observer_ptr or with nullptr
-operator<                                                \fI(function template)\fP
-operator<=
-operator>
-operator>=
-                                                         specializes the swap algorithm
-std::experimental::swap(std::experimental::observer_ptr) \fI(function template)\fP
+  operator==
+  operator!=                                               compares to another observer_ptr or with nullptr
+  operator<                                                \fI(function template)\fP
+  operator<=
+  operator>
+  operator>=
+                                                           specializes the swap algorithm
+  std::experimental::swap(std::experimental::observer_ptr) \fI(function template)\fP
 
 
 .SH Helper classes
 
 
-                                           hash support for observer_ptr
-std::hash<std::experimental::observer_ptr> \fI(class template specialization)\fP
+                                             hash support for observer_ptr
+  std::hash<std::experimental::observer_ptr> \fI(class template specialization)\fP
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 

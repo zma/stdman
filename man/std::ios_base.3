@@ -4,154 +4,154 @@ std::ios_base \- std::ios_base
 
 .SH Synopsis
 
-Defined in header <ios>
-class ios_base;
+  Defined in header <ios>
+  class ios_base;
 
-The class ios_base is a multipurpose class that serves as the base class for all I/O stream classes. It maintains several kinds of data:
-1) state information: stream status flags
-2) control information: flags that control formatting of both input and output sequences and the imbued locale
-3) private storage: indexed extensible data structure that allows both long and void* members, which may be implemented as two arbitrary-length arrays or a single array of two-element structs or another container.
-4) callbacks: arbitrary number of user-defined functions to be called from imbue(), copyfmt(), and ~ios_base()
-Typical implementation holds member constants corresponding to all values of fmtflags, iostate, openmode, and seekdir shown below, member variables to maintain current precision, width, and formatting flags, the exception mask, the buffer error state, a resizeable container holding the callbacks, the currently imbued locale, the private storage, and a static integer variable for xalloc().
+  The class ios_base is a multipurpose class that serves as the base class for all I/O stream classes. It maintains several kinds of data:
+  1) state information: stream status flags
+  2) control information: flags that control formatting of both input and output sequences and the imbued locale
+  3) private storage: indexed extensible data structure that allows both long and void* members, which may be implemented as two arbitrary-length arrays or a single array of two-element structs or another container.
+  4) callbacks: arbitrary number of user-defined functions to be called from imbue(), copyfmt(), and ~ios_base()
+  Typical implementation holds member constants corresponding to all values of fmtflags, iostate, openmode, and seekdir shown below, member variables to maintain current precision, width, and formatting flags, the exception mask, the buffer error state, a resizeable container holding the callbacks, the currently imbued locale, the private storage, and a static integer variable for xalloc().
 
 .SH Member functions
 
 
-                  constructs the object
-constructor       \fI(protected member function)\fP
+                    constructs the object
+  constructor       \fI(protected member function)\fP
 
-destructor        destructs the object
-                  \fI(virtual public member function)\fP
-\fB[virtual]\fP
+  destructor        destructs the object
+                    \fI(virtual public member function)\fP
+  \fB[virtual]\fP
 
 .SH Formatting
 
-                  manages format flags
-flags             \fI(public member function)\fP
-                  sets specific format flag
-setf              \fI(public member function)\fP
-                  clears specific format flag
-unsetf            \fI(public member function)\fP
-                  manages decimal precision of floating point operations
-precision         \fI(public member function)\fP
-                  manages field width
-width             \fI(public member function)\fP
+                    manages format flags
+  flags             \fI(public member function)\fP
+                    sets specific format flag
+  setf              \fI(public member function)\fP
+                    clears specific format flag
+  unsetf            \fI(public member function)\fP
+                    manages decimal precision of floating point operations
+  precision         \fI(public member function)\fP
+                    manages field width
+  width             \fI(public member function)\fP
 
 .SH Locales
 
-                  sets locale
-imbue             \fI(public member function)\fP
-                  returns current locale
-getloc            \fI(public member function)\fP
+                    sets locale
+  imbue             \fI(public member function)\fP
+                    returns current locale
+  getloc            \fI(public member function)\fP
 
 .SH Internal extensible array
 
 
-xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
-                  \fI(public static member function)\fP
-\fB[static]\fP
-                  resizes the private storage if necessary and access to the long element at the given index
-iword             \fI(public member function)\fP
-                  resizes the private storage if necessary and access to the void* element at the given index
-pword             \fI(public member function)\fP
+  xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
+                    \fI(public static member function)\fP
+  \fB[static]\fP
+                    resizes the private storage if necessary and access to the long element at the given index
+  iword             \fI(public member function)\fP
+                    resizes the private storage if necessary and access to the void* element at the given index
+  pword             \fI(public member function)\fP
 
 .SH Miscellaneous
 
-                  registers event callback function
-register_callback \fI(public member function)\fP
+                    registers event callback function
+  register_callback \fI(public member function)\fP
 
-sync_with_stdio   sets whether C++ and C IO libraries are interoperable
-                  \fI(public static member function)\fP
-\fB[static]\fP
+  sync_with_stdio   sets whether C++ and C IO libraries are interoperable
+                    \fI(public static member function)\fP
+  \fB[static]\fP
 
 .SH Member classes
 
-                  stream exception
-failure           \fI(public member class)\fP
-                  initializes standard stream objects
-Init              \fI(public member class)\fP
+                    stream exception
+  failure           \fI(public member class)\fP
+                    initializes standard stream objects
+  Init              \fI(public member class)\fP
 
 
 
 .SH Member types and constants
 
-Type           Explanation
-               stream open mode type
-               The following constants are also defined:
+  Type           Explanation
+                 stream open mode type
+                 The following constants are also defined:
 
-               Constant Explanation
-               app      seek to the end of stream before each write
-               binary   open in binary_mode
-openmode       in       open for reading
-               out      open for writing
-               trunc    discard the contents of the stream when opening
-               ate      seek to the end of stream immediately after open
-
-
-               \fI(typedef)\fP
-               formatting flags type
-               The following constants are also defined:
-
-               Constant    Explanation
-               dec         use decimal base for integer I/O: see std::dec
-               oct         use octal base for integer I/O: see std::oct
-               hex         use hexadecimal base for integer I/O: see std::hex
-               basefield   dec|oct|hex. Useful for masking operations
-               left        left adjustment (adds fill characters to the right): see std::left
-               right       right adjustment (adds fill characters to the left): see std::right
-               internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
-               adjustfield left|right|internal. Useful for masking operations
-               scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
-fmtflags       fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
-               floatfield  scientific|fixed. Useful for masking operations
-               boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
-               showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
-               showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
-               showpos     generate a + character for non-negative numeric output: see std::showpos
-               skipws      skip leading whitespace before certain input operations: see std::skipws
-               unitbuf     flush the output after each output operation: see std::unitbuf
-               uppercase   replace certain lowercase letters with their uppercase
-                           equivalents in certain output operations: see std::uppercase
+                 Constant Explanation
+                 app      seek to the end of stream before each write
+                 binary   open in binary_mode
+  openmode       in       open for reading
+                 out      open for writing
+                 trunc    discard the contents of the stream when opening
+                 ate      seek to the end of stream immediately after open
 
 
-               \fI(typedef)\fP
-               state of the stream type
-               The following constants are also defined:
+                 \fI(typedef)\fP
+                 formatting flags type
+                 The following constants are also defined:
 
-               Constant Explanation
-               goodbit  no error
-iostate        badbit   irrecoverable stream error
-               failbit  input/output operation failed (formatting or extraction error)
-               eofbit   associated input sequence has reached end-of-file
+                 Constant    Explanation
+                 dec         use decimal base for integer I/O: see std::dec
+                 oct         use octal base for integer I/O: see std::oct
+                 hex         use hexadecimal base for integer I/O: see std::hex
+                 basefield   dec|oct|hex. Useful for masking operations
+                 left        left adjustment (adds fill characters to the right): see std::left
+                 right       right adjustment (adds fill characters to the left): see std::right
+                 internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
+                 adjustfield left|right|internal. Useful for masking operations
+                 scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
+  fmtflags       fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
+                 floatfield  scientific|fixed. Useful for masking operations
+                 boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
+                 showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
+                 showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
+                 showpos     generate a + character for non-negative numeric output: see std::showpos
+                 skipws      skip leading whitespace before certain input operations: see std::skipws
+                 unitbuf     flush the output after each output operation: see std::unitbuf
+                 uppercase   replace certain lowercase letters with their uppercase
+                             equivalents in certain output operations: see std::uppercase
 
 
-               \fI(typedef)\fP
-               seeking direction type
-               The following constants are also defined:
+                 \fI(typedef)\fP
+                 state of the stream type
+                 The following constants are also defined:
 
-               Constant Explanation
-               beg      the beginning of a stream
-seekdir        end      the ending of a stream
-               cur      the current position of stream position indicator
+                 Constant Explanation
+                 goodbit  no error
+  iostate        badbit   irrecoverable stream error
+                 failbit  input/output operation failed (formatting or extraction error)
+                 eofbit   associated input sequence has reached end-of-file
 
 
-               \fI(typedef)\fP
-               specifies event type
-event          \fI(enum)\fP
-               callback function type
-event_callback \fI(typedef)\fP
+                 \fI(typedef)\fP
+                 seeking direction type
+                 The following constants are also defined:
+
+                 Constant Explanation
+                 beg      the beginning of a stream
+  seekdir        end      the ending of a stream
+                 cur      the current position of stream position indicator
+
+
+                 \fI(typedef)\fP
+                 specifies event type
+  event          \fI(enum)\fP
+                 callback function type
+  event_callback \fI(typedef)\fP
 
 
 
 
 .SH Deprecated member types
 
-Type                  Explanation
-io_state\fB(deprecated)\fP  integer type that may be used like iostate                                      \fI(until C++17)\fP
-open_mode\fB(deprecated)\fP integer type that may be used like openmode
-seek_dir\fB(deprecated)\fP  integer type that may be used like seekdir
-streamoff\fB(deprecated)\fP unspecified type that may be used like off_type, not necessarily std::streamoff
-streampos\fB(deprecated)\fP unspecified type that may be used like pos_type, not necessarily std::streampos
+  Type                  Explanation
+  io_state\fB(deprecated)\fP  integer type that may be used like iostate                                      \fI(until C++17)\fP
+  open_mode\fB(deprecated)\fP integer type that may be used like openmode
+  seek_dir\fB(deprecated)\fP  integer type that may be used like seekdir
+  streamoff\fB(deprecated)\fP unspecified type that may be used like off_type, not necessarily std::streamoff
+  streampos\fB(deprecated)\fP unspecified type that may be used like pos_type, not necessarily std::streampos
 
 
 

@@ -4,40 +4,40 @@ std::polar(std::complex) \- std::polar(std::complex)
 
 .SH Synopsis
 
-Defined in header <complex>
-template< class T >
-complex<T> polar( const T& r, const T& theta = T());
+  Defined in header <complex>
+  template< class T >
+  complex<T> polar( const T& r, const T& theta = T());
 
-Returns a complex number with magnitude r and phase angle theta.
-The behavior is undefined if r is negative or NaN, or if theta is infinite.
+  Returns a complex number with magnitude r and phase angle theta.
+  The behavior is undefined if r is negative or NaN, or if theta is infinite.
 
 .SH Parameters
 
 
-r     - magnitude
-theta - phase angle
+  r     - magnitude
+  theta - phase angle
 
 
 .SH Return value
 
-a complex number determined by r and theta
+  a complex number determined by r and theta
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                          Correct behavior
-LWG_2459 C++98      behavior unclear for some inputs               made undefined
-LWG_2870 C++98      default value of parameter theta not dependent made dependent
+  DR       Applied to Behavior as published                          Correct behavior
+  LWG_2459 C++98      behavior unclear for some inputs               made undefined
+  LWG_2870 C++98      default value of parameter theta not dependent made dependent
 
 
 .SH See also
 
 
-                  returns the magnitude of a complex number
-abs(std::complex) \fI(function template)\fP
-                  returns the phase angle
-arg               \fI(function template)\fP
+                    returns the magnitude of a complex number
+  abs(std::complex) \fI(function template)\fP
+                    returns the phase angle
+  arg               \fI(function template)\fP
 
 
 

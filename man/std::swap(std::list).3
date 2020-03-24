@@ -4,42 +4,42 @@ std::swap(std::list) \- std::swap(std::list)
 
 .SH Synopsis
 
-template< class T, class Alloc >
-void swap( list<T,Alloc>& lhs,                   \fI(until C++17)\fP
-list<T,Alloc>& rhs );
-template< class T, class Alloc >
-void swap( list<T,Alloc>& lhs,                   \fI(since C++17)\fP
-list<T,Alloc>& rhs ) noexcept(/* see below */);
+  template< class T, class Alloc >
+  void swap( list<T,Alloc>& lhs,                   \fI(until C++17)\fP
+  list<T,Alloc>& rhs );
+  template< class T, class Alloc >
+  void swap( list<T,Alloc>& lhs,                   \fI(since C++17)\fP
+  list<T,Alloc>& rhs ) noexcept(/* see below */);
 
-Specializes the std::swap algorithm for std::list. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
+  Specializes the std::swap algorithm for std::list. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
 
 .SH Parameters
 
 
-lhs, rhs - containers whose contents to swap
+  lhs, rhs - containers whose contents to swap
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH Exceptions
 
 
-noexcept specification:           \fI(since C++17)\fP
-noexcept(noexcept(lhs.swap(rhs)))
+  noexcept specification:           \fI(since C++17)\fP
+  noexcept(noexcept(lhs.swap(rhs)))
 
 
 .SH See also
 
 
-     swaps the contents
-swap \fI(public member function)\fP
+       swaps the contents
+  swap \fI(public member function)\fP
 
 
 

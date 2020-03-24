@@ -4,228 +4,228 @@ std::list \- std::list
 
 .SH Synopsis
 
-Defined in header <list>
-template<
-class T,                                                       \fB(1)\fP
-class Allocator = std::allocator<T>
-> class list;
-namespace pmr {
-template <class T>                                             \fB(2)\fP \fI(since C++17)\fP
-using list = std::list<T, std::pmr::polymorphic_allocator<T>>;
-}
+  Defined in header <list>
+  template<
+  class T,                                                       \fB(1)\fP
+  class Allocator = std::allocator<T>
+  > class list;
+  namespace pmr {
+  template <class T>                                             \fB(2)\fP \fI(since C++17)\fP
+  using list = std::list<T, std::pmr::polymorphic_allocator<T>>;
+  }
 
-std::list is a container that supports constant time insertion and removal of elements from anywhere in the container. Fast random access is not supported. It is usually implemented as a doubly-linked list. Compared to std::forward_list this container provides bidirectional iteration capability while being less space efficient.
-Adding, removing and moving the elements within the list or across several lists does not invalidate the iterators or references. An iterator is invalidated only when the corresponding element is deleted.
-std::list meets the requirements of Container, AllocatorAwareContainer, SequenceContainer and ReversibleContainer.
+  std::list is a container that supports constant time insertion and removal of elements from anywhere in the container. Fast random access is not supported. It is usually implemented as a doubly-linked list. Compared to std::forward_list this container provides bidirectional iteration capability while being less space efficient.
+  Adding, removing and moving the elements within the list or across several lists does not invalidate the iterators or references. An iterator is invalidated only when the corresponding element is deleted.
+  std::list meets the requirements of Container, AllocatorAwareContainer, SequenceContainer and ReversibleContainer.
 
 .SH Template parameters
 
 
-            The type of the elements.
+              The type of the elements.
 
-            T must meet the requirements of CopyAssignable and CopyConstructible.                                                                                                                                                                                                                                                                                                                                              \fI(until C++11)\fP
-T         - The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type is a complete type and meets the requirements of Erasable, but many member functions impose stricter requirements.                                                                                                                                       \fI(since C++11)\fP
-                                                                                                                                                                                                                                                                                                                                                                                                                               \fI(until C++17)\fP
-            The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type meets the requirements of Erasable, but many member functions impose stricter requirements. This container (but not its members) can be instantiated with an incomplete element type if the allocator satisfies the allocator_completeness_requirements. \fI(since C++17)\fP
+              T must meet the requirements of CopyAssignable and CopyConstructible.                                                                                                                                                                                                                                                                                                                                              \fI(until C++11)\fP
+  T         - The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type is a complete type and meets the requirements of Erasable, but many member functions impose stricter requirements.                                                                                                                                       \fI(since C++11)\fP
+                                                                                                                                                                                                                                                                                                                                                                                                                                 \fI(until C++17)\fP
+              The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type meets the requirements of Erasable, but many member functions impose stricter requirements. This container (but not its members) can be instantiated with an incomplete element type if the allocator satisfies the allocator_completeness_requirements. \fI(since C++17)\fP
 
-Allocator - An allocator that is used to acquire/release memory and to construct/destroy the elements in that memory. The type must meet the requirements of Allocator. The behavior is undefined if Allocator::value_type is not the same as T.
+  Allocator - An allocator that is used to acquire/release memory and to construct/destroy the elements in that memory. The type must meet the requirements of Allocator. The behavior is undefined if Allocator::value_type is not the same as T.
 
 
 .SH Member types
 
 
-Member type            Definition
-value_type             T
-allocator_type         Allocator
-size_type              Unsigned integer type (usually std::size_t)
-difference_type        Signed integer type (usually std::ptrdiff_t)
+  Member type            Definition
+  value_type             T
+  allocator_type         Allocator
+  size_type              Unsigned integer type (usually std::size_t)
+  difference_type        Signed integer type (usually std::ptrdiff_t)
 
-reference              Allocator::reference \fI(until C++11)\fP
-                       value_type&          \fI(since C++11)\fP
-
-
-const_reference        Allocator::const_reference \fI(until C++11)\fP
-                       const value_type&          \fI(since C++11)\fP
+  reference              Allocator::reference \fI(until C++11)\fP
+                         value_type&          \fI(since C++11)\fP
 
 
-pointer                Allocator::pointer                        \fI(until C++11)\fP
-                       std::allocator_traits<Allocator>::pointer \fI(since C++11)\fP
+  const_reference        Allocator::const_reference \fI(until C++11)\fP
+                         const value_type&          \fI(since C++11)\fP
 
 
-const_pointer          Allocator::const_pointer                        \fI(until C++11)\fP
-                       std::allocator_traits<Allocator>::const_pointer \fI(since C++11)\fP
+  pointer                Allocator::pointer                        \fI(until C++11)\fP
+                         std::allocator_traits<Allocator>::pointer \fI(since C++11)\fP
 
-iterator               LegacyBidirectionalIterator
-const_iterator         Constant LegacyBidirectionalIterator
-reverse_iterator       std::reverse_iterator<iterator>
-const_reverse_iterator std::reverse_iterator<const_iterator>
+
+  const_pointer          Allocator::const_pointer                        \fI(until C++11)\fP
+                         std::allocator_traits<Allocator>::const_pointer \fI(since C++11)\fP
+
+  iterator               LegacyBidirectionalIterator
+  const_iterator         Constant LegacyBidirectionalIterator
+  reverse_iterator       std::reverse_iterator<iterator>
+  const_reverse_iterator std::reverse_iterator<const_iterator>
 
 
 .SH Member functions
 
 
-              constructs the list
-constructor   \fI(public member function)\fP
-              destructs the list
-destructor    \fI(public member function)\fP
-              assigns values to the container
-operator=     \fI(public member function)\fP
-              assigns values to the container
-assign        \fI(public member function)\fP
-              returns the associated allocator
-get_allocator \fI(public member function)\fP
+                constructs the list
+  constructor   \fI(public member function)\fP
+                destructs the list
+  destructor    \fI(public member function)\fP
+                assigns values to the container
+  operator=     \fI(public member function)\fP
+                assigns values to the container
+  assign        \fI(public member function)\fP
+                returns the associated allocator
+  get_allocator \fI(public member function)\fP
 
 .SH Element access
 
-              access the first element
-front         \fI(public member function)\fP
-              access the last element
-back          \fI(public member function)\fP
+                access the first element
+  front         \fI(public member function)\fP
+                access the last element
+  back          \fI(public member function)\fP
 
 .SH Iterators
 
 
-begin         returns an iterator to the beginning
-cbegin        \fI(public member function)\fP
+  begin         returns an iterator to the beginning
+  cbegin        \fI(public member function)\fP
 
 
 
-end_          returns an iterator to the end
-cend          \fI(public member function)\fP
+  end_          returns an iterator to the end
+  cend          \fI(public member function)\fP
 
 
 
-rbegin        returns a reverse iterator to the beginning
-crbegin       \fI(public member function)\fP
+  rbegin        returns a reverse iterator to the beginning
+  crbegin       \fI(public member function)\fP
 
 
 
-rend          returns a reverse iterator to the end
-crend         \fI(public member function)\fP
+  rend          returns a reverse iterator to the end
+  crend         \fI(public member function)\fP
 
 
 
 .SH Capacity
 
-              checks whether the container is empty
-empty         \fI(public member function)\fP
-              returns the number of elements
-size          \fI(public member function)\fP
-              returns the maximum possible number of elements
-max_size      \fI(public member function)\fP
+                checks whether the container is empty
+  empty         \fI(public member function)\fP
+                returns the number of elements
+  size          \fI(public member function)\fP
+                returns the maximum possible number of elements
+  max_size      \fI(public member function)\fP
 
 .SH Modifiers
 
-              clears the contents
-clear         \fI(public member function)\fP
-              inserts elements
-insert        \fI(public member function)\fP
+                clears the contents
+  clear         \fI(public member function)\fP
+                inserts elements
+  insert        \fI(public member function)\fP
 
-emplace       constructs element in-place
-              \fI(public member function)\fP
-\fI(C++11)\fP
-              erases elements
-erase         \fI(public member function)\fP
-              adds an element to the end
-push_back     \fI(public member function)\fP
+  emplace       constructs element in-place
+                \fI(public member function)\fP
+  \fI(C++11)\fP
+                erases elements
+  erase         \fI(public member function)\fP
+                adds an element to the end
+  push_back     \fI(public member function)\fP
 
-emplace_back  constructs an element in-place at the end
-              \fI(public member function)\fP
-\fI(C++11)\fP
-              removes the last element
-pop_back      \fI(public member function)\fP
-              inserts an element to the beginning
-push_front    \fI(public member function)\fP
+  emplace_back  constructs an element in-place at the end
+                \fI(public member function)\fP
+  \fI(C++11)\fP
+                removes the last element
+  pop_back      \fI(public member function)\fP
+                inserts an element to the beginning
+  push_front    \fI(public member function)\fP
 
-emplace_front constructs an element in-place at the beginning
-              \fI(public member function)\fP
-\fI(C++11)\fP
-              removes the first element
-pop_front     \fI(public member function)\fP
-              changes the number of elements stored
-resize        \fI(public member function)\fP
-              swaps the contents
-swap          \fI(public member function)\fP
+  emplace_front constructs an element in-place at the beginning
+                \fI(public member function)\fP
+  \fI(C++11)\fP
+                removes the first element
+  pop_front     \fI(public member function)\fP
+                changes the number of elements stored
+  resize        \fI(public member function)\fP
+                swaps the contents
+  swap          \fI(public member function)\fP
 
 .SH Operations
 
-              merges two sorted lists
-merge         \fI(public member function)\fP
-              moves elements from another list
-splice        \fI(public member function)\fP
-              removes elements satisfying specific criteria
-remove        \fI(public member function)\fP
-remove_if
-              reverses the order of the elements
-reverse       \fI(public member function)\fP
-              removes consecutive duplicate elements
-unique        \fI(public member function)\fP
-              sorts the elements
-sort          \fI(public member function)\fP
+                merges two sorted lists
+  merge         \fI(public member function)\fP
+                moves elements from another list
+  splice        \fI(public member function)\fP
+                removes elements satisfying specific criteria
+  remove        \fI(public member function)\fP
+  remove_if
+                reverses the order of the elements
+  reverse       \fI(public member function)\fP
+                removes consecutive duplicate elements
+  unique        \fI(public member function)\fP
+                sorts the elements
+  sort          \fI(public member function)\fP
 
 
 .SH Non-member functions
 
 
 
-operator==
-operator!=           lexicographically compares the values in the list
-operator<            \fI(function template)\fP
-operator<=
-operator>
-operator>=
-                     specializes the std::swap algorithm
-std::swap(std::list) \fI(function template)\fP
+  operator==
+  operator!=           lexicographically compares the values in the list
+  operator<            \fI(function template)\fP
+  operator<=
+  operator>
+  operator>=
+                       specializes the std::swap algorithm
+  std::swap(std::list) \fI(function template)\fP
 
-erase(std::list)     Erases all elements satisfying specific criteria
-erase_if(std::list)  \fI(function template)\fP
+  erase(std::list)     Erases all elements satisfying specific criteria
+  erase_if(std::list)  \fI(function template)\fP
 
-(C++20)
+  (C++20)
 
 
-Deduction_guides\fI(since C++17)\fP
+  Deduction_guides\fI(since C++17)\fP
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <algorithm>
-  #include <iostream>
-  #include <list>
+    #include <algorithm>
+    #include <iostream>
+    #include <list>
 
-  int main()
-  {
-      // Create a list containing integers
-      std::list<int> l = { 7, 5, 16, 8 };
+    int main()
+    {
+        // Create a list containing integers
+        std::list<int> l = { 7, 5, 16, 8 };
 
-      // Add an integer to the front of the list
-      l.push_front(25);
-      // Add an integer to the back of the list
-      l.push_back(13);
+        // Add an integer to the front of the list
+        l.push_front(25);
+        // Add an integer to the back of the list
+        l.push_back(13);
 
-      // Insert an integer before 16 by searching
-      auto it = std::find(l.begin(), l.end(), 16);
-      if (it != l.end()) {
-          l.insert(it, 42);
-      }
+        // Insert an integer before 16 by searching
+        auto it = std::find(l.begin(), l.end(), 16);
+        if (it != l.end()) {
+            l.insert(it, 42);
+        }
 
-      // Iterate and print values of the list
-      for (int n : l) {
-          std::cout << n << '\\n';
-      }
-  }
+        // Iterate and print values of the list
+        for (int n : l) {
+            std::cout << n << '\\n';
+        }
+    }
 
 .SH Output:
 
-  25
-  7
-  5
-  42
-  16
-  8
-  13
+    25
+    7
+    5
+    42
+    16
+    8
+    13
 
 
 

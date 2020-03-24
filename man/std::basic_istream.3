@@ -4,127 +4,127 @@ std::basic_istream \- std::basic_istream
 
 .SH Synopsis
 
-Defined in header <istream>
-template<
-class CharT,
-class Traits = std::char_traits<CharT>
-> class basic_istream : virtual public std::basic_ios<CharT, Traits>
+  Defined in header <istream>
+  template<
+  class CharT,
+  class Traits = std::char_traits<CharT>
+  > class basic_istream : virtual public std::basic_ios<CharT, Traits>
 
-The class template basic_istream provides support for high level input operations on character streams. The supported operations include formatted input (e.g. integer values or whitespace-separated characters and characters strings) and unformatted input (e.g. raw characters and character arrays). This functionality is implemented in terms of the interface provided by the underlying basic_streambuf class, accessed through the basic_ios base class. The only non-inherited data member of basic_istream, in most implementations, is the value returned by basic_istream::gcount().
- std-basic istream-inheritance.svg
-Inheritance diagram
-Two specializations for common character types are defined:
+  The class template basic_istream provides support for high level input operations on character streams. The supported operations include formatted input (e.g. integer values or whitespace-separated characters and characters strings) and unformatted input (e.g. raw characters and character arrays). This functionality is implemented in terms of the interface provided by the underlying basic_streambuf class, accessed through the basic_ios base class. The only non-inherited data member of basic_istream, in most implementations, is the value returned by basic_istream::gcount().
+   std-basic istream-inheritance.svg
+  Inheritance diagram
+  Two specializations for common character types are defined:
 
-Defined in header <istream>
-Type     Definition
-istream  basic_istream<char>
-wistream basic_istream<wchar_t>
+  Defined in header <istream>
+  Type     Definition
+  istream  basic_istream<char>
+  wistream basic_istream<wchar_t>
 
 
 .SH Global objects
 
-Two global basic_istream objects are provided by the standard library.
+  Two global basic_istream objects are provided by the standard library.
 
-Defined in header <iostream>
-     reads from the standard C input stream stdin
-cin  (global object)
-wcin
+  Defined in header <iostream>
+       reads from the standard C input stream stdin
+  cin  (global object)
+  wcin
 
 
 .SH Member types
 
 
-Member type Definition
-char_type   CharT
-traits_type Traits; the program is ill-formed if Traits::char_type is not CharT.
-int_type    Traits::int_type
-pos_type    Traits::pos_type
-off_type    Traits::off_type
+  Member type Definition
+  char_type   CharT
+  traits_type Traits; the program is ill-formed if Traits::char_type is not CharT.
+  int_type    Traits::int_type
+  pos_type    Traits::pos_type
+  off_type    Traits::off_type
 
 
 .SH Member functions
 
 
-              constructs the object
-constructor   \fI(public member function)\fP
+                constructs the object
+  constructor   \fI(public member function)\fP
 
-destructor    destructs the object
-              \fI(virtual public member function)\fP
-\fB[virtual]\fP
+  destructor    destructs the object
+                \fI(virtual public member function)\fP
+  \fB[virtual]\fP
 
-operator=     move-assigns from another basic_istream
-              \fI(protected member function)\fP
-\fI(C++11)\fP
+  operator=     move-assigns from another basic_istream
+                \fI(protected member function)\fP
+  \fI(C++11)\fP
 
 .SH Formatted input
 
-              extracts formatted data
-operator>>    \fI(public member function)\fP
+                extracts formatted data
+  operator>>    \fI(public member function)\fP
 
 .SH Unformatted input
 
-              extracts characters
-get           \fI(public member function)\fP
-              reads the next character without extracting it
-peek          \fI(public member function)\fP
-              unextracts a character
-unget         \fI(public member function)\fP
-              puts character into input stream
-putback       \fI(public member function)\fP
-              extracts characters until the given character is found
-getline       \fI(public member function)\fP
-              extracts and discards characters until the given character is found
-ignore        \fI(public member function)\fP
-              extracts blocks of characters
-read          \fI(public member function)\fP
-              extracts already available blocks of characters
-readsome      \fI(public member function)\fP
-              returns number of characters extracted by last unformatted input operation
-gcount        \fI(public member function)\fP
+                extracts characters
+  get           \fI(public member function)\fP
+                reads the next character without extracting it
+  peek          \fI(public member function)\fP
+                unextracts a character
+  unget         \fI(public member function)\fP
+                puts character into input stream
+  putback       \fI(public member function)\fP
+                extracts characters until the given character is found
+  getline       \fI(public member function)\fP
+                extracts and discards characters until the given character is found
+  ignore        \fI(public member function)\fP
+                extracts blocks of characters
+  read          \fI(public member function)\fP
+                extracts already available blocks of characters
+  readsome      \fI(public member function)\fP
+                returns number of characters extracted by last unformatted input operation
+  gcount        \fI(public member function)\fP
 
 .SH Positioning
 
-              returns the input position indicator
-tellg         \fI(public member function)\fP
-              sets the input position indicator
-seekg         \fI(public member function)\fP
+                returns the input position indicator
+  tellg         \fI(public member function)\fP
+                sets the input position indicator
+  seekg         \fI(public member function)\fP
 
 .SH Miscellaneous
 
-              synchronizes with the underlying storage device
-sync          \fI(public member function)\fP
+                synchronizes with the underlying storage device
+  sync          \fI(public member function)\fP
 
-swap          swaps stream objects, except for the associated buffer
-              \fI(protected member function)\fP
-\fI(C++11)\fP
+  swap          swaps stream objects, except for the associated buffer
+                \fI(protected member function)\fP
+  \fI(C++11)\fP
 
 
 .SH Member classes
 
 
-       implements basic logic for preparation of the stream for input operations
-sentry \fI(public member class)\fP
+         implements basic logic for preparation of the stream for input operations
+  sentry \fI(public member class)\fP
 
 
 .SH Non-member functions
 
 
-                               extracts characters and character arrays
-operator>>(std::basic_istream) \fI(function template)\fP
+                                 extracts characters and character arrays
+  operator>>(std::basic_istream) \fI(function template)\fP
 
 
-Inherited from std::basic_ios
+  Inherited from std::basic_ios
 
 
 .SH Member types
 
 
-Member type Definition
-char_type   CharT
-traits_type Traits
-int_type    Traits::int_type
-pos_type    Traits::pos_type
-off_type    Traits::off_type
+  Member type Definition
+  char_type   CharT
+  traits_type Traits
+  int_type    Traits::int_type
+  pos_type    Traits::pos_type
+  off_type    Traits::off_type
 
 
 .SH Member functions
@@ -133,53 +133,53 @@ off_type    Traits::off_type
 
 .SH State functions
 
-               checks if no error has occurred i.e. I/O operations are available
-good           \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               checks if end-of-file has been reached
-eof            \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               checks if an error has occurred
-fail           \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               checks if a non-recoverable error has occurred
-bad            \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               checks if an error has occurred (synonym of fail())
-operator!      \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 checks if no error has occurred i.e. I/O operations are available
+  good           \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 checks if end-of-file has been reached
+  eof            \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 checks if an error has occurred
+  fail           \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 checks if a non-recoverable error has occurred
+  bad            \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 checks if an error has occurred (synonym of fail())
+  operator!      \fI(public member function of std::basic_ios<CharT,Traits>)\fP
 
-operator_void*
-operator_bool  checks if no error has occurred (synonym of !fail())
-               \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-\fI(until C++11)\fP
-\fI(since C++11)\fP
-               returns state flags
-rdstate        \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               sets state flags
-setstate       \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               modifies state flags
-clear          \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+  operator_void*
+  operator_bool  checks if no error has occurred (synonym of !fail())
+                 \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+  \fI(until C++11)\fP
+  \fI(since C++11)\fP
+                 returns state flags
+  rdstate        \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 sets state flags
+  setstate       \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 modifies state flags
+  clear          \fI(public member function of std::basic_ios<CharT,Traits>)\fP
 
 .SH Formatting
 
-               copies formatting information
-copyfmt        \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               manages the fill character
-fill           \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 copies formatting information
+  copyfmt        \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 manages the fill character
+  fill           \fI(public member function of std::basic_ios<CharT,Traits>)\fP
 
 .SH Miscellaneous
 
-               manages exception mask
-exceptions     \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               sets the locale
-imbue          \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               manages associated stream buffer
-rdbuf          \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               manages tied stream
-tie            \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               narrows characters
-narrow         \fI(public member function of std::basic_ios<CharT,Traits>)\fP
-               widens characters
-widen          \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 manages exception mask
+  exceptions     \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 sets the locale
+  imbue          \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 manages associated stream buffer
+  rdbuf          \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 manages tied stream
+  tie            \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 narrows characters
+  narrow         \fI(public member function of std::basic_ios<CharT,Traits>)\fP
+                 widens characters
+  widen          \fI(public member function of std::basic_ios<CharT,Traits>)\fP
 
 
-Inherited from std::ios_base
+  Inherited from std::ios_base
 
 
 .SH Member functions
@@ -188,120 +188,120 @@ Inherited from std::ios_base
 
 .SH Formatting
 
-                  manages format flags
-flags             \fI(public member function of std::ios_base)\fP
-                  sets specific format flag
-setf              \fI(public member function of std::ios_base)\fP
-                  clears specific format flag
-unsetf            \fI(public member function of std::ios_base)\fP
-                  manages decimal precision of floating point operations
-precision         \fI(public member function of std::ios_base)\fP
-                  manages field width
-width             \fI(public member function of std::ios_base)\fP
+                    manages format flags
+  flags             \fI(public member function of std::ios_base)\fP
+                    sets specific format flag
+  setf              \fI(public member function of std::ios_base)\fP
+                    clears specific format flag
+  unsetf            \fI(public member function of std::ios_base)\fP
+                    manages decimal precision of floating point operations
+  precision         \fI(public member function of std::ios_base)\fP
+                    manages field width
+  width             \fI(public member function of std::ios_base)\fP
 
 .SH Locales
 
-                  sets locale
-imbue             \fI(public member function of std::ios_base)\fP
-                  returns current locale
-getloc            \fI(public member function of std::ios_base)\fP
+                    sets locale
+  imbue             \fI(public member function of std::ios_base)\fP
+                    returns current locale
+  getloc            \fI(public member function of std::ios_base)\fP
 
 .SH Internal extensible array
 
 
-xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
-                  \fI(public static member function of std::ios_base)\fP
-\fB[static]\fP
-                  resizes the private storage if necessary and access to the long element at the given index
-iword             \fI(public member function of std::ios_base)\fP
-                  resizes the private storage if necessary and access to the void* element at the given index
-pword             \fI(public member function of std::ios_base)\fP
+  xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
+                    \fI(public static member function of std::ios_base)\fP
+  \fB[static]\fP
+                    resizes the private storage if necessary and access to the long element at the given index
+  iword             \fI(public member function of std::ios_base)\fP
+                    resizes the private storage if necessary and access to the void* element at the given index
+  pword             \fI(public member function of std::ios_base)\fP
 
 .SH Miscellaneous
 
-                  registers event callback function
-register_callback \fI(public member function of std::ios_base)\fP
+                    registers event callback function
+  register_callback \fI(public member function of std::ios_base)\fP
 
-sync_with_stdio   sets whether C++ and C IO libraries are interoperable
-                  \fI(public static member function of std::ios_base)\fP
-\fB[static]\fP
+  sync_with_stdio   sets whether C++ and C IO libraries are interoperable
+                    \fI(public static member function of std::ios_base)\fP
+  \fB[static]\fP
 
 .SH Member classes
 
-                  stream exception
-failure           \fI(public member class of std::ios_base)\fP
-                  initializes standard stream objects
-Init              \fI(public member class of std::ios_base)\fP
+                    stream exception
+  failure           \fI(public member class of std::ios_base)\fP
+                    initializes standard stream objects
+  Init              \fI(public member class of std::ios_base)\fP
 
 
 
 .SH Member types and constants
 
-Type           Explanation
-               stream open mode type
-               The following constants are also defined:
+  Type           Explanation
+                 stream open mode type
+                 The following constants are also defined:
 
-               Constant Explanation
-               app      seek to the end of stream before each write
-               binary   open in binary_mode
-openmode       in       open for reading
-               out      open for writing
-               trunc    discard the contents of the stream when opening
-               ate      seek to the end of stream immediately after open
-
-
-               \fI(typedef)\fP
-               formatting flags type
-               The following constants are also defined:
-
-               Constant    Explanation
-               dec         use decimal base for integer I/O: see std::dec
-               oct         use octal base for integer I/O: see std::oct
-               hex         use hexadecimal base for integer I/O: see std::hex
-               basefield   dec|oct|hex. Useful for masking operations
-               left        left adjustment (adds fill characters to the right): see std::left
-               right       right adjustment (adds fill characters to the left): see std::right
-               internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
-               adjustfield left|right|internal. Useful for masking operations
-               scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
-fmtflags       fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
-               floatfield  scientific|fixed. Useful for masking operations
-               boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
-               showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
-               showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
-               showpos     generate a + character for non-negative numeric output: see std::showpos
-               skipws      skip leading whitespace before certain input operations: see std::skipws
-               unitbuf     flush the output after each output operation: see std::unitbuf
-               uppercase   replace certain lowercase letters with their uppercase
-                           equivalents in certain output operations: see std::uppercase
+                 Constant Explanation
+                 app      seek to the end of stream before each write
+                 binary   open in binary_mode
+  openmode       in       open for reading
+                 out      open for writing
+                 trunc    discard the contents of the stream when opening
+                 ate      seek to the end of stream immediately after open
 
 
-               \fI(typedef)\fP
-               state of the stream type
-               The following constants are also defined:
+                 \fI(typedef)\fP
+                 formatting flags type
+                 The following constants are also defined:
 
-               Constant Explanation
-               goodbit  no error
-iostate        badbit   irrecoverable stream error
-               failbit  input/output operation failed (formatting or extraction error)
-               eofbit   associated input sequence has reached end-of-file
+                 Constant    Explanation
+                 dec         use decimal base for integer I/O: see std::dec
+                 oct         use octal base for integer I/O: see std::oct
+                 hex         use hexadecimal base for integer I/O: see std::hex
+                 basefield   dec|oct|hex. Useful for masking operations
+                 left        left adjustment (adds fill characters to the right): see std::left
+                 right       right adjustment (adds fill characters to the left): see std::right
+                 internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
+                 adjustfield left|right|internal. Useful for masking operations
+                 scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
+  fmtflags       fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
+                 floatfield  scientific|fixed. Useful for masking operations
+                 boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
+                 showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
+                 showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
+                 showpos     generate a + character for non-negative numeric output: see std::showpos
+                 skipws      skip leading whitespace before certain input operations: see std::skipws
+                 unitbuf     flush the output after each output operation: see std::unitbuf
+                 uppercase   replace certain lowercase letters with their uppercase
+                             equivalents in certain output operations: see std::uppercase
 
 
-               \fI(typedef)\fP
-               seeking direction type
-               The following constants are also defined:
+                 \fI(typedef)\fP
+                 state of the stream type
+                 The following constants are also defined:
 
-               Constant Explanation
-               beg      the beginning of a stream
-seekdir        end      the ending of a stream
-               cur      the current position of stream position indicator
+                 Constant Explanation
+                 goodbit  no error
+  iostate        badbit   irrecoverable stream error
+                 failbit  input/output operation failed (formatting or extraction error)
+                 eofbit   associated input sequence has reached end-of-file
 
 
-               \fI(typedef)\fP
-               specifies event type
-event          \fI(enum)\fP
-               callback function type
-event_callback \fI(typedef)\fP
+                 \fI(typedef)\fP
+                 seeking direction type
+                 The following constants are also defined:
+
+                 Constant Explanation
+                 beg      the beginning of a stream
+  seekdir        end      the ending of a stream
+                 cur      the current position of stream position indicator
+
+
+                 \fI(typedef)\fP
+                 specifies event type
+  event          \fI(enum)\fP
+                 callback function type
+  event_callback \fI(typedef)\fP
 
 
 

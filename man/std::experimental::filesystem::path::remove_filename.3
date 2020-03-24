@@ -4,54 +4,54 @@ std::experimental::filesystem::path::remove_filename \- std::experimental::files
 
 .SH Synopsis
 
-path& remove_filename() \fB(1)\fP (filesystem TS)
+  path& remove_filename() \fB(1)\fP (filesystem TS)
 
-Removes a single filename component.
-The behavior is undefined if the path has no filename component (has_filename returns false).
+  Removes a single filename component.
+  The behavior is undefined if the path has no filename component (has_filename returns false).
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-*this
+  *this
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <experimental/filesystem>
-  namespace fs = std::experimental::filesystem;
+    #include <iostream>
+    #include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
 
-  int main()
-  {
+    int main()
+    {
 
-      std::cout << fs::path("/foo").remove_filename() << '\\n'
-                << fs::path("/").remove_filename() << '\\n';
-  }
+        std::cout << fs::path("/foo").remove_filename() << '\\n'
+                  << fs::path("/").remove_filename() << '\\n';
+    }
 
 .SH Output:
 
-  "/"
-  ""
+    "/"
+    ""
 
 
 .SH See also
 
 
-                 returns the filename path component
-filename         \fI(public member function)\fP
-                 replaces the last path component with another path
-replace_filename \fI(public member function)\fP
-                 checks if the corresponding path element is not empty
-has_filename     \fI(public member function)\fP
+                   returns the filename path component
+  filename         \fI(public member function)\fP
+                   replaces the last path component with another path
+  replace_filename \fI(public member function)\fP
+                   checks if the corresponding path element is not empty
+  has_filename     \fI(public member function)\fP
 
 
 

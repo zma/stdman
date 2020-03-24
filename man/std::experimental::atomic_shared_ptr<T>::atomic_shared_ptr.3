@@ -4,19 +4,19 @@ std::experimental::atomic_shared_ptr<T>::atomic_shared_ptr \- std::experimental:
 
 .SH Synopsis
 
-constexpr atomic_shared_ptr() noexcept;                        \fB(1)\fP
-constexpr atomic_shared_ptr( shared_ptr<T> desired ) noexcept; \fB(2)\fP
-atomic_shared_ptr( const atomic_shared_ptr& ) = delete;        \fB(3)\fP
+  constexpr atomic_shared_ptr() noexcept;                        \fB(1)\fP
+  constexpr atomic_shared_ptr( shared_ptr<T> desired ) noexcept; \fB(2)\fP
+  atomic_shared_ptr( const atomic_shared_ptr& ) = delete;        \fB(3)\fP
 
-Constructs a new atomic_shared_ptr object.
-1) The default constructor initializes the object to an empty state.
-2) Initializes the underlying shared_ptr<T> with desired. The initialization is not atomic.
-3) Atomic variables are not CopyConstructible.
+  Constructs a new atomic_shared_ptr object.
+  1) The default constructor initializes the object to an empty state.
+  2) Initializes the underlying shared_ptr<T> with desired. The initialization is not atomic.
+  3) Atomic variables are not CopyConstructible.
 
 .SH Parameters
 
 
-desired - value to initialize with
+  desired - value to initialize with
 
 
 .SH Exceptions

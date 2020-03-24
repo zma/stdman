@@ -4,134 +4,134 @@ std::basic_string<CharT,Traits,Allocator>::find \- std::basic_string<CharT,Trait
 
 .SH Synopsis
 
-size_type find( const basic_string& str, size_type pos = 0 ) const;                      \fI(until C++11)\fP
-size_type find( const basic_string& str, size_type pos = 0 ) const noexcept;             \fI(since C++11)\fP
-size_type find( const CharT* s, size_type pos, size_type count ) const;              \fB(2)\fP
-size_type find( const CharT* s, size_type pos = 0 ) const;                       \fB(1)\fP \fB(3)\fP
-size_type find( CharT ch, size_type pos = 0 ) const;                                                   \fI(until C++11)\fP
-size_type find( CharT ch, size_type pos = 0 ) const noexcept;                        \fB(4)\fP               \fI(since C++11)\fP
-template < class T >                                                                     \fB(5)\fP           \fI(since C++17)\fP
-size_type find( const T& t, size_type pos = 0 ) const noexcept(/* see below */);
+  size_type find( const basic_string& str, size_type pos = 0 ) const;                      \fI(until C++11)\fP
+  size_type find( const basic_string& str, size_type pos = 0 ) const noexcept;             \fI(since C++11)\fP
+  size_type find( const CharT* s, size_type pos, size_type count ) const;              \fB(2)\fP
+  size_type find( const CharT* s, size_type pos = 0 ) const;                       \fB(1)\fP \fB(3)\fP
+  size_type find( CharT ch, size_type pos = 0 ) const;                                                   \fI(until C++11)\fP
+  size_type find( CharT ch, size_type pos = 0 ) const noexcept;                        \fB(4)\fP               \fI(since C++11)\fP
+  template < class T >                                                                     \fB(5)\fP           \fI(since C++17)\fP
+  size_type find( const T& t, size_type pos = 0 ) const noexcept(/* see below */);
 
-Finds the first substring equal to the given character sequence. Search begins at pos, i.e. the found substring must not begin in a position preceding pos.
-1) Finds the first substring equal to str.
-2) Finds the first substring equal to the range [s, s+count). This range may contain null characters.
-3) Finds the first substring equal to the character string pointed to by s. The length of the string is determined by the first null character using Traits::length(s).
-4) Finds the first character ch (treated as a single-character substring by the formal rules below).
-5) Implicitly converts t to a string view sv as if by std::basic_string_view<CharT, Traits> sv = t;, then finds the first substring equal to sv. This overload only participates in overload resolution if std::is_convertible_v<const T&, std::basic_string_view<CharT, Traits>> is true and std::is_convertible_v<const T&, const CharT*> is false.
-Formally, a substring str is said to be found at position xpos if all of the following is true:
+  Finds the first substring equal to the given character sequence. Search begins at pos, i.e. the found substring must not begin in a position preceding pos.
+  1) Finds the first substring equal to str.
+  2) Finds the first substring equal to the range [s, s+count). This range may contain null characters.
+  3) Finds the first substring equal to the character string pointed to by s. The length of the string is determined by the first null character using Traits::length(s).
+  4) Finds the first character ch (treated as a single-character substring by the formal rules below).
+  5) Implicitly converts t to a string view sv as if by std::basic_string_view<CharT, Traits> sv = t;, then finds the first substring equal to sv. This overload only participates in overload resolution if std::is_convertible_v<const T&, std::basic_string_view<CharT, Traits>> is true and std::is_convertible_v<const T&, const CharT*> is false.
+  Formally, a substring str is said to be found at position xpos if all of the following is true:
 
-* xpos >= pos
-* xpos + str.size() <= size()
-* for all positions n in str, Traits::eq(at(xpos+n), str.at(n))
+  * xpos >= pos
+  * xpos + str.size() <= size()
+  * for all positions n in str, Traits::eq(at(xpos+n), str.at(n))
 
-In particular, this implies that
+  In particular, this implies that
 
-* a substring can be found only if pos <= size() - str.size()
-* an empty substring is found at pos if and only if pos <= size()
-* for a non-empty substring, if pos >= size(), the function always returns npos.
+  * a substring can be found only if pos <= size() - str.size()
+  * an empty substring is found at pos if and only if pos <= size()
+  * for a non-empty substring, if pos >= size(), the function always returns npos.
 
 
 .SH Parameters
 
 
-str   - string to search for
-pos   - position at which to start the search
-count - length of substring to search for
-s     - pointer to a character string to search for
-ch    - character to search for
-t     - object (convertible to std::basic_string_view) to search for
+  str   - string to search for
+  pos   - position at which to start the search
+  count - length of substring to search for
+  s     - pointer to a character string to search for
+  ch    - character to search for
+  t     - object (convertible to std::basic_string_view) to search for
 
 
 .SH Return value
 
-Position of the first character of the found substring or npos if no such substring is found.
+  Position of the first character of the found substring or npos if no such substring is found.
 
 .SH Exceptions
 
-2-3) Throws nothing.
-5)
-noexcept specification:
-noexcept(std::is_nothrow_convertible_v<const T&, std::basic_string_view<CharT, Traits>>)
+  2-3) Throws nothing.
+  5)
+  noexcept specification:
+  noexcept(std::is_nothrow_convertible_v<const T&, std::basic_string_view<CharT, Traits>>)
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                               Correct behavior
-LWG_2946 C++17      string_view overload causes ambiguity in some cases avoided by making it a template
+  DR       Applied to Behavior as published                               Correct behavior
+  LWG_2946 C++17      string_view overload causes ambiguity in some cases avoided by making it a template
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <string>
-  #include <iostream>
+    #include <string>
+    #include <iostream>
 
-  void print(std::string::size_type n, std::string const &s)
-  {
-      if (n == std::string::npos) {
-          std::cout << "not found\\n";
-      } else {
-          std::cout << "found: " << s.substr(n) << '\\n';
-      }
-  }
+    void print(std::string::size_type n, std::string const &s)
+    {
+        if (n == std::string::npos) {
+            std::cout << "not found\\n";
+        } else {
+            std::cout << "found: " << s.substr(n) << '\\n';
+        }
+    }
 
-  int main()
-  {
-      std::string::size_type n;
-      std::string const s = "This is a string";
+    int main()
+    {
+        std::string::size_type n;
+        std::string const s = "This is a string";
 
-      // search from beginning of string
-      n = s.find("is");
-      print(n, s);
+        // search from beginning of string
+        n = s.find("is");
+        print(n, s);
 
-      // search from position 5
-      n = s.find("is", 5);
-      print(n, s);
+        // search from position 5
+        n = s.find("is", 5);
+        print(n, s);
 
-      // find a single character
-      n = s.find('a');
-      print(n, s);
+        // find a single character
+        n = s.find('a');
+        print(n, s);
 
-      // find a single character
-      n = s.find('q');
-      print(n, s);
-  }
+        // find a single character
+        n = s.find('q');
+        print(n, s);
+    }
 
 .SH Output:
 
-  found: is is a string
-  found: is a string
-  found: a string
-  not found
+    found: is is a string
+    found: is a string
+    found: a string
+    not found
 
 
 .SH See also
 
 
-                  finds the first occurrence of a substring of characters
-strstr            \fI(function)\fP
-                  finds the first occurrence of a wide string within another wide string
-wcsstr            \fI(function)\fP
-                  finds the first occurrence of a character
-strchr            \fI(function)\fP
-                  finds the first occurrence of a wide character in a wide string
-wcschr            \fI(function)\fP
-                  find the last occurrence of a substring
-rfind             \fI(public member function)\fP
-                  find first occurrence of characters
-find_first_of     \fI(public member function)\fP
-                  find first absence of characters
-find_first_not_of \fI(public member function)\fP
-                  find last occurrence of characters
-find_last_of      \fI(public member function)\fP
-                  find last absence of characters
-find_last_not_of  \fI(public member function)\fP
-                  searches for a range of elements
-search            \fI(function template)\fP
+                    finds the first occurrence of a substring of characters
+  strstr            \fI(function)\fP
+                    finds the first occurrence of a wide string within another wide string
+  wcsstr            \fI(function)\fP
+                    finds the first occurrence of a character
+  strchr            \fI(function)\fP
+                    finds the first occurrence of a wide character in a wide string
+  wcschr            \fI(function)\fP
+                    find the last occurrence of a substring
+  rfind             \fI(public member function)\fP
+                    find first occurrence of characters
+  find_first_of     \fI(public member function)\fP
+                    find first absence of characters
+  find_first_not_of \fI(public member function)\fP
+                    find last occurrence of characters
+  find_last_of      \fI(public member function)\fP
+                    find last absence of characters
+  find_last_not_of  \fI(public member function)\fP
+                    searches for a range of elements
+  search            \fI(function template)\fP
 
 
 

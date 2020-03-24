@@ -4,93 +4,93 @@ std::search \- std::search
 
 .SH Synopsis
 
-Defined in header <algorithm>
-template< class ForwardIt1, class ForwardIt2 >
-ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,                                                \fI(until C++20)\fP
-ForwardIt2 s_first, ForwardIt2 s_last );
-template< class ForwardIt1, class ForwardIt2 >
-constexpr ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,                                      \fI(since C++20)\fP
-ForwardIt2 s_first, ForwardIt2 s_last );
-template< class ExecutionPolicy, class ForwardIt1, class ForwardIt2 >
-ForwardIt1 search( ExecutionPolicy&& policy, ForwardIt1 first, ForwardIt1 last,                  \fB(2)\fP \fI(since C++17)\fP
-ForwardIt2 s_first, ForwardIt2 s_last );
-template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
-ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,                                                              \fI(until C++20)\fP
-ForwardIt2 s_first, ForwardIt2 s_last, BinaryPredicate p );                                  \fB(1)\fP
-template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
-constexpr ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,                                                    \fI(since C++20)\fP
-ForwardIt2 s_first, ForwardIt2 s_last, BinaryPredicate p );
-template< class ExecutionPolicy, class ForwardIt1, class ForwardIt2, class BinaryPredicate >
-ForwardIt1 search( ExecutionPolicy&& policy, ForwardIt1 first, ForwardIt1 last,                  \fB(3)\fP \fB(4)\fP           \fI(since C++17)\fP
-ForwardIt2 s_first, ForwardIt2 s_last, BinaryPredicate p );
-template<class ForwardIt, class Searcher>                                                                                        \fI(since C++17)\fP
-ForwardIt search( ForwardIt first, ForwardIt last,                                                                               \fI(until C++20)\fP
-const Searcher& searcher );                                                                          \fB(5)\fP
-template<class ForwardIt, class Searcher>
-constexpr ForwardIt search( ForwardIt first, ForwardIt last,                                                                     \fI(since C++20)\fP
-const Searcher& searcher );
+  Defined in header <algorithm>
+  template< class ForwardIt1, class ForwardIt2 >
+  ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,                                                \fI(until C++20)\fP
+  ForwardIt2 s_first, ForwardIt2 s_last );
+  template< class ForwardIt1, class ForwardIt2 >
+  constexpr ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,                                      \fI(since C++20)\fP
+  ForwardIt2 s_first, ForwardIt2 s_last );
+  template< class ExecutionPolicy, class ForwardIt1, class ForwardIt2 >
+  ForwardIt1 search( ExecutionPolicy&& policy, ForwardIt1 first, ForwardIt1 last,                  \fB(2)\fP \fI(since C++17)\fP
+  ForwardIt2 s_first, ForwardIt2 s_last );
+  template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+  ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,                                                              \fI(until C++20)\fP
+  ForwardIt2 s_first, ForwardIt2 s_last, BinaryPredicate p );                                  \fB(1)\fP
+  template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+  constexpr ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,                                                    \fI(since C++20)\fP
+  ForwardIt2 s_first, ForwardIt2 s_last, BinaryPredicate p );
+  template< class ExecutionPolicy, class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+  ForwardIt1 search( ExecutionPolicy&& policy, ForwardIt1 first, ForwardIt1 last,                  \fB(3)\fP \fB(4)\fP           \fI(since C++17)\fP
+  ForwardIt2 s_first, ForwardIt2 s_last, BinaryPredicate p );
+  template<class ForwardIt, class Searcher>                                                                                        \fI(since C++17)\fP
+  ForwardIt search( ForwardIt first, ForwardIt last,                                                                               \fI(until C++20)\fP
+  const Searcher& searcher );                                                                          \fB(5)\fP
+  template<class ForwardIt, class Searcher>
+  constexpr ForwardIt search( ForwardIt first, ForwardIt last,                                                                     \fI(since C++20)\fP
+  const Searcher& searcher );
 
-1-4) Searches for the first occurrence of the sequence of elements [s_first, s_last) in the range [first, last).
-1) Elements are compared using operator==.
-3) Elements are compared using the given binary predicate p.
-2,4) Same as (1,3), but executed according to policy. These overloads do not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
-5) Searches the sequence [first, last) for the pattern specified in the constructor of searcher. Effectively executes return searcher(first, last).first;. Searcher need not be CopyConstructible.
+  1-4) Searches for the first occurrence of the sequence of elements [s_first, s_last) in the range [first, last).
+  1) Elements are compared using operator==.
+  3) Elements are compared using the given binary predicate p.
+  2,4) Same as (1,3), but executed according to policy. These overloads do not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
+  5) Searches the sequence [first, last) for the pattern specified in the constructor of searcher. Effectively executes return searcher(first, last).first;. Searcher need not be CopyConstructible.
 
-The standard library provides the following searchers:
+  The standard library provides the following searchers:
 
 
-default_searcher              standard C++ library search algorithm implementation
-                              \fI(class template)\fP
-\fI(C++17)\fP
+  default_searcher              standard C++ library search algorithm implementation
+                                \fI(class template)\fP
+  \fI(C++17)\fP
 
-boyer_moore_searcher          Boyer-Moore search algorithm implementation           \fI(since C++17)\fP
-                              \fI(class template)\fP
-\fI(C++17)\fP
+  boyer_moore_searcher          Boyer-Moore search algorithm implementation           \fI(since C++17)\fP
+                                \fI(class template)\fP
+  \fI(C++17)\fP
 
-boyer_moore_horspool_searcher Boyer-Moore-Horspool search algorithm implementation
-                              \fI(class template)\fP
-\fI(C++17)\fP
+  boyer_moore_horspool_searcher Boyer-Moore-Horspool search algorithm implementation
+                                \fI(class template)\fP
+  \fI(C++17)\fP
 
 
 
 .SH Parameters
 
 
-first, last     - the range of elements to examine
-s_first, s_last - the range of elements to search for
-policy          - the execution policy to use. See execution_policy for details.
-searcher        - the searcher encapsulating the search algorithm and the pattern to look for
-                  binary predicate which returns true if the elements should be treated as equal.
-                  The signature of the predicate function should be equivalent to the following:
-                  bool pred(const Type1 &a, const Type2 &b);
-p               - While the signature does not need to have const &, the function must not modify the objects passed to it and must be able to accept all values of type (possibly const) Type1 and Type2 regardless of value_category (thus, Type1 & is not allowed
-                  , nor is Type1 unless for Type1 a move is equivalent to a copy
-                  \fI(since C++11)\fP).
-                  The types Type1 and Type2 must be such that objects of types ForwardIt1 and ForwardIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively. 
+  first, last     - the range of elements to examine
+  s_first, s_last - the range of elements to search for
+  policy          - the execution policy to use. See execution_policy for details.
+  searcher        - the searcher encapsulating the search algorithm and the pattern to look for
+                    binary predicate which returns true if the elements should be treated as equal.
+                    The signature of the predicate function should be equivalent to the following:
+                    bool pred(const Type1 &a, const Type2 &b);
+  p               - While the signature does not need to have const &, the function must not modify the objects passed to it and must be able to accept all values of type (possibly const) Type1 and Type2 regardless of value_category (thus, Type1 & is not allowed
+                    , nor is Type1 unless for Type1 a move is equivalent to a copy
+                    \fI(since C++11)\fP).
+                    The types Type1 and Type2 must be such that objects of types ForwardIt1 and ForwardIt2 can be dereferenced and then implicitly converted to Type1 and Type2 respectively. 
 .SH Type requirements
--
-ForwardIt1, ForwardIt2 must meet the requirements of LegacyForwardIterator.
--
-Searcher must meet the requirements of Searcher.
+  -
+  ForwardIt1, ForwardIt2 must meet the requirements of LegacyForwardIterator.
+  -
+  Searcher must meet the requirements of Searcher.
 
 
 .SH Return value
 
-1-4) Iterator to the beginning of first occurrence of the sequence [s_first, s_last) in the range [first, last). If no such occurrence is found, last is returned.
-If [s_first, s_last) is empty, first is returned. \fI(since C++11)\fP
-5) Returns the result of searcher.operator(), that is, an iterator to the location at which the substring is found or a copy of last if it was not found.
+  1-4) Iterator to the beginning of first occurrence of the sequence [s_first, s_last) in the range [first, last). If no such occurrence is found, last is returned.
+  If [s_first, s_last) is empty, first is returned. \fI(since C++11)\fP
+  5) Returns the result of searcher.operator(), that is, an iterator to the location at which the substring is found or a copy of last if it was not found.
 
 .SH Complexity
 
-1-4) At most S*N comparisons where S = std::distance(s_first, s_last) and N = std::distance(first, last).
-5) Depends on the searcher
+  1-4) At most S*N comparisons where S = std::distance(s_first, s_last) and N = std::distance(first, last).
+  5) Depends on the searcher
 
 .SH Exceptions
 
-The overloads with a template parameter named ExecutionPolicy report errors as follows:
+  The overloads with a template parameter named ExecutionPolicy report errors as follows:
 
-* If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard_policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
-* If the algorithm fails to allocate memory, std::bad_alloc is thrown.
+  * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard_policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
+  * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 
 .SH Possible implementation
@@ -98,137 +98,137 @@ The overloads with a template parameter named ExecutionPolicy report errors as f
 
 .SH First version
 
-  template<class ForwardIt1, class ForwardIt2>
-  constexpr ForwardIt1 search(ForwardIt1 first, ForwardIt1 last,
-                              ForwardIt2 s_first, ForwardIt2 s_last)
-  {
-      for (; ; ++first) {
-          ForwardIt1 it = first;
-          for (ForwardIt2 s_it = s_first; ; ++it, ++s_it) {
-              if (s_it == s_last) {
-                  return first;
-              }
-              if (it == last) {
-                  return last;
-              }
-              if (!(*it == *s_it)) {
-                  break;
-              }
-          }
-      }
-  }
+    template<class ForwardIt1, class ForwardIt2>
+    constexpr ForwardIt1 search(ForwardIt1 first, ForwardIt1 last,
+                                ForwardIt2 s_first, ForwardIt2 s_last)
+    {
+        for (; ; ++first) {
+            ForwardIt1 it = first;
+            for (ForwardIt2 s_it = s_first; ; ++it, ++s_it) {
+                if (s_it == s_last) {
+                    return first;
+                }
+                if (it == last) {
+                    return last;
+                }
+                if (!(*it == *s_it)) {
+                    break;
+                }
+            }
+        }
+    }
 
 .SH Second version
 
-  template<class ForwardIt1, class ForwardIt2, class BinaryPredicate>
-  constexpr ForwardIt1 search(ForwardIt1 first, ForwardIt1 last,
-                              ForwardIt2 s_first, ForwardIt2 s_last,
-                              BinaryPredicate p)
-  {
-      for (; ; ++first) {
-          ForwardIt1 it = first;
-          for (ForwardIt2 s_it = s_first; ; ++it, ++s_it) {
-              if (s_it == s_last) {
-                  return first;
-              }
-              if (it == last) {
-                  return last;
-              }
-              if (!p(*it, *s_it)) {
-                  break;
-              }
-          }
-      }
-  }
+    template<class ForwardIt1, class ForwardIt2, class BinaryPredicate>
+    constexpr ForwardIt1 search(ForwardIt1 first, ForwardIt1 last,
+                                ForwardIt2 s_first, ForwardIt2 s_last,
+                                BinaryPredicate p)
+    {
+        for (; ; ++first) {
+            ForwardIt1 it = first;
+            for (ForwardIt2 s_it = s_first; ; ++it, ++s_it) {
+                if (s_it == s_last) {
+                    return first;
+                }
+                if (it == last) {
+                    return last;
+                }
+                if (!p(*it, *s_it)) {
+                    break;
+                }
+            }
+        }
+    }
 
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <string>
-  #include <algorithm>
-  #include <iostream>
-  #include <vector>
-  #include <functional>
+    #include <string>
+    #include <algorithm>
+    #include <iostream>
+    #include <vector>
+    #include <functional>
 
-  template <typename Container>
-  bool in_quote(const Container& cont, const std::string& s)
-  {
-      return std::search(cont.begin(), cont.end(), s.begin(), s.end()) != cont.end();
-  }
+    template <typename Container>
+    bool in_quote(const Container& cont, const std::string& s)
+    {
+        return std::search(cont.begin(), cont.end(), s.begin(), s.end()) != cont.end();
+    }
 
-  int main()
-  {
-      std::string str = "why waste time learning, when ignorance is instantaneous?";
-      // str.find() can be used as well
-      std::cout << std::boolalpha << in_quote(str, "learning") << '\\n'
-                                  << in_quote(str, "lemming")  << '\\n';
+    int main()
+    {
+        std::string str = "why waste time learning, when ignorance is instantaneous?";
+        // str.find() can be used as well
+        std::cout << std::boolalpha << in_quote(str, "learning") << '\\n'
+                                    << in_quote(str, "lemming")  << '\\n';
 
-      std::vector<char> vec(str.begin(), str.end());
-      std::cout << std::boolalpha << in_quote(vec, "learning") << '\\n'
-                                  << in_quote(vec, "lemming")  << '\\n';
+        std::vector<char> vec(str.begin(), str.end());
+        std::cout << std::boolalpha << in_quote(vec, "learning") << '\\n'
+                                    << in_quote(vec, "lemming")  << '\\n';
 
-      // The C++17 overload demo:
-      std::string in = "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
-                       " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
-      std::string needle = "pisci";
-      auto it = std::search(in.begin(), in.end(),
-                     std::boyer_moore_searcher(
-                        needle.begin(), needle.end()));
-      if(it != in.end())
-          std::cout << "The string " << needle << " found at offset "
-                    << it - in.begin() << '\\n';
-      else
-          std::cout << "The string " << needle << " not found\\n";
-  }
+        // The C++17 overload demo:
+        std::string in = "Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+                         " sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
+        std::string needle = "pisci";
+        auto it = std::search(in.begin(), in.end(),
+                       std::boyer_moore_searcher(
+                          needle.begin(), needle.end()));
+        if(it != in.end())
+            std::cout << "The string " << needle << " found at offset "
+                      << it - in.begin() << '\\n';
+        else
+            std::cout << "The string " << needle << " not found\\n";
+    }
 
 .SH Output:
 
-  true
-  false
-  true
-  false
-  The string pisci found at offset 43
+    true
+    false
+    true
+    false
+    The string pisci found at offset 43
 
 
 .SH See also
 
 
-                              finds the last sequence of elements in a certain range
-find_end                      \fI(function template)\fP
-                              returns true if one set is a subset of another
-includes                      \fI(function template)\fP
-                              determines if two sets of elements are the same
-equal                         \fI(function template)\fP
+                                finds the last sequence of elements in a certain range
+  find_end                      \fI(function template)\fP
+                                returns true if one set is a subset of another
+  includes                      \fI(function template)\fP
+                                determines if two sets of elements are the same
+  equal                         \fI(function template)\fP
 
-find
-find_if
-find_if_not                   finds the first element satisfying specific criteria
-                              \fI(function template)\fP
+  find
+  find_if
+  find_if_not                   finds the first element satisfying specific criteria
+                                \fI(function template)\fP
 
 
-\fI(C++11)\fP
-                              returns true if one range is lexicographically less than another
-lexicographical_compare       \fI(function template)\fP
-                              finds the first position where two ranges differ
-mismatch                      \fI(function template)\fP
-                              searches a range for a number of consecutive copies of an element
-search_n                      \fI(function template)\fP
+  \fI(C++11)\fP
+                                returns true if one range is lexicographically less than another
+  lexicographical_compare       \fI(function template)\fP
+                                finds the first position where two ranges differ
+  mismatch                      \fI(function template)\fP
+                                searches a range for a number of consecutive copies of an element
+  search_n                      \fI(function template)\fP
 
-default_searcher              standard C++ library search algorithm implementation
-                              \fI(class template)\fP
-\fI(C++17)\fP
+  default_searcher              standard C++ library search algorithm implementation
+                                \fI(class template)\fP
+  \fI(C++17)\fP
 
-boyer_moore_searcher          Boyer-Moore search algorithm implementation
-                              \fI(class template)\fP
-\fI(C++17)\fP
+  boyer_moore_searcher          Boyer-Moore search algorithm implementation
+                                \fI(class template)\fP
+  \fI(C++17)\fP
 
-boyer_moore_horspool_searcher Boyer-Moore-Horspool search algorithm implementation
-                              \fI(class template)\fP
-\fI(C++17)\fP
+  boyer_moore_horspool_searcher Boyer-Moore-Horspool search algorithm implementation
+                                \fI(class template)\fP
+  \fI(C++17)\fP
 
 
 

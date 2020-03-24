@@ -4,52 +4,52 @@ std::array<T,N>::max_size \- std::array<T,N>::max_size
 
 .SH Synopsis
 
-constexpr size_type max_size() noexcept;        \fI(since C++11)\fP
-                                                \fI(until C++14)\fP
-constexpr size_type max_size() const noexcept;  \fI(since C++14)\fP
+  constexpr size_type max_size() noexcept;        \fI(since C++11)\fP
+                                                  \fI(until C++14)\fP
+  constexpr size_type max_size() const noexcept;  \fI(since C++14)\fP
 
-Returns the maximum number of elements the container is able to hold due to system or library implementation limitations, i.e. std::distance(begin(), end()) for the largest container.
+  Returns the maximum number of elements the container is able to hold due to system or library implementation limitations, i.e. std::distance(begin(), end()) for the largest container.
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-Maximum number of elements.
+  Maximum number of elements.
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH Notes
 
-Because each std::array<T, N> is a fixed-size container, the value returned by max_size equals N (which is also the value returned by size)
+  Because each std::array<T, N> is a fixed-size container, the value returned by max_size equals N (which is also the value returned by size)
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <array>
+    #include <iostream>
+    #include <array>
 
-  int main()
-  {
-      std::array<char, 10> s;
-      std::cout << "Maximum size of a 'array' is " << s.max_size() << "\\n";
-  }
+    int main()
+    {
+        std::array<char, 10> s;
+        std::cout << "Maximum size of a 'array' is " << s.max_size() << "\\n";
+    }
 
 .SH Possible output:
 
-  Maximum size of a 'array' is 10
+    Maximum size of a 'array' is 10
 
 
 .SH See also
 
 
-     returns the number of elements
-size \fI(public member function)\fP
+       returns the number of elements
+  size \fI(public member function)\fP
 
 
 

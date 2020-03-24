@@ -4,100 +4,100 @@ std::make_heap \- std::make_heap
 
 .SH Synopsis
 
-Defined in header <algorithm>
-template< class RandomIt >                                         \fI(until C++20)\fP
-void make_heap( RandomIt first, RandomIt last );
-template< class RandomIt >                                         \fI(since C++20)\fP
-constexpr void make_heap( RandomIt first, RandomIt last );
-template< class RandomIt, class Compare >                  \fB(1)\fP
-void make_heap( RandomIt first, RandomIt last,                                   \fI(until C++20)\fP
-Compare comp );                                                \fB(2)\fP
-template< class RandomIt, class Compare >
-constexpr void make_heap( RandomIt first, RandomIt last,                         \fI(since C++20)\fP
-Compare comp );
+  Defined in header <algorithm>
+  template< class RandomIt >                                         \fI(until C++20)\fP
+  void make_heap( RandomIt first, RandomIt last );
+  template< class RandomIt >                                         \fI(since C++20)\fP
+  constexpr void make_heap( RandomIt first, RandomIt last );
+  template< class RandomIt, class Compare >                  \fB(1)\fP
+  void make_heap( RandomIt first, RandomIt last,                                   \fI(until C++20)\fP
+  Compare comp );                                                \fB(2)\fP
+  template< class RandomIt, class Compare >
+  constexpr void make_heap( RandomIt first, RandomIt last,                         \fI(since C++20)\fP
+  Compare comp );
 
-Constructs a max heap in the range [first, last). The first version of the function uses operator< to compare the elements, the second uses the given comparison function comp.
+  Constructs a max heap in the range [first, last). The first version of the function uses operator< to compare the elements, the second uses the given comparison function comp.
 
 .SH Parameters
 
 
-first, last - the range of elements to make the heap from
-              comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
-              The signature of the comparison function should be equivalent to the following:
-              bool cmp(const Type1 &a, const Type2 &b);
-comp        - While the signature does not need to have const &, the function must not modify the objects passed to it and must be able to accept all values of type (possibly const) Type1 and Type2 regardless of value_category (thus, Type1 & is not allowed
-              , nor is Type1 unless for Type1 a move is equivalent to a copy
-              \fI(since C++11)\fP).
-              The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them. 
+  first, last - the range of elements to make the heap from
+                comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than the second.
+                The signature of the comparison function should be equivalent to the following:
+                bool cmp(const Type1 &a, const Type2 &b);
+  comp        - While the signature does not need to have const &, the function must not modify the objects passed to it and must be able to accept all values of type (possibly const) Type1 and Type2 regardless of value_category (thus, Type1 & is not allowed
+                , nor is Type1 unless for Type1 a move is equivalent to a copy
+                \fI(since C++11)\fP).
+                The types Type1 and Type2 must be such that an object of type RandomIt can be dereferenced and then implicitly converted to both of them. 
 .SH Type requirements
--
-RandomIt must meet the requirements of LegacyRandomAccessIterator.
--
-The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
+  -
+  RandomIt must meet the requirements of LegacyRandomAccessIterator.
+  -
+  The type of dereferenced RandomIt must meet the requirements of MoveAssignable and MoveConstructible.
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Complexity
 
-At most 3*std::distance(first, last) comparisons.
+  At most 3*std::distance(first, last) comparisons.
 
 .SH Notes
 
-A max heap is a range of elements [f,l) that has the following properties:
+  A max heap is a range of elements [f,l) that has the following properties:
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <algorithm>
-  #include <vector>
+    #include <iostream>
+    #include <algorithm>
+    #include <vector>
 
-  int main()
-  {
-      std::vector<int> v { 3, 1, 4, 1, 5, 9 };
+    int main()
+    {
+        std::vector<int> v { 3, 1, 4, 1, 5, 9 };
 
-      std::cout << "initially, v: ";
-      for (auto i : v) std::cout << i << ' ';
-      std::cout << '\\n';
+        std::cout << "initially, v: ";
+        for (auto i : v) std::cout << i << ' ';
+        std::cout << '\\n';
 
-      std::make_heap(v.begin(), v.end());
+        std::make_heap(v.begin(), v.end());
 
-      std::cout << "after make_heap, v: ";
-      for (auto i : v) std::cout << i << ' ';
-      std::cout << '\\n';
+        std::cout << "after make_heap, v: ";
+        for (auto i : v) std::cout << i << ' ';
+        std::cout << '\\n';
 
-      std::pop_heap(v.begin(), v.end());
-      auto largest = v.back();
-      v.pop_back();
-      std::cout << "largest element: " << largest << '\\n';
+        std::pop_heap(v.begin(), v.end());
+        auto largest = v.back();
+        v.pop_back();
+        std::cout << "largest element: " << largest << '\\n';
 
-      std::cout << "after removing the largest element, v: ";
-      for (auto i : v) std::cout << i << ' ';
-      std::cout << '\\n';
-  }
+        std::cout << "after removing the largest element, v: ";
+        for (auto i : v) std::cout << i << ' ';
+        std::cout << '\\n';
+    }
 
 .SH Output:
 
-  initially, v: 3 1 4 1 5 9
-  after make_heap, v: 9 5 4 1 1 3
-  largest element: 9
-  after removing the largest element, v: 5 3 4 1 1
+    initially, v: 3 1 4 1 5 9
+    after make_heap, v: 9 5 4 1 1 3
+    largest element: 9
+    after removing the largest element, v: 5 3 4 1 1
 
 
 .SH See also
 
 
-               turns a max heap into a range of elements sorted in ascending order
-sort_heap      \fI(function template)\fP
-               adapts a container to provide priority queue
-priority_queue \fI(class template)\fP
-               function object implementing x > y
-greater        \fI(class template)\fP
+                 turns a max heap into a range of elements sorted in ascending order
+  sort_heap      \fI(function template)\fP
+                 adapts a container to provide priority queue
+  priority_queue \fI(class template)\fP
+                 function object implementing x > y
+  greater        \fI(class template)\fP
 
 
 

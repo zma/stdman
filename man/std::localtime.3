@@ -4,60 +4,60 @@ std::localtime \- std::localtime
 
 .SH Synopsis
 
-Defined in header <ctime>
-std::tm* localtime( const std::time_t *time );
+  Defined in header <ctime>
+  std::tm* localtime( const std::time_t *time );
 
-Converts given time since epoch as std::time_t value into calendar time, expressed in local time.
+  Converts given time since epoch as std::time_t value into calendar time, expressed in local time.
 
 .SH Parameters
 
 
-time - pointer to a time_t object to convert
+  time - pointer to a time_t object to convert
 
 
 .SH Return value
 
-pointer to a static internal std::tm object on success, or null pointer otherwise. The structure may be shared between std::gmtime, std::localtime, and std::ctime, and may be overwritten on each invocation.
+  pointer to a static internal std::tm object on success, or null pointer otherwise. The structure may be shared between std::gmtime, std::localtime, and std::ctime, and may be overwritten on each invocation.
 
 .SH Notes
 
-This function may not be thread-safe.
-POSIX requires that this function sets errno to EOVERFLOW if it fails because the argument is too large.
-POSIX_specifies that the timezone information is determined by this function as if by calling tzset, which reads the environment variable TZ.
+  This function may not be thread-safe.
+  POSIX requires that this function sets errno to EOVERFLOW if it fails because the argument is too large.
+  POSIX_specifies that the timezone information is determined by this function as if by calling tzset, which reads the environment variable TZ.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <iomanip>
-  #include <ctime>
-  #include <stdlib.h> // defines putenv in POSIX
+    #include <iostream>
+    #include <iomanip>
+    #include <ctime>
+    #include <stdlib.h> // defines putenv in POSIX
 
-  int main()
-  {
-      std::time_t t = std::time(nullptr);
-      std::cout << "UTC:       " << std::put_time(std::gmtime(&t), "%c %Z") << '\\n';
-      std::cout << "local:     " << std::put_time(std::localtime(&t), "%c %Z") << '\\n';
-      // POSIX-specific:
-      std::string tz = "TZ=Asia/Singapore";
-      putenv(tz.data());
-      std::cout << "Singapore: " << std::put_time(std::localtime(&t), "%c %Z") << '\\n';
-  }
+    int main()
+    {
+        std::time_t t = std::time(nullptr);
+        std::cout << "UTC:       " << std::put_time(std::gmtime(&t), "%c %Z") << '\\n';
+        std::cout << "local:     " << std::put_time(std::localtime(&t), "%c %Z") << '\\n';
+        // POSIX-specific:
+        std::string tz = "TZ=Asia/Singapore";
+        putenv(tz.data());
+        std::cout << "Singapore: " << std::put_time(std::localtime(&t), "%c %Z") << '\\n';
+    }
 
 .SH Output:
 
-  UTC:       Fri Sep 15 14:16:29 2017 GMT
-  local:     Fri Sep 15 14:16:29 2017 UTC
-  Singapore: Fri Sep 15 22:16:29 2017 SGT
+    UTC:       Fri Sep 15 14:16:29 2017 GMT
+    local:     Fri Sep 15 14:16:29 2017 UTC
+    Singapore: Fri Sep 15 22:16:29 2017 SGT
 
 
 .SH See also
 
 
-       converts time since epoch to calendar time expressed as Universal Coordinated Time
-gmtime \fI(function)\fP
+         converts time since epoch to calendar time expressed as Universal Coordinated Time
+  gmtime \fI(function)\fP
 
 
 

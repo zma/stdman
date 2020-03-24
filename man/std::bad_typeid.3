@@ -4,61 +4,61 @@ std::bad_typeid \- std::bad_typeid
 
 .SH Synopsis
 
-Defined in header <typeinfo>
-class bad_typeid : public std::exception;
+  Defined in header <typeinfo>
+  class bad_typeid : public std::exception;
 
-An exception of this type is thrown when a typeid operator is applied to a dereferenced null pointer value of a polymorphic type.
- std-bad typeid-inheritance.svg
-Inheritance diagram
-
-.SH Member functions
-
-
-              constructs a new bad_typeid object
-constructor   \fI(public member function)\fP
-
-
-Inherited from std::exception
-
+  An exception of this type is thrown when a typeid operator is applied to a dereferenced null pointer value of a polymorphic type.
+   std-bad typeid-inheritance.svg
+  Inheritance diagram
 
 .SH Member functions
 
 
+                constructs a new bad_typeid object
+  constructor   \fI(public member function)\fP
 
-destructor   destroys the exception object
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
 
-what         returns an explanatory string
-             \fI(virtual public member function of std::exception)\fP
-\fB[virtual]\fP
+  Inherited from std::exception
+
+
+.SH Member functions
+
+
+
+  destructor   destroys the exception object
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
+
+  what         returns an explanatory string
+               \fI(virtual public member function of std::exception)\fP
+  \fB[virtual]\fP
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <typeinfo>
+    #include <iostream>
+    #include <typeinfo>
 
-  struct S { // The type has to be polymorphic
-      virtual void f();
-  };
+    struct S { // The type has to be polymorphic
+        virtual void f();
+    };
 
-  int main()
-  {
-      S* p = nullptr;
-      try {
-          std::cout << typeid(*p).name() << '\\n';
-      } catch(const std::bad_typeid& e) {
-          std::cout << e.what() << '\\n';
-      }
-  }
+    int main()
+    {
+        S* p = nullptr;
+        try {
+            std::cout << typeid(*p).name() << '\\n';
+        } catch(const std::bad_typeid& e) {
+            std::cout << e.what() << '\\n';
+        }
+    }
 
 .SH Output:
 
-  Attempted a typeid of NULL pointer!
+    Attempted a typeid of NULL pointer!
 
 
 

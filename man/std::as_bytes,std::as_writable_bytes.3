@@ -4,19 +4,19 @@ std::as_bytes,std::as_writable_bytes \- std::as_bytes,std::as_writable_bytes
 
 .SH Synopsis
 
-template< class T, std::size_t N>                                                     \fB(1)\fP
-std::span<const std::byte, S/* see below */> as_bytes(std::span<T, N> s) noexcept;
-template< class T, std::size_t N>                                                     \fB(2)\fP
-std::span<std::byte, S/* see below */> as_writable_bytes(std::span<T, N> s) noexcept;
+  template< class T, std::size_t N>                                                     \fB(1)\fP
+  std::span<const std::byte, S/* see below */> as_bytes(std::span<T, N> s) noexcept;
+  template< class T, std::size_t N>                                                     \fB(2)\fP
+  std::span<std::byte, S/* see below */> as_writable_bytes(std::span<T, N> s) noexcept;
 
-Obtains a view to the object representation of the elements of the span s.
-If N is std::dynamic_extent, the extent of the returned span S is also std::dynamic_extent; otherwise it is sizeof(T) * N.
-as_writable_bytes only participates in overload resolution if std::is_const_v<T> is false.
+  Obtains a view to the object representation of the elements of the span s.
+  If N is std::dynamic_extent, the extent of the returned span S is also std::dynamic_extent; otherwise it is sizeof(T) * N.
+  as_writable_bytes only participates in overload resolution if std::is_const_v<T> is false.
 
 .SH Return value
 
-1) A span constructed with {reinterpret_cast<const std::byte*>(s.data()), s.size_bytes()}.
-2) A span constructed with {reinterpret_cast<std::byte*>(s.data()), s.size_bytes()}.
+  1) A span constructed with {reinterpret_cast<const std::byte*>(s.data()), s.size_bytes()}.
+  2) A span constructed with {reinterpret_cast<std::byte*>(s.data()), s.size_bytes()}.
 
 
 

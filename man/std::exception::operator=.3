@@ -4,19 +4,19 @@ std::exception::operator= \- std::exception::operator=
 
 .SH Synopsis
 
-exception& operator=( const exception& other ) throw();   \fI(until C++11)\fP
-exception& operator=( const exception& other ) noexcept;  \fI(since C++11)\fP
+  exception& operator=( const exception& other ) throw();   \fI(until C++11)\fP
+  exception& operator=( const exception& other ) noexcept;  \fI(since C++11)\fP
 
-Copy assignment operator. Assigns the contents of other
+  Copy assignment operator. Assigns the contents of other
 
-The effects of calling what() after assignment are implementation-defined.                            \fI(until C++11)\fP
-If *this and other both have dynamic type std::exception then std::strcmp(what(), other.what()) == 0. \fI(since C++11)\fP
+  The effects of calling what() after assignment are implementation-defined.                            \fI(until C++11)\fP
+  If *this and other both have dynamic type std::exception then std::strcmp(what(), other.what()) == 0. \fI(since C++11)\fP
 
 
 .SH Parameters
 
 
-other - another exception to assign the contents of
+  other - another exception to assign the contents of
 
 
 

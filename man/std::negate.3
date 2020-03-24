@@ -4,71 +4,71 @@ std::negate \- std::negate
 
 .SH Synopsis
 
-Defined in header <functional>
-template< class T >             \fI(until C++14)\fP
-struct negate;
-template< class T = void >      \fI(since C++14)\fP
-struct negate;
+  Defined in header <functional>
+  template< class T >             \fI(until C++14)\fP
+  struct negate;
+  template< class T = void >      \fI(since C++14)\fP
+  struct negate;
 
-Function object for performing negation. Effectively calls operator- on an instance of type T.
+  Function object for performing negation. Effectively calls operator- on an instance of type T.
 
 .SH Specializations
 
 
-The standard library provides a specialization of std::negate when T is not specified, which leaves the parameter types and return type to be deduced.
+  The standard library provides a specialization of std::negate when T is not specified, which leaves the parameter types and return type to be deduced.
 
-             function object implementing -x deducing argument and return types                                                                        \fI(since C++14)\fP
-negate<void> \fI(class template specialization)\fP
+               function object implementing -x deducing argument and return types                                                                        \fI(since C++14)\fP
+  negate<void> \fI(class template specialization)\fP
 
 
 
 
 .SH Member types
 
-                                              \fI(until C++20)\fP
-Type                               Definition
-result_type(deprecated in C++17)   T
-argument_type(deprecated in C++17) T
+                                                \fI(until C++20)\fP
+  Type                               Definition
+  result_type(deprecated in C++17)   T
+  argument_type(deprecated in C++17) T
 
 
 
 .SH Member functions
 
 
-           returns the negation of the argument
-operator() \fI(public member function)\fP
+             returns the negation of the argument
+  operator() \fI(public member function)\fP
 
 
- std::negate::operator()
+   std::negate::operator()
 
 
-T operator()( const T& arg ) const;            \fI(until C++14)\fP
-constexpr T operator()( const T& arg ) const;  \fI(since C++14)\fP
+  T operator()( const T& arg ) const;            \fI(until C++14)\fP
+  constexpr T operator()( const T& arg ) const;  \fI(since C++14)\fP
 
-Returns the negation of arg.
+  Returns the negation of arg.
 
 .SH Parameters
 
 
-arg - value to compute negation of
+  arg - value to compute negation of
 
 
 .SH Return value
 
-The result of -arg.
+  The result of -arg.
 
 .SH Exceptions
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Possible implementation
 
 
 
-  constexpr T operator()(const T &arg) const
-  {
-      return -arg;
-  }
+    constexpr T operator()(const T &arg) const
+    {
+        return -arg;
+    }
 
 
 

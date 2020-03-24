@@ -4,24 +4,24 @@ std::sig_atomic_t \- std::sig_atomic_t
 
 .SH Synopsis
 
-Defined in header <csignal>
-typedef /* unspecified */ sig_atomic_t;
+  Defined in header <csignal>
+  typedef /* unspecified */ sig_atomic_t;
 
-An integer type which can be accessed as an atomic entity even in the presence of asynchronous interrupts made by signals.
+  An integer type which can be accessed as an atomic entity even in the presence of asynchronous interrupts made by signals.
 
 .SH Notes
 
-Until C++11, which introduced std::atomic and std::atomic_signal_fence, about the only thing a strictly conforming program could do in a signal handler was to assign a value to a volatile static std::sig_atomic_t variable and promptly return.
+  Until C++11, which introduced std::atomic and std::atomic_signal_fence, about the only thing a strictly conforming program could do in a signal handler was to assign a value to a volatile static std::sig_atomic_t variable and promptly return.
 
 .SH See also
 
 
-                    sets a signal handler for particular signal
-signal              \fI(function)\fP
+                      sets a signal handler for particular signal
+  signal              \fI(function)\fP
 
-atomic_signal_fence fence between a thread and a signal handler executed in the same thread
-                    \fI(function)\fP
-\fI(C++11)\fP
+  atomic_signal_fence fence between a thread and a signal handler executed in the same thread
+                      \fI(function)\fP
+  \fI(C++11)\fP
 
 
 

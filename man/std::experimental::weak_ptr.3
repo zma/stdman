@@ -4,71 +4,71 @@ std::experimental::weak_ptr \- std::experimental::weak_ptr
 
 .SH Synopsis
 
-Defined in header <experimental/memory>
-template< class T > class weak_ptr;      (library fundamentals TS)
+  Defined in header <experimental/memory>
+  template< class T > class weak_ptr;      (library fundamentals TS)
 
-std::experimental::weak_ptr is a modified version of std::weak_ptr that interoperates with std::experimental::shared_ptr and has support for arrays.
+  std::experimental::weak_ptr is a modified version of std::weak_ptr that interoperates with std::experimental::shared_ptr and has support for arrays.
 
 .SH Member types
 
 
-Member type  Definition
-element_type std::remove_extent_t<T>
+  Member type  Definition
+  element_type std::remove_extent_t<T>
 
 
 .SH Member functions
 
 
-              constructs new weak_ptr
-constructor   \fI(public member function)\fP
+                constructs new weak_ptr
+  constructor   \fI(public member function)\fP
 
 
-Members and non-members identical to std::weak_ptr
+  Members and non-members identical to std::weak_ptr
 
 
 .SH Member functions
 
-The following member functions work with std::experimental::shared_ptr instead of std::shared_ptr and std::experimental::weak_ptr instead of std::weak_ptr. The behavior is otherwise identical.
+  The following member functions work with std::experimental::shared_ptr instead of std::shared_ptr and std::experimental::weak_ptr instead of std::weak_ptr. The behavior is otherwise identical.
 
-             destroys a weak_ptr
-destructor   \fI(public member function of std::weak_ptr<T>)\fP
-             assigns the weak_ptr
-operator=    \fI(public member function of std::weak_ptr<T>)\fP
+               destroys a weak_ptr
+  destructor   \fI(public member function of std::weak_ptr<T>)\fP
+               assigns the weak_ptr
+  operator=    \fI(public member function of std::weak_ptr<T>)\fP
 
 .SH Modifiers
 
-             releases the ownership of the managed object
-reset        \fI(public member function of std::weak_ptr<T>)\fP
-             swaps the managed objects
-swap         \fI(public member function of std::weak_ptr<T>)\fP
+               releases the ownership of the managed object
+  reset        \fI(public member function of std::weak_ptr<T>)\fP
+               swaps the managed objects
+  swap         \fI(public member function of std::weak_ptr<T>)\fP
 
 .SH Observers
 
-             returns the number of shared_ptr objects that manage the object
-use_count    \fI(public member function of std::weak_ptr<T>)\fP
-             checks whether the referenced object was already deleted
-expired      \fI(public member function of std::weak_ptr<T>)\fP
-             creates a shared_ptr that manages the referenced object
-lock         \fI(public member function of std::weak_ptr<T>)\fP
-             provides owner-based ordering of weak pointers
-owner_before \fI(public member function of std::weak_ptr<T>)\fP
+               returns the number of shared_ptr objects that manage the object
+  use_count    \fI(public member function of std::weak_ptr<T>)\fP
+               checks whether the referenced object was already deleted
+  expired      \fI(public member function of std::weak_ptr<T>)\fP
+               creates a shared_ptr that manages the referenced object
+  lock         \fI(public member function of std::weak_ptr<T>)\fP
+               provides owner-based ordering of weak pointers
+  owner_before \fI(public member function of std::weak_ptr<T>)\fP
 
 
 .SH Non-member functions
 
-This non-member function is declared in the std::experimental namespace, and work with std::experimental::weak_ptr rather than std::weak_ptr, but otherwise behaves identically to the corresponding C++14 function.
+  This non-member function is declared in the std::experimental namespace, and work with std::experimental::weak_ptr rather than std::weak_ptr, but otherwise behaves identically to the corresponding C++14 function.
 
 
-std::swap(std::weak_ptr) specializes the std::swap algorithm
-                         \fI(function template)\fP
-\fI(C++11)\fP
+  std::swap(std::weak_ptr) specializes the std::swap algorithm
+                           \fI(function template)\fP
+  \fI(C++11)\fP
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 

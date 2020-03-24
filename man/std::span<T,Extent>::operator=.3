@@ -4,29 +4,29 @@ std::span<T,Extent>::operator= \- std::span<T,Extent>::operator=
 
 .SH Synopsis
 
-constexpr span& operator=( const span& other ) noexcept = default;
+  constexpr span& operator=( const span& other ) noexcept = default;
 
-Assigns other to *this. This defaulted assignment operator performs a shallow copy of the data pointer and the size, i.e., after a call to this function, data() == other.data() and size() == other.size().
+  Assigns other to *this. This defaulted assignment operator performs a shallow copy of the data pointer and the size, i.e., after a call to this function, data() == other.data() and size() == other.size().
 
 .SH Parameters
 
 
-other - another span to copy from
+  other - another span to copy from
 
 
 .SH Return value
 
-*this.
+  *this.
 
 .SH See also
 
 
-              constructs a span
-constructor   \fI(public member function)\fP
-              returns a pointer to the beginning of the sequence of elements
-data          \fI(public member function)\fP
-              returns the number of elements in the sequence
-size          \fI(public member function)\fP
+                constructs a span
+  constructor   \fI(public member function)\fP
+                returns a pointer to the beginning of the sequence of elements
+  data          \fI(public member function)\fP
+                returns the number of elements in the sequence
+  size          \fI(public member function)\fP
 
 
 

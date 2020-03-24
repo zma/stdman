@@ -4,19 +4,19 @@ std::chrono::operator==,!=(std::chrono::weekday) \- std::chrono::operator==,!=(s
 
 .SH Synopsis
 
-constexpr bool operator==(const std::chrono::weekday& x, const std::chrono::weekday& y) noexcept;  \fI(since C++20)\fP
-constexpr bool operator!=(const std::chrono::weekday& x, const std::chrono::weekday& y) noexcept;  \fI(since C++20)\fP
+  constexpr bool operator==(const std::chrono::weekday& x, const std::chrono::weekday& y) noexcept;  \fI(since C++20)\fP
+  constexpr bool operator!=(const std::chrono::weekday& x, const std::chrono::weekday& y) noexcept;  \fI(since C++20)\fP
 
-Compare the two std::chrono::weekday x and y.
+  Compare the two std::chrono::weekday x and y.
 
 .SH Return value
 
-1) unsigned(x) == unsigned(y)
-2) unsigned(x) != unsigned(y)
+  1) unsigned(x) == unsigned(y)
+  2) unsigned(x) != unsigned(y)
 
 .SH Notes
 
-weekday does not support the <, <=, > and >= operators because there is no universal consensus on which day is the first day of the week.
+  weekday does not support the <, <=, > and >= operators because there is no universal consensus on which day is the first day of the week.
 
 
 

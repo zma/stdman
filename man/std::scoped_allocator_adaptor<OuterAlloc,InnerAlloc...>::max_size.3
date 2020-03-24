@@ -4,31 +4,31 @@ std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::max_size \- std::scoped
 
 .SH Synopsis
 
-Defined in header <scoped_allocator>
-size_type max_size() const;           \fI(since C++11)\fP
+  Defined in header <scoped_allocator>
+  size_type max_size() const;           \fI(since C++11)\fP
 
-Reports the maximum allocation size supported by the outer allocator, by calling std::allocator_traits<OuterAlloc>::max_size(outer_allocator())
+  Reports the maximum allocation size supported by the outer allocator, by calling std::allocator_traits<OuterAlloc>::max_size(outer_allocator())
 
 .SH Parameters
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Return value
 
-The maximum allocation size for OuterAlloc.
+  The maximum allocation size for OuterAlloc.
 
 .SH See also
 
 
 
-max_size              returns the largest supported allocation size
-                      \fI(public member function of std::allocator<T>)\fP
-(deprecated in C++17)
-(removed in C++20)
+  max_size              returns the largest supported allocation size
+                        \fI(public member function of std::allocator<T>)\fP
+  (deprecated in C++17)
+  (removed in C++20)
 
-max_size              returns the maximum object size supported by the allocator
-                      \fI(public static member function of std::allocator_traits<Alloc>)\fP
-\fB[static]\fP
+  max_size              returns the maximum object size supported by the allocator
+                        \fI(public static member function of std::allocator_traits<Alloc>)\fP
+  \fB[static]\fP
 
 
 

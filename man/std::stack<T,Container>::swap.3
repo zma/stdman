@@ -4,47 +4,47 @@ std::stack<T,Container>::swap \- std::stack<T,Container>::swap
 
 .SH Synopsis
 
-void swap( stack& other ) noexcept(/* see below */);  \fI(since C++11)\fP
+  void swap( stack& other ) noexcept(/* see below */);  \fI(since C++11)\fP
 
-Exchanges the contents of the container adaptor with those of other. Effectively calls using std::swap; swap(c, other.c);
+  Exchanges the contents of the container adaptor with those of other. Effectively calls using std::swap; swap(c, other.c);
 
 .SH Parameters
 
 
-other - container adaptor to exchange the contents with
+  other - container adaptor to exchange the contents with
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Exceptions
 
 
-noexcept specification:
-noexcept(noexcept(swap(c, other.c)))                                                                                                       \fI(until C++17)\fP
-In the expression above, the identifier swap is looked up in the same manner as the one used by the C++17 std::is_nothrow_swappable trait.
-noexcept specification:                                                                                                                    \fI(since C++17)\fP
-noexcept(std::is_nothrow_swappable<Container>::value)
+  noexcept specification:
+  noexcept(noexcept(swap(c, other.c)))                                                                                                       \fI(until C++17)\fP
+  In the expression above, the identifier swap is looked up in the same manner as the one used by the C++17 std::is_nothrow_swappable trait.
+  noexcept specification:                                                                                                                    \fI(since C++17)\fP
+  noexcept(std::is_nothrow_swappable<Container>::value)
 
 
 .SH Complexity
 
-Same as underlying container (typically constant)
+  Same as underlying container (typically constant)
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                    Correct behavior
-LWG_2456 C++11      the noexcept specification is ill-formed made to work
+  DR       Applied to Behavior as published                    Correct behavior
+  LWG_2456 C++11      the noexcept specification is ill-formed made to work
 
 
 .SH See also
 
 
-                      specializes the std::swap algorithm
-std::swap(std::stack) \fI(function template)\fP
+                        specializes the std::swap algorithm
+  std::swap(std::stack) \fI(function template)\fP
 
 
 

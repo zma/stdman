@@ -4,57 +4,57 @@ std::time \- std::time
 
 .SH Synopsis
 
-Defined in header <ctime>
-std::time_t time( std::time_t* arg );
+  Defined in header <ctime>
+  std::time_t time( std::time_t* arg );
 
-Returns the current calendar time encoded as a std::time_t object, and also stores it in the object pointed to by arg, unless arg is a null pointer.
+  Returns the current calendar time encoded as a std::time_t object, and also stores it in the object pointed to by arg, unless arg is a null pointer.
 
 .SH Parameters
 
 
-arg - pointer to a std::time_t object to store the time, or a null pointer
+  arg - pointer to a std::time_t object to store the time, or a null pointer
 
 
 .SH Return value
 
-Current calendar time encoded as std::time_t object on success, (std::time_t)(-1) on error. If arg is not null, the return value is also stored in the object pointed to by arg.
+  Current calendar time encoded as std::time_t object on success, (std::time_t)(-1) on error. If arg is not null, the return value is also stored in the object pointed to by arg.
 
 .SH Notes
 
-The encoding of calendar time in std::time_t is unspecified, but most systems conform to POSIX_specification and return a value of integral type holding the number of seconds since the_Epoch. Implementations in which std::time_t is a 32-bit signed integer (many historical implementations) fail in the year 2038.
+  The encoding of calendar time in std::time_t is unspecified, but most systems conform to POSIX_specification and return a value of integral type holding the number of seconds since the_Epoch. Implementations in which std::time_t is a 32-bit signed integer (many historical implementations) fail in the year 2038.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <ctime>
-  #include <iostream>
+    #include <ctime>
+    #include <iostream>
 
-  int main()
-  {
-      std::time_t result = std::time(nullptr);
-      std::cout << std::asctime(std::localtime(&result))
-                << result << " seconds since the Epoch\\n";
-  }
+    int main()
+    {
+        std::time_t result = std::time(nullptr);
+        std::cout << std::asctime(std::localtime(&result))
+                  << result << " seconds since the Epoch\\n";
+    }
 
 .SH Output:
 
-  Wed Sep 21 10:27:52 2011
-  1316615272 seconds since the Epoch
+    Wed Sep 21 10:27:52 2011
+    1316615272 seconds since the Epoch
 
 
 .SH See also
 
 
-             converts time since epoch to calendar time expressed as local time
-localtime    \fI(function)\fP
-             converts time since epoch to calendar time expressed as Universal Coordinated Time
-gmtime       \fI(function)\fP
+               converts time since epoch to calendar time expressed as local time
+  localtime    \fI(function)\fP
+               converts time since epoch to calendar time expressed as Universal Coordinated Time
+  gmtime       \fI(function)\fP
 
-system_clock wall clock time from the system-wide realtime clock
-             \fI(class)\fP
-\fI(C++11)\fP
+  system_clock wall clock time from the system-wide realtime clock
+               \fI(class)\fP
+  \fI(C++11)\fP
 
 
 

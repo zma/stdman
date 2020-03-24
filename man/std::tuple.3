@@ -4,145 +4,145 @@ std::tuple \- std::tuple
 
 .SH Synopsis
 
-Defined in header <tuple>
-template< class... Types >  \fI(since C++11)\fP
-class tuple;
+  Defined in header <tuple>
+  template< class... Types >  \fI(since C++11)\fP
+  class tuple;
 
-Class template std::tuple is a fixed-size collection of heterogeneous values. It is a generalization of std::pair.
+  Class template std::tuple is a fixed-size collection of heterogeneous values. It is a generalization of std::pair.
 
-If (std::is_trivially_destructible_v<Types> && ...) is true, the destructor of tuple is trivial. \fI(since C++17)\fP
+  If (std::is_trivially_destructible_v<Types> && ...) is true, the destructor of tuple is trivial. \fI(since C++17)\fP
 
 
 .SH Template parameters
 
 
-Types... - the types of the elements that the tuple stores. Empty list is supported.
+  Types... - the types of the elements that the tuple stores. Empty list is supported.
 
 
 .SH Member functions
 
 
-              constructs a new tuple
-constructor   \fI(public member function)\fP
-              assigns the contents of one tuple to another
-operator=     \fI(public member function)\fP
-              swaps the contents of two tuples
-swap          \fI(public member function)\fP
+                constructs a new tuple
+  constructor   \fI(public member function)\fP
+                assigns the contents of one tuple to another
+  operator=     \fI(public member function)\fP
+                swaps the contents of two tuples
+  swap          \fI(public member function)\fP
 
 
 .SH Non-member functions
 
 
-                      creates a tuple object of the type defined by the argument types
-make_tuple            \fI(function template)\fP
-                      creates a tuple of lvalue references or unpacks a tuple into individual objects
-tie                   \fI(function template)\fP
-                      creates a tuple of rvalue references
-forward_as_tuple      \fI(function template)\fP
-                      creates a tuple by concatenating any number of tuples
-tuple_cat             \fI(function template)\fP
-                      tuple accesses specified element
-std::get(std::tuple)  \fI(function template)\fP
+                        creates a tuple object of the type defined by the argument types
+  make_tuple            \fI(function template)\fP
+                        creates a tuple of lvalue references or unpacks a tuple into individual objects
+  tie                   \fI(function template)\fP
+                        creates a tuple of rvalue references
+  forward_as_tuple      \fI(function template)\fP
+                        creates a tuple by concatenating any number of tuples
+  tuple_cat             \fI(function template)\fP
+                        tuple accesses specified element
+  std::get(std::tuple)  \fI(function template)\fP
 
-operator==
-operator!=            lexicographically compares the values in the tuple
-operator<             \fI(function template)\fP
-operator<=
-operator>
-operator>=
+  operator==
+  operator!=            lexicographically compares the values in the tuple
+  operator<             \fI(function template)\fP
+  operator<=
+  operator>
+  operator>=
 
-std::swap(std::tuple) specializes the std::swap algorithm
-                      \fI(function template)\fP
-\fI(C++11)\fP
+  std::swap(std::tuple) specializes the std::swap algorithm
+                        \fI(function template)\fP
+  \fI(C++11)\fP
 
 
 .SH Helper classes
 
 
-                                obtains the size of tuple at compile time
-tuple_size                      \fI(class template specialization)\fP
-                                obtains the type of the specified element
-tuple_element                   \fI(class template specialization)\fP
+                                  obtains the size of tuple at compile time
+  tuple_size                      \fI(class template specialization)\fP
+                                  obtains the type of the specified element
+  tuple_element                   \fI(class template specialization)\fP
 
-std::uses_allocator<std::tuple> specializes the std::uses_allocator type trait
-                                \fI(class template specialization)\fP
-\fI(C++11)\fP
-                                placeholder to skip an element when unpacking a tuple using tie
-ignore                          (constant)
+  std::uses_allocator<std::tuple> specializes the std::uses_allocator type trait
+                                  \fI(class template specialization)\fP
+  \fI(C++11)\fP
+                                  placeholder to skip an element when unpacking a tuple using tie
+  ignore                          (constant)
 
 
-Deduction_guides\fI(since C++17)\fP
+  Deduction_guides\fI(since C++17)\fP
 
 
 .SH Notes
 
-Until C++17, a function could not return a tuple using list-initialization:
+  Until C++17, a function could not return a tuple using list-initialization:
 
-  std::tuple<int, int> foo_tuple()
-  {
-    return {1, -1};  // Error until C++17
-    return std::make_tuple(1, -1); // Always works
-  }
+    std::tuple<int, int> foo_tuple()
+    {
+      return {1, -1};  // Error until C++17
+      return std::make_tuple(1, -1); // Always works
+    }
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <tuple>
-  #include <iostream>
-  #include <string>
-  #include <stdexcept>
+    #include <tuple>
+    #include <iostream>
+    #include <string>
+    #include <stdexcept>
 
-  std::tuple<double, char, std::string> get_student(int id)
-  {
-      if (id == 0) return std::make_tuple(3.8, 'A', "Lisa Simpson");
-      if (id == 1) return std::make_tuple(2.9, 'C', "Milhouse Van Houten");
-      if (id == 2) return std::make_tuple(1.7, 'D', "Ralph Wiggum");
-      throw std::invalid_argument("id");
-  }
+    std::tuple<double, char, std::string> get_student(int id)
+    {
+        if (id == 0) return std::make_tuple(3.8, 'A', "Lisa Simpson");
+        if (id == 1) return std::make_tuple(2.9, 'C', "Milhouse Van Houten");
+        if (id == 2) return std::make_tuple(1.7, 'D', "Ralph Wiggum");
+        throw std::invalid_argument("id");
+    }
 
-  int main()
-  {
-      auto student0 = get_student(0);
-      std::cout << "ID: 0, "
-                << "GPA: " << std::get<0>(student0) << ", "
-                << "grade: " << std::get<1>(student0) << ", "
-                << "name: " << std::get<2>(student0) << '\\n';
+    int main()
+    {
+        auto student0 = get_student(0);
+        std::cout << "ID: 0, "
+                  << "GPA: " << std::get<0>(student0) << ", "
+                  << "grade: " << std::get<1>(student0) << ", "
+                  << "name: " << std::get<2>(student0) << '\\n';
 
-      double gpa1;
-      char grade1;
-      std::string name1;
-      std::tie(gpa1, grade1, name1) = get_student(1);
-      std::cout << "ID: 1, "
-                << "GPA: " << gpa1 << ", "
-                << "grade: " << grade1 << ", "
-                << "name: " << name1 << '\\n';
+        double gpa1;
+        char grade1;
+        std::string name1;
+        std::tie(gpa1, grade1, name1) = get_student(1);
+        std::cout << "ID: 1, "
+                  << "GPA: " << gpa1 << ", "
+                  << "grade: " << grade1 << ", "
+                  << "name: " << name1 << '\\n';
 
-      // C++17 structured binding:
-      auto [ gpa2, grade2, name2 ] = get_student(2);
-      std::cout << "ID: 2, "
-                << "GPA: " << gpa2 << ", "
-                << "grade: " << grade2 << ", "
-                << "name: " << name2 << '\\n';
-  }
+        // C++17 structured binding:
+        auto [ gpa2, grade2, name2 ] = get_student(2);
+        std::cout << "ID: 2, "
+                  << "GPA: " << gpa2 << ", "
+                  << "grade: " << grade2 << ", "
+                  << "name: " << name2 << '\\n';
+    }
 
 .SH Output:
 
-  ID: 0, GPA: 3.8, grade: A, name: Lisa Simpson
-  ID: 1, GPA: 2.9, grade: C, name: Milhouse Van Houten
-  ID: 2, GPA: 1.7, grade: D, name: Ralph Wiggum
+    ID: 0, GPA: 3.8, grade: A, name: Lisa Simpson
+    ID: 1, GPA: 2.9, grade: C, name: Milhouse Van Houten
+    ID: 2, GPA: 1.7, grade: D, name: Ralph Wiggum
 
 
 .SH References
 
 
-* C++11 standard (ISO/IEC 14882:2011):
+  * C++11 standard (ISO/IEC 14882:2011):
 
 
 
-      * 20.4 Tuples [tuple]
+        * 20.4 Tuples [tuple]
 
 
 

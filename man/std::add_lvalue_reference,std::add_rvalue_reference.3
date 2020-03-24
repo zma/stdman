@@ -4,119 +4,119 @@ std::add_lvalue_reference,std::add_rvalue_reference \- std::add_lvalue_reference
 
 .SH Synopsis
 
-Defined in header <type_traits>
-template< class T >             \fB(1)\fP \fI(since C++11)\fP
-struct add_lvalue_reference;
-template< class T >             \fB(2)\fP \fI(since C++11)\fP
-struct add_rvalue_reference;
+  Defined in header <type_traits>
+  template< class T >             \fB(1)\fP \fI(since C++11)\fP
+  struct add_lvalue_reference;
+  template< class T >             \fB(2)\fP \fI(since C++11)\fP
+  struct add_rvalue_reference;
 
-Creates a lvalue or rvalue reference type of T.
-1) If T is an object type or a function type that has no cv- or ref- qualifier, provides a member typedef type which is T&. If T is an rvalue reference to some type U, then type is U&. Otherwise, type is T.
-2) If T is an object type or a function type that has no cv- or ref- qualifier, provides a member typedef type which is T&&, otherwise type is T.
+  Creates a lvalue or rvalue reference type of T.
+  1) If T is an object type or a function type that has no cv- or ref- qualifier, provides a member typedef type which is T&. If T is an rvalue reference to some type U, then type is U&. Otherwise, type is T.
+  2) If T is an object type or a function type that has no cv- or ref- qualifier, provides a member typedef type which is T&&, otherwise type is T.
 
 .SH Member types
 
 
-Name Definition
-type reference to T, or T if not allowed
+  Name Definition
+  type reference to T, or T if not allowed
 
 
 .SH Helper types
 
 
-template< class T >                                                     \fI(since C++14)\fP
-using add_lvalue_reference_t = typename add_lvalue_reference<T>::type;
-template< class T >                                                     \fI(since C++14)\fP
-using add_rvalue_reference_t = typename add_rvalue_reference<T>::type;
+  template< class T >                                                     \fI(since C++14)\fP
+  using add_lvalue_reference_t = typename add_lvalue_reference<T>::type;
+  template< class T >                                                     \fI(since C++14)\fP
+  using add_rvalue_reference_t = typename add_rvalue_reference<T>::type;
 
 
 .SH Notes
 
-These type transformations honor reference collapse rules:
-std::add_lvalue_reference<T&>::type is T&
-std::add_lvalue_reference<T&&>::type is T&
-std::add_rvalue_reference<T&>::type is T&
-std::add_rvalue_reference<T&&>::type is T&&
+  These type transformations honor reference collapse rules:
+  std::add_lvalue_reference<T&>::type is T&
+  std::add_lvalue_reference<T&&>::type is T&
+  std::add_rvalue_reference<T&>::type is T&
+  std::add_rvalue_reference<T&&>::type is T&&
 
 .SH Possible implementation
 
 
 
-  namespace detail {
+    namespace detail {
 
-  template <class T>
-  struct type_identity { using type = T; }; // or use std::type_identity \fI(since C++20)\fP
+    template <class T>
+    struct type_identity { using type = T; }; // or use std::type_identity \fI(since C++20)\fP
 
-  template <class T>
-  auto try_add_lvalue_reference(int) -> type_identity<T&>;
-  template <class T>
-  auto try_add_lvalue_reference(...) -> type_identity<T>;
+    template <class T>
+    auto try_add_lvalue_reference(int) -> type_identity<T&>;
+    template <class T>
+    auto try_add_lvalue_reference(...) -> type_identity<T>;
 
-  template <class T>
-  auto try_add_rvalue_reference(int) -> type_identity<T&&>;
-  template <class T>
-  auto try_add_rvalue_reference(...) -> type_identity<T>;
+    template <class T>
+    auto try_add_rvalue_reference(int) -> type_identity<T&&>;
+    template <class T>
+    auto try_add_rvalue_reference(...) -> type_identity<T>;
 
-  } // namespace detail
+    } // namespace detail
 
-  template <class T>
-  struct add_lvalue_reference : decltype(detail::try_add_lvalue_reference<T>\fB(0)\fP) {};
+    template <class T>
+    struct add_lvalue_reference : decltype(detail::try_add_lvalue_reference<T>\fB(0)\fP) {};
 
-  template <class T>
-  struct add_rvalue_reference : decltype(detail::try_add_rvalue_reference<T>\fB(0)\fP) {};
+    template <class T>
+    struct add_rvalue_reference : decltype(detail::try_add_rvalue_reference<T>\fB(0)\fP) {};
 
 
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <type_traits>
+    #include <iostream>
+    #include <type_traits>
 
-  int main() {
-     using nonref = int;
-     using lref = typename std::add_lvalue_reference<nonref>::type;
-     using rref = typename std::add_rvalue_reference<nonref>::type;
+    int main() {
+       using nonref = int;
+       using lref = typename std::add_lvalue_reference<nonref>::type;
+       using rref = typename std::add_rvalue_reference<nonref>::type;
 
-     std::cout << std::boolalpha;
-     std::cout << std::is_lvalue_reference<nonref>::value << '\\n';
-     std::cout << std::is_lvalue_reference<lref>::value << '\\n';
-     std::cout << std::is_rvalue_reference<rref>::value << '\\n';
-  }
+       std::cout << std::boolalpha;
+       std::cout << std::is_lvalue_reference<nonref>::value << '\\n';
+       std::cout << std::is_lvalue_reference<lref>::value << '\\n';
+       std::cout << std::is_rvalue_reference<rref>::value << '\\n';
+    }
 
 .SH Output:
 
-  false
-  true
-  true
+    false
+    true
+    true
 
 
-Defect reports
+  Defect reports
 
-The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+  The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-DR       Applied to Behavior as published                                     Correct behavior
-LWG_2101 C++11      These transformation traits were required                 Produce cv-/ref-qualified function types themselves.
-                    to produce reference to cv-/ref-qualified function types.
+  DR       Applied to Behavior as published                                     Correct behavior
+  LWG_2101 C++11      These transformation traits were required                 Produce cv-/ref-qualified function types themselves.
+                      to produce reference to cv-/ref-qualified function types.
 
 
 .SH See also
 
 
 
-is_reference     checks if a type is either a lvalue reference or rvalue reference
-                 \fI(class template)\fP
-\fI(C++11)\fP
+  is_reference     checks if a type is either a lvalue reference or rvalue reference
+                   \fI(class template)\fP
+  \fI(C++11)\fP
 
-remove_reference removes a reference from the given type
-                 \fI(class template)\fP
-\fI(C++11)\fP
+  remove_reference removes a reference from the given type
+                   \fI(class template)\fP
+  \fI(C++11)\fP
 
-remove_cvref     combines std::remove_cv and std::remove_reference
-                 \fI(class template)\fP
-(C++20)
+  remove_cvref     combines std::remove_cv and std::remove_reference
+                   \fI(class template)\fP
+  (C++20)
 
 
 

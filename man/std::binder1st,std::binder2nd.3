@@ -4,89 +4,89 @@ std::binder1st,std::binder2nd \- std::binder1st,std::binder2nd
 
 .SH Synopsis
 
-template< class Fn >
-class binder1st : public std::unary_function<typename Fn::second_argument_type,
-typename Fn::result_type> {
-protected:
+  template< class Fn >
+  class binder1st : public std::unary_function<typename Fn::second_argument_type,
+  typename Fn::result_type> {
+  protected:
 
-Fn op;
-typename Fn::first_argument_type value;
+  Fn op;
+  typename Fn::first_argument_type value;
 
-public:                                                                              (deprecated in C++11)
-                                                                                 \fB(1)\fP (removed in C++17)
-binder1st(const Fn& fn,
-const typename Fn::first_argument_type& value);
+  public:                                                                              (deprecated in C++11)
+                                                                                   \fB(1)\fP (removed in C++17)
+  binder1st(const Fn& fn,
+  const typename Fn::first_argument_type& value);
 
-typename Fn::result_type
-operator()(const typename Fn::second_argument_type& x) const;
+  typename Fn::result_type
+  operator()(const typename Fn::second_argument_type& x) const;
 
-typename Fn::result_type
-operator()(typename Fn::second_argument_type& x) const;
-};
-template< class Fn >
-class binder2nd : public unary_function<typename Fn::first_argument_type,
-typename Fn::result_type> {
-protected:
-Fn op;
-typename Fn::second_argument_type value;
-public:
-binder2nd(const Fn& fn,                                                          \fB(2)\fP (deprecated in C++11)
-const typename Fn::second_argument_type& value);                                     (removed in C++17)
+  typename Fn::result_type
+  operator()(typename Fn::second_argument_type& x) const;
+  };
+  template< class Fn >
+  class binder2nd : public unary_function<typename Fn::first_argument_type,
+  typename Fn::result_type> {
+  protected:
+  Fn op;
+  typename Fn::second_argument_type value;
+  public:
+  binder2nd(const Fn& fn,                                                          \fB(2)\fP (deprecated in C++11)
+  const typename Fn::second_argument_type& value);                                     (removed in C++17)
 
-typename Fn::result_type
-operator()(const typename Fn::first_argument_type& x) const;
+  typename Fn::result_type
+  operator()(const typename Fn::first_argument_type& x) const;
 
-typename Fn::result_type
-operator()(typename Fn::first_argument_type& x) const;
-};
+  typename Fn::result_type
+  operator()(typename Fn::first_argument_type& x) const;
+  };
 
-A function object that binds an argument to a binary function.
-The value of the parameter is passed to the object at the construction time and stored within the object. Whenever the function object is invoked though operator(), the stored value is passed as one of the arguments, the other argument is passed as an argument of operator(). The resulting function object is an unary function.
-1) Binds the first parameter to the value value given at the construction of the object.
-2) Binds the second parameter to the value value given at the construction of the object.
+  A function object that binds an argument to a binary function.
+  The value of the parameter is passed to the object at the construction time and stored within the object. Whenever the function object is invoked though operator(), the stored value is passed as one of the arguments, the other argument is passed as an argument of operator(). The resulting function object is an unary function.
+  1) Binds the first parameter to the value value given at the construction of the object.
+  2) Binds the second parameter to the value value given at the construction of the object.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <functional>
-  #include <cmath>
-  #include <vector>
-  const double pi = std::acos(-1);
-  int main()
-  {
-      // deprecated in C++11, removed in C++17
-      std::binder1st<std::multiplies<double>> f1 = std::bind1st(
-                                                     std::multiplies<double>(), pi / 180.);
+    #include <iostream>
+    #include <functional>
+    #include <cmath>
+    #include <vector>
+    const double pi = std::acos(-1);
+    int main()
+    {
+        // deprecated in C++11, removed in C++17
+        std::binder1st<std::multiplies<double>> f1 = std::bind1st(
+                                                       std::multiplies<double>(), pi / 180.);
 
-      // C++11 replacement
-      auto f2 = [](double a){ return a*pi/180.; };
+        // C++11 replacement
+        auto f2 = [](double a){ return a*pi/180.; };
 
-      for(double n : {0, 30, 45, 60, 90, 180})
-          std::cout << n << " deg = " << f1(n) << " rad (using binder) "
-                                      << f2(n) << " rad (using lambda)\\n";
-  }
+        for(double n : {0, 30, 45, 60, 90, 180})
+            std::cout << n << " deg = " << f1(n) << " rad (using binder) "
+                                        << f2(n) << " rad (using lambda)\\n";
+    }
 
 .SH Output:
 
-  0 deg = 0 rad (using binder) 0 rad (using lambda)
-  30 deg = 0.523599 rad (using binder) 0.523599 rad (using lambda)
-  45 deg = 0.785398 rad (using binder) 0.785398 rad (using lambda)
-  60 deg = 1.0472 rad (using binder) 1.0472 rad (using lambda)
-  90 deg = 1.5708 rad (using binder) 1.5708 rad (using lambda)
-  180 deg = 3.14159 rad (using binder) 3.14159 rad (using lambda)
+    0 deg = 0 rad (using binder) 0 rad (using lambda)
+    30 deg = 0.523599 rad (using binder) 0.523599 rad (using lambda)
+    45 deg = 0.785398 rad (using binder) 0.785398 rad (using lambda)
+    60 deg = 1.0472 rad (using binder) 1.0472 rad (using lambda)
+    90 deg = 1.5708 rad (using binder) 1.5708 rad (using lambda)
+    180 deg = 3.14159 rad (using binder) 3.14159 rad (using lambda)
 
 
 .SH See also
 
 
 
-bind1st                                 binds one argument to a binary function
-bind2nd                                 \fI(function template)\fP
+  bind1st                                 binds one argument to a binary function
+  bind2nd                                 \fI(function template)\fP
 
-(deprecated in C++11)(removed in C++17)
+  (deprecated in C++11)(removed in C++17)
 
 
 

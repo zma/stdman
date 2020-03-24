@@ -4,38 +4,38 @@ std::experimental::swap(std::experimental::propagate_const) \- std::experimental
 
 .SH Synopsis
 
-template< class T >
-constexpr void swap( std::experimental::propagate_const<T>& lhs,         (library fundamentals TS v2)
-std::experimental::propagate_const<T>& rhs ) noexcept(/* see below */);
+  template< class T >
+  constexpr void swap( std::experimental::propagate_const<T>& lhs,         (library fundamentals TS v2)
+  std::experimental::propagate_const<T>& rhs ) noexcept(/* see below */);
 
-Specializes the swap algorithm for std::experimental::propagate_const. Swaps the pointers of lhs and rhs. Equivalent to lhs.swap(rhs).
+  Specializes the swap algorithm for std::experimental::propagate_const. Swaps the pointers of lhs and rhs. Equivalent to lhs.swap(rhs).
 
 .SH Parameters
 
 
-lhs, rhs - propagate_consts whose contents to swap
+  lhs, rhs - propagate_consts whose contents to swap
 
 
 .SH Return value
 
-\fI(none)\fP
+  \fI(none)\fP
 
 .SH Exceptions
 
-noexcept specification:
-noexcept(noexcept(lhs.swap(rhs)))
+  noexcept specification:
+  noexcept(noexcept(lhs.swap(rhs)))
 
 .SH Complexity
 
-Constant
+  Constant
 
 .SH See also
 
 
-     swaps the values of two objects
-swap \fI(function template)\fP
-     swaps the wrapped pointer
-swap \fI(public member function)\fP
+       swaps the values of two objects
+  swap \fI(function template)\fP
+       swaps the wrapped pointer
+  swap \fI(public member function)\fP
 
 
 

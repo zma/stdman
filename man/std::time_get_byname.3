@@ -4,153 +4,153 @@ std::time_get_byname \- std::time_get_byname
 
 .SH Synopsis
 
-Defined in header <locale>
-template<
-class CharT,
-class InputIt = std::istreambuf_iterator<CharT>
-> class time_get_byname : public std::time_get<CharT, InputIt>
+  Defined in header <locale>
+  template<
+  class CharT,
+  class InputIt = std::istreambuf_iterator<CharT>
+  > class time_get_byname : public std::time_get<CharT, InputIt>
 
-std::time_get_byname is a std::time_get facet which encapsulates time and date parsing rules of the locale specified at its construction.
-Two specializations are provided by the standard library
+  std::time_get_byname is a std::time_get facet which encapsulates time and date parsing rules of the locale specified at its construction.
+  Two specializations are provided by the standard library
 
-Defined in header <locale>
-std::time_get_byname<char, InputIt>    narrow/multibyte time parsing
-std::time_get_byname<wchar_t, InputIt> wide string time parsing
+  Defined in header <locale>
+  std::time_get_byname<char, InputIt>    narrow/multibyte time parsing
+  std::time_get_byname<wchar_t, InputIt> wide string time parsing
 
 
 .SH Member types
 
 
-Member type Definition
-char_type   CharT
-iter_type   InputIt
+  Member type Definition
+  char_type   CharT
+  iter_type   InputIt
 
 
 .SH Member functions
 
 
-              constructs a new time_get_byname facet
-constructor   \fI(public member function)\fP
-              destroys a time_get_byname facet
-destructor    \fI(protected member function)\fP
+                constructs a new time_get_byname facet
+  constructor   \fI(public member function)\fP
+                destroys a time_get_byname facet
+  destructor    \fI(protected member function)\fP
 
 
- std::time_get_byname::time_get_byname
+   std::time_get_byname::time_get_byname
 
 
-explicit time_get_byname( const char* name, std::size_t refs = 0 );
-explicit time_get_byname( const std::string& name, std::size_t refs = 0 );  \fI(since C++11)\fP
+  explicit time_get_byname( const char* name, std::size_t refs = 0 );
+  explicit time_get_byname( const std::string& name, std::size_t refs = 0 );  \fI(since C++11)\fP
 
-Constructs a new std::time_get_byname facet for a locale with name.
-refs is used for resource management: if refs == 0, the implementation destroys the facet, when the last std::locale object holding it is destroyed. Otherwise, the object is not destroyed.
+  Constructs a new std::time_get_byname facet for a locale with name.
+  refs is used for resource management: if refs == 0, the implementation destroys the facet, when the last std::locale object holding it is destroyed. Otherwise, the object is not destroyed.
 
 .SH Parameters
 
 
-name - the name of the locale
-refs - the number of references that link to the facet
+  name - the name of the locale
+  refs - the number of references that link to the facet
 
 
- std::time_get_byname::~time_get_byname
+   std::time_get_byname::~time_get_byname
 
 
-protected:
-~time_get_byname();
+  protected:
+  ~time_get_byname();
 
-Destroys the facet.
+  Destroys the facet.
 
-Inherited from std::time_get
+  Inherited from std::time_get
 
 
-Member type Definition
-char_type   CharT
-iter_type   InputIt
+  Member type Definition
+  char_type   CharT
+  iter_type   InputIt
 
 
 .SH Member objects
 
 
-Member name Type
-id (static) std::locale::id
+  Member name Type
+  id (static) std::locale::id
 
 
 .SH Member functions
 
 
-              invokes do_date_order
-date_order    \fI(public member function of std::time_get<CharT,InputIt>)\fP
-              invokes do_get_time
-get_time      \fI(public member function of std::time_get<CharT,InputIt>)\fP
-              invokes do_get_date
-get_date      \fI(public member function of std::time_get<CharT,InputIt>)\fP
-              invokes do_get_weekday
-get_weekday   \fI(public member function of std::time_get<CharT,InputIt>)\fP
-              invokes do_get_monthname
-get_monthname \fI(public member function of std::time_get<CharT,InputIt>)\fP
-              invokes do_get_year
-get_year      \fI(public member function of std::time_get<CharT,InputIt>)\fP
+                invokes do_date_order
+  date_order    \fI(public member function of std::time_get<CharT,InputIt>)\fP
+                invokes do_get_time
+  get_time      \fI(public member function of std::time_get<CharT,InputIt>)\fP
+                invokes do_get_date
+  get_date      \fI(public member function of std::time_get<CharT,InputIt>)\fP
+                invokes do_get_weekday
+  get_weekday   \fI(public member function of std::time_get<CharT,InputIt>)\fP
+                invokes do_get_monthname
+  get_monthname \fI(public member function of std::time_get<CharT,InputIt>)\fP
+                invokes do_get_year
+  get_year      \fI(public member function of std::time_get<CharT,InputIt>)\fP
 
-get           invokes do_get
-              \fI(public member function of std::time_get<CharT,InputIt>)\fP
-\fI(C++11)\fP
+  get           invokes do_get
+                \fI(public member function of std::time_get<CharT,InputIt>)\fP
+  \fI(C++11)\fP
 
 
 .SH Protected member functions
 
 
 
-do_date_order     obtains preferred ordering of day, month, and year
-                  \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
-\fB[virtual]\fP
+  do_date_order     obtains preferred ordering of day, month, and year
+                    \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
+  \fB[virtual]\fP
 
-do_get_time       extracts hours, minutes, and seconds from input stream
-                  \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
-\fB[virtual]\fP
+  do_get_time       extracts hours, minutes, and seconds from input stream
+                    \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
+  \fB[virtual]\fP
 
-do_get_date       extracts month, day, and year from input stream
-                  \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
-\fB[virtual]\fP
+  do_get_date       extracts month, day, and year from input stream
+                    \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
+  \fB[virtual]\fP
 
-do_get_weekday    extracts the name of a day of the week from input stream
-                  \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
-\fB[virtual]\fP
+  do_get_weekday    extracts the name of a day of the week from input stream
+                    \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
+  \fB[virtual]\fP
 
-do_get_monthname  extacts a month name from input stream
-                  \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
-\fB[virtual]\fP
+  do_get_monthname  extacts a month name from input stream
+                    \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
+  \fB[virtual]\fP
 
-do_get_year       extracts a year from input stream
-                  \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
-\fB[virtual]\fP
+  do_get_year       extracts a year from input stream
+                    \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
+  \fB[virtual]\fP
 
-do_get            extracts date/time components from input stream, according to the specified format
-                  \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
-\fB[virtual]\fP \fI(C++11)\fP
-
-
-Inherited from std::time_base
+  do_get            extracts date/time components from input stream, according to the specified format
+                    \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
+  \fB[virtual]\fP \fI(C++11)\fP
 
 
-Type      Definition
-dateorder date order enumeration type, defining the values no_order, dmy, mdy, ymd, and ydm
+  Inherited from std::time_base
+
+
+  Type      Definition
+  dateorder date order enumeration type, defining the values no_order, dmy, mdy, ymd, and ydm
 
 
 .SH Example
 
 
- This section is incomplete
- Reason: no example
+   This section is incomplete
+   Reason: no example
 
 
 .SH See also
 
 
-         parses time/date values from an input character sequence into struct std::tm
-time_get \fI(class template)\fP
+           parses time/date values from an input character sequence into struct std::tm
+  time_get \fI(class template)\fP
 
-get_time parses a date/time value of specified format
-         \fI(function template)\fP
-\fI(C++11)\fP
+  get_time parses a date/time value of specified format
+           \fI(function template)\fP
+  \fI(C++11)\fP
 
 
 

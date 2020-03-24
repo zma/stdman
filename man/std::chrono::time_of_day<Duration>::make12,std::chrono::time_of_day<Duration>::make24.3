@@ -4,16 +4,16 @@ std::chrono::time_of_day<Duration>::make12,std::chrono::time_of_day<Duration>::m
 
 .SH Synopsis
 
-constexpr void make12() noexcept; \fB(1)\fP
-constexpr void make24() noexcept; \fB(2)\fP
+  constexpr void make12() noexcept; \fB(1)\fP
+  constexpr void make24() noexcept; \fB(2)\fP
 
-Changes the output format.
-1) If the current output format is 24-hour, converts to 12-hour time. Otherwise no effects.
-2) If the current output format is 12-hour, converts to 24-hour time. Otherwise no effects.
+  Changes the output format.
+  1) If the current output format is 24-hour, converts to 12-hour time. Otherwise no effects.
+  2) If the current output format is 12-hour, converts to 24-hour time. Otherwise no effects.
 
 .SH Notes
 
-It is not possible to query the current output format.
+  It is not possible to query the current output format.
 
 
 

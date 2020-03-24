@@ -4,80 +4,80 @@ std::get(std::array) \- std::get(std::array)
 
 .SH Synopsis
 
-template< size_t I, class T, size_t N >                   \fB(1)\fP \fI(since C++11)\fP
-constexpr T& get( array<T,N>& a ) noexcept;
-template< size_t I, class T, size_t N >                   \fB(2)\fP \fI(since C++11)\fP
-constexpr T&& get( array<T,N>&& a ) noexcept;
-template< size_t I, class T, size_t N >                   \fB(3)\fP \fI(since C++11)\fP
-constexpr const T& get( const array<T,N>& a ) noexcept;
-template< size_t I, class T, size_t N >                   \fB(4)\fP \fI(since C++17)\fP
-constexpr const T&& get( const array<T,N>&& a ) noexcept;
+  template< size_t I, class T, size_t N >                   \fB(1)\fP \fI(since C++11)\fP
+  constexpr T& get( array<T,N>& a ) noexcept;
+  template< size_t I, class T, size_t N >                   \fB(2)\fP \fI(since C++11)\fP
+  constexpr T&& get( array<T,N>&& a ) noexcept;
+  template< size_t I, class T, size_t N >                   \fB(3)\fP \fI(since C++11)\fP
+  constexpr const T& get( const array<T,N>& a ) noexcept;
+  template< size_t I, class T, size_t N >                   \fB(4)\fP \fI(since C++17)\fP
+  constexpr const T&& get( const array<T,N>&& a ) noexcept;
 
-Extracts the Ith element element from the array.
-I must be an integer value in range [0, N). This is enforced at compile time as opposed to at() or operator[].
+  Extracts the Ith element element from the array.
+  I must be an integer value in range [0, N). This is enforced at compile time as opposed to at() or operator[].
 
 .SH Parameters
 
 
-a - array whose contents to extract
+  a - array whose contents to extract
 
 
 .SH Return value
 
-A reference to the Ith element of a.
+  A reference to the Ith element of a.
 
 .SH Complexity
 
-Constant.
+  Constant.
 
 .SH Notes
 
-The overloads are marked as constexpr since C++14.
+  The overloads are marked as constexpr since C++14.
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <iostream>
-  #include <array>
+    #include <iostream>
+    #include <array>
 
-  int main()
-  {
-      std::array<int, 3> arr;
+    int main()
+    {
+        std::array<int, 3> arr;
 
-      // set values:
-      std::get<0>(arr) = 1;
-      std::get<1>(arr) = 2;
-      std::get<2>(arr) = 3;
+        // set values:
+        std::get<0>(arr) = 1;
+        std::get<1>(arr) = 2;
+        std::get<2>(arr) = 3;
 
-      // get values:
-      std::cout << "(" << std::get<0>(arr) << ", " << std::get<1>(arr)
-                << ", " << std::get<2>(arr) << ")\\n";
-  }
+        // get values:
+        std::cout << "(" << std::get<0>(arr) << ", " << std::get<1>(arr)
+                  << ", " << std::get<2>(arr) << ")\\n";
+    }
 
 .SH Output:
 
-  (1, 2, 3)
+    (1, 2, 3)
 
 
 .SH See also
 
 
-                       access specified element
-operator[]             \fI(public member function)\fP
-                       access specified element with bounds checking
-at                     \fI(public member function)\fP
-                       tuple accesses specified element
-std::get(std::tuple)   \fI(function template)\fP
+                         access specified element
+  operator[]             \fI(public member function)\fP
+                         access specified element with bounds checking
+  at                     \fI(public member function)\fP
+                         tuple accesses specified element
+  std::get(std::tuple)   \fI(function template)\fP
 
-std::get(std::pair)    accesses an element of a pair
-                       \fI(function template)\fP
-\fI(C++11)\fP
+  std::get(std::pair)    accesses an element of a pair
+                         \fI(function template)\fP
+  \fI(C++11)\fP
 
-std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
-                       \fI(function template)\fP
-\fI(C++17)\fP
+  std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
+                         \fI(function template)\fP
+  \fI(C++17)\fP
 
 
 

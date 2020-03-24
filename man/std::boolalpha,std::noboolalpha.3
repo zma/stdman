@@ -4,69 +4,69 @@ std::boolalpha,std::noboolalpha \- std::boolalpha,std::noboolalpha
 
 .SH Synopsis
 
-Defined in header <ios>
-std::ios_base& boolalpha( std::ios_base& str );   \fB(1)\fP
-std::ios_base& noboolalpha( std::ios_base& str ); \fB(2)\fP
+  Defined in header <ios>
+  std::ios_base& boolalpha( std::ios_base& str );   \fB(1)\fP
+  std::ios_base& noboolalpha( std::ios_base& str ); \fB(2)\fP
 
-1) Enables the boolalpha flag in the stream str as if by calling str.setf(std::ios_base::boolalpha)
-2) Disables the boolalpha flag in the stream str as if by calling str.unsetf(std::ios_base::boolalpha)
-std::boolalpha is an I/O manipulator, so it may be called with an expression such as out << std::boolalpha for any out of type std::basic_ostream or with an expression such as in >> std::boolalpha for any in of type std::basic_istream.
+  1) Enables the boolalpha flag in the stream str as if by calling str.setf(std::ios_base::boolalpha)
+  2) Disables the boolalpha flag in the stream str as if by calling str.unsetf(std::ios_base::boolalpha)
+  std::boolalpha is an I/O manipulator, so it may be called with an expression such as out << std::boolalpha for any out of type std::basic_ostream or with an expression such as in >> std::boolalpha for any in of type std::basic_istream.
 
 .SH Parameters
 
 
-str - reference to I/O stream
+  str - reference to I/O stream
 
 
 .SH Return value
 
-str (reference to the stream after manipulation)
+  str (reference to the stream after manipulation)
 
 .SH Example
 
-
+  
 // Run this code
 
-  #include <sstream>
-  #include <locale>
-  #include <iostream>
-  int main()
-  {
-      // boolalpha output
-      std::cout << std::boolalpha
-                << "boolalpha true: " << true << '\\n'
-                << "boolalpha false: " << false << '\\n';
-      std::cout << std::noboolalpha
-                << "noboolalpha true: " << true << '\\n'
-                << "noboolalpha false: " << false << '\\n';
-      // boolalpha parse
-      bool b1, b2;
-      std::istringstream is("true false");
-      is >> std::boolalpha >> b1 >> b2;
-      std::cout << '\\"' << is.str() << "\\" parsed as " << b1 << ' ' << b2 << '\\n';
-  }
+    #include <sstream>
+    #include <locale>
+    #include <iostream>
+    int main()
+    {
+        // boolalpha output
+        std::cout << std::boolalpha
+                  << "boolalpha true: " << true << '\\n'
+                  << "boolalpha false: " << false << '\\n';
+        std::cout << std::noboolalpha
+                  << "noboolalpha true: " << true << '\\n'
+                  << "noboolalpha false: " << false << '\\n';
+        // boolalpha parse
+        bool b1, b2;
+        std::istringstream is("true false");
+        is >> std::boolalpha >> b1 >> b2;
+        std::cout << '\\"' << is.str() << "\\" parsed as " << b1 << ' ' << b2 << '\\n';
+    }
 
 .SH Output:
 
-  boolalpha true: true
-  boolalpha false: false
-  noboolalpha true: 1
-  noboolalpha false: 0
-  "true false" parsed as 1 0
+    boolalpha true: true
+    boolalpha false: false
+    noboolalpha true: 1
+    noboolalpha false: 0
+    "true false" parsed as 1 0
 
 
 .SH See also
 
 
-              clears the specified ios_base flags
-resetiosflags \fI(function)\fP
-              sets the specified ios_base flags
-setiosflags   \fI(function)\fP
+                clears the specified ios_base flags
+  resetiosflags \fI(function)\fP
+                sets the specified ios_base flags
+  setiosflags   \fI(function)\fP
 
-do_truename   provides the string to use as the name of the boolean true and false
-do_falsename  \fI(virtual protected member function of std::numpunct<CharT>)\fP
+  do_truename   provides the string to use as the name of the boolean true and false
+  do_falsename  \fI(virtual protected member function of std::numpunct<CharT>)\fP
 
-\fB[virtual]\fP
+  \fB[virtual]\fP
 
 
 
