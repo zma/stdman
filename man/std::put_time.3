@@ -3,176 +3,185 @@
 std::put_time \- std::put_time
 
 .SH Synopsis
-   Defined in header <iomanip>
-   template< class CharT >                                            \fI(since C++11)\fP
-   /*unspecified*/ put_time( const std::tm* tmb, const CharT* fmt );
 
-   When used in an expression out << put_time(tmb, fmt), converts the date and time information from a given calendar time tmb to a character string according to format string fmt, as if by calling std::strftime, std::wcsftime, or analog (depending on CharT), according to the std::time_put facet of the locale currently imbued in the output stream out.
+Defined in header <iomanip>
+template< class CharT >                                            \fI(since C++11)\fP
+/*unspecified*/ put_time( const std::tm* tmb, const CharT* fmt );
+
+When used in an expression out << put_time(tmb, fmt), converts the date and time information from a given calendar time tmb to a character string according to format string fmt, as if by calling std::strftime, std::wcsftime, or analog (depending on CharT), according to the std::time_put facet of the locale currently imbued in the output stream out.
 
 .SH Parameters
 
-   tmb - pointer to the calendar time structure as obtained from std::localtime or std::gmtime
-         pointer to a null-terminated CharT string specifying the format of conversion.
 
-         The format string consists of zero or more conversion specifiers and ordinary characters (except %). All ordinary characters, including the terminating null character, are copied to the output string without modification. Each conversion specification begins with % character, optionally followed by E or O modifier (ignored if unsupported by the locale), followed by the character that determines the behavior of the specifier. The following format specifiers are available:
+tmb - pointer to the calendar time structure as obtained from std::localtime or std::gmtime
+      pointer to a null-terminated CharT string specifying the format of conversion.
+      The format string consists of zero or more conversion specifiers and ordinary characters (except %). All ordinary characters, including the terminating null character, are copied to the output string without modification. Each conversion specification begins with % character, optionally followed by E or O modifier (ignored if unsupported by the locale), followed by the character that determines the behavior of the specifier. The following format specifiers are available:
 
-         Conversion                                                         Explanation                                                                Used fields
-         specifier
-             %      writes literal %. The full conversion specification must be %%.
-             n      writes newline character
-          \fI(C++11)\fP
-             t      writes horizontal tab character
-          \fI(C++11)\fP
-                                                                                       Year
-             Y      writes year as a decimal number, e.g. 2017                                                                                  tm_year
-             EY     writes year in the alternative representation, e.g.平成23年 (year Heisei 23) instead of 2011年 (year 2011) in ja_JP locale  tm_year
-          \fI(C++11)\fP
-             y      writes last 2 digits of year as a decimal number (range [00,99])                                                            tm_year
-             Oy     writes last 2 digits of year using the alternative numeric system, e.g. 十一 instead of 11 in ja_JP locale                  tm_year
-          \fI(C++11)\fP
-             Ey     writes year as offset from locale's alternative calendar period %EC (locale-dependent)                                      tm_year
-          \fI(C++11)\fP
-             C      writes first 2 digits of year as a decimal number (range [00,99])                                                           tm_year
-          \fI(C++11)\fP
-             EC     writes name of the base year (period) in the locale's alternative representation, e.g. 平成 (Heisei era) in ja_JP           tm_year
-          \fI(C++11)\fP
-                    writes ISO 8601 week-based year, i.e. the year that contains the specified week.
+      Conversion Explanation                                                                                                                Used fields
+      specifier
+      %          writes literal %. The full conversion specification must be %%.
+      n          writes newline character
+      \fI(C++11)\fP
+      t          writes horizontal tab character
+      \fI(C++11)\fP
+      Year
+      Y          writes year as a decimal number, e.g. 2017                                                                                 tm_year
+      EY         writes year in the alternative representation, e.g.平成23年 (year Heisei 23) instead of 2011年 (year 2011) in ja_JP loctm_year
+      \fI(C++11)\fP
+      y          writes last 2 digits of year as a decimal number (range [00,99])                                                           tm_year
+      Oy         writes last 2 digits of year using the alternative numeric system, e.g. 十一 instead of 11 in ja_JP locale               tm_year
+      \fI(C++11)\fP
+      Ey         writes year as offset from locale's alternative calendar period %EC (locale-dependent)                                     tm_year
+      \fI(C++11)\fP
+      C          writes first 2 digits of year as a decimal number (range [00,99])                                                          tm_year
+      \fI(C++11)\fP
+      EC         writes name of the base year (period) in the locale's alternative representation, e.g. 平成 (Heisei era) in ja_JP        tm_year
+      \fI(C++11)\fP
+                 writes ISO 8601 week-based year, i.e. the year that contains the specified week.
+                 In IS0 8601 weeks begin with Monday and the first week of the year must satisfy the following requirements:
+      G                                                                                                                                     tm_year, tm_wday, tm_yday
+      \fI(C++11)\fP    * Includes January 4
+                 * Includes first Thursday of the year
 
-             G      In IS0 8601 weeks begin with Monday and the first week of the year must satisfy the following requirements:                 tm_year, tm_wday, tm_yday
-          \fI(C++11)\fP
-                      * Includes January 4
-                      * Includes first Thursday of the year
-                    writes last 2 digits of ISO 8601 week-based year, i.e. the year that contains the specified week (range [00,99]).
+                 writes last 2 digits of ISO 8601 week-based year, i.e. the year that contains the specified week (range [00,99]).
+                 In IS0 8601 weeks begin with Monday and the first week of the year must satisfy the following requirements:
+      g                                                                                                                                     tm_year, tm_wday, tm_yday
+      \fI(C++11)\fP    * Includes January 4
+                 * Includes first Thursday of the year
 
-             g      In IS0 8601 weeks begin with Monday and the first week of the year must satisfy the following requirements:                 tm_year, tm_wday, tm_yday
-          \fI(C++11)\fP
-                      * Includes January 4
-                      * Includes first Thursday of the year
-                                                                                      Month
-             b      writes abbreviated month name, e.g. Oct (locale dependent)                                                                  tm_mon
-             h      synonym of b                                                                                                                tm_mon
-          \fI(C++11)\fP
-             B      writes full month name, e.g. October (locale dependent)                                                                     tm_mon
-             m      writes month as a decimal number (range [01,12])                                                                            tm_mon
-             Om     writes month using the alternative numeric system, e.g. 十二 instead of 12 in ja_JP locale                                  tm_mon
-          \fI(C++11)\fP
-                                                                                       Week
-             U      writes week of the year as a decimal number (Sunday is the first day of the week) (range [00,53])                           tm_year, tm_wday, tm_yday
-             OU     writes week of the year, as by %U, using the alternative numeric system, e.g. 五十二 instead of 52 in ja_JP locale          tm_year, tm_wday, tm_yday
-          \fI(C++11)\fP
-             W      writes week of the year as a decimal number (Monday is the first day of the week) (range [00,53])                           tm_year, tm_wday, tm_yday
-             OW     writes week of the year, as by %W, using the alternative numeric system, e.g. 五十二 instead of 52 in ja_JP locale          tm_year, tm_wday, tm_yday
-          \fI(C++11)\fP
-                    writes ISO 8601 week of the year (range [01,53]).
+      Month
+      b          writes abbreviated month name, e.g. Oct (locale dependent)                                                                 tm_mon
+      h          synonym of b                                                                                                               tm_mon
+      \fI(C++11)\fP
+      B          writes full month name, e.g. October (locale dependent)                                                                    tm_mon
+      m          writes month as a decimal number (range [01,12])                                                                           tm_mon
+      Om         writes month using the alternative numeric system, e.g. 十二 instead of 12 in ja_JP locale                               tm_mon
+      \fI(C++11)\fP
+      Week
+      U          writes week of the year as a decimal number (Sunday is the first day of the week) (range [00,53])                          tm_year, tm_wday, tm_yday
+      OU         writes week of the year, as by %U, using the alternative numeric system, e.g. 五十二 instead of 52 in ja_JP locale      tm_year, tm_wday, tm_yday
+      \fI(C++11)\fP
+      W          writes week of the year as a decimal number (Monday is the first day of the week) (range [00,53])                          tm_year, tm_wday, tm_yday
+      OW         writes week of the year, as by %W, using the alternative numeric system, e.g. 五十二 instead of 52 in ja_JP locale      tm_year, tm_wday, tm_yday
+      \fI(C++11)\fP
+                 writes ISO 8601 week of the year (range [01,53]).
+                 In IS0 8601 weeks begin with Monday and the first week of the year must satisfy the following requirements:
+      V                                                                                                                                     tm_year, tm_wday, tm_yday
+      \fI(C++11)\fP    * Includes January 4
+                 * Includes first Thursday of the year
 
-             V      In IS0 8601 weeks begin with Monday and the first week of the year must satisfy the following requirements:                 tm_year, tm_wday, tm_yday
-          \fI(C++11)\fP
-                      * Includes January 4
-                      * Includes first Thursday of the year
-             OV     writes week of the year, as by %V, using the alternative numeric system, e.g. 五十二 instead of 52 in ja_JP locale          tm_year, tm_wday, tm_yday
-   fmt -  \fI(C++11)\fP
-                                                                              Day of the year/month
-             j      writes day of the year as a decimal number (range [001,366])                                                                tm_yday
-             d      writes day of the month as a decimal number (range [01,31])                                                                 tm_mday
-             Od     writes zero-based day of the month using the alternative numeric system, e.g 二十七 instead of 27 in ja_JP locale
-          \fI(C++11)\fP                                                                                                                               tm_mday
-                    Single character is preceded by a space.
-             e      writes day of the month as a decimal number (range [1,31]).
-          \fI(C++11)\fP                                                                                                                               tm_mday
-                    Single digit is preceded by a space.
-             Oe     writes one-based day of the month using the alternative numeric system, e.g. 二十七 instead of 27 in ja_JP locale
-          \fI(C++11)\fP                                                                                                                               tm_mday
-                    Single character is preceded by a space.
-                                                                                 Day of the week
-             a      writes abbreviated weekday name, e.g. Fri (locale dependent)                                                                tm_wday
-             A      writes full weekday name, e.g. Friday (locale dependent)                                                                    tm_wday
-             w      writes weekday as a decimal number, where Sunday is 0 (range [0-6])                                                         tm_wday
-             Ow     writes weekday, where Sunday is 0, using the alternative numeric system, e.g. 二 instead of 2 in ja_JP locale               tm_wday
-          \fI(C++11)\fP
-             u      writes weekday as a decimal number, where Monday is 1 (ISO 8601 format) (range [1-7])                                       tm_wday
-          \fI(C++11)\fP
-             Ou     writes weekday, where Monday is 1, using the alternative numeric system, e.g. 二 instead of 2 in ja_JP locale               tm_wday
-          \fI(C++11)\fP
-                                                                               Hour, minute, second
-             H      writes hour as a decimal number, 24 hour clock (range [00-23])                                                              tm_hour
-             OH     writes hour from 24-hour clock using the alternative numeric system, e.g. 十八 instead of 18 in ja_JP locale                tm_hour
-          \fI(C++11)\fP
-             I      writes hour as a decimal number, 12 hour clock (range [01,12])                                                              tm_hour
-             OI     writes hour from 12-hour clock using the alternative numeric system, e.g. 六 instead of 06 in ja_JP locale                  tm_hour
-          \fI(C++11)\fP
-             M      writes minute as a decimal number (range [00,59])                                                                           tm_min
-             OM     writes minute using the alternative numeric system, e.g. 二十五 instead of 25 in ja_JP locale                               tm_min
-          \fI(C++11)\fP
-             S      writes second as a decimal number (range [00,60])                                                                           tm_sec
-             OS     writes second using the alternative numeric system, e.g. 二十四 instead of 24 in ja_JP locale                               tm_sec
-          \fI(C++11)\fP
+      OV         writes week of the year, as by %V, using the alternative numeric system, e.g. 五十二 instead of 52 in ja_JP locale      tm_year, tm_wday, tm_yday
+fmt - \fI(C++11)\fP
+      Day of the year/month
+      j          writes day of the year as a decimal number (range [001,366])                                                               tm_yday
+      d          writes day of the month as a decimal number (range [01,31])                                                                tm_mday
+      Od         writes zero-based day of the month using the alternative numeric system, e.g 二十七 instead of 27 in ja_JP locale       tm_mday
+      \fI(C++11)\fP    Single character is preceded by a space.
+      e          writes day of the month as a decimal number (range [1,31]).                                                                tm_mday
+      \fI(C++11)\fP    Single digit is preceded by a space.
+      Oe         writes one-based day of the month using the alternative numeric system, e.g. 二十七 instead of 27 in ja_JP locale       tm_mday
+      \fI(C++11)\fP    Single character is preceded by a space.
+      Day of the week
+      a          writes abbreviated weekday name, e.g. Fri (locale dependent)                                                               tm_wday
+      A          writes full weekday name, e.g. Friday (locale dependent)                                                                   tm_wday
+      w          writes weekday as a decimal number, where Sunday is 0 (range [0-6])                                                        tm_wday
+      Ow         writes weekday, where Sunday is 0, using the alternative numeric system, e.g. 二 instead of 2 in ja_JP locale             tm_wday
+      \fI(C++11)\fP
+      u          writes weekday as a decimal number, where Monday is 1 (ISO 8601 format) (range [1-7])                                      tm_wday
+      \fI(C++11)\fP
+      Ou         writes weekday, where Monday is 1, using the alternative numeric system, e.g. 二 instead of 2 in ja_JP locale             tm_wday
+      \fI(C++11)\fP
+      Hour, minute, second
+      H          writes hour as a decimal number, 24 hour clock (range [00-23])                                                             tm_hour
+      OH         writes hour from 24-hour clock using the alternative numeric system, e.g. 十八 instead of 18 in ja_JP locale             tm_hour
+      \fI(C++11)\fP
+      I          writes hour as a decimal number, 12 hour clock (range [01,12])                                                             tm_hour
+      OI         writes hour from 12-hour clock using the alternative numeric system, e.g. 六 instead of 06 in ja_JP locale                tm_hour
+      \fI(C++11)\fP
+      M          writes minute as a decimal number (range [00,59])                                                                          tm_min
+      OM         writes minute using the alternative numeric system, e.g. 二十五 instead of 25 in ja_JP locale                           tm_min
+      \fI(C++11)\fP
+      S          writes second as a decimal number (range [00,60])                                                                          tm_sec
+      OS         writes second using the alternative numeric system, e.g. 二十四 instead of 24 in ja_JP locale                           tm_sec
+      \fI(C++11)\fP
 .SH Other
-             c      writes standard date and time string, e.g. Sun Oct 17 04:41:13 2010 (locale dependent)                                      all
-             Ec     writes alternative date and time string, e.g. using 平成23年 (year Heisei 23) instead of 2011年 (year 2011) in ja_JP locale all
-          \fI(C++11)\fP
-             x      writes localized date representation (locale dependent)                                                                     all
-             Ex     writes alternative date representation, e.g. using 平成23年 (year Heisei 23) instead of 2011年 (year 2011) in ja_JP locale  all
-          \fI(C++11)\fP
-             X      writes localized time representation (locale dependent)                                                                     all
-             EX     writes alternative time representation (locale dependent)                                                                   all
-          \fI(C++11)\fP
-             D      equivalent to "%m/%d/%y"                                                                                                    tm_mon, tm_mday, tm_year
-          \fI(C++11)\fP
-             F      equivalent to "%Y-%m-%d" (the ISO 8601 date format)                                                                         tm_mon, tm_mday, tm_year
-          \fI(C++11)\fP
-             r      writes localized 12-hour clock time (locale dependent)                                                                      tm_hour, tm_min, tm_sec
-          \fI(C++11)\fP
-             R      equivalent to "%H:%M"                                                                                                       tm_hour, tm_min
-          \fI(C++11)\fP
-             T      equivalent to "%H:%M:%S" (the ISO 8601 time format)                                                                         tm_hour, tm_min, tm_sec
-          \fI(C++11)\fP
-             p      writes localized a.m. or p.m. (locale dependent)                                                                            tm_hour
-             z      writes offset from UTC in the ISO 8601 format (e.g. -0430), or no characters if the time zone information is not available  tm_isdst
-          \fI(C++11)\fP
-             Z      writes locale-dependent time zone name or abbreviation, or no characters if the time zone information is not available      tm_isdst
+      c          writes standard date and time string, e.g. Sun Oct 17 04:41:13 2010 (locale dependent)                                     all
+      Ec         writes alternative date and time string, e.g. using 平成23年 (year Heisei 23) instead of 2011年 (year 2011) in ja_JP loalle
+      \fI(C++11)\fP
+      x          writes localized date representation (locale dependent)                                                                    all
+      Ex         writes alternative date representation, e.g. using 平成23年 (year Heisei 23) instead of 2011年 (year 2011) in ja_JP locall
+      \fI(C++11)\fP
+      X          writes localized time representation (locale dependent)                                                                    all
+      EX         writes alternative time representation (locale dependent)                                                                  all
+      \fI(C++11)\fP
+      D          equivalent to "%m/%d/%y"                                                                                                   tm_mon, tm_mday, tm_year
+      \fI(C++11)\fP
+      F          equivalent to "%Y-%m-%d" (the ISO 8601 date format)                                                                        tm_mon, tm_mday, tm_year
+      \fI(C++11)\fP
+      r          writes localized 12-hour clock time (locale dependent)                                                                     tm_hour, tm_min, tm_sec
+      \fI(C++11)\fP
+      R          equivalent to "%H:%M"                                                                                                      tm_hour, tm_min
+      \fI(C++11)\fP
+      T          equivalent to "%H:%M:%S" (the ISO 8601 time format)                                                                        tm_hour, tm_min, tm_sec
+      \fI(C++11)\fP
+      p          writes localized a.m. or p.m. (locale dependent)                                                                           tm_hour
+      z          writes offset from UTC in the ISO 8601 format (e.g. -0430), or no characters if the time zone information is not available tm_isdst
+      \fI(C++11)\fP
+      Z          writes locale-dependent time zone name or abbreviation, or no characters if the time zone information is not available     tm_isdst
+
+
+
 
 .SH Return value
 
-   Returns an object of unspecified type such that if out is the name of an output stream of type std::basic_ostream<CharT, Traits>, then the expression out << put_time(tmb, fmt) behaves as if the following code was executed:
+Returns an object of unspecified type such that if out is the name of an output stream of type std::basic_ostream<CharT, Traits>, then the expression out << put_time(tmb, fmt) behaves as if the following code was executed:
+typedef std::ostreambuf_iterator<CharT, Traits> Iter;
+typedef std::time_put<CharT, Iter> TimePut;
+const TimePut& tp = std::use_facet<TimePut>(out.getloc());
+const Iter end = tp.put(Iter(out.rdbuf()), out, out.fill(), tmb, fmt, fmt + Traits::length(fmt));
+if (end.failed())
+out.setstate(std::ios_base::badbit);
 
-   typedef std::ostreambuf_iterator<CharT, Traits> Iter;
-   typedef std::time_put<CharT, Iter> TimePut;
-   const TimePut& tp = std::use_facet<TimePut>(out.getloc());
-   const Iter end = tp.put(Iter(out.rdbuf()), out, out.fill(), tmb, fmt, fmt + Traits::length(fmt));
-   if (end.failed())
-   out.setstate(std::ios_base::badbit);
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <iomanip>
- #include <ctime>
+  #include <iostream>
+  #include <iomanip>
+  #include <ctime>
 
- int main()
- {
-     std::time_t t = std::time(nullptr);
-     std::tm tm = *std::localtime(&t);
-     std::cout.imbue(std::locale("ru_RU.utf8"));
-     std::cout << "ru_RU: " << std::put_time(&tm, "%c %Z") << '\\n';
-     std::cout.imbue(std::locale("ja_JP.utf8"));
-     std::cout << "ja_JP: " << std::put_time(&tm, "%c %Z") << '\\n';
- }
+  int main()
+  {
+      std::time_t t = std::time(nullptr);
+      std::tm tm = *std::localtime(&t);
+      std::cout.imbue(std::locale("ru_RU.utf8"));
+      std::cout << "ru_RU: " << std::put_time(&tm, "%c %Z") << '\\n';
+      std::cout.imbue(std::locale("ja_JP.utf8"));
+      std::cout << "ja_JP: " << std::put_time(&tm, "%c %Z") << '\\n';
+  }
 
 .SH Output:
 
- ru_RU: Ср. 28 дек. 2011 10:21:16 EST
- ja_JP: 2011年12月28日 10時21分16秒 EST
+  ru_RU: Ср. 28 дек. 2011 10:21:16 EST
+  ja_JP: 2011年12月28日 10時21分16秒 EST
+
 
 .SH See also
 
-   time_put formats contents of struct std::tm for output as character sequence
-            \fI(class template)\fP
-   get_time parses a date/time value of specified format
-   \fI(C++11)\fP  \fI(function template)\fP
-   strftime converts a tm object to custom textual representation
-            \fI(function)\fP
-   wcsftime converts a tm object to custom wide string textual representation
-            \fI(function)\fP
+
+         formats contents of struct std::tm for output as character sequence
+time_put \fI(class template)\fP
+
+get_time parses a date/time value of specified format
+         \fI(function template)\fP
+\fI(C++11)\fP
+         converts a tm object to custom textual representation
+strftime \fI(function)\fP
+         converts a tm object to custom wide string textual representation
+wcsftime \fI(function)\fP
+
+
+
+

@@ -3,18 +3,23 @@
 std::shared_lock<Mutex>::operator= \- std::shared_lock<Mutex>::operator=
 
 .SH Synopsis
-   shared_lock& operator=( shared_lock&& other ) noexcept;  \fI(since C++14)\fP
 
-   Move assignment operator. Replaces the contents with those of other using move semantics.
+shared_lock& operator=( shared_lock&& other ) noexcept;  \fI(since C++14)\fP
 
-   If, prior to this call, *this has an associated mutex ((mutex() returns a non-null pointer) and has acquired ownership of it (owns() returns true), the mutex is unlocked by calling unlock_shared().
+Move assignment operator. Replaces the contents with those of other using move semantics.
+If, prior to this call, *this has an associated mutex ((mutex() returns a non-null pointer) and has acquired ownership of it (owns() returns true), the mutex is unlocked by calling unlock_shared().
+After this call, other has no associated mutex.
 
-   After this call, other has no associated mutex.
 
 .SH Parameters
 
-   other - another shared_lock to replace the state with
+
+other - another shared_lock to replace the state with
+
 
 .SH Return value
 
-   *this
+*this
+
+
+

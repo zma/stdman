@@ -3,200 +3,220 @@
 std::atomic \- std::atomic
 
 .SH Synopsis
-   Defined in header <atomic>
-   template< class T >                \fB(1)\fP \fI(since C++11)\fP
-   struct atomic;
-   template< class T >                \fB(2)\fP \fI(since C++11)\fP
-   struct atomic<T*>;
-   Defined in header <memory>
-   template<class T>                  \fB(3)\fP \fI(since C++20)\fP
-   struct atomic<std::shared_ptr<T>>;
-   template<class T>                  \fB(4)\fP \fI(since C++20)\fP
-   struct atomic<std::weak_ptr<T>>;
 
-   Each instantiation and full specialization of the std::atomic template defines an atomic type. If one thread writes to an atomic object while another thread reads from it, the behavior is well-defined (see memory model for details on data races)
+Defined in header <atomic>
+template< class T >                \fB(1)\fP \fI(since C++11)\fP
+struct atomic;
+template< class T >                \fB(2)\fP \fI(since C++11)\fP
+struct atomic<T*>;
+Defined in header <memory>
+template<class T>                  \fB(3)\fP \fI(since C++20)\fP
+struct atomic<std::shared_ptr<T>>;
+template<class T>                  \fB(4)\fP \fI(since C++20)\fP
+struct atomic<std::weak_ptr<T>>;
 
-   In addition, accesses to atomic objects may establish inter-thread synchronization and order non-atomic memory accesses as specified by std::memory_order.
-
-   std::atomic is neither copyable nor movable.
+Each instantiation and full specialization of the std::atomic template defines an atomic type. If one thread writes to an atomic object while another thread reads from it, the behavior is well-defined (see memory_model for details on data races)
+In addition, accesses to atomic objects may establish inter-thread synchronization and order non-atomic memory accesses as specified by std::memory_order.
+std::atomic is neither copyable nor movable.
 
 .SH Specializations
 
-    Primary template
 
-   The primary std::atomic template may be instantiated with any TriviallyCopyable type T satisfying both CopyConstructible and CopyAssignable. The program is ill-formed if any of following values is false:
+Primary template
 
-     * std::is_trivially_copyable<T>::value
-     * std::is_copy_constructible<T>::value
-     * std::is_move_constructible<T>::value
-     * std::is_copy_assignable<T>::value
-     * std::is_move_assignable<T>::value
+The primary std::atomic template may be instantiated with any TriviallyCopyable type T satisfying both CopyConstructible and CopyAssignable. The program is ill-formed if any of following values is false:
 
- struct Counters { int a; int b; }; // user-defined trivially-copyable type
- std::atomic<Counters> cnt;         // specialization for the user-defined type
+* std::is_trivially_copyable<T>::value
+* std::is_copy_constructible<T>::value
+* std::is_move_constructible<T>::value
+* std::is_copy_assignable<T>::value
+* std::is_move_assignable<T>::value
 
-   std::atomic<bool> uses the primary template. It is guaranteed to be a standard layout struct.
 
-    Partial specializations
+  struct Counters { int a; int b; }; // user-defined trivially-copyable type
+  std::atomic<Counters> cnt;         // specialization for the user-defined type
 
-   The standard library provides partial specializations of the std::atomic template for the following types with additional properties that the primary template does not have:
+std::atomic<bool> uses the primary template. It is guaranteed to be a standard layout struct.
 
-   2) Partial specializations std::atomic<T*> for all pointer types. These specializations have standard layout, trivial default constructors, and trivial destructors. Besides the operations provided for all atomic types, these specializations additionally support atomic arithmetic operations appropriate to pointer types, such as fetch_add, fetch_sub.
+Partial specializations
 
-   3-4) Partial specializations std::atomic<std::shared_ptr<T>> and std::atomic<std::weak_ptr<T>> are provided for std::shared_ptr and std::weak_ptr.
-                                                                                                                                                      \fI(since C++20)\fP
-   See std::atomic<std::shared_ptr> and std::atomic<std::weak_ptr> for details.
+The standard library provides partial specializations of the std::atomic template for the following types with additional properties that the primary template does not have:
+2) Partial specializations std::atomic<T*> for all pointer types. These specializations have standard layout, trivial default constructors, and trivial destructors. Besides the operations provided for all atomic types, these specializations additionally support atomic arithmetic operations appropriate to pointer types, such as fetch_add, fetch_sub.
 
-    Specializations for integral types
+3-4) Partial specializations std::atomic<std::shared_ptr<T>> and std::atomic<std::weak_ptr<T>> are provided for std::shared_ptr and std::weak_ptr. \fI(since C++20)\fP
+See std::atomic<std::shared_ptr> and std::atomic<std::weak_ptr> for details.
 
-   When instantiated with one of the following integral types, std::atomic provides additional atomic operations appropriate to integral types such as fetch_add, fetch_sub, fetch_and, fetch_or, fetch_xor:
 
-              * The character types char
-                , char8_t
-                \fI(since C++20)\fP, char16_t, char32_t, and wchar_t;
-              * The standard signed integer types: signed char, short, int, long, and long long;
-              * The standard unsigned integer types: unsigned char, unsigned short, unsigned int, unsigned long, and unsigned long long;
-              * Any additional integral types needed by the typedefs in the header <cstdint>.
+Specializations for integral types
 
-   Additionally, the resulting std::atomic<Integral> specialization has standard layout, a trivial default constructor, and a trivial destructor. Signed integer arithmetic is defined to use two's complement; there are no undefined results.
+When instantiated with one of the following integral types, std::atomic provides additional atomic operations appropriate to integral types such as fetch_add, fetch_sub, fetch_and, fetch_or, fetch_xor:
 
-       Specializations for floating-point types
 
-   When instantiated with one of the floating-point types float, double, and long double, std::atomic provides additional atomic operations appropriate to floating-point types such as fetch_add and fetch_sub.
-                                                                                                                                                                                                                                  \fI(since C++20)\fP
-   Additionally, the resulting std::atomic<Floating> specialization has standard layout, a trivial default constructor, and a trivial destructor.
+      * The character types char
+        , char8_t
+        \fI(since C++20)\fP, char16_t, char32_t, and wchar_t;
+      * The standard signed integer types: signed char, short, int, long, and long long;
+      * The standard unsigned integer types: unsigned char, unsigned short, unsigned int, unsigned long, and unsigned long long;
+      * Any additional integral types needed by the typedefs in the header <cstdint>.
 
-   No operations result in undefined behavior even if the result is not representable in the floating-point type. The floating-point environment in effect may be different from the calling thread's floating-point environment.
 
-  Type aliases
+Additionally, the resulting std::atomic<Integral> specialization has standard layout, a trivial default constructor, and a trivial destructor. Signed integer arithmetic is defined to use two's complement; there are no undefined results.
 
-   Type aliases are provided for bool and all integral types listed above, as follows:
 
-   Type alias                 Definition
-   std::atomic_bool           std::atomic<bool>
-   std::atomic_char           std::atomic<char>
-   std::atomic_schar          std::atomic<signed char>
-   std::atomic_uchar          std::atomic<unsigned char>
-   std::atomic_short          std::atomic<short>
-   std::atomic_ushort         std::atomic<unsigned short>
-   std::atomic_int            std::atomic<int>
-   std::atomic_uint           std::atomic<unsigned int>
-   std::atomic_long           std::atomic<long>
-   std::atomic_ulong          std::atomic<unsigned long>
-   std::atomic_llong          std::atomic<long long>
-   std::atomic_ullong         std::atomic<unsigned long long>
-   std::atomic_char8_t        std::atomic<char8_t> (C++20)
-   std::atomic_char16_t       std::atomic<char16_t>
-   std::atomic_char32_t       std::atomic<char32_t>
-   std::atomic_wchar_t        std::atomic<wchar_t>
-   std::atomic_int8_t         std::atomic<std::int8_t>
-   std::atomic_uint8_t        std::atomic<std::uint8_t>
-   std::atomic_int16_t        std::atomic<std::int16_t>
-   std::atomic_uint16_t       std::atomic<std::uint16_t>
-   std::atomic_int32_t        std::atomic<std::int32_t>
-   std::atomic_uint32_t       std::atomic<std::uint32_t>
-   std::atomic_int64_t        std::atomic<std::int64_t>
-   std::atomic_uint64_t       std::atomic<std::uint64_t>
-   std::atomic_int_least8_t   std::atomic<std::int_least8_t>
-   std::atomic_uint_least8_t  std::atomic<std::uint_least8_t>
-   std::atomic_int_least16_t  std::atomic<std::int_least16_t>
-   std::atomic_uint_least16_t std::atomic<std::uint_least16_t>
-   std::atomic_int_least32_t  std::atomic<std::int_least32_t>
-   std::atomic_uint_least32_t std::atomic<std::uint_least32_t>
-   std::atomic_int_least64_t  std::atomic<std::int_least64_t>
-   std::atomic_uint_least64_t std::atomic<std::uint_least64_t>
-   std::atomic_int_fast8_t    std::atomic<std::int_fast8_t>
-   std::atomic_uint_fast8_t   std::atomic<std::uint_fast8_t>
-   std::atomic_int_fast16_t   std::atomic<std::int_fast16_t>
-   std::atomic_uint_fast16_t  std::atomic<std::uint_fast16_t>
-   std::atomic_int_fast32_t   std::atomic<std::int_fast32_t>
-   std::atomic_uint_fast32_t  std::atomic<std::uint_fast32_t>
-   std::atomic_int_fast64_t   std::atomic<std::int_fast64_t>
-   std::atomic_uint_fast64_t  std::atomic<std::uint_fast64_t>
-   std::atomic_intptr_t       std::atomic<std::intptr_t>
-   std::atomic_uintptr_t      std::atomic<std::uintptr_t>
-   std::atomic_size_t         std::atomic<std::size_t>
-   std::atomic_ptrdiff_t      std::atomic<std::ptrdiff_t>
-   std::atomic_intmax_t       std::atomic<std::intmax_t>
-   std::atomic_uintmax_t      std::atomic<std::uintmax_t>
+ Specializations for floating-point types
+                                                                                                                                                                                                                               \fI(since C++20)\fP
+When instantiated with one of the floating-point types float, double, and long double, std::atomic provides additional atomic operations appropriate to floating-point types such as fetch_add and fetch_sub.
+Additionally, the resulting std::atomic<Floating> specialization has standard layout, a trivial default constructor, and a trivial destructor.
+No operations result in undefined behavior even if the result is not representable in the floating-point type. The floating-point_environment in effect may be different from the calling thread's floating-point environment.
 
-   Note: std::atomic_intN_t, std::atomic_uintN_t, std::atomic_intptr_t, and atomic_uintptr_t are defined if and only if std::intN_t, std::uintN_t, std::intptr_t, and std::uintptr_t are defined, respectively.
+
+Type aliases
+
+Type aliases are provided for bool and all integral types listed above, as follows:
+
+Type alias                 Definition
+std::atomic_bool           std::atomic<bool>
+std::atomic_char           std::atomic<char>
+std::atomic_schar          std::atomic<signed char>
+std::atomic_uchar          std::atomic<unsigned char>
+std::atomic_short          std::atomic<short>
+std::atomic_ushort         std::atomic<unsigned short>
+std::atomic_int            std::atomic<int>
+std::atomic_uint           std::atomic<unsigned int>
+std::atomic_long           std::atomic<long>
+std::atomic_ulong          std::atomic<unsigned long>
+std::atomic_llong          std::atomic<long long>
+std::atomic_ullong         std::atomic<unsigned long long>
+std::atomic_char8_t        std::atomic<char8_t> (C++20)
+std::atomic_char16_t       std::atomic<char16_t>
+std::atomic_char32_t       std::atomic<char32_t>
+std::atomic_wchar_t        std::atomic<wchar_t>
+std::atomic_int8_t         std::atomic<std::int8_t>
+std::atomic_uint8_t        std::atomic<std::uint8_t>
+std::atomic_int16_t        std::atomic<std::int16_t>
+std::atomic_uint16_t       std::atomic<std::uint16_t>
+std::atomic_int32_t        std::atomic<std::int32_t>
+std::atomic_uint32_t       std::atomic<std::uint32_t>
+std::atomic_int64_t        std::atomic<std::int64_t>
+std::atomic_uint64_t       std::atomic<std::uint64_t>
+std::atomic_int_least8_t   std::atomic<std::int_least8_t>
+std::atomic_uint_least8_t  std::atomic<std::uint_least8_t>
+std::atomic_int_least16_t  std::atomic<std::int_least16_t>
+std::atomic_uint_least16_t std::atomic<std::uint_least16_t>
+std::atomic_int_least32_t  std::atomic<std::int_least32_t>
+std::atomic_uint_least32_t std::atomic<std::uint_least32_t>
+std::atomic_int_least64_t  std::atomic<std::int_least64_t>
+std::atomic_uint_least64_t std::atomic<std::uint_least64_t>
+std::atomic_int_fast8_t    std::atomic<std::int_fast8_t>
+std::atomic_uint_fast8_t   std::atomic<std::uint_fast8_t>
+std::atomic_int_fast16_t   std::atomic<std::int_fast16_t>
+std::atomic_uint_fast16_t  std::atomic<std::uint_fast16_t>
+std::atomic_int_fast32_t   std::atomic<std::int_fast32_t>
+std::atomic_uint_fast32_t  std::atomic<std::uint_fast32_t>
+std::atomic_int_fast64_t   std::atomic<std::int_fast64_t>
+std::atomic_uint_fast64_t  std::atomic<std::uint_fast64_t>
+std::atomic_intptr_t       std::atomic<std::intptr_t>
+std::atomic_uintptr_t      std::atomic<std::uintptr_t>
+std::atomic_size_t         std::atomic<std::size_t>
+std::atomic_ptrdiff_t      std::atomic<std::ptrdiff_t>
+std::atomic_intmax_t       std::atomic<std::intmax_t>
+std::atomic_uintmax_t      std::atomic<std::uintmax_t>
+
+Note: std::atomic_intN_t, std::atomic_uintN_t, std::atomic_intptr_t, and atomic_uintptr_t are defined if and only if std::intN_t, std::uintN_t, std::intptr_t, and std::uintptr_t are defined, respectively.
 
 .SH Member types
 
-   Member type     Definition
-   value_type      see below
-                   value_type (only for atomic<Integral>
-   difference_type and atomic<Floating>
-                   \fI(since C++20)\fP specializations)
-                   std::ptrdiff_t (only for atomic<T*> specializations)
 
-   For every std::atomic<X> (whether or not specialized), std::atomic<X>::value_type is X.
+Member type     Definition
+value_type      see below
+                value_type (only for atomic<Integral>
+difference_type and atomic<Floating>
+                \fI(since C++20)\fP specializations)
+                std::ptrdiff_t (only for atomic<T*> specializations)
 
-   difference_type is not defined in the primary atomic template or in the partial specializations for std::shared_ptr and std::weak_ptr.
+For every std::atomic<X> (whether or not specialized), std::atomic<X>::value_type is X.
+difference_type is not defined in the primary atomic template or in the partial specializations for std::shared_ptr and std::weak_ptr.
 
 .SH Member functions
 
-   constructor             constructs an atomic object
-                           \fI(public member function)\fP
-   operator=               stores a value into an atomic object
-                           \fI(public member function)\fP
-   is_lock_free            checks if the atomic object is lock-free
-                           \fI(public member function)\fP
-   store                   atomically replaces the value of the atomic object with a non-atomic argument
-                           \fI(public member function)\fP
-   load                    atomically obtains the value of the atomic object
-                           \fI(public member function)\fP
-   operator T              loads a value from an atomic object
-                           \fI(public member function)\fP
-   exchange                atomically replaces the value of the atomic object and obtains the value held previously
-                           \fI(public member function)\fP
-   compare_exchange_weak   atomically compares the value of the atomic object with non-atomic argument and performs atomic exchange if equal or atomic load if not
-   compare_exchange_strong \fI(public member function)\fP
+
+                        constructs an atomic object
+constructor             \fI(public member function)\fP
+                        stores a value into an atomic object
+operator=               \fI(public member function)\fP
+                        checks if the atomic object is lock-free
+is_lock_free            \fI(public member function)\fP
+                        atomically replaces the value of the atomic object with a non-atomic argument
+store                   \fI(public member function)\fP
+                        atomically obtains the value of the atomic object
+load                    \fI(public member function)\fP
+                        loads a value from an atomic object
+operator_T              \fI(public member function)\fP
+                        atomically replaces the value of the atomic object and obtains the value held previously
+exchange                \fI(public member function)\fP
+                        atomically compares the value of the atomic object with non-atomic argument and performs atomic exchange if equal or atomic load if not
+compare_exchange_weak   \fI(public member function)\fP
+compare_exchange_strong
+
 .SH Constants
-   is_always_lock_free     indicates that the type is always lock-free
-   \fB[static]\fP \fI(C++17)\fP        \fI(public static member constant)\fP
+
+
+is_always_lock_free     indicates that the type is always lock-free
+                        \fI(public static member constant)\fP
+\fB[static]\fP \fI(C++17)\fP
+
 
 .SH Specialized member functions
 
-   fetch_add       atomically adds the argument to the value stored in the atomic object and obtains the value held previously
-                   \fI(public member function)\fP
-   fetch_sub       atomically subtracts the argument from the value stored in the atomic object and obtains the value held previously
-                   \fI(public member function)\fP
-   fetch_and       atomically performs bitwise AND between the argument and the value of the atomic object and obtains the value held previously
-                   \fI(public member function)\fP
-   fetch_or        atomically performs bitwise OR between the argument and the value of the atomic object and obtains the value held previously
-                   \fI(public member function)\fP
-   fetch_xor       atomically performs bitwise XOR between the argument and the value of the atomic object and obtains the value held previously
-                   \fI(public member function)\fP
-   operator++
-   operator++(int) increments or decrements the atomic value by one
-   operator--      \fI(public member function)\fP
-   operator--(int)
-   operator+=
-   operator-=      adds, subtracts, or performs bitwise AND, OR, XOR with the atomic value
-   operator&=      \fI(public member function)\fP
-   operator|=
-   operator^=
+
+                atomically adds the argument to the value stored in the atomic object and obtains the value held previously
+fetch_add       \fI(public member function)\fP
+                atomically subtracts the argument from the value stored in the atomic object and obtains the value held previously
+fetch_sub       \fI(public member function)\fP
+                atomically performs bitwise AND between the argument and the value of the atomic object and obtains the value held previously
+fetch_and       \fI(public member function)\fP
+                atomically performs bitwise OR between the argument and the value of the atomic object and obtains the value held previously
+fetch_or        \fI(public member function)\fP
+                atomically performs bitwise XOR between the argument and the value of the atomic object and obtains the value held previously
+fetch_xor       \fI(public member function)\fP
+
+operator++      increments or decrements the atomic value by one
+operator++(int) \fI(public member function)\fP
+operator--
+operator--(int)
+
+operator+=
+operator-=      adds, subtracts, or performs bitwise AND, OR, XOR with the atomic value
+operator&=      \fI(public member function)\fP
+operator|=
+operator^=
+
 
 .SH Notes
 
-   There are non-member function template equivalents for all member functions of std::atomic. Those non-member functions may be additionally overloaded for types that are not specializations of std::atomic, but are able to guarantee atomicity. The only such type in the standard library is std::shared_ptr<T>.
+There are non-member function template equivalents for all member functions of std::atomic. Those non-member functions may be additionally overloaded for types that are not specializations of std::atomic, but are able to guarantee atomicity. The only such type in the standard library is std::shared_ptr<T>.
+On gcc and clang, some of the functionality described here requires linking against -latomic.
 
-   On gcc and clang, some of the functionality described here requires linking against -latomic.
+Defect reports
 
-  Defect reports
+The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+DR       Applied to Behavior as published                             Correct behavior
+LWG_2441 C++11                                                        added specializations for the (optional) fixed_width_integer_types
+P0558R1  C++11                                                        specification was substantially rewritten to resolve numerous issues
+                                                                      in particular, member typedefs value_type and difference_type are added
+LWG_3012 C++11      std::atomic<T> was permitted for                  such specializations are forbidden
+                    any T that is trivially copyable but not copyable
 
-      DR    Applied to               Behavior as published                                          Correct behavior
-   LWG 2441 C++11                                                        added specializations for the (optional) fixed width integer types
-   P0558R1  C++11                                                        specification was substantially rewritten to resolve numerous issues
-                                                                         in particular, member typedefs value_type and difference_type are added
-   LWG 3012 C++11      std::atomic<T> was permitted for                  such specializations are forbidden
-                       any T that is trivially copyable but not copyable
 
 .SH See also
 
-   atomic_flag the lock-free boolean atomic type
-   \fI(C++11)\fP     \fI(class)\fP
+
+
+atomic_flag the lock-free boolean atomic type
+            \fI(class)\fP
+\fI(C++11)\fP
+
+
+
+

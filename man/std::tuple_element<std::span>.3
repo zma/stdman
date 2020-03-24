@@ -3,27 +3,39 @@
 std::tuple_element<std::span> \- std::tuple_element<std::span>
 
 .SH Synopsis
-   Defined in header <span>
-   template< std::size_t I, class T, std::size_t N >  \fI(since C++20)\fP
-   struct tuple_element<I, std::span<T, N> >;
 
-   Provides compile-time indexed access to the type of the elements of the span using tuple-like interface. The program is ill-formed if I >= N or if N == std::dynamic_extent.
+Defined in header <span>
+template< std::size_t I, class T, std::size_t N >  \fI(since C++20)\fP
+struct tuple_element<I, std::span<T, N> >;
+
+Provides compile-time indexed access to the type of the elements of the span using tuple-like interface. The program is ill-formed if I >= N or if N == std::dynamic_extent.
 
 .SH Member types
 
-   Member type Definition
-   type        the type of elements of the span, i.e., T
+
+Member type Definition
+type        the type of elements of the span, i.e., T
+
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   tuple_element                  obtains the type of the specified element
-                                  \fI(class template specialization)\fP
-   std::tuple_element<std::pair>  obtains the type of the elements of pair
-   \fI(C++11)\fP                        \fI(class template specialization)\fP
-   std::tuple_element<std::array> obtains the type of the elements of array
-                                  \fI(class template specialization)\fP
+
+                               obtains the type of the specified element
+tuple_element                  \fI(class template specialization)\fP
+
+std::tuple_element<std::pair>  obtains the type of the elements of pair
+                               \fI(class template specialization)\fP
+\fI(C++11)\fP
+                               obtains the type of the elements of array
+std::tuple_element<std::array> \fI(class template specialization)\fP
+
+
+
+

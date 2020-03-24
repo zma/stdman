@@ -5,6 +5,7 @@
 
   File: render.hpp
   Author: Jesse 'Jeaye' Wilkerson
+  Eric Ma
 */
 
 #pragma once
@@ -23,9 +24,13 @@ class render
     void operator ()(parse_state &state)
     {
       /* Render the stripped html to plain text. */
-      state.plain = execute("elinks -dump 1 -dump-width 10000 -no-numbering -no-references "
-                            "-dump-charset UTF-8 -force-html "
-                            + state.tmp_file);
+      // state.plain = execute("elinks -dump 1 -dump-width 10000 -no-numbering -no-references "
+      //                       "-dump-charset UTF-8 -force-html "
+      //                       + state.tmp_file);
+
+      state.plain = execute("html2text -width 10000 -style pretty -utf8 " +
+                            state.tmp_file +
+                            " | perl -0777 -pe 's|^\\n*||g'");
 
       /* Cleanup a bit. */
       str::replace(state.plain, "[edit]", "");

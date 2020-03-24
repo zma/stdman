@@ -3,30 +3,37 @@
 std::experimental::source_location::function_name \- std::experimental::source_location::function_name
 
 .SH Synopsis
-   constexpr const char* function_name() const noexcept;  (library fundamentals TS v2)
 
-   Returns the name of the function associated with the position represented by this object, if any.
+constexpr const char* function_name() const noexcept;  (library fundamentals TS v2)
+
+Returns the name of the function associated with the position represented by this object, if any.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   If this object represents a position in a body of a function, returns an implementation-defined null-terminated byte string corresponding to the name of the function.
-
-   Otherwise, an empty string is returned.
+If this object represents a position in a body of a function, returns an implementation-defined null-terminated byte string corresponding to the name of the function.
+Otherwise, an empty string is returned.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   line      return the line number represented by this object
-             \fI(public member function)\fP
-   column    return the column number represented by this object
-             \fI(public member function)\fP
-   file_name return the file name represented by this object
-             \fI(public member function)\fP
+
+          return the line number represented by this object
+line      \fI(public member function)\fP
+          return the column number represented by this object
+column    \fI(public member function)\fP
+          return the file name represented by this object
+file_name \fI(public member function)\fP
+
+
+
+

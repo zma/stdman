@@ -3,29 +3,37 @@
 std::chrono::month_day_last \- std::chrono::month_day_last
 
 .SH Synopsis
-   Defined in header <chrono>
-   class month_day_last;       \fI(since C++20)\fP
 
-   The class month_day_last represents the last day of a specific month, of some yet to be specified year.
+Defined in header <chrono>
+class month_day_last;       \fI(since C++20)\fP
 
-   month_day_last is a TriviallyCopyable StandardLayoutType.
+The class month_day_last represents the last day of a specific month, of some yet to be specified year.
+month_day_last is a TriviallyCopyable StandardLayoutType.
 
 .SH Member functions
 
-   constructor   constructs a month_day_last
-                 \fI(public member function)\fP
-   month         accesses the stored month
-                 \fI(public member function)\fP
-   ok            checks if the stored month is valid
-                 \fI(public member function)\fP
 
-  Nonmember functions
+              constructs a month_day_last
+constructor   \fI(public member function)\fP
+              accesses the stored month
+month         \fI(public member function)\fP
+              checks if the stored month is valid
+ok            \fI(public member function)\fP
 
-   operator==
-   operator!=
-   operator<  compares two month_day_last objects
-   operator<= \fI(function)\fP
-   operator>
-   operator>=
-   operator<< outputs a month_day_last into a stream
-              \fI(function template)\fP
+
+Nonmember functions
+
+
+
+operator==
+operator!= compares two month_day_last objects
+operator<  \fI(function)\fP
+operator<=
+operator>
+operator>=
+           outputs a month_day_last into a stream
+operator<< \fI(function template)\fP
+
+
+
+

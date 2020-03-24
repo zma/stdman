@@ -3,43 +3,50 @@
 std::basic_string_view<CharT,Traits>::find_last_of \- std::basic_string_view<CharT,Traits>::find_last_of
 
 .SH Synopsis
-   constexpr size_type find_last_of(basic_string_view v, size_type pos = npos) const noexcept; \fB(1)\fP \fI(since C++17)\fP
-   constexpr size_type find_last_of(CharT c, size_type pos = npos) const noexcept;             \fB(2)\fP \fI(since C++17)\fP
-   constexpr size_type find_last_of(const CharT* s, size_type pos, size_type count) const;     \fB(3)\fP \fI(since C++17)\fP
-   constexpr size_type find_last_of(const CharT* s, size_type pos = npos) const;               \fB(4)\fP \fI(since C++17)\fP
 
-   Finds the last character equal to one of characters in the given character sequence. Exact search algorithm is not specified. The search considers only the interval [0; pos]. If the character is not present in the interval, npos will be returned.
+constexpr size_type find_last_of(basic_string_view v, size_type pos = npos) const noexcept; \fB(1)\fP \fI(since C++17)\fP
+constexpr size_type find_last_of(CharT c, size_type pos = npos) const noexcept;             \fB(2)\fP \fI(since C++17)\fP
+constexpr size_type find_last_of(const CharT* s, size_type pos, size_type count) const;     \fB(3)\fP \fI(since C++17)\fP
+constexpr size_type find_last_of(const CharT* s, size_type pos = npos) const;               \fB(4)\fP \fI(since C++17)\fP
 
-   1) Finds the last occurence of any of the characters of v in this view, ending at position pos.
-   2) Equivalent to find_last_of(basic_string_view(std::addressof(c), 1), pos).
-   3) Equivalent to find_last_of(basic_string_view(s, count), pos).
-   4) Equivalent to find_last_of(basic_string_view(s), pos).
+Finds the last character equal to one of characters in the given character sequence. Exact search algorithm is not specified. The search considers only the interval [0; pos]. If the character is not present in the interval, npos will be returned.
+1) Finds the last occurence of any of the characters of v in this view, ending at position pos.
+2) Equivalent to find_last_of(basic_string_view(std::addressof(c), 1), pos).
+3) Equivalent to find_last_of(basic_string_view(s, count), pos).
+4) Equivalent to find_last_of(basic_string_view(s), pos).
 
 .SH Parameters
 
-   v     - view to search for
-   pos   - position at which the search is to finish
-   count - length of the string of characters to search for
-   s     - pointer to a string of characters to search for
-   ch    - character to search for
+
+v     - view to search for
+pos   - position at which the search is to finish
+count - length of the string of characters to search for
+s     - pointer to a string of characters to search for
+ch    - character to search for
+
 
 .SH Return value
 
-   Position of the last occurrence of any character of the substring, or npos if no such character is found.
+Position of the last occurrence of any character of the substring, or npos if no such character is found.
 
 .SH Complexity
 
-   O(size() * v.size()) at worst.
+O(size() * v.size()) at worst.
 
 .SH See also
 
-   find              find characters in the view
-                     \fI(public member function)\fP
-   rfind             find the last occurrence of a substring
-                     \fI(public member function)\fP
-   find_first_of     find first occurrence of characters
-                     \fI(public member function)\fP
-   find_first_not_of find first absence of characters
-                     \fI(public member function)\fP
-   find_last_not_of  find last absence of characters
-                     \fI(public member function)\fP
+
+                  find characters in the view
+find              \fI(public member function)\fP
+                  find the last occurrence of a substring
+rfind             \fI(public member function)\fP
+                  find first occurrence of characters
+find_first_of     \fI(public member function)\fP
+                  find first absence of characters
+find_first_not_of \fI(public member function)\fP
+                  find last absence of characters
+find_last_not_of  \fI(public member function)\fP
+
+
+
+

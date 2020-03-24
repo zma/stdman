@@ -3,32 +3,41 @@
 std::ranges::dangling \- std::ranges::dangling
 
 .SH Synopsis
-   Defined in header <ranges>
-   struct dangling;            \fI(since C++20)\fP
 
-   dangling is a placeholder type and an empty class type, used together with the template aliases ranges::safe_iterator_t and ranges::safe_subrange_t.
+Defined in header <ranges>
+struct dangling;            \fI(since C++20)\fP
 
-   When some constrain algorithms that usually return an iterator or a subrange of a Range take a particular rvalue Range argument that does not models exposition-only concept __ForwardingRange, dangling will be returned instead to avoid returning potentially dangling results.
+dangling is a placeholder type and an empty class type, used together with the template aliases ranges::safe_iterator_t and ranges::safe_subrange_t.
+When some constrain_algorithms that usually return an iterator or a subrange of a Range take a particular rvalue Range argument that does not models exposition-only concept __ForwardingRange, dangling will be returned instead to avoid returning potentially dangling results.
 
 .SH Member functions
 
-std::ranges::dangling::dangling
 
-   constexpr dangling() noexcept = default;   \fB(1)\fP
-   template<class... Args>                    \fB(2)\fP
-   constexpr dangling(Args&&...) noexcept { }
+ std::ranges::dangling::dangling
 
-   1) dangling is trivially default constructible.
-   2) dangling can be constructed from arguments of arbitrary number and arbitrary non-void type. The construction does not have any side-effect itself.
 
-   In other words, after replacing the type (e.g. an iterator type) in a well-formed non-aggregate initialization with dangling, the resulting initialization is also well-formed.
+constexpr dangling() noexcept = default;   \fB(1)\fP
+template<class... Args>                    \fB(2)\fP
+constexpr dangling(Args&&...) noexcept { }
+
+1) dangling is trivially default constructible.
+2) dangling can be constructed from arguments of arbitrary number and arbitrary non-void type. The construction does not have any side-effect itself.
+In other words, after replacing the type (e.g. an iterator type) in a well-formed non-aggregate initialization with dangling, the resulting initialization is also well-formed.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   safe_iterator_t obtains iterator type or subrange type of a Range which also models __ForwardingRange
-   safe_subrange_t (alias template)
+
+                obtains iterator type or subrange type of a Range which also models __ForwardingRange
+safe_iterator_t (alias template)
+safe_subrange_t
+
+
+
+

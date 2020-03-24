@@ -3,48 +3,82 @@
 std::ctype_base \- std::ctype_base
 
 .SH Synopsis
-   Defined in header <locale>
-   class ctype_base;
 
-   The class std::ctype_base lists the character classification categories which are inherited by the std::ctype facets.
+Defined in header <locale>
+class ctype_base;
+
+The class std::ctype_base lists the character classification categories which are inherited by the std::ctype facets.
 
 .SH Member types
 
-   mask unspecified BitmaskType (enumeration, integer type, or bitset)
-        \fI(typedef)\fP
+
+     unspecified BitmaskType (enumeration, integer type, or bitset)
+mask \fI(typedef)\fP
+
 
 .SH Member constants
 
-   space            the value of mask identifying whitespace character classification
-   \fB[static]\fP         \fI(public static member constant)\fP
-   print            the value of mask identifying printable character classification
-   \fB[static]\fP         \fI(public static member constant)\fP
-   cntrl            the value of mask identifying control character classification
-   \fB[static]\fP         \fI(public static member constant)\fP
-   upper            the value of mask identifying uppercase character classification
-   \fB[static]\fP         \fI(public static member constant)\fP
-   lower            the value of mask identifying lowercase character classification
-   \fB[static]\fP         \fI(public static member constant)\fP
-   alpha            the value of mask identifying alphabetic character classification
-   \fB[static]\fP         \fI(public static member constant)\fP
-   digit            the value of mask identifying digit character classification
-   \fB[static]\fP         \fI(public static member constant)\fP
-   punct            the value of mask identifying punctuation character classification
-   \fB[static]\fP         \fI(public static member constant)\fP
-   xdigit           the value of mask identifying hexadecimal digit character classification
-   \fB[static]\fP         \fI(public static member constant)\fP
-   blank            the value of mask identifying blank character classification
-   \fB[static]\fP \fI(C++11)\fP \fI(public static member constant)\fP
-   alnum            alpha | digit
-   \fB[static]\fP         \fI(public static member constant)\fP
-   graph            alnum | punct
-   \fB[static]\fP         \fI(public static member constant)\fP
+
+
+space            the value of mask identifying whitespace character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+print            the value of mask identifying printable character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+cntrl            the value of mask identifying control character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+upper            the value of mask identifying uppercase character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+lower            the value of mask identifying lowercase character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+alpha            the value of mask identifying alphabetic character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+digit            the value of mask identifying digit character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+punct            the value of mask identifying punctuation character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+xdigit           the value of mask identifying hexadecimal digit character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+blank            the value of mask identifying blank character classification
+                 \fI(public static member constant)\fP
+\fB[static]\fP \fI(C++11)\fP
+
+alnum            alpha | digit
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
+graph            alnum | punct
+                 \fI(public static member constant)\fP
+\fB[static]\fP
+
 
 .SH See also
 
-   ctype        defines character classification tables
-                \fI(class template)\fP
-   ctype<char>  specialization of std::ctype for type char
-                \fI(class template specialization)\fP
-   ctype_byname represents the system-supplied std::ctype for the named locale
-                \fI(class template)\fP
+
+             defines character classification tables
+ctype        \fI(class template)\fP
+             specialization of std::ctype for type char
+ctype<char>  \fI(class template specialization)\fP
+             represents the system-supplied std::ctype for the named locale
+ctype_byname \fI(class template)\fP
+
+
+
+

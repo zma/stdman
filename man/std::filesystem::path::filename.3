@@ -3,65 +3,71 @@
 std::filesystem::path::filename \- std::filesystem::path::filename
 
 .SH Synopsis
-   path filename() const;  \fI(since C++17)\fP
 
-   Returns the generic-format filename component of the path.
+path filename() const;  \fI(since C++17)\fP
 
-   Equivalent to relative_path().empty() ? path() : *--end().
+Returns the generic-format filename component of the path.
+Equivalent to relative_path().empty() ? path() : *--end().
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   The filename identified by the path.
+The filename identified by the path.
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <filesystem>
- namespace fs = std::filesystem;
+  #include <iostream>
+  #include <filesystem>
+  namespace fs = std::filesystem;
 
- int main()
- {
-     std::cout << fs::path("/foo/bar.txt").filename() << '\\n'
-               << fs::path("/foo/.bar").filename() << '\\n'
-               << fs::path("/foo/bar/").filename() << '\\n'
-               << fs::path("/foo/.").filename() << '\\n'
-               << fs::path("/foo/..").filename() << '\\n'
-               << fs::path(".").filename() << '\\n'
-               << fs::path("..").filename() << '\\n'
-               << fs::path("/").filename() << '\\n'
-               << fs::path("//host").filename() << '\\n';
- }
+  int main()
+  {
+      std::cout << fs::path("/foo/bar.txt").filename() << '\\n'
+                << fs::path("/foo/.bar").filename() << '\\n'
+                << fs::path("/foo/bar/").filename() << '\\n'
+                << fs::path("/foo/.").filename() << '\\n'
+                << fs::path("/foo/..").filename() << '\\n'
+                << fs::path(".").filename() << '\\n'
+                << fs::path("..").filename() << '\\n'
+                << fs::path("/").filename() << '\\n'
+                << fs::path("//host").filename() << '\\n';
+  }
 
 .SH Possible output:
 
- "bar.txt"
- ".bar"
- ""
- "."
- ".."
- "."
- ".."
- ""
- "host"
+  "bar.txt"
+  ".bar"
+  ""
+  "."
+  ".."
+  "."
+  ".."
+  ""
+  "host"
+
 
 .SH See also
 
-   extension        returns the file extension path component
-                    \fI(public member function)\fP
-   stem             returns the stem path component
-                    \fI(public member function)\fP
-   replace_filename replaces the last path component with another path
-                    \fI(public member function)\fP
-   has_filename     checks if the corresponding path element is not empty
-                    \fI(public member function)\fP
+
+                 returns the file extension path component
+extension        \fI(public member function)\fP
+                 returns the stem path component
+stem             \fI(public member function)\fP
+                 replaces the last path component with another path
+replace_filename \fI(public member function)\fP
+                 checks if the corresponding path element is not empty
+has_filename     \fI(public member function)\fP
+
+
+
+

@@ -3,17 +3,23 @@
 std::hash(std::experimental::string_view,std::experimental::wstring_view,std::experimental::u16string_view,std::experimental::u32string_view) \- std::hash(std::experimental::string_view,std::experimental::wstring_view,std::experimental::u16string_view,std::experimental::u32string_view)
 
 .SH Synopsis
-   Defined in header <experimental/string_view>
-   template<> struct hash<std::experimental::string_view>;
 
-   template<> struct hash<std::experimental::wstring_view>;    (library fundamentals TS)
-   template<> struct hash<std::experimental::u16string_view>;
+Defined in header <experimental/string_view>
+template<> struct hash<std::experimental::string_view>;
+template<> struct hash<std::experimental::wstring_view>;    (library fundamentals TS)
+template<> struct hash<std::experimental::u16string_view>;
+template<> struct hash<std::experimental::u32string_view>;
 
-   template<> struct hash<std::experimental::u32string_view>;
-
-   Template specializations of std::hash for the various view classes for hashing views.
+Template specializations of std::hash for the various view classes for hashing views.
 
 .SH See also
 
-   hash    hash function object
-   \fI(C++11)\fP \fI(class template)\fP
+
+
+hash    hash function object
+        \fI(class template)\fP
+\fI(C++11)\fP
+
+
+
+

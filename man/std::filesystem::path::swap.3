@@ -3,23 +3,31 @@
 std::filesystem::path::swap \- std::filesystem::path::swap
 
 .SH Synopsis
-   void swap( path& other ) noexcept; \fB(1)\fP \fI(since C++17)\fP
 
-   Swaps the contents (both native and generic format) of *this and other.
+void swap( path& other ) noexcept; \fB(1)\fP \fI(since C++17)\fP
+
+Swaps the contents (both native and generic format) of *this and other.
 
 .SH Parameters
 
-   other - another path to exchange the contents with
+
+other - another path to exchange the contents with
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Complexity
 
-   Constant.
+Constant.
 
 .SH See also
 
-   swap(std::filesystem::path) swaps two paths
-                               \fI(function)\fP
+
+                            swaps two paths
+swap(std::filesystem::path) \fI(function)\fP
+
+
+
+

@@ -3,29 +3,37 @@
 std::swap(std::tuple) \- std::swap(std::tuple)
 
 .SH Synopsis
-   template< class... Types >                                                          \fI(since C++11)\fP
-   void swap( tuple<Types...>& lhs, tuple<Types...>& rhs ) noexcept(/* see below */);  \fI(until C++20)\fP
-   template< class... Types >
 
-   constexpr void                                                                      \fI(since C++20)\fP
+template< class... Types >                                                          \fI(since C++11)\fP
+void swap( tuple<Types...>& lhs, tuple<Types...>& rhs ) noexcept(/* see below */);  \fI(until C++20)\fP
+template< class... Types >
+constexpr void                                                                      \fI(since C++20)\fP
+swap( tuple<Types...>& lhs, tuple<Types...>& rhs ) noexcept(/* see below */);
 
-   swap( tuple<Types...>& lhs, tuple<Types...>& rhs ) noexcept(/* see below */);
+Swaps the contents of lhs and rhs. Equivalent to lhs.swap(rhs).
 
-   Swaps the contents of lhs and rhs. Equivalent to lhs.swap(rhs).
+This function does not participate in overload resolution unless std::is_swappable_v<Ti> is true for all i from 0 to sizeof...(Types). \fI(since C++17)\fP
 
-   This function does not participate in overload resolution unless std::is_swappable_v<Ti> is true for all i from 0 to sizeof...(Types). \fI(since C++17)\fP
 
 .SH Parameters
 
-   lhs, rhs - tuples whose contents to swap
+
+lhs, rhs - tuples whose contents to swap
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Exceptions
 
-   noexcept specification:
-   noexcept(noexcept(lhs.swap(rhs)))
+noexcept specification:
+noexcept(noexcept(lhs.swap(rhs)))
 
 .SH See also
+
+
+
+
+
+

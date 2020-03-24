@@ -3,64 +3,72 @@
 std::basic_filebuf<CharT,Traits>::open \- std::basic_filebuf<CharT,Traits>::open
 
 .SH Synopsis
-   std::basic_filebuf<CharT, Traits>* open( const char* s,                              \fB(1)\fP
-   std::ios_base::openmode mode )
-   std::basic_filebuf<CharT, Traits>* open( const std::string& str,                     \fB(2)\fP \fI(since C++11)\fP
-   std::ios_base::openmode mode )
-   std::basic_filebuf<CharT, Traits>* open( const std::filesystem::path& p,             \fB(3)\fP \fI(since C++17)\fP
-   std::ios_base::openmode mode )
-   std::basic_filebuf<CharT, Traits>* open( const std::filesystem::path::value_type* s, \fB(4)\fP \fI(since C++17)\fP
-   std::ios_base::openmode mode )
 
-   Opens the file with the given name (s
-   , p.c_str()
-   \fI(since C++17)\fP or str.c_str(), depending on the overload).
+std::basic_filebuf<CharT, Traits>* open( const char* s,                              \fB(1)\fP
+std::ios_base::openmode mode )
+std::basic_filebuf<CharT, Traits>* open( const std::string& str,                     \fB(2)\fP \fI(since C++11)\fP
+std::ios_base::openmode mode )
+std::basic_filebuf<CharT, Traits>* open( const std::filesystem::path& p,             \fB(3)\fP \fI(since C++17)\fP
+std::ios_base::openmode mode )
+std::basic_filebuf<CharT, Traits>* open( const std::filesystem::path::value_type* s, \fB(4)\fP \fI(since C++17)\fP
+std::ios_base::openmode mode )
 
-   Overload \fB(4)\fP is only provided if std::filesystem::path::value_type is not char. \fI(since C++17)\fP
+Opens the file with the given name (s
+, p.c_str()
+\fI(since C++17)\fP or str.c_str(), depending on the overload).
 
-   The file is opened as if by calling std::fopen with the second argument (mode) determined as follows:
+Overload \fB(4)\fP is only provided if std::filesystem::path::value_type is not char. \fI(since C++17)\fP
 
-   mode          openmode & ~ate          Action if file already exists Action if file does not exist
-   "r"   in                               Read from start               Failure to open
-   "w"   out, out|trunc                   Destroy contents              Create new
-   "a"   app, out|app                     Append to file                Create new
-   "r+"  out|in                           Read from start               Error
-   "w+"  out|in|trunc                     Destroy contents              Create new
-   "a+"  out|in|app, in|app               Write to end                  Create new
-   "rb"  binary|in                        Read from start               Failure to open
-   "wb"  binary|out, binary|out|trunc     Destroy contents              Create new
-   "ab"  binary|app, binary|out|app       Write to end                  Create new
-   "r+b" binary|out|in                    Read from start               Error
-   "w+b" binary|out|in|trunc              Destroy contents              Create new
-   "a+b" binary|out|in|app, binary|in|app Write to end                  Create new
+The file is opened as if by calling std::fopen with the second argument (mode) determined as follows:
 
-   If openmode is not one of the modes listed, the open() fails.
+mode  openmode & ~ate                  Action if file already exists Action if file does not exist
+"r"   in                               Read from start               Failure to open
+"w"   out, out|trunc                   Destroy contents              Create new
+"a"   app, out|app                     Append to file                Create new
+"r+"  out|in                           Read from start               Error
+"w+"  out|in|trunc                     Destroy contents              Create new
+"a+"  out|in|app, in|app               Write to end                  Create new
+"rb"  binary|in                        Read from start               Failure to open
+"wb"  binary|out, binary|out|trunc     Destroy contents              Create new
+"ab"  binary|app, binary|out|app       Write to end                  Create new
+"r+b" binary|out|in                    Read from start               Error
+"w+b" binary|out|in|trunc              Destroy contents              Create new
+"a+b" binary|out|in|app, binary|in|app Write to end                  Create new
 
-   If the open operation succeeds and openmode & std::ios_base::ate != 0 (the ate bit is set), repositions the file position to the end of file, as if by calling std::fseek(file, 0, SEEK_END), where file is the pointer returned by calling fopen. If the repositioning fails, calls close() and returns a null pointer to indicate failure.
-
-   If the associated file was already open, returns a null pointer right away.
+If openmode is not one of the modes listed, the open() fails.
+If the open operation succeeds and openmode & std::ios_base::ate != 0 (the ate bit is set), repositions the file position to the end of file, as if by calling std::fseek(file, 0, SEEK_END), where file is the pointer returned by calling fopen. If the repositioning fails, calls close() and returns a null pointer to indicate failure.
+If the associated file was already open, returns a null pointer right away.
 
 .SH Parameters
 
-   s, str, p - the file name to open; s must point to a null-terminated string
-   openmode  - the file opening mode, a binary OR of the std::ios_base modes
+
+s, str, p - the file name to open; s must point to a null-terminated string
+openmode  - the file opening mode, a binary OR of the std::ios_base modes
+
 
 .SH Return value
 
-   this on success, a null pointer on failure.
+this on success, a null pointer on failure.
 
 .SH Notes
 
-   open() is typically called through the constructor or the open() member function of std::basic_fstream.
+open() is typically called through the constructor or the open() member function of std::basic_fstream.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   is_open checks if the associated file is open
-           \fI(public member function)\fP
-   close   flushes the put area buffer and closes the associated file
-           \fI(public member function)\fP
+
+        checks if the associated file is open
+is_open \fI(public member function)\fP
+        flushes the put area buffer and closes the associated file
+close   \fI(public member function)\fP
+
+
+
+

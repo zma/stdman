@@ -3,84 +3,101 @@
 std::bernoulli_distribution \- std::bernoulli_distribution
 
 .SH Synopsis
-   Defined in header <random>
-   class bernoulli_distribution;  \fI(since C++11)\fP
 
-   Produces random boolean values, according to the discrete probability function. The probability of true is
+Defined in header <random>
+class bernoulli_distribution;  \fI(since C++11)\fP
 
-           P(b|p) =⎧
-           ⎨
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ⎩p if b == true
-           1 − p if b == false
+Produces random boolean values, according to the discrete probability function. The probability of true is
 
-   std::bernoulli_distribution satisfies RandomNumberDistribution
+      P(b|p) =⎧
+      ⎨
+      ⎩p if b == true
+      1 − p if b == false
+
+std::bernoulli_distribution satisfies RandomNumberDistribution
 
 .SH Member types
 
-   Member type Definition
-   result_type bool
-   param_type  the type of the parameter set, see RandomNumberDistribution.
+
+Member type Definition
+result_type bool
+param_type  the type of the parameter set, see RandomNumberDistribution.
+
 
 .SH Member functions
 
-   constructor   constructs new distribution
-                 \fI(public member function)\fP
-   reset         resets the internal state of the distribution
-                 \fI(public member function)\fP
+
+              constructs new distribution
+constructor   \fI(public member function)\fP
+              resets the internal state of the distribution
+reset         \fI(public member function)\fP
+
 .SH Generation
-   operator()    generates the next random number in the distribution
-                 \fI(public member function)\fP
+
+              generates the next random number in the distribution
+operator()    \fI(public member function)\fP
+
 .SH Characteristics
-   p             returns the p distribution parameter (probability of generating true)
-                 \fI(public member function)\fP
-   param         gets or sets the distribution parameter object
-                 \fI(public member function)\fP
-   min           returns the minimum potentially generated value
-                 \fI(public member function)\fP
-   max           returns the maximum potentially generated value
-                 \fI(public member function)\fP
+
+              returns the p distribution parameter (probability of generating true)
+p             \fI(public member function)\fP
+              gets or sets the distribution parameter object
+param         \fI(public member function)\fP
+              returns the minimum potentially generated value
+min           \fI(public member function)\fP
+              returns the maximum potentially generated value
+max           \fI(public member function)\fP
+
 
 .SH Non-member functions
 
-   operator== compares two distribution objects
-   operator!= \fI(function)\fP
-   operator<< performs stream input and output on pseudo-random number distribution
-   operator>> \fI(function template)\fP
+
+           compares two distribution objects
+operator== \fI(function)\fP
+operator!=
+           performs stream input and output on pseudo-random number distribution
+operator<< \fI(function template)\fP
+operator>>
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <iomanip>
- #include <string>
- #include <map>
- #include <random>
+  #include <iostream>
+  #include <iomanip>
+  #include <string>
+  #include <map>
+  #include <random>
 
- int main()
- {
-     std::random_device rd;
-     std::mt19937 gen(rd());
-     // give "true" 1/4 of the time
-     // give "false" 3/4 of the time
-     std::bernoulli_distribution d(0.25);
+  int main()
+  {
+      std::random_device rd;
+      std::mt19937 gen(rd());
+      // give "true" 1/4 of the time
+      // give "false" 3/4 of the time
+      std::bernoulli_distribution d(0.25);
 
-     std::map<bool, int> hist;
-     for(int n=0; n<10000; ++n) {
-         ++hist[d(gen)];
-     }
-     for(auto p : hist) {
-         std::cout << std::boolalpha << std::setw(5) << p.first
-                   << ' ' << std::string(p.second/500, '*') << '\\n';
-     }
- }
+      std::map<bool, int> hist;
+      for(int n=0; n<10000; ++n) {
+          ++hist[d(gen)];
+      }
+      for(auto p : hist) {
+          std::cout << std::boolalpha << std::setw(5) << p.first
+                    << ' ' << std::string(p.second/500, '*') << '\\n';
+      }
+  }
 
 .SH Possible output:
 
- false ***************
-  true ****
+  false ***************
+   true ****
+
 
 .SH External links
 
-   Weisstein, Eric W. "Bernoulli Distribution." From MathWorld--A Wolfram Web Resource.
+Weisstein,_Eric_W._"Bernoulli_Distribution." From MathWorld--A Wolfram Web Resource.
+
+
+

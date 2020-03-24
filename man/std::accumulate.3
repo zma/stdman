@@ -3,123 +3,136 @@
 std::accumulate \- std::accumulate
 
 .SH Synopsis
-   Defined in header <numeric>
-   template< class InputIt, class T >                        \fB(1)\fP
-   T accumulate( InputIt first, InputIt last, T init );
-   template< class InputIt, class T, class BinaryOperation >
 
-   T accumulate( InputIt first, InputIt last, T init,        \fB(2)\fP
+Defined in header <numeric>
+template< class InputIt, class T >                        \fB(1)\fP
+T accumulate( InputIt first, InputIt last, T init );
+template< class InputIt, class T, class BinaryOperation >
+T accumulate( InputIt first, InputIt last, T init,        \fB(2)\fP
+BinaryOperation op );
 
-   BinaryOperation op );
+Computes the sum of the given value init and the elements in the range [first, last). The first version uses operator+ to sum up the elements, the second version uses the given binary function op
+, both applying std::move to their operands on the left hand side
+\fI(since C++20)\fP.
 
-   Computes the sum of the given value init and the elements in the range [first, last). The first version uses operator+ to sum up the elements, the second version uses the given binary function op
-   , both applying std::move to their operands on the left hand side
-   \fI(since C++20)\fP.
+op must not have side effects.                                                                                                    \fI(until C++11)\fP
+op must not invalidate any iterators, including the end iterators, nor modify any elements of the range involved, and also *last. \fI(since C++11)\fP
 
-   op must not have side effects.                                                                                                    \fI(until C++11)\fP
-   op must not invalidate any iterators, including the end iterators, nor modify any elements of the range involved, and also *last. \fI(since C++11)\fP
 
 .SH Parameters
 
-   first, last - the range of elements to sum
-   init        - initial value of the sum
-                 binary operation function object that will be applied. The binary operator takes the current accumulation value a (initialized to init) and the value of the current element b.
 
-                 The signature of the function should be equivalent to the following:
-   op          -
-                 Ret fun(const Type1 &a, const Type2 &b);
-
-                 The signature does not need to have const &.
-                 The type Type1 must be such that an object of type T can be implicitly converted to Type1. The type Type2 must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type2. The type Ret must be such that an object of type T can be assigned a value of type Ret. 
+first, last - the range of elements to sum
+init        - initial value of the sum
+              binary operation function object that will be applied. The binary operator takes the current accumulation value a (initialized to init) and the value of the current element b.
+              The signature of the function should be equivalent to the following:
+op          - Ret fun(const Type1 &a, const Type2 &b);
+              The signature does not need to have const &.
+              The type Type1 must be such that an object of type T can be implicitly converted to Type1. The type Type2 must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type2. The type Ret must be such that an object of type T can be assigned a value of type Ret. 
 .SH Type requirements
-   -
-   InputIt must meet the requirements of LegacyInputIterator.
-   -
-   T must meet the requirements of CopyAssignable and CopyConstructible.
+-
+InputIt must meet the requirements of LegacyInputIterator.
+-
+T must meet the requirements of CopyAssignable and CopyConstructible.
+
 
 .SH Return value
 
-   1) The sum of the given value and elements in the given range.
-   2) The result of left fold of the given range over op
+1) The sum of the given value and elements in the given range.
+2) The result of left_fold of the given range over op
 
 .SH Notes
 
-   std::accumulate performs a left fold. In order to perform a right fold, one must reverse the order of the arguments to the binary operator, and use reverse iterators.
+std::accumulate performs a left fold. In order to perform a right fold, one must reverse the order of the arguments to the binary operator, and use reverse iterators.
 
 .SH Possible implementation
 
+
 .SH First version
-   template<class InputIt, class T>
-   T accumulate(InputIt first, InputIt last, T init)
-   {
-       for (; first != last; ++first) {
-           init = std::move(init) + *first; // std::move since C++20
-       }
-       return init;
-   }
+
+  template<class InputIt, class T>
+  T accumulate(InputIt first, InputIt last, T init)
+  {
+      for (; first != last; ++first) {
+          init = std::move(init) + *first; // std::move since C++20
+      }
+      return init;
+  }
+
 .SH Second version
-   template<class InputIt, class T, class BinaryOperation>
-   T accumulate(InputIt first, InputIt last, T init,
-                BinaryOperation op)
-   {
-       for (; first != last; ++first) {
-           init = op(std::move(init), *first); // std::move since C++20
-       }
-       return init;
-   }
+
+  template<class InputIt, class T, class BinaryOperation>
+  T accumulate(InputIt first, InputIt last, T init,
+               BinaryOperation op)
+  {
+      for (; first != last; ++first) {
+          init = op(std::move(init), *first); // std::move since C++20
+      }
+      return init;
+  }
+
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <vector>
- #include <numeric>
- #include <string>
- #include <functional>
+  #include <iostream>
+  #include <vector>
+  #include <numeric>
+  #include <string>
+  #include <functional>
 
- int main()
- {
-     std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  int main()
+  {
+      std::vector<int> v{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-     int sum = std::accumulate(v.begin(), v.end(), 0);
+      int sum = std::accumulate(v.begin(), v.end(), 0);
 
-     int product = std::accumulate(v.begin(), v.end(), 1, std::multiplies<int>());
+      int product = std::accumulate(v.begin(), v.end(), 1, std::multiplies<int>());
 
-     auto dash_fold = [](std::string a, int b) {
-                          return std::move(a) + '-' + std::to_string(b);
-                      };
+      auto dash_fold = [](std::string a, int b) {
+                           return std::move(a) + '-' + std::to_string(b);
+                       };
 
-     std::string s = std::accumulate(std::next(v.begin()), v.end(),
-                                     std::to_string(v[0]), // start with first element
-                                     dash_fold);
-
-     // Right fold using reverse iterators
-     std::string rs = std::accumulate(std::next(v.rbegin()), v.rend(),
-                                      std::to_string(v.back()), // start with last element
+      std::string s = std::accumulate(std::next(v.begin()), v.end(),
+                                      std::to_string(v[0]), // start with first element
                                       dash_fold);
 
-     std::cout << "sum: " << sum << '\\n'
-               << "product: " << product << '\\n'
-               << "dash-separated string: " << s << '\\n'
-               << "dash-separated string (right-folded): " << rs << '\\n';
- }
+      // Right fold using reverse iterators
+      std::string rs = std::accumulate(std::next(v.rbegin()), v.rend(),
+                                       std::to_string(v.back()), // start with last element
+                                       dash_fold);
+
+      std::cout << "sum: " << sum << '\\n'
+                << "product: " << product << '\\n'
+                << "dash-separated string: " << s << '\\n'
+                << "dash-separated string (right-folded): " << rs << '\\n';
+  }
 
 .SH Output:
 
- sum: 55
- product: 3628800
- dash-separated string: 1-2-3-4-5-6-7-8-9-10
- dash-separated string (right-folded): 10-9-8-7-6-5-4-3-2-1
+  sum: 55
+  product: 3628800
+  dash-separated string: 1-2-3-4-5-6-7-8-9-10
+  dash-separated string (right-folded): 10-9-8-7-6-5-4-3-2-1
+
 
 .SH See also
 
-   adjacent_difference computes the differences between adjacent elements in a range
-                       \fI(function template)\fP
-   inner_product       computes the inner product of two ranges of elements
-                       \fI(function template)\fP
-   partial_sum         computes the partial sum of a range of elements
-                       \fI(function template)\fP
-   reduce              similar to std::accumulate, except out of order
-   \fI(C++17)\fP             \fI(function template)\fP
+
+                    computes the differences between adjacent elements in a range
+adjacent_difference \fI(function template)\fP
+                    computes the inner product of two ranges of elements
+inner_product       \fI(function template)\fP
+                    computes the partial sum of a range of elements
+partial_sum         \fI(function template)\fP
+
+reduce              similar to std::accumulate, except out of order
+                    \fI(function template)\fP
+\fI(C++17)\fP
+
+
+
+

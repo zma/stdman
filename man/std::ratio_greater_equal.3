@@ -3,40 +3,62 @@
 std::ratio_greater_equal \- std::ratio_greater_equal
 
 .SH Synopsis
-   Defined in header <ratio>
-   template< class R1, class R2 >                        \fI(since C++11)\fP
-   struct ratio_greater_equal : std::integral_constant;
 
-   If the ratio R1 is greater than or equal to the ratio R2, provides the member constant value equal true. Otherwise, value is false.
+Defined in header <ratio>
+template< class R1, class R2 >                        \fI(since C++11)\fP
+struct ratio_greater_equal : std::integral_constant;
 
-  Helper variable template
+If the ratio R1 is greater than or equal to the ratio R2, provides the member constant value equal true. Otherwise, value is false.
 
-   template< class R1, class R2 >                                                     \fI(since C++17)\fP
-   inline constexpr bool ratio_greater_equal_v = ratio_greater_equal<R1, R2>::value;
+Helper variable template
+
+
+template< class R1, class R2 >                                                     \fI(since C++17)\fP
+inline constexpr bool ratio_greater_equal_v = ratio_greater_equal<R1, R2>::value;
+
 
 Inherited from std::integral_constant
 
+
 .SH Member constants
 
-   value    true if R1::num * R2::den >= R2::num * R1::den, or equivalent expression that avoids overflow , false otherwise
-   \fB[static]\fP \fI(public static member constant)\fP
+
+
+value    true if R1::num * R2::den >= R2::num * R1::den, or equivalent expression that avoids overflow , false otherwise
+         \fI(public static member constant)\fP
+\fB[static]\fP
+
 
 .SH Member functions
 
-   operator bool converts the object to bool, returns value
-                 \fI(public member function)\fP
-   operator()    returns value
-   \fI(C++14)\fP       \fI(public member function)\fP
+
+              converts the object to bool, returns value
+operator bool \fI(public member function)\fP
+
+operator()    returns value
+              \fI(public member function)\fP
+\fI(C++14)\fP
+
 
 .SH Member types
 
-   Type       Definition
-   value_type bool
-   type       std::integral_constant<bool, value>
+
+Type       Definition
+value_type bool
+type       std::integral_constant<bool, value>
+
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
+
+
+
+
+
+

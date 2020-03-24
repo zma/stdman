@@ -3,78 +3,87 @@
 std::atomic_fetch_xor,std::atomic_fetch_xor_explicit \- std::atomic_fetch_xor,std::atomic_fetch_xor_explicit
 
 .SH Synopsis
-   Defined in header <atomic>
-   template< class T >
 
-   T atomic_fetch_xor( std::atomic<T>* obj,
+Defined in header <atomic>
+template< class T >
+T atomic_fetch_xor( std::atomic<T>* obj,
+typename std::atomic<T>::value_type arg ) noexcept;
+template< class T >
+T atomic_fetch_xor( volatile std::atomic<T>* obj,
+typename std::atomic<T>::value_type arg ) noexcept;
+template< class T >                                        \fB(1)\fP \fI(since C++11)\fP
+T atomic_fetch_xor_explicit( std::atomic<T>* obj,
+typename std::atomic<T>::value_type arg,
+std::memory_order order) noexcept;                                           \fB(2)\fP \fI(since C++11)\fP
+template< class T >
+T atomic_fetch_xor_explicit( volatile std::atomic<T>* obj,
+typename std::atomic<T>::value_type arg,
+std::memory_order order) noexcept;
 
-   typename std::atomic<T>::value_type arg ) noexcept;
-   template< class T >
 
-   T atomic_fetch_xor( volatile std::atomic<T>* obj,
-
-   typename std::atomic<T>::value_type arg ) noexcept;
-   template< class T >                                        \fB(1)\fP \fI(since C++11)\fP
-
-   T atomic_fetch_xor_explicit( std::atomic<T>* obj,
-   typename std::atomic<T>::value_type arg,
-
-   std::memory_order order) noexcept;                                           \fB(2)\fP \fI(since C++11)\fP
-   template< class T >
-
-   T atomic_fetch_xor_explicit( volatile std::atomic<T>* obj,
-   typename std::atomic<T>::value_type arg,
-
-   std::memory_order order) noexcept;
-
-   Atomically replaces the value pointed by obj with the result of bitwise XOR between the old value of obj and arg. Returns the value obj held previously.
-
-   The operation is performed as if the following is executed:
-
-   1) obj->fetch_xor(arg)
-   2) obj->fetch_xor(arg, order)
-
-   If std::atomic<T> has no fetch_xor member (this member is only provided for integral types), the program is ill-formed.
+Atomically replaces the value pointed by obj with the result of bitwise XOR between the old value of obj and arg. Returns the value obj held previously.
+The operation is performed as if the following is executed:
+1) obj->fetch_xor(arg)
+2) obj->fetch_xor(arg, order)
+If std::atomic<T> has no fetch_xor member (this member is only provided for integral_types), the program is ill-formed.
 
 .SH Parameters
 
-   obj   - pointer to the atomic object to modify
-   arg   - the value to bitwise XOR to the value stored in the atomic object
-   order - the memory synchronization ordering for this operation: all values are permitted.
+
+obj   - pointer to the atomic object to modify
+arg   - the value to bitwise XOR to the value stored in the atomic object
+order - the memory synchronization ordering for this operation: all values are permitted.
+
 
 .SH Return value
 
-   The value immediately preceding the effects of this function in the modification order of *obj.
+The value immediately preceding the effects of this function in the modification_order of *obj.
 
 .SH Possible implementation
 
-   template< class T >
-   T atomic_fetch_xor( std::atomic<T>* obj, typename std::atomic<T>::value_type arg )
-   {
-       return obj->fetch_xor(arg);
-   }
+
+
+  template< class T >
+  T atomic_fetch_xor( std::atomic<T>* obj, typename std::atomic<T>::value_type arg )
+  {
+      return obj->fetch_xor(arg);
+  }
+
+
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
 
-  Defect reports
+ This section is incomplete
+ Reason: no example
 
-   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-     DR    Applied to                         Behavior as published                                       Correct behavior
-   P0558R1 C++11      exact type match required because T is deduced from multiple arguments T is deduced from the atomic argument only
+Defect reports
+
+The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+
+DR      Applied to Behavior as published                                                  Correct behavior
+P0558R1 C++11      exact type match required because T is deduced from multiple arguments T is deduced from the atomic argument only
+
 
 .SH See also
 
-   fetch_xor                 atomically performs bitwise XOR between the argument and the value of the atomic object and obtains the value held previously
-                             \fI(public member function of std::atomic<T>)\fP
-   atomic_fetch_or
-   atomic_fetch_or_explicit  replaces the atomic object with the result of bitwise OR with a non-atomic argument and obtains the previous value of the atomic
-   \fI(C++11)\fP                   \fI(function template)\fP
-   \fI(C++11)\fP
-   atomic_fetch_and
-   atomic_fetch_and_explicit replaces the atomic object with the result of bitwise AND with a non-atomic argument and obtains the previous value of the atomic
-   \fI(C++11)\fP                   \fI(function template)\fP
-   \fI(C++11)\fP
+
+                          atomically performs bitwise XOR between the argument and the value of the atomic object and obtains the value held previously
+fetch_xor                 \fI(public member function of std::atomic<T>)\fP
+
+atomic_fetch_or
+atomic_fetch_or_explicit  replaces the atomic object with the result of bitwise OR with a non-atomic argument and obtains the previous value of the atomic
+                          \fI(function template)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+
+atomic_fetch_and
+atomic_fetch_and_explicit replaces the atomic object with the result of bitwise AND with a non-atomic argument and obtains the previous value of the atomic
+                          \fI(function template)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+
+
+
+

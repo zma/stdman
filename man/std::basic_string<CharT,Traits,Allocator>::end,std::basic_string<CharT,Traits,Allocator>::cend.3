@@ -3,54 +3,63 @@
 std::basic_string<CharT,Traits,Allocator>::end,std::basic_string<CharT,Traits,Allocator>::cend \- std::basic_string<CharT,Traits,Allocator>::end,std::basic_string<CharT,Traits,Allocator>::cend
 
 .SH Synopsis
-   iterator end();                               \fI(until C++11)\fP
-   iterator end() noexcept;                      \fI(since C++11)\fP
-   const_iterator end() const;           \fB(1)\fP                   \fI(until C++11)\fP
-   const_iterator end() const noexcept;      \fB(2)\fP               \fI(since C++11)\fP
-   const_iterator cend() const noexcept;         \fB(3)\fP           \fI(since C++11)\fP
 
-   Returns an iterator to the character following the last character of the string. This character acts as a placeholder, attempting to access it results in undefined behavior.
+iterator end();                               \fI(until C++11)\fP
+iterator end() noexcept;                      \fI(since C++11)\fP
+const_iterator end() const;           \fB(1)\fP                   \fI(until C++11)\fP
+const_iterator end() const noexcept;      \fB(2)\fP               \fI(since C++11)\fP
+const_iterator cend() const noexcept;         \fB(3)\fP           \fI(since C++11)\fP
 
-   range-begin-end.svg
+Returns an iterator to the character following the last character of the string. This character acts as a placeholder, attempting to access it results in undefined behavior.
+ range-begin-end.svg
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   iterator to the character following the last character
+iterator to the character following the last character
 
 .SH Complexity
 
-   Constant
+Constant
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <algorithm>
- #include <iterator>
- #include <string>
+  #include <iostream>
+  #include <algorithm>
+  #include <iterator>
+  #include <string>
 
- int main()
- {
-     std::string s("Exemparl");
-     std::next_permutation(s.begin(), s.end());
+  int main()
+  {
+      std::string s("Exemparl");
+      std::next_permutation(s.begin(), s.end());
 
-     std::string c;
-     std::copy(s.cbegin(), s.cend(), std::back_inserter(c));
-     std::cout << c <<'\\n'; // "Exemplar"
- }
+      std::string c;
+      std::copy(s.cbegin(), s.cend(), std::back_inserter(c));
+      std::cout << c <<'\\n'; // "Exemplar"
+  }
 
 .SH Output:
 
- Exemplar
+  Exemplar
+
 
 .SH See also
 
-   begin   returns an iterator to the beginning
-   cbegin  \fI(public member function)\fP
-   \fI(C++11)\fP
+
+
+begin
+cbegin  returns an iterator to the beginning
+        \fI(public member function)\fP
+
+\fI(C++11)\fP
+
+
+
+

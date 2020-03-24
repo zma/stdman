@@ -3,11 +3,13 @@
 std::ranges::BidirectionalRange \- std::ranges::BidirectionalRange
 
 .SH Synopsis
-   Defined in header <ranges>
-   template<class T>
 
-   concept BidirectionalRange =
+Defined in header <ranges>
+template<class T>
+concept BidirectionalRange =
+ForwardRange<T> && BidirectionalIterator<iterator_t<T>>;
 
-   ForwardRange<T> && BidirectionalIterator<iterator_t<T>>;
+The BidirectionalRange concept is a refinement of Range for which ranges::begin returns a model of BidirectionalIterator.
 
-   The BidirectionalRange concept is a refinement of Range for which ranges::begin returns a model of BidirectionalIterator.
+
+

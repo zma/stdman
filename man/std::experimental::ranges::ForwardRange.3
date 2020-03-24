@@ -3,12 +3,16 @@
 std::experimental::ranges::ForwardRange \- std::experimental::ranges::ForwardRange
 
 .SH Synopsis
-   Defined in header <experimental/ranges/range>
-   template <class T>
 
-   concept bool ForwardRange =                               (ranges TS)
+Defined in header <experimental/ranges/range>
+template <class T>
+concept bool ForwardRange =                               (ranges TS)
+InputRange<T> && ForwardIterator<ranges::iterator_t<T>>;
 
-   InputRange<T> && ForwardIterator<ranges::iterator_t<T>>;
 
-    This section is incomplete
-    Reason: add description and extra caveats
+ This section is incomplete
+ Reason: add description and extra caveats
+
+
+
+

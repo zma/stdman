@@ -3,32 +3,51 @@
 std::uses_allocator<std::promise> \- std::uses_allocator<std::promise>
 
 .SH Synopsis
-   template< class R, class Alloc >                                     \fI(since C++11)\fP
-   struct uses_allocator<std::promise<R>, Alloc> : std::true_type { };
 
-   Provides a specialization of the std::uses_allocator type trait for std::promise.
+template< class R, class Alloc >                                     \fI(since C++11)\fP
+struct uses_allocator<std::promise<R>, Alloc> : std::true_type { };
+
+Provides a specialization of the std::uses_allocator type trait for std::promise.
 
 Inherited from std::integral_constant
 
+
 .SH Member constants
 
-   value    true
-   \fB[static]\fP \fI(public static member constant)\fP
+
+
+value    true
+         \fI(public static member constant)\fP
+\fB[static]\fP
+
 
 .SH Member functions
 
-   operator bool converts the object to bool, returns value
-                 \fI(public member function)\fP
-   operator()    returns value
-   \fI(C++14)\fP       \fI(public member function)\fP
+
+              converts the object to bool, returns value
+operator bool \fI(public member function)\fP
+
+operator()    returns value
+              \fI(public member function)\fP
+\fI(C++14)\fP
+
 
 .SH Member types
 
-   Type       Definition
-   value_type bool
-   type       std::integral_constant<bool, value>
+
+Type       Definition
+value_type bool
+type       std::integral_constant<bool, value>
+
 
 .SH See also
 
-   uses_allocator checks if the specified type supports uses-allocator construction
-   \fI(C++11)\fP        \fI(class template)\fP
+
+
+uses_allocator checks if the specified type supports uses-allocator construction
+               \fI(class template)\fP
+\fI(C++11)\fP
+
+
+
+

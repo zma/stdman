@@ -3,73 +3,83 @@
 std::not_fn \- std::not_fn
 
 .SH Synopsis
-   Defined in header <functional>
-   template< class F>                \fI(since C++17)\fP
-   /*unspecified*/ not_fn( F&& f );
 
-   Creates a forwarding call wrapper that returns the negation of the callable object it holds.
+Defined in header <functional>
+template< class F>                \fI(since C++17)\fP
+/*unspecified*/ not_fn( F&& f );
+
+Creates a forwarding call wrapper that returns the negation of the callable object it holds.
 
 .SH Parameters
 
-   f       -       the object from which the Callable object held by the wrapper is constructed
+
+f - the object from which the Callable object held by the wrapper is constructed
 .SH Type requirements
-   -
-   std::decay_t<F> must meet the requirements of Callable and MoveConstructible.
-   -
-   std::is_constructible_v<std::decay_t<F>, F> is required to be true
+-
+std::decay_t<F> must meet the requirements of Callable and MoveConstructible.
+-
+std::is_constructible_v<std::decay_t<F>, F> is required to be true
+
 
 .SH Return value
 
-   A function object of unspecified type T. It has the following members:
+A function object of unspecified type T. It has the following members:
 
-std::not_fn return type
+ std::not_fn return type
+
 
 .SH Member objects
 
-   The return type of std::not_fn holds a member object of type std::decay_t<F>.
+The return type of std::not_fn holds a member object of type std::decay_t<F>.
 
-    Constructors
+Constructors
 
-   explicit T(F&& f);       \fB(1)\fP
-   T(T&& f) = default;      \fB(2)\fP
-   T(const T& f) = default;
 
-   1) The constructor initializes the member object (of type std::decay_t<F>) from std::forward<F>(f). Throws any exception thrown by the constructor selected
-   2) Because std::decay_t<F> is required to be MoveConstructible, the returned call wrapper is always MoveConstructible, and is CopyConstructible if std::decay_t<F> is CopyConstructible.
+explicit T(F&& f);       \fB(1)\fP
+T(T&& f) = default;      \fB(2)\fP
+T(const T& f) = default;
+
+1) The constructor initializes the member object (of type std::decay_t<F>) from std::forward<F>(f). Throws any exception thrown by the constructor selected
+2) Because std::decay_t<F> is required to be MoveConstructible, the returned call wrapper is always MoveConstructible, and is CopyConstructible if std::decay_t<F> is CopyConstructible.
 
 .SH Member function operator()
 
-   template<class... Args> auto operator()(Args&&... args) &
 
-   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F>&, Args...>>());       \fB(1)\fP
-   template<class... Args> auto operator()(Args&&... args) const&
+template<class... Args> auto operator()(Args&&... args) &
+-> decltype(!std::declval<std::invoke_result_t<std::decay_t<F>&, Args...>>());       \fB(1)\fP
+template<class... Args> auto operator()(Args&&... args) const&
+-> decltype(!std::declval<std::invoke_result_t<std::decay_t<F> const&, Args...>>());
+template<class... Args> auto operator()(Args&&... args) &&
+-> decltype(!std::declval<std::invoke_result_t<std::decay_t<F>, Args...>>());        \fB(2)\fP
+template<class... Args> auto operator()(Args&&... args) const&&
+-> decltype(!std::declval<std::invoke_result_t<std::decay_t<F> const, Args...>>());
 
-   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F> const&, Args...>>());
-   template<class... Args> auto operator()(Args&&... args) &&
-
-   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F>, Args...>>());        \fB(2)\fP
-   template<class... Args> auto operator()(Args&&... args) const&&
-
-   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F> const, Args...>>());
-
-   1) Equivalent to return !std::invoke(fd, std::forward<Args>(args)...)
-   2) Equivalent to return !std::invoke(std::move(fd), std::forward<Args>(args)...)
-
-   where fd is the member object of type std::decay_t<F>
+1) Equivalent to return !std::invoke(fd, std::forward<Args>(args)...)
+2) Equivalent to return !std::invoke(std::move(fd), std::forward<Args>(args)...)
+where fd is the member object of type std::decay_t<F>
 
 .SH Exceptions
 
-   Throws no exceptions, unless the construction of fd throws.
+Throws no exceptions, unless the construction of fd throws.
 
 .SH Notes
 
-   not_fn is intended to replace the C++03-era negators std::not1 and std::not2.
+not_fn is intended to replace the C++03-era negators std::not1 and std::not2.
 
 .SH See also
 
-   not1                  constructs custom std::unary_negate object
-   (deprecated in C++17) \fI(function template)\fP
-   (removed in C++20)
-   not2                  constructs custom std::binary_negate object
-   (deprecated in C++17) \fI(function template)\fP
-   (removed in C++20)
+
+
+not1                  constructs custom std::unary_negate object
+                      \fI(function template)\fP
+(deprecated in C++17)
+(removed in C++20)
+
+not2                  constructs custom std::binary_negate object
+                      \fI(function template)\fP
+(deprecated in C++17)
+(removed in C++20)
+
+
+
+

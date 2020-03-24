@@ -3,29 +3,41 @@
 std::swap(std::basic_ofstream) \- std::swap(std::basic_ofstream)
 
 .SH Synopsis
-   template< class CharT, class Traits >
-   void swap( basic_ofstream<CharT,Traits> &lhs, basic_ofstream<CharT,Traits> &rhs );
 
-   Specializes the std::swap algorithm for std::basic_ofstream. Exchanges the state of lhs with that of rhs. Effectively calls lhs.swap(rhs).
+template< class CharT, class Traits >
+void swap( basic_ofstream<CharT,Traits> &lhs, basic_ofstream<CharT,Traits> &rhs );
+
+Specializes the std::swap algorithm for std::basic_ofstream. Exchanges the state of lhs with that of rhs. Effectively calls lhs.swap(rhs).
 
 .SH Parameters
 
-   lhs, rhs - streams whose state to swap
+
+lhs, rhs - streams whose state to swap
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   swap    swaps two file streams
-   \fI(C++11)\fP \fI(public member function)\fP
+
+
+swap    swaps two file streams
+        \fI(public member function)\fP
+\fI(C++11)\fP
+
+
+
+

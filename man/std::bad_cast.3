@@ -3,51 +3,63 @@
 std::bad_cast \- std::bad_cast
 
 .SH Synopsis
-   Defined in header <typeinfo>
-   class bad_cast : public std::exception;
 
-   An exception of this type is thrown when a dynamic_cast to a reference type fails the run-time check (e.g. because the types are not related by inheritance), and also from std::use_facet if the requested facet does not exist in the locale.
+Defined in header <typeinfo>
+class bad_cast : public std::exception;
 
-   std-bad cast-inheritance.svg
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
+An exception of this type is thrown when a dynamic_cast to a reference type fails the run-time check (e.g. because the types are not related by inheritance), and also from std::use_facet if the requested facet does not exist in the locale.
+ std-bad cast-inheritance.svg
+Inheritance diagram
 
 .SH Member functions
 
-   constructor   constructs a new bad_cast object
-                 \fI(public member function)\fP
+
+              constructs a new bad_cast object
+constructor   \fI(public member function)\fP
+
 
 Inherited from std::exception
 
+
 .SH Member functions
 
-   destructor   destroys the exception object
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
-   what         returns an explanatory string
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
+
+
+destructor   destroys the exception object
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+what         returns an explanatory string
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <typeinfo>
+  #include <iostream>
+  #include <typeinfo>
 
- struct Foo { virtual ~Foo() {} };
- struct Bar { virtual ~Bar() {} };
+  struct Foo { virtual ~Foo() {} };
+  struct Bar { virtual ~Bar() {} };
 
- int main()
- {
-     Bar b;
-     try {
-         Foo& f = dynamic_cast<Foo&>(b);
-     } catch(const std::bad_cast& e)
-     {
-         std::cout << e.what() << '\\n';
-     }
- }
+  int main()
+  {
+      Bar b;
+      try {
+          Foo& f = dynamic_cast<Foo&>(b);
+      } catch(const std::bad_cast& e)
+      {
+          std::cout << e.what() << '\\n';
+      }
+  }
 
 .SH Possible output:
 
- Bad dynamic cast
+  Bad dynamic cast
+
+
+
+

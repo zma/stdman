@@ -3,58 +3,74 @@
 std::make_signed \- std::make_signed
 
 .SH Synopsis
-   Defined in header <type_traits>
-   template< class T >              \fI(since C++11)\fP
-   struct make_signed;
 
-   If T is an integral (except bool) or enumeration type, provides the member typedef type which is the signed integer type corresponding to T, with the same cv-qualifiers.
+Defined in header <type_traits>
+template< class T >              \fI(since C++11)\fP
+struct make_signed;
 
-   Otherwise, the behavior is undefined.
+If T is an integral (except bool) or enumeration type, provides the member typedef type which is the signed integer type corresponding to T, with the same cv-qualifiers.
+Otherwise, the behavior is undefined.
 
 .SH Member types
 
-   Name Definition
-   type the signed integer type corresponding to T
+
+Name Definition
+type the signed integer type corresponding to T
+
 
 .SH Helper types
 
-   template< class T >                                   \fI(since C++14)\fP
-   using make_signed_t = typename make_signed<T>::type;
+
+template< class T >                                   \fI(since C++14)\fP
+using make_signed_t = typename make_signed<T>::type;
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <type_traits>
+  #include <iostream>
+  #include <type_traits>
 
- int main() {
-     typedef std::make_signed<unsigned char>::type char_type;
-     typedef std::make_signed<unsigned int>::type int_type;
-     typedef std::make_signed<volatile unsigned long>::type long_type;
+  int main() {
+      typedef std::make_signed<unsigned char>::type char_type;
+      typedef std::make_signed<unsigned int>::type int_type;
+      typedef std::make_signed<volatile unsigned long>::type long_type;
 
-     bool ok1 = std::is_same<char_type, signed char>::value;
-     bool ok2 = std::is_same<int_type, signed int>::value;
-     bool ok3 = std::is_same<long_type, volatile signed long>::value;
+      bool ok1 = std::is_same<char_type, signed char>::value;
+      bool ok2 = std::is_same<int_type, signed int>::value;
+      bool ok3 = std::is_same<long_type, volatile signed long>::value;
 
-     std::cout << std::boolalpha
-     << "char_type is 'signed char'?          : " << ok1 << '\\n'
-     << "int_type  is 'signed int'?           : " << ok2 << '\\n'
-     << "long_type is 'volatile signed long'? : " << ok3 << '\\n';
- }
+      std::cout << std::boolalpha
+      << "char_type is 'signed char'?          : " << ok1 << '\\n'
+      << "int_type  is 'signed int'?           : " << ok2 << '\\n'
+      << "long_type is 'volatile signed long'? : " << ok3 << '\\n';
+  }
 
 .SH Output:
 
- char_type is 'signed char'?          : true
- int_type  is 'signed int'?           : true
- long_type is 'volatile signed long'? : true
+  char_type is 'signed char'?          : true
+  int_type  is 'signed int'?           : true
+  long_type is 'volatile signed long'? : true
+
 
 .SH See also
 
-   is_signed     checks if a type is a signed arithmetic type
-   \fI(C++11)\fP       \fI(class template)\fP
-   is_unsigned   checks if a type is an unsigned arithmetic type
-   \fI(C++11)\fP       \fI(class template)\fP
-   make_unsigned makes the given integral type unsigned
-   \fI(C++11)\fP       \fI(class template)\fP
+
+
+is_signed     checks if a type is a signed arithmetic type
+              \fI(class template)\fP
+\fI(C++11)\fP
+
+is_unsigned   checks if a type is an unsigned arithmetic type
+              \fI(class template)\fP
+\fI(C++11)\fP
+
+make_unsigned makes the given integral type unsigned
+              \fI(class template)\fP
+\fI(C++11)\fP
+
+
+
+

@@ -3,34 +3,40 @@
 std::reference_wrapper<T>::reference_wrapper \- std::reference_wrapper<T>::reference_wrapper
 
 .SH Synopsis
-   template< class U >                                           \fB(1)\fP
-   reference_wrapper( U&& x ) noexcept(/*see below*/) ;
-   reference_wrapper( const reference_wrapper& other ) noexcept; \fB(2)\fP
 
-   Constructs a new reference wrapper.
+template< class U >                                           \fB(1)\fP
+reference_wrapper( U&& x ) noexcept(/*see below*/) ;
+reference_wrapper( const reference_wrapper& other ) noexcept; \fB(2)\fP
 
-   1) Converts x to T& as if by T& t = std::forward<U>(x);, then stores a reference to t. This overload only participates in overload resolution if typename std::decay<U>::type is not the same type as reference_wrapper and the expression FUN(std::declval<U>()) is well-formed, where FUN names the set of imaginary functions
+Constructs a new reference wrapper.
+1) Converts x to T& as if by T& t = std::forward<U>(x);, then stores a reference to t. This overload only participates in overload resolution if typename std::decay<U>::type is not the same type as reference_wrapper and the expression FUN(std::declval<U>()) is well-formed, where FUN names the set of imaginary functions
 
- void FUN(T&) noexcept;
- void FUN(T&&) = delete;
+  void FUN(T&) noexcept;
+  void FUN(T&&) = delete;
 
-   2) Copy constructor. Stores a reference to other.get().
+2) Copy constructor. Stores a reference to other.get().
 
 .SH Parameters
 
-   x     - an object to wrap
-   other - another reference wrapper
+
+x     - an object to wrap
+other - another reference wrapper
+
 
 .SH Exceptions
 
-   1)
-   noexcept specification:
-   noexcept(noexcept(FUN(std::declval<U>())))
-   where FUN is the set of imaginary functions described in the description above.
+1)
+noexcept specification:
+noexcept(noexcept(FUN(std::declval<U>())))
+where FUN is the set of imaginary functions described in the description above.
 
-  Defect reports
+Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to                                    Behavior as published                                               Correct behavior
-   LWG 2993 C++11      deleted reference_wrapper(T&&) constructor interferes with overload resolution in some cases replaced with a constructor template
+DR       Applied to Behavior as published                                                                        Correct behavior
+LWG_2993 C++11      deleted reference_wrapper(T&&) constructor interferes with overload resolution in some cases replaced with a constructor template
+
+
+
+

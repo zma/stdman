@@ -3,99 +3,126 @@
 std::chrono::time_point \- std::chrono::time_point
 
 .SH Synopsis
-   Defined in header <chrono>
-   template<
 
-   class Clock,                               \fI(since C++11)\fP
-   class Duration = typename Clock::duration
+Defined in header <chrono>
+template<
+class Clock,                                \fI(since C++11)\fP
+class Duration = typename Clock::duration
+> class time_point;
 
-   > class time_point;
-
-   Class template std::chrono::time_point represents a point in time. It is implemented as if it stores a value of type Duration indicating the time interval from the start of the Clock's epoch.
-
-   Clock must meet the requirements for Clock
-   or be std::chrono::local_t
-   \fI(since C++20)\fP.
+Class template std::chrono::time_point represents a point in time. It is implemented as if it stores a value of type Duration indicating the time interval from the start of the Clock's epoch.
+Clock must meet the requirements for Clock
+or be std::chrono::local_t
+\fI(since C++20)\fP.
 
 .SH Member types
 
-   Member type Definition
-   clock       Clock, the clock on which this time point is measured
-   duration    Duration, a std::chrono::duration type used to measure the time since epoch
-   rep         Rep, an arithmetic type representing the number of ticks of the duration
-   period      Period, a std::ratio type representing the tick period of the duration
+
+Member type Definition
+clock       Clock, the clock on which this time point is measured
+duration    Duration, a std::chrono::duration type used to measure the time since epoch
+rep         Rep, an arithmetic type representing the number of ticks of the duration
+period      Period, a std::ratio type representing the tick period of the duration
+
 
 .SH Member functions
 
-   constructor      constructs a new time point
-                    \fI(public member function)\fP
-   time_since_epoch returns the time point as duration since the start of its clock
-                    \fI(public member function)\fP
-   operator+=       modifies the time point by the given duration
-   operator-=       \fI(public member function)\fP
-   operator++
-   operator++(int)  increments or decrements the duration
-   operator--       \fI(public member function)\fP
-   operator--(int)
-   (C++20)
-   min              returns the time point corresponding to the smallest duration
-   \fB[static]\fP         \fI(public static member function)\fP
-   max              returns the time point corresponding to the largest duration
-   \fB[static]\fP         \fI(public static member function)\fP
+
+                 constructs a new time point
+constructor      \fI(public member function)\fP
+                 returns the time point as duration since the start of its clock
+time_since_epoch \fI(public member function)\fP
+                 modifies the time point by the given duration
+operator+=       \fI(public member function)\fP
+operator-=
+
+operator++
+operator++(int)  increments or decrements the duration
+operator--       \fI(public member function)\fP
+operator--(int)
+
+(C++20)
+
+min              returns the time point corresponding to the smallest duration
+                 \fI(public static member function)\fP
+\fB[static]\fP
+
+max              returns the time point corresponding to the largest duration
+                 \fI(public static member function)\fP
+\fB[static]\fP
+
 
 .SH Non-member functions
 
-   std::common_type<std::chrono::time_point> specializes the std::common_type trait
-                                             \fI(class template specialization)\fP
-   operator+                                 performs add and subtract operations involving a time point
-   operator-                                 \fI(function template)\fP
-   operator==
-   operator!=
-   operator<                                 compares two time points
-   operator<=                                \fI(function template)\fP
-   operator>
-   operator>=
-   time_point_cast                           converts a time point to another time point on the same clock, with a different duration
-                                             \fI(function template)\fP
-   floor(std::chrono::time_point)            converts a time_point to another, rounding down
-   \fI(C++17)\fP                                   \fI(function template)\fP
-   ceil(std::chrono::time_point)             converts a time_point to another, rounding up
-   \fI(C++17)\fP                                   \fI(function template)\fP
-   round(std::chrono::time_point)            converts a time_point to another, rounding to nearest, ties to even
-   \fI(C++17)\fP                                   \fI(function template)\fP
+
+                                          specializes the std::common_type trait
+std::common_type<std::chrono::time_point> \fI(class template specialization)\fP
+                                          performs add and subtract operations involving a time point
+operator+                                 \fI(function template)\fP
+operator-
+
+operator==
+operator!=                                compares two time points
+operator<                                 \fI(function template)\fP
+operator<=
+operator>
+operator>=
+                                          converts a time point to another time point on the same clock, with a different duration
+time_point_cast                           \fI(function template)\fP
+
+floor(std::chrono::time_point)            converts a time_point to another, rounding down
+                                          \fI(function template)\fP
+\fI(C++17)\fP
+
+ceil(std::chrono::time_point)             converts a time_point to another, rounding up
+                                          \fI(function template)\fP
+\fI(C++17)\fP
+
+round(std::chrono::time_point)            converts a time_point to another, rounding to nearest, ties to even
+                                          \fI(function template)\fP
+\fI(C++17)\fP
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <iomanip>
- #include <ctime>
- #include <chrono>
+  #include <iostream>
+  #include <iomanip>
+  #include <ctime>
+  #include <chrono>
 
- int main()
- {
-     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
-     std::time_t now_c = std::chrono::system_clock::to_time_t(now - std::chrono::hours(24));
-     std::cout << "24 hours ago, the time was "
-               << std::put_time(std::localtime(&now_c), "%F %T") << '\\n';
+  int main()
+  {
+      std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+      std::time_t now_c = std::chrono::system_clock::to_time_t(now - std::chrono::hours(24));
+      std::cout << "24 hours ago, the time was "
+                << std::put_time(std::localtime(&now_c), "%F %T") << '\\n';
 
-     std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
-     std::cout << "Hello World\\n";
-     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
-     std::cout << "Printing took "
-               << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()
-               << "us.\\n";
- }
+      std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+      std::cout << "Hello World\\n";
+      std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+      std::cout << "Printing took "
+                << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()
+                << "us.\\n";
+  }
 
 .SH Possible output:
 
- 24 hours ago, the time was 2011-10-25 12:00:08
- Hello World
- Printing took 84us.
+  24 hours ago, the time was 2011-10-25 12:00:08
+  Hello World
+  Printing took 84us.
+
 
 .SH See also
 
-   duration a time interval
-   \fI(C++11)\fP  \fI(class template)\fP
+
+
+duration a time interval
+         \fI(class template)\fP
+\fI(C++11)\fP
+
+
+
+

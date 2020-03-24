@@ -3,48 +3,60 @@
 std::invalid_argument \- std::invalid_argument
 
 .SH Synopsis
-   Defined in header <stdexcept>
-   class invalid_argument;
 
-   Defines a type of object to be thrown as exception. It reports errors that arise because an argument value has not been accepted.
+Defined in header <stdexcept>
+class invalid_argument;
 
-   This exception is thrown by std::bitset::bitset, and the std::stoi and std::stof families of functions.
-
-   std-invalid argument-inheritance.svg
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
+Defines a type of object to be thrown as exception. It reports errors that arise because an argument value has not been accepted.
+This exception is thrown by std::bitset::bitset, and the std::stoi and std::stof families of functions.
+ std-invalid argument-inheritance.svg
+Inheritance diagram
 
 .SH Member functions
 
-   constructor   constructs the exception object
-                 \fI(public member function)\fP
 
-std::invalid_argument::invalid_argument
+              constructs the exception object
+constructor   \fI(public member function)\fP
 
-   explicit invalid_argument( const std::string& what_arg ); \fB(1)\fP
-   explicit invalid_argument( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
 
-   Constructs the exception object with what_arg as explanatory string that can be accessed through what().
+ std::invalid_argument::invalid_argument
 
-   Because copying std::invalid_argument is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
+
+explicit invalid_argument( const std::string& what_arg ); \fB(1)\fP
+explicit invalid_argument( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
+
+Constructs the exception object with what_arg as explanatory string that can be accessed through what().
+Because copying std::invalid_argument is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
 
 .SH Parameters
 
-   what_arg - explanatory string
+
+what_arg - explanatory string
+
 
 .SH Exceptions
 
-   May throw std::bad_alloc
+May throw std::bad_alloc
 
 Inherited from std::exception
 
+
 .SH Member functions
 
-   destructor   destroys the exception object
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
-   what         returns an explanatory string
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
+
+
+destructor   destroys the exception object
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+what         returns an explanatory string
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
 
 .SH Notes
 
-   The purpose of this exception type is similar to the error condition std::errc::invalid_argument (thrown in std::system_error from member functions of std::thread) and the related errno constant EINVAL.
+The purpose of this exception type is similar to the error condition std::errc::invalid_argument (thrown in std::system_error from member functions of std::thread) and the related errno constant EINVAL.
+
+
+

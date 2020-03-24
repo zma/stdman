@@ -3,42 +3,53 @@
 std::hardware_destructive_interference_size,std::hardware_constructive_interference_size \- std::hardware_destructive_interference_size,std::hardware_constructive_interference_size
 
 .SH Synopsis
-   Defined in header <new>
-   inline constexpr std::size_t                                          \fB(1)\fP \fI(since C++17)\fP
-   hardware_destructive_interference_size = /*implementation-defined*/;
-   inline constexpr std::size_t                                          \fB(2)\fP \fI(since C++17)\fP
-   hardware_constructive_interference_size = /*implementation-defined*/;
 
-   1) Minimum offset between two objects to avoid false sharing. Guaranteed to be at least alignof(std::max_align_t)
+Defined in header <new>
+inline constexpr std::size_t                                          \fB(1)\fP \fI(since C++17)\fP
+hardware_destructive_interference_size = /*implementation-defined*/;
+inline constexpr std::size_t                                          \fB(2)\fP \fI(since C++17)\fP
+hardware_constructive_interference_size = /*implementation-defined*/;
 
- struct keep_apart {
-   alignas(std::hardware_destructive_interference_size) std::atomic<int> cat;
-   alignas(std::hardware_destructive_interference_size) std::atomic<int> dog;
- };
+1) Minimum offset between two objects to avoid false sharing. Guaranteed to be at least alignof(std::max_align_t)
 
-   2) Maximum size of contiguous memory to promote true sharing. Guaranteed to be at least alignof(std::max_align_t)
+  struct keep_apart {
+    alignas(std::hardware_destructive_interference_size) std::atomic<int> cat;
+    alignas(std::hardware_destructive_interference_size) std::atomic<int> dog;
+  };
 
- struct together {
-   std::atomic<int> dog;
-   int puppy;
- };
- struct kennel {
-   // Other data members...
-   alignas(sizeof(together)) together pack;
-   // Other data members...
- };
- static_assert(sizeof(together) <= std::hardware_constructive_interference_size);
+2) Maximum size of contiguous memory to promote true sharing. Guaranteed to be at least alignof(std::max_align_t)
+
+  struct together {
+    std::atomic<int> dog;
+    int puppy;
+  };
+  struct kennel {
+    // Other data members...
+    alignas(sizeof(together)) together pack;
+    // Other data members...
+  };
+  static_assert(sizeof(together) <= std::hardware_constructive_interference_size);
+
 
 .SH Notes
 
-   These constants provide a portable way to access the L1 data cache line size.
+These constants provide a portable way to access the L1 data cache line size.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   hardware_concurrency returns the number of concurrent threads supported by the implementation
-   \fB[static]\fP             \fI(public static member function of std::thread)\fP
+
+
+hardware_concurrency returns the number of concurrent threads supported by the implementation
+                     \fI(public static member function of std::thread)\fP
+\fB[static]\fP
+
+
+
+

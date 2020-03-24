@@ -3,8 +3,12 @@
 std::ranges::ForwardRange \- std::ranges::ForwardRange
 
 .SH Synopsis
-   Defined in header <ranges>
-   template<class T>
-   concept ForwardRange = InputRange<T> && ForwardIterator<iterator_t<T>>;
 
-   The ForwardRange concept is a refinement of Range for which ranges::begin returns a model of ForwardIterator.
+Defined in header <ranges>
+template<class T>
+concept ForwardRange = InputRange<T> && ForwardIterator<iterator_t<T>>;
+
+The ForwardRange concept is a refinement of Range for which ranges::begin returns a model of ForwardIterator.
+
+
+

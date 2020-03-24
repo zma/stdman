@@ -3,34 +3,53 @@
 std::chrono::high_resolution_clock \- std::chrono::high_resolution_clock
 
 .SH Synopsis
-   Defined in header <chrono>
-   class high_resolution_clock;  \fI(since C++11)\fP
 
-   Class std::chrono::high_resolution_clock represents the clock with the smallest tick period provided by the implementation. It may be an alias of std::chrono::system_clock or std::chrono::steady_clock, or a third, independent clock.
+Defined in header <chrono>
+class high_resolution_clock;  \fI(since C++11)\fP
 
-   std::chrono::high_resolution_clock meets the requirements of TrivialClock.
+Class std::chrono::high_resolution_clock represents the clock with the smallest tick period provided by the implementation. It may be an alias of std::chrono::system_clock or std::chrono::steady_clock, or a third, independent clock.
+std::chrono::high_resolution_clock meets the requirements of TrivialClock.
 
 .SH Member types
 
-   Member type Definition
-   rep         arithmetic type representing the number of ticks in the clock's duration
-   period      a std::ratio type representing the tick period of the clock, in seconds
-   duration    std::chrono::duration<rep, period>
-   time_point  std::chrono::time_point<std::chrono::high_resolution_clock>
+
+Member type Definition
+rep         arithmetic type representing the number of ticks in the clock's duration
+period      a std::ratio type representing the tick period of the clock, in seconds
+duration    std::chrono::duration<rep, period>
+time_point  std::chrono::time_point<std::chrono::high_resolution_clock>
+
 
 .SH Member constants
 
-   constexpr bool is_steady true if the time between ticks is always constant, i.e. calls to now() return values that increase monotonically even in case of some external clock adjustment, otherwise false
-   \fB[static]\fP                 \fI(public static member constant)\fP
+
+
+constexpr bool is_steady true if the time between ticks is always constant, i.e. calls to now() return values that increase monotonically even in case of some external clock adjustment, otherwise false
+                         \fI(public static member constant)\fP
+\fB[static]\fP
+
 
 .SH Member functions
 
-   now      returns a std::chrono::time_point representing the current value of the clock
-   \fB[static]\fP \fI(public static member function)\fP
+
+
+now      returns a std::chrono::time_point representing the current value of the clock
+         \fI(public static member function)\fP
+\fB[static]\fP
+
 
 .SH See also
 
-   system_clock wall clock time from the system-wide realtime clock
-   \fI(C++11)\fP      \fI(class)\fP
-   steady_clock monotonic clock that will never be adjusted
-   \fI(C++11)\fP      \fI(class)\fP
+
+
+system_clock wall clock time from the system-wide realtime clock
+             \fI(class)\fP
+\fI(C++11)\fP
+
+steady_clock monotonic clock that will never be adjusted
+             \fI(class)\fP
+\fI(C++11)\fP
+
+
+
+

@@ -3,25 +3,32 @@
 std::mersenne_twister_engine<UIntType,w,n,m,r,a,u,d,s,b,t,c,l,f>::operator() \- std::mersenne_twister_engine<UIntType,w,n,m,r,a,u,d,s,b,t,c,l,f>::operator()
 
 .SH Synopsis
-   result_type operator()();  \fI(since C++11)\fP
 
-   Generates a pseudo-random value. The state of the engine is advanced by one position.
+result_type operator()();  \fI(since C++11)\fP
 
-    This section is incomplete
+Generates a pseudo-random value. The state of the engine is advanced by one position.
+
+ This section is incomplete
+
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   A pseudo-random number in [min(), max()].
+A pseudo-random number in [min(), max()].
 
 .SH Complexity
 
-   Amortized constant.
+Amortized constant.
 
 .SH See also
 
-   discard advances the engine's state by a specified amount
-           \fI(public member function)\fP
+
+        advances the engine's state by a specified amount
+discard \fI(public member function)\fP
+
+
+
+

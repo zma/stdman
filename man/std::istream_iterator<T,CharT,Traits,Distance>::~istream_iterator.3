@@ -3,10 +3,15 @@
 std::istream_iterator<T,CharT,Traits,Distance>::~istream_iterator \- std::istream_iterator<T,CharT,Traits,Distance>::~istream_iterator
 
 .SH Synopsis
-   ~istream_iterator() = default;
 
-   1) Destroys the iterator, including the cached value.
+~istream_iterator() = default;
 
-   If T is a literal type, then this destructor is a trivial destructor                          \fI(since C++11)\fP
-                                                                                                 \fI(until C++17)\fP
-   If std::is_trivially_destructible_v<T> is true, then this destructor is a trivial destructor. \fI(since C++17)\fP
+1) Destroys the iterator, including the cached value.
+
+If T is a literal type, then this destructor is a trivial destructor                          \fI(since C++11)\fP
+                                                                                              \fI(until C++17)\fP
+If std::is_trivially_destructible_v<T> is true, then this destructor is a trivial destructor. \fI(since C++17)\fP
+
+
+
+

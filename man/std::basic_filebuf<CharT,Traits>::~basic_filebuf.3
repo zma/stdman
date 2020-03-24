@@ -3,31 +3,38 @@
 std::basic_filebuf<CharT,Traits>::~basic_filebuf \- std::basic_filebuf<CharT,Traits>::~basic_filebuf
 
 .SH Synopsis
-   virtual ~basic_filebuf();
 
+virtual ~basic_filebuf();
 
-   Calls close() to close the associated file and destructs all other members of basic_filebuf. If an exception is thrown by close(), it is caught and not rethrown.
+Calls close() to close the associated file and destructs all other members of basic_filebuf. If an exception is thrown by close(), it is caught and not rethrown.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Notes
 
-   Typically called by the destructor of std::basic_fstream.
+Typically called by the destructor of std::basic_fstream.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   constructor   constructs a basic_filebuf object
-                 \fI(public member function)\fP
-   close         flushes the put area buffer and closes the associated file
-                 \fI(public member function)\fP
+
+              constructs a basic_filebuf object
+constructor   \fI(public member function)\fP
+              flushes the put area buffer and closes the associated file
+close         \fI(public member function)\fP
+
+
+
+

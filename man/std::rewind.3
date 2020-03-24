@@ -3,56 +3,64 @@
 std::rewind \- std::rewind
 
 .SH Synopsis
-   Defined in header <cstdio>
-   void rewind( std::FILE* stream );
 
-   Moves the file position indicator to the beginning of the given file stream.
+Defined in header <cstdio>
+void rewind( std::FILE* stream );
 
-   The function is equivalent to std::fseek(stream, 0, SEEK_SET);, except that end-of-file and error indicators are cleared.
-
-   The function drops any effects from previous calls to ungetc.
+Moves the file position indicator to the beginning of the given file stream.
+The function is equivalent to std::fseek(stream, 0, SEEK_SET);, except that end-of-file and error indicators are cleared.
+The function drops any effects from previous calls to ungetc.
 
 .SH Parameters
 
-   stream - file stream to modify
+
+stream - file stream to modify
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <cstdio>
+  #include <cstdio>
 
- int main()
- {
-     std::FILE *f;
-     char ch;
-     char str[20];
+  int main()
+  {
+      std::FILE *f;
+      char ch;
+      char str[20];
 
-     f = std::fopen("file.txt", "w");
-     for (ch = '0'; ch <= '9'; ch++) {
-         std::fputc(ch, f);
-     }
-     std::fclose(f);
+      f = std::fopen("file.txt", "w");
+      for (ch = '0'; ch <= '9'; ch++) {
+          std::fputc(ch, f);
+      }
+      std::fclose(f);
 
 
-     std::FILE* f2 = std::fopen("file.txt", "r");
-     unsigned int size = std::fread(str, 1, 10, f2);
-     std::puts(str);
-     std::printf("\\n%u\\n",size);
+      std::FILE* f2 = std::fopen("file.txt", "r");
+      unsigned int size = std::fread(str, 1, 10, f2);
+      std::puts(str);
+      std::printf("\\n%u\\n",size);
 
-     std::rewind(f2);
-     unsigned int size2 = std::fread(str, 1, 10, f2);
-     std::puts(str);
-     std::printf("\\n%u",size2);
-     std::fclose(f2);
- }
+      std::rewind(f2);
+      unsigned int size2 = std::fread(str, 1, 10, f2);
+      std::puts(str);
+      std::printf("\\n%u",size2);
+      std::fclose(f2);
+  }
+
+
 
 .SH See also
 
-   fseek moves the file position indicator to a specific location in a file
-         \fI(function)\fP
+
+      moves the file position indicator to a specific location in a file
+fseek \fI(function)\fP
+
+
+
+

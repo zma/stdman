@@ -3,29 +3,43 @@
 std::experimental::erase(std::basic_string) \- std::experimental::erase(std::basic_string)
 
 .SH Synopsis
-   Defined in header <experimental/string>
-   template <class charT, class traits, class A, class U>               (library fundamentals TS v2)
-   void erase(std::basic_string<charT, traits, A>& c, const U& value);
 
-   Erases all elements that compare equal to value from the container. Equivalent to c.erase(std::remove(c.begin(), c.end(), value), c.end());
+Defined in header <experimental/string>
+template <class charT, class traits, class A, class U>               (library fundamentals TS v2)
+void erase(std::basic_string<charT, traits, A>& c, const U& value);
+
+Erases all elements that compare equal to value from the container. Equivalent to c.erase(std::remove(c.begin(), c.end(), value), c.end());
 
 .SH Parameters
 
-   c     - container from which to erase
-   value - value to be removed
+
+c     - container from which to erase
+value - value to be removed
+
 
 .SH Complexity
 
-   Linear.
+Linear.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
+
 
 .SH See also
 
-   remove                       removes elements satisfying specific criteria
-   remove_if                    \fI(function template)\fP
-   erase_if (std::basic_string) Erases all elements satisfying a predicate from a std::basic_string
-   (library fundamentals 2 TS)  \fI(function template)\fP
+
+                             removes elements satisfying specific criteria
+remove                       \fI(function template)\fP
+remove_if
+
+erase_if_(std::basic_string) Erases all elements satisfying a predicate from a std::basic_string
+                             \fI(function template)\fP
+(library fundamentals 2 TS)
+
+
+
+

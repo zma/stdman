@@ -3,54 +3,73 @@
 std::experimental::packaged_task(libraryfundamentalsTS) \- std::experimental::packaged_task(libraryfundamentalsTS)
 
 .SH Synopsis
-   Defined in header <experimental/future>
-   template< class > class packaged_task; //not defined \fB(1)\fP (library fundamentals TS)
-   template< class R, class ...Args >                   \fB(2)\fP (library fundamentals TS)
-   class packaged_task<R(Args...)>;
 
-   std::experimental::fundamentals_v1::packaged_task (and std::experimental::fundamentals_v2::packaged_task) is a modified version of std::packaged_task provided by the library fundamentals TS with support for type-erased allocators.
+Defined in header <experimental/future>
+template< class > class packaged_task; //not defined \fB(1)\fP (library fundamentals TS)
+template< class R, class ...Args >                   \fB(2)\fP (library fundamentals TS)
+class packaged_task<R(Args...)>;
+
+std::experimental::fundamentals_v1::packaged_task (and std::experimental::fundamentals_v2::packaged_task) is a modified version of std::packaged_task provided by the library fundamentals TS with support for type-erased allocators.
 
 .SH Member types
 
-   Member type    Definition
-   allocator_type std::experimental::erased_type
+
+Member type    Definition
+allocator_type std::experimental::erased_type
+
 
 .SH Member functions
 
-   constructor         constructs the task object
-                       \fI(public member function)\fP
-   get_memory_resource retrieves a pointer to the memory resource used by this object to allocate memory
-                       \fI(public member function)\fP
 
-  Non-member function
+                    constructs the task object
+constructor         \fI(public member function)\fP
+                    retrieves a pointer to the memory resource used by this object to allocate memory
+get_memory_resource \fI(public member function)\fP
 
-   std::experimental::swap(std::experimental::packaged_task) specializes the swap algorithm
-                                                             \fI(function template)\fP
+
+Non-member function
+
+
+                                                          specializes the swap algorithm
+std::experimental::swap(std::experimental::packaged_task) \fI(function template)\fP
+
 
 .SH Helper classes
 
-   std::uses_allocator<std::experimental::packaged_task> specializes the std::uses_allocator type trait
-                                                         \fI(class template specialization)\fP
+
+                                                      specializes the std::uses_allocator type trait
+std::uses_allocator<std::experimental::packaged_task> \fI(class template specialization)\fP
+
 
 Members identical to std::packaged_task
 
+
 .SH Member functions
 
-   destructor                destructs the task object
-                             \fI(public member function of std::packaged_task<R(Args...)>)\fP
-   operator=                 moves the task object
-                             \fI(public member function of std::packaged_task<R(Args...)>)\fP
-   valid                     checks if the task object has a valid function
-                             \fI(public member function of std::packaged_task<R(Args...)>)\fP
-   swap                      swaps two task objects
-                             \fI(public member function of std::packaged_task<R(Args...)>)\fP
+
+                          destructs the task object
+destructor                \fI(public member function of std::packaged_task<R(Args...)>)\fP
+                          moves the task object
+operator=                 \fI(public member function of std::packaged_task<R(Args...)>)\fP
+                          checks if the task object has a valid function
+valid                     \fI(public member function of std::packaged_task<R(Args...)>)\fP
+                          swaps two task objects
+swap                      \fI(public member function of std::packaged_task<R(Args...)>)\fP
+
 .SH Getting the result
-   get_future                returns a std::future associated with the promised result
-                             \fI(public member function of std::packaged_task<R(Args...)>)\fP
+
+                          returns a std::future associated with the promised result
+get_future                \fI(public member function of std::packaged_task<R(Args...)>)\fP
+
 .SH Execution
-   operator()                executes the function
-                             \fI(public member function of std::packaged_task<R(Args...)>)\fP
-   make_ready_at_thread_exit executes the function ensuring that the result is ready only once the current thread exits
-                             \fI(public member function of std::packaged_task<R(Args...)>)\fP
-   reset                     resets the state abandoning any stored results of previous executions
-                             \fI(public member function of std::packaged_task<R(Args...)>)\fP
+
+                          executes the function
+operator()                \fI(public member function of std::packaged_task<R(Args...)>)\fP
+                          executes the function ensuring that the result is ready only once the current thread exits
+make_ready_at_thread_exit \fI(public member function of std::packaged_task<R(Args...)>)\fP
+                          resets the state abandoning any stored results of previous executions
+reset                     \fI(public member function of std::packaged_task<R(Args...)>)\fP
+
+
+
+

@@ -3,37 +3,42 @@
 std::seed_seq::size \- std::seed_seq::size
 
 .SH Synopsis
-   std::size_t size() const;           \fI(since C++11)\fP
-                                       \fI(until C++17)\fP
-   std::size_t size() const noexcept;  \fI(since C++17)\fP
 
-   Returns the size of the stored initial seed sequence.
+std::size_t size() const;           \fI(since C++11)\fP
+                                    \fI(until C++17)\fP
+std::size_t size() const noexcept;  \fI(since C++17)\fP
+
+Returns the size of the stored initial seed sequence.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   The size of the private container that was populated at construction time.
+The size of the private container that was populated at construction time.
 
 .SH Complexity
 
-   Constant time.
+Constant time.
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <random>
- #include <iostream>
- int main()
- {
-     std::seed_seq s1 = {-1, 0, 1};
-     std::cout << s1.size() << '\\n';
- }
+  #include <random>
+  #include <iostream>
+  int main()
+  {
+      std::seed_seq s1 = {-1, 0, 1};
+      std::cout << s1.size() << '\\n';
+  }
 
 .SH Output:
 
- 3
+  3
+
+
+
+

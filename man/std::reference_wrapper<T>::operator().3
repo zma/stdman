@@ -3,71 +3,76 @@
 std::reference_wrapper<T>::operator() \- std::reference_wrapper<T>::operator()
 
 .SH Synopsis
-   template< class... ArgTypes >
-                                                     \fI(since C++11)\fP
-   typename std::result_of<T&(ArgTypes&&...)>::type  \fI(until C++17)\fP
 
-   operator() ( ArgTypes&&... args ) const;
-   template< class... ArgTypes >
+template< class... ArgTypes >                     \fI(since C++11)\fP
+typename std::result_of<T&(ArgTypes&&...)>::type  \fI(until C++17)\fP
+operator() ( ArgTypes&&... args ) const;
+template< class... ArgTypes >
+std::invoke_result_t<T&, ArgTypes...>             \fI(since C++17)\fP
+operator() ( ArgTypes&&... args ) const;
 
-   std::invoke_result_t<T&, ArgTypes...>             \fI(since C++17)\fP
-
-   operator() ( ArgTypes&&... args ) const;
-
-   Calls the Callable object, reference to which is stored. This function is available only if the stored reference points to a Callable object.
-
-   T must be a complete type.
+Calls the Callable object, reference to which is stored. This function is available only if the stored reference points to a Callable object.
+T must be a complete type.
 
 .SH Parameters
 
-   args - arguments to pass to the called function
+
+args - arguments to pass to the called function
+
 
 .SH Return value
 
-   The return value of the called function.
+The return value of the called function.
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <functional>
+  #include <iostream>
+  #include <functional>
 
- void f1()
- {
-     std::cout << "reference to function called\\n";
- }
- void f2(int n)
- {
-     std::cout << "bind expression called with " << n << " as the argument\\n";
- }
+  void f1()
+  {
+      std::cout << "reference to function called\\n";
+  }
+  void f2(int n)
+  {
+      std::cout << "bind expression called with " << n << " as the argument\\n";
+  }
 
- int main()
- {
-     std::reference_wrapper<void()> ref1 = std::ref(f1);
-     ref1();
+  int main()
+  {
+      std::reference_wrapper<void()> ref1 = std::ref(f1);
+      ref1();
 
-     auto b = std::bind(f2, std::placeholders::_1);
-     auto ref2 = std::ref(b);
-     ref2(7);
+      auto b = std::bind(f2, std::placeholders::_1);
+      auto ref2 = std::ref(b);
+      ref2(7);
 
-     auto c = []{std::cout << "lambda function called\\n"; };
-     auto ref3 = std::ref(c);
-     ref3();
- }
+      auto c = []{std::cout << "lambda function called\\n"; };
+      auto ref3 = std::ref(c);
+      ref3();
+  }
 
 .SH Output:
 
- reference to function called
- bind expression called with 7 as the argument
- lambda function called
+  reference to function called
+  bind expression called with 7 as the argument
+  lambda function called
+
 
 .SH See also
 
-   get         accesses the stored reference
-   operator T& \fI(public member function)\fP
+
+            accesses the stored reference
+get         \fI(public member function)\fP
+operator_T&
+
+
+
+

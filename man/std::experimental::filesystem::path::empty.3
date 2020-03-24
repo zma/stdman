@@ -3,30 +3,37 @@
 std::experimental::filesystem::path::empty \- std::experimental::filesystem::path::empty
 
 .SH Synopsis
-   bool empty() const;  (filesystem TS)
 
-   Checks if the path is empty.
+bool empty() const;  (filesystem TS)
+
+Checks if the path is empty.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   true if the path is empty, false otherwise.
+true if the path is empty, false otherwise.
 
 .SH Exceptions
 
-   noexcept specification:
-   noexcept
+noexcept specification:
+noexcept
 
 .SH See also
 
-   has_root_path
-   has_root_name
-   has_root_directory
-   has_relative_path  checks if the corresponding path element is not empty
-   has_parent_path    \fI(public member function)\fP
-   has_filename
-   has_stem
-   has_extension
+
+
+has_root_path
+has_root_name
+has_root_directory checks if the corresponding path element is not empty
+has_relative_path  \fI(public member function)\fP
+has_parent_path
+has_filename
+has_stem
+has_extension
+
+
+
+

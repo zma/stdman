@@ -3,22 +3,30 @@
 std::pmr::get_default_resource \- std::pmr::get_default_resource
 
 .SH Synopsis
-   Defined in header <memory_resource>
-   std::pmr::memory_resource* get_default_resource() noexcept;  \fI(since C++17)\fP
 
-   Gets the default memory resource pointer.
+Defined in header <memory_resource>
+std::pmr::memory_resource* get_default_resource() noexcept;  \fI(since C++17)\fP
 
-   The default memory resource pointer is used by certain facilities when an explicit memory resource is not supplied. The initial default memory resource pointer is the return value of std::pmr::new_delete_resource.
-
-   This function is thread-safe. Previous call to std::pmr::set_default_resource synchronizes with (see std::memory_order) the subsequent std::pmr::get_default_resource calls.
+Gets the default memory resource pointer.
+The default memory resource pointer is used by certain facilities when an explicit memory resource is not supplied. The initial default memory resource pointer is the return value of std::pmr::new_delete_resource.
+This function is thread-safe. Previous call to std::pmr::set_default_resource synchronizes with (see std::memory_order) the subsequent std::pmr::get_default_resource calls.
 
 .SH Return value
 
-   Returns the value of the default memory resource pointer.
+Returns the value of the default memory resource pointer.
 
 .SH See also
 
-   set_default_resource sets the default std::pmr::memory_resource
-   \fI(C++17)\fP              \fI(function)\fP
-   new_delete_resource  returns a static program-wide std::pmr::memory_resource that uses the global operator new and operator delete to allocate and deallocate memory
-   \fI(C++17)\fP              \fI(function)\fP
+
+
+set_default_resource sets the default std::pmr::memory_resource
+                     \fI(function)\fP
+\fI(C++17)\fP
+
+new_delete_resource  returns a static program-wide std::pmr::memory_resource that uses the global operator_new and operator_delete to allocate and deallocate memory
+                     \fI(function)\fP
+\fI(C++17)\fP
+
+
+
+

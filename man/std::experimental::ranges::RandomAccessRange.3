@@ -3,13 +3,17 @@
 std::experimental::ranges::RandomAccessRange \- std::experimental::ranges::RandomAccessRange
 
 .SH Synopsis
-   Defined in header <experimental/ranges/range>
-   template <class T>
 
-   concept bool RandomAccessRange =               (ranges TS)
-   BidirectionalRange<T> &&
+Defined in header <experimental/ranges/range>
+template <class T>
+concept bool RandomAccessRange =               (ranges TS)
+BidirectionalRange<T> &&
+RandomAccessIterator<ranges::iterator_t<T>>;
 
-   RandomAccessIterator<ranges::iterator_t<T>>;
 
-    This section is incomplete
-    Reason: add description and extra caveats
+ This section is incomplete
+ Reason: add description and extra caveats
+
+
+
+

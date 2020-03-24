@@ -3,27 +3,37 @@
 std::atomic<T>::store \- std::atomic<T>::store
 
 .SH Synopsis
-   void store( T desired, std::memory_order order = std::memory_order_seq_cst ) noexcept;           \fI(since C++11)\fP
-   void store( T desired, std::memory_order order = std::memory_order_seq_cst ) volatile noexcept;
 
-   Atomically replaces the current value with desired. Memory is affected according to the value of order.
+void store( T desired, std::memory_order order = std::memory_order_seq_cst ) noexcept;           \fI(since C++11)\fP
+void store( T desired, std::memory_order order = std::memory_order_seq_cst ) volatile noexcept;
 
-   order must be one of std::memory_order_relaxed, std::memory_order_release or std::memory_order_seq_cst. Otherwise the behavior is undefined.
+Atomically replaces the current value with desired. Memory is affected according to the value of order.
+order must be one of std::memory_order_relaxed, std::memory_order_release or std::memory_order_seq_cst. Otherwise the behavior is undefined.
 
 .SH Parameters
 
-   desired - the value to store into the atomic variable
-   order   - memory order constraints to enforce
+
+desired - the value to store into the atomic variable
+order   - memory order constraints to enforce
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
+
 
 .SH See also
 
-   operator=             stores a value into an atomic object
-                         \fI(public member function)\fP
-   atomic_store
-   atomic_store_explicit atomically replaces the value of the atomic object with a non-atomic argument
-   \fI(C++11)\fP               \fI(function template)\fP
-   \fI(C++11)\fP
+
+                      stores a value into an atomic object
+operator=             \fI(public member function)\fP
+
+atomic_store
+atomic_store_explicit atomically replaces the value of the atomic object with a non-atomic argument
+                      \fI(function template)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+
+
+
+

@@ -3,55 +3,75 @@
 std::equal_to \- std::equal_to
 
 .SH Synopsis
-   Defined in header <functional>
-   template< class T >             \fI(until C++14)\fP
-   struct equal_to;
-   template< class T = void >      \fI(since C++14)\fP
-   struct equal_to;
 
-   Function object for performing comparisons. Unless specialised, invokes operator== on type T.
+Defined in header <functional>
+template< class T >             \fI(until C++14)\fP
+struct equal_to;
+template< class T = void >      \fI(since C++14)\fP
+struct equal_to;
+
+Function object for performing comparisons. Unless specialised, invokes operator== on type T.
 
 .SH Specializations
 
-   The standard library provides a specialization of std::equal_to when T is not specified, which leaves the parameter types and return type to be deduced.
-                                                                                                                                                            \fI(since C++14)\fP
-   equal_to<void> function object implementing x == y deducing argument and return types
-                  \fI(class template specialization)\fP
+
+The standard library provides a specialization of std::equal_to when T is not specified, which leaves the parameter types and return type to be deduced.
+
+               function object implementing x == y deducing argument and return types                                                                    \fI(since C++14)\fP
+equal_to<void> \fI(class template specialization)\fP
+
+
+
 
 .SH Member types
 
-   Type                                      Definition \fI(until C++20)\fP
-   result_type(deprecated in C++17)          bool
-   first_argument_type(deprecated in C++17)  T
-   second_argument_type(deprecated in C++17) T
+
+Type                                      Definition \fI(until C++20)\fP
+result_type(deprecated in C++17)          bool
+first_argument_type(deprecated in C++17)  T
+second_argument_type(deprecated in C++17) T
+
+
 
 .SH Member functions
 
-   operator() checks if the arguments are equal
-              \fI(public member function)\fP
 
-std::equal_to::operator()
+           checks if the arguments are equal
+operator() \fI(public member function)\fP
 
-   bool operator()( const T& lhs, const T& rhs ) const;            \fI(until C++14)\fP
-   constexpr bool operator()( const T& lhs, const T& rhs ) const;  \fI(since C++14)\fP
 
-   Checks whether lhs is equal to rhs.
+ std::equal_to::operator()
+
+
+bool operator()( const T& lhs, const T& rhs ) const;            \fI(until C++14)\fP
+constexpr bool operator()( const T& lhs, const T& rhs ) const;  \fI(since C++14)\fP
+
+Checks whether lhs is equal to rhs.
 
 .SH Parameters
 
-   lhs, rhs - values to compare
+
+lhs, rhs - values to compare
+
 
 .SH Return value
 
-   true if lhs == rhs, false otherwise.
+true if lhs == rhs, false otherwise.
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Possible implementation
 
-   constexpr bool operator()(const T &lhs, const T &rhs) const
-   {
-       return lhs == rhs;
-   }
+
+
+  constexpr bool operator()(const T &lhs, const T &rhs) const
+  {
+      return lhs == rhs;
+  }
+
+
+
+
+

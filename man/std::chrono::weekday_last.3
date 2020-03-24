@@ -3,25 +3,33 @@
 std::chrono::weekday_last \- std::chrono::weekday_last
 
 .SH Synopsis
-   Defined in header <chrono>
-   class weekday_last;         \fI(since C++20)\fP
 
-   The class weekday_last represents the last weekday of some month.
+Defined in header <chrono>
+class weekday_last;         \fI(since C++20)\fP
 
-   weekday_last is a TriviallyCopyable StandardLayoutType.
+The class weekday_last represents the last weekday of some month.
+weekday_last is a TriviallyCopyable StandardLayoutType.
 
 .SH Member functions
 
-   constructor   constructs a weekday_last object
-                 \fI(public member function)\fP
-   weekday       accesses the stored weekday
-                 \fI(public member function)\fP
-   ok            checks if the stored weekday is valid
-                 \fI(public member function)\fP
 
-  Nonmember functions
+              constructs a weekday_last object
+constructor   \fI(public member function)\fP
+              accesses the stored weekday
+weekday       \fI(public member function)\fP
+              checks if the stored weekday is valid
+ok            \fI(public member function)\fP
 
-   operator== compares two weekday_last objects
-   operator!= \fI(function)\fP
-   operator<< outputs a weekday_last into a stream
-              \fI(function template)\fP
+
+Nonmember functions
+
+
+           compares two weekday_last objects
+operator== \fI(function)\fP
+operator!=
+           outputs a weekday_last into a stream
+operator<< \fI(function template)\fP
+
+
+
+

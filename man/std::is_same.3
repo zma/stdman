@@ -3,111 +3,140 @@
 std::is_same \- std::is_same
 
 .SH Synopsis
-   Defined in header <type_traits>
-   template< class T, class U >     \fI(since C++11)\fP
-   struct is_same;
 
-   If T and U name the same type (including const/volatile qualifications), provides the member constant value equal to true. Otherwise value is false.
+Defined in header <type_traits>
+template< class T, class U >     \fI(since C++11)\fP
+struct is_same;
 
-   Commutativity is satisfied, i.e. for any two types T and U, is_same<T, U>::value == true if and only if is_same<U, T>::value == true.
+If T and U name the same type (including const/volatile qualifications), provides the member constant value equal to true. Otherwise value is false.
+Commutativity is satisfied, i.e. for any two types T and U, is_same<T, U>::value == true if and only if is_same<U, T>::value == true.
 
-  Helper variable template
+Helper variable template
 
-   template< class T, class U >                             \fI(since C++17)\fP
-   inline constexpr bool is_same_v = is_same<T, U>::value;
+
+template< class T, class U >                             \fI(since C++17)\fP
+inline constexpr bool is_same_v = is_same<T, U>::value;
+
 
 Inherited from std::integral_constant
 
+
 .SH Member constants
 
-   value    true if T and U is the same type , false otherwise
-   \fB[static]\fP \fI(public static member constant)\fP
+
+
+value    true if T and U is the same type , false otherwise
+         \fI(public static member constant)\fP
+\fB[static]\fP
+
 
 .SH Member functions
 
-   operator bool converts the object to bool, returns value
-                 \fI(public member function)\fP
-   operator()    returns value
-   \fI(C++14)\fP       \fI(public member function)\fP
+
+              converts the object to bool, returns value
+operator bool \fI(public member function)\fP
+
+operator()    returns value
+              \fI(public member function)\fP
+\fI(C++14)\fP
+
 
 .SH Member types
 
-   Type       Definition
-   value_type bool
-   type       std::integral_constant<bool, value>
+
+Type       Definition
+value_type bool
+type       std::integral_constant<bool, value>
+
 
 .SH Possible implementation
 
-   template<class T, class U>
-   struct is_same : std::false_type {};
 
-   template<class T>
-   struct is_same<T, T> : std::true_type {};
+
+  template<class T, class U>
+  struct is_same : std::false_type {};
+
+  template<class T>
+  struct is_same<T, T> : std::true_type {};
+
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <type_traits>
- #include <cstdint>
+  #include <iostream>
+  #include <type_traits>
+  #include <cstdint>
 
- void print_separator()
- {
-     std::cout << "-----\\n";
- }
+  void print_separator()
+  {
+      std::cout << "-----\\n";
+  }
 
- int main()
- {
-     std::cout << std::boolalpha;
+  int main()
+  {
+      std::cout << std::boolalpha;
 
-     // some implementation-defined facts
-     std::cout << std::is_same<int, std::int32_t>::value << '\\n';
-     // usually true if 'int' is 32 bit
-     std::cout << std::is_same<int, std::int64_t>::value << '\\n';
-     // possibly true if ILP64 data model is used
+      // some implementation-defined facts
+      std::cout << std::is_same<int, std::int32_t>::value << '\\n';
+      // usually true if 'int' is 32 bit
+      std::cout << std::is_same<int, std::int64_t>::value << '\\n';
+      // possibly true if ILP64 data model is used
 
-     print_separator();
+      print_separator();
 
-     // 'float' is never an integral type
-     std::cout << std::is_same<float, std::int32_t>::value << '\\n'; // false
+      // 'float' is never an integral type
+      std::cout << std::is_same<float, std::int32_t>::value << '\\n'; // false
 
-     print_separator();
+      print_separator();
 
-     // 'int' is implicitly 'signed'
-     std::cout << std::is_same<int, int>::value << "\\n";          // true
-     std::cout << std::is_same<int, unsigned int>::value << "\\n"; // false
-     std::cout << std::is_same<int, signed int>::value << "\\n";   // true
+      // 'int' is implicitly 'signed'
+      std::cout << std::is_same<int, int>::value << "\\n";          // true
+      std::cout << std::is_same<int, unsigned int>::value << "\\n"; // false
+      std::cout << std::is_same<int, signed int>::value << "\\n";   // true
 
-     print_separator();
+      print_separator();
 
-     // unlike other types, 'char' is neither 'unsigned' nor 'signed'
-     std::cout << std::is_same<char, char>::value << "\\n";          // true
-     std::cout << std::is_same<char, unsigned char>::value << "\\n"; // false
-     std::cout << std::is_same<char, signed char>::value << "\\n";   // false
- }
+      // unlike other types, 'char' is neither 'unsigned' nor 'signed'
+      std::cout << std::is_same<char, char>::value << "\\n";          // true
+      std::cout << std::is_same<char, unsigned char>::value << "\\n"; // false
+      std::cout << std::is_same<char, signed char>::value << "\\n";   // false
+  }
 
 .SH Possible output:
 
- true
- false
- -----
- false
- -----
- true
- false
- true
- -----
- true
- false
- false
+  true
+  false
+  -----
+  false
+  -----
+  true
+  false
+  true
+  -----
+  true
+  false
+  false
+
 
 .SH See also
 
-   is_integral   checks if a type is an integral type
-   \fI(C++11)\fP       \fI(class template)\fP
-   make_signed   makes the given integral type signed
-   \fI(C++11)\fP       \fI(class template)\fP
-   make_unsigned makes the given integral type unsigned
-   \fI(C++11)\fP       \fI(class template)\fP
+
+
+is_integral   checks if a type is an integral type
+              \fI(class template)\fP
+\fI(C++11)\fP
+
+make_signed   makes the given integral type signed
+              \fI(class template)\fP
+\fI(C++11)\fP
+
+make_unsigned makes the given integral type unsigned
+              \fI(class template)\fP
+\fI(C++11)\fP
+
+
+
+

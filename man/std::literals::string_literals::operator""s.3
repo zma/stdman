@@ -3,60 +3,67 @@
 std::literals::string_literals::operator""s \- std::literals::string_literals::operator""s
 
 .SH Synopsis
-   Defined in header <string>
-   string operator "" s(const char *str, std::size_t len);        \fB(1)\fP \fI(since C++14)\fP
-   u8string operator "" s(const char8_t *str, std::size_t len);   \fB(2)\fP \fI(since C++20)\fP
-   u16string operator "" s(const char16_t *str, std::size_t len); \fB(3)\fP \fI(since C++14)\fP
-   u32string operator "" s(const char32_t *str, std::size_t len); \fB(4)\fP \fI(since C++14)\fP
-   wstring operator "" s(const wchar_t *str, std::size_t len);    \fB(5)\fP \fI(since C++14)\fP
 
-   Forms a string literal of the desired type.
+Defined in header <string>
+string operator "" s(const char *str, std::size_t len);        \fB(1)\fP \fI(since C++14)\fP
+u8string operator "" s(const char8_t *str, std::size_t len);   \fB(2)\fP \fI(since C++20)\fP
+u16string operator "" s(const char16_t *str, std::size_t len); \fB(3)\fP \fI(since C++14)\fP
+u32string operator "" s(const char32_t *str, std::size_t len); \fB(4)\fP \fI(since C++14)\fP
+wstring operator "" s(const wchar_t *str, std::size_t len);    \fB(5)\fP \fI(since C++14)\fP
 
-   1) returns std::string{str, len}
-   2) returns std::u8string{str, len}
-   3) returns std::u16string{str, len}
-   4) returns std::u32string{str, len}
-   5) returns std::wstring{str, len}
+Forms a string literal of the desired type.
+1) returns std::string{str, len}
+2) returns std::u8string{str, len}
+3) returns std::u16string{str, len}
+4) returns std::u32string{str, len}
+5) returns std::wstring{str, len}
 
 .SH Parameters
 
-   str - pointer to the beginning of the raw character array literal
-   len - length of the raw character array literal
+
+str - pointer to the beginning of the raw character array literal
+len - length of the raw character array literal
+
 
 .SH Return value
 
-   The string literal.
+The string literal.
 
 .SH Notes
 
-   These operators are declared in the namespace std::literals::string_literals, where both literals and string_literals are inline namespaces. Access to these operators can be gained with using namespace std::literals, using namespace std::string_literals, and using namespace std::literals::string_literals.
-
-   std::chrono::duration also defines operator""s, to represent literal seconds, but it is an arithmetic literal: 10.0s and 10s are ten seconds, but "10"s is a string.
+These operators are declared in the namespace std::literals::string_literals, where both literals and string_literals are inline namespaces. Access to these operators can be gained with using namespace std::literals, using namespace std::string_literals, and using namespace std::literals::string_literals.
+std::chrono::duration also defines operator""s, to represent literal seconds, but it is an arithmetic literal: 10.0s and 10s are ten seconds, but "10"s is a string.
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <string>
- #include <iostream>
+  #include <string>
+  #include <iostream>
 
- int main()
- {
-     using namespace std::string_literals;
+  int main()
+  {
+      using namespace std::string_literals;
 
-     std::string s1 = "abc\\0\\0def";
-     std::string s2 = "abc\\0\\0def"s;
-     std::cout << "s1: " << s1.size() << " \\"" << s1 << "\\"\\n";
-     std::cout << "s2: " << s2.size() << " \\"" << s2 << "\\"\\n";
- }
+      std::string s1 = "abc\\0\\0def";
+      std::string s2 = "abc\\0\\0def"s;
+      std::cout << "s1: " << s1.size() << " \\"" << s1 << "\\"\\n";
+      std::cout << "s2: " << s2.size() << " \\"" << s2 << "\\"\\n";
+  }
 
 .SH Possible output:
 
- s1: 3 "abc"
- s2: 8 "abc^@^@def"
+  s1: 3 "abc"
+  s2: 8 "abc^@^@def"
+
 
 .SH See also
 
-   constructor   constructs a basic_string
-                 \fI(public member function)\fP
+
+              constructs a basic_string
+constructor   \fI(public member function)\fP
+
+
+
+

@@ -3,18 +3,22 @@
 std::match_results<BidirIt,Alloc>::max_size \- std::match_results<BidirIt,Alloc>::max_size
 
 .SH Synopsis
-   size_type max_size() const noexcept;  \fI(since C++11)\fP
 
-   Returns the maximum number of submatches the match_results type is able to hold due to system or library implementation limitations, i.e. std::distance(begin(), end()) for the largest number of submatches.
+size_type max_size() const noexcept;  \fI(since C++11)\fP
+
+Returns the maximum number of submatches the match_results type is able to hold due to system or library implementation limitations, i.e. std::distance(begin(), end()) for the largest number of submatches.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   Maximum number of submatches
+Maximum number of submatches
 
 .SH Complexity
 
-   Constant.
+Constant.
+
+
+

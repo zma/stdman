@@ -3,73 +3,90 @@
 std::make_move_iterator \- std::make_move_iterator
 
 .SH Synopsis
-   Defined in header <iterator>
-   template< class Iter >                                            \fI(since C++11)\fP
-   std::move_iterator<Iter> make_move_iterator( const Iter& i );     \fI(until C++14)\fP
-   template< class Iter >                                            \fI(since C++14)\fP
-   std::move_iterator<Iter> make_move_iterator( Iter i );            \fI(until C++17)\fP
-   template< class Iter >                                            \fI(since C++17)\fP
-   constexpr std::move_iterator<Iter> make_move_iterator( Iter i );
 
-   make_move_iterator is a convenience function template that constructs a std::move_iterator for the given iterator i with the type deduced from the type of the argument.
+Defined in header <iterator>
+template< class Iter >                                            \fI(since C++11)\fP
+std::move_iterator<Iter> make_move_iterator( const Iter& i );     \fI(until C++14)\fP
+template< class Iter >                                            \fI(since C++14)\fP
+std::move_iterator<Iter> make_move_iterator( Iter i );            \fI(until C++17)\fP
+template< class Iter >                                            \fI(since C++17)\fP
+constexpr std::move_iterator<Iter> make_move_iterator( Iter i );
+
+make_move_iterator is a convenience function template that constructs a std::move_iterator for the given iterator i with the type deduced from the type of the argument.
 
 .SH Parameters
 
-   i - input iterator to be converted to move iterator
+
+i - input iterator to be converted to move iterator
+
 
 .SH Return value
 
-   A std::move_iterator which can be used to move from the elements accessed through i
+A std::move_iterator which can be used to move from the elements accessed through i
 
 .SH Possible implementation
 
-   template< class Iter >
-   constexpr std::move_iterator<Iter> make_move_iterator( Iter i )
-   {
-       return std::move_iterator<Iter>(i);
-   }
+
+
+  template< class Iter >
+  constexpr std::move_iterator<Iter> make_move_iterator( Iter i )
+  {
+      return std::move_iterator<Iter>(i);
+  }
+
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <list>
- #include <vector>
- #include <string>
- #include <iterator>
+  #include <iostream>
+  #include <list>
+  #include <vector>
+  #include <string>
+  #include <iterator>
 
- int main()
- {
-     std::list<std::string> s{"one", "two", "three"};
+  int main()
+  {
+      std::list<std::string> s{"one", "two", "three"};
 
-     std::vector<std::string> v1(s.begin(), s.end()); // copy
+      std::vector<std::string> v1(s.begin(), s.end()); // copy
 
-     std::vector<std::string> v2(std::make_move_iterator(s.begin()),
-                                 std::make_move_iterator(s.end())); // move
+      std::vector<std::string> v2(std::make_move_iterator(s.begin()),
+                                  std::make_move_iterator(s.end())); // move
 
-     std::cout << "v1 now holds: ";
-     for (auto str : v1)
-             std::cout << "\\"" << str << "\\" ";
-     std::cout << "\\nv2 now holds: ";
-     for (auto str : v2)
-             std::cout << "\\"" << str << "\\" ";
-     std::cout << "\\noriginal list now holds: ";
-     for (auto str : s)
-             std::cout << "\\"" << str << "\\" ";
-     std::cout << '\\n';
- }
+      std::cout << "v1 now holds: ";
+      for (auto str : v1)
+              std::cout << "\\"" << str << "\\" ";
+      std::cout << "\\nv2 now holds: ";
+      for (auto str : v2)
+              std::cout << "\\"" << str << "\\" ";
+      std::cout << "\\noriginal list now holds: ";
+      for (auto str : s)
+              std::cout << "\\"" << str << "\\" ";
+      std::cout << '\\n';
+  }
 
 .SH Possible output:
 
- v1 now holds: "one" "two" "three"
- v2 now holds: "one" "two" "three"
- original list now holds: "" "" ""
+  v1 now holds: "one" "two" "three"
+  v2 now holds: "one" "two" "three"
+  original list now holds: "" "" ""
+
 
 .SH See also
 
-   move_iterator iterator adaptor which dereferences to an rvalue reference
-   \fI(C++11)\fP       \fI(class template)\fP
-   move          obtains an rvalue reference
-   \fI(C++11)\fP       \fI(function template)\fP
+
+
+move_iterator iterator adaptor which dereferences to an rvalue reference
+              \fI(class template)\fP
+\fI(C++11)\fP
+
+move          obtains an rvalue reference
+              \fI(function template)\fP
+\fI(C++11)\fP
+
+
+
+

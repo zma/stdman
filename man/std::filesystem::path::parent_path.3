@@ -3,41 +3,45 @@
 std::filesystem::path::parent_path \- std::filesystem::path::parent_path
 
 .SH Synopsis
-   path parent_path() const;  \fI(since C++17)\fP
 
-   Returns the path to the parent directory.
+path parent_path() const;  \fI(since C++17)\fP
 
-   If has_relative_path() returns false, the result is a copy of *this Otherwise, the result is a path whose generic format pathname is the longest prefix of the generic format pathname of *this that produces one fewer element in its iteration.
+Returns the path to the parent directory.
+If has_relative_path() returns false, the result is a copy of *this Otherwise, the result is a path whose generic format pathname is the longest prefix of the generic format pathname of *this that produces one fewer element in its iteration.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   The path to the parent directory.
+The path to the parent directory.
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <filesystem>
- namespace fs = std::filesystem;
- int main()
- {
-     for(fs::path p : {"/var/tmp/example.txt", "/", "/var/tmp/."})
-         std::cout << "The parent path of " << p
-                   << " is " << p.parent_path() << '\\n';
- }
+  #include <iostream>
+  #include <filesystem>
+  namespace fs = std::filesystem;
+  int main()
+  {
+      for(fs::path p : {"/var/tmp/example.txt", "/", "/var/tmp/."})
+          std::cout << "The parent path of " << p
+                    << " is " << p.parent_path() << '\\n';
+  }
 
 .SH Possible output:
 
- The parent path of "/var/tmp/example.txt" is "/var/tmp"
- The parent path of "/" is "/"
- The parent path of "/var/tmp/." is "/var/tmp"
+  The parent path of "/var/tmp/example.txt" is "/var/tmp"
+  The parent path of "/" is "/"
+  The parent path of "/var/tmp/." is "/var/tmp"
+
+
+
+

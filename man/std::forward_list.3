@@ -3,120 +3,151 @@
 std::forward_list \- std::forward_list
 
 .SH Synopsis
-   Defined in header <forward_list>
-   template<
 
-   class T,                                                                       \fB(1)\fP \fI(since C++11)\fP
-   class Allocator = std::allocator<T>
+Defined in header <forward_list>
+template<
+class T,                                                                       \fB(1)\fP \fI(since C++11)\fP
+class Allocator = std::allocator<T>
+> class forward_list;
+namespace pmr {
+template <class T>                                                             \fB(2)\fP \fI(since C++17)\fP
+using forward_list = std::forward_list<T, std::pmr::polymorphic_allocator<T>>;
+}
 
-   > class forward_list;
-   namespace pmr {
-
-   template <class T>                                                             \fB(2)\fP \fI(since C++17)\fP
-   using forward_list = std::forward_list<T, std::pmr::polymorphic_allocator<T>>;
-
-   }
-
-   std::forward_list is a container that supports fast insertion and removal of elements from anywhere in the container. Fast random access is not supported. It is implemented as a singly-linked list and essentially does not have any overhead compared to its implementation in C. Compared to std::list this container provides more space efficient storage when bidirectional iteration is not needed.
-
-   Adding, removing and moving the elements within the list, or across several lists, does not invalidate the iterators currently referring to other elements in the list. However, an iterator or reference referring to an element is invalidated when the corresponding element is removed (via erase_after) from the list.
-
-   std::forward_list meets the requirements of Container (except for the size member function and that operator=='s complexity is always linear), AllocatorAwareContainer and SequenceContainer.
+std::forward_list is a container that supports fast insertion and removal of elements from anywhere in the container. Fast random access is not supported. It is implemented as a singly-linked list and essentially does not have any overhead compared to its implementation in C. Compared to std::list this container provides more space efficient storage when bidirectional iteration is not needed.
+Adding, removing and moving the elements within the list, or across several lists, does not invalidate the iterators currently referring to other elements in the list. However, an iterator or reference referring to an element is invalidated when the corresponding element is removed (via erase_after) from the list.
+std::forward_list meets the requirements of Container (except for the size member function and that operator=='s complexity is always linear), AllocatorAwareContainer and SequenceContainer.
 
 .SH Template parameters
 
-               The type of the elements.
-   T         -
-               The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type is a complete type and meets the requirements of Erasable, but many member functions impose stricter requirements.                                                                                                                                       \fI(until C++17)\fP
-               The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type meets the requirements of Erasable, but many member functions impose stricter requirements. This container (but not its members) can be instantiated with an incomplete element type if the allocator satisfies the allocator completeness requirements. \fI(since C++17)\fP
-   Allocator - An allocator that is used to acquire/release memory and to construct/destroy the elements in that memory. The type must meet the requirements of Allocator. The behavior is undefined if Allocator::value_type is not the same as T.
+
+            The type of the elements.
+
+T         - The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type is a complete type and meets the requirements of Erasable, but many member functions impose stricter requirements.                                                                                                                                       \fI(until C++17)\fP
+            The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type meets the requirements of Erasable, but many member functions impose stricter requirements. This container (but not its members) can be instantiated with an incomplete element type if the allocator satisfies the allocator_completeness_requirements. \fI(since C++17)\fP
+
+Allocator - An allocator that is used to acquire/release memory and to construct/destroy the elements in that memory. The type must meet the requirements of Allocator. The behavior is undefined if Allocator::value_type is not the same as T.
+
 
 .SH Member types
 
-   Member type     Definition
-   value_type      T
-   allocator_type  Allocator
-   size_type       Unsigned integer type (usually std::size_t)
-   difference_type Signed integer type (usually std::ptrdiff_t)
-   reference       value_type&
-   const_reference const value_type&
-   pointer         std::allocator_traits<Allocator>::pointer
-   const_pointer   std::allocator_traits<Allocator>::const_pointer
-   iterator        LegacyForwardIterator
-   const_iterator  Constant LegacyForwardIterator
+
+Member type     Definition
+value_type      T
+allocator_type  Allocator
+size_type       Unsigned integer type (usually std::size_t)
+difference_type Signed integer type (usually std::ptrdiff_t)
+reference       value_type&
+const_reference const value_type&
+pointer         std::allocator_traits<Allocator>::pointer
+const_pointer   std::allocator_traits<Allocator>::const_pointer
+iterator        LegacyForwardIterator
+const_iterator  Constant LegacyForwardIterator
+
 
 .SH Member functions
 
-   constructor   constructs the forward_list
-                 \fI(public member function)\fP
-   destructor    destructs the forward_list
-                 \fI(public member function)\fP
-   operator=     assigns values to the container
-                 \fI(public member function)\fP
-   assign        assigns values to the container
-                 \fI(public member function)\fP
-   get_allocator returns the associated allocator
-                 \fI(public member function)\fP
+
+              constructs the forward_list
+constructor   \fI(public member function)\fP
+              destructs the forward_list
+destructor    \fI(public member function)\fP
+              assigns values to the container
+operator=     \fI(public member function)\fP
+              assigns values to the container
+assign        \fI(public member function)\fP
+              returns the associated allocator
+get_allocator \fI(public member function)\fP
+
 .SH Element access
-   front         access the first element
-                 \fI(public member function)\fP
+
+              access the first element
+front         \fI(public member function)\fP
+
 .SH Iterators
-   before_begin  returns an iterator to the element before beginning
-   cbefore_begin \fI(public member function)\fP
-   begin         returns an iterator to the beginning
-   cbegin        \fI(public member function)\fP
-   end           returns an iterator to the end
-   cend          \fI(public member function)\fP
+
+              returns an iterator to the element before beginning
+before_begin  \fI(public member function)\fP
+cbefore_begin
+
+begin         returns an iterator to the beginning
+cbegin        \fI(public member function)\fP
+
+
+
+end_          returns an iterator to the end
+cend          \fI(public member function)\fP
+
+
+
 .SH Capacity
-   empty         checks whether the container is empty
-                 \fI(public member function)\fP
-   max_size      returns the maximum possible number of elements
-                 \fI(public member function)\fP
+
+              checks whether the container is empty
+empty         \fI(public member function)\fP
+              returns the maximum possible number of elements
+max_size      \fI(public member function)\fP
+
 .SH Modifiers
-   clear         clears the contents
-                 \fI(public member function)\fP
-   insert_after  inserts elements after an element
-                 \fI(public member function)\fP
-   emplace_after constructs elements in-place after an element
-                 \fI(public member function)\fP
-   erase_after   erases an element after an element
-                 \fI(public member function)\fP
-   push_front    inserts an element to the beginning
-                 \fI(public member function)\fP
-   emplace_front constructs an element in-place at the beginning
-                 \fI(public member function)\fP
-   pop_front     removes the first element
-                 \fI(public member function)\fP
-   resize        changes the number of elements stored
-                 \fI(public member function)\fP
-   swap          swaps the contents
-                 \fI(public member function)\fP
+
+              clears the contents
+clear         \fI(public member function)\fP
+              inserts elements after an element
+insert_after  \fI(public member function)\fP
+              constructs elements in-place after an element
+emplace_after \fI(public member function)\fP
+              erases an element after an element
+erase_after   \fI(public member function)\fP
+              inserts an element to the beginning
+push_front    \fI(public member function)\fP
+              constructs an element in-place at the beginning
+emplace_front \fI(public member function)\fP
+              removes the first element
+pop_front     \fI(public member function)\fP
+              changes the number of elements stored
+resize        \fI(public member function)\fP
+              swaps the contents
+swap          \fI(public member function)\fP
+
 .SH Operations
-   merge         merges two sorted lists
-                 \fI(public member function)\fP
-   splice_after  moves elements from another forward_list
-                 \fI(public member function)\fP
-   remove        removes elements satisfying specific criteria
-   remove_if     \fI(public member function)\fP
-   reverse       reverses the order of the elements
-                 \fI(public member function)\fP
-   unique        removes consecutive duplicate elements
-                 \fI(public member function)\fP
-   sort          sorts the elements
-                 \fI(public member function)\fP
+
+              merges two sorted lists
+merge         \fI(public member function)\fP
+              moves elements from another forward_list
+splice_after  \fI(public member function)\fP
+              removes elements satisfying specific criteria
+remove        \fI(public member function)\fP
+remove_if
+              reverses the order of the elements
+reverse       \fI(public member function)\fP
+              removes consecutive duplicate elements
+unique        \fI(public member function)\fP
+              sorts the elements
+sort          \fI(public member function)\fP
+
 
 .SH Non-member functions
 
-   operator==
-   operator!=
-   operator<                    lexicographically compares the values in the forward_list
-   operator<=                   \fI(function template)\fP
-   operator>
-   operator>=
-   std::swap(std::forward_list) specializes the std::swap algorithm
-   \fI(C++11)\fP                      \fI(function template)\fP
-   erase(std::forward_list)     Erases all elements satisfying specific criteria
-   erase_if(std::forward_list)  \fI(function template)\fP
-   (C++20)
 
-  Deduction guides\fI(since C++17)\fP
+
+operator==
+operator!=                   lexicographically compares the values in the forward_list
+operator<                    \fI(function template)\fP
+operator<=
+operator>
+operator>=
+
+std::swap(std::forward_list) specializes the std::swap algorithm
+                             \fI(function template)\fP
+\fI(C++11)\fP
+
+erase(std::forward_list)     Erases all elements satisfying specific criteria
+erase_if(std::forward_list)  \fI(function template)\fP
+
+(C++20)
+
+
+Deduction_guides\fI(since C++17)\fP
+
+
+
+

@@ -3,55 +3,62 @@
 std::towctrans \- std::towctrans
 
 .SH Synopsis
-   Defined in header <cwctype>
-   std::wint_t towctrans( std::wint_t wc, std::wctrans_t desc );
 
-   Maps the wide character wc using the current C locale's LC_CTYPE mapping category identified by desc.
+Defined in header <cwctype>
+std::wint_t towctrans( std::wint_t wc, std::wctrans_t desc );
 
-   If the value of ch is neither representable as a wchar_t nor equal to the value of the macro WEOF, the behavior is undefined.
+Maps the wide character wc using the current C locale's LC_CTYPE mapping category identified by desc.
+If the value of ch is neither representable as a wchar_t nor equal to the value of the macro WEOF, the behavior is undefined.
 
 .SH Parameters
 
-   ch   - the wide character to map
-   desc - the LC_CTYPE mapping, obtained from a call to std::wctrans
+
+ch   - the wide character to map
+desc - the LC_CTYPE mapping, obtained from a call to std::wctrans
+
 
 .SH Return value
 
-   The mapped value of ch using the mapping identified by desc in LC_CTYPE facet of the current C locale.
+The mapped value of ch using the mapping identified by desc in LC_CTYPE facet of the current C locale.
 
 .SH Example
 
-   The following example demonstrates katakana to hiragana character mapping
+The following example demonstrates katakana to hiragana character mapping
 
-   
 // Run this code
 
- #include <clocale>
- #include <cwctype>
- #include <iostream>
- #include <algorithm>
+  #include <clocale>
+  #include <cwctype>
+  #include <iostream>
+  #include <algorithm>
 
- std::wstring tohira(std::wstring str)
- {
-     std::transform(str.begin(), str.end(), str.begin(), [](wchar_t c) {
-          return std::towctrans(c, std::wctrans("tojhira"));
-     });
-     return str;
- }
+  std::wstring tohira(std::wstring str)
+  {
+      std::transform(str.begin(), str.end(), str.begin(), [](wchar_t c) {
+           return std::towctrans(c, std::wctrans("tojhira"));
+      });
+      return str;
+  }
 
- int main()
- {
-     std::setlocale(LC_ALL, "ja_JP.UTF-8");
-     std::wstring kana = L"ヒラガナ";
-     std::wcout << "katakana characters " << kana
-                << " are " << tohira(kana) << " in hiragana\\n";
- }
+  int main()
+  {
+      std::setlocale(LC_ALL, "ja_JP.UTF-8");
+      std::wstring kana = L"ヒラガナ";
+      std::wcout << "katakana characters " << kana
+                 << " are " << tohira(kana) << " in hiragana\\n";
+  }
 
 .SH Output:
 
- katakana characters ヒラガナ are ひらがな in hiragana
+  katakana characters ヒラガナ are ひらがな in hiragana
+
 
 .SH See also
 
-   wctrans looks up a character mapping category in the current C locale
-           \fI(function)\fP
+
+        looks up a character mapping category in the current C locale
+wctrans \fI(function)\fP
+
+
+
+

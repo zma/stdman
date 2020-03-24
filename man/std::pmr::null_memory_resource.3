@@ -3,17 +3,21 @@
 std::pmr::null_memory_resource \- std::pmr::null_memory_resource
 
 .SH Synopsis
-   Defined in header <memory_resource>
-   std::pmr::memory_resource* null_memory_resource() noexcept;  \fI(since C++17)\fP
 
-   Returns a pointer to a memory_resource that doesn't perform any allocation.
+Defined in header <memory_resource>
+std::pmr::memory_resource* null_memory_resource() noexcept;  \fI(since C++17)\fP
+
+Returns a pointer to a memory_resource that doesn't perform any allocation.
 
 .SH Return value
 
-   Returns a pointer p to a static storage duration object of a type derived from std::pmr::memory_resource, with the following properties:
+Returns a pointer p to a static storage duration object of a type derived from std::pmr::memory_resource, with the following properties:
 
-     * its allocate() function always throws std::bad_alloc;
-     * its deallocate() function has no effect;
-     * for any memory_resource r, p->is_equal(r) returns &r == p.
+* its allocate() function always throws std::bad_alloc;
+* its deallocate() function has no effect;
+* for any memory_resource r, p->is_equal(r) returns &r == p.
 
-   The same value is returned every time this function is called.
+The same value is returned every time this function is called.
+
+
+

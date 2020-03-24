@@ -3,24 +3,32 @@
 std::experimental::filesystem::swap(std::experimental::filesystem::path) \- std::experimental::filesystem::swap(std::experimental::filesystem::path)
 
 .SH Synopsis
-   void swap( path& lhs, path& rhs );  (filesystem TS)
 
-   Exchanges the state of lhs with that of rhs. Effectively calls lhs.swap(rhs).
+void swap( path& lhs, path& rhs );  (filesystem TS)
+
+Exchanges the state of lhs with that of rhs. Effectively calls lhs.swap(rhs).
 
 .SH Parameters
 
-   lhs, rhs - paths whose states to swap
+
+lhs, rhs - paths whose states to swap
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Exceptions
 
-   noexcept specification:
-   noexcept
+noexcept specification:
+noexcept
 
 .SH See also
 
-   swap swaps two paths
-        \fI(public member function)\fP
+
+     swaps two paths
+swap \fI(public member function)\fP
+
+
+
+

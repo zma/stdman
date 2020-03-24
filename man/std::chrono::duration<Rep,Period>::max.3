@@ -3,24 +3,33 @@
 std::chrono::duration<Rep,Period>::max \- std::chrono::duration<Rep,Period>::max
 
 .SH Synopsis
-   static constexpr duration max();           \fI(until C++20)\fP
-   static constexpr duration max() noexcept;  \fI(since C++20)\fP
 
-   Returns a duration with the largest possible value.
+static constexpr duration max();           \fI(until C++20)\fP
+static constexpr duration max() noexcept;  \fI(since C++20)\fP
 
-   If the representation rep of the duration requires some other implementation to return a maximum-length duration, std::chrono::duration_values can be specialized to return the desired value.
+Returns a duration with the largest possible value.
+If the representation rep of the duration requires some other implementation to return a maximum-length duration, std::chrono::duration_values can be specialized to return the desired value.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   returns duration(std::chrono::duration_values<rep>::max())
+returns duration(std::chrono::duration_values<rep>::max())
 
 .SH See also
 
-   zero     returns the special duration value zero
-   \fB[static]\fP \fI(public static member function)\fP
-   min      returns the special duration value min
-   \fB[static]\fP \fI(public static member function)\fP
+
+
+zero     returns the special duration value zero
+         \fI(public static member function)\fP
+\fB[static]\fP
+
+min      returns the special duration value min
+         \fI(public static member function)\fP
+\fB[static]\fP
+
+
+
+

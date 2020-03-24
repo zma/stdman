@@ -3,25 +3,36 @@
 std::atomic<T>::fetch_xor \- std::atomic<T>::fetch_xor
 
 .SH Synopsis
-   T fetch_xor( T arg,
-   std::memory_order order = std::memory_order_seq_cst ) noexcept;           \fI(since C++11)\fP
-   T fetch_xor( T arg,                                                       (member only of atomic<Integral> template specialization)
-   std::memory_order order = std::memory_order_seq_cst ) volatile noexcept;
 
-   Atomically replaces the current value with the result of bitwise XOR of the value and arg. The operation is read-modify-write operation. Memory is affected according to the value of order.
+T fetch_xor( T arg,
+std::memory_order order = std::memory_order_seq_cst ) noexcept;           \fI(since C++11)\fP
+T fetch_xor( T arg,                                                       (member only of atomic<Integral> template specialization)
+std::memory_order order = std::memory_order_seq_cst ) volatile noexcept;
+
+Atomically replaces the current value with the result of bitwise XOR of the value and arg. The operation is read-modify-write operation. Memory is affected according to the value of order.
 
 .SH Parameters
 
-   arg   - the other argument of bitwise XOR
-   order - memory order constraints to enforce
+
+arg   - the other argument of bitwise XOR
+order - memory order constraints to enforce
+
 
 .SH Return value
 
-   The value immediately preceding the effects of this function in the modification order of *this.
+The value immediately preceding the effects of this function in the modification_order of *this.
+
 
 .SH See also
 
-   atomic_fetch_xor
-   atomic_fetch_xor_explicit replaces the atomic object with the result of bitwise XOR with a non-atomic argument and obtains the previous value of the atomic
-   \fI(C++11)\fP                   \fI(function template)\fP
-   \fI(C++11)\fP
+
+
+atomic_fetch_xor
+atomic_fetch_xor_explicit replaces the atomic object with the result of bitwise XOR with a non-atomic argument and obtains the previous value of the atomic
+                          \fI(function template)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+
+
+
+

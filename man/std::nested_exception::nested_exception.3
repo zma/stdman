@@ -3,14 +3,19 @@
 std::nested_exception::nested_exception \- std::nested_exception::nested_exception
 
 .SH Synopsis
-   nested_exception() noexcept;                                          \fB(1)\fP \fI(since C++11)\fP
-   nested_exception( const nested_exception& other ) noexcept = default; \fB(2)\fP \fI(since C++11)\fP
 
-   Constructs new nested_exception object.
+nested_exception() noexcept;                                          \fB(1)\fP \fI(since C++11)\fP
+nested_exception( const nested_exception& other ) noexcept = default; \fB(2)\fP \fI(since C++11)\fP
 
-   1) Default constructor. Stores an exception object obtained by calling std::current_exception() within the new nested_exception object.
-   2) Copy constructor. Initializes the object with the exception stored in other.
+Constructs new nested_exception object.
+1) Default constructor. Stores an exception object obtained by calling std::current_exception() within the new nested_exception object.
+2) Copy constructor. Initializes the object with the exception stored in other.
 
 .SH Parameters
 
-   other - nested exception to initialize the contents with
+
+other - nested exception to initialize the contents with
+
+
+
+

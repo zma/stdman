@@ -3,46 +3,69 @@
 std::partial_order \- std::partial_order
 
 .SH Synopsis
-   Defined in header <compare>
-   template< class T >                                                     \fI(since C++20)\fP
-   constexpr std::partial_ordering partial_order(const T& a, const T& b);
 
-   Compares two values using 3-way comparison and produces a result of type std::partial_ordering
+Defined in header <compare>
+template< class T >                                                     \fI(since C++20)\fP
+constexpr std::partial_ordering partial_order(const T& a, const T& b);
 
-   Specifically,
+Compares two values using 3-way comparison and produces a result of type std::partial_ordering
+Specifically,
 
-     * If the expression a <=> b is well-formed and its result is convertible to std::partial_ordering, returns that result.
-     * Otherwise, if the expression a <=> b is well-formed, but its result is not convertible to std::partial_ordering, then the function is defined as deleted.
-     * Otherwise, if the expression a <=> b is ill-formed, but the expressions a == b and a < b are both well-formed and convertible to bool,
+* If the expression a <=> b is well-formed and its result is convertible to std::partial_ordering, returns that result.
+* Otherwise, if the expression a <=> b is well-formed, but its result is not convertible to std::partial_ordering, then the function is defined as deleted.
+* Otherwise, if the expression a <=> b is ill-formed, but the expressions a == b and a < b are both well-formed and convertible to bool,
 
-              * if a == b is true, returns std::partial_ordering::equivalent
-              * otherwise, if a < b is true, returns std::partial_ordering::less
-              * otherwise, returns std::partial_ordering::greater
 
-     * Otherwise, the function is defined as deleted.
+
+      * if a == b is true, returns std::partial_ordering::equivalent
+      * otherwise, if a < b is true, returns std::partial_ordering::less
+      * otherwise, returns std::partial_ordering::greater
+
+
+
+* Otherwise, the function is defined as deleted.
+
 
 .SH Parameters
 
-   a, b - values to compare
+
+a, b - values to compare
+
 
 .SH Return value
 
-   A value of type std::partial_ordering, as described above.
+A value of type std::partial_ordering, as described above.
 
 .SH Notes
 
+
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   partial_ordering the result type of 3-way comparison that supports all 6 operators, is not substitutable, and allows incomparable values
-   (C++20)          \fI(class)\fP
-   strong_order     performs 3-way comparison and produces a result of type std::strong_ordering
-   (C++20)          \fI(function template)\fP
-   weak_order       performs 3-way comparison and produces a result of type std::weak_ordering
-   (C++20)          \fI(function template)\fP
-   weak_equal       performs 3-way comparison and produces a result of type std::weak_equality
-   (C++20)          \fI(function template)\fP
+
+
+partial_ordering the result type of 3-way comparison that supports all 6 operators, is not substitutable, and allows incomparable values
+                 \fI(class)\fP
+(C++20)
+
+strong_order     performs 3-way comparison and produces a result of type std::strong_ordering
+                 \fI(function template)\fP
+(C++20)
+
+weak_order       performs 3-way comparison and produces a result of type std::weak_ordering
+                 \fI(function template)\fP
+(C++20)
+
+weak_equal       performs 3-way comparison and produces a result of type std::weak_equality
+                 \fI(function template)\fP
+(C++20)
+
+
+
+

@@ -3,20 +3,24 @@
 std::chrono::operator==,!=,<,<=,>,>=(std::chrono::time_zone) \- std::chrono::operator==,!=,<,<=,>,>=(std::chrono::time_zone)
 
 .SH Synopsis
-   bool operator==(const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(1)\fP \fI(since C++20)\fP
-   bool operator!=(const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(2)\fP \fI(since C++20)\fP
-   bool operator< (const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(3)\fP \fI(since C++20)\fP
-   bool operator> (const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(4)\fP \fI(since C++20)\fP
-   bool operator<=(const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(5)\fP \fI(since C++20)\fP
-   bool operator>=(const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(6)\fP \fI(since C++20)\fP
 
-   Compares the two time_zone objects x and y by name.
+bool operator==(const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(1)\fP \fI(since C++20)\fP
+bool operator!=(const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(2)\fP \fI(since C++20)\fP
+bool operator< (const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(3)\fP \fI(since C++20)\fP
+bool operator> (const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(4)\fP \fI(since C++20)\fP
+bool operator<=(const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(5)\fP \fI(since C++20)\fP
+bool operator>=(const std::chrono::time_zone& x, const std::chrono::time_zone& y) noexcept; \fB(6)\fP \fI(since C++20)\fP
+
+Compares the two time_zone objects x and y by name.
 
 .SH Return value
 
-   1) x.name() == y.name().
-   2) x.name() != y.name().
-   3) x.name() < y.name().
-   4) x.name() > y.name().
-   5) x.name() <= y.name().
-   6) x.name() >= y.name().
+1) x.name() == y.name().
+2) x.name() != y.name().
+3) x.name() < y.name().
+4) x.name() > y.name().
+5) x.name() <= y.name().
+6) x.name() >= y.name().
+
+
+

@@ -3,34 +3,41 @@
 std::span<T,Extent>::back \- std::span<T,Extent>::back
 
 .SH Synopsis
-   constexpr reference back() const;
 
-   Returns a reference to the last element in the span.
+constexpr reference back() const;
 
-   Calling back on an empty span results in undefined behavior.
+Returns a reference to the last element in the span.
+Calling back on an empty span results in undefined behavior.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   A reference to the back element.
+A reference to the back element.
 
 .SH Complexity
 
-   Constant
+Constant
 
 .SH Notes
 
-   For a span c, the expression c.back() is equivalent to *(c.end()-1).
+For a span c, the expression c.back() is equivalent to *(c.end()-1).
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   front access the first element
-         \fI(public member function)\fP
+
+      access the first element
+front \fI(public member function)\fP
+
+
+
+

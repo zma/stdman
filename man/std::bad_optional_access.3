@@ -3,25 +3,36 @@
 std::bad_optional_access \- std::bad_optional_access
 
 .SH Synopsis
-   Defined in header <optional>
-   class bad_optional_access;    \fI(since C++17)\fP
 
-   Defines a type of object to be thrown by std::optional::value when accessing an optional object that does not contain a value.
+Defined in header <optional>
+class bad_optional_access;    \fI(since C++17)\fP
 
-   std-bad optional access-inheritance-lwg2806.svg
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
+Defines a type of object to be thrown by std::optional::value when accessing an optional object that does not contain a value.
+ std-bad optional access-inheritance-lwg2806.svg
+Inheritance diagram
 
 .SH Member functions
 
-   constructor   constructs the exception object
-                 \fI(public member function)\fP
+
+              constructs the exception object
+constructor   \fI(public member function)\fP
+
 
 Inherited from std::exception
 
+
 .SH Member functions
 
-   destructor   destroys the exception object
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
-   what         returns an explanatory string
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
+
+
+destructor   destroys the exception object
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+what         returns an explanatory string
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+
+
+

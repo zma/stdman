@@ -3,113 +3,139 @@
 std::bad_alloc \- std::bad_alloc
 
 .SH Synopsis
-   Defined in header <new>
-   class bad_alloc;
 
-   std::bad_alloc is the type of the object thrown as exceptions by the allocation functions to report failure to allocate storage.
+Defined in header <new>
+class bad_alloc;
 
-   std-bad alloc-inheritance.svg
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
+std::bad_alloc is the type of the object thrown as exceptions by the allocation_functions to report failure to allocate storage.
+ std-bad alloc-inheritance.svg
+Inheritance diagram
 
 .SH Member functions
 
-   constructor   constructs the bad_alloc object
-                 \fI(public member function)\fP
-   operator=     replaces a bad_alloc object
-                 \fI(public member function)\fP
-   what          returns explanatory string
-                 \fI(public member function)\fP
 
-std::bad_alloc::bad_alloc
+              constructs the bad_alloc object
+constructor   \fI(public member function)\fP
+              replaces a bad_alloc object
+operator=     \fI(public member function)\fP
+              returns explanatory string
+what          \fI(public member function)\fP
 
-   bad_alloc();
 
-   Constructs new bad_alloc object with an implementation-defined null-terminated byte string which is accessible through what().
+ std::bad_alloc::bad_alloc
+
+
+bad_alloc();
+
+Constructs new bad_alloc object with an implementation-defined null-terminated byte string which is accessible through what().
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Exceptions
 
-   \fI(none)\fP                  \fI(until C++11)\fP
-   noexcept specification: \fI(since C++11)\fP
-   noexcept
 
-std::bad_alloc::operator=
+\fI(none)\fP                  \fI(until C++11)\fP
+noexcept specification: \fI(since C++11)\fP
+noexcept
 
-   bad_alloc& operator=( const bad_alloc& other );
 
-   Assigns the contents of other.
+ std::bad_alloc::operator=
+
+
+bad_alloc& operator=( const bad_alloc& other );
+
+Assigns the contents of other.
 
 .SH Parameters
 
-   other - another exception object to assign
+
+other - another exception object to assign
+
 
 .SH Return value
 
-   *this
+*this
 
 .SH Exceptions
 
-   \fI(none)\fP                  \fI(until C++11)\fP
-   noexcept specification: \fI(since C++11)\fP
-   noexcept
 
-std::bad_alloc::what
+\fI(none)\fP                  \fI(until C++11)\fP
+noexcept specification: \fI(since C++11)\fP
+noexcept
 
-   virtual const char* what() const;
 
-   Returns the explanatory string.
+ std::bad_alloc::what
+
+
+virtual const char* what() const;
+
+Returns the explanatory string.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   Pointer to a null-terminated string with explanatory information.
+Pointer to a null-terminated string with explanatory information.
 
 .SH Exceptions
 
-   \fI(none)\fP                  \fI(until C++11)\fP
-   noexcept specification: \fI(since C++11)\fP
-   noexcept
+
+\fI(none)\fP                  \fI(until C++11)\fP
+noexcept specification: \fI(since C++11)\fP
+noexcept
+
 
 Inherited from std::exception
 
+
 .SH Member functions
 
-   destructor   destroys the exception object
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
-   what         returns an explanatory string
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
+
+
+destructor   destroys the exception object
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+what         returns an explanatory string
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <new>
+  #include <iostream>
+  #include <new>
 
- int main()
- {
-     try {
-         while (true) {
-             new int[100000000ul];
-         }
-     } catch (const std::bad_alloc& e) {
-         std::cout << "Allocation failed: " << e.what() << '\\n';
-     }
- }
+  int main()
+  {
+      try {
+          while (true) {
+              new int[100000000ul];
+          }
+      } catch (const std::bad_alloc& e) {
+          std::cout << "Allocation failed: " << e.what() << '\\n';
+      }
+  }
 
 .SH Possible output:
 
- Allocation failed: std::bad_alloc
+  Allocation failed: std::bad_alloc
+
 
 .SH See also
 
-   operator new   allocation functions
-   operator new[] \fI(function)\fP
+
+               allocation functions
+operator_new   \fI(function)\fP
+operator_new[]
+
+
+
+

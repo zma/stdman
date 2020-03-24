@@ -3,46 +3,57 @@
 std::runtime_error \- std::runtime_error
 
 .SH Synopsis
-   Defined in header <stdexcept>
-   class runtime_error;
 
-   Defines a type of object to be thrown as exception. It reports errors that are due to events beyond the scope of the program and can not be easily predicted.
+Defined in header <stdexcept>
+class runtime_error;
 
-   Exceptions of type std::runtime_error are thrown by the following standard library components: std::locale::locale and std::locale::combine.
-
-   In addition, the standard exception types std::range_error, std::overflow_error, std::underflow_error, std::regex_error, and std::system_error are derived from std::runtime_error.
-
-   std-runtime error-inheritance.svg
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
+Defines a type of object to be thrown as exception. It reports errors that are due to events beyond the scope of the program and can not be easily predicted.
+Exceptions of type std::runtime_error are thrown by the following standard library components: std::locale::locale and std::locale::combine.
+In addition, the standard exception types std::range_error, std::overflow_error, std::underflow_error, std::regex_error, and std::system_error are derived from std::runtime_error.
+ std-runtime error-inheritance.svg
+Inheritance diagram
 
 .SH Member functions
 
-   constructor   constructs the exception object
-                 \fI(public member function)\fP
 
-std::runtime_error::runtime_error
+              constructs the exception object
+constructor   \fI(public member function)\fP
 
-   explicit runtime_error( const std::string& what_arg ); \fB(1)\fP
-   explicit runtime_error( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
 
-   Constructs the exception object with what_arg as explanatory string that can be accessed through what().
+ std::runtime_error::runtime_error
 
-   Because copying std::runtime_error is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
+
+explicit runtime_error( const std::string& what_arg ); \fB(1)\fP
+explicit runtime_error( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
+
+Constructs the exception object with what_arg as explanatory string that can be accessed through what().
+Because copying std::runtime_error is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
 
 .SH Parameters
 
-   what_arg - explanatory string
+
+what_arg - explanatory string
+
 
 .SH Exceptions
 
-   May throw std::bad_alloc
+May throw std::bad_alloc
 
 Inherited from std::exception
 
+
 .SH Member functions
 
-   destructor   destroys the exception object
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
-   what         returns an explanatory string
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
+
+
+destructor   destroys the exception object
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+what         returns an explanatory string
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+
+
+

@@ -3,42 +3,53 @@
 std::shared_lock<Mutex>::try_lock \- std::shared_lock<Mutex>::try_lock
 
 .SH Synopsis
-   bool try_lock();  \fI(since C++14)\fP
 
-   Tries to lock the associated mutex in shared mode without blocking. Effectively calls mutex()->try_lock_shared().
+bool try_lock();  \fI(since C++14)\fP
 
-   std::system_error is thrown if there is no associated mutex or if the mutex is already locked.
+Tries to lock the associated mutex in shared mode without blocking. Effectively calls mutex()->try_lock_shared().
+std::system_error is thrown if there is no associated mutex or if the mutex is already locked.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   true if the ownership of the mutex has been acquired successfully, false otherwise.
+true if the ownership of the mutex has been acquired successfully, false otherwise.
 
 .SH Exceptions
 
-     * Any exceptions thrown by mutex()->try_lock_shared()
 
-     * If there is no associated mutex, std::system_error with an error code of std::errc::operation_not_permitted
+* Any exceptions thrown by mutex()->try_lock_shared()
 
-     * If the mutex is already locked, std::system_error with an error code of std::errc::resource_deadlock_would_occur
+
+* If there is no associated mutex, std::system_error with an error code of std::errc::operation_not_permitted
+
+
+* If the mutex is already locked, std::system_error with an error code of std::errc::resource_deadlock_would_occur
+
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   try_lock       tries to lock the associated mutex
-                  \fI(public member function)\fP
-   lock           locks the associated mutex
-                  \fI(public member function)\fP
-   try_lock_for   tries to lock the associated mutex, for the specified duration
-                  \fI(public member function)\fP
-   try_lock_until tries to lock the associated mutex, until a specified time point
-                  \fI(public member function)\fP
-   unlock         unlocks the associated mutex
-                  \fI(public member function)\fP
+
+               tries to lock the associated mutex
+try_lock       \fI(public member function)\fP
+               locks the associated mutex
+lock           \fI(public member function)\fP
+               tries to lock the associated mutex, for the specified duration
+try_lock_for   \fI(public member function)\fP
+               tries to lock the associated mutex, until a specified time point
+try_lock_until \fI(public member function)\fP
+               unlocks the associated mutex
+unlock         \fI(public member function)\fP
+
+
+
+

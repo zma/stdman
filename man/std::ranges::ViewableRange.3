@@ -3,13 +3,14 @@
 std::ranges::ViewableRange \- std::ranges::ViewableRange
 
 .SH Synopsis
-   Defined in header <ranges>
-   template<class T>
 
-   concept ViewableRange =
+Defined in header <ranges>
+template<class T>
+concept ViewableRange =
+Range<T> && (__ForwardingRange<T> || View<std::decay_t<T>>);
 
-   Range<T> && (__ForwardingRange<T> || View<std::decay_t<T>>);
+The ViewableRange concept is a refinement of Range that describes a range that can be safely converted into a View.
+(note __ForwardingRange is the exposition-only concept defined in Range)
 
-   The ViewableRange concept is a refinement of Range that describes a range that can be safely converted into a View.
 
-   (note __ForwardingRange is the exposition-only concept defined in Range)
+

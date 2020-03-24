@@ -3,26 +3,34 @@
 std::experimental::swap(std::experimental::observer_ptr) \- std::experimental::swap(std::experimental::observer_ptr)
 
 .SH Synopsis
-   template< class W >                                                (library fundamentals TS v2)
-   void swap( observer_ptr<W>& lhs, observer_ptr<W>& rhs ) noexcept;
 
-   Specializes the swap algorithm for std::experimental::observer_ptr. Swaps the pointers of lhs and rhs. Calls lhs.swap(rhs).
+template< class W >                                                (library fundamentals TS v2)
+void swap( observer_ptr<W>& lhs, observer_ptr<W>& rhs ) noexcept;
+
+Specializes the swap algorithm for std::experimental::observer_ptr. Swaps the pointers of lhs and rhs. Calls lhs.swap(rhs).
 
 .SH Parameters
 
-   lhs, rhs - observer_ptrs whose contents to swap
+
+lhs, rhs - observer_ptrs whose contents to swap
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Complexity
 
-   Constant
+Constant
 
 .SH See also
 
-   swap swaps the values of two objects
-        \fI(function template)\fP
-   swap swaps the watched objects
-        \fI(public member function)\fP
+
+     swaps the values of two objects
+swap \fI(function template)\fP
+     swaps the watched objects
+swap \fI(public member function)\fP
+
+
+
+

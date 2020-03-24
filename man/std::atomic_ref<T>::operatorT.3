@@ -3,19 +3,25 @@
 std::atomic_ref<T>::operatorT \- std::atomic_ref<T>::operatorT
 
 .SH Synopsis
-   operator T() const noexcept;  \fI(since C++20)\fP
 
-   Atomically loads and returns the current value of the referenced object. Equivalent to load().
+operator T() const noexcept;  \fI(since C++20)\fP
+
+Atomically loads and returns the current value of the referenced object. Equivalent to load().
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   The current value of the referenced object.
+The current value of the referenced object.
 
 .SH See also
 
-   load atomically obtains the value of the referenced object
-        \fI(public member function)\fP
+
+     atomically obtains the value of the referenced object
+load \fI(public member function)\fP
+
+
+
+

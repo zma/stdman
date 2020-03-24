@@ -3,8 +3,11 @@
 std::scoped_lock<MutexTypes...>::~scoped_lock \- std::scoped_lock<MutexTypes...>::~scoped_lock
 
 .SH Synopsis
-   ~scoped_lock();  \fI(since C++17)\fP
 
-   Releases the ownership of the owned mutexes.
+~scoped_lock();  \fI(since C++17)\fP
 
-   Effectively calls unlock() on every mutex from the pack of mutexes passed to the scoped_lock's constructor.
+Releases the ownership of the owned mutexes.
+Effectively calls unlock() on every mutex from the pack of mutexes passed to the scoped_lock's constructor.
+
+
+

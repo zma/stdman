@@ -3,143 +3,181 @@
 std::codecvt_byname \- std::codecvt_byname
 
 .SH Synopsis
-   Defined in header <locale>
-   template< class InternT, class ExternT, class State >
-   class codecvt_byname : public std::codecvt<InternT, ExternT, State>;
 
-   std::codecvt_byname is a std::codecvt facet which encapsulates multibyte/wide character conversion rules of a locale specified at its construction.
+Defined in header <locale>
+template< class InternT, class ExternT, class State >
+class codecvt_byname : public std::codecvt<InternT, ExternT, State>;
 
-   Four specializations are provided by the standard library
+std::codecvt_byname is a std::codecvt facet which encapsulates multibyte/wide character conversion rules of a locale specified at its construction.
+Four specializations are provided by the standard library
 
-   Defined in header <locale>
-   std::codecvt_byname<char, char, std::mbstate_t>        identity conversion
-   std::codecvt_byname<char16_t, char, std::mbstate_t>    conversion between UTF-16 and UTF-8 \fI(since C++11)\fP(deprecated in C++20)
-   std::codecvt_byname<char16_t, char8_t, std::mbstate_t> conversion between UTF-16 and UTF-8 \fI(since C++20)\fP
-   std::codecvt_byname<char32_t, char, std::mbstate_t>    conversion between UTF-32 and UTF-8 \fI(since C++11)\fP(deprecated in C++20)
-   std::codecvt_byname<char32_t, char8_t, std::mbstate_t> conversion between UTF-32 and UTF-8 \fI(since C++20)\fP
-   std::codecvt_byname<wchar_t, char, std::mbstate_t>     locale-specific conversion between wide string and narrow character sets
+Defined in header <locale>
+std::codecvt_byname<char, char, std::mbstate_t>        identity conversion
+std::codecvt_byname<char16_t, char, std::mbstate_t>    conversion between UTF-16 and UTF-8 \fI(since C++11)\fP(deprecated in C++20)
+std::codecvt_byname<char16_t, char8_t, std::mbstate_t> conversion between UTF-16 and UTF-8 \fI(since C++20)\fP
+std::codecvt_byname<char32_t, char, std::mbstate_t>    conversion between UTF-32 and UTF-8 \fI(since C++11)\fP(deprecated in C++20)
+std::codecvt_byname<char32_t, char8_t, std::mbstate_t> conversion between UTF-32 and UTF-8 \fI(since C++20)\fP
+std::codecvt_byname<wchar_t, char, std::mbstate_t>     locale-specific conversion between wide string and narrow character sets
+
 
 .SH Member functions
 
-   constructor   constructs a new codecvt_byname facet
-                 \fI(public member function)\fP
-   destructor    destroys a codecvt_byname facet
-                 \fI(protected member function)\fP
 
-std::codecvt_byname::codecvt_byname
+              constructs a new codecvt_byname facet
+constructor   \fI(public member function)\fP
+              destroys a codecvt_byname facet
+destructor    \fI(protected member function)\fP
 
-   explicit codecvt_byname( const char* name, std::size_t refs = 0 );
-   explicit codecvt_byname( const std::string& name, std::size_t refs = 0 );  \fI(since C++11)\fP
 
-   Constructs a new std::codecvt_byname facet for a locale with name.
+ std::codecvt_byname::codecvt_byname
 
-   refs is used for resource management: if refs == 0, the implementation destroys the facet, when the last std::locale object holding it is destroyed. Otherwise, the object is not destroyed.
+
+explicit codecvt_byname( const char* name, std::size_t refs = 0 );
+explicit codecvt_byname( const std::string& name, std::size_t refs = 0 );  \fI(since C++11)\fP
+
+Constructs a new std::codecvt_byname facet for a locale with name.
+refs is used for resource management: if refs == 0, the implementation destroys the facet, when the last std::locale object holding it is destroyed. Otherwise, the object is not destroyed.
 
 .SH Parameters
 
-   name - the name of the locale
-   refs - the number of references that link to the facet
 
-std::codecvt_byname::~codecvt_byname
+name - the name of the locale
+refs - the number of references that link to the facet
 
-   protected:
-   ~codecvt_byname();
 
-   Destroys the facet.
+ std::codecvt_byname::~codecvt_byname
+
+
+protected:
+~codecvt_byname();
+
+Destroys the facet.
 
 Inherited from std::codecvt
 
+
 .SH Member types
 
-   Member type Definition
-   intern_type internT
-   extern_type externT
-   state_type  stateT
+
+Member type Definition
+intern_type internT
+extern_type externT
+state_type  stateT
+
 
 .SH Member objects
 
-   Member name Type
-   id (static) std::locale::id
+
+Member name Type
+id (static) std::locale::id
+
 
 .SH Member functions
 
-   out           invokes do_out
-                 \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
-   in            invokes do_in
-                 \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
-   unshift       invokes do_unshift
-                 \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
-   encoding      invokes do_encoding
-                 \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
-   always_noconv invokes do_always_noconv
-                 \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
-   length        invokes do_length
-                 \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
-   max_length    invokes do_max_length
-                 \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
+
+              invokes do_out
+out           \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
+              invokes do_in
+in            \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
+              invokes do_unshift
+unshift       \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
+              invokes do_encoding
+encoding      \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
+              invokes do_always_noconv
+always_noconv \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
+              invokes do_length
+length        \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
+              invokes do_max_length
+max_length    \fI(public member function of std::codecvt<InternT,ExternT,State>)\fP
+
 
 .SH Protected member functions
 
-   do_out           converts a string from internT to externT, such as when writing to file
-   \fB[virtual]\fP        \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
-   do_in            converts a string from externT to internT, such as when reading from file
-   \fB[virtual]\fP        \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
-   do_unshift       generates the termination character sequence of externT characters for incomplete conversion
-   \fB[virtual]\fP        \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
-   do_encoding      returns the number of externT characters necessary to produce one internT character, if constant
-   \fB[virtual]\fP        \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
-   do_always_noconv tests if the facet encodes an identity conversion for all valid argument values
-   \fB[virtual]\fP        \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
-   do_length        calculates the length of the externT string that would be consumed by conversion into given internT buffer
-   \fB[virtual]\fP        \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
-   do_max_length    returns the maximum number of externT characters that could be converted into a single internT character
-   \fB[virtual]\fP        \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
+
+
+do_out           converts a string from internT to externT, such as when writing to file
+                 \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
+\fB[virtual]\fP
+
+do_in            converts a string from externT to internT, such as when reading from file
+                 \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
+\fB[virtual]\fP
+
+do_unshift       generates the termination character sequence of externT characters for incomplete conversion
+                 \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
+\fB[virtual]\fP
+
+do_encoding      returns the number of externT characters necessary to produce one internT character, if constant
+                 \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
+\fB[virtual]\fP
+
+do_always_noconv tests if the facet encodes an identity conversion for all valid argument values
+                 \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
+\fB[virtual]\fP
+
+do_length        calculates the length of the externT string that would be consumed by conversion into given internT buffer
+                 \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
+\fB[virtual]\fP
+
+do_max_length    returns the maximum number of externT characters that could be converted into a single internT character
+                 \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
+\fB[virtual]\fP
+
+
 
 Inherited from std::codecvt_base
 
-   Member type                                 Definition
-   enum result { ok, partial, error, noconv }; Unscoped enumeration type
 
-   Enumeration constant Definition
-   ok                   conversion was completed with no error
-   partial              not all source characters were converted
-   error                encountered an invalid character
-   noconv               no conversion required, input and output types are the same
+Member type                                 Definition
+enum result { ok, partial, error, noconv }; Unscoped enumeration type
+
+
+Enumeration constant Definition
+ok                   conversion was completed with no error
+partial              not all source characters were converted
+error                encountered an invalid character
+noconv               no conversion required, input and output types are the same
+
 
 .SH Example
 
-   This example demonstrates reading a GB18030-encoded file using the codecvt facet from a GB18030-aware locale
+This example demonstrates reading a GB18030-encoded file using the codecvt facet from a GB18030-aware locale
 
-   
 // Run this code
 
- #include <iostream>
- #include <fstream>
- #include <string>
- #include <locale>
+  #include <iostream>
+  #include <fstream>
+  #include <string>
+  #include <locale>
 
- int main()
- {
-     // GB18030 narrow multibyte encoding
-     std::ofstream("text.txt") << "\\x7a"              // letter 'z', U+007a
-                                  "\\x81\\x30\\x89\\x38"  // letter 'ß', U+00df
-                                  "\\xcb\\xae"          // CJK ideogram '水' (water), U+6c34
-                                  "\\x94\\x32\\xbc\\x35"; // musical sign '𝄋' (segno), U+1d10b
-     std::wifstream fin("text.txt");
-     fin.imbue(std::locale(fin.getloc(),
-               new std::codecvt_byname<wchar_t, char, std::mbstate_t>("zh_CN.gb18030")));
-     for (wchar_t c; fin.get(c); )
-         std::cout << std::hex << std::showbase << c << '\\n';
- }
+  int main()
+  {
+      // GB18030 narrow multibyte encoding
+      std::ofstream("text.txt") << "\\x7a"              // letter 'z', U+007a
+                                   "\\x81\\x30\\x89\\x38"  // letter 'ß', U+00df
+                                   "\\xcb\\xae"          // CJK ideogram '水' (water), U+6c34
+                                   "\\x94\\x32\\xbc\\x35"; // musical sign '𝄋' (segno), U+1d10b
+      std::wifstream fin("text.txt");
+      fin.imbue(std::locale(fin.getloc(),
+                new std::codecvt_byname<wchar_t, char, std::mbstate_t>("zh_CN.gb18030")));
+      for (wchar_t c; fin.get(c); )
+          std::cout << std::hex << std::showbase << c << '\\n';
+  }
 
 .SH Output:
 
- 0x7a
- 0xdf
- 0x6c34
- 0x1d10b
+  0x7a
+  0xdf
+  0x6c34
+  0x1d10b
+
 
 .SH See also
 
-   codecvt converts between character encodings, including UTF-8, UTF-16, UTF-32
-           \fI(class template)\fP
+
+        converts between character encodings, including UTF-8, UTF-16, UTF-32
+codecvt \fI(class template)\fP
+
+
+
+

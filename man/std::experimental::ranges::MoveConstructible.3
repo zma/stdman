@@ -3,31 +3,37 @@
 std::experimental::ranges::MoveConstructible \- std::experimental::ranges::MoveConstructible
 
 .SH Synopsis
-   Defined in header <experimental/ranges/concepts>
-   template < class T >
 
-   concept bool MoveConstructible =                  (ranges TS)
+Defined in header <experimental/ranges/concepts>
+template < class T >
+concept bool MoveConstructible =                  (ranges TS)
+Constructible<T, T> && ConvertibleTo<T, T>;
 
-   Constructible<T, T> && ConvertibleTo<T, T>;
+The concept MoveConstructible is satisfied if T is a reference type, or if it is an object type where an object of that type can constructed from an rvalue of that type in both direct- and copy-initialization contexts, with the usual semantics.
+More precisely, if T is an object type, then MoveConstructible<T> is satisfied only if given
 
-   The concept MoveConstructible is satisfied if T is a reference type, or if it is an object type where an object of that type can constructed from an rvalue of that type in both direct- and copy-initialization contexts, with the usual semantics.
+* rv, an rvalue of type T, and
+* u2, a distinct object of type T equal to rv,
 
-   More precisely, if T is an object type, then MoveConstructible<T> is satisfied only if given
+the following are true:
 
-     * rv, an rvalue of type T, and
-     * u2, a distinct object of type T equal to rv,
+* After the definition T u = rv;, u is equal to u2;
+* T{rv} is equal to u2; and
+* If T is not const-qualified, then rv's resulting state (after the definition/expression is evaluated in either bullets above) is valid but unspecified; otherwise, it is unchanged.
 
-   the following are true:
-
-     * After the definition T u = rv;, u is equal to u2;
-     * T{rv} is equal to u2; and
-     * If T is not const-qualified, then rv's resulting state (after the definition/expression is evaluated in either bullets above) is valid but unspecified; otherwise, it is unchanged.
 
 .SH See also
 
-   is_move_constructible
-   is_trivially_move_constructible
-   is_nothrow_move_constructible   checks if a type can be constructed from an rvalue reference
-   \fI(C++11)\fP                         \fI(class template)\fP
-   \fI(C++11)\fP
-   \fI(C++11)\fP
+
+
+is_move_constructible
+is_trivially_move_constructible
+is_nothrow_move_constructible   checks if a type can be constructed from an rvalue reference
+                                \fI(class template)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+
+
+
+

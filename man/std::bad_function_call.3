@@ -3,62 +3,79 @@
 std::bad_function_call \- std::bad_function_call
 
 .SH Synopsis
-   Defined in header <functional>
-   class bad_function_call;        \fI(since C++11)\fP
 
-   std::bad_function_call is the type of the exception thrown by std::function::operator() if the function wrapper has no target.
+Defined in header <functional>
+class bad_function_call;        \fI(since C++11)\fP
 
-   std-bad function call-inheritance.svg
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
+std::bad_function_call is the type of the exception thrown by std::function::operator() if the function wrapper has no target.
+ std-bad function call-inheritance.svg
+Inheritance diagram
 
 .SH Member functions
 
-   constructor   constructs the bad_function_call object
-                 \fI(public member function)\fP
 
-std::bad_function_call::bad_function_call()
+              constructs the bad_function_call object
+constructor   \fI(public member function)\fP
 
-   bad_function_call() noexcept;
 
-   Constructs a new instance of std::bad_function_call.
+ std::bad_function_call::bad_function_call()
+
+
+bad_function_call() noexcept;
+
+Constructs a new instance of std::bad_function_call.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 Inherited from std::exception
 
+
 .SH Member functions
 
-   destructor   destroys the exception object
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
-   what         returns an explanatory string
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
+
+
+destructor   destroys the exception object
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+what         returns an explanatory string
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <functional>
+  #include <iostream>
+  #include <functional>
 
- int main()
- {
-     std::function<int()> f = nullptr;
-     try {
-         f();
-     } catch(const std::bad_function_call& e) {
-         std::cout << e.what() << '\\n';
-     }
- }
+  int main()
+  {
+      std::function<int()> f = nullptr;
+      try {
+          f();
+      } catch(const std::bad_function_call& e) {
+          std::cout << e.what() << '\\n';
+      }
+  }
 
 .SH Possible output:
 
- bad function call
+  bad function call
+
 
 .SH See also
 
-   function wraps callable object of any type with specified function call signature
-   \fI(C++11)\fP  \fI(class template)\fP
+
+
+function wraps callable object of any type with specified function call signature
+         \fI(class template)\fP
+\fI(C++11)\fP
+
+
+
+

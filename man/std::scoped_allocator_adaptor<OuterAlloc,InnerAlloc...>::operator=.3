@@ -3,14 +3,19 @@
 std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::operator= \- std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::operator=
 
 .SH Synopsis
-   Defined in header <scoped_allocator>
-   scoped_allocator_adaptor& operator=(const scoped_allocator_adaptor& other) = default; \fB(1)\fP
-   scoped_allocator_adaptor& operator=(scoped_allocator_adaptor&& other) = default;      \fB(2)\fP
 
-   1) Explicitly defaulted copy assignment operator that copy assigns the base class (OuterAlloc, the outer allocator) and all inner allocators.
+Defined in header <scoped_allocator>
+scoped_allocator_adaptor& operator=(const scoped_allocator_adaptor& other) = default; \fB(1)\fP
+scoped_allocator_adaptor& operator=(scoped_allocator_adaptor&& other) = default;      \fB(2)\fP
 
-   2) Explicitly defaulted move assignment operator that move assigns the base class (OuterAlloc, the outer allocator) and all inner allocators.
+1) Explicitly defaulted copy assignment operator that copy assigns the base class (OuterAlloc, the outer allocator) and all inner allocators.
+2) Explicitly defaulted move assignment operator that move assigns the base class (OuterAlloc, the outer allocator) and all inner allocators.
 
 .SH Parameters
 
-   other - another std::scoped_allocator_adaptor
+
+other - another std::scoped_allocator_adaptor
+
+
+
+

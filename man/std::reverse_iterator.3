@@ -3,115 +3,134 @@
 std::reverse_iterator \- std::reverse_iterator
 
 .SH Synopsis
-   Defined in header <iterator>
-   template< class Iter >
 
-   class reverse_iterator : public std::iterator<
-   typename std::iterator_traits<Iter>::iterator_category,
-   typename std::iterator_traits<Iter>::value_type,         \fI(until C++17)\fP
-   typename std::iterator_traits<Iter>::difference_type,
-   typename std::iterator_traits<Iter>::pointer,
+Defined in header <iterator>
+template< class Iter >
+class reverse_iterator : public std::iterator<
+typename std::iterator_traits<Iter>::iterator_category,
+typename std::iterator_traits<Iter>::value_type,         \fI(until C++17)\fP
+typename std::iterator_traits<Iter>::difference_type,
+typename std::iterator_traits<Iter>::pointer,
+typename std::iterator_traits<Iter>::reference >
+template< class Iter >                                   \fI(since C++17)\fP
+class reverse_iterator;
 
-   typename std::iterator_traits<Iter>::reference >
-   template< class Iter >                                   \fI(since C++17)\fP
-   class reverse_iterator;
-
-   std::reverse_iterator is an iterator adaptor that reverses the direction of a given iterator. In other words, when provided with a bidirectional iterator, std::reverse_iterator produces a new iterator that moves from the end to the beginning of the sequence defined by the underlying bidirectional iterator.
-
-   For a reverse iterator r constructed from an iterator i, the relationship &*r == &*(i-1) is always true (as long as r is dereferenceable); thus a reverse iterator constructed from a one-past-the-end iterator dereferences to the last element in a sequence.
-
-   This is the iterator returned by member functions rbegin() and rend() of the standard library containers.
-
-   range-rbegin-rend.svg
+std::reverse_iterator is an iterator adaptor that reverses the direction of a given iterator. In other words, when provided with a bidirectional iterator, std::reverse_iterator produces a new iterator that moves from the end to the beginning of the sequence defined by the underlying bidirectional iterator.
+For a reverse iterator r constructed from an iterator i, the relationship &*r == &*(i-1) is always true (as long as r is dereferenceable); thus a reverse iterator constructed from a one-past-the-end iterator dereferences to the last element in a sequence.
+This is the iterator returned by member functions rbegin() and rend() of the standard library containers.
+ range-rbegin-rend.svg
 
 .SH Member types
 
-   Member type       Definition
-   value_type        std::iterator_traits<Iter>::value_type
-   difference_type   std::iterator_traits<Iter>::difference_type
-   pointer           std::iterator_traits<Iter>::pointer
-   reference         std::iterator_traits<Iter>::reference
-   iterator_category std::iterator_traits<Iter>::iterator_category
 
-   These member types are required to be obtained by inheriting from std::iterator< std::iterator_traits<Iter>::iterator_category
-   , std::iterator_traits<Iter>::value_type
-   , std::iterator_traits<Iter>::difference_type                                                                                  \fI(until C++17)\fP
-   , std::iterator_traits<Iter>::pointer
-   , std::iterator_traits<Iter>::reference
-   >.
+Member type       Definition
+value_type        std::iterator_traits<Iter>::value_type
+difference_type   std::iterator_traits<Iter>::difference_type
+pointer           std::iterator_traits<Iter>::pointer
+reference         std::iterator_traits<Iter>::reference
+iterator_category std::iterator_traits<Iter>::iterator_category
 
-   Member type   Definition
-   iterator_type Iter
+
+These member types are required to be obtained by inheriting from std::iterator< std::iterator_traits<Iter>::iterator_category
+, std::iterator_traits<Iter>::value_type
+, std::iterator_traits<Iter>::difference_type                                                                                  \fI(until C++17)\fP
+, std::iterator_traits<Iter>::pointer
+, std::iterator_traits<Iter>::reference
+>.
+
+
+Member type   Definition
+iterator_type Iter
+
 
 .SH Member functions
 
-   constructor     constructs a new iterator adaptor
-                   \fI(public member function)\fP
-   operator=       assigns another iterator
-                   \fI(public member function)\fP
-   base            accesses the underlying iterator
-                   \fI(public member function)\fP
-   operator*       accesses the pointed-to element
-   operator->      \fI(public member function)\fP
-   operator[]      accesses an element by index
-                   \fI(public member function)\fP
-   operator++
-   operator++(int)
-   operator+=
-   operator+       advances or decrements the iterator
-   operator--      \fI(public member function)\fP
-   operator--(int)
-   operator-=
-   operator-
+
+                constructs a new iterator adaptor
+constructor     \fI(public member function)\fP
+                assigns another iterator
+operator=       \fI(public member function)\fP
+                accesses the underlying iterator
+base            \fI(public member function)\fP
+                accesses the pointed-to element
+operator*       \fI(public member function)\fP
+operator->
+                accesses an element by index
+operator[]      \fI(public member function)\fP
+
+operator++
+operator++(int)
+operator+=      advances or decrements the iterator
+operator+       \fI(public member function)\fP
+operator--
+operator--(int)
+operator-=
+operator-
+
 
 .SH Member objects
 
-   Member name         Definition
-   current (protected) a copy of the base() iterator
+
+Member name         Definition
+current (protected) a copy of the base() iterator
+
 
 .SH Non-member functions
 
-   make_reverse_iterator creates a std::reverse_iterator of type inferred from the argument
-   \fI(C++14)\fP               \fI(function template)\fP
-   operator==
-   operator!=
-   operator<             compares the underlying iterators
-   operator<=            \fI(function template)\fP
-   operator>
-   operator>=
-   operator+             advances the iterator
-                         \fI(function template)\fP
-   operator-             computes the distance between two iterator adaptors
-                         \fI(function template)\fP
+
+
+make_reverse_iterator creates a std::reverse_iterator of type inferred from the argument
+                      \fI(function template)\fP
+\fI(C++14)\fP
+
+operator==
+operator!=            compares the underlying iterators
+operator<             \fI(function template)\fP
+operator<=
+operator>
+operator>=
+                      advances the iterator
+operator+             \fI(function template)\fP
+                      computes the distance between two iterator adaptors
+operator-             \fI(function template)\fP
+
 
 .SH Notes
 
-   std::reverse_iterator does not work with iterators that return a reference to a member object (so-called "stashing iterators"). An example of stashing iterator is std::filesystem::path::iterator.
+std::reverse_iterator does not work with iterators that return a reference to a member object (so-called "stashing iterators"). An example of stashing iterator is std::filesystem::path::iterator.
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <string>
- #include <iterator>
+  #include <iostream>
+  #include <string>
+  #include <iterator>
 
- int main()
- {
-     std::string s = "Hello, world";
-     std::reverse_iterator<std::string::iterator> r = s.rbegin();
-     r[7] = 'O'; // replaces 'o' with 'O'
-     r += 7; // iterator now points at 'O'
-     std::string rev(r, s.rend());
-     std::cout << rev << '\\n';
- }
+  int main()
+  {
+      std::string s = "Hello, world";
+      std::reverse_iterator<std::string::iterator> r = s.rbegin();
+      r[7] = 'O'; // replaces 'o' with 'O'
+      r += 7; // iterator now points at 'O'
+      std::string rev(r, s.rend());
+      std::cout << rev << '\\n';
+  }
 
 .SH Output:
 
- OlleH
+  OlleH
+
 
 .SH See also
 
-   iterator              base class to ease the definition of required types for simple iterators
-   (deprecated in C++17) \fI(class template)\fP
+
+
+iterator              base class to ease the definition of required types for simple iterators
+                      \fI(class template)\fP
+(deprecated in C++17)
+
+
+
+

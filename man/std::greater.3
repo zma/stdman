@@ -3,64 +3,87 @@
 std::greater \- std::greater
 
 .SH Synopsis
-   Defined in header <functional>
-   template< class T >             \fI(until C++14)\fP
-   struct greater;
-   template< class T = void >      \fI(since C++14)\fP
-   struct greater;
 
-   Function object for performing comparisons. Unless specialized, invokes operator> on type T.
+Defined in header <functional>
+template< class T >             \fI(until C++14)\fP
+struct greater;
+template< class T = void >      \fI(since C++14)\fP
+struct greater;
+
+Function object for performing comparisons. Unless specialized, invokes operator> on type T.
 
 .SH Specializations
 
-   A specialization of std::greater for any pointer type yields a strict total order, even if the built-in operator> does not. The strict total order is consistent among specializations of std::less, std::greater, std::less_equal, and std::greater_equal for that pointer type, and is also consistent with the partial order imposed by the corresponding built-in operators (<, >, <= and >=).
+A specialization of std::greater for any pointer type yields a strict total order, even if the built-in operator> does not. The strict total order is consistent among specializations of std::less, std::greater, std::less_equal, and std::greater_equal for that pointer type, and is also consistent with the partial order imposed by the corresponding built-in operators (<, >, <= and >=).
 
-   If the function call operator of the specialization std::greater<void> calls a built-in operator comparing pointers, it yields a strict total order even if the built-in operator> does not. This strict total order is consistent among the specializations std::less<void>, std::greater<void>, std::less_equal<void>, and std::greater_equal<void>, and is also consistent with the partial order imposed by the corresponding built-in operators. \fI(since C++14)\fP
+If the function call operator of the specialization std::greater<void> calls a built-in operator comparing pointers, it yields a strict total order even if the built-in operator> does not. This strict total order is consistent among the specializations std::less<void>, std::greater<void>, std::less_equal<void>, and std::greater_equal<void>, and is also consistent with the partial order imposed by the corresponding built-in operators. \fI(since C++14)\fP
 
-   The standard library provides a specialization of std::greater when T is not specified, which leaves the parameter types and return type to be deduced.
-                                                                                                                                                           \fI(since C++14)\fP
-   greater<void> function object implementing x > y deducing argument and return types
-                 \fI(class template specialization)\fP
+
+The standard library provides a specialization of std::greater when T is not specified, which leaves the parameter types and return type to be deduced.
+
+              function object implementing x > y deducing argument and return types                                                                     \fI(since C++14)\fP
+greater<void> \fI(class template specialization)\fP
+
+
+
 
 .SH Member types
 
-   Type                                      Definition \fI(until C++20)\fP
-   result_type(deprecated in C++17)          bool
-   first_argument_type(deprecated in C++17)  T
-   second_argument_type(deprecated in C++17) T
+
+Type                                      Definition \fI(until C++20)\fP
+result_type(deprecated in C++17)          bool
+first_argument_type(deprecated in C++17)  T
+second_argument_type(deprecated in C++17) T
+
+
 
 .SH Member functions
 
-   operator() checks whether the first argument is greater than the second
-              \fI(public member function)\fP
 
-std::greater::operator()
+           checks whether the first argument is greater than the second
+operator() \fI(public member function)\fP
 
-   bool operator()( const T& lhs, const T& rhs ) const;            \fI(until C++14)\fP
-   constexpr bool operator()( const T& lhs, const T& rhs ) const;  \fI(since C++14)\fP
 
-   Checks whether lhs is greater than rhs.
+
+ std::greater::operator()
+
+
+bool operator()( const T& lhs, const T& rhs ) const;            \fI(until C++14)\fP
+constexpr bool operator()( const T& lhs, const T& rhs ) const;  \fI(since C++14)\fP
+
+Checks whether lhs is greater than rhs.
 
 .SH Parameters
 
-   lhs, rhs - values to compare
+
+lhs, rhs - values to compare
+
 
 .SH Return value
 
-   true if lhs > rhs, false otherwise.
+true if lhs > rhs, false otherwise.
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Possible implementation
 
-   constexpr bool operator()(const T &lhs, const T &rhs) const
-   {
-       return lhs > rhs;
-   }
+
+
+  constexpr bool operator()(const T &lhs, const T &rhs) const
+  {
+      return lhs > rhs;
+  }
+
+
 
 .SH See also
 
-   less function object implementing x < y
-        \fI(class template)\fP
+
+     function object implementing x < y
+less \fI(class template)\fP
+
+
+
+

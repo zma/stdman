@@ -3,52 +3,58 @@
 std::basic_ifstream<CharT,Traits>::is_open \- std::basic_ifstream<CharT,Traits>::is_open
 
 .SH Synopsis
-   bool is_open();        \fI(until C++11)\fP
-   bool is_open() const;  \fI(since C++11)\fP
 
-   Checks if the file stream has an associated file.
+bool is_open();        \fI(until C++11)\fP
+bool is_open() const;  \fI(since C++11)\fP
 
-   Effectively calls rdbuf()->is_open().
+Checks if the file stream has an associated file.
+Effectively calls rdbuf()->is_open().
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   true if the file stream has an associated file, false otherwise
+true if the file stream has an associated file, false otherwise
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <string>
- #include <fstream>
- #include <iostream>
- //this file is called main.cpp
+  #include <string>
+  #include <fstream>
+  #include <iostream>
+  //this file is called main.cpp
 
- bool file_exists(const std::string& str)
- {
-    std::ifstream fs(str);
-    return fs.is_open();
- }
+  bool file_exists(const std::string& str)
+  {
+     std::ifstream fs(str);
+     return fs.is_open();
+  }
 
- int main()
- {
-   std::boolalpha(std::cout);
-   std::cout << file_exists("main.cpp")  << '\\n'
-             << file_exists("strange_file") << '\\n';
- }
+  int main()
+  {
+    std::boolalpha(std::cout);
+    std::cout << file_exists("main.cpp")  << '\\n'
+              << file_exists("strange_file") << '\\n';
+  }
 
 .SH Possible output:
 
- true
- false
+  true
+  false
+
 
 .SH See also
 
-   open  opens a file and associates it with the stream
-         \fI(public member function)\fP
-   close closes the associated file
-         \fI(public member function)\fP
+
+      opens a file and associates it with the stream
+open  \fI(public member function)\fP
+      closes the associated file
+close \fI(public member function)\fP
+
+
+
+

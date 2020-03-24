@@ -3,41 +3,58 @@
 std::tuple_size<std::experimental::ranges::tagged> \- std::tuple_size<std::experimental::ranges::tagged>
 
 .SH Synopsis
-   template< class Base, class... Tags >
 
-   struct tuple_size<std::experimental::ranges::tagged<Base, Tags...>>  (ranges TS)
+template< class Base, class... Tags >
+struct tuple_size<std::experimental::ranges::tagged<Base, Tags...>>  (ranges TS)
+: std::tuple_size<Base> { };
 
-   : std::tuple_size<Base> { };
-
-   The partial specialization of std::tuple_size for tagged provides the ability to obtain the number of elements in a tagged object using tuple-like syntax. It simply forwards to std::tuple_size<Base>.
+The partial specialization of std::tuple_size for tagged provides the ability to obtain the number of elements in a tagged object using tuple-like syntax. It simply forwards to std::tuple_size<Base>.
 
 Inherited from std::integral_constant
 
+
 .SH Member constants
 
-   value    std::tuple_size<Base>::value
-   \fB[static]\fP \fI(public static member constant)\fP
+
+
+value    std::tuple_size<Base>::value
+         \fI(public static member constant)\fP
+\fB[static]\fP
+
 
 .SH Member functions
 
-   operator std::size_t converts the object to std::size_t, returns value
-                        \fI(public member function)\fP
-   operator()           returns value
-   \fI(C++14)\fP              \fI(public member function)\fP
+
+                     converts the object to std::size_t, returns value
+operator std::size_t \fI(public member function)\fP
+
+operator()           returns value
+                     \fI(public member function)\fP
+\fI(C++14)\fP
+
 
 .SH Member types
 
-   Type       Definition
-   value_type std::size_t
-   type       std::integral_constant<std::size_t, value>
+
+Type       Definition
+value_type std::size_t
+type       std::integral_constant<std::size_t, value>
+
 
 .SH See also
 
-   tuple_size                                            obtains the size of tuple at compile time
-                                                         \fI(class template specialization)\fP
-   std::tuple_size<std::array>                           obtains the size of an array
-                                                         \fI(class template specialization)\fP
-   std::tuple_size<std::pair>                            obtains the size of a pair
-   \fI(C++11)\fP                                               \fI(class template specialization)\fP
-   std::tuple_element<std::experimental::ranges::tagged> obtains the types of the elements of a tagged
-                                                         \fI(class template specialization)\fP
+
+                                                      obtains the size of tuple at compile time
+tuple_size                                            \fI(class template specialization)\fP
+                                                      obtains the size of an array
+std::tuple_size<std::array>                           \fI(class template specialization)\fP
+
+std::tuple_size<std::pair>                            obtains the size of a pair
+                                                      \fI(class template specialization)\fP
+\fI(C++11)\fP
+                                                      obtains the types of the elements of a tagged
+std::tuple_element<std::experimental::ranges::tagged> \fI(class template specialization)\fP
+
+
+
+

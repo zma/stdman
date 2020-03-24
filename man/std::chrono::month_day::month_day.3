@@ -3,19 +3,26 @@
 std::chrono::month_day::month_day \- std::chrono::month_day::month_day
 
 .SH Synopsis
-   month_day() = default;                                                                \fB(1)\fP \fI(since C++20)\fP
-   constexpr month_day(const std::chrono::month& m, const std::chrono::day& d) noexcept; \fB(2)\fP \fI(since C++20)\fP
 
-   Constructs a month_day.
+month_day() = default;                                                                \fB(1)\fP \fI(since C++20)\fP
+constexpr month_day(const std::chrono::month& m, const std::chrono::day& d) noexcept; \fB(2)\fP \fI(since C++20)\fP
 
-   1) Default constructor leaves the stored month and day values uninitialized.
-   2) Constructs a month_day that stores the month m and the day d.
+Constructs a month_day.
+1) Default constructor leaves the stored month and day values uninitialized.
+2) Constructs a month_day that stores the month m and the day d.
 
 .SH Notes
 
-   A more convenient way to construct a month_day is with operator/, e.g., std::chrono::April/1.
+A more convenient way to construct a month_day is with operator/, e.g., std::chrono::April/1.
 
 .SH See also
 
-   operator/ conventional syntax for Gregorian calendar date creation
-   (C++20)   \fI(function)\fP
+
+
+operator/ conventional syntax for Gregorian calendar date creation
+          \fI(function)\fP
+(C++20)
+
+
+
+

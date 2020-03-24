@@ -3,101 +3,108 @@
 std::align \- std::align
 
 .SH Synopsis
-   Defined in header <memory>
-   void* align( std::size_t alignment,
 
-   std::size_t size,                    \fI(since C++11)\fP
-   void*& ptr,
+Defined in header <memory>
+void* align( std::size_t alignment,
+std::size_t size,                    \fI(since C++11)\fP
+void*& ptr,
+std::size_t& space );
 
-   std::size_t& space );
-
-   Given a pointer ptr to a buffer of size space, returns a pointer aligned by the specified alignment for size number of bytes and decreases space argument by the number of bytes used for alignment. The first aligned address is returned.
-
-   The function modifies the pointer only if it would be possible to fit the wanted number of bytes aligned by the given alignment into the buffer. If the buffer is too small, the function does nothing and returns nullptr.
-
-   The behavior is undefined if alignment is not a power of two.
+Given a pointer ptr to a buffer of size space, returns a pointer aligned by the specified alignment for size number of bytes and decreases space argument by the number of bytes used for alignment. The first aligned address is returned.
+The function modifies the pointer only if it would be possible to fit the wanted number of bytes aligned by the given alignment into the buffer. If the buffer is too small, the function does nothing and returns nullptr.
+The behavior is undefined if alignment is not a power of two.
 
 .SH Parameters
 
-   alignment - the desired alignment
-   size      - the size of the storage to be aligned
-   ptr       - pointer to contiguous storage of at least space bytes
-   space     - the size of the buffer in which to operate
+
+alignment - the desired alignment
+size      - the size of the storage to be aligned
+ptr       - pointer to contiguous storage of at least space bytes
+space     - the size of the buffer in which to operate
+
 
 .SH Return value
 
-   The adjusted value of ptr, or null pointer value if the space provided is too small.
+The adjusted value of ptr, or null pointer value if the space provided is too small.
 
 .SH Example
 
-   demonstrates the use of std::align to place objects of different type in memory
+demonstrates the use of std::align to place objects of different type in memory
 
-   
 // Run this code
 
- #include <iostream>
- #include <memory>
+  #include <iostream>
+  #include <memory>
 
- template <std::size_t N>
- struct MyAllocator
- {
-     char data[N];
-     void* p;
-     std::size_t sz;
-     MyAllocator() : p(data), sz(N) {}
-     template <typename T>
-     T* aligned_alloc(std::size_t a = alignof(T))
-     {
-         if (std::align(a, sizeof(T), p, sz))
-         {
-             T* result = reinterpret_cast<T*>(p);
-             p = (char*)p + sizeof(T);
-             sz -= sizeof(T);
-             return result;
-         }
-         return nullptr;
-     }
- };
+  template <std::size_t N>
+  struct MyAllocator
+  {
+      char data[N];
+      void* p;
+      std::size_t sz;
+      MyAllocator() : p(data), sz(N) {}
+      template <typename T>
+      T* aligned_alloc(std::size_t a = alignof(T))
+      {
+          if (std::align(a, sizeof(T), p, sz))
+          {
+              T* result = reinterpret_cast<T*>(p);
+              p = (char*)p + sizeof(T);
+              sz -= sizeof(T);
+              return result;
+          }
+          return nullptr;
+      }
+  };
 
- int main()
- {
-     MyAllocator<64> a;
+  int main()
+  {
+      MyAllocator<64> a;
 
-     // allocate a char
-     char* p1 = a.aligned_alloc<char>();
-     if (p1)
-         *p1 = 'a';
-     std::cout << "allocated a char at " << (void*)p1 << '\\n';
+      // allocate a char
+      char* p1 = a.aligned_alloc<char>();
+      if (p1)
+          *p1 = 'a';
+      std::cout << "allocated a char at " << (void*)p1 << '\\n';
 
-     // allocate an int
-     int* p2 = a.aligned_alloc<int>();
-     if (p2)
-         *p2 = 1;
-     std::cout << "allocated an int at " << (void*)p2 << '\\n';
+      // allocate an int
+      int* p2 = a.aligned_alloc<int>();
+      if (p2)
+          *p2 = 1;
+      std::cout << "allocated an int at " << (void*)p2 << '\\n';
 
-     // allocate an int, aligned at 32-byte boundary
-     int* p3 = a.aligned_alloc<int>(32);
-     if (p3)
-         *p3 = 2;
-     std::cout << "allocated an int at " << (void*)p3 << " (32 byte alignment)\\n";
- }
+      // allocate an int, aligned at 32-byte boundary
+      int* p3 = a.aligned_alloc<int>(32);
+      if (p3)
+          *p3 = 2;
+      std::cout << "allocated an int at " << (void*)p3 << " (32 byte alignment)\\n";
+  }
 
 .SH Possible output:
 
- allocated a char at 0x2ff21a08
- allocated an int at 0x2ff21a0c
- allocated an int at 0x2ff21a20 (32 byte alignment)
+  allocated a char at 0x2ff21a08
+  allocated an int at 0x2ff21a0c
+  allocated an int at 0x2ff21a20 (32 byte alignment)
 
-  Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+Defect reports
 
-      DR    Applied to                            Behavior as published                                    Correct behavior
-   LWG 2377 C++11      alignment required to be a fundamental or supported extended alignment value only need to be a power of two
+The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+
+DR       Applied to Behavior as published                                                        Correct behavior
+LWG_2377 C++11      alignment required to be a fundamental or supported extended alignment value only need to be a power of two
+
 
 .SH See also
 
-   alignof operator  queries alignment requirements of a type \fI(since C++11)\fP
-   alignas specifier specifies that the storage for the variable should be aligned by specific amount \fI(C++11)\fP
-   aligned_storage   defines the type suitable for use as uninitialized storage for types of given size
-   \fI(C++11)\fP           \fI(class template)\fP
+
+alignof_operator  queries alignment requirements of a type \fI(since C++11)\fP
+alignas_specifier specifies that the storage for the variable should be aligned by specific amount \fI(C++11)\fP
+
+aligned_storage   defines the type suitable for use as uninitialized storage for types of given size
+                  \fI(class template)\fP
+\fI(C++11)\fP
+
+
+
+

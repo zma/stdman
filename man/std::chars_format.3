@@ -3,21 +3,29 @@
 std::chars_format \- std::chars_format
 
 .SH Synopsis
-   Defined in header <charconv>
-   enum class chars_format {
 
-   scientific = /*unspecified*/,
-   fixed = /*unspecified*/,       \fI(since C++17)\fP
-   hex = /*unspecified*/,
-   general = fixed | scientific
+Defined in header <charconv>
+enum class chars_format {
+scientific = /*unspecified*/,
+fixed = /*unspecified*/,       \fI(since C++17)\fP
+hex = /*unspecified*/,
+general = fixed | scientific
+};
 
-   };
-
-   A BitmaskType used to specify floating-point formatting for std::to_chars and std::from_chars
+A BitmaskType used to specify floating-point formatting for std::to_chars and std::from_chars
 
 .SH See also
 
-   to_chars   converts an integer or floating-point value to a character sequence
-   \fI(C++17)\fP    \fI(function)\fP
-   from_chars converts a character sequence to an integer or floating-point value
-   \fI(C++17)\fP    \fI(function)\fP
+
+
+to_chars   converts an integer or floating-point value to a character sequence
+           \fI(function)\fP
+\fI(C++17)\fP
+
+from_chars converts a character sequence to an integer or floating-point value
+           \fI(function)\fP
+\fI(C++17)\fP
+
+
+
+

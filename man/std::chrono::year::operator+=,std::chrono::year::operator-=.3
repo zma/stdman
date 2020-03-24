@@ -3,32 +3,41 @@
 std::chrono::year::operator+=,std::chrono::year::operator-= \- std::chrono::year::operator+=,std::chrono::year::operator-=
 
 .SH Synopsis
-   constexpr std::chrono::year& operator+=(const std::chrono::years& y) noexcept; \fB(1)\fP \fI(since C++20)\fP
-   constexpr std::chrono::year& operator-=(const std::chrono::years& y) noexcept; \fB(2)\fP \fI(since C++20)\fP
 
-   Adds or subtracts y.count() years from the year value.
+constexpr std::chrono::year& operator+=(const std::chrono::years& y) noexcept; \fB(1)\fP \fI(since C++20)\fP
+constexpr std::chrono::year& operator-=(const std::chrono::years& y) noexcept; \fB(2)\fP \fI(since C++20)\fP
 
-   1) Equivalent to *this = *this + y;
-   2) Equivalent to *this = *this - y;
+Adds or subtracts y.count() years from the year value.
+1) Equivalent to *this = *this + y;
+2) Equivalent to *this = *this - y;
 
 .SH Return value
 
-   A reference to this year after modification.
+A reference to this year after modification.
 
 .SH Notes
 
-   If the result would be outside the range [-32767, 32767], the actual stored value is unspecified.
+If the result would be outside the range [-32767, 32767], the actual stored value is unspecified.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   operator++
-   operator++(int) increments or decrements the year
-   operator--      \fI(public member function)\fP
-   operator--(int)
-   operator+       performs arithmetic on years
-   operator-       \fI(public member function)\fP
+
+
+operator++      increments or decrements the year
+operator++(int) \fI(public member function)\fP
+operator--
+operator--(int)
+                performs arithmetic on years
+operator+       \fI(public member function)\fP
+operator-
+
+
+
+

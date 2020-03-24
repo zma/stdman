@@ -3,15 +3,22 @@
 std::nothrow_t \- std::nothrow_t
 
 .SH Synopsis
-   Defined in header <new>
-   struct nothrow_t {};                                   \fI(until C++17)\fP
-   struct nothrow_t { explicit nothrow_t() = default; };  \fI(since C++17)\fP
 
-   std::nothrow_t is an empty class type used to disambiguate the overloads of throwing and non-throwing allocation functions.
+Defined in header <new>
+struct nothrow_t {};                                   \fI(until C++17)\fP
+struct nothrow_t { explicit nothrow_t() = default; };  \fI(since C++17)\fP
+
+std::nothrow_t is an empty class type used to disambiguate the overloads of throwing and non-throwing allocation_functions.
 
 .SH See also
 
-   nothrow        an object of type nothrow_t used to select an non-throwing allocation function
-                  (constant)
-   operator new   allocation functions
-   operator new[] \fI(function)\fP
+
+               an object of type nothrow_t used to select an non-throwing allocation function
+nothrow        (constant)
+               allocation functions
+operator_new   \fI(function)\fP
+operator_new[]
+
+
+
+

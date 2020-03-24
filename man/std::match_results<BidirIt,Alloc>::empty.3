@@ -3,29 +3,35 @@
 std::match_results<BidirIt,Alloc>::empty \- std::match_results<BidirIt,Alloc>::empty
 
 .SH Synopsis
-   bool empty() const;                \fI(since C++11)\fP
-                                      \fI(until C++20)\fP
-   [[nodiscard]] bool empty() const;  \fI(since C++20)\fP
 
-   Checks whether the match was successful.
+bool empty() const;                \fI(since C++11)\fP
+                                   \fI(until C++20)\fP
+[[nodiscard]] bool empty() const;  \fI(since C++20)\fP
+
+Checks whether the match was successful.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   size() == 0 (false if *this represents the result of a successful match, true otherwise)
+size() == 0 (false if *this represents the result of a successful match, true otherwise)
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Complexity
 
-   Constant.
+Constant.
 
 .SH See also
 
-   size returns the number of matches in a fully-established result state
-        \fI(public member function)\fP
+
+     returns the number of matches in a fully-established result state
+size \fI(public member function)\fP
+
+
+
+

@@ -3,15 +3,19 @@
 std::ostreambuf_iterator<CharT,Traits>::operator++ \- std::ostreambuf_iterator<CharT,Traits>::operator++
 
 .SH Synopsis
-   ostreambuf_iterator& operator++();
-   ostreambuf_iterator& operator++( int );
 
-   Does nothing. These operator overloads are provided to satisfy the requirements of LegacyOutputIterator. They make it possible for the expressions *iter++=value and *++iter=value to be used to output (insert) a value into the underlying stream.
+ostreambuf_iterator& operator++();
+ostreambuf_iterator& operator++( int );
+
+Does nothing. These operator overloads are provided to satisfy the requirements of LegacyOutputIterator. They make it possible for the expressions *iter++=value and *++iter=value to be used to output (insert) a value into the underlying stream.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   *this
+*this
+
+
+

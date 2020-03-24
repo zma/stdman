@@ -3,53 +3,62 @@
 std::basic_string<CharT,Traits,Allocator>::front \- std::basic_string<CharT,Traits,Allocator>::front
 
 .SH Synopsis
-   CharT& front();              \fI(since C++11)\fP
-   const CharT& front() const;  \fI(since C++11)\fP
 
-   Returns reference to the first character in the string. The behavior is undefined if empty() == true.
+CharT& front();              \fI(since C++11)\fP
+const CharT& front() const;  \fI(since C++11)\fP
+
+Returns reference to the first character in the string. The behavior is undefined if empty() == true.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   reference to the first character, equivalent to operator[]\fB(0)\fP.
+reference to the first character, equivalent to operator[]\fB(0)\fP.
 
 .SH Complexity
 
-   Constant
+Constant
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <string>
+  #include <iostream>
+  #include <string>
 
- int main()
- {
-   {
-     std::string s("Exemplary");
-     char& f = s.front();
-     f = 'e';
-     std::cout << s << '\\n'; // "exemplary"
-   }
+  int main()
+  {
+    {
+      std::string s("Exemplary");
+      char& f = s.front();
+      f = 'e';
+      std::cout << s << '\\n'; // "exemplary"
+    }
 
-   {
-     std::string const c("Exemplary");
-     char const& f = c.front();
-     std::cout << &f << '\\n'; // "Exemplary"
-   }
- }
+    {
+      std::string const c("Exemplary");
+      char const& f = c.front();
+      std::cout << &f << '\\n'; // "Exemplary"
+    }
+  }
 
 .SH Output:
 
- exemplary
- Exemplary
+  exemplary
+  Exemplary
+
 
 .SH See also
 
-   back    accesses the last character
-   \fI(C++11)\fP \fI(public member function)\fP
+
+
+back    accesses the last character
+        \fI(public member function)\fP
+\fI(C++11)\fP
+
+
+
+

@@ -3,72 +3,88 @@
 std::destroy_at \- std::destroy_at
 
 .SH Synopsis
-   Defined in header <memory>
-   template< class T >         \fI(since C++17)\fP
-   void destroy_at( T* p );
 
-   Calls the destructor of the object pointed to by p, as if by p->~T().
+Defined in header <memory>
+template< class T >         \fI(since C++17)\fP
+void destroy_at( T* p );
+
+Calls the destructor of the object pointed to by p, as if by p->~T().
 
 .SH Parameters
 
-   p - a pointer to the object to be destroyed
+
+p - a pointer to the object to be destroyed
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Possible implementation
 
-   template<class T>
-   void destroy_at(T* p)
-   {
-       p->~T();
-   }
+
+
+  template<class T>
+  void destroy_at(T* p)
+  {
+      p->~T();
+  }
+
+
 
 .SH Example
 
-   The following example demonstrates how to use destroy_at to destroy a contiguous sequence of elements.
+The following example demonstrates how to use destroy_at to destroy a contiguous sequence of elements.
 
-   
 // Run this code
 
- #include <memory>
- #include <new>
- #include <iostream>
+  #include <memory>
+  #include <new>
+  #include <iostream>
 
- struct Tracer {
-     int value;
-     ~Tracer() { std::cout << value << " destructed\\n"; }
- };
+  struct Tracer {
+      int value;
+      ~Tracer() { std::cout << value << " destructed\\n"; }
+  };
 
- int main()
- {
-     alignas(Tracer) unsigned char buffer[sizeof(Tracer) * 8];
+  int main()
+  {
+      alignas(Tracer) unsigned char buffer[sizeof(Tracer) * 8];
 
-     for (int i = 0; i < 8; ++i)
-         new(buffer + sizeof(Tracer) * i) Tracer{i}; //manually construct objects
+      for (int i = 0; i < 8; ++i)
+          new(buffer + sizeof(Tracer) * i) Tracer{i}; //manually construct objects
 
-     auto ptr = std::launder(reinterpret_cast<Tracer*>(buffer));
+      auto ptr = std::launder(reinterpret_cast<Tracer*>(buffer));
 
-     for (int i = 0; i < 8; ++i)
-         std::destroy_at(ptr + i);
+      for (int i = 0; i < 8; ++i)
+          std::destroy_at(ptr + i);
 
- }
+  }
 
 .SH Output:
 
- 0 destructed
- 1 destructed
- 2 destructed
- 3 destructed
- 4 destructed
- 5 destructed
- 6 destructed
- 7 destructed
+  0 destructed
+  1 destructed
+  2 destructed
+  3 destructed
+  4 destructed
+  5 destructed
+  6 destructed
+  7 destructed
+
 
 .SH See also
 
-   destroy   destroys a range of objects
-   \fI(C++17)\fP   \fI(function template)\fP
-   destroy_n destroys a number of objects in a range
-   \fI(C++17)\fP   \fI(function template)\fP
+
+
+destroy   destroys a range of objects
+          \fI(function template)\fP
+\fI(C++17)\fP
+
+destroy_n destroys a number of objects in a range
+          \fI(function template)\fP
+\fI(C++17)\fP
+
+
+
+

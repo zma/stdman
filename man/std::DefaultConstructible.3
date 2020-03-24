@@ -3,19 +3,29 @@
 std::DefaultConstructible \- std::DefaultConstructible
 
 .SH Synopsis
-   Defined in header <concepts>
-   template < class T >                                   \fI(since C++20)\fP
-   concept DefaultConstructible = std::Constructible<T>;
 
-   The DefaultConstructible concept provides a shorthand for the common case when the question is whether a type can be constructed with no arguments.
+Defined in header <concepts>
+template < class T >                                   \fI(since C++20)\fP
+concept DefaultConstructible = std::Constructible<T>;
+
+The DefaultConstructible concept provides a shorthand for the common case when the question is whether a type can be constructed with no arguments.
 
 .SH See also
 
-   Constructible                      specifies that a variable of the type can be constructed from or bound to a set of argument types
-   (C++20)                            (concept)
-   is_default_constructible
-   is_trivially_default_constructible
-   is_nothrow_default_constructible   checks if a type has a default constructor
-   \fI(C++11)\fP                            \fI(class template)\fP
-   \fI(C++11)\fP
-   \fI(C++11)\fP
+
+
+Constructible                      specifies that a variable of the type can be constructed from or bound to a set of argument types
+                                   (concept)
+(C++20)
+
+is_default_constructible
+is_trivially_default_constructible
+is_nothrow_default_constructible   checks if a type has a default constructor
+                                   \fI(class template)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+
+
+
+

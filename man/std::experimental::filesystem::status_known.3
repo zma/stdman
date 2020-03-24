@@ -3,33 +3,41 @@
 std::experimental::filesystem::status_known \- std::experimental::filesystem::status_known
 
 .SH Synopsis
-   Defined in header <experimental/filesystem>
-   bool status_known( file_status s );         \fB(1)\fP (filesystem TS)
 
-   Checks if the given file status is known, Equivalent to s.type() != file_type::none.
+Defined in header <experimental/filesystem>
+bool status_known( file_status s );         \fB(1)\fP (filesystem TS)
+
+Checks if the given file status is known, Equivalent to s.type() != file_type::none.
 
 .SH Parameters
 
-   s - file status to check
+
+s - file status to check
+
 
 .SH Return value
 
-   true if the given file status is an unknown file status
+true if the given file status is an unknown file status
 
 .SH Exceptions
 
-   noexcept specification:
-   noexcept
+noexcept specification:
+noexcept
 
 .SH Notes
 
-   Despite the name, the function checks for the file status of file_type::none (meaning an error occurred), not file_type::unknown (meaning file exists, but its type cannot be determined).
+Despite the name, the function checks for the file status of file_type::none (meaning an error occurred), not file_type::unknown (meaning file exists, but its type cannot be determined).
 
 .SH See also
 
-   status         determines file attributes
-   symlink_status determines file attributes, checking the symlink target
-                  \fI(function)\fP
-   status         cached status of the file designated by this directory entry
-   symlink_status cached symlink_status of the file designated by this directory entry
-                  \fI(public member function of std::experimental::filesystem::directory_entry)\fP
+
+               determines file attributes
+status         determines file attributes, checking the symlink target
+symlink_status \fI(function)\fP
+               cached status of the file designated by this directory entry
+status         cached symlink_status of the file designated by this directory entry
+symlink_status \fI(public member function of std::experimental::filesystem::directory_entry)\fP
+
+
+
+

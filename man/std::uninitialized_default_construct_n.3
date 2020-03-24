@@ -3,73 +3,92 @@
 std::uninitialized_default_construct_n \- std::uninitialized_default_construct_n
 
 .SH Synopsis
-   Defined in header <memory>
-   template< class ForwardIt, class Size >                                                           \fB(1)\fP \fI(since C++17)\fP
-   ForwardIt uninitialized_default_construct_n( ForwardIt first, Size n );
-   template< class ExecutionPolicy, class ForwardIt, class Size >                                    \fB(2)\fP \fI(since C++17)\fP
-   ForwardIt uninitialized_default_construct_n( ExecutionPolicy&& policy, ForwardIt first, Size n );
 
-   1) Constructs n objects of type typename iterator_traits<ForwardIt>::value_type in the uninitialized storage starting at first by default-initialization, as if by
+Defined in header <memory>
+template< class ForwardIt, class Size >                                                           \fB(1)\fP \fI(since C++17)\fP
+ForwardIt uninitialized_default_construct_n( ForwardIt first, Size n );
+template< class ExecutionPolicy, class ForwardIt, class Size >                                    \fB(2)\fP \fI(since C++17)\fP
+ForwardIt uninitialized_default_construct_n( ExecutionPolicy&& policy, ForwardIt first, Size n );
 
- for (; n > 0; (void) ++first, --n)
-   ::new (static_cast<void*>(std::addressof(*first)))
-       typename std::iterator_traits<ForwardIt>::value_type;
+1) Constructs n objects of type typename iterator_traits<ForwardIt>::value_type in the uninitialized storage starting at first by default-initialization, as if by
 
-   If an exception is thrown during the initialization, the objects already constructed are destroyed in an unspecified order.
-   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
+  for (; n > 0; (void) ++first, --n)
+    ::new (static_cast<void*>(std::addressof(*first)))
+        typename std::iterator_traits<ForwardIt>::value_type;
+
+If an exception is thrown during the initialization, the objects already constructed are destroyed in an unspecified order.
+2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
 
 .SH Parameters
 
-   first                 -              the beginning of the range of elements to initialize
-   n                     -              the number of elements to initialize
-   policy                -              the execution policy to use. See execution policy for details.
+
+first  - the beginning of the range of elements to initialize
+n      - the number of elements to initialize
+policy - the execution policy to use. See execution_policy for details.
 .SH Type requirements
-   -
-   ForwardIt must meet the requirements of LegacyForwardIterator.
-   -
-   No increment, assignment, comparison, or indirection through valid instances of ForwardIt may throw exceptions.
+-
+ForwardIt must meet the requirements of LegacyForwardIterator.
+-
+No increment, assignment, comparison, or indirection through valid instances of ForwardIt may throw exceptions.
+
 
 .SH Return value
 
-   The end of the range of objects (i.e., std::next(first, n)).
+The end of the range of objects (i.e., std::next(first, n)).
 
 .SH Complexity
 
-   Linear in n.
+Linear in n.
 
 .SH Exceptions
 
-   The overload with a template parameter named ExecutionPolicy reports errors as follows:
+The overload with a template parameter named ExecutionPolicy reports errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
-     * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
+* If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard_policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
+* If the algorithm fails to allocate memory, std::bad_alloc is thrown.
+
 
 .SH Possible implementation
 
-   template<class ForwardIt, class Size>
-   ForwardIt uninitialized_default_construct_n( ForwardIt first, Size n )
-   {
-       using T = typename std::iterator_traits<ForwardIt>::value_type;
-       ForwardIt current = first;
-       try {
-           for (; n > 0 ; (void) ++current, --n) {
-               ::new (static_cast<void*>(std::addressof(*current))) T;
-           }
-           return current;
-       }  catch (...) {
-           std::destroy(first, current);
-           throw;
-       }
-   }
+
+
+  template<class ForwardIt, class Size>
+  ForwardIt uninitialized_default_construct_n( ForwardIt first, Size n )
+  {
+      using T = typename std::iterator_traits<ForwardIt>::value_type;
+      ForwardIt current = first;
+      try {
+          for (; n > 0 ; (void) ++current, --n) {
+              ::new (static_cast<void*>(std::addressof(*current))) T;
+          }
+          return current;
+      }  catch (...) {
+          std::destroy(first, current);
+          throw;
+      }
+  }
+
+
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   uninitialized_default_construct constructs objects by default-initialization in an uninitialized area of memory, defined by a range
-   \fI(C++17)\fP                         \fI(function template)\fP
-   uninitialized_value_construct_n constructs objects by value-initialization in an uninitialized area of memory, defined by a start and a count
-   \fI(C++17)\fP                         \fI(function template)\fP
+
+
+uninitialized_default_construct constructs objects by default-initialization in an uninitialized area of memory, defined by a range
+                                \fI(function template)\fP
+\fI(C++17)\fP
+
+uninitialized_value_construct_n constructs objects by value-initialization in an uninitialized area of memory, defined by a start and a count
+                                \fI(function template)\fP
+\fI(C++17)\fP
+
+
+
+

@@ -3,13 +3,18 @@
 std::optional<T>::reset \- std::optional<T>::reset
 
 .SH Synopsis
-   void reset() noexcept;  \fI(since C++17)\fP
 
-   If *this contains a value, destroy that value as if by value().T::~T(). Otherwise, there are no effects.
+void reset() noexcept;  \fI(since C++17)\fP
 
-   *this does not contain a value after this call.
+If *this contains a value, destroy that value as if by value().T::~T(). Otherwise, there are no effects.
+*this does not contain a value after this call.
 
 .SH See also
 
-   operator= assigns contents
-             \fI(public member function)\fP
+
+          assigns contents
+operator= \fI(public member function)\fP
+
+
+
+

@@ -3,52 +3,68 @@
 std::pointer_to_binary_function \- std::pointer_to_binary_function
 
 .SH Synopsis
-   template<
 
-   class Arg1,                                                                            (deprecated in C++11)
-   class Arg2,                                                                            (removed in C++17)
-   class Result
+template<
+class Arg1,                                                                            (deprecated in C++11)
+class Arg2,                                                                            (removed in C++17)
+class Result
+> class pointer_to_binary_function : public std::binary_function<Arg1, Arg2, Result>;
 
-   > class pointer_to_binary_function : public std::binary_function<Arg1, Arg2, Result>;
-
-   std::pointer_to_binary_function is a function object that acts as a wrapper around a binary function.
+std::pointer_to_binary_function is a function object that acts as a wrapper around a binary function.
 
 .SH Member functions
 
-   constructor   constructs a new pointer_to_binary_function object with the supplied function
-                 \fI(public member function)\fP
-   operator()    calls the stored function
-                 \fI(public member function)\fP
 
-std::pointer_to_binary_function::pointer_to_binary_function
+              constructs a new pointer_to_binary_function object with the supplied function
+constructor   \fI(public member function)\fP
+              calls the stored function
+operator()    \fI(public member function)\fP
 
-   explicit pointer_to_binary_function( Result (*f)(Arg1,Arg2) );
 
-   Constructs a pointer_to_binary_function function object with the stored function f.
+ std::pointer_to_binary_function::pointer_to_binary_function
 
-.SH Parameters
 
-   f - pointer to a function to store
+explicit pointer_to_binary_function( Result (*f)(Arg1,Arg2) );
 
-std::pointer_to_binary_function::operator()
-
-   Result operator()( Arg1 x1, Arg2 x2 ) const;
-
-   Calls the stored function.
+Constructs a pointer_to_binary_function function object with the stored function f.
 
 .SH Parameters
 
-   x1, x2 - arguments to pass to the function
+
+f - pointer to a function to store
+
+
+ std::pointer_to_binary_function::operator()
+
+
+Result operator()( Arg1 x1, Arg2 x2 ) const;
+
+Calls the stored function.
+
+.SH Parameters
+
+
+x1, x2 - arguments to pass to the function
+
 
 .SH Return value
 
-   The value returned by the called function.
+The value returned by the called function.
 
 .SH See also
 
-   pointer_to_unary_function adaptor-compatible wrapper for a pointer to unary function
-   (deprecated in C++11)     \fI(class template)\fP
-   (removed in C++17)
-   ptr_fun                   creates an adaptor-compatible function object wrapper from a pointer to function
-   (deprecated in C++11)     \fI(function template)\fP
-   (removed in C++17)
+
+
+pointer_to_unary_function adaptor-compatible wrapper for a pointer to unary function
+                          \fI(class template)\fP
+(deprecated in C++11)
+(removed in C++17)
+
+ptr_fun                   creates an adaptor-compatible function object wrapper from a pointer to function
+                          \fI(function template)\fP
+(deprecated in C++11)
+(removed in C++17)
+
+
+
+

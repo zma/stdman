@@ -3,16 +3,19 @@
 std::error_code::default_error_condition \- std::error_code::default_error_condition
 
 .SH Synopsis
-   std::error_condition default_error_condition() const noexcept;  \fI(since C++11)\fP
 
-   Returns the default error condition for the current error value.
+std::error_condition default_error_condition() const noexcept;  \fI(since C++11)\fP
 
-   Equivalent to category().default_error_condition(value()).
+Returns the default error condition for the current error value.
+Equivalent to category().default_error_condition(value()).
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   The default error condition for the current error value.
+The default error condition for the current error value.
+
+
+

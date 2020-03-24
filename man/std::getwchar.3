@@ -3,22 +3,29 @@
 std::getwchar \- std::getwchar
 
 .SH Synopsis
-   Defined in header <cwchar>
-   wint_t getwchar();
 
-   Reads the next wide character from stdin.
+Defined in header <cwchar>
+wint_t getwchar();
+
+Reads the next wide character from stdin.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   The obtained wide character or WEOF if an error has occurred or the end of file reached
+The obtained wide character or WEOF if an error has occurred or the end of file reached
 
 .SH See also
 
-   getchar reads a character from stdin
-           \fI(function)\fP
-   fgetwc  gets a wide character from a file stream
-   getwc   \fI(function)\fP
+
+        reads a character from stdin
+getchar \fI(function)\fP
+        gets a wide character from a file stream
+fgetwc  \fI(function)\fP
+getwc
+
+
+
+

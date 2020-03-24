@@ -3,77 +3,86 @@
 std::partition_point \- std::partition_point
 
 .SH Synopsis
-   Defined in header <algorithm>
-   template< class ForwardIt, class UnaryPredicate >                                              \fI(since C++11)\fP
-   ForwardIt partition_point( ForwardIt first, ForwardIt last, UnaryPredicate p );           \fB(1)\fP  \fI(until C++20)\fP
-   template< class ForwardIt, class UnaryPredicate >                                              \fI(since C++20)\fP
-   constexpr ForwardIt partition_point( ForwardIt first, ForwardIt last, UnaryPredicate p );
 
-   Examines the partitioned (as if by std::partition) range [first, last) and locates the end of the first partition, that is, the first element that does not satisfy p or last if all elements satisfy p.
+Defined in header <algorithm>
+template< class ForwardIt, class UnaryPredicate >                                              \fI(since C++11)\fP
+ForwardIt partition_point( ForwardIt first, ForwardIt last, UnaryPredicate p );           \fB(1)\fP  \fI(until C++20)\fP
+template< class ForwardIt, class UnaryPredicate >                                              \fI(since C++20)\fP
+constexpr ForwardIt partition_point( ForwardIt first, ForwardIt last, UnaryPredicate p );
+
+Examines the partitioned (as if by std::partition) range [first, last) and locates the end of the first partition, that is, the first element that does not satisfy p or last if all elements satisfy p.
 
 .SH Parameters
 
-   first, last - the partitioned range of elements to examine
-                 unary predicate which returns true for the elements found in the beginning of the range.
 
-   p           - The expression p(v) must be convertible to bool for every argument v of type (possibly const) VT, where VT is the value type of ForwardIt, regardless of value category, and must not modify v. Thus, a parameter type of VT&is not allowed
-                 , nor is VT unless for VT a move is equivalent to a copy
-                 \fI(since C++11)\fP. 
+first, last - the partitioned range of elements to examine
+              unary predicate which returns true for the elements found in the beginning of the range.
+p           - The expression p(v) must be convertible to bool for every argument v of type (possibly const) VT, where VT is the value type of ForwardIt, regardless of value_category, and must not modify v. Thus, a parameter type of VT&is not allowed
+              , nor is VT unless for VT a move is equivalent to a copy
+              \fI(since C++11)\fP. 
 .SH Type requirements
-   -
-   ForwardIt must meet the requirements of LegacyForwardIterator.
-   -
-   UnaryPredicate must meet the requirements of Predicate.
+-
+ForwardIt must meet the requirements of LegacyForwardIterator.
+-
+UnaryPredicate must meet the requirements of Predicate.
+
 
 .SH Return value
 
-   The iterator past the end of the first partition within [first, last) or last if all elements satisfy p.
+The iterator past the end of the first partition within [first, last) or last if all elements satisfy p.
 
 .SH Complexity
 
-   Given N = std::distance(first, last), performs O(log N) applications of the predicate p.
-
-   However, for non-LegacyRandomAccessIterators, the number of iterator increments is O(N).
+Given N = std::distance(first, last), performs O(log N) applications of the predicate p.
+However, for non-LegacyRandomAccessIterators, the number of iterator increments is O(N).
 
 .SH Notes
 
-   This algorithm is a more general form of std::lower_bound, which can be expressed in terms of std::partition_point with the predicate [&](auto const& e) { return e < value; });.
+This algorithm is a more general form of std::lower_bound, which can be expressed in terms of std::partition_point with the predicate [&](auto const& e) { return e < value; });.
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <algorithm>
- #include <array>
- #include <iostream>
- #include <iterator>
+  #include <algorithm>
+  #include <array>
+  #include <iostream>
+  #include <iterator>
 
- int main()
- {
-     std::array<int, 9> v = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+  int main()
+  {
+      std::array<int, 9> v = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-     auto is_even = [](int i){ return i % 2 == 0; };
-     std::partition(v.begin(), v.end(), is_even);
+      auto is_even = [](int i){ return i % 2 == 0; };
+      std::partition(v.begin(), v.end(), is_even);
 
-     auto p = std::partition_point(v.begin(), v.end(), is_even);
+      auto p = std::partition_point(v.begin(), v.end(), is_even);
 
-     std::cout << "Before partition:\\n    ";
-     std::copy(v.begin(), p, std::ostream_iterator<int>(std::cout, " "));
-     std::cout << "\\nAfter partition:\\n    ";
-     std::copy(p, v.end(), std::ostream_iterator<int>(std::cout, " "));
- }
+      std::cout << "Before partition:\\n    ";
+      std::copy(v.begin(), p, std::ostream_iterator<int>(std::cout, " "));
+      std::cout << "\\nAfter partition:\\n    ";
+      std::copy(p, v.end(), std::ostream_iterator<int>(std::cout, " "));
+  }
 
 .SH Output:
 
- Before partition:
-     8 2 6 4
- After partition:
-     5 3 7 1 9
+  Before partition:
+      8 2 6 4
+  After partition:
+      5 3 7 1 9
+
 
 .SH See also
 
-   is_sorted   checks whether a range is sorted into ascending order
-   \fI(C++11)\fP     \fI(function template)\fP
-   lower_bound returns an iterator to the first element not less than the given value
-               \fI(function template)\fP
+
+
+is_sorted   checks whether a range is sorted into ascending order
+            \fI(function template)\fP
+\fI(C++11)\fP
+            returns an iterator to the first element not less than the given value
+lower_bound \fI(function template)\fP
+
+
+
+

@@ -3,9 +3,9 @@ C++ stdlib man pages
 
 ### Changes compared to jeaye's version
 
-No forced 90-char width for the pages.
-
-Updated to 20190607 version.
+* No forced 90-char width for the pages.
+* Use html2text instead of elinks to render the html.
+* Updated to 20190607 version.
 
 ### Introduction
 
@@ -79,7 +79,8 @@ make generate # will build stdman and generate man pages
 
 ### Compilation/Generation Dependencies
 * C++11 (recommended GCC 4.8 or clang 3.4 or greater)
-* elinks (recommended 0.12pre6 or greater)
 * gzip (recommended 1.3.12 or greater)
+* html2text
+* perl
 
 **NOTE**: Generation not tested on Windows/cygwin.

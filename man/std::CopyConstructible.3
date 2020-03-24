@@ -3,32 +3,38 @@
 std::CopyConstructible \- std::CopyConstructible
 
 .SH Synopsis
-   Defined in header <concepts>
-   template <class T>
 
-   concept CopyConstructible =
-   std::MoveConstructible<T> &&                                           \fI(since C++20)\fP
-   std::Constructible<T, T&> && std::ConvertibleTo<T&, T> &&
-   std::Constructible<T, const T&> && std::ConvertibleTo<const T&, T> &&
+Defined in header <concepts>
+template <class T>
+concept CopyConstructible =
+std::MoveConstructible<T> &&                                           \fI(since C++20)\fP
+std::Constructible<T, T&> && std::ConvertibleTo<T&, T> &&
+std::Constructible<T, const T&> && std::ConvertibleTo<const T&, T> &&
+std::Constructible<T, const T> && std::ConvertibleTo<const T, T>;
 
-   std::Constructible<T, const T> && std::ConvertibleTo<const T, T>;
+The concept CopyConstructible is satisfied if T is an lvalue reference type, or if it is a MoveConstructible object type where an object of that type can constructed from a (possibly const) lvalue or const rvalue of that type in both direct- and copy-initialization contexts with the usual semantics (a copy is constructed with the source unchanged).
+More precisely, if T is an object type, then CopyConstructible<T> is satisfied only if given
 
-   The concept CopyConstructible is satisfied if T is an lvalue reference type, or if it is a MoveConstructible object type where an object of that type can constructed from a (possibly const) lvalue or const rvalue of that type in both direct- and copy-initialization contexts with the usual semantics (a copy is constructed with the source unchanged).
+* v, a lvalue of type (possibly const) T or an rvalue of type const T,
 
-   More precisely, if T is an object type, then CopyConstructible<T> is satisfied only if given
+the following are true:
 
-     * v, a lvalue of type (possibly const) T or an rvalue of type const T,
+* After the definition T u = v;, u is equal to v;
+* T(v) is equal to v.
 
-   the following are true:
-
-     * After the definition T u = v;, u is equal to v;
-     * T(v) is equal to v.
 
 .SH See also
 
-   is_copy_constructible
-   is_trivially_copy_constructible
-   is_nothrow_copy_constructible   checks if a type has a copy constructor
-   \fI(C++11)\fP                         \fI(class template)\fP
-   \fI(C++11)\fP
-   \fI(C++11)\fP
+
+
+is_copy_constructible
+is_trivially_copy_constructible
+is_nothrow_copy_constructible   checks if a type has a copy constructor
+                                \fI(class template)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+
+
+
+

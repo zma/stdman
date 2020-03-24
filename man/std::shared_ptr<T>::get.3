@@ -3,55 +3,63 @@
 std::shared_ptr<T>::get \- std::shared_ptr<T>::get
 
 .SH Synopsis
-   T* get() const noexcept;             \fI(until C++17)\fP
-   element_type* get() const noexcept;  \fI(since C++17)\fP
 
-   Returns the stored pointer.
+T* get() const noexcept;             \fI(until C++17)\fP
+element_type* get() const noexcept;  \fI(since C++17)\fP
+
+Returns the stored pointer.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   The stored pointer.
+The stored pointer.
 
 .SH Notes
 
-   A shared_ptr may share ownership of an object while storing a pointer to another object. get() returns the stored pointer, not the managed pointer.
+A shared_ptr may share ownership of an object while storing a pointer to another object. get() returns the stored pointer, not the managed pointer.
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <memory>
- #include <string_view>
+  #include <iostream>
+  #include <memory>
+  #include <string_view>
 
- void output(std::string_view msg, int const* pInt)
- {
-     std::cout << msg << *pInt << "\\n";
- }
+  void output(std::string_view msg, int const* pInt)
+  {
+      std::cout << msg << *pInt << "\\n";
+  }
 
- int main()
- {
-     int* pInt = new int(42);
-     std::shared_ptr<int> pShared = std::make_shared<int>(42);
+  int main()
+  {
+      int* pInt = new int(42);
+      std::shared_ptr<int> pShared = std::make_shared<int>(42);
 
-     output("Naked pointer ", pInt);
-     // output("Shared pointer ", pShared); // compiler error
-     output("Shared pointer with get() ", pShared.get());
+      output("Naked pointer ", pInt);
+      // output("Shared pointer ", pShared); // compiler error
+      output("Shared pointer with get() ", pShared.get());
 
-     delete pInt;
- }
+      delete pInt;
+  }
 
 .SH Output:
 
- Naked pointer 42
- Shared pointer with get() 42
+  Naked pointer 42
+  Shared pointer with get() 42
+
 
 .SH See also
 
-   operator*  dereferences the stored pointer
-   operator-> \fI(public member function)\fP
+
+           dereferences the stored pointer
+operator*  \fI(public member function)\fP
+operator->
+
+
+
+

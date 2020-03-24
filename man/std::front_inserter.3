@@ -3,58 +3,71 @@
 std::front_inserter \- std::front_inserter
 
 .SH Synopsis
-   Defined in header <iterator>
-   template< class Container >                                                      \fI(until C++20)\fP
-   std::front_insert_iterator<Container> front_inserter( Container& c );
-   template< class Container >                                                      \fI(since C++20)\fP
-   constexpr std::front_insert_iterator<Container> front_inserter( Container& c );
 
-   front_inserter is a convenience function template that constructs a std::front_insert_iterator for the container c with the type deduced from the type of the argument.
+Defined in header <iterator>
+template< class Container >                                                      \fI(until C++20)\fP
+std::front_insert_iterator<Container> front_inserter( Container& c );
+template< class Container >                                                      \fI(since C++20)\fP
+constexpr std::front_insert_iterator<Container> front_inserter( Container& c );
+
+front_inserter is a convenience function template that constructs a std::front_insert_iterator for the container c with the type deduced from the type of the argument.
 
 .SH Parameters
 
-   c - container that supports a push_front operation
+
+c - container that supports a push_front operation
+
 
 .SH Return value
 
-   A std::front_insert_iterator which can be used to add elements to the beginning of the container c
+A std::front_insert_iterator which can be used to add elements to the beginning of the container c
 
 .SH Possible implementation
 
-   template< class Container >
-   std::front_insert_iterator<Container> front_inserter( Container& c )
-   {
-       return std::front_insert_iterator<Container>(c);
-   }
+
+
+  template< class Container >
+  std::front_insert_iterator<Container> front_inserter( Container& c )
+  {
+      return std::front_insert_iterator<Container>(c);
+  }
+
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <vector>
- #include <deque>
- #include <iostream>
- #include <iterator>
- #include <algorithm>
- int main()
- {
-     std::vector<int> v{1,2,3,4,5};
-     std::deque<int> d;
-     std::copy(v.begin(), v.end(), std::front_inserter(d));
-     for(int n : d)
-         std::cout << n << ' ';
- }
+  #include <vector>
+  #include <deque>
+  #include <iostream>
+  #include <iterator>
+  #include <algorithm>
+  int main()
+  {
+      std::vector<int> v{1,2,3,4,5};
+      std::deque<int> d;
+      std::copy(v.begin(), v.end(), std::front_inserter(d));
+      for(int n : d)
+          std::cout << n << ' ';
+  }
 
 .SH Output:
 
- 5 4 3 2 1
+  5 4 3 2 1
+
 
 .SH See also
 
-   front_insert_iterator iterator adaptor for insertion at the front of a container
-                         \fI(class template)\fP
-   back_inserter         creates a std::back_insert_iterator of type inferred from the argument
-                         \fI(function template)\fP
-   inserter              creates a std::insert_iterator of type inferred from the argument
-                         \fI(function template)\fP
+
+                      iterator adaptor for insertion at the front of a container
+front_insert_iterator \fI(class template)\fP
+                      creates a std::back_insert_iterator of type inferred from the argument
+back_inserter         \fI(function template)\fP
+                      creates a std::insert_iterator of type inferred from the argument
+inserter              \fI(function template)\fP
+
+
+
+

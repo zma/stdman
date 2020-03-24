@@ -3,54 +3,60 @@
 std::filesystem::path::remove_filename \- std::filesystem::path::remove_filename
 
 .SH Synopsis
-   path& remove_filename() \fB(1)\fP \fI(since C++17)\fP
 
-   Removes a single generic-format filename component (as returned by filename) from the given generic-format path.
+path& remove_filename() \fB(1)\fP \fI(since C++17)\fP
 
-   After this function completes, has_filename returns false.
+Removes a single generic-format filename component (as returned by filename) from the given generic-format path.
+After this function completes, has_filename returns false.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   *this
+*this
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <filesystem>
- namespace fs = std::filesystem;
+  #include <iostream>
+  #include <filesystem>
+  namespace fs = std::filesystem;
 
- int main()
- {
+  int main()
+  {
 
-     std::cout << fs::path("foo/bar").remove_filename() << '\\n'
-               << fs::path("foo/").remove_filename() << '\\n'
-               << fs::path("/foo").remove_filename() << '\\n'
-               << fs::path("/").remove_filename() << '\\n';
- }
+      std::cout << fs::path("foo/bar").remove_filename() << '\\n'
+                << fs::path("foo/").remove_filename() << '\\n'
+                << fs::path("/foo").remove_filename() << '\\n'
+                << fs::path("/").remove_filename() << '\\n';
+  }
 
 .SH Output:
 
- "foo/"
- "foo/"
- "/"
- "/"
+  "foo/"
+  "foo/"
+  "/"
+  "/"
+
 
 .SH See also
 
-   filename         returns the filename path component
-                    \fI(public member function)\fP
-   replace_filename replaces the last path component with another path
-                    \fI(public member function)\fP
-   has_filename     checks if the corresponding path element is not empty
-                    \fI(public member function)\fP
+
+                 returns the filename path component
+filename         \fI(public member function)\fP
+                 replaces the last path component with another path
+replace_filename \fI(public member function)\fP
+                 checks if the corresponding path element is not empty
+has_filename     \fI(public member function)\fP
+
+
+
+

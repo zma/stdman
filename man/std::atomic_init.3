@@ -3,52 +3,59 @@
 std::atomic_init \- std::atomic_init
 
 .SH Synopsis
-   Defined in header <atomic>
-   template< class T >
 
-   void atomic_init( std::atomic<T>* obj,                   \fI(since C++11)\fP
+Defined in header <atomic>
+template< class T >
+void atomic_init( std::atomic<T>* obj,                   \fI(since C++11)\fP
+typename std::atomic<T>::value_type desired ) noexcept;
+template< class T >
+void atomic_init( volatile std::atomic<T>* obj,          \fI(since C++11)\fP
+typename std::atomic<T>::value_type desired ) noexcept;
 
-   typename std::atomic<T>::value_type desired ) noexcept;
-   template< class T >
-
-   void atomic_init( volatile std::atomic<T>* obj,          \fI(since C++11)\fP
-
-   typename std::atomic<T>::value_type desired ) noexcept;
-
-   Initializes the default-constructed atomic object obj with the value desired. The function is not atomic: concurrent access from another thread, even through an atomic operation, is a data race.
-
-   If obj was not default-constructed, the behavior is undefined.
-
-   If this function is called twice on the same obj, the behavior is undefined.
+Initializes the default-constructed atomic object obj with the value desired. The function is not atomic: concurrent access from another thread, even through an atomic operation, is a data race.
+If obj was not default-constructed, the behavior is undefined.
+If this function is called twice on the same obj, the behavior is undefined.
 
 .SH Parameters
 
-   obj     - pointer to an atomic object to initialize
-   desired - the value to initialize atomic object with
+
+obj     - pointer to an atomic object to initialize
+desired - the value to initialize atomic object with
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Notes
 
-   This function is provided for compatibility with C. If the compatibility is not required, std::atomic may be initialized through their non-default constructors.
+This function is provided for compatibility with C. If the compatibility is not required, std::atomic may be initialized through their non-default constructors.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
 
-  Defect reports
+ This section is incomplete
+ Reason: no example
 
-   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-     DR    Applied to                         Behavior as published                                       Correct behavior
-   P0558R1 C++11      exact type match required because T is deduced from multiple arguments T is deduced from the atomic argument only
+Defect reports
+
+The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+
+DR      Applied to Behavior as published                                                  Correct behavior
+P0558R1 C++11      exact type match required because T is deduced from multiple arguments T is deduced from the atomic argument only
+
 
 .SH See also
 
-   ATOMIC_VAR_INIT constant initialization of an atomic variable of static storage duration
-   \fI(C++11)\fP         \fI(function macro)\fP
-   constructor     constructs an atomic object
-                   \fI(public member function of std::atomic<T>)\fP
+
+
+ATOMIC_VAR_INIT constant initialization of an atomic variable of static storage duration
+                \fI(function macro)\fP
+\fI(C++11)\fP
+                constructs an atomic object
+constructor     \fI(public member function of std::atomic<T>)\fP
+
+
+
+

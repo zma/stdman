@@ -3,52 +3,58 @@
 std::filesystem::path::generic_string,std::filesystem::path::generic_wstring,std::filesystem::path::generic_u8string,std::filesystem::path::generic_u16string,std::filesystem::path::generic_u32string \- std::filesystem::path::generic_string,std::filesystem::path::generic_wstring,std::filesystem::path::generic_u8string,std::filesystem::path::generic_u16string,std::filesystem::path::generic_u32string
 
 .SH Synopsis
-   template< class CharT, class Traits = std::char_traits<CharT>,
 
-   class Alloc = std::allocator<CharT> >                          \fB(1)\fP \fI(since C++17)\fP
-   std::basic_string<CharT,Traits,Alloc>
+template< class CharT, class Traits = std::char_traits<CharT>,
+class Alloc = std::allocator<CharT> >                          \fB(1)\fP \fI(since C++17)\fP
+std::basic_string<CharT,Traits,Alloc>
+generic_string( const Alloc& a = Alloc() ) const;
+std::string generic_string() const;
+std::wstring generic_wstring() const;
+std::u16string generic_u16string() const;
+std::u32string generic_u32string() const;                      \fB(2)\fP \fI(since C++17)\fP
+std::string generic_u8string() const;                                                 \fI(since C++17)\fP
+                                                                                 \fB(3)\fP  \fI(until C++20)\fP
+std::u8string generic_u8string() const;                                               \fI(since C++20)\fP
 
-   generic_string( const Alloc& a = Alloc() ) const;
-   std::string generic_string() const;
-   std::wstring generic_wstring() const;
-   std::u16string generic_u16string() const;
-   std::u32string generic_u32string() const;                      \fB(2)\fP \fI(since C++17)\fP
-   std::string generic_u8string() const;                                                 \fI(since C++17)\fP
-                                                                                    \fB(3)\fP  \fI(until C++20)\fP
-   std::u8string generic_u8string() const;                                               \fI(since C++20)\fP
+Returns the internal pathname in generic pathname format, converted to specific string type. Conversion, if any, is specified as follows:
 
-   Returns the internal pathname in generic pathname format, converted to specific string type. Conversion, if any, is specified as follows:
+* If path::value_type is char, conversion, if any, is system-dependent. This is the case on typical POSIX systems (such as Linux), where native encoding is UTF-8 and string() performs no conversion.
+* Otherwise, if path::value_type is wchar_t, conversion, if any, is unspecified. This is the case on Windows, where wchar_t is 16 bit and the native encoding is UTF-16.
+* Otherwise, if path::value_type is char16_t, native encoding is UTF-16 and the conversion method is unspecified.
+* Otherwise, if path::value_type is char32_t, native encoding is UTF-32 and the conversion method is unspecified.
+* Otherwise, if path::value_type is char8_t, native encoding is UTF-8 and the conversion method is unspecified.
 
-     * If path::value_type is char, conversion, if any, is system-dependent. This is the case on typical POSIX systems (such as Linux), where native encoding is UTF-8 and string() performs no conversion.
-     * Otherwise, if path::value_type is wchar_t, conversion, if any, is unspecified. This is the case on Windows, where wchar_t is 16 bit and the native encoding is UTF-16.
-     * Otherwise, if path::value_type is char16_t, native encoding is UTF-16 and the conversion method is unspecified.
-     * Otherwise, if path::value_type is char32_t, native encoding is UTF-32 and the conversion method is unspecified.
-     * Otherwise, if path::value_type is char8_t, native encoding is UTF-8 and the conversion method is unspecified.
-
-   The / character is used as the directory separator.
-
-   1) All memory allocations are performed by a.
-   3) The result encoding in the case of u8string() is always UTF-8.
+The / character is used as the directory separator.
+1) All memory allocations are performed by a.
+3) The result encoding in the case of u8string() is always UTF-8.
 
 .SH Parameters
 
-   a                -                allocator to construct the string with
+
+a - allocator to construct the string with
 .SH Type requirements
-   -
-   CharT must be one of the encoded character types (char, wchar_t, char16_t and char32_t)
+-
+CharT must be one of the encoded character types (char, wchar_t, char16_t and char32_t)
+
 
 .SH Return value
 
-   The internal pathname in generic pathname format, converted to specified string type.
+The internal pathname in generic pathname format, converted to specified string type.
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH See also
 
-   string
-   wstring   returns the path in native pathname format converted to a string
-   u8string  \fI(public member function)\fP
-   u16string
-   u32string
+
+
+string
+wstring   returns the path in native pathname format converted to a string
+u8string  \fI(public member function)\fP
+u16string
+u32string
+
+
+
+

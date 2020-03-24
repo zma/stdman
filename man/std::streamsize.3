@@ -3,20 +3,25 @@
 std::streamsize \- std::streamsize
 
 .SH Synopsis
-   Defined in header <ios>
-   typedef /*unspecified*/ streamsize;
 
-   The type std::streamsize is a signed integral type used to represent the number of characters transferred in an I/O operation or the size of an I/O buffer. It is used as a signed counterpart of std::size_t, similar to the POSIX type ssize_t.
+Defined in header <ios>
+typedef /*unspecified*/ streamsize;
 
-   Except in the constructors of std::strstreambuf, negative values of std::streamsize are never used.
+The type std::streamsize is a signed integral type used to represent the number of characters transferred in an I/O operation or the size of an I/O buffer. It is used as a signed counterpart of std::size_t, similar to the POSIX type ssize_t.
+Except in the constructors of std::strstreambuf, negative values of std::streamsize are never used.
 
 .SH See also
 
-   gcount returns number of characters extracted by last unformatted input operation
-          \fI(public member function of std::basic_istream<CharT,Traits>)\fP
-   ignore extracts and discards characters until the given character is found
-          \fI(public member function of std::basic_istream<CharT,Traits>)\fP
-   read   extracts blocks of characters
-          \fI(public member function of std::basic_istream<CharT,Traits>)\fP
-   write  inserts blocks of characters
-          \fI(public member function of std::basic_ostream<CharT,Traits>)\fP
+
+       returns number of characters extracted by last unformatted input operation
+gcount \fI(public member function of std::basic_istream<CharT,Traits>)\fP
+       extracts and discards characters until the given character is found
+ignore \fI(public member function of std::basic_istream<CharT,Traits>)\fP
+       extracts blocks of characters
+read   \fI(public member function of std::basic_istream<CharT,Traits>)\fP
+       inserts blocks of characters
+write  \fI(public member function of std::basic_ostream<CharT,Traits>)\fP
+
+
+
+

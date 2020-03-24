@@ -3,23 +3,36 @@
 std::atomic_flag::clear \- std::atomic_flag::clear
 
 .SH Synopsis
-   Defined in header <atomic>
-   void clear( std::memory_order order = std::memory_order_seq_cst ) volatile noexcept; \fB(1)\fP \fI(since C++11)\fP
-   void clear( std::memory_order order = std::memory_order_seq_cst ) noexcept;          \fB(2)\fP \fI(since C++11)\fP
 
-   Atomically changes the state of a std::atomic_flag to clear (false).
+Defined in header <atomic>
+void clear( std::memory_order order = std::memory_order_seq_cst ) volatile noexcept; \fB(1)\fP \fI(since C++11)\fP
+void clear( std::memory_order order = std::memory_order_seq_cst ) noexcept;          \fB(2)\fP \fI(since C++11)\fP
+
+Atomically changes the state of a std::atomic_flag to clear (false).
 
 .SH Parameters
 
-   order - the memory synchronization ordering for this operation (cannot be std::memory_order_consume, std::memory_order_acquire, or std::memory_order_acq_rel)
+
+order - the memory synchronization ordering for this operation (cannot be std::memory_order_consume, std::memory_order_acquire, or std::memory_order_acq_rel)
+
+
 
 .SH See also
 
-   test_and_set               atomically sets the flag to true and obtains its previous value
-                              \fI(public member function)\fP
-   atomic_flag_clear
-   atomic_flag_clear_explicit atomically sets the value of the flag to false
-   \fI(C++11)\fP                    \fI(function)\fP
-   \fI(C++11)\fP
-   memory_order               defines memory ordering constraints for the given atomic operation
-   \fI(C++11)\fP                    \fI(enum)\fP
+
+                           atomically sets the flag to true and obtains its previous value
+test_and_set               \fI(public member function)\fP
+
+atomic_flag_clear
+atomic_flag_clear_explicit atomically sets the value of the flag to false
+                           \fI(function)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+
+memory_order               defines memory ordering constraints for the given atomic operation
+                           \fI(enum)\fP
+\fI(C++11)\fP
+
+
+
+

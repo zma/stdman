@@ -3,51 +3,58 @@
 std::experimental::filesystem::path::relative_path \- std::experimental::filesystem::path::relative_path
 
 .SH Synopsis
-   path relative_path() const;  (filesystem TS)
 
-   Returns path relative to root path. If *this is an empty path, returns an empty path.
+path relative_path() const;  (filesystem TS)
+
+Returns path relative to root_path. If *this is an empty path, returns an empty path.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   Path relative to the root path.
+Path relative to the root_path.
 
 .SH Exceptions
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Examples
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <experimental/filesystem>
- namespace fs = std::experimental::filesystem;
+  #include <iostream>
+  #include <experimental/filesystem>
+  namespace fs = std::experimental::filesystem;
 
- int main()
- {
-     fs::path p = fs::current_path();
+  int main()
+  {
+      fs::path p = fs::current_path();
 
-     std::cout << "The current path " << p << " decomposes into:\\n"
-               << "root-path " << p.root_path() << '\\n'
-               << "relative path " << p.relative_path() << '\\n';
- }
+      std::cout << "The current path " << p << " decomposes into:\\n"
+                << "root-path " << p.root_path() << '\\n'
+                << "relative path " << p.relative_path() << '\\n';
+  }
 
 .SH Possible output:
 
- The current path "C:\\Users\\abcdef\\Local Settings\\temp" decomposes into:
- root-path "C:\\"
- relative path "Users\\abcdef\\Local Settings\\temp"
+  The current path "C:\\Users\\abcdef\\Local Settings\\temp" decomposes into:
+  root-path "C:\\"
+  relative path "Users\\abcdef\\Local Settings\\temp"
+
 
 .SH See also
 
-   root_name      returns the root-name of the path, if present
-                  \fI(public member function)\fP
-   root_directory returns the root directory of the path, if present
-                  \fI(public member function)\fP
-   root_path      returns the root path of the path, if present
-                  \fI(public member function)\fP
+
+               returns the root-name of the path, if present
+root_name      \fI(public member function)\fP
+               returns the root directory of the path, if present
+root_directory \fI(public member function)\fP
+               returns the root path of the path, if present
+root_path      \fI(public member function)\fP
+
+
+
+

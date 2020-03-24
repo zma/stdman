@@ -3,44 +3,56 @@
 std::underflow_error \- std::underflow_error
 
 .SH Synopsis
-   Defined in header <stdexcept>
-   class underflow_error;
 
-   Defines a type of object to be thrown as exception. It may be used to report arithmetic underflow errors (that is, situations where the result of a computation is a subnormal floating-point value)
+Defined in header <stdexcept>
+class underflow_error;
 
-   The standard library components do not throw this exception (mathematical functions report underflow errors as specified in math_errhandling). Third-party libraries, however, use this. For example, boost.math throws std::underflow_error if boost::math::policies::throw_on_error is enabled (the default setting).
-
-   std-underflow error-inheritance.svg
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
+Defines a type of object to be thrown as exception. It may be used to report arithmetic underflow errors (that is, situations where the result of a computation is a subnormal floating-point value)
+The standard library components do not throw this exception (mathematical functions report underflow errors as specified in math_errhandling). Third-party libraries, however, use this. For example, boost.math throws std::underflow_error if boost::math::policies::throw_on_error is enabled (the default setting).
+ std-underflow error-inheritance.svg
+Inheritance diagram
 
 .SH Member functions
 
-   constructor   constructs the exception object
-                 \fI(public member function)\fP
 
-std::underflow_error::underflow_error
+              constructs the exception object
+constructor   \fI(public member function)\fP
 
-   explicit underflow_error( const std::string& what_arg ); \fB(1)\fP
-   explicit underflow_error( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
 
-   Constructs the exception object with what_arg as explanatory string that can be accessed through what().
+ std::underflow_error::underflow_error
 
-   Because copying std::underflow_error is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
+
+explicit underflow_error( const std::string& what_arg ); \fB(1)\fP
+explicit underflow_error( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
+
+Constructs the exception object with what_arg as explanatory string that can be accessed through what().
+Because copying std::underflow_error is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
 
 .SH Parameters
 
-   what_arg - explanatory string
+
+what_arg - explanatory string
+
 
 .SH Exceptions
 
-   May throw std::bad_alloc
+May throw std::bad_alloc
 
 Inherited from std::exception
 
+
 .SH Member functions
 
-   destructor   destroys the exception object
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
-   what         returns an explanatory string
-   \fB[virtual]\fP    \fI(virtual public member function of std::exception)\fP
+
+
+destructor   destroys the exception object
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+what         returns an explanatory string
+             \fI(virtual public member function of std::exception)\fP
+\fB[virtual]\fP
+
+
+
+

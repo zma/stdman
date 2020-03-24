@@ -3,28 +3,38 @@
 std::basic_streambuf<CharT,Traits>::gbump \- std::basic_streambuf<CharT,Traits>::gbump
 
 .SH Synopsis
-   void gbump( int count );
 
-   Skips count characters in the get area. This is done by advancing the get pointer by count characters. No checks are done for underflow.
+void gbump( int count );
+
+Skips count characters in the get area. This is done by advancing the get pointer by count characters. No checks are done for underflow.
 
 .SH Parameters
 
-   count - number of characters to skip
+
+count - number of characters to skip
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Notes
 
-   Because this function takes an int, it cannot manipulate buffers larger than std::numeric_limits<int>::max() characters (LWG 255)
+Because this function takes an int, it cannot manipulate buffers larger than std::numeric_limits<int>::max() characters (LWG_255)
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   pbump advances the next pointer of the output sequence
-         \fI(protected member function)\fP
+
+      advances the next pointer of the output sequence
+pbump \fI(protected member function)\fP
+
+
+
+

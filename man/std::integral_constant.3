@@ -3,100 +3,125 @@
 std::integral_constant \- std::integral_constant
 
 .SH Synopsis
-   Defined in header <type_traits>
-   template< class T, T v >         \fI(since C++11)\fP
-   struct integral_constant;
 
-   std::integral_constant wraps a static constant of specified type. It is the base class for the C++ type traits.
+Defined in header <type_traits>
+template< class T, T v >         \fI(since C++11)\fP
+struct integral_constant;
 
-     Helper templates
+std::integral_constant wraps a static constant of specified type. It is the base class for the C++ type traits.
 
-   A helper alias template std::bool_constant is defined for the common case where T is bool. \fI(since C++17)\fP
 
-   template <bool B>
-   using bool_constant = integral_constant<bool, B>;
+Helper templates
 
-   Two typedefs for the common case where T is bool are provided:
+A helper alias template std::bool_constant is defined for the common case where T is bool. \fI(since C++17)\fP
 
-   Defined in header <type_traits>
-   Type       Definition
-   true_type  std::integral_constant<bool, true>
-   false_type std::integral_constant<bool, false>
+template <bool B>
+using bool_constant = integral_constant<bool, B>;
+
+
+Two typedefs for the common case where T is bool are provided:
+
+Defined in header <type_traits>
+Type       Definition
+true_type  std::integral_constant<bool, true>
+false_type std::integral_constant<bool, false>
+
 
 .SH Member types
 
-   Type       Definition
-   value_type T
-   type       std::integral_constant<T,v>
+
+Type       Definition
+value_type T
+type       std::integral_constant<T,v>
+
 
 .SH Member constants
 
-   Name              Value
-   constexpr T value static constant of type T with value v
-   \fB[static]\fP          \fI(public static member constant)\fP
+
+Name              Value
+
+constexpr T value static constant of type T with value v
+                  \fI(public static member constant)\fP
+\fB[static]\fP
+
 
 .SH Member functions
 
-   operator value_type returns the wrapped value
-                       \fI(public member function)\fP
-   operator()          returns the wrapped value
-   \fI(C++14)\fP             \fI(public member function)\fP
 
-std::integral_constant::operator value_type
+                    returns the wrapped value
+operator value_type \fI(public member function)\fP
 
-   constexpr operator value_type() const noexcept;
+operator()          returns the wrapped value
+                    \fI(public member function)\fP
+\fI(C++14)\fP
 
-   Conversion function. Returns the wrapped value.
 
-std::integral_constant::operator()
+ std::integral_constant::operator value_type
 
-   constexpr value_type operator()() const noexcept;  \fI(since C++14)\fP
 
-   Returns the wrapped value. This function enables std::integral_constant to serve as a source of compile-time function objects.
+constexpr operator value_type() const noexcept;
+
+Conversion function. Returns the wrapped value.
+
+ std::integral_constant::operator()
+
+
+constexpr value_type operator()() const noexcept;  \fI(since C++14)\fP
+
+Returns the wrapped value. This function enables std::integral_constant to serve as a source of compile-time function objects.
 
 .SH Possible implementation
 
-   template<class T, T v>
-   struct integral_constant {
-       static constexpr T value = v;
-       typedef T value_type;
-       typedef integral_constant type; // using injected-class-name
-       constexpr operator value_type() const noexcept { return value; }
-       constexpr value_type operator()() const noexcept { return value; } //since c++14
-   };
+
+
+  template<class T, T v>
+  struct integral_constant {
+      static constexpr T value = v;
+      typedef T value_type;
+      typedef integral_constant type; // using injected-class-name
+      constexpr operator value_type() const noexcept { return value; }
+      constexpr value_type operator()() const noexcept { return value; } //since c++14
+  };
+
+
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <iostream>
- #include <type_traits>
+  #include <iostream>
+  #include <type_traits>
 
- int main()
- {
-     typedef std::integral_constant<int, 2> two_t;
-     typedef std::integral_constant<int, 4> four_t;
+  int main()
+  {
+      typedef std::integral_constant<int, 2> two_t;
+      typedef std::integral_constant<int, 4> four_t;
 
- //  static_assert(std::is_same<two_t, four_t>::value,
- //                "two_t and four_t are not equal!");
- //  error: static assertion failed: "two_t and four_t are not equal!"
+  //  static_assert(std::is_same<two_t, four_t>::value,
+  //                "two_t and four_t are not equal!");
+  //  error: static assertion failed: "two_t and four_t are not equal!"
 
-     static_assert(two_t::value*2 == four_t::value,
-        "2*2 != 4"
-     );
+      static_assert(two_t::value*2 == four_t::value,
+         "2*2 != 4"
+      );
 
-     enum class my_e {
-        e1,
-        e2
-     };
-     typedef std::integral_constant<my_e, my_e::e1> my_e_e1;
-     typedef std::integral_constant<my_e, my_e::e2> my_e_e2;
+      enum class my_e {
+         e1,
+         e2
+      };
+      typedef std::integral_constant<my_e, my_e::e1> my_e_e1;
+      typedef std::integral_constant<my_e, my_e::e2> my_e_e2;
 
- //  static_assert(my_e_e1::value == my_e::e2,
- //               "my_e_e1::value != my_e::e2");
- //  error: static assertion failed: "my_e_e1::value != my_e::e2"
+  //  static_assert(my_e_e1::value == my_e::e2,
+  //               "my_e_e1::value != my_e::e2");
+  //  error: static assertion failed: "my_e_e1::value != my_e::e2"
 
-     static_assert(std::is_same<my_e_e2, my_e_e2>::value,
-                   "my_e_e2 != my_e_e2");
- }
+      static_assert(std::is_same<my_e_e2, my_e_e2>::value,
+                    "my_e_e2 != my_e_e2");
+  }
+
+
+
+
+

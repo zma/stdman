@@ -3,26 +3,29 @@
 std::experimental::concat \- std::experimental::concat
 
 .SH Synopsis
-   Defined in header <experimental/simd>
-   template < class T, class... Abis >
 
-   simd<T, simd_abi::deduce_t<T, (simd_size_v<T, Abis> + ...)>>      \fB(1)\fP
+Defined in header <experimental/simd>
+template < class T, class... Abis >
+simd<T, simd_abi::deduce_t<T, (simd_size_v<T, Abis> + ...)>>      \fB(1)\fP
+concat( const simd<T, Abis>&... vs );
+template <class T, class... Abis>
+simd_mask<T, simd_abi::deduce_t<T, (simd_size_v<T, Abis> + ...)>> \fB(2)\fP
+concat( const simd_mask<T, Abis>&... vs );
 
-   concat( const simd<T, Abis>&... vs );
-   template <class T, class... Abis>
+Concatenates the input simd or simd_mask objects.
 
-   simd_mask<T, simd_abi::deduce_t<T, (simd_size_v<T, Abis> + ...)>> \fB(2)\fP
+Parameter
 
-   concat( const simd_mask<T, Abis>&... vs );
 
-   Concatenates the input simd or simd_mask objects.
+vs - the input simd or simd_mask parameter pack
 
-  Parameter
-
-   vs - the input simd or simd_mask parameter pack
 
 .SH Return value
 
-   The concatenated result of a single simd or simd_mask object.
+The concatenated result of a single simd or simd_mask object.
 
 .SH Example
+
+
+
+

@@ -3,62 +3,83 @@
 std::basic_string<CharT,Traits,Allocator>::reserve \- std::basic_string<CharT,Traits,Allocator>::reserve
 
 .SH Synopsis
-   void reserve( size_type new_cap = 0 ); \fB(1)\fP \fI(until C++20)\fP
-   void reserve( size_type new_cap);      \fB(1)\fP \fI(since C++20)\fP
-   void reserve();                        \fB(2)\fP \fI(since C++20)\fP
-                                              \fB(deprecated)\fP
 
-   1) Informs a std::basic_string object of a planned change in size, so that it can manage the storage allocation appropriately.
+void reserve( size_type new_cap = 0 ); \fB(1)\fP \fI(until C++20)\fP
+void reserve( size_type new_cap);      \fB(1)\fP \fI(since C++20)\fP
+void reserve();                        \fB(2)\fP \fI(since C++20)\fP
+                                           \fB(deprecated)\fP
 
-              * If new_cap is greater than the current capacity(), new storage is allocated, and capacity() is made equal or greater than new_cap.
+1) Informs a std::basic_string object of a planned change in size, so that it can manage the storage allocation appropriately.
 
-         * If new_cap is less than the current capacity(), this is a non-binding shrink request.
-         * If new_cap is less than the current size(), this is a non-binding shrink-to-fit request   \fI(until C++20)\fP
-           equivalent to shrink_to_fit()
-           \fI(since C++11)\fP.
-         * If new_cap is less than or equal to the current capacity(), there is no effect.           \fI(since C++20)\fP
 
-   If a capacity change takes place, all iterators and references, including the past-the-end iterator, are invalidated.
+      * If new_cap is greater than the current capacity(), new storage is allocated, and capacity() is made equal or greater than new_cap.
 
-   2) A call to reserve with no argument is a non-binding shrink-to-fit request. After this call, capacity() has an unspecified value greater than or equal to size(). \fI(since C++20)\fP
+
+
+
+
+      * If new_cap is less than the current capacity(), this is a non-binding shrink request.
+      * If new_cap is less than the current size(), this is a non-binding shrink-to-fit request  \fI(until C++20)\fP
+        equivalent to shrink_to_fit()
+        \fI(since C++11)\fP.
+
+
+
+
+      * If new_cap is less than or equal to the current capacity(), there is no effect.          \fI(since C++20)\fP
+
+
+
+If a capacity change takes place, all iterators and references, including the past-the-end iterator, are invalidated.
+
+2) A call to reserve with no argument is a non-binding shrink-to-fit request. After this call, capacity() has an unspecified value greater than or equal to size(). \fI(since C++20)\fP
+
 
 .SH Parameters
 
-   new_cap - new capacity of the string
+
+new_cap - new capacity of the string
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Exceptions
 
-   Throws std::length_error if new_cap is greater than max_size()
-
-   May throw any exceptions thrown by std::allocator_traits<Allocator>::allocate(), such as std::bad_alloc.
+Throws std::length_error if new_cap is greater than max_size()
+May throw any exceptions thrown by std::allocator_traits<Allocator>::allocate(), such as std::bad_alloc.
 
 .SH Complexity
 
-   At most linear in the size() of the string
+At most linear in the size() of the string
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <cassert>
- #include <string>
+  #include <cassert>
+  #include <string>
 
- int main()
- {
-     std::string s;
-     std::string::size_type new_capacity{ 100u };
-     assert(new_capacity > s.capacity());
+  int main()
+  {
+      std::string s;
+      std::string::size_type new_capacity{ 100u };
+      assert(new_capacity > s.capacity());
 
-     s.reserve(new_capacity);
-     assert(new_capacity <= s.capacity());
- }
+      s.reserve(new_capacity);
+      assert(new_capacity <= s.capacity());
+  }
+
+
 
 .SH See also
 
-   capacity returns the number of characters that can be held in currently allocated storage
-            \fI(public member function)\fP
+
+         returns the number of characters that can be held in currently allocated storage
+capacity \fI(public member function)\fP
+
+
+
+

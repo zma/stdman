@@ -3,27 +3,35 @@
 std::chrono::weekday_indexed \- std::chrono::weekday_indexed
 
 .SH Synopsis
-   Defined in header <chrono>
-   class weekday_indexed;      \fI(since C++20)\fP
 
-   The class weekday_indexed combines a weekday, representing a day of the week in the Gregorian calendar, with a small index n in the range [1, 5]. It represents the first, second, third, fourth, or fifth weekday of some month.
+Defined in header <chrono>
+class weekday_indexed;      \fI(since C++20)\fP
 
-   weekday_indexed is a TriviallyCopyable StandardLayoutType.
+The class weekday_indexed combines a weekday, representing a day of the week in the Gregorian calendar, with a small index n in the range [1, 5]. It represents the first, second, third, fourth, or fifth weekday of some month.
+weekday_indexed is a TriviallyCopyable StandardLayoutType.
 
 .SH Member functions
 
-   constructor   constructs a weekday_indexed
-                 \fI(public member function)\fP
-   weekday       access the stored weekday
-                 \fI(public member function)\fP
-   index         access the stored index
-                 \fI(public member function)\fP
-   ok            checks if the weekday and index are both valid
-                 \fI(public member function)\fP
 
-  Nonmember functions
+              constructs a weekday_indexed
+constructor   \fI(public member function)\fP
+              access the stored weekday
+weekday       \fI(public member function)\fP
+              access the stored index
+index         \fI(public member function)\fP
+              checks if the weekday and index are both valid
+ok            \fI(public member function)\fP
 
-   operator== compares two weekday_indexed objects
-   operator!= \fI(function)\fP
-   operator<< outputs a weekday_indexed into a stream
-              \fI(function template)\fP
+
+Nonmember functions
+
+
+           compares two weekday_indexed objects
+operator== \fI(function)\fP
+operator!=
+           outputs a weekday_indexed into a stream
+operator<< \fI(function template)\fP
+
+
+
+

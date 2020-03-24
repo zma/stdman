@@ -3,78 +3,98 @@
 std::not1 \- std::not1
 
 .SH Synopsis
-   Defined in header <functional>
-   template< class Predicate >                                          \fI(until C++14)\fP
-   std::unary_negate<Predicate> not1(const Predicate& pred);
-   template< class Predicate >                                          \fI(since C++14)\fP
-   constexpr std::unary_negate<Predicate> not1(const Predicate& pred);  (deprecated in C++17)
-                                                                        (removed in C++20)
 
-   not1 is a helper function to create a function object that returns the complement of the unary predicate function passed. The function object created is of type std::unary_negate<Predicate>.
+Defined in header <functional>
+template< class Predicate >                                          \fI(until C++14)\fP
+std::unary_negate<Predicate> not1(const Predicate& pred);
+template< class Predicate >                                          \fI(since C++14)\fP
+constexpr std::unary_negate<Predicate> not1(const Predicate& pred);  (deprecated in C++17)
+                                                                     (removed in C++20)
 
-   The unary predicate type must define a member type, argument_type, that is convertible to the predicate's parameter type. The unary function objects obtained from std::ref, std::cref, std::negate, std::logical_not, std::mem_fn, std::function, std::hash, or from another call to std::not1 have this type defined, as are function objects derived from the deprecated std::unary_function.
+not1 is a helper function to create a function object that returns the complement of the unary predicate function passed. The function object created is of type std::unary_negate<Predicate>.
+The unary predicate type must define a member type, argument_type, that is convertible to the predicate's parameter type. The unary function objects obtained from std::ref, std::cref, std::negate, std::logical_not, std::mem_fn, std::function, std::hash, or from another call to std::not1 have this type defined, as are function objects derived from the deprecated std::unary_function.
 
 .SH Parameters
 
-   pred - unary predicate
+
+pred - unary predicate
+
 
 .SH Return value
 
-   std::not1 returns an object of type std::unary_negate<Predicate>, constructed with pred.
+std::not1 returns an object of type std::unary_negate<Predicate>, constructed with pred.
 
 .SH Exceptions
 
-   None.
+None.
 
 .SH Example
 
-   
+
 // Run this code
 
- #include <algorithm>
- #include <numeric>
- #include <iterator>
- #include <functional>
- #include <iostream>
- #include <vector>
+  #include <algorithm>
+  #include <numeric>
+  #include <iterator>
+  #include <functional>
+  #include <iostream>
+  #include <vector>
 
- struct LessThan7 : std::unary_function<int, bool>
- {
-     bool operator()(int i) const { return i < 7; }
- };
+  struct LessThan7 : std::unary_function<int, bool>
+  {
+      bool operator()(int i) const { return i < 7; }
+  };
 
- int main()
- {
-     std::vector<int> v(10);
-     std::iota(begin(v), end(v), 0);
+  int main()
+  {
+      std::vector<int> v(10);
+      std::iota(begin(v), end(v), 0);
 
-     std::cout << std::count_if(begin(v), end(v), std::not1(LessThan7())) << "\\n";
+      std::cout << std::count_if(begin(v), end(v), std::not1(LessThan7())) << "\\n";
 
-     //same as above, but using `std::function`
-     std::function<bool(int)> less_than_9 = [](int x){ return x < 9; };
-     std::cout << std::count_if(begin(v), end(v), std::not1(less_than_9)) << "\\n";
- }
+      //same as above, but using `std::function`
+      std::function<bool(int)> less_than_9 = [](int x){ return x < 9; };
+      std::cout << std::count_if(begin(v), end(v), std::not1(less_than_9)) << "\\n";
+  }
 
 .SH Output:
 
- 3
- 1
+  3
+  1
+
 
 .SH See also
 
-   not_fn                Creates a function object that returns the complement of the result of the function object it holds
-   \fI(C++17)\fP               \fI(function template)\fP
-   unary_negate          wrapper function object returning the complement of the unary predicate it holds
-   (deprecated in C++17) \fI(class template)\fP
-   (removed in C++20)
-   function              wraps callable object of any type with specified function call signature
-   \fI(C++11)\fP               \fI(class template)\fP
-   not2                  constructs custom std::binary_negate object
-   (deprecated in C++17) \fI(function template)\fP
-   (removed in C++20)
-   ptr_fun               creates an adaptor-compatible function object wrapper from a pointer to function
-   (deprecated in C++11) \fI(function template)\fP
-   (removed in C++17)
-   unary_function        adaptor-compatible unary function base class
-   (deprecated in C++11) \fI(class template)\fP
-   (removed in C++17)
+
+
+not_fn                Creates a function object that returns the complement of the result of the function object it holds
+                      \fI(function template)\fP
+\fI(C++17)\fP
+
+unary_negate          wrapper function object returning the complement of the unary predicate it holds
+                      \fI(class template)\fP
+(deprecated in C++17)
+(removed in C++20)
+
+function              wraps callable object of any type with specified function call signature
+                      \fI(class template)\fP
+\fI(C++11)\fP
+
+not2                  constructs custom std::binary_negate object
+                      \fI(function template)\fP
+(deprecated in C++17)
+(removed in C++20)
+
+ptr_fun               creates an adaptor-compatible function object wrapper from a pointer to function
+                      \fI(function template)\fP
+(deprecated in C++11)
+(removed in C++17)
+
+unary_function        adaptor-compatible unary function base class
+                      \fI(class template)\fP
+(deprecated in C++11)
+(removed in C++17)
+
+
+
+

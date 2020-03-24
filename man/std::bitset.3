@@ -3,79 +3,112 @@
 std::bitset \- std::bitset
 
 .SH Synopsis
-   Defined in header <bitset>
-   template< std::size_t N >
-   class bitset;
 
-   The class template bitset represents a fixed-size sequence of N bits. Bitsets can be manipulated by standard logic operators and converted to and from strings and integers.
+Defined in header <bitset>
+template< std::size_t N >
+class bitset;
 
-   bitset meets the requirements of CopyConstructible and CopyAssignable.
+The class template bitset represents a fixed-size sequence of N bits. Bitsets can be manipulated by standard logic operators and converted to and from strings and integers.
+bitset meets the requirements of CopyConstructible and CopyAssignable.
 
 .SH Template parameters
 
-   N - the number of bits to allocate storage for
+
+N - the number of bits to allocate storage for
+
 
 .SH Member types
 
-   reference proxy class representing a reference to a bit
-             \fI(class)\fP
+
+          proxy class representing a reference to a bit
+reference \fI(class)\fP
+
 
 .SH Member functions
 
-   constructor   constructs the bitset
-                 \fI(public member function)\fP
-   operator==    compares the contents
-   operator!=    \fI(public member function)\fP
+
+              constructs the bitset
+constructor   \fI(public member function)\fP
+              compares the contents
+operator==    \fI(public member function)\fP
+operator!=
+
 .SH Element access
-   operator[]    accesses specific bit
-                 \fI(public member function)\fP
-   test          accesses specific bit
-                 \fI(public member function)\fP
-   all
-   any           checks if all, any or none of the bits are set to true
-   none          \fI(public member function)\fP
-   \fI(C++11)\fP
-   count         returns the number of bits set to true
-                 \fI(public member function)\fP
+
+              accesses specific bit
+operator[]    \fI(public member function)\fP
+              accesses specific bit
+test          \fI(public member function)\fP
+
+all
+any           checks if all, any or none of the bits are set to true
+none          \fI(public member function)\fP
+
+\fI(C++11)\fP
+
+              returns the number of bits set to true
+count         \fI(public member function)\fP
+
 .SH Capacity
-   size          returns the size number of bits that the bitset can hold
-                 \fI(public member function)\fP
+
+              returns the size number of bits that the bitset can hold
+size          \fI(public member function)\fP
+
 .SH Modifiers
-   operator&=
-   operator|=    performs binary AND, OR, XOR and NOT
-   operator^=    \fI(public member function)\fP
-   operator~
-   operator<<=
-   operator>>=   performs binary shift left and shift right
-   operator<<    \fI(public member function)\fP
-   operator>>
-   set           sets bits to true or given value
-                 \fI(public member function)\fP
-   reset         sets bits to false
-                 \fI(public member function)\fP
-   flip          toggles the values of bits
-                 \fI(public member function)\fP
+
+
+operator&=    performs binary AND, OR, XOR and NOT
+operator|=    \fI(public member function)\fP
+operator^=
+operator~
+
+operator<<=   performs binary shift left and shift right
+operator>>=   \fI(public member function)\fP
+operator<<
+operator>>
+              sets bits to true or given value
+set           \fI(public member function)\fP
+              sets bits to false
+reset         \fI(public member function)\fP
+              toggles the values of bits
+flip          \fI(public member function)\fP
+
 .SH Conversions
-   to_string     returns a string representation of the data
-                 \fI(public member function)\fP
-   to_ulong      returns an unsigned long integer representation of the data
-                 \fI(public member function)\fP
-   to_ullong     returns an unsigned long long integer representation of the data
-   \fI(C++11)\fP       \fI(public member function)\fP
+
+              returns a string representation of the data
+to_string     \fI(public member function)\fP
+              returns an unsigned long integer representation of the data
+to_ulong      \fI(public member function)\fP
+
+to_ullong     returns an unsigned long long integer representation of the data
+              \fI(public member function)\fP
+\fI(C++11)\fP
+
 
 .SH Non-member functions
 
-   operator&  performs binary logic operations on bitsets
-   operator|  \fI(function template)\fP
-   operator^
-   operator<< performs stream input and output of bitsets
-   operator>> \fI(function template)\fP
+
+
+operator&  performs binary logic operations on bitsets
+operator|  \fI(function template)\fP
+operator^
+           performs stream input and output of bitsets
+operator<< \fI(function template)\fP
+operator>>
+
 
 .SH Helper classes
 
-   std::hash<std::bitset> hash support for std::bitset
-   \fI(C++11)\fP                \fI(class template specialization)\fP
+
+
+std::hash<std::bitset> hash support for std::bitset
+                       \fI(class template specialization)\fP
+\fI(C++11)\fP
+
 
 .SH Notes
 
-   If the size of the bitset is not known at compile time, std::vector<bool> or boost::dynamic_bitset may be used.
+If the size of the bitset is not known at compile time, std::vector<bool> or boost::dynamic_bitset may be used.
+
+
+

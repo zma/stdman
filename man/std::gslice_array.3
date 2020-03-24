@@ -3,41 +3,54 @@
 std::gslice_array \- std::gslice_array
 
 .SH Synopsis
-   Defined in header <valarray>
-   template< class T > class gslice_array;
 
-   std::gslice_array is a helper template used by std::gslice subscript operator. It has reference semantics to a subset of the array specified by the std::gslice object.
+Defined in header <valarray>
+template< class T > class gslice_array;
+
+std::gslice_array is a helper template used by std::gslice subscript operator. It has reference semantics to a subset of the array specified by the std::gslice object.
 
 .SH Member types
 
-   Type       Definition
-   value_type T
+
+Type       Definition
+value_type T
+
 
 .SH Member functions
 
-   constructor   constructs a gslice_array
-                 \fI(public member function)\fP
-   destructor    destroys a gslice_array
-                 \fI(public member function)\fP
-   operator=     assigns contents
-                 \fI(public member function)\fP
-   operator+=
-   operator-=
-   operator*=
-   operator/=
-   operator%=    performs arithmetic operation on the array referred by generic slice.
-   operator&=    \fI(public member function)\fP
-   operator|=
-   operator^=
-   operator<<=
-   operator>>=
+
+              constructs a gslice_array
+constructor   \fI(public member function)\fP
+              destroys a gslice_array
+destructor    \fI(public member function)\fP
+              assigns contents
+operator=     \fI(public member function)\fP
+
+operator+=
+operator-=
+operator*=
+operator/=    performs arithmetic operation on the array referred by generic slice.
+operator%=    \fI(public member function)\fP
+operator&=
+operator|=
+operator^=
+operator<<=
+operator>>=
+
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   slice_array proxy to a subset of a valarray after applying a slice
-               \fI(class template)\fP
+
+            proxy to a subset of a valarray after applying a slice
+slice_array \fI(class template)\fP
+
+
+
+

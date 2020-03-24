@@ -3,8 +3,12 @@
 std::atomic_flag::operator= \- std::atomic_flag::operator=
 
 .SH Synopsis
-   Defined in header <atomic>
-   atomic_flag& operator=( const atomic_flag& ) = delete;          \fB(1)\fP \fI(since C++11)\fP
-   atomic_flag& operator=( const atomic_flag& ) volatile = delete; \fB(2)\fP \fI(since C++11)\fP
 
-   std::atomic_flag is not assignable, its assignment operators are deleted.
+Defined in header <atomic>
+atomic_flag& operator=( const atomic_flag& ) = delete;          \fB(1)\fP \fI(since C++11)\fP
+atomic_flag& operator=( const atomic_flag& ) volatile = delete; \fB(2)\fP \fI(since C++11)\fP
+
+std::atomic_flag is not assignable, its assignment operators are deleted.
+
+
+

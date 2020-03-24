@@ -3,90 +3,109 @@
 std::mem_fn \- std::mem_fn
 
 .SH Synopsis
-   Defined in header <functional>
-   template< class M, class T >                 \fI(since C++11)\fP
-   /*unspecified*/ mem_fn(M T::* pm);           \fI(until C++17)\fP
-   template< class M, class T >                 \fI(since C++17)\fP
-   /*unspecified*/ mem_fn(M T::* pm) noexcept;
 
-   Function template std::mem_fn generates wrapper objects for pointers to members, which can store, copy, and invoke a pointer to member. Both references and pointers (including smart pointers) to an object can be used when invoking a std::mem_fn.
+Defined in header <functional>
+template< class M, class T >                 \fI(since C++11)\fP
+/*unspecified*/ mem_fn(M T::* pm);           \fI(until C++17)\fP
+template< class M, class T >                 \fI(since C++17)\fP
+/*unspecified*/ mem_fn(M T::* pm) noexcept;
+
+Function template std::mem_fn generates wrapper objects for pointers to members, which can store, copy, and invoke a pointer to member. Both references and pointers (including smart pointers) to an object can be used when invoking a std::mem_fn.
 
 .SH Parameters
 
-   pm - pointer to member that will be wrapped
+
+pm - pointer to member that will be wrapped
+
 
 .SH Return value
 
-   std::mem_fn returns a call wrapper of unspecified type that has the following members:
+std::mem_fn returns a call wrapper of unspecified type that has the following members:
 
-std::mem_fn Return type
+ std::mem_fn Return type
+
+
 
 .SH Member types
 
-   type                                      definition
-   result_type(deprecated in C++17)          the return type of pm if pm is a pointer to member function, not defined for pointer to member object \fI(until C++20)\fP
-   argument_type(deprecated in C++17)        T*, possibly cv-qualified, if pm is a pointer to member function taking no arguments
-   first_argument_type(deprecated in C++17)  T* if pm is a pointer to member function taking one argument
-   second_argument_type(deprecated in C++17) T1 if pm is a pointer to member function taking one argument of type T1
+
+type                                      definition                                                                                            \fI(until C++20)\fP
+result_type(deprecated in C++17)          the return type of pm if pm is a pointer to member function, not defined for pointer to member object
+argument_type(deprecated in C++17)        T*, possibly cv-qualified, if pm is a pointer to member function taking no arguments
+first_argument_type(deprecated in C++17)  T* if pm is a pointer to member function taking one argument
+second_argument_type(deprecated in C++17) T1 if pm is a pointer to member function taking one argument of type T1
+
+
 
 .SH Member function
 
-   template<class... Args>
-   /* see below */ operator()(Args&&... args);
 
-   Let fn be the call wrapper returned by a call to std::mem_fn with a pointer to member pm. Then the expression fn(t, a2, ..., aN) is equivalent to INVOKE(pm, t, a2, ..., aN), where INVOKE is the operation defined in Callable. (Thus, the return type of operator() is std::result_of<decltype(pm)(Args&&...)>::type.)
+template<class... Args>
+/* see below */ operator()(Args&&... args);
 
-   Each argument in args is perfectly forwarded, as if by std::forward<Args>(args)....
+Let fn be the call wrapper returned by a call to std::mem_fn with a pointer to member pm. Then the expression fn(t, a2, ..., aN) is equivalent to INVOKE(pm, t, a2, ..., aN), where INVOKE is the operation defined in Callable. (Thus, the return type of operator() is std::result_of<decltype(pm)(Args&&...)>::type.)
+Each argument in args is perfectly forwarded, as if by std::forward<Args>(args)....
+
 
 .SH Example
 
-   Use mem_fn to store and execute a member function and a member object:
+Use mem_fn to store and execute a member function and a member object:
 
-   
 // Run this code
 
- #include <functional>
- #include <iostream>
+  #include <functional>
+  #include <iostream>
 
- struct Foo {
-     void display_greeting() {
-         std::cout << "Hello, world.\\n";
-     }
-     void display_number(int i) {
-         std::cout << "number: " << i << '\\n';
-     }
-     int data = 7;
- };
+  struct Foo {
+      void display_greeting() {
+          std::cout << "Hello, world.\\n";
+      }
+      void display_number(int i) {
+          std::cout << "number: " << i << '\\n';
+      }
+      int data = 7;
+  };
 
- int main() {
-     Foo f;
+  int main() {
+      Foo f;
 
-     auto greet = std::mem_fn(&Foo::display_greeting);
-     greet(f);
+      auto greet = std::mem_fn(&Foo::display_greeting);
+      greet(f);
 
-     auto print_num = std::mem_fn(&Foo::display_number);
-     print_num(f, 42);
+      auto print_num = std::mem_fn(&Foo::display_number);
+      print_num(f, 42);
 
-     auto access_data = std::mem_fn(&Foo::data);
-     std::cout << "data: " << access_data(f) << '\\n';
- }
+      auto access_data = std::mem_fn(&Foo::data);
+      std::cout << "data: " << access_data(f) << '\\n';
+  }
 
 .SH Output:
 
- Hello, world.
- number: 42
- data: 7
+  Hello, world.
+  number: 42
+  data: 7
 
-  Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+Defect reports
 
-      DR    Applied to     Behavior as published      Correct behavior
-   LWG 2048 C++11      unnecessary overloads provided removed
+The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
+
+DR       Applied to Behavior as published          Correct behavior
+LWG_2048 C++11      unnecessary overloads provided removed
+
 
 .SH See also
 
-   function wraps callable object of any type with specified function call signature
-   \fI(C++11)\fP  \fI(class template)\fP
-   bind     binds one or more arguments to a function object
-   \fI(C++11)\fP  \fI(function template)\fP
+
+
+function wraps callable object of any type with specified function call signature
+         \fI(class template)\fP
+\fI(C++11)\fP
+
+bind     binds one or more arguments to a function object
+         \fI(function template)\fP
+\fI(C++11)\fP
+
+
+
+

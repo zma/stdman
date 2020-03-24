@@ -3,211 +3,248 @@
 std::basic_ios \- std::basic_ios
 
 .SH Synopsis
-   Defined in header <ios>
-   template<
 
-   class CharT,
-   class Traits = std::char_traits<CharT>
+Defined in header <ios>
+template<
+class CharT,
+class Traits = std::char_traits<CharT>
+> class basic_ios : public std::ios_base
 
-   > class basic_ios : public std::ios_base
+The class std::basic_ios provides facilities for interfacing with objects that have std::basic_streambuf interface. Several std::basic_ios objects can refer to one actual std::basic_streambuf object.
+ std-basic ios-inheritance.svg
+Inheritance diagram
+Two specializations for common character types are also provided:
 
-   The class std::basic_ios provides facilities for interfacing with objects that have std::basic_streambuf interface. Several std::basic_ios objects can refer to one actual std::basic_streambuf object.
+Type Definition
+ios  basic_ios<char>
+wios basic_ios<wchar_t>
 
-   std-basic ios-inheritance.svg
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
-
-   Two specializations for common character types are also provided:
-
-   Type Definition
-   ios  basic_ios<char>
-   wios basic_ios<wchar_t>
 
 .SH Member types
 
-   Member type Definition
-   char_type   CharT
-   traits_type Traits; the program is ill-formed if Traits::char_type is not CharT.
-   int_type    Traits::int_type
-   pos_type    Traits::pos_type
-   off_type    Traits::off_type
+
+Member type Definition
+char_type   CharT
+traits_type Traits; the program is ill-formed if Traits::char_type is not CharT.
+int_type    Traits::int_type
+pos_type    Traits::pos_type
+off_type    Traits::off_type
+
 
 .SH Public member functions
 
-   constructor    constructs the object
-                  \fI(public member function)\fP
-   destructor     destructs the object
-   \fB[virtual]\fP      \fI(virtual public member function)\fP
-   operator=      the copy assignment operator is deleted
-                  \fI(public member function)\fP
+
+               constructs the object
+constructor    \fI(public member function)\fP
+
+destructor     destructs the object
+               \fI(virtual public member function)\fP
+\fB[virtual]\fP
+               the copy assignment operator is deleted
+operator=      \fI(public member function)\fP
+
 .SH State functions
-   good           checks if no error has occurred i.e. I/O operations are available
-                  \fI(public member function)\fP
-   eof            checks if end-of-file has been reached
-                  \fI(public member function)\fP
-   fail           checks if an error has occurred
-                  \fI(public member function)\fP
-   bad            checks if a non-recoverable error has occurred
-                  \fI(public member function)\fP
-   operator!      checks if an error has occurred (synonym of fail())
-                  \fI(public member function)\fP
-   operator void*
-   operator bool  checks if no error has occurred (synonym of !fail())
-   \fI(until C++11)\fP  \fI(public member function)\fP
-   \fI(since C++11)\fP
-   rdstate        returns state flags
-                  \fI(public member function)\fP
-   setstate       sets state flags
-                  \fI(public member function)\fP
-   clear          modifies state flags
-                  \fI(public member function)\fP
+
+               checks if no error has occurred i.e. I/O operations are available
+good           \fI(public member function)\fP
+               checks if end-of-file has been reached
+eof            \fI(public member function)\fP
+               checks if an error has occurred
+fail           \fI(public member function)\fP
+               checks if a non-recoverable error has occurred
+bad            \fI(public member function)\fP
+               checks if an error has occurred (synonym of fail())
+operator!      \fI(public member function)\fP
+
+operator_void*
+operator_bool  checks if no error has occurred (synonym of !fail())
+               \fI(public member function)\fP
+\fI(until C++11)\fP
+\fI(since C++11)\fP
+               returns state flags
+rdstate        \fI(public member function)\fP
+               sets state flags
+setstate       \fI(public member function)\fP
+               modifies state flags
+clear          \fI(public member function)\fP
+
 .SH Formatting
-   copyfmt        copies formatting information
-                  \fI(public member function)\fP
-   fill           manages the fill character
-                  \fI(public member function)\fP
+
+               copies formatting information
+copyfmt        \fI(public member function)\fP
+               manages the fill character
+fill           \fI(public member function)\fP
+
 .SH Miscellaneous
-   exceptions     manages exception mask
-                  \fI(public member function)\fP
-   imbue          sets the locale
-                  \fI(public member function)\fP
-   rdbuf          manages associated stream buffer
-                  \fI(public member function)\fP
-   tie            manages tied stream
-                  \fI(public member function)\fP
-   narrow         narrows characters
-                  \fI(public member function)\fP
-   widen          widens characters
-                  \fI(public member function)\fP
+
+               manages exception mask
+exceptions     \fI(public member function)\fP
+               sets the locale
+imbue          \fI(public member function)\fP
+               manages associated stream buffer
+rdbuf          \fI(public member function)\fP
+               manages tied stream
+tie            \fI(public member function)\fP
+               narrows characters
+narrow         \fI(public member function)\fP
+               widens characters
+widen          \fI(public member function)\fP
+
 
 .SH Protected member functions
 
-   init      initializes a default-constructed std::basic_ios
-             \fI(protected member function)\fP
-   move      moves from another std::basic_ios except for rdbuf
-   \fI(C++11)\fP   \fI(protected member function)\fP
-   swap      swaps with another std::basic_ios except for rdbuf
-   \fI(C++11)\fP   \fI(protected member function)\fP
-   set_rdbuf replaces the rdbuf without clearing its error state
-             \fI(protected member function)\fP
+
+          initializes a default-constructed std::basic_ios
+init      \fI(protected member function)\fP
+
+move      moves from another std::basic_ios except for rdbuf
+          \fI(protected member function)\fP
+\fI(C++11)\fP
+
+swap      swaps with another std::basic_ios except for rdbuf
+          \fI(protected member function)\fP
+\fI(C++11)\fP
+          replaces the rdbuf without clearing its error state
+set_rdbuf \fI(protected member function)\fP
+
 
 Inherited from std::ios_base
 
+
 .SH Member functions
 
+
+
 .SH Formatting
-   flags             manages format flags
-                     \fI(public member function of std::ios_base)\fP
-   setf              sets specific format flag
-                     \fI(public member function of std::ios_base)\fP
-   unsetf            clears specific format flag
-                     \fI(public member function of std::ios_base)\fP
-   precision         manages decimal precision of floating point operations
-                     \fI(public member function of std::ios_base)\fP
-   width             manages field width
-                     \fI(public member function of std::ios_base)\fP
+
+                  manages format flags
+flags             \fI(public member function of std::ios_base)\fP
+                  sets specific format flag
+setf              \fI(public member function of std::ios_base)\fP
+                  clears specific format flag
+unsetf            \fI(public member function of std::ios_base)\fP
+                  manages decimal precision of floating point operations
+precision         \fI(public member function of std::ios_base)\fP
+                  manages field width
+width             \fI(public member function of std::ios_base)\fP
+
 .SH Locales
-   imbue             sets locale
-                     \fI(public member function of std::ios_base)\fP
-   getloc            returns current locale
-                     \fI(public member function of std::ios_base)\fP
+
+                  sets locale
+imbue             \fI(public member function of std::ios_base)\fP
+                  returns current locale
+getloc            \fI(public member function of std::ios_base)\fP
+
 .SH Internal extensible array
-   xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
-   \fB[static]\fP          \fI(public static member function of std::ios_base)\fP
-   iword             resizes the private storage if necessary and access to the long element at the given index
-                     \fI(public member function of std::ios_base)\fP
-   pword             resizes the private storage if necessary and access to the void* element at the given index
-                     \fI(public member function of std::ios_base)\fP
+
+
+xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
+                  \fI(public static member function of std::ios_base)\fP
+\fB[static]\fP
+                  resizes the private storage if necessary and access to the long element at the given index
+iword             \fI(public member function of std::ios_base)\fP
+                  resizes the private storage if necessary and access to the void* element at the given index
+pword             \fI(public member function of std::ios_base)\fP
+
 .SH Miscellaneous
-   register_callback registers event callback function
-                     \fI(public member function of std::ios_base)\fP
-   sync_with_stdio   sets whether C++ and C IO libraries are interoperable
-   \fB[static]\fP          \fI(public static member function of std::ios_base)\fP
+
+                  registers event callback function
+register_callback \fI(public member function of std::ios_base)\fP
+
+sync_with_stdio   sets whether C++ and C IO libraries are interoperable
+                  \fI(public static member function of std::ios_base)\fP
+\fB[static]\fP
+
 .SH Member classes
-   failure           stream exception
-                     \fI(public member class of std::ios_base)\fP
-   Init              initializes standard stream objects
-                     \fI(public member class of std::ios_base)\fP
+
+                  stream exception
+failure           \fI(public member class of std::ios_base)\fP
+                  initializes standard stream objects
+Init              \fI(public member class of std::ios_base)\fP
+
+
 
 .SH Member types and constants
-   Type           Explanation
-                  stream open mode type
 
-                  The following constants are also defined:
+Type           Explanation
+               stream open mode type
+               The following constants are also defined:
 
-                  Constant Explanation
-                  app      seek to the end of stream before each write
-   openmode       binary   open in binary mode
-                  in       open for reading
-                  out      open for writing
-                  trunc    discard the contents of the stream when opening
-                  ate      seek to the end of stream immediately after open
+               Constant Explanation
+               app      seek to the end of stream before each write
+               binary   open in binary_mode
+openmode       in       open for reading
+               out      open for writing
+               trunc    discard the contents of the stream when opening
+               ate      seek to the end of stream immediately after open
 
-                  \fI(typedef)\fP
-                  formatting flags type
 
-                  The following constants are also defined:
+               \fI(typedef)\fP
+               formatting flags type
+               The following constants are also defined:
 
-                  Constant    Explanation
-                  dec         use decimal base for integer I/O: see std::dec
-                  oct         use octal base for integer I/O: see std::oct
-                  hex         use hexadecimal base for integer I/O: see std::hex
-                  basefield   dec|oct|hex. Useful for masking operations
-                  left        left adjustment (adds fill characters to the right): see std::left
-                  right       right adjustment (adds fill characters to the left): see std::right
-                  internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
-   fmtflags       adjustfield left|right|internal. Useful for masking operations
-                  scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
-                  fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
-                  floatfield  scientific|fixed. Useful for masking operations
-                  boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
-                  showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
-                  showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
-                  showpos     generate a + character for non-negative numeric output: see std::showpos
-                  skipws      skip leading whitespace before certain input operations: see std::skipws
-                  unitbuf     flush the output after each output operation: see std::unitbuf
-                  uppercase   replace certain lowercase letters with their uppercase
-                              equivalents in certain output operations: see std::uppercase
+               Constant    Explanation
+               dec         use decimal base for integer I/O: see std::dec
+               oct         use octal base for integer I/O: see std::oct
+               hex         use hexadecimal base for integer I/O: see std::hex
+               basefield   dec|oct|hex. Useful for masking operations
+               left        left adjustment (adds fill characters to the right): see std::left
+               right       right adjustment (adds fill characters to the left): see std::right
+               internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
+               adjustfield left|right|internal. Useful for masking operations
+               scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
+fmtflags       fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
+               floatfield  scientific|fixed. Useful for masking operations
+               boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
+               showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
+               showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
+               showpos     generate a + character for non-negative numeric output: see std::showpos
+               skipws      skip leading whitespace before certain input operations: see std::skipws
+               unitbuf     flush the output after each output operation: see std::unitbuf
+               uppercase   replace certain lowercase letters with their uppercase
+                           equivalents in certain output operations: see std::uppercase
 
-                  \fI(typedef)\fP
-                  state of the stream type
 
-                  The following constants are also defined:
+               \fI(typedef)\fP
+               state of the stream type
+               The following constants are also defined:
 
-                  Constant Explanation
-   iostate        goodbit  no error
-                  badbit   irrecoverable stream error
-                  failbit  input/output operation failed (formatting or extraction error)
-                  eofbit   associated input sequence has reached end-of-file
+               Constant Explanation
+               goodbit  no error
+iostate        badbit   irrecoverable stream error
+               failbit  input/output operation failed (formatting or extraction error)
+               eofbit   associated input sequence has reached end-of-file
 
-                  \fI(typedef)\fP
-                  seeking direction type
 
-                  The following constants are also defined:
+               \fI(typedef)\fP
+               seeking direction type
+               The following constants are also defined:
 
-   seekdir        Constant Explanation
-                  beg      the beginning of a stream
-                  end      the ending of a stream
-                  cur      the current position of stream position indicator
+               Constant Explanation
+               beg      the beginning of a stream
+seekdir        end      the ending of a stream
+               cur      the current position of stream position indicator
 
-                  \fI(typedef)\fP
-   event          specifies event type
-                  \fI(enum)\fP
-   event_callback callback function type
-                  \fI(typedef)\fP
+
+               \fI(typedef)\fP
+               specifies event type
+event          \fI(enum)\fP
+               callback function type
+event_callback \fI(typedef)\fP
+
 
 .SH Notes
 
-   Straightforward implementation of std::basic_ios stores only the following members (which all depend on the template parameters and thus cannot be part of std::ios_base):
+Straightforward implementation of std::basic_ios stores only the following members (which all depend on the template parameters and thus cannot be part of std::ios_base):
 
-     * the fill character (see fill())
-     * the tied stream pointer (see tie())
-     * the associated stream buffer pointer (see rdbuf())
+* the fill character (see fill())
+* the tied stream pointer (see tie())
+* the associated stream buffer pointer (see rdbuf())
 
-   Actual implementations vary:
+Actual implementations vary:
+Microsoft Visual Studio stores just those three members.
+LLVM libc++ stores 1 less member: it maintains the rdbuf pointer as a void* member of ios_base.
+GNU libstdc++ stores 4 additional members: three cached facets and a flag to indicate that fill was initialized
 
-   Microsoft Visual Studio stores just those three members.
 
-   LLVM libc++ stores 1 less member: it maintains the rdbuf pointer as a void* member of ios_base.
 
-   GNU libstdc++ stores 4 additional members: three cached facets and a flag to indicate that fill was initialized

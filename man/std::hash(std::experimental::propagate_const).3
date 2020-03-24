@@ -3,19 +3,28 @@
 std::hash(std::experimental::propagate_const) \- std::hash(std::experimental::propagate_const)
 
 .SH Synopsis
-   Defined in header <experimental/propagate_const>
-   template<class T> struct hash<std::experimental::propagate_const<T>>;  (library fundamentals TS v2)
 
-   The template specialization of std::hash for std::experimental::propagate_const<T> allows users to obtain hashes of objects of type std::experimental::propagate_const<T>.
+Defined in header <experimental/propagate_const>
+template<class T> struct hash<std::experimental::propagate_const<T>>;  (library fundamentals TS v2)
 
-   For a given std::experimental::propagate_const<T> p, this specialization ensures that std::hash<std::experimental::propagate_const<T>>()(p) == std::hash<T>()(p.t_), where p.t_ is the pointer-like object wrapped by p.
+The template specialization of std::hash for std::experimental::propagate_const<T> allows users to obtain hashes of objects of type std::experimental::propagate_const<T>.
+For a given std::experimental::propagate_const<T> p, this specialization ensures that std::hash<std::experimental::propagate_const<T>>()(p) == std::hash<T>()(p.t_), where p.t_ is the pointer-like object wrapped by p.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
 
 .SH See also
 
-   hash    hash function object
-   \fI(C++11)\fP \fI(class template)\fP
+
+
+hash    hash function object
+        \fI(class template)\fP
+\fI(C++11)\fP
+
+
+
+

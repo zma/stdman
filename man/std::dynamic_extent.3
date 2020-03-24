@@ -3,20 +3,28 @@
 std::dynamic_extent \- std::dynamic_extent
 
 .SH Synopsis
-   Defined in header <span>
-   inline constexpr std::size_t dynamic_extent = std::numeric_limits<std::size_t>::max();  \fI(since C++20)\fP
 
-   std::dynamic_extent is a constant of type std::size_t that is used to differentiate std::span of static and dynamic extent.
+Defined in header <span>
+inline constexpr std::size_t dynamic_extent = std::numeric_limits<std::size_t>::max();  \fI(since C++20)\fP
+
+std::dynamic_extent is a constant of type std::size_t that is used to differentiate std::span of static and dynamic extent.
 
 .SH Note
 
-   Since std::size_t is an unsigned type, an equivalent definition is:
+Since std::size_t is an unsigned type, an equivalent definition is:
 
- inline constexpr std::size_t dynamic_extent = -1;
+  inline constexpr std::size_t dynamic_extent = -1;
 
-   See integral conversions.
+See integral_conversions.
 
 .SH See also
 
-   span    a non-owning view over a contiguous sequence of objects
-   (C++20) \fI(class template)\fP
+
+
+span    a non-owning view over a contiguous sequence of objects
+        \fI(class template)\fP
+(C++20)
+
+
+
+

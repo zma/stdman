@@ -3,45 +3,56 @@
 std::logical_not<void> \- std::logical_not<void>
 
 .SH Synopsis
-   Defined in header <functional>
-   template<>                      \fI(since C++14)\fP
-   class logical_not<void>;
 
-   std::logical_not<> is a specialization of std::logical_not with parameter and return type deduced.
+Defined in header <functional>
+template<>                      \fI(since C++14)\fP
+class logical_not<void>;
+
+std::logical_not<> is a specialization of std::logical_not with parameter and return type deduced.
 
 .SH Member types
 
-   Member type    Definition
-   is_transparent /* unspecified */
+
+Member type    Definition
+is_transparent /* unspecified */
+
 
 .SH Member functions
 
-   operator() applies operator! to its argument
-              \fI(public member function)\fP
 
-std::logical_not<>::operator()
+           applies operator! to its argument
+operator() \fI(public member function)\fP
 
-   template< class T >
 
-   constexpr auto operator()( T&& arg ) const
+ std::logical_not<>::operator()
 
-   -> decltype(!std::forward<T>(arg));
 
-   Returns the result of !arg.
+template< class T >
+constexpr auto operator()( T&& arg ) const
+-> decltype(!std::forward<T>(arg));
+
+Returns the result of !arg.
 
 .SH Parameters
 
-   arg - value to apply logical NOT to
+
+arg - value to apply logical NOT to
+
 
 .SH Return value
 
-   The result of !arg.
+The result of !arg.
 
 .SH Notes
 
-   The member type is_transparent indicates to the caller that this function object is a transparent function object: it accepts arguments of arbitrary types and uses perfect forwarding, which avoids unnecessary copying and conversion when the function object is used in heterogeneous context, or with rvalue arguments. In particular, template functions such as std::set::find and std::set::lower_bound make use of this member type on their Compare types.
+The member type is_transparent indicates to the caller that this function object is a transparent function object: it accepts arguments of arbitrary types and uses perfect forwarding, which avoids unnecessary copying and conversion when the function object is used in heterogeneous context, or with rvalue arguments. In particular, template functions such as std::set::find and std::set::lower_bound make use of this member type on their Compare types.
 
 .SH Example
 
-    This section is incomplete
-    Reason: no example
+
+ This section is incomplete
+ Reason: no example
+
+
+
+

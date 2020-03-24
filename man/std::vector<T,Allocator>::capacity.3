@@ -3,26 +3,32 @@
 std::vector<T,Allocator>::capacity \- std::vector<T,Allocator>::capacity
 
 .SH Synopsis
-   size_type capacity() const;           \fI(until C++11)\fP
-   size_type capacity() const noexcept;  \fI(since C++11)\fP
 
-   Returns the number of elements that the container has currently allocated space for.
+size_type capacity() const;           \fI(until C++11)\fP
+size_type capacity() const noexcept;  \fI(since C++11)\fP
+
+Returns the number of elements that the container has currently allocated space for.
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   Capacity of the currently allocated storage.
+Capacity of the currently allocated storage.
 
 .SH Complexity
 
-   Constant.
+Constant.
 
 .SH See also
 
-   size    returns the number of elements
-           \fI(public member function)\fP
-   reserve reserves storage
-           \fI(public member function)\fP
+
+        returns the number of elements
+size    \fI(public member function)\fP
+        reserves storage
+reserve \fI(public member function)\fP
+
+
+
+

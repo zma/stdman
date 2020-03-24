@@ -3,59 +3,71 @@
 std::filesystem::directory_entry \- std::filesystem::directory_entry
 
 .SH Synopsis
-   Defined in header <filesystem>
-   class directory_entry;          \fI(since C++17)\fP
 
-   Represents a directory entry. The object stores a path as a member and may also store additional file attributes (hard link count, status, symlink status file size, and last write time) during directory iteration.
+Defined in header <filesystem>
+class directory_entry;          \fI(since C++17)\fP
+
+Represents a directory entry. The object stores a path as a member and may also store additional file attributes (hard link count, status, symlink status file size, and last write time) during directory iteration.
 
 .SH Member functions
 
-   constructor          constructs a directory entry
-                        \fI(public member function)\fP
-   destructor           default destructor
-                        \fI(public member function)\fP
+
+                     constructs a directory entry
+constructor          \fI(public member function)\fP
+                     default destructor
+destructor           \fI(public member function)\fP
+
 .SH Modifiers
-   operator=            assigns contents
-                        \fI(public member function)\fP
-   assign               assigns contents
-                        \fI(public member function)\fP
-   replace_filename     sets the filename
-                        \fI(public member function)\fP
-   refresh              updates the cached file attributes
-                        \fI(public member function)\fP
+
+                     assigns contents
+operator=            \fI(public member function)\fP
+                     assigns contents
+assign               \fI(public member function)\fP
+                     sets the filename
+replace_filename     \fI(public member function)\fP
+                     updates the cached file attributes
+refresh              \fI(public member function)\fP
+
 .SH Observers
-   path                 returns the path the entry refers to
-   operator const path& \fI(public member function)\fP
-   exists               checks whether directory entry refers to existing file system object
-                        \fI(public member function)\fP
-   is_block_file        checks whether the directory entry refers to block device
-                        \fI(public member function)\fP
-   is_character_file    checks whether the directory entry refers to a character device
-                        \fI(public member function)\fP
-   is_directory         checks whether the directory entry refers to a directory
-                        \fI(public member function)\fP
-   is_fifo              checks whether the directory entry refers to a named pipe
-                        \fI(public member function)\fP
-   is_other             checks whether the directory entry refers to an other file
-                        \fI(public member function)\fP
-   is_regular_file      checks whether the directory entry refers to a regular file
-                        \fI(public member function)\fP
-   is_socket            checks whether the directory entry refers to a named IPC socket
-                        \fI(public member function)\fP
-   is_symlink           checks whether the directory entry refers to a symbolic link
-                        \fI(public member function)\fP
-   file_size            returns the size of the file to which the directory entry refers
-                        \fI(public member function)\fP
-   hard_link_count      returns the number of hard links referring to the file to which the directory entry refers
-                        \fI(public member function)\fP
-   last_write_time      gets or sets the time of the last data modification of the file to which the directory entry refers
-                        \fI(public member function)\fP
-   status               status of the file designated by this directory entry
-   symlink_status       symlink_status of the file designated by this directory entry
-                        \fI(public member function)\fP
-   operator==
-   operator!=
-   operator<            compares two directory entries
-   operator<=           \fI(public member function)\fP
-   operator>
-   operator>=
+
+                     returns the path the entry refers to
+path                 \fI(public member function)\fP
+operator_const_path&
+                     checks whether directory entry refers to existing file system object
+exists               \fI(public member function)\fP
+                     checks whether the directory entry refers to block device
+is_block_file        \fI(public member function)\fP
+                     checks whether the directory entry refers to a character device
+is_character_file    \fI(public member function)\fP
+                     checks whether the directory entry refers to a directory
+is_directory         \fI(public member function)\fP
+                     checks whether the directory entry refers to a named pipe
+is_fifo              \fI(public member function)\fP
+                     checks whether the directory entry refers to an other file
+is_other             \fI(public member function)\fP
+                     checks whether the directory entry refers to a regular file
+is_regular_file      \fI(public member function)\fP
+                     checks whether the directory entry refers to a named IPC socket
+is_socket            \fI(public member function)\fP
+                     checks whether the directory entry refers to a symbolic link
+is_symlink           \fI(public member function)\fP
+                     returns the size of the file to which the directory entry refers
+file_size            \fI(public member function)\fP
+                     returns the number of hard links referring to the file to which the directory entry refers
+hard_link_count      \fI(public member function)\fP
+                     gets or sets the time of the last data modification of the file to which the directory entry refers
+last_write_time      \fI(public member function)\fP
+                     status of the file designated by this directory entry
+status               symlink_status of the file designated by this directory entry
+symlink_status       \fI(public member function)\fP
+
+operator==
+operator!=           compares two directory entries
+operator<            \fI(public member function)\fP
+operator<=
+operator>
+operator>=
+
+
+
+

@@ -3,31 +3,40 @@
 std::gcd \- std::gcd
 
 .SH Synopsis
-   Defined in header <numeric>
-   template< class M, class N>                        \fI(since C++17)\fP
-   constexpr std::common_type_t<M, N> gcd(M m, N n);
 
-   Computes the greatest common divisor of the integers m and n.
+Defined in header <numeric>
+template< class M, class N>                        \fI(since C++17)\fP
+constexpr std::common_type_t<M, N> gcd(M m, N n);
+
+Computes the greatest common divisor of the integers m and n.
 
 .SH Parameters
 
-   m, n - integer values
+
+m, n - integer values
+
 
 .SH Return value
 
-   If both m and n are zero, returns zero. Otherwise, returns the greatest common divisor of |m| and |n|.
+If both m and n are zero, returns zero. Otherwise, returns the greatest common divisor of |m| and |n|.
 
-  Remarks
+Remarks
 
-   If either M or N is not an integer type, or if either is (possibly cv-qualified) bool, the program is ill-formed.
-
-   If either |m| or |n| is not representable as a value of type std::common_type_t<M, N>, the behavior is undefined.
+If either M or N is not an integer type, or if either is (possibly cv-qualified) bool, the program is ill-formed.
+If either |m| or |n| is not representable as a value of type std::common_type_t<M, N>, the behavior is undefined.
 
 .SH Exceptions
 
-   Throws no exceptions.
+Throws no exceptions.
 
 .SH See also
 
-   lcm     constexpr function template returning the least common multiple of two integers
-   \fI(C++17)\fP \fI(function template)\fP
+
+
+lcm     constexpr function template returning the least common multiple of two integers
+        \fI(function template)\fP
+\fI(C++17)\fP
+
+
+
+

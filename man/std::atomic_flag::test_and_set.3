@@ -3,23 +3,36 @@
 std::atomic_flag::test_and_set \- std::atomic_flag::test_and_set
 
 .SH Synopsis
-   Defined in header <atomic>
-   bool test_and_set(std::memory_order order = std::memory_order_seq_cst) volatile noexcept; \fB(1)\fP \fI(since C++11)\fP
-   bool test_and_set(std::memory_order order = std::memory_order_seq_cst) noexcept;          \fB(2)\fP \fI(since C++11)\fP
 
-   Atomically changes the state of a std::atomic_flag to set (true) and returns the value it held before.
+Defined in header <atomic>
+bool test_and_set(std::memory_order order = std::memory_order_seq_cst) volatile noexcept; \fB(1)\fP \fI(since C++11)\fP
+bool test_and_set(std::memory_order order = std::memory_order_seq_cst) noexcept;          \fB(2)\fP \fI(since C++11)\fP
+
+Atomically changes the state of a std::atomic_flag to set (true) and returns the value it held before.
 
 .SH Parameters
 
-   order - the memory synchronization ordering for this operation
+
+order - the memory synchronization ordering for this operation
+
+
 
 .SH See also
 
-   clear                             atomically sets flag to false
-                                     \fI(public member function)\fP
-   atomic_flag_test_and_set
-   atomic_flag_test_and_set_explicit atomically sets the flag to true and returns its previous value
-   \fI(C++11)\fP                           \fI(function)\fP
-   \fI(C++11)\fP
-   memory_order                      defines memory ordering constraints for the given atomic operation
-   \fI(C++11)\fP                           \fI(enum)\fP
+
+                                  atomically sets flag to false
+clear                             \fI(public member function)\fP
+
+atomic_flag_test_and_set
+atomic_flag_test_and_set_explicit atomically sets the flag to true and returns its previous value
+                                  \fI(function)\fP
+\fI(C++11)\fP
+\fI(C++11)\fP
+
+memory_order                      defines memory ordering constraints for the given atomic operation
+                                  \fI(enum)\fP
+\fI(C++11)\fP
+
+
+
+

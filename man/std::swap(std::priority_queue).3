@@ -3,39 +3,46 @@
 std::swap(std::priority_queue) \- std::swap(std::priority_queue)
 
 .SH Synopsis
-   template< class T, class Container, class Compare >
 
-   void swap( priority_queue<T,Container,Compare>& lhs,                   \fI(until C++17)\fP
+template< class T, class Container, class Compare >
+void swap( priority_queue<T,Container,Compare>& lhs,                   \fI(until C++17)\fP
+priority_queue<T,Container,Compare>& rhs );
+template< class T, class Container, class Compare >
+void swap( priority_queue<T,Container,Compare>& lhs,                   \fI(since C++17)\fP
+priority_queue<T,Container,Compare>& rhs ) noexcept(/* see below */);
 
-   priority_queue<T,Container,Compare>& rhs );
-   template< class T, class Container, class Compare >
+Specializes the std::swap algorithm for std::priority_queue. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
-   void swap( priority_queue<T,Container,Compare>& lhs,                   \fI(since C++17)\fP
+This overload only participates in overload resolution if std::is_swappable<Container>::value and std::is_swappable<Compare>::value are both true. \fI(since C++17)\fP
 
-   priority_queue<T,Container,Compare>& rhs ) noexcept(/* see below */);
-
-   Specializes the std::swap algorithm for std::priority_queue. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
-
-   This overload only participates in overload resolution if std::is_swappable<Container>::value and std::is_swappable<Compare>::value are both true. \fI(since C++17)\fP
 
 .SH Parameters
 
-   lhs, rhs - containers whose contents to swap
+
+lhs, rhs - containers whose contents to swap
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Complexity
 
-   Same as swapping the underlying container.
+Same as swapping the underlying container.
 
 .SH Exceptions
 
-   noexcept specification:           \fI(since C++17)\fP
-   noexcept(noexcept(lhs.swap(rhs)))
+
+noexcept specification:           \fI(since C++17)\fP
+noexcept(noexcept(lhs.swap(rhs)))
+
 
 .SH See also
 
-   swap swaps the contents
-        \fI(public member function)\fP
+
+     swaps the contents
+swap \fI(public member function)\fP
+
+
+
+

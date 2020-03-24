@@ -3,27 +3,33 @@
 std::experimental::simd_cast,std::experimental::static_simd_cast \- std::experimental::simd_cast,std::experimental::static_simd_cast
 
 .SH Synopsis
-   Defined in header <experimental/simd>
-   template < class V, class T, class Abi >                 \fB(1)\fP
-   /*see below*/ simd_cast( const simd<T, Abi>& v );
-   template < class V, class T, class Abi >                 \fB(2)\fP
-   /*see below*/ static_simd_cast( const simd<T, Abi>& v );
 
-   Cast a simd object to another simd object. If V is T, returns simd<T, Abi>; otherwise, if V is a scalar type, returns simd<V, simd_abi::fixed_size<simd<T, Abi>::size()>>. Otherwise, V must be a simd type, and the function returns V.
+Defined in header <experimental/simd>
+template < class V, class T, class Abi >                 \fB(1)\fP
+/*see below*/ simd_cast( const simd<T, Abi>& v );
+template < class V, class T, class Abi >                 \fB(2)\fP
+/*see below*/ static_simd_cast( const simd<T, Abi>& v );
 
-   1) This function does not participate in overloading resolution unless
+Cast a simd object to another simd object. If V is T, returns simd<T, Abi>; otherwise, if V is a scalar type, returns simd<V, simd_abi::fixed_size<simd<T, Abi>::size()>>. Otherwise, V must be a simd type, and the function returns V.
+1) This function does not participate in overloading resolution unless
 
-     * every possible value of the input element can be represented with the output element
-     * either is_simd_v<V> is false, or V::size() is simd<T, Abi>::size()
+* every possible value of the input element can be represented with the output element
+* either is_simd_v<V> is false, or V::size() is simd<T, Abi>::size()
 
-   2) This function does not participate in overloading resolution unless either is_simd_v<V> is false, or V::size() is simd<T, Abi>::size().
+2) This function does not participate in overloading resolution unless either is_simd_v<V> is false, or V::size() is simd<T, Abi>::size().
 
 .SH Parameters
 
-   v - the input simd object
+
+v - the input simd object
+
 
 .SH Return value
 
-   A simd object with the i-th element initialized to static_cast<To>(v[i]), where To is the output element type as specified.
+A simd object with the i-th element initialized to static_cast<To>(v[i]), where To is the output element type as specified.
 
 .SH Example
+
+
+
+

@@ -3,37 +3,44 @@
 std::swap(std::deque) \- std::swap(std::deque)
 
 .SH Synopsis
-   template< class T, class Alloc >
 
-   void swap( deque<T,Alloc>& lhs,                   \fI(until C++17)\fP
+template< class T, class Alloc >
+void swap( deque<T,Alloc>& lhs,                   \fI(until C++17)\fP
+deque<T,Alloc>& rhs );
+template< class T, class Alloc >
+void swap( deque<T,Alloc>& lhs,                   \fI(since C++17)\fP
+deque<T,Alloc>& rhs ) noexcept(/* see below */);
 
-   deque<T,Alloc>& rhs );
-   template< class T, class Alloc >
+Specializes the std::swap algorithm for std::deque. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
-   void swap( deque<T,Alloc>& lhs,                   \fI(since C++17)\fP
-
-   deque<T,Alloc>& rhs ) noexcept(/* see below */);
-
-   Specializes the std::swap algorithm for std::deque. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
 .SH Parameters
 
-   lhs, rhs - containers whose contents to swap
+
+lhs, rhs - containers whose contents to swap
+
 
 .SH Return value
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Complexity
 
-   Constant.
+Constant.
 
 .SH Exceptions
 
-   noexcept specification:           \fI(since C++17)\fP
-   noexcept(noexcept(lhs.swap(rhs)))
+
+noexcept specification:           \fI(since C++17)\fP
+noexcept(noexcept(lhs.swap(rhs)))
+
 
 .SH See also
 
-   swap swaps the contents
-        \fI(public member function)\fP
+
+     swaps the contents
+swap \fI(public member function)\fP
+
+
+
+

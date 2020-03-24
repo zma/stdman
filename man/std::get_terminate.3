@@ -3,24 +3,31 @@
 std::get_terminate \- std::get_terminate
 
 .SH Synopsis
-   Defined in header <exception>
-   std::terminate_handler get_terminate() noexcept;  \fI(since C++11)\fP
 
-   Returns the currently installed std::terminate_handler, which may be a null pointer.
+Defined in header <exception>
+std::terminate_handler get_terminate() noexcept;  \fI(since C++11)\fP
 
-   This function is thread-safe. Prior call to std::set_terminate synchronizes-with (see std::memory_order) this function. \fI(since C++11)\fP
+Returns the currently installed std::terminate_handler, which may be a null pointer.
+
+This function is thread-safe. Prior call to std::set_terminate synchronizes-with (see std::memory_order) this function. \fI(since C++11)\fP
+
 
 .SH Parameters
 
-   \fI(none)\fP
+\fI(none)\fP
 
 .SH Return value
 
-   The currently installed std::terminate_handler.
+The currently installed std::terminate_handler.
 
 .SH See also
 
-   terminate_handler the type of the function called by std::terminate
-                     \fI(typedef)\fP
-   set_terminate     changes the function to be called by std::terminate
-                     \fI(function)\fP
+
+                  the type of the function called by std::terminate
+terminate_handler \fI(typedef)\fP
+                  changes the function to be called by std::terminate
+set_terminate     \fI(function)\fP
+
+
+
+

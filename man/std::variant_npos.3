@@ -3,14 +3,20 @@
 std::variant_npos \- std::variant_npos
 
 .SH Synopsis
-   Defined in header <variant>
-   inline constexpr std::size_t variant_npos = -1;  \fI(since C++17)\fP
 
-   This is a special value equal to the largest value representable by the type std::size_t, used as the return type of index() when valueless_by_exception() is true
+Defined in header <variant>
+inline constexpr std::size_t variant_npos = -1;  \fI(since C++17)\fP
+
+This is a special value equal to the largest value representable by the type std::size_t, used as the return type of index() when valueless_by_exception() is true
 
 .SH See also
 
-   index                  returns the zero-based index of the alternative held by the variant
-                          \fI(public member function)\fP
-   valueless_by_exception checks if the variant is in the invalid state
-                          \fI(public member function)\fP
+
+                       returns the zero-based index of the alternative held by the variant
+index                  \fI(public member function)\fP
+                       checks if the variant is in the invalid state
+valueless_by_exception \fI(public member function)\fP
+
+
+
+

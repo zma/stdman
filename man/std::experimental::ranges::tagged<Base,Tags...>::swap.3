@@ -3,17 +3,23 @@
 std::experimental::ranges::tagged<Base,Tags...>::swap \- std::experimental::ranges::tagged<Base,Tags...>::swap
 
 .SH Synopsis
-   constexpr void swap(tagged& rhs) noexcept(/* see below */)
-   requires Swappable<Base>;
 
-   Swap the contents of *this and rhs, as if by ranges::swap(static_cast<Base&>(*this), static_cast<Base&>(rhs));.
+constexpr void swap(tagged& rhs) noexcept(/* see below */)
+requires Swappable<Base>;
+
+Swap the contents of *this and rhs, as if by ranges::swap(static_cast<Base&>(*this), static_cast<Base&>(rhs));.
 
 .SH Exceptions
 
-   noexcept specification:
-   noexcept(noexcept(ranges::swap(std::declval<Base&>(), std::declval<Base&>())))
+noexcept specification:
+noexcept(noexcept(ranges::swap(std::declval<Base&>(), std::declval<Base&>())))
 
 .SH See also
 
-   ranges::swap(ranges::tagged) specializes swap for tagged objects
-                                \fI(function)\fP
+
+                             specializes swap for tagged objects
+ranges::swap(ranges::tagged) \fI(function)\fP
+
+
+
+

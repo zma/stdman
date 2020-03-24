@@ -3,25 +3,28 @@
 std::chrono::operator<<(std::chrono::year_month_weekday) \- std::chrono::operator<<(std::chrono::year_month_weekday)
 
 .SH Synopsis
-   template <class CharT, class Traits>
 
-   std::basic_ostream<CharT, Traits>&                 \fI(since C++20)\fP
-   operator<<(std::basic_ostream<CharT, Traits>& os,
+template <class CharT, class Traits>
+std::basic_ostream<CharT, Traits>&                  \fI(since C++20)\fP
+operator<<(std::basic_ostream<CharT, Traits>& os,
+const std::chrono::year_month_weekday& ymwd);
 
-   const std::chrono::year_month_weekday& ymwd);
-
-   Outputs a textual representation of ymwd into os, as if by os << ymwd.year() << '/' << ymwd.month() << '/' << ymwdl.weekday_indexed();
+Outputs a textual representation of ymwd into os, as if by os << ymwd.year() << '/' << ymwd.month() << '/' << ymwdl.weekday_indexed();
 
 .SH Return value
 
-   os.
+os.
 
 .SH Notes
 
-   This operator<< is primarily intended for debugging use. When used with non-default stream flags, the output may be surprising:
+This operator<< is primarily intended for debugging use. When used with non-default stream flags, the output may be surprising:
 
- using namespace std::chrono;
- auto ymwd = 2001y/2/Tuesday[1];
- std::cout.width\fB(10)\fP;
- std::cout.fill('-');
- std::cout << std::left << ymwd; // may output "2001------/Feb/Tue[1]"
+  using namespace std::chrono;
+  auto ymwd = 2001y/2/Tuesday[1];
+  std::cout.width\fB(10)\fP;
+  std::cout.fill('-');
+  std::cout << std::left << ymwd; // may output "2001------/Feb/Tue[1]"
+
+
+
+
