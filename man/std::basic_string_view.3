@@ -1,4 +1,4 @@
-.TH std::basic_string_view 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string_view 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string_view \- std::basic_string_view
 
@@ -11,12 +11,9 @@ std::basic_string_view \- std::basic_string_view
 
    > class basic_string_view;
 
-   The class template basic_string_view describes an object that can refer to a
-   constant contiguous sequence of char-like objects with the first element of the
-   sequence at position zero.
+   The class template basic_string_view describes an object that can refer to a constant contiguous sequence of char-like objects with the first element of the sequence at position zero.
 
-   A typical implementation holds only two members: a pointer to constant CharT and a
-   size.
+   A typical implementation holds only two members: a pointer to constant CharT and a size.
 
    Several typedefs for common character types are provided:
 
@@ -31,9 +28,7 @@ std::basic_string_view \- std::basic_string_view
 .SH Template parameters
 
    CharT  - character type
-            CharTraits class specifying the operations on the character type. Like for
-   Traits - basic_string, Traits::char_type must name the same type as CharT or the
-            program is ill-formed.
+   Traits - CharTraits class specifying the operations on the character type. Like for basic_string, Traits::char_type must name the same type as CharT or the program is ill-formed.
 
 .SH Member types
 
@@ -46,19 +41,16 @@ std::basic_string_view \- std::basic_string_view
    const_reference        const CharT&
                           implementation-defined constant LegacyRandomAccessIterator
    const_iterator         , ConstexprIterator
-                          \fI(since C++20)\fP and LegacyContiguousIterator whose value_type
-                          is CharT
+                          \fI(since C++20)\fP and LegacyContiguousIterator whose value_type is CharT
    iterator               const_iterator
    reverse_iterator       const_reverse_iterator
    const_reverse_iterator std::reverse_iterator<const_iterator>
    size_type              std::size_t
    difference_type        std::ptrdiff_t
 
-   Note: iterator and const_iterator are the same type because string views are views
-   into constant character sequences.
+   Note: iterator and const_iterator are the same type because string views are views into constant character sequences.
 
-   All requirements on the iterator types of a Container applies to the iterator and
-   const_iterator types of basic_string_view as well.
+   All requirements on the iterator types of a Container applies to the iterator and const_iterator types of basic_string_view as well.
 
 .SH Member functions
 
@@ -163,8 +155,7 @@ std::basic_string_view \- std::basic_string_view
 
 .SH Notes
 
-   It is the programmer's responsibility to ensure that std::string_view does not
-   outlive the pointed-to character array:
+   It is the programmer's responsibility to ensure that std::string_view does not outlive the pointed-to character array:
 
  std::string_view good("a string literal");   // OK: "good" points to a static array
  std::string_view bad("a temporary string"s); // "bad" holds a dangling pointer

@@ -1,4 +1,4 @@
-.TH std::boolalpha,std::noboolalpha 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::boolalpha,std::noboolalpha 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::boolalpha,std::noboolalpha \- std::boolalpha,std::noboolalpha
 
@@ -7,14 +7,10 @@ std::boolalpha,std::noboolalpha \- std::boolalpha,std::noboolalpha
    std::ios_base& boolalpha( std::ios_base& str );   \fB(1)\fP
    std::ios_base& noboolalpha( std::ios_base& str ); \fB(2)\fP
 
-   1) Enables the boolalpha flag in the stream str as if by calling
-   str.setf(std::ios_base::boolalpha)
-   2) Disables the boolalpha flag in the stream str as if by calling
-   str.unsetf(std::ios_base::boolalpha)
+   1) Enables the boolalpha flag in the stream str as if by calling str.setf(std::ios_base::boolalpha)
+   2) Disables the boolalpha flag in the stream str as if by calling str.unsetf(std::ios_base::boolalpha)
 
-   std::boolalpha is an I/O manipulator, so it may be called with an expression such as
-   out << std::boolalpha for any out of type std::basic_ostream or with an expression
-   such as in >> std::boolalpha for any in of type std::basic_istream.
+   std::boolalpha is an I/O manipulator, so it may be called with an expression such as out << std::boolalpha for any out of type std::basic_ostream or with an expression such as in >> std::boolalpha for any in of type std::basic_istream.
 
 .SH Parameters
 

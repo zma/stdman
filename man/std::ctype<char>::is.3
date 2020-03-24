@@ -1,4 +1,4 @@
-.TH std::ctype<char>::is 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype<char>::is 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype<char>::is \- std::ctype<char>::is
 
@@ -7,17 +7,10 @@ std::ctype<char>::is \- std::ctype<char>::is
    bool is(mask m, char c) const;                                      \fB(1)\fP
    const char* is(const char* low, const char* high, mask* vec) const; \fB(2)\fP
 
-   1) Checks if the character c is classified by the mask m according to the
-   classification table returned by the member function table(). Effectively calculates
-   table()[(unsigned char)c] & m
-   2) For every character in the character array [low, high), reads its full
-   classification mask from the classification table returned by the member function
-   table() (that is, evaluates table()[ (unsigned char)*p] and stores it in the
-   corresponding element of the array pointed to by vec
+   1) Checks if the character c is classified by the mask m according to the classification table returned by the member function table(). Effectively calculates table()[(unsigned char)c] & m
+   2) For every character in the character array [low, high), reads its full classification mask from the classification table returned by the member function table() (that is, evaluates table()[ (unsigned char)*p] and stores it in the corresponding element of the array pointed to by vec
 
-   If (unsigned char)c >= std::ctype<char>::table_size, then an implementation-defined
-   value is substituted instead of table()[(unsigned char)c], possibly different for
-   different values of c.
+   If (unsigned char)c >= std::ctype<char>::table_size, then an implementation-defined value is substituted instead of table()[(unsigned char)c], possibly different for different values of c.
 
 .SH Parameters
 
@@ -34,10 +27,7 @@ std::ctype<char>::is \- std::ctype<char>::is
 
 .SH Notes
 
-   Unlike the primary template std::ctype, this specialization does not perform a
-   virtual function call when classifying characters. To customize the behavior, a
-   derived class may provide a non-default classification table to the base class
-   constructor.
+   Unlike the primary template std::ctype, this specialization does not perform a virtual function call when classifying characters. To customize the behavior, a derived class may provide a non-default classification table to the base class constructor.
 
 .SH Example
 

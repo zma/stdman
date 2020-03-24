@@ -1,4 +1,4 @@
-.TH deductionguidesforstd::reference_wrapper 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH deductionguidesforstd::reference_wrapper 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 deductionguidesforstd::reference_wrapper \- deductionguidesforstd::reference_wrapper
 
@@ -7,8 +7,7 @@ deductionguidesforstd::reference_wrapper \- deductionguidesforstd::reference_wra
    template<typename T>                            \fI(since C++17)\fP
    reference_wrapper(T&) -> reference_wrapper<T>;
 
-   One deduction guide is provided for std::reference_wrapper to support deduction of
-   the sole class template parameter.
+   One deduction guide is provided for std::reference_wrapper to support deduction of the sole class template parameter.
 
 .SH Example
 
@@ -17,11 +16,8 @@ deductionguidesforstd::reference_wrapper \- deductionguidesforstd::reference_wra
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-   LWG 2981 C++17      a redundant deduction guide from           removed
-                       reference_wrapper<T> was provided
-   LWG 2993 C++17      defect resolution removed a constructor    added deduction guide
-                       used for class template argument deduction to compensate
+      DR    Applied to                               Behavior as published                                         Correct behavior
+   LWG 2981 C++17      a redundant deduction guide from reference_wrapper<T> was provided                 removed
+   LWG 2993 C++17      defect resolution removed a constructor used for class template argument deduction added deduction guide to compensate

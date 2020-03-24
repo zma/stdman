@@ -1,4 +1,4 @@
-.TH std::get_if 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::get_if 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::get_if \- std::get_if
 
@@ -7,31 +7,22 @@ std::get_if \- std::get_if
    template <std::size_t I, class... Types>
 
    constexpr std::add_pointer_t<
-   std::variant_alternative_t<I,
-   std::variant<Types...>>
+   std::variant_alternative_t<I, std::variant<Types...>>
 
    > get_if(std::variant<Types...>* pv) noexcept;
    template <std::size_t I, class... Types>
-
-   constexpr std::add_pointer_t<                        \fB(1)\fP \fI(since C++17)\fP
-   const std::variant_alternative_t<I,
-   variant<Types...>>
+                                                                                            \fB(1)\fP \fI(since C++17)\fP
+   constexpr std::add_pointer_t<
+   const std::variant_alternative_t<I, variant<Types...>>
 
    > get_if(const std::variant<Types...>* pv) noexcept;
    template <class T, class... Types>
-   constexpr std::add_pointer_t<T>
-   get_if(std::variant<Types...>* pv) noexcept;                           \fB(2)\fP (since
-   template <class T, class... Types>                                         C++17)
-   constexpr std::add_pointer_t<const T> get_if(const
-   std::variant<Types...>* pv) noexcept;
+   constexpr std::add_pointer_t<T> get_if(std::variant<Types...>* pv) noexcept;                               \fB(2)\fP \fI(since C++17)\fP
+   template <class T, class... Types>
+   constexpr std::add_pointer_t<const T> get_if(const std::variant<Types...>* pv) noexcept;
 
-   1) Index-based non-throwing accessor: If pv is not a null pointer and pv->index() ==
-   I, returns a pointer to the value stored in the variant pointed to by pv. Otherwise,
-   returns a null pointer value. The call is ill-formed if I is not a valid index in
-   the variant.
-   2) Type-based non-throwing accessor: Equivalent to \fB(1)\fP with I being the zero-based
-   index of T in Types.... The call is ill-formed if T is not a unique element of
-   Types....
+   1) Index-based non-throwing accessor: If pv is not a null pointer and pv->index() == I, returns a pointer to the value stored in the variant pointed to by pv. Otherwise, returns a null pointer value. The call is ill-formed if I is not a valid index in the variant.
+   2) Type-based non-throwing accessor: Equivalent to \fB(1)\fP with I being the zero-based index of T in Types.... The call is ill-formed if T is not a unique element of Types....
 
 .SH Parameters
 
@@ -67,6 +58,5 @@ std::get_if \- std::get_if
 
 .SH See also
 
-   std::get(std::variant) reads the value of the variant given the index or the type
-   \fI(C++17)\fP                (if the type is unique), throws on error
-                          \fI(function template)\fP
+   std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
+   \fI(C++17)\fP                \fI(function template)\fP

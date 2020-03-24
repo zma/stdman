@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::IndirectStrictWeakOrder 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::IndirectStrictWeakOrder 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::IndirectStrictWeakOrder \- std::experimental::ranges::IndirectStrictWeakOrder
 
@@ -9,14 +9,10 @@ std::experimental::ranges::IndirectStrictWeakOrder \- std::experimental::ranges:
    concept bool IndirectStrictWeakOrder =
    Readable<I1> && Readable<I2> &&
    CopyConstructible<F> &&
-   StrictWeakOrder<F&, ranges::value_type_t<I1>&,
-   ranges::value_type_t<I2>&> &&
-   StrictWeakOrder<F&, ranges::value_type_t<I1>&, ranges::reference_t<I2>>  (ranges TS)
-   &&
-   StrictWeakOrder<F&, ranges::reference_t<I1>, ranges::value_type_t<I2>&>
-   &&
-   StrictWeakOrder<F&, ranges::reference_t<I1>, ranges::reference_t<I2>>
-   &&
+   StrictWeakOrder<F&, ranges::value_type_t<I1>&, ranges::value_type_t<I2>&> &&  (ranges TS)
+   StrictWeakOrder<F&, ranges::value_type_t<I1>&, ranges::reference_t<I2>> &&
+   StrictWeakOrder<F&, ranges::reference_t<I1>, ranges::value_type_t<I2>&> &&
+   StrictWeakOrder<F&, ranges::reference_t<I1>, ranges::reference_t<I2>> &&
    StrictWeakOrder<F&, ranges::iter_common_reference_t<I1>,
 
    ranges::iter_common_reference_t<I2>>;

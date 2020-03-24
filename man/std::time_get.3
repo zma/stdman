@@ -1,4 +1,4 @@
-.TH std::time_get 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::time_get 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::time_get \- std::time_get
 
@@ -11,13 +11,11 @@ std::time_get \- std::time_get
 
    > class time_get;
 
-   Class template std::time_get encapsulates date and time parsing rules. The I/O
-   manipulator std::get_time uses the std::time_get facet of the I/O stream's locale to
-   convert text input to a std::tm object.
+   Class template std::time_get encapsulates date and time parsing rules. The I/O manipulator std::get_time uses the std::time_get facet of the I/O stream's locale to convert text input to a std::tm object.
 
    std-time get-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
 .SH Type requirements
 
@@ -26,20 +24,15 @@ std::time_get \- std::time_get
 
 .SH Specializations
 
-   Two standalone (locale-independent) full specializations and two partial
-   specializations are provided by the standard library:
+   Two standalone (locale-independent) full specializations and two partial specializations are provided by the standard library:
 
    Defined in header <locale>
-   std::time_get<char>             parses narrow string representations of date and
-                                   time
+   std::time_get<char>             parses narrow string representations of date and time
    std::time_get<wchar_t>          parses wide string representations of date and time
-   std::time_get<char, InputIt>    parses narrow string representations of date and
-                                   time using custom input iterator
-   std::time_get<wchar_t, InputIt> parses wide string representations of date and time
-                                   using custom input iterator
+   std::time_get<char, InputIt>    parses narrow string representations of date and time using custom input iterator
+   std::time_get<wchar_t, InputIt> parses wide string representations of date and time using custom input iterator
 
-   In addition, every locale object constructed in a C++ program implements its own
-   (locale-specific) versions of these specializations.
+   In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 
@@ -87,15 +80,13 @@ std::time_get \- std::time_get
    \fB[virtual]\fP         \fI(virtual protected member function)\fP
    do_get_year       extracts a year from input stream
    \fB[virtual]\fP         \fI(virtual protected member function)\fP
-   do_get            extracts date/time components from input stream, according to the
-   \fB[virtual]\fP \fI(C++11)\fP specified format
-                     \fI(virtual protected member function)\fP
+   do_get            extracts date/time components from input stream, according to the specified format
+   \fB[virtual]\fP \fI(C++11)\fP \fI(virtual protected member function)\fP
 
 Inherited from std::time_base
 
    Type      Definition
-   dateorder date order enumeration type, defining the values no_order, dmy, mdy, ymd,
-             and ydm
+   dateorder date order enumeration type, defining the values no_order, dmy, mdy, ymd, and ydm
 
 .SH Example
 

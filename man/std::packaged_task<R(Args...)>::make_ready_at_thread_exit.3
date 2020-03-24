@@ -1,15 +1,13 @@
-.TH std::packaged_task<R(Args...)>::make_ready_at_thread_exit 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::packaged_task<R(Args...)>::make_ready_at_thread_exit 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::packaged_task<R(Args...)>::make_ready_at_thread_exit \- std::packaged_task<R(Args...)>::make_ready_at_thread_exit
 
 .SH Synopsis
    void make_ready_at_thread_exit( ArgTypes... args );  \fI(since C++11)\fP
 
-   Calls the stored task with forwarded args as the arguments. The return value of the
-   task or any exception thrown by it is stored in the shared state of *this.
+   Calls the stored task with forwarded args as the arguments. The return value of the task or any exception thrown by it is stored in the shared state of *this.
 
-   The shared state is only made ready after the current thread exits and all objects
-   of thread local storage duration are destroyed.
+   The shared state is only made ready after the current thread exits and all objects of thread local storage duration are destroyed.
 
 .SH Parameters
 
@@ -23,8 +21,7 @@ std::packaged_task<R(Args...)>::make_ready_at_thread_exit \- std::packaged_task<
 
    std::future_error on the following error conditions:
 
-     * The stored task has already been invoked. The error category is set to
-       promise_already_satisfied.
+     * The stored task has already been invoked. The error category is set to promise_already_satisfied.
      * *this has no shared state. The error category is set to no_state.
 
 .SH Example

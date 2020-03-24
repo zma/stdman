@@ -1,31 +1,25 @@
-.TH std::atomic_flag::clear 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic_flag::clear 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic_flag::clear \- std::atomic_flag::clear
 
 .SH Synopsis
    Defined in header <atomic>
-   void clear( std::memory_order order = std::memory_order_seq_cst )  \fB(1)\fP \fI(since C++11)\fP
-   volatile noexcept;
-   void clear( std::memory_order order = std::memory_order_seq_cst )  \fB(2)\fP \fI(since C++11)\fP
-   noexcept;
+   void clear( std::memory_order order = std::memory_order_seq_cst ) volatile noexcept; \fB(1)\fP \fI(since C++11)\fP
+   void clear( std::memory_order order = std::memory_order_seq_cst ) noexcept;          \fB(2)\fP \fI(since C++11)\fP
 
    Atomically changes the state of a std::atomic_flag to clear (false).
 
 .SH Parameters
 
-           the memory synchronization ordering for this operation (cannot be
-   order - std::memory_order_consume, std::memory_order_acquire, or
-           std::memory_order_acq_rel)
+   order - the memory synchronization ordering for this operation (cannot be std::memory_order_consume, std::memory_order_acquire, or std::memory_order_acq_rel)
 
 .SH See also
 
-                              atomically sets the flag to true and obtains its previous
-   test_and_set               value
+   test_and_set               atomically sets the flag to true and obtains its previous value
                               \fI(public member function)\fP
    atomic_flag_clear
    atomic_flag_clear_explicit atomically sets the value of the flag to false
    \fI(C++11)\fP                    \fI(function)\fP
    \fI(C++11)\fP
-   memory_order               defines memory ordering constraints for the given atomic
-   \fI(C++11)\fP                    operation
-                              \fI(enum)\fP
+   memory_order               defines memory ordering constraints for the given atomic operation
+   \fI(C++11)\fP                    \fI(enum)\fP

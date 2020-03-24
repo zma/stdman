@@ -1,4 +1,4 @@
-.TH std::timed_mutex 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::timed_mutex 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::timed_mutex \- std::timed_mutex
 
@@ -6,16 +6,11 @@ std::timed_mutex \- std::timed_mutex
    Defined in header <mutex>
    class timed_mutex;         \fI(since C++11)\fP
 
-   The timed_mutex class is a synchronization primitive that can be used to protect
-   shared data from being simultaneously accessed by multiple threads.
+   The timed_mutex class is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads.
 
-   In a manner similar to mutex, timed_mutex offers exclusive, non-recursive ownership
-   semantics. In addition, timed_mutex provides the ability to attempt to claim
-   ownership of a timed_mutex with a timeout via the try_lock_for() and
-   try_lock_until() methods.
+   In a manner similar to mutex, timed_mutex offers exclusive, non-recursive ownership semantics. In addition, timed_mutex provides the ability to attempt to claim ownership of a timed_mutex with a timeout via the try_lock_for() and try_lock_until() methods.
 
-   The timed_mutex class satisfies all requirements of TimedMutex and
-   StandardLayoutType.
+   The timed_mutex class satisfies all requirements of TimedMutex and StandardLayoutType.
 
 .SH Member types
 

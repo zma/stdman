@@ -1,20 +1,16 @@
-.TH std::ctype<CharT>::scan_not,std::ctype<CharT>::do_scan_not 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype<CharT>::scan_not,std::ctype<CharT>::do_scan_not 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype<CharT>::scan_not,std::ctype<CharT>::do_scan_not \- std::ctype<CharT>::scan_not,std::ctype<CharT>::do_scan_not
 
 .SH Synopsis
    Defined in header <locale>
-   public:                                                                         \fB(1)\fP
+   public:                                                                              \fB(1)\fP
    const CharT* scan_not( mask m, const CharT* beg, const CharT* end ) const;
-   protected:
-   virtual const CharT* do_scan_not( mask m, const CharT* beg, const CharT* end)   \fB(2)\fP
-   const;
+   protected:                                                                           \fB(2)\fP
+   virtual const CharT* do_scan_not( mask m, const CharT* beg, const CharT* end) const;
 
-   1) public member function, calls the protected virtual member function do_scan_not
-   of the most derived class.
-   2) Locates the first character in the character array [beg, end) that does not
-   satisfy the classification mask m, that is, the first character c such that is(m, c)
-   would return false.
+   1) public member function, calls the protected virtual member function do_scan_not of the most derived class.
+   2) Locates the first character in the character array [beg, end) that does not satisfy the classification mask m, that is, the first character c such that is(m, c) would return false.
 
 .SH Parameters
 
@@ -24,8 +20,7 @@ std::ctype<CharT>::scan_not,std::ctype<CharT>::do_scan_not \- std::ctype<CharT>:
 
 .SH Return value
 
-   Pointer to the first character in [beg, end) that doesn't satisfy the mask, or end
-   if no such character was found.
+   Pointer to the first character in [beg, end) that doesn't satisfy the mask, or end if no such character was found.
 
 .SH Example
 
@@ -61,9 +56,7 @@ std::ctype<CharT>::scan_not,std::ctype<CharT>::do_scan_not \- std::ctype<CharT>:
 
 .SH See also
 
-              locates the first character in a sequence that fails given
-   scan_not   classification, using the classification table
+   scan_not   locates the first character in a sequence that fails given classification, using the classification table
               \fI(public member function of std::ctype<char>)\fP
-   do_scan_is locates the first character in a sequence that conforms to given
-   \fB[virtual]\fP  classification
-              \fI(virtual protected member function)\fP
+   do_scan_is locates the first character in a sequence that conforms to given classification
+   \fB[virtual]\fP  \fI(virtual protected member function)\fP

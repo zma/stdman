@@ -1,4 +1,4 @@
-.TH std::basic_ostream<CharT,Traits>::basic_ostream 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ostream<CharT,Traits>::basic_ostream 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ostream<CharT,Traits>::basic_ostream \- std::basic_ostream<CharT,Traits>::basic_ostream
 
@@ -9,17 +9,11 @@ std::basic_ostream<CharT,Traits>::basic_ostream \- std::basic_ostream<CharT,Trai
    protected:                                                         \fB(3)\fP \fI(since C++11)\fP
    basic_ostream( basic_ostream&& rhs );
 
-   1) Constructs the basic_ostream object, assigning initial values to the base class
-   by calling basic_ios::init(sb).
+   1) Constructs the basic_ostream object, assigning initial values to the base class by calling basic_ios::init(sb).
 
-   2) The copy constructor is protected, and is deleted. Output streams are not
-   copyable.
+   2) The copy constructor is protected, and is deleted. Output streams are not copyable.
 
-   3) The move constructor uses basic_ios<CharT, Traits>::move(rhs) to move all
-   basic_ios members, except for the rdbuf(), from rhs into *this. This move
-   constructor is protected: it is called by the move constructors of movable output
-   stream classes std::basic_ofstream and std::basic_ostringstream, which know how to
-   correctly move the associated streambuffer.
+   3) The move constructor uses basic_ios<CharT, Traits>::move(rhs) to move all basic_ios members, except for the rdbuf(), from rhs into *this. This move constructor is protected: it is called by the move constructors of movable output stream classes std::basic_ofstream and std::basic_ostringstream, which know how to correctly move the associated streambuffer.
 
 .SH Parameters
 

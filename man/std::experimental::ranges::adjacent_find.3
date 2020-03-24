@@ -1,33 +1,24 @@
-.TH std::experimental::ranges::adjacent_find 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::adjacent_find 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::adjacent_find \- std::experimental::ranges::adjacent_find
 
 .SH Synopsis
    Defined in header <experimental/ranges/algorithm>
-   template< ForwardIterator I, Sentinel<I> S, class Proj =
-   ranges::identity,
+   template< ForwardIterator I, Sentinel<I> S, class Proj = ranges::identity,
 
-   IndirectRelation<projected<I, Proj>> Pred = ranges::equal_to<> >     \fB(1)\fP (ranges TS)
+   IndirectRelation<projected<I, Proj>> Pred = ranges::equal_to<> >                         \fB(1)\fP (ranges TS)
 
-   I adjacent_find(I first, S last, Pred pred = Pred{}, Proj proj =
-   Proj{});
+   I adjacent_find(I first, S last, Pred pred = Pred{}, Proj proj = Proj{});
    template< ForwardRange R, class Proj = ranges::identity,
 
-   IndirectRelation<projected<ranges::iterator_t<R>, Proj>> Pred =
-   ranges::equal_to<> >                                                 \fB(2)\fP (ranges TS)
+   IndirectRelation<projected<ranges::iterator_t<R>, Proj>> Pred = ranges::equal_to<> >     \fB(2)\fP (ranges TS)
 
-   ranges::safe_iterator_t<R> adjacent_find(R&& r, Pred pred = Pred{},
-   Proj proj = Proj{});
+   ranges::safe_iterator_t<R> adjacent_find(R&& r, Pred pred = Pred{}, Proj proj = Proj{});
 
-   1) Searches the range [first, last) for two consecutive identical elements. Elements
-   are compared using pred after being projected with proj.
-   2) Same as \fB(1)\fP, but uses r as the source range, as if using ranges::begin(r) as
-   first and ranges::end(r) as last.
+   1) Searches the range [first, last) for two consecutive identical elements. Elements are compared using pred after being projected with proj.
+   2) Same as \fB(1)\fP, but uses r as the source range, as if using ranges::begin(r) as first and ranges::end(r) as last.
 
-   Notwithstanding the declarations depicted above, the actual number and order of
-   template parameters for algorithm declarations is unspecified. Thus, if explicit
-   template arguments are used when calling an algorithm, the program is probably
-   non-portable.
+   Notwithstanding the declarations depicted above, the actual number and order of template parameters for algorithm declarations is unspecified. Thus, if explicit template arguments are used when calling an algorithm, the program is probably non-portable.
 
 .SH Parameters
 
@@ -38,18 +29,13 @@ std::experimental::ranges::adjacent_find \- std::experimental::ranges::adjacent_
 
 .SH Return value
 
-   An iterator to the first of the first pair of identical elements, that is, the first
-   iterator i such that both i and i + 1 are in the range [first, last) and
-   ranges::invoke(pred, ranges::invoke(proj, *i), ranges::invoke(proj, *(i + 1))) !=
-   false.
+   An iterator to the first of the first pair of identical elements, that is, the first iterator i such that both i and i + 1 are in the range [first, last) and ranges::invoke(pred, ranges::invoke(proj, *i), ranges::invoke(proj, *(i + 1))) != false.
 
    If no such elements are found, an iterator that compares equal to last is returned.
 
 .SH Complexity
 
-   If the range is nonempty, exactly min((result-first)+1, (last-first)-1) applications
-   of the predicate where result is the return value, and at most twice as many
-   applications of the projection.
+   If the range is nonempty, exactly min((result-first)+1, (last-first)-1) applications of the predicate where result is the return value, and at most twice as many applications of the projection.
 
 .SH Possible implementation
 
@@ -80,8 +66,7 @@ std::experimental::ranges::adjacent_find \- std::experimental::ranges::adjacent_
 
 .SH See also
 
-                 finds the first two adjacent items that are equal (or satisfy a given
-   adjacent_find predicate)
+   adjacent_find finds the first two adjacent items that are equal (or satisfy a given predicate)
                  \fI(function template)\fP
    unique        removes consecutive duplicate elements in a range
                  \fI(function template)\fP

@@ -1,4 +1,4 @@
-.TH std::is_eq,std::is_neq,std::is_lt,std::is_gt,std::is_lteq,std::is_gteq 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_eq,std::is_neq,std::is_lt,std::is_gt,std::is_lteq,std::is_gteq 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_eq,std::is_neq,std::is_lt,std::is_gt,std::is_lteq,std::is_gteq \- std::is_eq,std::is_neq,std::is_lt,std::is_gt,std::is_lteq,std::is_gteq
 
@@ -11,8 +11,7 @@ std::is_eq,std::is_neq,std::is_lt,std::is_gt,std::is_lteq,std::is_gteq \- std::i
    constexpr bool is_gt(std::partial_ordering cmp) noexcept;   \fB(5)\fP \fI(since C++20)\fP
    constexpr bool is_gteq(std::partial_ordering cmp) noexcept  \fB(6)\fP \fI(since C++20)\fP
 
-   These functions take a result of 3-way comparison and convert it to the result of
-   one of the six relational operators
+   These functions take a result of 3-way comparison and convert it to the result of one of the six relational operators
 
    Specifically, these functions return
 
@@ -38,9 +37,7 @@ std::is_eq,std::is_neq,std::is_lt,std::is_gt,std::is_lteq,std::is_gteq \- std::i
 
 .SH See also
 
-   partial_ordering the result type of 3-way comparison that supports all 6 operators,
-   (C++20)          is not substitutable, and allows incomparable values
-                    \fI(class)\fP
-   weak_equality    the result type of 3-way comparison that supports only
-   (C++20)          equality/inequality and is not substitutable
-                    \fI(class)\fP
+   partial_ordering the result type of 3-way comparison that supports all 6 operators, is not substitutable, and allows incomparable values
+   (C++20)          \fI(class)\fP
+   weak_equality    the result type of 3-way comparison that supports only equality/inequality and is not substitutable
+   (C++20)          \fI(class)\fP

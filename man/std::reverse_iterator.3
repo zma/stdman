@@ -1,4 +1,4 @@
-.TH std::reverse_iterator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::reverse_iterator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::reverse_iterator \- std::reverse_iterator
 
@@ -16,18 +16,11 @@ std::reverse_iterator \- std::reverse_iterator
    template< class Iter >                                   \fI(since C++17)\fP
    class reverse_iterator;
 
-   std::reverse_iterator is an iterator adaptor that reverses the direction of a given
-   iterator. In other words, when provided with a bidirectional iterator,
-   std::reverse_iterator produces a new iterator that moves from the end to the
-   beginning of the sequence defined by the underlying bidirectional iterator.
+   std::reverse_iterator is an iterator adaptor that reverses the direction of a given iterator. In other words, when provided with a bidirectional iterator, std::reverse_iterator produces a new iterator that moves from the end to the beginning of the sequence defined by the underlying bidirectional iterator.
 
-   For a reverse iterator r constructed from an iterator i, the relationship &*r ==
-   &*(i-1) is always true (as long as r is dereferenceable); thus a reverse iterator
-   constructed from a one-past-the-end iterator dereferences to the last element in a
-   sequence.
+   For a reverse iterator r constructed from an iterator i, the relationship &*r == &*(i-1) is always true (as long as r is dereferenceable); thus a reverse iterator constructed from a one-past-the-end iterator dereferences to the last element in a sequence.
 
-   This is the iterator returned by member functions rbegin() and rend() of the
-   standard library containers.
+   This is the iterator returned by member functions rbegin() and rend() of the standard library containers.
 
    range-rbegin-rend.svg
 
@@ -40,10 +33,9 @@ std::reverse_iterator \- std::reverse_iterator
    reference         std::iterator_traits<Iter>::reference
    iterator_category std::iterator_traits<Iter>::iterator_category
 
-   These member types are required to be obtained by inheriting from
-   std::iterator< std::iterator_traits<Iter>::iterator_category
+   These member types are required to be obtained by inheriting from std::iterator< std::iterator_traits<Iter>::iterator_category
    , std::iterator_traits<Iter>::value_type
-   , std::iterator_traits<Iter>::difference_type                          \fI(until C++17)\fP
+   , std::iterator_traits<Iter>::difference_type                                                                                  \fI(until C++17)\fP
    , std::iterator_traits<Iter>::pointer
    , std::iterator_traits<Iter>::reference
    >.
@@ -79,9 +71,8 @@ std::reverse_iterator \- std::reverse_iterator
 
 .SH Non-member functions
 
-   make_reverse_iterator creates a std::reverse_iterator of type inferred from the
-   \fI(C++14)\fP               argument
-                         \fI(function template)\fP
+   make_reverse_iterator creates a std::reverse_iterator of type inferred from the argument
+   \fI(C++14)\fP               \fI(function template)\fP
    operator==
    operator!=
    operator<             compares the underlying iterators
@@ -95,9 +86,7 @@ std::reverse_iterator \- std::reverse_iterator
 
 .SH Notes
 
-   std::reverse_iterator does not work with iterators that return a reference to a
-   member object (so-called "stashing iterators"). An example of stashing iterator is
-   std::filesystem::path::iterator.
+   std::reverse_iterator does not work with iterators that return a reference to a member object (so-called "stashing iterators"). An example of stashing iterator is std::filesystem::path::iterator.
 
 .SH Example
 
@@ -124,6 +113,5 @@ std::reverse_iterator \- std::reverse_iterator
 
 .SH See also
 
-   iterator              base class to ease the definition of required types for simple
-   (deprecated in C++17) iterators
-                         \fI(class template)\fP
+   iterator              base class to ease the definition of required types for simple iterators
+   (deprecated in C++17) \fI(class template)\fP

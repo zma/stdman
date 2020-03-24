@@ -1,4 +1,4 @@
-.TH std::basic_fstream<CharT,Traits>::open 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_fstream<CharT,Traits>::open 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_fstream<CharT,Traits>::open \- std::basic_fstream<CharT,Traits>::open
 
@@ -18,8 +18,7 @@ std::basic_fstream<CharT,Traits>::open \- std::basic_fstream<CharT,Traits>::open
 
    Calls clear() on success. \fI(since C++11)\fP
 
-   1-2) Effectively calls rdbuf()->open(filename, mode). (see std::basic_filebuf::open
-   for the details on the effects of that call).
+   1-2) Effectively calls rdbuf()->open(filename, mode). (see std::basic_filebuf::open for the details on the effects of that call).
    Overload \fB(2)\fP is only provided if std::filesystem::path::value_type is not char.
    \fI(since C++17)\fP
    3-4) Effectively calls (1-2) as if by open(filename.c_str(), mode).
@@ -27,12 +26,11 @@ std::basic_fstream<CharT,Traits>::open \- std::basic_fstream<CharT,Traits>::open
 .SH Parameters
 
    filename - the name of the file to be opened
-              specifies stream open mode. It is bitmask type, the following constants
-              are defined:
+              specifies stream open mode. It is bitmask type, the following constants are defined:
 
               Constant Explanation
-   mode     - app      seek to the end of stream before each write
-              binary   open in binary mode
+              app      seek to the end of stream before each write
+   mode     - binary   open in binary mode
               in       open for reading
               out      open for writing
               trunc    discard the contents of the stream when opening

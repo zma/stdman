@@ -1,4 +1,4 @@
-.TH std::div,std::ldiv,std::lldiv 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::div,std::ldiv,std::lldiv 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::div,std::ldiv,std::lldiv \- std::div,std::ldiv,std::lldiv
 
@@ -13,14 +13,10 @@ std::div,std::ldiv,std::lldiv \- std::div,std::ldiv,std::lldiv
    std::imaxdiv_t div( std::intmax_t x, std::intmax_t y );     \fB(6)\fP \fI(since C++11)\fP
    std::imaxdiv_t imaxdiv( std::intmax_t x, std::intmax_t y ); \fB(7)\fP \fI(since C++11)\fP
 
-   Computes both the quotient and the remainder of the division of the numerator x by
-   the denominator y
+   Computes both the quotient and the remainder of the division of the numerator x by the denominator y
 
-   The quotient is the algebraic quotient with any fractional part
-   discarded (truncated towards zero). The remainder is such that quot *  \fI(until C++11)\fP
-   y + rem == x.
-   The quotient is the result of the expression x/y. The remainder is the \fI(since C++11)\fP
-   result of the expression x%y.
+   The quotient is the algebraic quotient with any fractional part discarded (truncated towards zero). The remainder is such that quot * y + rem == x. \fI(until C++11)\fP
+   The quotient is the result of the expression x/y. The remainder is the result of the expression x%y.                                                \fI(since C++11)\fP
 
 .SH Parameters
 
@@ -28,10 +24,7 @@ std::div,std::ldiv,std::lldiv \- std::div,std::ldiv,std::lldiv
 
 .SH Return value
 
-   If both the remainder and the quotient can be represented as objects of the
-   corresponding type (int, long, long long, std::imaxdiv_t, respectively), returns
-   both as an object of type std::div_t, std::ldiv_t, std::lldiv_t, std::imaxdiv_t
-   defined as follows:
+   If both the remainder and the quotient can be represented as objects of the corresponding type (int, long, long long, std::imaxdiv_t, respectively), returns both as an object of type std::div_t, std::ldiv_t, std::lldiv_t, std::imaxdiv_t defined as follows:
 
 std::div_t
 
@@ -65,18 +58,13 @@ std::imaxdiv_t
 
  struct imaxdiv_t { std::intmax_t rem; std::intmax_t quot; };
 
-   If either the remainder or the quotient cannot be represented, the behavior is
-   undefined.
+   If either the remainder or the quotient cannot be represented, the behavior is undefined.
 
 .SH Notes
 
-   Until C++11, the rounding direction of the quotient and the sign of the remainder in
-   the built-in division and remainder operators was implementation-defined if either
-   of the operands was negative, but it was well-defined in std::div.
+   Until C++11, the rounding direction of the quotient and the sign of the remainder in the built-in division and remainder operators was implementation-defined if either of the operands was negative, but it was well-defined in std::div.
 
-   On many platforms, a single CPU instruction obtains both the quotient and the
-   remainder, and this function may leverage that, although compilers are generally
-   able to merge nearby / and % where suitable.
+   On many platforms, a single CPU instruction obtains both the quotient and the remainder, and this function may leverage that, although compilers are generally able to merge nearby / and % where suitable.
 
 .SH Example
 

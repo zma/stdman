@@ -1,4 +1,4 @@
-.TH std::basic_osyncstream<CharT,Traits,Allocator>::basic_osyncstream 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_osyncstream<CharT,Traits,Allocator>::basic_osyncstream 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_osyncstream<CharT,Traits,Allocator>::basic_osyncstream \- std::basic_osyncstream<CharT,Traits,Allocator>::basic_osyncstream
 
@@ -14,14 +14,8 @@ std::basic_osyncstream<CharT,Traits,Allocator>::basic_osyncstream \- std::basic_
 
    Constructs new synchronized output stream
 
-   1-4) constructs the private member std::basic_syncbuf using the buffer and the
-   allocator provided, and initializes the base class with a pointer to the member
-   std::basic_streambuf.
-   5) Move constructor. Move-constructs the std::basic_ostream base and the
-   std::basic_syncbuf member from the corresponding subobjects of other, then calls
-   set_rdbuf with the pointer to the newly-constructed underlying std::basic_syncbuf to
-   complete the initialization of the base. After this move constructor,
-   other.get_wrapped() returns nullptr and destruction of other produces no output.
+   1-4) constructs the private member std::basic_syncbuf using the buffer and the allocator provided, and initializes the base class with a pointer to the member std::basic_streambuf.
+   5) Move constructor. Move-constructs the std::basic_ostream base and the std::basic_syncbuf member from the corresponding subobjects of other, then calls set_rdbuf with the pointer to the newly-constructed underlying std::basic_syncbuf to complete the initialization of the base. After this move constructor, other.get_wrapped() returns nullptr and destruction of other produces no output.
 
 .SH Parameters
 

@@ -1,48 +1,35 @@
-.TH std::for_each 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::for_each 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::for_each \- std::for_each
 
 .SH Synopsis
    Defined in header <algorithm>
-   template< class InputIt, class UnaryFunction >
-   UnaryFunction for_each( InputIt first, InputIt last,                   \fI(until C++20)\fP
-   UnaryFunction f );
-   template< class InputIt, class UnaryFunction >
-   constexpr UnaryFunction for_each( InputIt first, InputIt last, \fB(1)\fP     \fI(since C++20)\fP
-   UnaryFunction f );
-   template< class ExecutionPolicy, class ForwardIt, class
-   UnaryFunction2 >                                                   \fB(2)\fP \fI(since C++17)\fP
-   void for_each( ExecutionPolicy&& policy, ForwardIt first,
-   ForwardIt last, UnaryFunction2 f );
+   template< class InputIt, class UnaryFunction >                                                        \fI(until C++20)\fP
+   UnaryFunction for_each( InputIt first, InputIt last, UnaryFunction f );
+   template< class InputIt, class UnaryFunction >                                                \fB(1)\fP     \fI(since C++20)\fP
+   constexpr UnaryFunction for_each( InputIt first, InputIt last, UnaryFunction f );
+   template< class ExecutionPolicy, class ForwardIt, class UnaryFunction2 >                          \fB(2)\fP \fI(since C++17)\fP
+   void for_each( ExecutionPolicy&& policy, ForwardIt first, ForwardIt last, UnaryFunction2 f );
 
-   1) Applies the given function object f to the result of dereferencing every iterator
-   in the range [first, last), in order.
-   2) Applies the given function object f to the result of dereferencing every iterator
-   in the range [first, last) (not necessarily in order). The algorithm is executed
-   according to policy. This overload does not participate in overload resolution
-   unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true.
+   1) Applies the given function object f to the result of dereferencing every iterator in the range [first, last), in order.
+   2) Applies the given function object f to the result of dereferencing every iterator in the range [first, last) (not necessarily in order). The algorithm is executed according to policy. This overload does not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true.
 
-   For both overloads, if the iterator type is mutable, f may modify the elements of
-   the range through the dereferenced iterator. If f returns a result, the result is
-   ignored.
+   For both overloads, if the iterator type is mutable, f may modify the elements of the range through the dereferenced iterator. If f returns a result, the result is ignored.
 
-   Unlike the rest of the algorithms, for_each is not allowed to make copies of the
-   elements in the sequence even if they are trivially copyable.
+   Unlike the rest of the algorithms, for_each is not allowed to make copies of the elements in the sequence even if they are trivially copyable.
 
 .SH Parameters
 
    first, last - the range to apply the function to
    policy      - the execution policy to use. See execution policy for details.
-                 function object, to be applied to the result of dereferencing every
-                 iterator in the range [first, last)
+                 function object, to be applied to the result of dereferencing every iterator in the range [first, last)
 
                  The signature of the function should be equivalent to the following:
 
    f           - void fun(const Type &a);
 
                  The signature does not need to have const &.
-                 The type Type must be such that an object of type InputIt can be
-                 dereferenced and then implicitly converted to Type.
+                 The type Type must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type.
 
                  
 .SH Type requirements
@@ -51,8 +38,7 @@ std::for_each \- std::for_each
    -
    ForwardIt must meet the requirements of LegacyForwardIterator.
    -
-   UnaryFunction must meet the requirements of MoveConstructible. Does not have to be
-   CopyConstructible
+   UnaryFunction must meet the requirements of MoveConstructible. Does not have to be CopyConstructible
    -
    UnaryFunction2 must meet the requirements of CopyConstructible.
 
@@ -71,12 +57,9 @@ std::for_each \- std::for_each
 
 .SH Exceptions
 
-   The overload with a template parameter named ExecutionPolicy reports errors as
-   follows:
+   The overload with a template parameter named ExecutionPolicy reports errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception
-       and ExecutionPolicy is one of the standard policies, std::terminate is called.
-       For any other ExecutionPolicy, the behavior is implementation-defined.
+     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
      * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 .SH Possible implementation
@@ -92,10 +75,7 @@ std::for_each \- std::for_each
 
 .SH Example
 
-   The following example uses a lambda function to increment all of the elements of a
-   vector and then uses an overloaded operator() in a functor to compute their sum.
-   Note that to compute the sum, it is recommended to use the dedicated algorithm
-   std::accumulate.
+   The following example uses a lambda function to increment all of the elements of a vector and then uses an overloaded operator() in a functor to compute their sum. Note that to compute the sum, it is recommended to use the dedicated algorithm std::accumulate.
 
    
 // Run this code

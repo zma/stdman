@@ -1,4 +1,4 @@
-.TH std::fclose 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::fclose 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::fclose \- std::fclose
 
@@ -6,15 +6,11 @@ std::fclose \- std::fclose
    Defined in header <cstdio>
    int fclose( std::FILE* stream );
 
-   Closes the given file stream. Any unwritten buffered data are flushed to the OS. Any
-   unread buffered data are discarded.
+   Closes the given file stream. Any unwritten buffered data are flushed to the OS. Any unread buffered data are discarded.
 
-   Whether or not the operation succeeds, the stream is no longer associated with a
-   file, and the buffer allocated by std::setbuf or std::setvbuf, if any, is also
-   disassociated and deallocated if automatic allocation was used.
+   Whether or not the operation succeeds, the stream is no longer associated with a file, and the buffer allocated by std::setbuf or std::setvbuf, if any, is also disassociated and deallocated if automatic allocation was used.
 
-   The behavior is undefined if the value of the pointer stream is used after fclose
-   returns.
+   The behavior is undefined if the value of the pointer stream is used after fclose returns.
 
 .SH Parameters
 

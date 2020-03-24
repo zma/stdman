@@ -1,4 +1,4 @@
-.TH std::sqrt(std::complex) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::sqrt(std::complex) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::sqrt(std::complex) \- std::sqrt(std::complex)
 
@@ -7,8 +7,7 @@ std::sqrt(std::complex) \- std::sqrt(std::complex)
    template< class T >
    complex<T> sqrt( const complex<T>& z );
 
-   Computes the square root of the complex number z with a branch cut along the
-   negative real axis.
+   Computes the square root of the complex number z with a branch cut along the negative real axis.
 
 .SH Parameters
 
@@ -16,9 +15,7 @@ std::sqrt(std::complex) \- std::sqrt(std::complex)
 
 .SH Return value
 
-   If no errors occur, returns the square root of z, in the range of the right
-   half-plane, including the imaginary axis ([0; +∞) along the real axis and (−∞; +∞)
-   along the imaginary axis.)
+   If no errors occur, returns the square root of z, in the range of the right half-plane, including the imaginary axis ([0; +∞) along the real axis and (−∞; +∞) along the imaginary axis.)
 
   Error handling and special values
 
@@ -26,13 +23,11 @@ std::sqrt(std::complex) \- std::sqrt(std::complex)
 
    If the implementation supports IEEE floating-point arithmetic,
 
-     * The function is continuous onto the branch cut taking into account the sign of
-       imaginary part
+     * The function is continuous onto the branch cut taking into account the sign of imaginary part
      * std::sqrt(std::conj(z)) == std::conj(std::sqrt(z))
      * If z is (±0,+0), the result is (+0,+0)
      * If z is (x,+∞), the result is (+∞,+∞) even if x is NaN
-     * If z is (x,NaN), the result is (NaN,NaN) (unless x is ±∞) and FE_INVALID may be
-       raised
+     * If z is (x,NaN), the result is (NaN,NaN) (unless x is ±∞) and FE_INVALID may be raised
      * If z is (-∞,y), the result is (+0,+∞) for finite positive y
      * If z is (+∞,y), the result is (+∞,+0) for finite positive y
      * If z is (-∞,NaN), the result is (NaN,∞) (sign of imaginary part unspecified)
@@ -42,17 +37,14 @@ std::sqrt(std::complex) \- std::sqrt(std::complex)
 
 .SH Notes
 
-   The semantics of this function are intended to be consistent with the C function
-   csqrt.
+   The semantics of this function are intended to be consistent with the C function csqrt.
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-   LWG 2597 C++98      specification mishandles signed zero       erroneous requirement
-                       imaginary parts                            removed
+      DR    Applied to                Behavior as published                       Correct behavior
+   LWG 2597 C++98      specification mishandles signed zero imaginary parts erroneous requirement removed
 
 .SH Example
 

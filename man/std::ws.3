@@ -1,4 +1,4 @@
-.TH std::ws 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ws 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ws \- std::ws
 
@@ -9,21 +9,13 @@ std::ws \- std::ws
 
    Discards leading whitespace from an input stream.
 
-   Behaves as an UnformattedInputFunction, except that is.gcount() is not modified.
-   After constructing and checking the sentry object, extracts characters from the
-   stream and discards them until any one of the following conditions occurs:
+   Behaves as an UnformattedInputFunction, except that is.gcount() is not modified. After constructing and checking the sentry object, extracts characters from the stream and discards them until any one of the following conditions occurs:
 
-     * end of file condition occurs in the input sequence (in which case the function
-       calls setstate(eofbit) but does not set failbit; this does not apply if the
-       eofbit is already set on is prior to the call to ws, in which case the
-       construction of the sentry object would set failbit).
+     * end of file condition occurs in the input sequence (in which case the function calls setstate(eofbit) but does not set failbit; this does not apply if the eofbit is already set on is prior to the call to ws, in which case the construction of the sentry object would set failbit).
 
-     * the next available character c in the input sequence is not whitespace as
-       determined by std::isspace(c, is.getloc()). The non-whitespace character is not
-       extracted.
+     * the next available character c in the input sequence is not whitespace as determined by std::isspace(c, is.getloc()). The non-whitespace character is not extracted.
 
-   This is an input-only I/O manipulator, it may be called with an expression such as
-   in >> std::ws for any in of type std::basic_istream.
+   This is an input-only I/O manipulator, it may be called with an expression such as in >> std::ws for any in of type std::basic_istream.
 
 .SH Parameters
 
@@ -35,8 +27,7 @@ std::ws \- std::ws
 
 .SH Notes
 
-   If eofbit is set on the stream prior to the call, the construction of the sentry
-   object will set failbit.
+   If eofbit is set on the stream prior to the call, the construction of the sentry object will set failbit.
 
 .SH Example
 

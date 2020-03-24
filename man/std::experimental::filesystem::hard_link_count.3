@@ -1,4 +1,4 @@
-.TH std::experimental::filesystem::hard_link_count 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::hard_link_count 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::hard_link_count \- std::experimental::filesystem::hard_link_count
 
@@ -22,12 +22,7 @@ std::experimental::filesystem::hard_link_count \- std::experimental::filesystem:
 
 .SH Exceptions
 
-   The overload that does not take a error_code& parameter throws filesystem_error on
-   underlying OS API errors, constructed with p as the first argument and the OS error
-   code as the error code argument. std::bad_alloc may be thrown if memory allocation
-   fails. The overload taking a error_code& parameter sets it to the OS API error code
-   if an OS API call fails, and executes ec.clear() if no errors occur. This overload
-   has
+   The overload that does not take a error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first argument and the OS error code as the error code argument. std::bad_alloc may be thrown if memory allocation fails. The overload taking a error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. This overload has
    noexcept specification:
    noexcept
 

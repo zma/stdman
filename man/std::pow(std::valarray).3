@@ -1,34 +1,30 @@
-.TH std::pow(std::valarray) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pow(std::valarray) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pow(std::valarray) \- std::pow(std::valarray)
 
 .SH Synopsis
    Defined in header <valarray>
-   template< class T >
-   std::valarray<T> pow( const std::valarray<T>& base, const std::valarray<T>& exp \fB(1)\fP
-   );
+   template< class T >                                                                \fB(1)\fP
+   std::valarray<T> pow( const std::valarray<T>& base, const std::valarray<T>& exp );
    template< class T >
 
-   std::valarray<T> pow( const std::valarray<T>& base,                             \fB(2)\fP
+   std::valarray<T> pow( const std::valarray<T>& base,                                \fB(2)\fP
 
    const typename std::valarray<T>::value_type& vexp );
    template< class T >
 
-   std::valarray<T> pow( const typename std::valarray<T>::value_type& vbase,       \fB(3)\fP
+   std::valarray<T> pow( const typename std::valarray<T>::value_type& vbase,          \fB(3)\fP
 
    const std::valarray<T>& exp );
 
    Raises a value to a power.
 
-   1) Computes the values of each element in the numeric array base raised to the power
-   specified by the corresponding element from the numeric array exp.
+   1) Computes the values of each element in the numeric array base raised to the power specified by the corresponding element from the numeric array exp.
 
    The behavior is undefined if base.size() != exp.size().
 
-   2) Computes the values of each element in the numeric array base raised to the power
-   vexp.
-   3) Computes the values of vbase raised to the power defined by the elements in the
-   numeric array exp.
+   2) Computes the values of each element in the numeric array base raised to the power vexp.
+   3) Computes the values of vbase raised to the power defined by the elements in the numeric array exp.
 
 .SH Parameters
 
@@ -43,32 +39,24 @@ std::pow(std::valarray) \- std::pow(std::valarray)
 
 .SH Notes
 
-   Unqualified function (pow) is used to perform the computation. If such function is
-   not available, std::pow is used due to argument dependent lookup.
+   Unqualified function (pow) is used to perform the computation. If such function is not available, std::pow is used due to argument dependent lookup.
 
-   The function can be implemented with the return type different from std::valarray.
-   In this case, the replacement type has the following properties:
+   The function can be implemented with the return type different from std::valarray. In this case, the replacement type has the following properties:
 
-     * All const member functions of std::valarray are provided.
-     * std::valarray, std::slice_array, std::gslice_array, std::mask_array and
-       std::indirect_array can be constructed from the replacement type.
-     * All functions accepting an argument of type const std::valarray&
-       except begin() and end()
-       \fI(since C++11)\fP should also accept the replacement type.
-     * All functions accepting two arguments of type const std::valarray& should accept
-       every combination of const std::valarray& and the replacement type.
-     * The return type does not add more than two levels of template nesting over the
-       most deeply-nested argument type.
+              * All const member functions of std::valarray are provided.
+              * std::valarray, std::slice_array, std::gslice_array, std::mask_array and std::indirect_array can be constructed from the replacement type.
+              * All functions accepting an argument of type const std::valarray&
+                except begin() and end()
+                \fI(since C++11)\fP should also accept the replacement type.
+              * All functions accepting two arguments of type const std::valarray& should accept every combination of const std::valarray& and the replacement type.
+              * The return type does not add more than two levels of template nesting over the most deeply-nested argument type.
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-                       T is deduced from both the scalar and the only deduce T from the
-   LWG 3074 C++98      valarray for (2-3), disallowing           valarray
-                       mixed-type calls
+      DR    Applied to                                   Behavior as published                                           Correct behavior
+   LWG 3074 C++98      T is deduced from both the scalar and the valarray for (2-3), disallowing mixed-type calls only deduce T from the valarray
 
 .SH Example
 

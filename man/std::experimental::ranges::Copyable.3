@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::Copyable 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::Copyable 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::Copyable \- std::experimental::ranges::Copyable
 
@@ -12,14 +12,11 @@ std::experimental::ranges::Copyable \- std::experimental::ranges::Copyable
 
    Assignable<T&, const T&>;
 
-   The concept Copyable<T> specifies that T is an Movable object type that can also
-   copied (that is, it supports copy construction and copy assignment).
+   The concept Copyable<T> specifies that T is an Movable object type that can also copied (that is, it supports copy construction and copy assignment).
 
 .SH Notes
 
-   It is intended that Copyable<T> also requires Assignable<T&, const T> (assignment
-   from const rvalue) and Assignable<T&, T&> (assignment from non-const lvalue) to be
-   satisfied.
+   It is intended that Copyable<T> also requires Assignable<T&, const T> (assignment from const rvalue) and Assignable<T&, T&> (assignment from non-const lvalue) to be satisfied.
 
 .SH See also
 

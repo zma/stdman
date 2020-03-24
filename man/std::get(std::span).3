@@ -1,4 +1,4 @@
-.TH std::get(std::span) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::get(std::span) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::get(std::span) \- std::get(std::span)
 
@@ -8,9 +8,7 @@ std::get(std::span) \- std::get(std::span)
 
    Obtains a reference to the Ith element of the span s.
 
-   The span must have static extent (i.e., N != std::dynamic_extent) and I must be an
-   integer value in range [0, N). This is enforced at compile time as opposed to
-   operator[].
+   The span must have static extent (i.e., N != std::dynamic_extent) and I must be an integer value in range [0, N). This is enforced at compile time as opposed to operator[].
 
 .SH Parameters
 
@@ -37,6 +35,5 @@ std::get(std::span) \- std::get(std::span)
                           \fI(function template)\fP
    std::get(std::pair)    accesses an element of a pair
    \fI(C++11)\fP                \fI(function template)\fP
-   std::get(std::variant) reads the value of the variant given the index or the type
-   \fI(C++17)\fP                (if the type is unique), throws on error
-                          \fI(function template)\fP
+   std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
+   \fI(C++17)\fP                \fI(function template)\fP

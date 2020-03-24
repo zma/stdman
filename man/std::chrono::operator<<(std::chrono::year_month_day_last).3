@@ -1,17 +1,15 @@
-.TH std::chrono::operator<<(std::chrono::year_month_day_last) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator<<(std::chrono::year_month_day_last) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator<<(std::chrono::year_month_day_last) \- std::chrono::operator<<(std::chrono::year_month_day_last)
 
 .SH Synopsis
    template <class CharT, class Traits>
 
-   std::basic_ostream<CharT, Traits>&                                     \fI(since C++20)\fP
+   std::basic_ostream<CharT, Traits>&                                                                \fI(since C++20)\fP
 
-   operator<<(std::basic_ostream<CharT, Traits>& os, const
-   std::chrono::year_month_day_last& ymdl);
+   operator<<(std::basic_ostream<CharT, Traits>& os, const std::chrono::year_month_day_last& ymdl);
 
-   Outputs a textual representation of ymdl into os, as if by os << ymdl.year() << '/'
-   << ymdl.month_day_last();
+   Outputs a textual representation of ymdl into os, as if by os << ymdl.year() << '/' << ymdl.month_day_last();
 
 .SH Return value
 
@@ -19,8 +17,7 @@ std::chrono::operator<<(std::chrono::year_month_day_last) \- std::chrono::operat
 
 .SH Notes
 
-   This operator<< is primarily intended for debugging use. When used with non-default
-   stream flags, the output may be surprising:
+   This operator<< is primarily intended for debugging use. When used with non-default stream flags, the output may be surprising:
 
  using namespace std::chrono;
  auto ymdl = 2001y/2/last;

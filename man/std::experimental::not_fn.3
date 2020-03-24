@@ -1,4 +1,4 @@
-.TH std::experimental::not_fn 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::not_fn 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::not_fn \- std::experimental::not_fn
 
@@ -7,8 +7,7 @@ std::experimental::not_fn \- std::experimental::not_fn
    template< class F>                           (library fundamentals TS v2)
    /*unspecified*/ not_fn( F&& f );
 
-   Creates a forwarding call wrapper that returns the complement of the callable object
-   it holds.
+   Creates a forwarding call wrapper that returns the complement of the callable object it holds.
 
 .SH Parameters
 
@@ -16,20 +15,15 @@ std::experimental::not_fn \- std::experimental::not_fn
 
 .SH Return value
 
-   Let FD be std::decay_t<F> and fd be an lvalue of type FD constructed from
-   std::forward<F>(f).
+   Let FD be std::decay_t<F> and fd be an lvalue of type FD constructed from std::forward<F>(f).
 
-   not_fn returns a forwarding call wrapper fn of unspecified type such that fn(a1, a2,
-   ..., aN) is equivalent to !INVOKE(fd, a1, ..., aN), where INVOKE is the operation
-   described in Callable.
+   not_fn returns a forwarding call wrapper fn of unspecified type such that fn(a1, a2, ..., aN) is equivalent to !INVOKE(fd, a1, ..., aN), where INVOKE is the operation described in Callable.
 
-   The returned call wrapper is always MoveConstructible, and is CopyConstructible if
-   FD is CopyConstructible.
+   The returned call wrapper is always MoveConstructible, and is CopyConstructible if FD is CopyConstructible.
 
   Remarks
 
-   If fd is not Callable, or std::is_constructible<FD, F>::value is not true, the
-   behavior is undefined.
+   If fd is not Callable, or std::is_constructible<FD, F>::value is not true, the behavior is undefined.
 
 .SH Exceptions
 
@@ -80,6 +74,5 @@ std::experimental::not_fn \- std::experimental::not_fn
 
 .SH See also
 
-   not_fn  Creates a function object that returns the complement of the result of the
-   \fI(C++17)\fP function object it holds
-           \fI(function template)\fP
+   not_fn  Creates a function object that returns the complement of the result of the function object it holds
+   \fI(C++17)\fP \fI(function template)\fP

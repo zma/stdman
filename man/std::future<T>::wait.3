@@ -1,4 +1,4 @@
-.TH std::future<T>::wait 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::future<T>::wait 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::future<T>::wait \- std::future<T>::wait
 
@@ -23,9 +23,7 @@ std::future<T>::wait \- std::future<T>::wait
 
 .SH Notes
 
-   The implementations are encouraged to detect the case when valid == false before the
-   call and throw a std::future_error with an error condition of
-   std::future_errc::no_state.
+   The implementations are encouraged to detect the case when valid == false before the call and throw a std::future_error with an error condition of std::future_errc::no_state.
 
 .SH Example
 
@@ -67,9 +65,7 @@ std::future<T>::wait \- std::future<T>::wait
 
 .SH See also
 
-              waits for the result, returns if it is not available for the specified
-   wait_for   timeout duration
+   wait_for   waits for the result, returns if it is not available for the specified timeout duration
               \fI(public member function)\fP
-              waits for the result, returns if it is not available until specified time
-   wait_until point has been reached
+   wait_until waits for the result, returns if it is not available until specified time point has been reached
               \fI(public member function)\fP

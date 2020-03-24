@@ -1,4 +1,4 @@
-.TH std::strcoll 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::strcoll 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::strcoll \- std::strcoll
 
@@ -6,8 +6,7 @@ std::strcoll \- std::strcoll
    Defined in header <cstring>
    int strcoll( const char* lhs, const char* rhs );
 
-   Compares two null-terminated byte strings according to the current locale as defined
-   by the LC_COLLATE category.
+   Compares two null-terminated byte strings according to the current locale as defined by the LC_COLLATE category.
 
 .SH Parameters
 
@@ -23,13 +22,7 @@ std::strcoll \- std::strcoll
 
 .SH Notes
 
-   Collation order is the dictionary order: the position of the letter in the national
-   alphabet (its equivalence class) has higher priority than its case or variant.
-   Within an equivalence class, lowercase characters collate before their uppercase
-   equivalents and locale-specific order may apply to the characters with diacritics.
-   In some locales, groups of characters compare as single collation units. For
-   example, "ch" in Czech follows "h" and precedes "i", and "dzs" in Hungarian follows
-   "dz" and precedes "g".
+   Collation order is the dictionary order: the position of the letter in the national alphabet (its equivalence class) has higher priority than its case or variant. Within an equivalence class, lowercase characters collate before their uppercase equivalents and locale-specific order may apply to the characters with diacritics. In some locales, groups of characters compare as single collation units. For example, "ch" in Czech follows "h" and precedes "i", and "dzs" in Hungarian follows "dz" and precedes "g".
 
 .SH Example
 
@@ -71,6 +64,5 @@ std::strcoll \- std::strcoll
               \fI(function)\fP
    do_compare compares two strings using this facet's collation rules
    \fB[virtual]\fP  \fI(virtual protected member function of std::collate<CharT>)\fP
-              transform a string so that strcmp would produce the same result as
-   strxfrm    strcoll
+   strxfrm    transform a string so that strcmp would produce the same result as strcoll
               \fI(function)\fP

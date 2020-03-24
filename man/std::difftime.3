@@ -1,4 +1,4 @@
-.TH std::difftime 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::difftime 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::difftime \- std::difftime
 
@@ -6,9 +6,7 @@ std::difftime \- std::difftime
    Defined in header <ctime>
    double difftime( std::time_t time_end, std::time_t time_beg );
 
-   Computes difference between two calendar times as std::time_t objects (time_end -
-   time_beg) in seconds. If time_end refers to time point before time_beg then the
-   result is negative.
+   Computes difference between two calendar times as std::time_t objects (time_end - time_beg) in seconds. If time_end refers to time point before time_beg then the result is negative.
 
 .SH Parameters
 
@@ -20,8 +18,7 @@ std::difftime \- std::difftime
 
 .SH Notes
 
-   On POSIX systems, std::time_t is measured in seconds, and difftime is equivalent to
-   arithmetic subtraction, but C and C++ allow fractional units for time_t.
+   On POSIX systems, std::time_t is measured in seconds, and difftime is equivalent to arithmetic subtraction, but C and C++ allow fractional units for time_t.
 
 .SH Example
 

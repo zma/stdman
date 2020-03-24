@@ -1,4 +1,4 @@
-.TH std::chrono::utc_clock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::utc_clock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::utc_clock \- std::chrono::utc_clock
 
@@ -6,48 +6,36 @@ std::chrono::utc_clock \- std::chrono::utc_clock
    Defined in header <chrono>
    class utc_clock;            \fI(since C++20)\fP
 
-   The clock std::chrono::utc_clock is a Clock that represents Coordinated Universal
-   Time (UTC). It measures time since 00:00:00 UTC, Thursday, 1 January 1970, including
-   leap seconds.
+   The clock std::chrono::utc_clock is a Clock that represents Coordinated Universal Time (UTC). It measures time since 00:00:00 UTC, Thursday, 1 January 1970, including leap seconds.
 
-   utc_clock meets the Clock requirements. It does not meet the TrivialClock
-   requirements unless the implementation can guarantee that now() does not throw an
-   exception.
+   utc_clock meets the Clock requirements. It does not meet the TrivialClock requirements unless the implementation can guarantee that now() does not throw an exception.
 
   Time point family
 
    Defined in namespace std::chrono
-   template<class Duration>
-   using utc_time = std::chrono::time_point<std::chrono::utc_clock,       \fI(since C++20)\fP
-   Duration>;
-   using utc_seconds = utc_time<std::chrono::seconds>;                    \fI(since C++20)\fP
+   template<class Duration>                                                     \fI(since C++20)\fP
+   using utc_time = std::chrono::time_point<std::chrono::utc_clock, Duration>;
+   using utc_seconds = utc_time<std::chrono::seconds>;                          \fI(since C++20)\fP
 
    operator<< (std::chrono::utc_time)  performs stream output on a utc_time
    (C++20)                             \fI(function template)\fP
-   from_stream (std::chrono::utc_time) parses a utc_time from a stream according to the
-   (C++20)                             provided format
-                                       \fI(function template)\fP
-   to_stream (std::chrono::utc_time)   outputs a utc_time into a stream according to
-   (C++20)                             the provided format
-                                       \fI(function template)\fP
+   from_stream (std::chrono::utc_time) parses a utc_time from a stream according to the provided format
+   (C++20)                             \fI(function template)\fP
+   to_stream (std::chrono::utc_time)   outputs a utc_time into a stream according to the provided format
+   (C++20)                             \fI(function template)\fP
 
 .SH Member types
 
    Member type Definition
-   rep         signed arithmetic type representing the number of ticks in the clock's
-               duration
+   rep         signed arithmetic type representing the number of ticks in the clock's duration
    period      a std::ratio type representing the tick period of the clock, in seconds
-   duration    std::chrono::duration<rep, period>, capable of representing negative
-               durations
+   duration    std::chrono::duration<rep, period>, capable of representing negative durations
    time_point  std::chrono::time_point<std::chrono::utc_clock>
 
 .SH Member constants
 
-                            true if the time between ticks is always constant, i.e.
-   constexpr bool is_steady calls to now() return values that increase monotonically
-   \fB[static]\fP                 even in case of some external clock adjustment, otherwise
-                            false
-                            \fI(public static member constant)\fP
+   constexpr bool is_steady true if the time between ticks is always constant, i.e. calls to now() return values that increase monotonically even in case of some external clock adjustment, otherwise false
+   \fB[static]\fP                 \fI(public static member constant)\fP
 
 .SH Member functions
 

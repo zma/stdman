@@ -1,4 +1,4 @@
-.TH std::Destructible 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::Destructible 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::Destructible \- std::Destructible
 
@@ -7,14 +7,11 @@ std::Destructible \- std::Destructible
    template < class T >                                       \fI(since C++20)\fP
    concept Destructible = std::is_nothrow_destructible_v<T>;
 
-   The concept Destructible specifies the concept of all types whose instances can
-   safely be destroyed at the end of their lifetime (including reference types).
+   The concept Destructible specifies the concept of all types whose instances can safely be destroyed at the end of their lifetime (including reference types).
 
 .SH Notes
 
-   Unlike the Destructible named requirement, std::Destructible requires the destructor
-   to be noexcept(true), not merely non-throwing when invoked, and allows reference
-   types and array types.
+   Unlike the Destructible named requirement, std::Destructible requires the destructor to be noexcept(true), not merely non-throwing when invoked, and allows reference types and array types.
 
 .SH See also
 

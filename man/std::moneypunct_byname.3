@@ -1,4 +1,4 @@
-.TH std::moneypunct_byname 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::moneypunct_byname 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::moneypunct_byname \- std::moneypunct_byname
 
@@ -7,16 +7,13 @@ std::moneypunct_byname \- std::moneypunct_byname
    template< class CharT, bool Intl = false >
    class moneypunct_byname : public std::moneypunct<CharT, Intl>;
 
-   std::moneypunct_byname is a std::moneypunct facet which encapsulates monetary
-   formatting preferences of a locale specified at its construction.
+   std::moneypunct_byname is a std::moneypunct facet which encapsulates monetary formatting preferences of a locale specified at its construction.
 
    Two specializations are provided by the standard library
 
    Defined in header <locale>
-   std::moneypunct_byname<char, Intl>    locale-specific std::moneypunct facet for
-                                         narrow character I/O
-   std::moneypunct_byname<wchar_t, Intl> locale-specific std::moneypunct facet for wide
-                                         character I/O
+   std::moneypunct_byname<char, Intl>    locale-specific std::moneypunct facet for narrow character I/O
+   std::moneypunct_byname<wchar_t, Intl> locale-specific std::moneypunct facet for wide character I/O
 
 .SH Member types
 
@@ -34,14 +31,11 @@ std::moneypunct_byname \- std::moneypunct_byname
 std::moneypunct_byname::moneypunct_byname
 
    explicit moneypunct_byname( const char* name, std::size_t refs = 0 );
-   explicit moneypunct_byname( const std::string& name, std::size_t refs  \fI(since C++11)\fP
-   = 0 );
+   explicit moneypunct_byname( const std::string& name, std::size_t refs = 0 );  \fI(since C++11)\fP
 
    Constructs a new std::moneypunct_byname facet for a locale with name.
 
-   refs is used for resource management: if refs == 0, the implementation destroys the
-   facet, when the last std::locale object holding it is destroyed. Otherwise, the
-   object is not destroyed.
+   refs is used for resource management: if refs == 0, the implementation destroys the facet, when the last std::locale object holding it is destroyed. Otherwise, the object is not destroyed.
 
 .SH Parameters
 
@@ -83,27 +77,21 @@ Inherited from std::moneypunct
 .SH Protected member functions
 
    do_decimal_point provides the character to use as decimal point
-   \fB[virtual]\fP        \fI\fI(virtual protected member function\fP of\fP
-                    std::moneypunct<CharT,International>)
+   \fB[virtual]\fP        \fI(virtual protected member function of std::moneypunct<CharT,International>)\fP
    do_thousands_sep provides the character to use as thousands separator
-   \fB[virtual]\fP        \fI\fI(virtual protected member function\fP of\fP
-                    std::moneypunct<CharT,International>)
-                    provides the numbers of digits between each pair of thousands
-   do_grouping      separators
-   \fB[virtual]\fP        \fI\fI(virtual protected member function\fP of\fP
-                    std::moneypunct<CharT,International>)
+   \fB[virtual]\fP        \fI(virtual protected member function of std::moneypunct<CharT,International>)\fP
+   do_grouping      provides the numbers of digits between each pair of thousands separators
+   \fB[virtual]\fP        \fI(virtual protected member function of std::moneypunct<CharT,International>)\fP
    do_curr_symbol   provides the string to use as the currency identifier
-   \fB[virtual]\fP        \fI\fI(virtual protected member function\fP of\fP
-                    std::moneypunct<CharT,International>)
+   \fB[virtual]\fP        \fI(virtual protected member function of std::moneypunct<CharT,International>)\fP
    do_positive_sign provides the string to indicate a positive or negative value
-   do_negative_sign \fI\fI(virtual protected member function\fP of\fP
-   \fB[virtual]\fP        std::moneypunct<CharT,International>)
+   do_negative_sign \fI(virtual protected member function of std::moneypunct<CharT,International>)\fP
+   \fB[virtual]\fP
    do_frac_digits   provides the number of digits to display after the decimal point
-   \fB[virtual]\fP        \fI\fI(virtual protected member function\fP of\fP
-                    std::moneypunct<CharT,International>)
+   \fB[virtual]\fP        \fI(virtual protected member function of std::moneypunct<CharT,International>)\fP
    do_pos_format    provides the formatting pattern for currency values
-   do_neg_format    \fI\fI(virtual protected member function\fP of\fP
-   \fB[virtual]\fP        std::moneypunct<CharT,International>)
+   do_neg_format    \fI(virtual protected member function of std::moneypunct<CharT,International>)\fP
+   \fB[virtual]\fP
 
 .SH Member constants
 
@@ -122,20 +110,15 @@ Inherited from std::money_base
    struct pattern { char field[4]; };              the monetary format type
 
    Enumeration constant Definition
-   none                 whitespace is permitted but not required except in the last
-                        position, where whitespace is not permitted
+   none                 whitespace is permitted but not required except in the last position, where whitespace is not permitted
    space                one or more whitespace characters are required
-   symbol               the sequence of characters returned by moneypunct::curr_symbol
-                        is required
-                        the first of the characters returned by
-   sign                 moneypunct::positive_sign or moneypunct::negative_sign is
-                        required
+   symbol               the sequence of characters returned by moneypunct::curr_symbol is required
+   sign                 the first of the characters returned by moneypunct::positive_sign or moneypunct::negative_sign is required
    value                the absolute numeric monetary value is required
 
 .SH Example
 
-   This example demonistrates how to apply monetary formatting rules of another
-   language without changing the rest of the locale.
+   This example demonistrates how to apply monetary formatting rules of another language without changing the rest of the locale.
 
    
 // Run this code
@@ -163,6 +146,5 @@ Inherited from std::money_base
 
 .SH See also
 
-              defines monetary formatting parameters used by std::money_get and
-   moneypunct std::money_put
+   moneypunct defines monetary formatting parameters used by std::money_get and std::money_put
               \fI(class template)\fP

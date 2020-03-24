@@ -1,4 +1,4 @@
-.TH std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::emplace 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::emplace 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::emplace \- std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::emplace
 
@@ -8,14 +8,9 @@ std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::emplace \- std::unordere
 
    Inserts a new element into the container constructed in-place with the given args .
 
-   Careful use of emplace allows the new element to be constructed while avoiding
-   unnecessary copy or move operations. The constructor of the new element (i.e.
-   std::pair<const Key, T>) is called with exactly the same arguments as supplied to
-   emplace, forwarded via std::forward<Args>(args)....
+   Careful use of emplace allows the new element to be constructed while avoiding unnecessary copy or move operations. The constructor of the new element (i.e. std::pair<const Key, T>) is called with exactly the same arguments as supplied to emplace, forwarded via std::forward<Args>(args)....
 
-   If rehashing occurs due to the insertion, all iterators are invalidated. Otherwise
-   iterators are not affected. References are not invalidated. Rehashing occurs only if
-   the new number of elements is greater than max_load_factor()*bucket_count().
+   If rehashing occurs due to the insertion, all iterators are invalidated. Otherwise iterators are not affected. References are not invalidated. Rehashing occurs only if the new number of elements is greater than max_load_factor()*bucket_count().
 
 .SH Parameters
 

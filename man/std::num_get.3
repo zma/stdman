@@ -1,4 +1,4 @@
-.TH std::num_get 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::num_get 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::num_get \- std::num_get
 
@@ -11,16 +11,11 @@ std::num_get \- std::num_get
 
    > class num_get;
 
-   Class std::num_get encapsulates the rules for parsing string representations of
-   numeric values. Specifically, types bool, unsigned short, unsigned int, long,
-   unsigned long, long long, unsigned long long, float, double, long double, and void*
-   are supported. The standard formatting input operators (such as cin >> n;) use the
-   std::num_get facet of the I/O stream's locale to parse the text representations of
-   the numbers.
+   Class std::num_get encapsulates the rules for parsing string representations of numeric values. Specifically, types bool, unsigned short, unsigned int, long, unsigned long, long long, unsigned long long, float, double, long double, and void* are supported. The standard formatting input operators (such as cin >> n;) use the std::num_get facet of the I/O stream's locale to parse the text representations of the numbers.
 
    std-num get-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
 .SH Type requirements
 
@@ -29,19 +24,15 @@ std::num_get \- std::num_get
 
 .SH Specializations
 
-   Two standalone (locale-independent) full specializations and two partial
-   specializations are provided by the standard library:
+   Two standalone (locale-independent) full specializations and two partial specializations are provided by the standard library:
 
    Defined in header <locale>
    std::num_get<char>             creates narrow string parsing of numbers
    std::num_get<wchar_t>          creates wide string parsing of numbers
-   std::num_get<char, InputIt>    creates narrow string parsing of numbers using custom
-                                  input iterator
-   std::num_get<wchar_t, InputIt> creates wide string parsing of numbers using custom
-                                  input iterator
+   std::num_get<char, InputIt>    creates narrow string parsing of numbers using custom input iterator
+   std::num_get<wchar_t, InputIt> creates wide string parsing of numbers using custom input iterator
 
-   In addition, every locale object constructed in a C++ program implements its own
-   (locale-specific) versions of these specializations.
+   In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 

@@ -1,4 +1,4 @@
-.TH std::basic_streambuf<CharT,Traits>::pubsync,std::basic_streambuf<CharT,Traits>::sync 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_streambuf<CharT,Traits>::pubsync,std::basic_streambuf<CharT,Traits>::sync 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_streambuf<CharT,Traits>::pubsync,std::basic_streambuf<CharT,Traits>::sync \- std::basic_streambuf<CharT,Traits>::pubsync,std::basic_streambuf<CharT,Traits>::sync
 
@@ -7,20 +7,13 @@ std::basic_streambuf<CharT,Traits>::pubsync,std::basic_streambuf<CharT,Traits>::
    protected:          \fB(2)\fP
    virtual int sync();
 
-   Synchronizes the controlled character sequence (the buffers) with the associated
-   character sequence.
+   Synchronizes the controlled character sequence (the buffers) with the associated character sequence.
 
    1) Calls sync() of the most derived class
 
-   2) The base class version of this function has no effect. The derived classes may
-   override this function to allow synchronizing the underlying device with the
-   buffers.
+   2) The base class version of this function has no effect. The derived classes may override this function to allow synchronizing the underlying device with the buffers.
 
-   For output streams, this typically results in writing the contents of the put area
-   into the associated sequence, i.e. flushing of the output buffer. For input streams,
-   this typically empties the get area and forces a re-read from the associated
-   sequence to pick up recent changes. The default behavior (found, for example, in
-   std::basic_stringbuf), is to do nothing.
+   For output streams, this typically results in writing the contents of the put area into the associated sequence, i.e. flushing of the output buffer. For input streams, this typically empties the get area and forces a re-read from the associated sequence to pick up recent changes. The default behavior (found, for example, in std::basic_stringbuf), is to do nothing.
 
 .SH Parameters
 

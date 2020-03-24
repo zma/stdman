@@ -1,4 +1,4 @@
-.TH std::variant_size,std::variant_size_v 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::variant_size,std::variant_size_v 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::variant_size,std::variant_size_v \- std::variant_size,std::variant_size_v
 
@@ -17,21 +17,17 @@ std::variant_size,std::variant_size_v \- std::variant_size,std::variant_size_v
 
    template <class T> class variant_size<const volatile T>;
 
-   Provides access to the number of alternatives in a possibly cv-qualified variant as
-   a compile-time constant expression.
+   Provides access to the number of alternatives in a possibly cv-qualified variant as a compile-time constant expression.
 
    Formally,
 
-   2) meets the UnaryTypeTrait requirements with a BaseCharacteristic of
-   std::integral_constant<std::size_t, sizeof...(Types)>
-   3) meets the UnaryTypeTrait requirements with a BaseCharacteristic of
-   std::integral_constant<std::size_t, variant_size<T>>
+   2) meets the UnaryTypeTrait requirements with a BaseCharacteristic of std::integral_constant<std::size_t, sizeof...(Types)>
+   3) meets the UnaryTypeTrait requirements with a BaseCharacteristic of std::integral_constant<std::size_t, variant_size<T>>
 
   Helper variable template
 
-   template <class T>
-   inline constexpr std::size_t variant_size_v =                          \fI(since C++17)\fP
-   std::variant_size<T>::value;
+   template <class T>                                                          \fI(since C++17)\fP
+   inline constexpr std::size_t variant_size_v = std::variant_size<T>::value;
 
 Inherited from std::integral_constant
 
@@ -55,8 +51,7 @@ Inherited from std::integral_constant
 
 .SH Notes
 
-   All specializations of std::variant_size satisfy UnaryTypeTrait with
-   BaseCharacteristic std::integral_constant<std::size_t, N> for some N.
+   All specializations of std::variant_size satisfy UnaryTypeTrait with BaseCharacteristic std::integral_constant<std::size_t, N> for some N.
 
 .SH Example
 
@@ -65,8 +60,8 @@ Inherited from std::integral_constant
 
 .SH See also
 
-   variant_alternative   obtains the type of the alternative specified by its index, at
-   variant_alternative_t compile time
-   \fI(C++17)\fP               \fI(class template)\fP (alias template)
+   variant_alternative   obtains the type of the alternative specified by its index, at compile time
+   variant_alternative_t \fI(class template)\fP (alias template)
+   \fI(C++17)\fP
    tuple_size            obtains the size of tuple at compile time
                          \fI(class template specialization)\fP

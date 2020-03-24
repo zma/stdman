@@ -1,62 +1,45 @@
-.TH std::remove_copy,std::remove_copy_if 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::remove_copy,std::remove_copy_if 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::remove_copy,std::remove_copy_if \- std::remove_copy,std::remove_copy_if
 
 .SH Synopsis
    Defined in header <algorithm>
-   template< class InputIt, class OutputIt, class T
-   >
+   template< class InputIt, class OutputIt, class T >
 
-   OutputIt remove_copy( InputIt first, InputIt             \fI(until C++20)\fP
-   last, OutputIt d_first,
+   OutputIt remove_copy( InputIt first, InputIt last, OutputIt d_first,                                \fI(until C++20)\fP
 
    const T& value );
-   template< class InputIt, class OutputIt, class T
-   >
+   template< class InputIt, class OutputIt, class T >
 
-   constexpr OutputIt remove_copy( InputIt first,           \fI(since C++20)\fP
-   InputIt last, OutputIt d_first,
+   constexpr OutputIt remove_copy( InputIt first, InputIt last, OutputIt d_first,                      \fI(since C++20)\fP
 
    const T& value );
-   template< class ExecutionPolicy, class
-   ForwardIt1, class ForwardIt2, class T >
+   template< class ExecutionPolicy, class ForwardIt1, class ForwardIt2, class T >
 
-   ForwardIt2 remove_copy( ExecutionPolicy&&            \fB(2)\fP \fI(since C++17)\fP
-   policy, ForwardIt1 first, ForwardIt1 last,
+   ForwardIt2 remove_copy( ExecutionPolicy&& policy, ForwardIt1 first, ForwardIt1 last,            \fB(2)\fP \fI(since C++17)\fP
 
-   ForwardIt2 d_first, const T& value );
-   template< class InputIt, class OutputIt, class   \fB(1)\fP
-   UnaryPredicate >
+   ForwardIt2 d_first, const T& value );                                                       \fB(1)\fP
+   template< class InputIt, class OutputIt, class UnaryPredicate >
 
-   OutputIt remove_copy_if( InputIt first, InputIt                        \fI(until C++20)\fP
-   last, OutputIt d_first,
+   OutputIt remove_copy_if( InputIt first, InputIt last, OutputIt d_first,                                           \fI(until C++20)\fP
 
    UnaryPredicate p );
-   template< class InputIt, class OutputIt, class
-   UnaryPredicate >
+   template< class InputIt, class OutputIt, class UnaryPredicate >
 
-   constexpr OutputIt remove_copy_if( InputIt           \fB(3)\fP               \fI(since C++20)\fP
-   first, InputIt last, OutputIt d_first,
+   constexpr OutputIt remove_copy_if( InputIt first, InputIt last, OutputIt d_first,               \fB(3)\fP               \fI(since C++20)\fP
 
    UnaryPredicate p );
-   template< class ExecutionPolicy, class
-   ForwardIt1, class ForwardIt2, class
-   UnaryPredicate >
-                                                            \fB(4)\fP           \fI(since C++17)\fP
-   ForwardIt2 remove_copy_if( ExecutionPolicy&&
-   policy, ForwardIt1 first, ForwardIt1 last,
+   template< class ExecutionPolicy, class ForwardIt1, class ForwardIt2, class UnaryPredicate >
+
+   ForwardIt2 remove_copy_if( ExecutionPolicy&& policy, ForwardIt1 first, ForwardIt1 last,             \fB(4)\fP           \fI(since C++17)\fP
 
    ForwardIt2 d_first, UnaryPredicate p );
 
-   Copies elements from the range [first, last), to another range beginning at d_first,
-   omitting the elements which satisfy specific criteria. Source and destination ranges
-   cannot overlap.
+   Copies elements from the range [first, last), to another range beginning at d_first, omitting the elements which satisfy specific criteria. Source and destination ranges cannot overlap.
 
    1) Ignores all elements that are equal to value.
    3) Ignores all elements for which predicate p returns true.
-   2,4) Same as (1,3), but executed according to policy. This overload only
-   participates in overload resolution if
-   std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
+   2,4) Same as (1,3), but executed according to policy. This overload only participates in overload resolution if std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
 
 .SH Parameters
 
@@ -82,17 +65,13 @@ std::remove_copy,std::remove_copy_if \- std::remove_copy,std::remove_copy_if
 
    Exactly last - first applications of the predicate.
 
-   For the overloads with an ExecutionPolicy, there may be a performance cost if
-   ForwardIt1's value_type is not MoveConstructible.
+   For the overloads with an ExecutionPolicy, there may be a performance cost if ForwardIt1's value_type is not MoveConstructible.
 
 .SH Exceptions
 
-   The overloads with a template parameter named ExecutionPolicy report errors as
-   follows:
+   The overloads with a template parameter named ExecutionPolicy report errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception
-       and ExecutionPolicy is one of the standard policies, std::terminate is called.
-       For any other ExecutionPolicy, the behavior is implementation-defined.
+     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
      * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 .SH Possible implementation

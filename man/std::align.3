@@ -1,4 +1,4 @@
-.TH std::align 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::align 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::align \- std::align
 
@@ -11,13 +11,9 @@ std::align \- std::align
 
    std::size_t& space );
 
-   Given a pointer ptr to a buffer of size space, returns a pointer aligned by the
-   specified alignment for size number of bytes and decreases space argument by the
-   number of bytes used for alignment. The first aligned address is returned.
+   Given a pointer ptr to a buffer of size space, returns a pointer aligned by the specified alignment for size number of bytes and decreases space argument by the number of bytes used for alignment. The first aligned address is returned.
 
-   The function modifies the pointer only if it would be possible to fit the wanted
-   number of bytes aligned by the given alignment into the buffer. If the buffer is too
-   small, the function does nothing and returns nullptr.
+   The function modifies the pointer only if it would be possible to fit the wanted number of bytes aligned by the given alignment into the buffer. If the buffer is too small, the function does nothing and returns nullptr.
 
    The behavior is undefined if alignment is not a power of two.
 
@@ -94,18 +90,14 @@ std::align \- std::align
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to          Behavior as published              Correct behavior
-   LWG 2377 C++11      alignment required to be a fundamental   only need to be a power
-                       or supported extended alignment value    of two
+      DR    Applied to                            Behavior as published                                    Correct behavior
+   LWG 2377 C++11      alignment required to be a fundamental or supported extended alignment value only need to be a power of two
 
 .SH See also
 
    alignof operator  queries alignment requirements of a type \fI(since C++11)\fP
-   alignas specifier specifies that the storage for the variable should be aligned by
-                     specific amount \fI(C++11)\fP
-   aligned_storage   defines the type suitable for use as uninitialized storage for
-   \fI(C++11)\fP           types of given size
-                     \fI(class template)\fP
+   alignas specifier specifies that the storage for the variable should be aligned by specific amount \fI(C++11)\fP
+   aligned_storage   defines the type suitable for use as uninitialized storage for types of given size
+   \fI(C++11)\fP           \fI(class template)\fP

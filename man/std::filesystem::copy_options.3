@@ -1,4 +1,4 @@
-.TH std::filesystem::copy_options 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::copy_options 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::copy_options \- std::filesystem::copy_options
 
@@ -19,42 +19,32 @@ std::filesystem::copy_options \- std::filesystem::copy_options
 
    };
 
-   This type represents available options that control the behavior of the copy() and
-   copy_file() function.
+   This type represents available options that control the behavior of the copy() and copy_file() function.
 
-   copy_options satisfies the requirements of BitmaskType (which means the bitwise
-   operators operator&, operator|, operator^, operator~, operator&=, operator|=, and
-   operator^= are defined for this type). none represents the empty bitmask; every
-   other enumerator represents a distinct bitmask element.
+   copy_options satisfies the requirements of BitmaskType (which means the bitwise operators operator&, operator|, operator^, operator~, operator&=, operator|=, and operator^= are defined for this type). none represents the empty bitmask; every other enumerator represents a distinct bitmask element.
 
 .SH Member constants
 
-   At most one copy option in each of the following options groups may be present,
-   otherwise the behavior of the copy functions is undefined.
+   At most one copy option in each of the following options groups may be present, otherwise the behavior of the copy functions is undefined.
 
-    Member constant                                Meaning
-               options controlling copy_file() when the file already exists
+    Member constant                                                                                           Meaning
+                                                                          options controlling copy_file() when the file already exists
    none               Report an error (default behavior)
    skip_existing      Keep the existing file, without reporting an error.
    overwrite_existing Replace the existing file
-   update_existing    Replace the existing file only if it is older than the file being
-                      copied
-               options controlling the effects of copy() on subdirectories
+   update_existing    Replace the existing file only if it is older than the file being copied
+                                                                          options controlling the effects of copy() on subdirectories
    none               Skip subdirectories (default behavior)
    recursive          Recursively copy subdirectories and their content
-               options controlling the effects of copy() on symbolic links
+                                                                          options controlling the effects of copy() on symbolic links
    none               Follow symlinks (default behavior)
    copy_symlinks      Copy symlinks as symlinks, not as the files they point to
    skip_symlinks      Ignore symlinks
-                   options controlling the kind of copying copy() does
+                                                                              options controlling the kind of copying copy() does
    none               Copy file content (default behavior)
-   directories_only   Copy the directory structure, but do not copy any non-directory
-                      files
-                      Instead of creating copies of files, create symlinks pointing to
-   create_symlinks    the originals. Note: the source path must be an absolute path
-                      unless the destination path is in the current directory.
-   create_hard_links  Instead of creating copies of files, create hardlinks that
-                      resolve to the same files as the originals
+   directories_only   Copy the directory structure, but do not copy any non-directory files
+   create_symlinks    Instead of creating copies of files, create symlinks pointing to the originals. Note: the source path must be an absolute path unless the destination path is in the current directory.
+   create_hard_links  Instead of creating copies of files, create hardlinks that resolve to the same files as the originals
 
 .SH Example
 

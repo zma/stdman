@@ -1,4 +1,4 @@
-.TH std::numpunct<CharT>::thousands_sep,do_thousands_sep 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numpunct<CharT>::thousands_sep,do_thousands_sep 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numpunct<CharT>::thousands_sep,do_thousands_sep \- std::numpunct<CharT>::thousands_sep,do_thousands_sep
 
@@ -9,15 +9,12 @@ std::numpunct<CharT>::thousands_sep,do_thousands_sep \- std::numpunct<CharT>::th
    protected:                                  \fB(2)\fP
    virtual char_type do_thousands_sep() const;
 
-   1) Public member function, calls the member function do_thousands_sep of the most
-   derived class.
-   2) Returns the character to be used as the separator between digit groups when
-   parsing or formatting integers and integral parts of floating-point values.
+   1) Public member function, calls the member function do_thousands_sep of the most derived class.
+   2) Returns the character to be used as the separator between digit groups when parsing or formatting integers and integral parts of floating-point values.
 
 .SH Return value
 
-   The object of type char_type to use as the thousands separator. The standard
-   specializations of std::numpunct return ',' and L','.
+   The object of type char_type to use as the thousands separator. The standard specializations of std::numpunct return ',' and L','.
 
 .SH Example
 

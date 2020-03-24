@@ -1,22 +1,18 @@
-.TH std::fill 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::fill 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::fill \- std::fill
 
 .SH Synopsis
    Defined in header <algorithm>
-   template< class ForwardIt, class T >                                   \fI(until C++20)\fP
+   template< class ForwardIt, class T >                                                            \fI(until C++20)\fP
    void fill( ForwardIt first, ForwardIt last, const T& value );
-   template< class ForwardIt, class T >
-   constexpr void fill( ForwardIt first, ForwardIt last, const T& \fB(1)\fP     \fI(since C++20)\fP
-   value );
-   template< class ExecutionPolicy, class ForwardIt, class T >
-   void fill( ExecutionPolicy&& policy, ForwardIt first,              \fB(2)\fP \fI(since C++17)\fP
-   ForwardIt last, const T& value );
+   template< class ForwardIt, class T >                                                    \fB(1)\fP     \fI(since C++20)\fP
+   constexpr void fill( ForwardIt first, ForwardIt last, const T& value );
+   template< class ExecutionPolicy, class ForwardIt, class T >                                 \fB(2)\fP \fI(since C++17)\fP
+   void fill( ExecutionPolicy&& policy, ForwardIt first, ForwardIt last, const T& value );
 
    1) Assigns the given value to the elements in the range [first, last).
-   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate
-   in overload resolution unless
-   std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
+   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
 
 .SH Parameters
 
@@ -37,12 +33,9 @@ std::fill \- std::fill
 
 .SH Exceptions
 
-   The overload with a template parameter named ExecutionPolicy reports errors as
-   follows:
+   The overload with a template parameter named ExecutionPolicy reports errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception
-       and ExecutionPolicy is one of the standard policies, std::terminate is called.
-       For any other ExecutionPolicy, the behavior is implementation-defined.
+     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
      * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 .SH Possible implementation
@@ -57,8 +50,7 @@ std::fill \- std::fill
 
 .SH Example
 
-   The following code uses fill() to set all of the elements of a vector of integers to
-   -1:
+   The following code uses fill() to set all of the elements of a vector of integers to -1:
 
    
 // Run this code
@@ -90,8 +82,7 @@ std::fill \- std::fill
    copy      copies a range of elements to a new location
    copy_if   \fI(function template)\fP
    \fI(C++11)\fP
-             assigns the results of successive function calls to every element in a
-   generate  range
+   generate  assigns the results of successive function calls to every element in a range
              \fI(function template)\fP
    transform applies a function to a range of elements
              \fI(function template)\fP

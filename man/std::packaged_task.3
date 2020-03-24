@@ -1,4 +1,4 @@
-.TH std::packaged_task 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::packaged_task 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::packaged_task \- std::packaged_task
 
@@ -8,14 +8,9 @@ std::packaged_task \- std::packaged_task
    template< class R, class ...Args >                   \fB(2)\fP \fI(since C++11)\fP
    class packaged_task<R(Args...)>;
 
-   The class template std::packaged_task wraps any Callable target \fI\fI(function\fP, lambda\fP
-   expression, bind expression, or another function object) so that it can be invoked
-   asynchronously. Its return value or exception thrown is stored in a shared state
-   which can be accessed through std::future objects.
+   The class template std::packaged_task wraps any Callable target \fI(function, lambda expression, bind expression, or another function object) so that it can be invoked asynchronously. Its return value or exc\fPeption thrown is stored in a shared state which can be accessed through std::future objects.
 
-   Just like std::function, std::packaged_task is a polymorphic,
-   allocator-aware container: the stored callable target may be allocated \fI(until C++17)\fP
-   on heap or with a provided allocator.
+   Just like std::function, std::packaged_task is a polymorphic, allocator-aware container: the stored callable target may be allocated on heap or with a provided allocator. \fI(until C++17)\fP
 
 .SH Member functions
 
@@ -35,11 +30,9 @@ std::packaged_task \- std::packaged_task
 .SH Execution
    operator()                executes the function
                              \fI(public member function)\fP
-                             executes the function ensuring that the result is ready
-   make_ready_at_thread_exit only once the current thread exits
+   make_ready_at_thread_exit executes the function ensuring that the result is ready only once the current thread exits
                              \fI(public member function)\fP
-                             resets the state abandoning any stored results of previous
-   reset                     executions
+   reset                     resets the state abandoning any stored results of previous executions
                              \fI(public member function)\fP
 
 .SH Non-member functions
@@ -49,9 +42,8 @@ std::packaged_task \- std::packaged_task
 
 .SH Helper classes
 
-   std::uses_allocator<std::packaged_task> specializes the std::uses_allocator type
-   \fI(C++11)\fP\fI(until C++17)\fP                    trait
-                                           \fI(class template specialization)\fP
+   std::uses_allocator<std::packaged_task> specializes the std::uses_allocator type trait
+   \fI(C++11)\fP\fI(until C++17)\fP                    \fI(class template specialization)\fP
 
 .SH Example
 

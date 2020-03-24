@@ -1,4 +1,4 @@
-.TH std::set<Key,Compare,Allocator>::extract 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::set<Key,Compare,Allocator>::extract 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::set<Key,Compare,Allocator>::extract \- std::set<Key,Compare,Allocator>::extract
 
@@ -6,19 +6,12 @@ std::set<Key,Compare,Allocator>::extract \- std::set<Key,Compare,Allocator>::ext
    node_type extract( const_iterator position ); \fB(1)\fP \fI(since C++17)\fP
    node_type extract( const key_type& x );       \fB(2)\fP \fI(since C++17)\fP
 
-   1) Unlinks the node that contains the element pointed to by position and returns a
-   node handle that owns it
-   2) If the container has an element with key equivalent to x, unlinks the node that
-   contains that element from the container and returns a node handle that owns it.
-   Otherwise, returns an empty node handle.
+   1) Unlinks the node that contains the element pointed to by position and returns a node handle that owns it
+   2) If the container has an element with key equivalent to x, unlinks the node that contains that element from the container and returns a node handle that owns it. Otherwise, returns an empty node handle.
 
-   In either case, no elements are copied or moved, only the internal pointers of the
-   container nodes are repointed (rebalancing may occur, as with erase())
+   In either case, no elements are copied or moved, only the internal pointers of the container nodes are repointed (rebalancing may occur, as with erase())
 
-   Extracting a node invalidates the iterators to the extracted element. Pointers and
-   references to the extracted element remain valid, but cannot be used while element
-   is owned by a node handle: they become usable if the element is inserted into a
-   container.
+   Extracting a node invalidates the iterators to the extracted element. Pointers and references to the extracted element remain valid, but cannot be used while element is owned by a node handle: they become usable if the element is inserted into a container.
 
 .SH Parameters
 
@@ -27,8 +20,7 @@ std::set<Key,Compare,Allocator>::extract \- std::set<Key,Compare,Allocator>::ext
 
 .SH Return value
 
-   A node handle that owns the extracted element, or empty node handle in case the
-   element is not found in overload \fB(2)\fP
+   A node handle that owns the extracted element, or empty node handle in case the element is not found in overload \fB(2)\fP
 
 .SH Complexity
 

@@ -1,4 +1,4 @@
-.TH std::unique_lock<Mutex>::unlock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unique_lock<Mutex>::unlock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unique_lock<Mutex>::unlock \- std::unique_lock<Mutex>::unlock
 
@@ -7,8 +7,7 @@ std::unique_lock<Mutex>::unlock \- std::unique_lock<Mutex>::unlock
 
    Unlocks the associated mutex and releases ownership.
 
-   std::system_error is thrown if there is no associated mutex or if the mutex is not
-   locked.
+   std::system_error is thrown if there is no associated mutex or if the mutex is not locked.
 
 .SH Parameters
 
@@ -22,8 +21,7 @@ std::unique_lock<Mutex>::unlock \- std::unique_lock<Mutex>::unlock
 
      * Any exceptions thrown by mutex()->unlock()
 
-     * If there is no associated mutex or the mutex is not locked, std::system_error
-       with an error code of std::errc::operation_not_permitted
+     * If there is no associated mutex or the mutex is not locked, std::system_error with an error code of std::errc::operation_not_permitted
 
 .SH Example
 

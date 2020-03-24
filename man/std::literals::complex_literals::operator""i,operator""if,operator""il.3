@@ -1,25 +1,21 @@
-.TH std::literals::complex_literals::operator""i,operator""if,operator""il 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::literals::complex_literals::operator""i,operator""if,operator""il 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::literals::complex_literals::operator""i,operator""if,operator""il \- std::literals::complex_literals::operator""i,operator""if,operator""il
 
 .SH Synopsis
    Defined in header <complex>
-   constexpr complex<double> operator""i(long double arg);            \fB(1)\fP \fI(since C++14)\fP
+   constexpr complex<double> operator""i(long double arg);              \fB(1)\fP \fI(since C++14)\fP
    constexpr complex<double> operator""i(unsigned long long arg);
-   constexpr complex<float> operator""if(long double arg);            \fB(2)\fP \fI(since C++14)\fP
+   constexpr complex<float> operator""if(long double arg);              \fB(2)\fP \fI(since C++14)\fP
    constexpr complex<float> operator""if(unsigned long long arg);
-   constexpr complex<long double> operator""il(long double arg);
-   constexpr complex<long double> operator""il(unsigned long long     \fB(3)\fP \fI(since C++14)\fP
-   arg);
+   constexpr complex<long double> operator""il(long double arg);        \fB(3)\fP \fI(since C++14)\fP
+   constexpr complex<long double> operator""il(unsigned long long arg);
 
    Forms a std::complex literal representing an imaginary number.
 
-   1) forms a literal std::complex<double> with the real part zero and imaginary part
-   arg
-   2) forms a literal std::complex<float> with the real part zero and imaginary part
-   arg
-   3) forms a literal std::complex<long double> with the real part zero and imaginary
-   part arg
+   1) forms a literal std::complex<double> with the real part zero and imaginary part arg
+   2) forms a literal std::complex<float> with the real part zero and imaginary part arg
+   3) forms a literal std::complex<long double> with the real part zero and imaginary part arg
 
 .SH Parameters
 
@@ -31,14 +27,9 @@ std::literals::complex_literals::operator""i,operator""if,operator""il \- std::l
 
 .SH Notes
 
-   These operators are declared in the namespace std::literals::complex_literals, where
-   both literals and complex_literals are inline namespaces. Access to these operators
-   can be gained with using namespace std::literals, using namespace
-   std::complex_literals, and using namespace std::literals::complex_literals.
+   These operators are declared in the namespace std::literals::complex_literals, where both literals and complex_literals are inline namespaces. Access to these operators can be gained with using namespace std::literals, using namespace std::complex_literals, and using namespace std::literals::complex_literals.
 
-   Even though if is a keyword in C++, it is a ud-suffix of the literal operator of the
-   form operator ""if and in the literal expressions such as 1if or 1.0if because it is
-   not separated by whitespace and is not a standalone token.
+   Even though if is a keyword in C++, it is a ud-suffix of the literal operator of the form operator ""if and in the literal expressions such as 1if or 1.0if because it is not separated by whitespace and is not a standalone token.
 
 .SH Possible implementation
 

@@ -1,4 +1,4 @@
-.TH std::pmr::unsynchronized_pool_resource::do_allocate 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::unsynchronized_pool_resource::do_allocate 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::unsynchronized_pool_resource::do_allocate \- std::pmr::unsynchronized_pool_resource::do_allocate
 
@@ -7,18 +7,13 @@ std::pmr::unsynchronized_pool_resource::do_allocate \- std::pmr::unsynchronized_
 
    Allocates storage.
 
-   If the pool selected for a block of size bytes is unable to satisfy the request from
-   its internal data structures, calls allocate() on the upstream memory resource to
-   obtain memory.
+   If the pool selected for a block of size bytes is unable to satisfy the request from its internal data structures, calls allocate() on the upstream memory resource to obtain memory.
 
-   If the size requested is larger than what the largest pool can handle, memory is
-   allocated by calling allocate() on the upstream memory resource.
+   If the size requested is larger than what the largest pool can handle, memory is allocated by calling allocate() on the upstream memory resource.
 
 .SH Return value
 
-   A pointer to allocated storage of at least bytes bytes in size, aligned to the
-   specified alignment if such alignment is supported, and to alignof(std::max_align_t)
-   otherwise.
+   A pointer to allocated storage of at least bytes bytes in size, aligned to the specified alignment if such alignment is supported, and to alignof(std::max_align_t) otherwise.
 
 .SH Exceptions
 

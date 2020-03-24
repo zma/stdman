@@ -1,4 +1,4 @@
-.TH std::void_t 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::void_t 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::void_t \- std::void_t
 
@@ -11,8 +11,7 @@ std::void_t \- std::void_t
 
 .SH Notes
 
-   This metafunction is used in template metaprogramming to detect ill-formed types in
-   SFINAE context:
+   This metafunction is used in template metaprogramming to detect ill-formed types in SFINAE context:
 
  // primary template handles types that have no nested ::type member:
  template< class, class = std::void_t<> >
@@ -33,9 +32,7 @@ std::void_t \- std::void_t
             std::void_t<decltype( ++std::declval<T&>() )>
         > : std::true_type { };
 
-   Until CWG 1558 (a C++14 defect), unused parameters in alias templates were not
-   guaranteed to ensure SFINAE and could be ignored, so earlier compilers require a
-   more complex definition of void_t, such as
+   Until CWG 1558 (a C++14 defect), unused parameters in alias templates were not guaranteed to ensure SFINAE and could be ignored, so earlier compilers require a more complex definition of void_t, such as
 
  template<typename... Ts> struct make_void { typedef void type;};
  template<typename... Ts> using void_t = typename make_void<Ts...>::type;
@@ -94,6 +91,5 @@ std::void_t \- std::void_t
 
 .SH See also
 
-   enable_if hides a function overload or template specialization based on compile-time
-   \fI(C++11)\fP   boolean
-             \fI(class template)\fP
+   enable_if hides a function overload or template specialization based on compile-time boolean
+   \fI(C++11)\fP   \fI(class template)\fP

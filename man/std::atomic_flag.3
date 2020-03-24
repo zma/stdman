@@ -1,4 +1,4 @@
-.TH std::atomic_flag 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic_flag 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic_flag \- std::atomic_flag
 
@@ -6,9 +6,7 @@ std::atomic_flag \- std::atomic_flag
    Defined in header <atomic>
    class atomic_flag;          \fI(since C++11)\fP
 
-   std::atomic_flag is an atomic boolean type. Unlike all specializations of
-   std::atomic, it is guaranteed to be lock-free. Unlike std::atomic<bool>,
-   std::atomic_flag does not provide load or store operations.
+   std::atomic_flag is an atomic boolean type. Unlike all specializations of std::atomic, it is guaranteed to be lock-free. Unlike std::atomic<bool>, std::atomic_flag does not provide load or store operations.
 
 .SH Member functions
 
@@ -65,8 +63,8 @@ std::atomic_flag \- std::atomic_flag
 
 .SH See also
 
-   atomic_flag_test_and_set          atomically sets the flag to true and returns its
-   atomic_flag_test_and_set_explicit previous value
+   atomic_flag_test_and_set
+   atomic_flag_test_and_set_explicit atomically sets the flag to true and returns its previous value
    \fI(C++11)\fP                           \fI(function)\fP
    \fI(C++11)\fP
    atomic_flag_clear

@@ -1,4 +1,4 @@
-.TH std::moneypunct<CharT,International>::decimal_point,do_decimal_point 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::moneypunct<CharT,International>::decimal_point,do_decimal_point 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::moneypunct<CharT,International>::decimal_point,do_decimal_point \- std::moneypunct<CharT,International>::decimal_point,do_decimal_point
 
@@ -9,11 +9,8 @@ std::moneypunct<CharT,International>::decimal_point,do_decimal_point \- std::mon
    protected:                              \fB(2)\fP
    virtual CharT do_decimal_point() const;
 
-   1) Public member function, calls the member function do_decimal_point of the most
-   derived class.
-   2) Returns the character to use as the decimal point separator in monetary I/O if
-   the format uses fractions (that is, if do_frac_digits() is greater than zero). For
-   typical U.S. locales, it is the character '.' (or L'.')
+   1) Public member function, calls the member function do_decimal_point of the most derived class.
+   2) Returns the character to use as the decimal point separator in monetary I/O if the format uses fractions (that is, if do_frac_digits() is greater than zero). For typical U.S. locales, it is the character '.' (or L'.')
 
 .SH Return value
 

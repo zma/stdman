@@ -1,4 +1,4 @@
-.TH std::experimental::weak_ptr 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::weak_ptr 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::weak_ptr \- std::experimental::weak_ptr
 
@@ -6,8 +6,7 @@ std::experimental::weak_ptr \- std::experimental::weak_ptr
    Defined in header <experimental/memory>
    template< class T > class weak_ptr;      (library fundamentals TS)
 
-   std::experimental::weak_ptr is a modified version of std::weak_ptr that
-   interoperates with std::experimental::shared_ptr and has support for arrays.
+   std::experimental::weak_ptr is a modified version of std::weak_ptr that interoperates with std::experimental::shared_ptr and has support for arrays.
 
 .SH Member types
 
@@ -23,9 +22,7 @@ Members and non-members identical to std::weak_ptr
 
 .SH Member functions
 
-   The following member functions work with std::experimental::shared_ptr instead of
-   std::shared_ptr and std::experimental::weak_ptr instead of std::weak_ptr. The
-   behavior is otherwise identical.
+   The following member functions work with std::experimental::shared_ptr instead of std::shared_ptr and std::experimental::weak_ptr instead of std::weak_ptr. The behavior is otherwise identical.
 
    destructor   destroys a weak_ptr
                 \fI(public member function of std::weak_ptr<T>)\fP
@@ -48,9 +45,7 @@ Members and non-members identical to std::weak_ptr
 
 .SH Non-member functions
 
-   This non-member function is declared in the std::experimental namespace, and work
-   with std::experimental::weak_ptr rather than std::weak_ptr, but otherwise behaves
-   identically to the corresponding C++14 function.
+   This non-member function is declared in the std::experimental namespace, and work with std::experimental::weak_ptr rather than std::weak_ptr, but otherwise behaves identically to the corresponding C++14 function.
 
    std::swap(std::weak_ptr) specializes the std::swap algorithm
    \fI(C++11)\fP                  \fI(function template)\fP

@@ -1,25 +1,21 @@
-.TH deductionguidesforstd::tuple 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH deductionguidesforstd::tuple 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 deductionguidesforstd::tuple \- deductionguidesforstd::tuple
 
 .SH Synopsis
    Defined in header <tuple>
-   template<class... UTypes>                                          \fB(1)\fP \fI(since C++17)\fP
+   template<class... UTypes>                                                 \fB(1)\fP \fI(since C++17)\fP
    tuple(UTypes...) -> tuple<UTypes...>;
-   template<class T1, class T2>                                       \fB(2)\fP \fI(since C++17)\fP
+   template<class T1, class T2>                                              \fB(2)\fP \fI(since C++17)\fP
    tuple(std::pair<T1, T2>) -> tuple<T1, T2>;
-   template<class Alloc, class... UTypes>                             \fB(3)\fP \fI(since C++17)\fP
+   template<class Alloc, class... UTypes>                                    \fB(3)\fP \fI(since C++17)\fP
    tuple(std::allocator_arg_t, Alloc, UTypes...) -> tuple<UTypes...>;
-   template<class Alloc, class T1, class T2>
-   tuple(std::allocator_arg_t, Alloc, std::pair<T1, T2>) -> tuple<T1, \fB(4)\fP \fI(since C++17)\fP
-   T2>;
-   template<class Alloc, class... UTypes>
-   tuple(std::allocator_arg_t, Alloc, tuple<UTypes...>) ->            \fB(5)\fP \fI(since C++17)\fP
-   tuple<UTypes...>;
+   template<class Alloc, class T1, class T2>                                 \fB(4)\fP \fI(since C++17)\fP
+   tuple(std::allocator_arg_t, Alloc, std::pair<T1, T2>) -> tuple<T1, T2>;
+   template<class Alloc, class... UTypes>                                    \fB(5)\fP \fI(since C++17)\fP
+   tuple(std::allocator_arg_t, Alloc, tuple<UTypes...>) -> tuple<UTypes...>;
 
-   These deduction guides are provided for std::tuple to account for the edge cases
-   missed by the implicit deduction guides, in particular, non-copyable arguments and
-   array to pointer conversion.
+   These deduction guides are provided for std::tuple to account for the edge cases missed by the implicit deduction guides, in particular, non-copyable arguments and array to pointer conversion.
 
 .SH Example
 

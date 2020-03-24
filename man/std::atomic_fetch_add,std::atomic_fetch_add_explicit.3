@@ -1,4 +1,4 @@
-.TH std::atomic_fetch_add,std::atomic_fetch_add_explicit 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic_fetch_add,std::atomic_fetch_add_explicit 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic_fetch_add,std::atomic_fetch_add_explicit \- std::atomic_fetch_add,std::atomic_fetch_add_explicit
 
@@ -27,9 +27,7 @@ std::atomic_fetch_add,std::atomic_fetch_add_explicit \- std::atomic_fetch_add,st
 
    std::memory_order order ) noexcept;
 
-   Performs atomic addition. Atomically adds arg to the value pointed to by obj and
-   returns the value obj held previously. The operation is performed as if the
-   following was executed:
+   Performs atomic addition. Atomically adds arg to the value pointed to by obj and returns the value obj held previously. The operation is performed as if the following was executed:
 
    1) obj->fetch_add(arg)
    2) obj->fetch_add(arg, order)
@@ -38,13 +36,11 @@ std::atomic_fetch_add,std::atomic_fetch_add_explicit \- std::atomic_fetch_add,st
 
    obj   - pointer to the atomic object to modify
    arg   - the value to add to the value stored in the atomic object
-   order - the memory synchronization ordering for this operation: all values are
-           permitted.
+   order - the memory synchronization ordering for this operation: all values are permitted.
 
 .SH Return value
 
-   The value immediately preceding the effects of this function in the modification
-   order of *obj.
+   The value immediately preceding the effects of this function in the modification order of *obj.
 
 .SH Possible implementation
 
@@ -56,8 +52,7 @@ std::atomic_fetch_add,std::atomic_fetch_add_explicit \- std::atomic_fetch_add,st
 
 .SH Example
 
-   Single-writer/multiple-reader lock can be made with fetch_add. Note that this
-   simplistic implementation is not lockout-free
+   Single-writer/multiple-reader lock can be made with fetch_add. Note that this simplistic implementation is not lockout-free
 
    
 // Run this code
@@ -141,19 +136,16 @@ std::atomic_fetch_add,std::atomic_fetch_add_explicit \- std::atomic_fetch_add,st
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-     DR    Applied to            Behavior as published              Correct behavior
-   P0558R1 C++11      exact type match required because T is      T is deduced from the
-                      deduced from multiple arguments             atomic argument only
+     DR    Applied to                         Behavior as published                                       Correct behavior
+   P0558R1 C++11      exact type match required because T is deduced from multiple arguments T is deduced from the atomic argument only
 
 .SH See also
 
-                             atomically adds the argument to the value stored in the
-   fetch_add                 atomic object and obtains the value held previously
+   fetch_add                 atomically adds the argument to the value stored in the atomic object and obtains the value held previously
                              \fI(public member function of std::atomic<T>)\fP
-   atomic_fetch_sub          subtracts a non-atomic value from an atomic object and
-   atomic_fetch_sub_explicit obtains the previous value of the atomic
+   atomic_fetch_sub
+   atomic_fetch_sub_explicit subtracts a non-atomic value from an atomic object and obtains the previous value of the atomic
    \fI(C++11)\fP                   \fI(function template)\fP
    \fI(C++11)\fP

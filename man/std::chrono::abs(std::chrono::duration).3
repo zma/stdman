@@ -1,4 +1,4 @@
-.TH std::chrono::abs(std::chrono::duration) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::abs(std::chrono::duration) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::abs(std::chrono::duration) \- std::chrono::abs(std::chrono::duration)
 
@@ -7,11 +7,9 @@ std::chrono::abs(std::chrono::duration) \- std::chrono::abs(std::chrono::duratio
    template <class Rep, class Period>                            \fI(since C++17)\fP
    constexpr duration<Rep, Period> abs(duration<Rep, Period> d)
 
-   Returns the absolute value of the duration d. Specifically, if d >= d.zero(), return
-   d, otherwise return -d.
+   Returns the absolute value of the duration d. Specifically, if d >= d.zero(), return d, otherwise return -d.
 
-   The function does not participate in the overload resolution unless
-   std::numeric_limits<Rep>::is_signed is true.
+   The function does not participate in the overload resolution unless std::numeric_limits<Rep>::is_signed is true.
 
 .SH Parameters
 
@@ -23,12 +21,12 @@ std::chrono::abs(std::chrono::duration) \- std::chrono::abs(std::chrono::duratio
 
 .SH Possible implementation
 
-template <class Rep, class Period, class = std::enable_if_t<
-   std::chrono::duration<Rep, Period>::min() < std::chrono::duration<Rep, Period>::zero()>>
-constexpr std::chrono::duration<Rep, Period> abs(duration<Rep, Period> d)
-{
-    return d >= d.zero() ? d : -d;
-}
+   template <class Rep, class Period, class = std::enable_if_t<
+      std::chrono::duration<Rep, Period>::min() < std::chrono::duration<Rep, Period>::zero()>>
+   constexpr std::chrono::duration<Rep, Period> abs(duration<Rep, Period> d)
+   {
+       return d >= d.zero() ? d : -d;
+   }
 
 .SH Example
 

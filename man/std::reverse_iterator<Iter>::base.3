@@ -1,4 +1,4 @@
-.TH std::reverse_iterator<Iter>::base 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::reverse_iterator<Iter>::base 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::reverse_iterator<Iter>::base \- std::reverse_iterator<Iter>::base
 
@@ -6,12 +6,9 @@ std::reverse_iterator<Iter>::base \- std::reverse_iterator<Iter>::base
    iterator_type base() const;            \fI(until C++17)\fP
    constexpr iterator_type base() const;  \fI(since C++17)\fP
 
-   Returns the underlying base iterator. That is std::reverse_iterator(it).base() ==
-   it.
+   Returns the underlying base iterator. That is std::reverse_iterator(it).base() == it.
 
-   The base iterator refers to the element that is next (from the
-   std::reverse_iterator::iterator_type perspective) to the element the
-   reverse_iterator is currently pointing to. That is &*(rit.base() - 1) == &*rit.
+   The base iterator refers to the element that is next (from the std::reverse_iterator::iterator_type perspective) to the element the reverse_iterator is currently pointing to. That is &*(rit.base() - 1) == &*rit.
 
 .SH Parameters
 

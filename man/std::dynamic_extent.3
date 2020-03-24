@@ -1,14 +1,12 @@
-.TH std::dynamic_extent 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::dynamic_extent 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::dynamic_extent \- std::dynamic_extent
 
 .SH Synopsis
    Defined in header <span>
-   inline constexpr std::size_t dynamic_extent =                          \fI(since C++20)\fP
-   std::numeric_limits<std::size_t>::max();
+   inline constexpr std::size_t dynamic_extent = std::numeric_limits<std::size_t>::max();  \fI(since C++20)\fP
 
-   std::dynamic_extent is a constant of type std::size_t that is used to differentiate
-   std::span of static and dynamic extent.
+   std::dynamic_extent is a constant of type std::size_t that is used to differentiate std::span of static and dynamic extent.
 
 .SH Note
 

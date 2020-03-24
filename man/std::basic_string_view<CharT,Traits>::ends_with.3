@@ -1,4 +1,4 @@
-.TH std::basic_string_view<CharT,Traits>::ends_with 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string_view<CharT,Traits>::ends_with 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string_view<CharT,Traits>::ends_with \- std::basic_string_view<CharT,Traits>::ends_with
 
@@ -9,17 +9,13 @@ std::basic_string_view<CharT,Traits>::ends_with \- std::basic_string_view<CharT,
 
    Checks if the string view ends with the given suffix, where
 
-   1) the suffix is a string view. Effectively returns size() >= x.size() &&
-   compare(size() - x.size(), npos, x) == 0
-   2) the suffix is a single character. Effectively returns !empty() &&
-   Traits::eq(back(), x)
-   3) the suffix is a C-style string. Effectively returns
-   ends_with(basic_string_view(x))
+   1) the suffix is a string view. Effectively returns size() >= x.size() && compare(size() - x.size(), npos, x) == 0
+   2) the suffix is a single character. Effectively returns !empty() && Traits::eq(back(), x)
+   3) the suffix is a C-style string. Effectively returns ends_with(basic_string_view(x))
 
 .SH Parameters
 
-   x - a character sequence or a single character to compare to the end of the string
-       view
+   x - a character sequence or a single character to compare to the end of the string view
 
 .SH Return value
 

@@ -1,4 +1,4 @@
-.TH std::fegetround,std::fesetround 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::fegetround,std::fesetround 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::fegetround,std::fesetround \- std::fegetround,std::fesetround
 
@@ -9,10 +9,8 @@ std::fegetround,std::fesetround \- std::fegetround,std::fesetround
 
    Manages the floating-point rounding direction.
 
-   1) Attempts to establish the floating-point rounding direction equal to the argument
-   round, which is expected to be one of the floating point rounding macros.
-   2) Returns the value of the floating point rounding macro that corresponds to the
-   current rounding direction.
+   1) Attempts to establish the floating-point rounding direction equal to the argument round, which is expected to be one of the floating point rounding macros.
+   2) Returns the value of the floating point rounding macro that corresponds to the current rounding direction.
 
 .SH Parameters
 
@@ -22,13 +20,11 @@ std::fegetround,std::fesetround \- std::fegetround,std::fesetround
 
    1) 0 on success, non-zero otherwise.
 
-   2) the floating point rounding macro describing the current rounding direction or a
-   negative value if the direction cannot be determined
+   2) the floating point rounding macro describing the current rounding direction or a negative value if the direction cannot be determined
 
 .SH Notes
 
-   The current rounding mode, reflecting the effects of the most recent fesetround, can
-   also be queried with FLT_ROUNDS
+   The current rounding mode, reflecting the effects of the most recent fesetround, can also be queried with FLT_ROUNDS
 
    See floating-point rounding macros for the effects of rounding.
 

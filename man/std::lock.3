@@ -1,4 +1,4 @@
-.TH std::lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::lock \- std::lock
 
@@ -7,12 +7,9 @@ std::lock \- std::lock
    template< class Lockable1, class Lockable2, class... LockableN >       \fI(since C++11)\fP
    void lock( Lockable1& lock1, Lockable2& lock2, LockableN&... lockn );
 
-   Locks the given Lockable objects lock1, lock2, ..., lockn using a deadlock avoidance
-   algorithm to avoid deadlock.
+   Locks the given Lockable objects lock1, lock2, ..., lockn using a deadlock avoidance algorithm to avoid deadlock.
 
-   The objects are locked by an unspecified series of calls to lock, try_lock, and
-   unlock. If a call to lock or unlock results in an exception, unlock is called for
-   any locked objects before rethrowing.
+   The objects are locked by an unspecified series of calls to lock, try_lock, and unlock. If a call to lock or unlock results in an exception, unlock is called for any locked objects before rethrowing.
 
 .SH Parameters
 
@@ -24,11 +21,9 @@ std::lock \- std::lock
 
 .SH Notes
 
-   Boost provides a version of this function that takes a sequence of Lockable objects
-   defined by a pair of iterators.
+   Boost provides a version of this function that takes a sequence of Lockable objects defined by a pair of iterators.
 
-   std::scoped_lock offers a RAII wrapper for this function, and is generally preferred
-   to a naked call to std::lock.
+   std::scoped_lock offers a RAII wrapper for this function, and is generally preferred to a naked call to std::lock.
 
 .SH Example
 

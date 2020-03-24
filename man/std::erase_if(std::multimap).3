@@ -1,15 +1,13 @@
-.TH std::erase_if(std::multimap) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::erase_if(std::multimap) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::erase_if(std::multimap) \- std::erase_if(std::multimap)
 
 .SH Synopsis
    Defined in header <map>
-   template< class Key, class T, class Compare, class Alloc, class
-   Pred >                                                             \fB(1)\fP \fI(since C++20)\fP
+   template< class Key, class T, class Compare, class Alloc, class Pred > \fB(1)\fP \fI(since C++20)\fP
    void erase_if(std::multimap<Key,T,Compare,Alloc>& c, Pred pred);
 
-   Erases all elements that satisfy the predicate pred from the container. Equivalent
-   to
+   Erases all elements that satisfy the predicate pred from the container. Equivalent to
 
  for (auto i = c.begin(), last = c.end(); i != last; ) {
    if (pred(*i)) {

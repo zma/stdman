@@ -1,4 +1,4 @@
-.TH std::negation 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::negation 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::negation \- std::negation
 
@@ -9,8 +9,7 @@ std::negation \- std::negation
 
    Forms the logical negation of the type trait B.
 
-   The type std::negation<B> is a UnaryTypeTrait with a BaseCharacteristic of
-   std::bool_constant<!bool(B::value)>.
+   The type std::negation<B> is a UnaryTypeTrait with a BaseCharacteristic of std::bool_constant<!bool(B::value)>.
 
 .SH Template parameters
 
@@ -25,9 +24,8 @@ Inherited from std::integral_constant
 
 .SH Member constants
 
-   value    true if B has a member ::value that is false when explicitly converted to
-   \fB[static]\fP bool , false otherwise
-            \fI(public static member constant)\fP
+   value    true if B has a member ::value that is false when explicitly converted to bool , false otherwise
+   \fB[static]\fP \fI(public static member constant)\fP
 
 .SH Member functions
 

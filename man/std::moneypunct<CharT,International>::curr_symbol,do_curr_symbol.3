@@ -1,4 +1,4 @@
-.TH std::moneypunct<CharT,International>::curr_symbol,do_curr_symbol 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::moneypunct<CharT,International>::curr_symbol,do_curr_symbol 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::moneypunct<CharT,International>::curr_symbol,do_curr_symbol \- std::moneypunct<CharT,International>::curr_symbol,do_curr_symbol
 
@@ -9,13 +9,8 @@ std::moneypunct<CharT,International>::curr_symbol,do_curr_symbol \- std::moneypu
    protected:                                  \fB(2)\fP
    virtual string_type do_curr_symbol() const;
 
-   1) Public member function, calls the member function do_curr_symbol of the most
-   derived class.
-   2) Returns the string used as the currency identifier by this locale. If
-   International (the second template parameter of std::moneypunct) is false, the
-   identifier is usually a single (wide) character, such as "￥" or "$". If
-   International is true, the identifier is usually a four-character string holding the
-   three-character ISO 4217 currency code followed by a space ("JPY " or "USD ")
+   1) Public member function, calls the member function do_curr_symbol of the most derived class.
+   2) Returns the string used as the currency identifier by this locale. If International (the second template parameter of std::moneypunct) is false, the identifier is usually a single (wide) character, such as "￥" or "$". If International is true, the identifier is usually a four-character string holding the three-character ISO 4217 currency code followed by a space ("JPY " or "USD ")
 
 .SH Return value
 

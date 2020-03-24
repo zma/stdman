@@ -1,4 +1,4 @@
-.TH std::regex_iterator<BidirIt,CharT,Traits>::regex_iterator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::regex_iterator<BidirIt,CharT,Traits>::regex_iterator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::regex_iterator<BidirIt,CharT,Traits>::regex_iterator \- std::regex_iterator<BidirIt,CharT,Traits>::regex_iterator
 
@@ -21,13 +21,9 @@ std::regex_iterator<BidirIt,CharT,Traits>::regex_iterator \- std::regex_iterator
    Constructs a new regex_iterator:
 
    1) Default constructor. Constructs an end-of-sequence iterator.
-   2) Constructs a regex_iterator from the sequence of characters [a, b), the regular
-   expression re, and a flag m that governs matching behavior. This constructor
-   performs an initial call to std::regex_search with this data. If the result of this
-   initial call is false, *this is set to an end-of-sequence iterator.
+   2) Constructs a regex_iterator from the sequence of characters [a, b), the regular expression re, and a flag m that governs matching behavior. This constructor performs an initial call to std::regex_search with this data. If the result of this initial call is false, *this is set to an end-of-sequence iterator.
    3) Copies a regex_iterator.
-   4) The overload 2 is not allowed to be called with a temporary regex, since the
-   returned iterator would be immediately invalidated.
+   4) The overload 2 is not allowed to be called with a temporary regex, since the returned iterator would be immediately invalidated.
 
 .SH Parameters
 

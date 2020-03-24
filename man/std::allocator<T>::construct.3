@@ -1,4 +1,4 @@
-.TH std::allocator<T>::construct 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::allocator<T>::construct 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::allocator<T>::construct \- std::allocator<T>::construct
 
@@ -9,8 +9,7 @@ std::allocator<T>::construct \- std::allocator<T>::construct
    void construct( U* p, Args&&... args );           \fB(2)\fP (deprecated in C++17)
                                                          (removed in C++20)
 
-   Constructs an object of type T in allocated uninitialized storage pointed to by p,
-   using placement-new
+   Constructs an object of type T in allocated uninitialized storage pointed to by p, using placement-new
 
    1) Calls new((void *)p) T(val)
    2) Calls ::new((void *)p) U(std::forward<Args>(args)...)

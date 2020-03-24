@@ -1,4 +1,4 @@
-.TH std::valarray<T>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::valarray<T>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::valarray<T>::operator= \- std::valarray<T>::operator=
 
@@ -14,21 +14,14 @@ std::valarray<T>::operator= \- std::valarray<T>::operator=
 
    Replaces the contents of the numeric array.
 
-   1) Copy assignment operator. Each element of *this is assigned the value of the
-   corresponding element of other. If the length of other does not equal the length of
-   *this,
+   1) Copy assignment operator. Each element of *this is assigned the value of the corresponding element of other. If the length of other does not equal the length of *this,
    the behavior is undefined
    \fI(until C++11)\fP
    first resizes as if by resize(other.size())
    \fI(since C++11)\fP.
-   2) Move assignment operator. Replaces the contents of *this with those of other. The
-   value of other is unspecified after this operation. The complexity of this operation
-   may be linear if T has non-trivial destructors, but is usually constant otherwise.
+   2) Move assignment operator. Replaces the contents of *this with those of other. The value of other is unspecified after this operation. The complexity of this operation may be linear if T has non-trivial destructors, but is usually constant otherwise.
    3) Replaces each value in *this with a copy of val.
-   4-7) Replaces the contents of *this with the result of a generalized subscripting
-   operation. The behavior is undefined if the length of the argument does not equal
-   the length of *this or if any value on the left depends on the value on the right
-   (e.g v=v[v>2]).
+   4-7) Replaces the contents of *this with the result of a generalized subscripting operation. The behavior is undefined if the length of the argument does not equal the length of *this or if any value on the left depends on the value on the right (e.g v=v[v>2]).
    8) Assigns the contents of initializer list il. Equivalent to *this = valarray(il).
 
 .SH Parameters

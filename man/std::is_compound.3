@@ -1,4 +1,4 @@
-.TH std::is_compound 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_compound 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_compound \- std::is_compound
 
@@ -7,10 +7,7 @@ std::is_compound \- std::is_compound
    template< class T >              \fI(since C++11)\fP
    struct is_compound;
 
-   If T is a compound type (that is, array, function, object pointer, function pointer,
-   member object pointer, member function pointer, reference, class, union, or
-   enumeration, including any cv-qualified variants), provides the member constant
-   value equal true. For any other type, value is false.
+   If T is a compound type (that is, array, function, object pointer, function pointer, member object pointer, member function pointer, reference, class, union, or enumeration, including any cv-qualified variants), provides the member constant value equal true. For any other type, value is false.
 
 .SH Template parameters
 
@@ -43,8 +40,7 @@ Inherited from std::integral_constant
 
 .SH Notes
 
-   Compound types are the types that are constructed from fundamental types. Any C++
-   type is either fundamental or compound.
+   Compound types are the types that are constructed from fundamental types. Any C++ type is either fundamental or compound.
 
 .SH Possible implementation
 

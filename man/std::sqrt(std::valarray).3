@@ -1,4 +1,4 @@
-.TH std::sqrt(std::valarray) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::sqrt(std::valarray) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::sqrt(std::valarray) \- std::sqrt(std::valarray)
 
@@ -19,22 +19,17 @@ std::sqrt(std::valarray) \- std::sqrt(std::valarray)
 
 .SH Notes
 
-   Unqualified function (sqrt) is used to perform the computation. If such function is
-   not available, std::sqrt is used due to argument dependent lookup.
+   Unqualified function (sqrt) is used to perform the computation. If such function is not available, std::sqrt is used due to argument dependent lookup.
 
-   The function can be implemented with the return type different from std::valarray.
-   In this case, the replacement type has the following properties:
+   The function can be implemented with the return type different from std::valarray. In this case, the replacement type has the following properties:
 
-     * All const member functions of std::valarray are provided.
-     * std::valarray, std::slice_array, std::gslice_array, std::mask_array and
-       std::indirect_array can be constructed from the replacement type.
-     * All functions accepting an argument of type const std::valarray&
-       except begin() and end()
-       \fI(since C++11)\fP should also accept the replacement type.
-     * All functions accepting two arguments of type const std::valarray& should accept
-       every combination of const std::valarray& and the replacement type.
-     * The return type does not add more than two levels of template nesting over the
-       most deeply-nested argument type.
+              * All const member functions of std::valarray are provided.
+              * std::valarray, std::slice_array, std::gslice_array, std::mask_array and std::indirect_array can be constructed from the replacement type.
+              * All functions accepting an argument of type const std::valarray&
+                except begin() and end()
+                \fI(since C++11)\fP should also accept the replacement type.
+              * All functions accepting two arguments of type const std::valarray& should accept every combination of const std::valarray& and the replacement type.
+              * The return type does not add more than two levels of template nesting over the most deeply-nested argument type.
 
 .SH Possible implementation
 
@@ -88,8 +83,7 @@ std::sqrt(std::valarray) \- std::sqrt(std::valarray)
 
 .SH See also
 
-                      applies the function std::pow to two valarrays or a valarray and
-   pow(std::valarray) a value
+   pow(std::valarray) applies the function std::pow to two valarrays or a valarray and a value
                       \fI(function template)\fP
    sqrt               computes square root (
    sqrtf              √

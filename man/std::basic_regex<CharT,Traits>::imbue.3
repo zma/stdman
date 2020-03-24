@@ -1,15 +1,13 @@
-.TH std::basic_regex<CharT,Traits>::imbue 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_regex<CharT,Traits>::imbue 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_regex<CharT,Traits>::imbue \- std::basic_regex<CharT,Traits>::imbue
 
 .SH Synopsis
    locale_type imbue( locale_type loc );  \fI(since C++11)\fP
 
-   Replaces the current locale with loc. The regular expression does not match any
-   character sequence after the call.
+   Replaces the current locale with loc. The regular expression does not match any character sequence after the call.
 
-   Effectively calls traits_i.imbue(loc) where traits_i is a default initialized
-   instance of the type Traits stored within the regular expression object.
+   Effectively calls traits_i.imbue(loc) where traits_i is a default initialized instance of the type Traits stored within the regular expression object.
 
 .SH Parameters
 
@@ -17,8 +15,7 @@ std::basic_regex<CharT,Traits>::imbue \- std::basic_regex<CharT,Traits>::imbue
 
 .SH Return value
 
-   The locale before the call to this function. Effectively returns the result of
-   expression traits_i.imbue(loc).
+   The locale before the call to this function. Effectively returns the result of expression traits_i.imbue(loc).
 
 .SH Exceptions
 

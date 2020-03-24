@@ -1,4 +1,4 @@
-.TH std::ratio_less 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ratio_less 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ratio_less \- std::ratio_less
 
@@ -7,8 +7,7 @@ std::ratio_less \- std::ratio_less
    template< class R1, class R2 >               \fI(since C++11)\fP
    struct ratio_less : std::integral_constant;
 
-   If the ratio R1 is less than the ratio R2, provides the member constant value equal
-   true. Otherwise, value is false.
+   If the ratio R1 is less than the ratio R2, provides the member constant value equal true. Otherwise, value is false.
 
   Helper variable template
 
@@ -19,9 +18,8 @@ Inherited from std::integral_constant
 
 .SH Member constants
 
-   value    true if R1::num * R2::den < R2::num * R1::den, or equivalent expression
-   \fB[static]\fP that avoids overflow , false otherwise
-            \fI(public static member constant)\fP
+   value    true if R1::num * R2::den < R2::num * R1::den, or equivalent expression that avoids overflow , false otherwise
+   \fB[static]\fP \fI(public static member constant)\fP
 
 .SH Member functions
 

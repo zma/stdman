@@ -1,4 +1,4 @@
-.TH std::back_insert_iterator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::back_insert_iterator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::back_insert_iterator \- std::back_insert_iterator
 
@@ -6,17 +6,13 @@ std::back_insert_iterator \- std::back_insert_iterator
    Defined in header <iterator>
    template< class Container >
 
-   class back_insert_iterator : public std::iterator<                     \fI(until C++17)\fP
-   std::output_iterator_tag,
+   class back_insert_iterator : public std::iterator< std::output_iterator_tag,  \fI(until C++17)\fP
 
    void, void, void, void >
-   template< class Container >                                            \fI(since C++17)\fP
+   template< class Container >                                                   \fI(since C++17)\fP
    class back_insert_iterator;
 
-   std::back_insert_iterator is an LegacyOutputIterator that appends to a container for
-   which it was constructed. The container's push_back() member function is called
-   whenever the iterator (whether dereferenced or not) is assigned to. Incrementing the
-   std::back_insert_iterator is a no-op.
+   std::back_insert_iterator is an LegacyOutputIterator that appends to a container for which it was constructed. The container's push_back() member function is called whenever the iterator (whether dereferenced or not) is assigned to. Incrementing the std::back_insert_iterator is a no-op.
 
 .SH Member types
 
@@ -48,8 +44,7 @@ std::back_insert_iterator \- std::back_insert_iterator
    reference         void
    iterator_category std::output_iterator_tag
 
-   These member types are required to be obtained by inheriting from      \fI(until C++17)\fP
-   std::iterator<std::output_iterator_tag, void, void, void, void>.
+   These member types are required to be obtained by inheriting from std::iterator<std::output_iterator_tag, void, void, void, void>. \fI(until C++17)\fP
 
 .SH Example
 
@@ -77,8 +72,7 @@ std::back_insert_iterator \- std::back_insert_iterator
 
 .SH See also
 
-                         creates a std::back_insert_iterator of type inferred from the
-   back_inserter         argument
+   back_inserter         creates a std::back_insert_iterator of type inferred from the argument
                          \fI(function template)\fP
    front_insert_iterator iterator adaptor for insertion at the front of a container
                          \fI(class template)\fP

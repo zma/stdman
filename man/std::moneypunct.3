@@ -1,4 +1,4 @@
-.TH std::moneypunct 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::moneypunct 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::moneypunct \- std::moneypunct
 
@@ -7,29 +7,21 @@ std::moneypunct \- std::moneypunct
    template< class CharT, bool International = false >
    class moneypunct;
 
-   The facet std::moneypunct encapsulates monetary value format preferences. Stream I/O
-   manipulators std::get_money and std::put_money use std::moneypunct through
-   std::money_get and std::money_put for parsing monetary value input and formatting
-   monetary value output.
+   The facet std::moneypunct encapsulates monetary value format preferences. Stream I/O manipulators std::get_money and std::put_money use std::moneypunct through std::money_get and std::money_put for parsing monetary value input and formatting monetary value output.
 
    std-moneypunct-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
-   Four standalone (locale-independent) specializations are provided by the standard
-   library:
+   Four standalone (locale-independent) specializations are provided by the standard library:
 
    Defined in header <locale>
    std::moneypunct<char>          provides equivalents of the "C" locale preferences
-   std::moneypunct<wchar_t>       provides wide character equivalents of the "C" locale
-                                  preferences
-   std::moneypunct<char, true>    provides equivalents of the "C" locale preferences,
-                                  with international currency symbols
-   std::moneypunct<wchar_t, true> provides wide character equivalents of the "C" locale
-                                  preferences, with international currency symbols
+   std::moneypunct<wchar_t>       provides wide character equivalents of the "C" locale preferences
+   std::moneypunct<char, true>    provides equivalents of the "C" locale preferences, with international currency symbols
+   std::moneypunct<wchar_t, true> provides wide character equivalents of the "C" locale preferences, with international currency symbols
 
-   In addition, every locale object constructed in a C++ program implements its own
-   (locale-specific) versions of these specializations.
+   In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 
@@ -64,9 +56,8 @@ std::moneypunct \- std::moneypunct
    \fB[virtual]\fP        \fI(virtual protected member function)\fP
    do_thousands_sep provides the character to use as thousands separator
    \fB[virtual]\fP        \fI(virtual protected member function)\fP
-   do_grouping      provides the numbers of digits between each pair of thousands
-   \fB[virtual]\fP        separators
-                    \fI(virtual protected member function)\fP
+   do_grouping      provides the numbers of digits between each pair of thousands separators
+   \fB[virtual]\fP        \fI(virtual protected member function)\fP
    do_curr_symbol   provides the string to use as the currency identifier
    \fB[virtual]\fP        \fI(virtual protected member function)\fP
    do_positive_sign provides the string to indicate a positive or negative value
@@ -95,25 +86,19 @@ Inherited from std::money_base
    struct pattern { char field[4]; };              the monetary format type
 
    Enumeration constant Definition
-   none                 whitespace is permitted but not required except in the last
-                        position, where whitespace is not permitted
+   none                 whitespace is permitted but not required except in the last position, where whitespace is not permitted
    space                one or more whitespace characters are required
-   symbol               the sequence of characters returned by moneypunct::curr_symbol
-                        is required
-                        the first of the characters returned by
-   sign                 moneypunct::positive_sign or moneypunct::negative_sign is
-                        required
+   symbol               the sequence of characters returned by moneypunct::curr_symbol is required
+   sign                 the first of the characters returned by moneypunct::positive_sign or moneypunct::negative_sign is required
    value                the absolute numeric monetary value is required
 
 .SH See also
 
    money_base        defines monetary formatting patterns
                      \fI(class)\fP
-                     represents the system-supplied std::moneypunct for the named
-   moneypunct_byname locale
+   moneypunct_byname represents the system-supplied std::moneypunct for the named locale
                      \fI(class template)\fP
-                     parses and constructs a monetary value from an input character
-   money_get         sequence
+   money_get         parses and constructs a monetary value from an input character sequence
                      \fI(class template)\fP
    money_put         formats a monetary value for output as a character sequence
                      \fI(class template)\fP

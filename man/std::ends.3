@@ -1,4 +1,4 @@
-.TH std::ends 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ends 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ends \- std::ends
 
@@ -7,16 +7,13 @@ std::ends \- std::ends
    template< class CharT, class Traits >
    std::basic_ostream<CharT, Traits>& ends( std::basic_ostream<CharT, Traits>& os );
 
-   Inserts a null character into the output sequence os as if by calling
-   os.put(CharT()).
+   Inserts a null character into the output sequence os as if by calling os.put(CharT()).
 
-   This is an output-only I/O manipulator, it may be called with an expression such as
-   out << std::ends for any out of type std::basic_ostream.
+   This is an output-only I/O manipulator, it may be called with an expression such as out << std::ends for any out of type std::basic_ostream.
 
 .SH Notes
 
-   This manipulator is typically used with std::ostrstream, when the associated output
-   buffer needs to be null-terminated to be processed as a C string.
+   This manipulator is typically used with std::ostrstream, when the associated output buffer needs to be null-terminated to be processed as a C string.
 
    Unlike std::endl, this manipulator does not flush the stream.
 

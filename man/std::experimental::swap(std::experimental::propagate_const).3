@@ -1,18 +1,15 @@
-.TH std::experimental::swap(std::experimental::propagate_const) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::swap(std::experimental::propagate_const) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::swap(std::experimental::propagate_const) \- std::experimental::swap(std::experimental::propagate_const)
 
 .SH Synopsis
    template< class T >
 
-   constexpr void swap( std::experimental::propagate_const<T>&    (library fundamentals
-   lhs,                                                           TS v2)
+   constexpr void swap( std::experimental::propagate_const<T>& lhs,         (library fundamentals TS v2)
 
-   std::experimental::propagate_const<T>& rhs ) noexcept(/* see
-   below */);
+   std::experimental::propagate_const<T>& rhs ) noexcept(/* see below */);
 
-   Specializes the swap algorithm for std::experimental::propagate_const. Swaps the
-   pointers of lhs and rhs. Equivalent to lhs.swap(rhs).
+   Specializes the swap algorithm for std::experimental::propagate_const. Swaps the pointers of lhs and rhs. Equivalent to lhs.swap(rhs).
 
 .SH Parameters
 

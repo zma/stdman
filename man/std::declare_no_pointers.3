@@ -1,4 +1,4 @@
-.TH std::declare_no_pointers 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::declare_no_pointers 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::declare_no_pointers \- std::declare_no_pointers
 
@@ -6,10 +6,7 @@ std::declare_no_pointers \- std::declare_no_pointers
    Defined in header <memory>
    void declare_no_pointers( char *p, std::size_t n );  \fI(since C++11)\fP
 
-   Informs the garbage collector or leak detector that the specified memory region (n
-   bytes beginning at the byte pointed to by p) contains no traceable pointers. If any
-   part of the region is within an allocated object, the entire region must be
-   contained in the same object.
+   Informs the garbage collector or leak detector that the specified memory region (n bytes beginning at the byte pointed to by p) contains no traceable pointers. If any part of the region is within an allocated object, the entire region must be contained in the same object.
 
 .SH Parameters
 

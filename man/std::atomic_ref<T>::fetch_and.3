@@ -1,15 +1,12 @@
-.TH std::atomic_ref<T>::fetch_and 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic_ref<T>::fetch_and 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic_ref<T>::fetch_and \- std::atomic_ref<T>::fetch_and
 
 .SH Synopsis
-   T fetch_and( T arg,                             \fI(since C++20)\fP
-   std::memory_order order =                       (member only of atomic_ref<Integral>
-   std::memory_order_seq_cst ) const noexcept;     template specialization)
+   T fetch_and( T arg,                                                    \fI(since C++20)\fP
+   std::memory_order order = std::memory_order_seq_cst ) const noexcept;  (member only of atomic_ref<Integral> template specialization)
 
-   Atomically replaces the current value of the referenced object with the result of
-   bitwise AND of the value and arg. This operation is a read-modify-write operation.
-   Memory is affected according to the value of order.
+   Atomically replaces the current value of the referenced object with the result of bitwise AND of the value and arg. This operation is a read-modify-write operation. Memory is affected according to the value of order.
 
 .SH Parameters
 
@@ -18,5 +15,4 @@ std::atomic_ref<T>::fetch_and \- std::atomic_ref<T>::fetch_and
 
 .SH Return value
 
-   The value of the referenced object, immediately preceding the effects of this
-   function.
+   The value of the referenced object, immediately preceding the effects of this function.

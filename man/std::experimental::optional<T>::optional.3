@@ -1,26 +1,19 @@
-.TH std::experimental::optional<T>::optional 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::optional<T>::optional 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::optional<T>::optional \- std::experimental::optional<T>::optional
 
 .SH Synopsis
-   constexpr optional() noexcept;                                 (library fundamentals
-   constexpr optional( std::experimental::nullopt_t )         \fB(1)\fP TS)
-   noexcept;
-   optional( const optional& other );                         \fB(2)\fP (library fundamentals
-                                                                  TS)
-   optional( optional&& other ) noexcept(/* see below */);    \fB(3)\fP (library fundamentals
-                                                                  TS)
-   constexpr optional( const T& value );                      \fB(4)\fP (library fundamentals
-                                                                  TS)
-   constexpr optional( T&& value );                           \fB(5)\fP (library fundamentals
-                                                                  TS)
-   template< class... Args >                                      (library fundamentals
-   constexpr explicit optional(                               \fB(6)\fP TS)
-   std::experimental::in_place_t, Args&&... args );
+   constexpr optional() noexcept;                                                \fB(1)\fP (library fundamentals TS)
+   constexpr optional( std::experimental::nullopt_t ) noexcept;
+   optional( const optional& other );                                            \fB(2)\fP (library fundamentals TS)
+   optional( optional&& other ) noexcept(/* see below */);                       \fB(3)\fP (library fundamentals TS)
+   constexpr optional( const T& value );                                         \fB(4)\fP (library fundamentals TS)
+   constexpr optional( T&& value );                                              \fB(5)\fP (library fundamentals TS)
+   template< class... Args >                                                     \fB(6)\fP (library fundamentals TS)
+   constexpr explicit optional( std::experimental::in_place_t, Args&&... args );
    template< class U, class... Args >
 
-   constexpr explicit optional(                                   (library fundamentals
-   std::experimental::in_place_t,                             \fB(7)\fP TS)
+   constexpr explicit optional( std::experimental::in_place_t,                   \fB(7)\fP (library fundamentals TS)
    std::initializer_list<U> ilist,
 
    Args&&... args );
@@ -28,31 +21,12 @@ std::experimental::optional<T>::optional \- std::experimental::optional<T>::opti
    Constructs a new optional object.
 
    1) Constructs the object that does not contain a value.
-   2) Copy constructor: If other contains a value, initializes the contained value as
-   if direct-initializing (but not direct-list-initializing) an object of type T with
-   the expression *other. If other does not contain a value, constructs an object that
-   does not contain a value.
-   3) Move constructor: If other contains a value, initializes the contained value as
-   if direct-initializing (but not direct-list-initializing) an object of type T with
-   the expression std::move(*other) and does not make other empty: a moved-from
-   optional still contains a value, but the value itself is moved from. If other does
-   not contain a value, constructs an object that does not contain a value.
-   4) Constructs an optional object that contains a value, initialized as if
-   direct-initializing (but not direct-list-initializing) an object of type T with the
-   expression value. This constructor is constexpr if the constructor of T selected by
-   direct-initialization is constexpr.
-   5) Constructs an optional object that contains a value, initialized as if
-   direct-initializing (but not direct-list-initializing) an object of type T with the
-   expression std::move(value). This constructor is constexpr if the constructor of T
-   selected by direct-initialization is constexpr.
-   6) Constructs an optional object that contains a value, initialized as if
-   direct-initializing (but not direct-list-initializing) an object of type T from the
-   arguments std::forward<Args>(args)...
-   7) Constructs an optional object that contains a value, initialized as if
-   direct-initializing (but not direct-list-initializing) an object of type T from the
-   arguments ilist, std::forward<Args>(args).... The function does not participate in
-   the overload resolution if std::is_constructible<T, std::initializer_list<U>&,
-   Args&&...>::value != true
+   2) Copy constructor: If other contains a value, initializes the contained value as if direct-initializing (but not direct-list-initializing) an object of type T with the expression *other. If other does not contain a value, constructs an object that does not contain a value.
+   3) Move constructor: If other contains a value, initializes the contained value as if direct-initializing (but not direct-list-initializing) an object of type T with the expression std::move(*other) and does not make other empty: a moved-from optional still contains a value, but the value itself is moved from. If other does not contain a value, constructs an object that does not contain a value.
+   4) Constructs an optional object that contains a value, initialized as if direct-initializing (but not direct-list-initializing) an object of type T with the expression value. This constructor is constexpr if the constructor of T selected by direct-initialization is constexpr.
+   5) Constructs an optional object that contains a value, initialized as if direct-initializing (but not direct-list-initializing) an object of type T with the expression std::move(value). This constructor is constexpr if the constructor of T selected by direct-initialization is constexpr.
+   6) Constructs an optional object that contains a value, initialized as if direct-initializing (but not direct-list-initializing) an object of type T from the arguments std::forward<Args>(args)...
+   7) Constructs an optional object that contains a value, initialized as if direct-initializing (but not direct-list-initializing) an object of type T from the arguments ilist, std::forward<Args>(args).... The function does not participate in the overload resolution if std::is_constructible<T, std::initializer_list<U>&, Args&&...>::value != true
 
 .SH Parameters
 
@@ -69,8 +43,7 @@ std::experimental::optional<T>::optional \- std::experimental::optional<T>::opti
 .SH Exceptions
 
    2) Throws any exception thrown by the constructor of T.
-   3) Throws any exception thrown by the constructor of T. Has the following noexcept
-   declaration:
+   3) Throws any exception thrown by the constructor of T. Has the following noexcept declaration:
    noexcept specification:
    noexcept(std::is_nothrow_move_constructible<T>::value)
    .

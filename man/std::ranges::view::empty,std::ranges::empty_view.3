@@ -1,4 +1,4 @@
-.TH std::ranges::view::empty,std::ranges::empty_view 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ranges::view::empty,std::ranges::empty_view 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ranges::view::empty,std::ranges::empty_view \- std::ranges::view::empty,std::ranges::empty_view
 
@@ -56,9 +56,7 @@ begin, end(std::ranges::empty_view)
    friend constexpr T* begin(empty_view) noexcept { return nullptr; } \fB(1)\fP
    friend constexpr T* end(empty_view) noexcept { return nullptr; }   \fB(2)\fP
 
-   These functions are not visible to ordinary unqualified or qualified lookup, and can
-   only be found by argument-dependent lookup when std::ranges::empty_view<T> is an
-   associated class of the arguments.
+   These functions are not visible to ordinary unqualified or qualified lookup, and can only be found by argument-dependent lookup when std::ranges::empty_view<T> is an associated class of the arguments.
 
 .SH Example
 

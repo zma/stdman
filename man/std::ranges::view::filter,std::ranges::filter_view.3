@@ -1,28 +1,23 @@
-.TH std::ranges::view::filter,std::ranges::filter_view 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ranges::view::filter,std::ranges::filter_view 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ranges::view::filter,std::ranges::filter_view \- std::ranges::view::filter,std::ranges::filter_view
 
 .SH Synopsis
-   template< InputRange V, IndirectUnaryPredicate<iterator_t<V>> Pred
-   >
+   template< InputRange V, IndirectUnaryPredicate<iterator_t<V>> Pred >
 
-   requires View<V> && std::is_object_v<Pred>                         \fB(1)\fP \fI(since C++20)\fP
+   requires View<V> && std::is_object_v<Pred>                              \fB(1)\fP \fI(since C++20)\fP
 
-   class filter_view : public ranges::view_interface<filter_view<V,
-   Pred>>
+   class filter_view : public ranges::view_interface<filter_view<V, Pred>>
    namespace view {
 
-   inline constexpr /*unspecified*/ filter = /*unspecified*/;         \fB(2)\fP \fI(since C++20)\fP
+   inline constexpr /*unspecified*/ filter = /*unspecified*/;              \fB(2)\fP \fI(since C++20)\fP
 
    }
 
-   1) A range adaptor that represents View of an underlying sequence without the
-   elements that fail to satisfy a predicate.
-   2) The expression view::filter(E, P) is expression-equivalent to (has the same
-   effect as) filter_view{E, P} for any suitable subexpressions E and P.
+   1) A range adaptor that represents View of an underlying sequence without the elements that fail to satisfy a predicate.
+   2) The expression view::filter(E, P) is expression-equivalent to (has the same effect as) filter_view{E, P} for any suitable subexpressions E and P.
 
-   filter_view models the concepts BidirectionalRange, ForwardRange, InputRange, and
-   CommonRange when the underlying view V models respective concepts.
+   filter_view models the concepts BidirectionalRange, ForwardRange, InputRange, and CommonRange when the underlying view V models respective concepts.
 
   Data members
 
@@ -38,9 +33,7 @@ std::ranges::filter_view::pred_
 
    the predicate used to filter out elements of base_
 
-   semiregular is a wrapper class template which behaves exactly like std::optional
-   except for some small differences. The name semiregular is for exposition purposes
-   only and not normative.
+   semiregular is a wrapper class template which behaves exactly like std::optional except for some small differences. The name semiregular is for exposition purposes only and not normative.
 
 .SH Member functions
 
@@ -55,10 +48,8 @@ std::ranges::filter_view::filter_view
    constexpr filter_view(R&& r, Pred pred);
 
    1) Default-initializes base_ and pred_
-   2) Initializes base_ with std::move(base) and initializes pred_ with
-   std::move(pred).
-   3) Initializes base_ with view::all(std::forward<R>(r)) and initializes pred_ with
-   std::move(pred).
+   2) Initializes base_ with std::move(base) and initializes pred_ with std::move(pred).
+   3) Initializes base_ with view::all(std::forward<R>(r)) and initializes pred_ with std::move(pred).
 
 .SH Parameters
 
@@ -75,10 +66,7 @@ std::ranges::filter_view::begin
 
    constexpr iterator begin();
 
-   Returns the iterator initialized with {*this, ranges::find_if(base_,
-   std::ref(*pred_))}. In order to provide the amortized constant time complexity
-   required by the Range concept, this function caches the result within the
-   filter_view object for use on subsequent calls.
+   Returns the iterator initialized with {*this, ranges::find_if(base_, std::ref(*pred_))}. In order to provide the amortized constant time complexity required by the Range concept, this function caches the result within the filter_view object for use on subsequent calls.
 
    The behavior is undefined unless pred_.has_value()
 
@@ -107,19 +95,16 @@ std::ranges::filter_view::iterator
 
    The return type of filter_view::begin.
 
-   This is a BidirectionalIterator if V models BidirectionalRange, a ForwardIterator if
-   V models ForwardRange, and InputIterator otherwise.
+   This is a BidirectionalIterator if V models BidirectionalRange, a ForwardIterator if V models ForwardRange, and InputIterator otherwise.
 
-   Modification of the element denoted by this iterator is permitted, but results in
-   undefined behavior if the resulting value does not satisfy the filter's predicate.
+   Modification of the element denoted by this iterator is permitted, but results in undefined behavior if the resulting value does not satisfy the filter's predicate.
 
 std::ranges::filter_view::iterator::iterator
 
    iterator() = default;
    constexpr iterator(filter_view& parent, iterator_t<V> current);
 
-   Initializes exposition-only data member current_ with current and exposition-only
-   data members parent_ with addressof(parent).
+   Initializes exposition-only data member current_ with current and exposition-only data members parent_ with addressof(parent).
 
 std::ranges::filter_view::iterator::operator++
 

@@ -1,4 +1,4 @@
-.TH std::abs,std::labs,std::llabs,std::imaxabs 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::abs,std::labs,std::llabs,std::imaxabs 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::abs,std::labs,std::llabs,std::imaxabs \- std::abs,std::labs,std::llabs,std::imaxabs
 
@@ -15,12 +15,9 @@ std::abs,std::labs,std::llabs,std::imaxabs \- std::abs,std::labs,std::llabs,std:
    std::intmax_t abs( std::intmax_t n );      \fI(since C++11)\fP
    std::intmax_t imaxabs( std::intmax_t n );  \fI(since C++11)\fP
 
-   Computes the absolute value of an integer number. The behavior is undefined if the
-   result cannot be represented by the return type.
+   Computes the absolute value of an integer number. The behavior is undefined if the result cannot be represented by the return type.
 
-   If std::abs is called with an argument of type X such that
-   std::is_unsigned<X>::value is true and X cannot be converted to int by \fI(since C++17)\fP
-   integral promotion, the program is ill-formed.
+   If std::abs is called with an argument of type X such that std::is_unsigned<X>::value is true and X cannot be converted to int by integral promotion, the program is ill-formed. \fI(since C++17)\fP
 
 .SH Parameters
 
@@ -32,9 +29,7 @@ std::abs,std::labs,std::llabs,std::imaxabs \- std::abs,std::labs,std::llabs,std:
 
 .SH Notes
 
-   In 2's complement systems, the absolute value of the most-negative value is out of
-   range, e.g. for 32-bit 2's complement type int, INT_MIN is -2147483648, but the
-   would-be result 2147483648 is greater than INT_MAX, which is 2147483647.
+   In 2's complement systems, the absolute value of the most-negative value is out of range, e.g. for 32-bit 2's complement type int, INT_MIN is -2147483648, but the would-be result 2147483648 is greater than INT_MAX, which is 2147483647.
 
 .SH Example
 

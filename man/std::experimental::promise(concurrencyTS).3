@@ -1,4 +1,4 @@
-.TH std::experimental::promise(concurrencyTS) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::promise(concurrencyTS) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::promise(concurrencyTS) \- std::experimental::promise(concurrencyTS)
 
@@ -8,8 +8,6 @@ std::experimental::promise(concurrencyTS) \- std::experimental::promise(concurre
    template< class R > class promise<R&>;  \fB(2)\fP (concurrency TS)
    template<> class promise<void>;         \fB(3)\fP (concurrency TS)
 
-   std::experimental::concurrency_v1::promise is a modified version of std::promise
-   provided by the concurrency TS that works with std::experimental::future.
+   std::experimental::concurrency_v1::promise is a modified version of std::promise provided by the concurrency TS that works with std::experimental::future.
 
-   The only change from std::promise is that the get_future() member function returns a
-   std::experimental::future.
+   The only change from std::promise is that the get_future() member function returns a std::experimental::future.

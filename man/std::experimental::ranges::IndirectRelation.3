@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::IndirectRelation 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::IndirectRelation 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::IndirectRelation \- std::experimental::ranges::IndirectRelation
 
@@ -9,13 +9,12 @@ std::experimental::ranges::IndirectRelation \- std::experimental::ranges::Indire
    concept bool IndirectRelation =
    Readable<I1> && Readable<I2> &&
    CopyConstructible<F> &&
-   Relation<F&, ranges::value_type_t<I1>&, ranges::value_type_t<I2>&> &&    (ranges TS)
+   Relation<F&, ranges::value_type_t<I1>&, ranges::value_type_t<I2>&> &&                    (ranges TS)
    Relation<F&, ranges::value_type_t<I1>&, ranges::reference_t<I2>> &&
    Relation<F&, ranges::reference_t<I1>, ranges::value_type_t<I2>&> &&
    Relation<F&, ranges::reference_t<I1>, ranges::reference_t<I2>> &&
 
-   Relation<F&, ranges::iter_common_reference_t<I1>,
-   ranges::iter_common_reference_t<I2>>;
+   Relation<F&, ranges::iter_common_reference_t<I1>, ranges::iter_common_reference_t<I2>>;
 
     This section is incomplete
     Reason: add description and extra caveats

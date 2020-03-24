@@ -1,4 +1,4 @@
-.TH std::strncat 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::strncat 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::strncat \- std::strncat
 
@@ -6,12 +6,9 @@ std::strncat \- std::strncat
    Defined in header <cstring>
    char *strncat( char *dest, const char *src, std::size_t count );
 
-   Appends a byte string pointed to by src to a byte string pointed to by dest. At most
-   count characters are copied. The resulting byte string is null-terminated.
+   Appends a byte string pointed to by src to a byte string pointed to by dest. At most count characters are copied. The resulting byte string is null-terminated.
 
-   The destination byte string must have enough space for the contents of both dest and
-   src plus the terminating null character, except that the size of src is limited to
-   count.
+   The destination byte string must have enough space for the contents of both dest and src plus the terminating null character, except that the size of src is limited to count.
 
    The behavior is undefined if the strings overlap.
 

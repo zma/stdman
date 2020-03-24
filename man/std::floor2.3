@@ -1,4 +1,4 @@
-.TH std::floor2 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::floor2 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::floor2 \- std::floor2
 
@@ -7,17 +7,13 @@ std::floor2 \- std::floor2
    template< class T >                \fI(since C++20)\fP
    constexpr T floor2(T x) noexcept;
 
-   If x is not zero, calculates the largest integral power of two that is not greater
-   than x. If x is zero, returns zero.
+   If x is not zero, calculates the largest integral power of two that is not greater than x. If x is zero, returns zero.
 
-   This overload only participates in overload resolution if T is an unsigned integer
-   type (that is, unsigned char, unsigned short, unsigned int, unsigned long, unsigned
-   long long, or an extended unsigned integer type).
+   This overload only participates in overload resolution if T is an unsigned integer type (that is, unsigned char, unsigned short, unsigned int, unsigned long, unsigned long long, or an extended unsigned integer type).
 
 .SH Return value
 
-   Zero if x is zero; otherwise, the largest integral power of two that is not greater
-   than x.
+   Zero if x is zero; otherwise, the largest integral power of two that is not greater than x.
 
 .SH Example
 

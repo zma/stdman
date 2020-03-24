@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::is_modulo 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::is_modulo 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::is_modulo \- std::numeric_limits<T>::is_modulo
 
@@ -6,16 +6,11 @@ std::numeric_limits<T>::is_modulo \- std::numeric_limits<T>::is_modulo
    static const bool is_modulo;      \fI(until C++11)\fP
    static constexpr bool is_modulo;  \fI(since C++11)\fP
 
-   The value of std::numeric_limits<T>::is_modulo is true for all arithmetic types T
-   that
+   The value of std::numeric_limits<T>::is_modulo is true for all arithmetic types T that
    are possible to
-   \fI(until C++11)\fPhandle overflows with modulo arithmetic, that is, if the result of
-   addition, subtraction, multiplication, or division of this type would fall outside
-   the range [min(), max()], the value returned by such operation differs from the
-   expected value by a multiple of max()-min()+1.
+   \fI(until C++11)\fPhandle overflows with modulo arithmetic, that is, if the result of addition, subtraction, multiplication, or division of this type would fall outside the range [min(), max()], the value returned by such operation differs from the expected value by a multiple of max()-min()+1.
 
-   is_modulo is false for signed integer types, unless the implementation \fI(since C++11)\fP
-   defines signed integer overflow to wrap.
+   is_modulo is false for signed integer types, unless the implementation defines signed integer overflow to wrap. \fI(since C++11)\fP
 
 .SH Standard specializations
 
@@ -43,12 +38,7 @@ std::numeric_limits<T>::is_modulo \- std::numeric_limits<T>::is_modulo
 
 .SH Notes
 
-   Although the C++11 standard still says "On most machines, this is true for signed
-   integers.", it is a defect and has been corrected. The exact wording changed from
-   C++03 to C++11 in such a way that the true value is no longer compatible with
-   undefined behavior on signed integer overflow. Because of that, the implementations
-   that rely on signed overflow being undefined (for optimization opportunities) now
-   set is_modulo to false for signed integers. See for example GCC PR 22200.
+   Although the C++11 standard still says "On most machines, this is true for signed integers.", it is a defect and has been corrected. The exact wording changed from C++03 to C++11 in such a way that the true value is no longer compatible with undefined behavior on signed integer overflow. Because of that, the implementations that rely on signed overflow being undefined (for optimization opportunities) now set is_modulo to false for signed integers. See for example GCC PR 22200.
 
 .SH Example
 
@@ -89,14 +79,11 @@ std::numeric_limits<T>::is_modulo \- std::numeric_limits<T>::is_modulo
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to     Behavior as published              Correct behavior
-                       is_modulo was required to true required to be false for signed
-   LWG 2422 C++11      for signed integer types on    integer types
-                       most machines                  unless signed integer overflow is
-                                                      defined to wrap
+      DR    Applied to           Behavior as published                           Correct behavior
+   LWG 2422 C++11      is_modulo was required to true            required to be false for signed integer types
+                       for signed integer types on most machines unless signed integer overflow is defined to wrap
 
 .SH See also
 

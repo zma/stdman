@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::denorm_min 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::denorm_min 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::denorm_min \- std::numeric_limits<T>::denorm_min
 
@@ -6,9 +6,7 @@ std::numeric_limits<T>::denorm_min \- std::numeric_limits<T>::denorm_min
    static T denorm_min() throw();             \fI(until C++11)\fP
    static constexpr T denorm_min() noexcept;  \fI(since C++11)\fP
 
-   Returns the minimum positive subnormal value of the type T, if
-   std::numeric_limits<T>::has_denorm != std::denorm_absent, otherwise returns
-   std::numeric_limits<T>::min(). Only meaningful for floating-point types.
+   Returns the minimum positive subnormal value of the type T, if std::numeric_limits<T>::has_denorm != std::denorm_absent, otherwise returns std::numeric_limits<T>::min(). Only meaningful for floating-point types.
 
 .SH Return value
 
@@ -79,8 +77,7 @@ std::numeric_limits<T>::denorm_min \- std::numeric_limits<T>::denorm_min
 
    min              returns the smallest finite value of the given type
    \fB[static]\fP         \fI(public static member function)\fP
-   has_denorm       identifies the denormalization style used by the floating-point
-   \fB[static]\fP         type
-                    \fI(public static member constant)\fP
+   has_denorm       identifies the denormalization style used by the floating-point type
+   \fB[static]\fP         \fI(public static member constant)\fP
    lowest           returns the lowest finite value of the given type
    \fB[static]\fP \fI(C++11)\fP \fI(public static member function)\fP

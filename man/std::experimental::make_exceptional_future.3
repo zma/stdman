@@ -1,4 +1,4 @@
-.TH std::experimental::make_exceptional_future 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::make_exceptional_future 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::make_exceptional_future \- std::experimental::make_exceptional_future
 
@@ -9,14 +9,8 @@ std::experimental::make_exceptional_future \- std::experimental::make_exceptiona
    template < class T, class E >                             \fB(2)\fP (concurrency TS)
    future<T> make_exceptional_future(E ex);
 
-   1) Creates a shared state of type T that is immediately ready and stores the
-   exception pointer ex, then return a future associated with that shared state, as if
-   by promise<T> p; p.set_exception(ex); return p.get_future();. The behavior is
-   undefined if ex is null.
-   2) Creates a shared state of type T that is immediately ready and stores an
-   exception pointer created from ex, then return a future associated with that shared
-   state, as if by promise<T> p; p.set_exception(std::make_exception_ptr(ex)); return
-   p.get_future();
+   1) Creates a shared state of type T that is immediately ready and stores the exception pointer ex, then return a future associated with that shared state, as if by promise<T> p; p.set_exception(ex); return p.get_future();. The behavior is undefined if ex is null.
+   2) Creates a shared state of type T that is immediately ready and stores an exception pointer created from ex, then return a future associated with that shared state, as if by promise<T> p; p.set_exception(std::make_exception_ptr(ex)); return p.get_future();
 
 .SH Return value
 
@@ -24,6 +18,5 @@ std::experimental::make_exceptional_future \- std::experimental::make_exceptiona
 
 .SH See also
 
-   make_ready_future produces a future that is ready immediately and holds the given
-   (concurrency TS)  value
-                     \fI(function template)\fP
+   make_ready_future produces a future that is ready immediately and holds the given value
+   (concurrency TS)  \fI(function template)\fP

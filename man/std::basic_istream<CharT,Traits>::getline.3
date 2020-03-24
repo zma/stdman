@@ -1,4 +1,4 @@
-.TH std::basic_istream<CharT,Traits>::getline 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_istream<CharT,Traits>::getline 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_istream<CharT,Traits>::getline \- std::basic_istream<CharT,Traits>::getline
 
@@ -10,41 +10,29 @@ std::basic_istream<CharT,Traits>::getline \- std::basic_istream<CharT,Traits>::g
 
    The first version is equivalent to getline(s, count, widen('\\n')).
 
-   Behaves as UnformattedInputFunction. After constructing and checking the sentry
-   object, extracts characters from *this and stores them in successive locations of
-   the array whose first element is pointed to by s, until any of the following occurs
-   (tested in the order shown):
+   Behaves as UnformattedInputFunction. After constructing and checking the sentry object, extracts characters from *this and stores them in successive locations of the array whose first element is pointed to by s, until any of the following occurs (tested in the order shown):
 
-     * end of file condition occurs in the input sequence (in which case
-       setstate(eofbit) is executed)
+     * end of file condition occurs in the input sequence (in which case setstate(eofbit) is executed)
 
-     * the next available character c is the delimiter, as determined by Traits::eq(c,
-       delim). The delimiter is extracted (unlike basic_istream::get()) and counted
-       towards gcount(), but is not stored.
+     * the next available character c is the delimiter, as determined by Traits::eq(c, delim). The delimiter is extracted (unlike basic_istream::get()) and counted towards gcount(), but is not stored.
 
-     * count-1 characters have been extracted (in which case setstate(failbit) is
-       executed).
+     * count-1 characters have been extracted (in which case setstate(failbit) is executed).
 
-   If the function extracts no characters (e.g. if count < 1), setstate(failbit) is
-   executed.
+   If the function extracts no characters (e.g. if count < 1), setstate(failbit) is executed.
 
-   In any case, if count>0, it then stores a null character CharT() into the next
-   successive location of the array and updates gcount().
+   In any case, if count>0, it then stores a null character CharT() into the next successive location of the array and updates gcount().
 
 .SH Notes
 
-   Because condition #2 is tested before condition #3, the input line that exactly fits
-   the buffer does not trigger failbit.
+   Because condition #2 is tested before condition #3, the input line that exactly fits the buffer does not trigger failbit.
 
-   Because the terminating character is counted as an extracted character, an empty
-   input line does not trigger failbit.
+   Because the terminating character is counted as an extracted character, an empty input line does not trigger failbit.
 
 .SH Parameters
 
    s     - pointer to the character string to store the characters to
    count - size of character string pointed to by s
-   delim - delimiting character to stop the extraction at. It is extracted but not
-           stored.
+   delim - delimiting character to stop the extraction at. It is extracted but not stored.
 
 .SH Return value
 
@@ -52,11 +40,9 @@ std::basic_istream<CharT,Traits>::getline \- std::basic_istream<CharT,Traits>::g
 
 .SH Exceptions
 
-   failure if an error occurred (the error state flag is not goodbit) and exceptions()
-   is set to throw for that state.
+   failure if an error occurred (the error state flag is not goodbit) and exceptions() is set to throw for that state.
 
-   If an internal operation throws an exception, it is caught and badbit is set. If
-   exceptions() is set for badbit, the exception is rethrown.
+   If an internal operation throws an exception, it is caught and badbit is set. If exceptions() is set for badbit, the exception is rethrown.
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::wcscspn 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wcscspn 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wcscspn \- std::wcscspn
 
@@ -6,20 +6,16 @@ std::wcscspn \- std::wcscspn
    Defined in header <cwchar>
    std::size_t wcscspn( const wchar_t* dest, const wchar_t* src );
 
-   Returns the length of the maximum initial segment of the wide string pointed to by
-   dest, that consists of only the characters not found in wide string pointed to by
-   src.
+   Returns the length of the maximum initial segment of the wide string pointed to by dest, that consists of only the characters not found in wide string pointed to by src.
 
 .SH Parameters
 
    dest - pointer to the null-terminated wide string to be analyzed
-   src  - pointer to the null-terminated wide string that contains the characters to
-          search for
+   src  - pointer to the null-terminated wide string that contains the characters to search for
 
 .SH Return value
 
-   The length of the maximum initial segment that contains only characters not found in
-   the character string pointed to by src
+   The length of the maximum initial segment that contains only characters not found in the character string pointed to by src
 
 .SH Example
 
@@ -31,6 +27,5 @@ std::wcscspn \- std::wcscspn
            returns the length of the maximum initial segment that consists
    wcsspn  of only the wide characters found in another wide string
            \fI(function)\fP
-           finds the first location of any wide character in one wide string, in
-   wcspbrk another wide string
+   wcspbrk finds the first location of any wide character in one wide string, in another wide string
            \fI(function)\fP

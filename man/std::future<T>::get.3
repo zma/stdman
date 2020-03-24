@@ -1,4 +1,4 @@
-.TH std::future<T>::get 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::future<T>::get 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::future<T>::get \- std::future<T>::get
 
@@ -10,12 +10,9 @@ std::future<T>::get \- std::future<T>::get
    void get(); \fB(3)\fP (member only of future<void> template specialization)
                    \fI(since C++11)\fP
 
-   The get method waits until the future has a valid result and (depending on which
-   template is used) retrieves it. It effectively calls wait() in order to wait for the
-   result.
+   The get method waits until the future has a valid result and (depending on which template is used) retrieves it. It effectively calls wait() in order to wait for the result.
 
-   The generic template and two template specializations each contain a single version
-   of get. The three versions of get differ only in the return type.
+   The generic template and two template specializations each contain a single version of get. The three versions of get differ only in the return type.
 
    The behavior is undefined if valid() is false before the call to this function.
 
@@ -33,14 +30,11 @@ std::future<T>::get \- std::future<T>::get
 
 .SH Exceptions
 
-   If an exception was stored in the shared state referenced by the future (e.g. via a
-   call to std::promise::set_exception()) then that exception will be thrown.
+   If an exception was stored in the shared state referenced by the future (e.g. via a call to std::promise::set_exception()) then that exception will be thrown.
 
 .SH Notes
 
-   The implementations are encouraged to detect the case when valid() is false before
-   the call and throw a std::future_error with an error condition of
-   std::future_errc::no_state.
+   The implementations are encouraged to detect the case when valid() is false before the call and throw a std::future_error with an error condition of std::future_errc::no_state.
 
 .SH Example
 

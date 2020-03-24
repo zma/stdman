@@ -1,4 +1,4 @@
-.TH std::launder 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::launder 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::launder \- std::launder
 
@@ -17,36 +17,24 @@ std::launder \- std::launder
      * an object X is located at the address A
      * X is within its lifetime
      * the type of X is the same as T, ignoring cv-qualifiers at every level
-     * every byte that would be reachable through the result is reachable through p
-       (bytes are reachable through a pointer that points to an object Y if those bytes
-       are within the storage of an object Z that is pointer-interconvertible with Y,
-       or within the immediately enclosing array of which Z is an element)
+     * every byte that would be reachable through the result is reachable through p (bytes are reachable through a pointer that points to an object Y if those bytes are within the storage of an object Z that is pointer-interconvertible with Y, or within the immediately enclosing array of which Z is an element)
 
-   Then std::launder(p) returns a value of type T* that points to the object X.
-   Otherwise, the behavior is undefined.
+   Then std::launder(p) returns a value of type T* that points to the object X. Otherwise, the behavior is undefined.
 
    The program is ill-formed if T is a function type or (possibly cv-qualified) void.
 
-   std::launder may be used in a core constant expression if the value of its argument
-   may be used in a core constant expression.
+   std::launder may be used in a core constant expression if the value of its argument may be used in a core constant expression.
 
 .SH Notes
 
-   std::launder has no effect on its argument. Its return value must be used to access
-   the object. Thus, it's always an error to discard the return value.
+   std::launder has no effect on its argument. Its return value must be used to access the object. Thus, it's always an error to discard the return value.
 
    Typical uses of std::launder include:
 
-     * Obtaining a pointer to an object created in the storage of an existing object of
-       the same type, where pointers to the old object cannot be reused because the
-       object has const or reference data members, or because either object is a base
-       class subobject;
-     * Obtaining a pointer to an object created by placement new from a pointer to an
-       object providing storage for that object.
+     * Obtaining a pointer to an object created in the storage of an existing object of the same type, where pointers to the old object cannot be reused because the object has const or reference data members, or because either object is a base class subobject;
+     * Obtaining a pointer to an object created by placement new from a pointer to an object providing storage for that object.
 
-   The reachability restriction ensures that std::launder cannot be used to access
-   bytes not accessible through the original pointer, thereby interfering with the
-   compiler's escape analysis.
+   The reachability restriction ensures that std::launder cannot be used to access bytes not accessible through the original pointer, thereby interfering with the compiler's escape analysis.
 
  int x[10];
  auto p = std::launder(reinterpret_cast<int(*)[10]>(&x[0])); // OK

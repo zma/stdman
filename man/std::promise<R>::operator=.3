@@ -1,4 +1,4 @@
-.TH std::promise<R>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::promise<R>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::promise<R>::operator= \- std::promise<R>::operator=
 
@@ -8,9 +8,7 @@ std::promise<R>::operator= \- std::promise<R>::operator=
 
    Assigns the contents.
 
-   1) Move assignment operator. First, abandons the shared state (as in ~promise()),
-   then assigns the shared state of other as if by executing
-   std::promise(std::move(other)).swap(*this).
+   1) Move assignment operator. First, abandons the shared state (as in ~promise()), then assigns the shared state of other as if by executing std::promise(std::move(other)).swap(*this).
    2) promise is not copy-assignable.
 
 .SH Parameters

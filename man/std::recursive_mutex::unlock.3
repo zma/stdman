@@ -1,19 +1,15 @@
-.TH std::recursive_mutex::unlock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::recursive_mutex::unlock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::recursive_mutex::unlock \- std::recursive_mutex::unlock
 
 .SH Synopsis
    void unlock();  \fI(since C++11)\fP
 
-   Unlocks the mutex if its level of ownership is 1 (there was exactly one more call to
-   lock() than there were calls to unlock() made by this thread), reduces the level of
-   ownership by 1 otherwise.
+   Unlocks the mutex if its level of ownership is 1 (there was exactly one more call to lock() than there were calls to unlock() made by this thread), reduces the level of ownership by 1 otherwise.
 
-   The mutex must be locked by the current thread of execution, otherwise, the behavior
-   is undefined.
+   The mutex must be locked by the current thread of execution, otherwise, the behavior is undefined.
 
-   This operation synchronizes-with (as defined in std::memory_order) any subsequent
-   lock operation that obtains ownership of the same mutex.
+   This operation synchronizes-with (as defined in std::memory_order) any subsequent lock operation that obtains ownership of the same mutex.
 
 .SH Parameters
 
@@ -29,8 +25,7 @@ std::recursive_mutex::unlock \- std::recursive_mutex::unlock
 
 .SH Notes
 
-   unlock() is usually not called directly: std::unique_lock and std::lock_guard are
-   used to manage exclusive locking.
+   unlock() is usually not called directly: std::unique_lock and std::lock_guard are used to manage exclusive locking.
 
 .SH Example
 

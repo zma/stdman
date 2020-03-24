@@ -1,4 +1,4 @@
-.TH std::function<R(Args...)>::assign 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::function<R(Args...)>::assign 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::function<R(Args...)>::assign \- std::function<R(Args...)>::assign
 
@@ -6,8 +6,7 @@ std::function<R(Args...)>::assign \- std::function<R(Args...)>::assign
    template< class F, class Alloc >           \fI(since C++11)\fP
    void assign( F&& f, const Alloc& alloc );  (removed in C++17)
 
-   Initializes the target with f. alloc is used to allocate memory for any internal
-   data structures that the function might use.
+   Initializes the target with f. alloc is used to allocate memory for any internal data structures that the function might use.
 
    Equivalent to function(allocator_arg, alloc, std::forward<F>(f)).swap(*this)
 

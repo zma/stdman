@@ -1,14 +1,12 @@
-.TH std::enable_shared_from_this<T>::enable_shared_from_this 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::enable_shared_from_this<T>::enable_shared_from_this 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::enable_shared_from_this<T>::enable_shared_from_this \- std::enable_shared_from_this<T>::enable_shared_from_this
 
 .SH Synopsis
-   constexpr enable_shared_from_this() noexcept;                      \fB(1)\fP \fI(since C++11)\fP
-   enable_shared_from_this( const enable_shared_from_this<T>&obj )    \fB(2)\fP \fI(since C++11)\fP
-   noexcept;
+   constexpr enable_shared_from_this() noexcept;                             \fB(1)\fP \fI(since C++11)\fP
+   enable_shared_from_this( const enable_shared_from_this<T>&obj ) noexcept; \fB(2)\fP \fI(since C++11)\fP
 
-   Constructs a new enable_shared_from_this object. The private std::weak_ptr<T> member
-   is value-initialized.
+   Constructs a new enable_shared_from_this object. The private std::weak_ptr<T> member is value-initialized.
 
 .SH Parameters
 
@@ -16,8 +14,7 @@ std::enable_shared_from_this<T>::enable_shared_from_this \- std::enable_shared_f
 
 .SH Notes
 
-   There is no move constructor: moving from an object derived from shared_from_this
-   does not transfer its shared identity.
+   There is no move constructor: moving from an object derived from shared_from_this does not transfer its shared identity.
 
 .SH Example
 

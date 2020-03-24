@@ -1,12 +1,10 @@
-.TH std::chrono::year::operator+=,std::chrono::year::operator-= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::year::operator+=,std::chrono::year::operator-= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::year::operator+=,std::chrono::year::operator-= \- std::chrono::year::operator+=,std::chrono::year::operator-=
 
 .SH Synopsis
-   constexpr std::chrono::year& operator+=(const std::chrono::years&  \fB(1)\fP \fI(since C++20)\fP
-   y) noexcept;
-   constexpr std::chrono::year& operator-=(const std::chrono::years&  \fB(2)\fP \fI(since C++20)\fP
-   y) noexcept;
+   constexpr std::chrono::year& operator+=(const std::chrono::years& y) noexcept; \fB(1)\fP \fI(since C++20)\fP
+   constexpr std::chrono::year& operator-=(const std::chrono::years& y) noexcept; \fB(2)\fP \fI(since C++20)\fP
 
    Adds or subtracts y.count() years from the year value.
 
@@ -19,8 +17,7 @@ std::chrono::year::operator+=,std::chrono::year::operator-= \- std::chrono::year
 
 .SH Notes
 
-   If the result would be outside the range [-32767, 32767], the actual stored value is
-   unspecified.
+   If the result would be outside the range [-32767, 32767], the actual stored value is unspecified.
 
 .SH Example
 

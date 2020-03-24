@@ -1,4 +1,4 @@
-.TH std::is_unsigned 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_unsigned 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_unsigned \- std::is_unsigned
 
@@ -7,9 +7,7 @@ std::is_unsigned \- std::is_unsigned
    template< class T >              \fI(since C++11)\fP
    struct is_unsigned;
 
-   If T is an arithmetic type, provides the member constant value equal true if T\fB(0)\fP <
-   T(-1): this results in true for the unsigned integer types and the type bool and in
-   false for the signed integer types and the floating-point types.
+   If T is an arithmetic type, provides the member constant value equal true if T\fB(0)\fP < T(-1): this results in true for the unsigned integer types and the type bool and in false for the signed integer types and the floating-point types.
 
    For any other type, value is false.
 

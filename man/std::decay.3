@@ -1,4 +1,4 @@
-.TH std::decay 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::decay 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::decay \- std::decay
 
@@ -7,21 +7,15 @@ std::decay \- std::decay
    template< class T >              \fI(since C++11)\fP
    struct decay;
 
-   Applies lvalue-to-rvalue, array-to-pointer, and function-to-pointer implicit
-   conversions to the type T, removes cv-qualifiers, and defines the resulting type as
-   the member typedef type. Formally:
+   Applies lvalue-to-rvalue, array-to-pointer, and function-to-pointer implicit conversions to the type T, removes cv-qualifiers, and defines the resulting type as the member typedef type. Formally:
 
-     * If T names the type "array of U" or "reference to array of U", the member
-       typedef type is U*.
+     * If T names the type "array of U" or "reference to array of U", the member typedef type is U*.
 
-     * Otherwise, if T is a function type F or a reference thereto, the member typedef
-       type is std::add_pointer<F>::type.
+     * Otherwise, if T is a function type F or a reference thereto, the member typedef type is std::add_pointer<F>::type.
 
-     * Otherwise, the member typedef type is
-       std::remove_cv<std::remove_reference<T>::type>::type.
+     * Otherwise, the member typedef type is std::remove_cv<std::remove_reference<T>::type>::type.
 
-   These conversions model the type conversion applied to all function arguments when
-   passed by value.
+   These conversions model the type conversion applied to all function arguments when passed by value.
 
 .SH Member types
 
@@ -88,5 +82,4 @@ std::decay \- std::decay
 
    remove_cvref        combines std::remove_cv and std::remove_reference
    (C++20)             \fI(class template)\fP
-   implicit conversion array-to-pointer, function-to-pointer, lvalue-to-rvalue
-                       conversions
+   implicit conversion array-to-pointer, function-to-pointer, lvalue-to-rvalue conversions

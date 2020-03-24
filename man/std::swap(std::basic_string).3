@@ -1,22 +1,20 @@
-.TH std::swap(std::basic_string) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::swap(std::basic_string) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::swap(std::basic_string) \- std::swap(std::basic_string)
 
 .SH Synopsis
    template< class CharT, class Traits, class Alloc >
 
-   void swap( std::basic_string<CharT, Traits, Alloc> &lhs,               \fI(until C++17)\fP
+   void swap( std::basic_string<CharT, Traits, Alloc> &lhs,                   \fI(until C++17)\fP
 
    std::basic_string<CharT, Traits, Alloc> &rhs );
    template< class CharT, class Traits, class Alloc >
 
-   void swap( std::basic_string<CharT, Traits, Alloc> &lhs,               \fI(since C++17)\fP
+   void swap( std::basic_string<CharT, Traits, Alloc> &lhs,                   \fI(since C++17)\fP
 
-   std::basic_string<CharT, Traits, Alloc> &rhs ) noexcept(/* see below
-   */);
+   std::basic_string<CharT, Traits, Alloc> &rhs ) noexcept(/* see below */);
 
-   Specializes the std::swap algorithm for std::basic_string. Swaps the contents of lhs
-   and rhs. Equivalent to lhs.swap(rhs).
+   Specializes the std::swap algorithm for std::basic_string. Swaps the contents of lhs and rhs. Equivalent to lhs.swap(rhs).
 
 .SH Parameters
 

@@ -1,26 +1,21 @@
-.TH std::ctype<CharT>::is,std::ctype<CharT>::do_is 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype<CharT>::is,std::ctype<CharT>::do_is 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype<CharT>::is,std::ctype<CharT>::do_is \- std::ctype<CharT>::is,std::ctype<CharT>::do_is
 
 .SH Synopsis
    Defined in header <locale>
-   public:                                                                         \fB(1)\fP
+   public:                                                                           \fB(1)\fP
    bool is(mask m, CharT c) const;
-   public:                                                                         \fB(2)\fP
+   public:                                                                           \fB(2)\fP
    const CharT* is(const CharT* low, const CharT* high, mask* vec) const;
-   protected:                                                                      \fB(3)\fP
+   protected:                                                                        \fB(3)\fP
    virtual bool do_is(mask m, CharT c) const;
-   protected:
-   virtual const CharT* do_is(const CharT* low, const CharT* high, mask* vec)      \fB(4)\fP
-   const;
+   protected:                                                                        \fB(4)\fP
+   virtual const CharT* do_is(const CharT* low, const CharT* high, mask* vec) const;
 
-   1,2) public member function, calls the protected virtual member function do_is of
-   the most derived class.
+   1,2) public member function, calls the protected virtual member function do_is of the most derived class.
    3) Checks if the character c is classified by the mask m
-   4) For every character in the character array [low, high), identifies the complete
-   classification mask (e.g. digit|xdigit|alnum|print|graph for the digit '0' in the
-   default locale), and stores the masks in the corresponding elements of the array
-   pointed to by vec
+   4) For every character in the character array [low, high), identifies the complete classification mask (e.g. digit|xdigit|alnum|print|graph for the digit '0' in the default locale), and stores the masks in the corresponding elements of the array pointed to by vec
 
 .SH Parameters
 
@@ -90,8 +85,7 @@ std::ctype<CharT>::is,std::ctype<CharT>::do_is \- std::ctype<CharT>::is,std::cty
 
 .SH See also
 
-            classifies a character or a character sequence, using the classification
-   is       table
+   is       classifies a character or a character sequence, using the classification table
             \fI(public member function of std::ctype<char>)\fP
    iswctype classifies a wide character according to the specified LC_CTYPE category
             \fI(function)\fP

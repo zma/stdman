@@ -1,15 +1,13 @@
-.TH std::basic_string<CharT,Traits,Allocator>::erase 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::erase 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::erase \- std::basic_string<CharT,Traits,Allocator>::erase
 
 .SH Synopsis
-   basic_string& erase( size_type index = 0,        \fB(1)\fP
-   size_type count = npos );
-   iterator erase( iterator position );                     \fI(until C++11)\fP
-   iterator erase( const_iterator position );               \fI(since C++11)\fP
-   iterator erase( iterator first, iterator last ); \fB(2)\fP                   \fI(until C++11)\fP
-   iterator erase( const_iterator first,                \fB(3)\fP               \fI(since C++11)\fP
-   const_iterator last );
+   basic_string& erase( size_type index = 0, size_type count = npos ); \fB(1)\fP
+   iterator erase( iterator position );                                        \fI(until C++11)\fP
+   iterator erase( const_iterator position );                          \fB(2)\fP     \fI(since C++11)\fP
+   iterator erase( iterator first, iterator last );                        \fB(3)\fP               \fI(until C++11)\fP
+   iterator erase( const_iterator first, const_iterator last );                              \fI(since C++11)\fP
 
    Removes specified characters from the string.
 
@@ -27,18 +25,15 @@ std::basic_string<CharT,Traits,Allocator>::erase \- std::basic_string<CharT,Trai
 .SH Return value
 
    1) *this
-   2) iterator pointing to the character immediately following the character erased, or
-   end() if no such character exists
-   3) iterator pointing to the character last pointed to before the erase, or end() if
-   no such character exists
+   2) iterator pointing to the character immediately following the character erased, or end() if no such character exists
+   3) iterator pointing to the character last pointed to before the erase, or end() if no such character exists
 
 .SH Exceptions
 
    1) std::out_of_range if index > size().
    2-3) \fI(none)\fP
 
-   In any case, if an exception is thrown for any reason, this function has no effect
-   \fI(strong exception guarantee)\fP.
+   In any case, if an exception is thrown for any reason, this function has no effect \fI(strong exception guarantee)\fP.
    \fI(since C++11)\fP
 
 .SH Example

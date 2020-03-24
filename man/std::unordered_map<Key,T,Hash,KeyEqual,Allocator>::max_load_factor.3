@@ -1,4 +1,4 @@
-.TH std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::max_load_factor 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::max_load_factor 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::max_load_factor \- std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::max_load_factor
 
@@ -6,9 +6,7 @@ std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::max_load_factor \- std::unord
    float max_load_factor() const;    \fB(1)\fP \fI(since C++11)\fP
    void max_load_factor( float ml ); \fB(2)\fP \fI(since C++11)\fP
 
-   Manages the maximum load factor (number of elements per bucket). The container
-   automatically increases the number of buckets if the load factor exceeds this
-   threshold.
+   Manages the maximum load factor (number of elements per bucket). The container automatically increases the number of buckets if the load factor exceeds this threshold.
 
    1) Returns current maximum load factor.
 

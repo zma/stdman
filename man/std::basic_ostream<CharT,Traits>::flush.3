@@ -1,4 +1,4 @@
-.TH std::basic_ostream<CharT,Traits>::flush 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ostream<CharT,Traits>::flush 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ostream<CharT,Traits>::flush \- std::basic_ostream<CharT,Traits>::flush
 
@@ -9,9 +9,7 @@ std::basic_ostream<CharT,Traits>::flush \- std::basic_ostream<CharT,Traits>::flu
 
    If rdbuf() is a null pointer, does nothing
 
-   Otherwise, behaves as an UnformattedOutputFunction \fI(since C++11)\fP. After constructing
-   and checking the sentry object, calls rdbuf()->pubsync(). If the call returns -1,
-   calls setstate(badbit).
+   Otherwise, behaves as an UnformattedOutputFunction \fI(since C++11)\fP. After constructing and checking the sentry object, calls rdbuf()->pubsync(). If the call returns -1, calls setstate(badbit).
 
 .SH Parameters
 

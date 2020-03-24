@@ -1,19 +1,15 @@
-.TH std::thread::join 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::thread::join 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::thread::join \- std::thread::join
 
 .SH Synopsis
    void join();  \fI(since C++11)\fP
 
-   Blocks the current thread until the thread identified by *this finishes its
-   execution.
+   Blocks the current thread until the thread identified by *this finishes its execution.
 
-   The completion of the thread identified by *this synchronizes with the corresponding
-   successful return from join().
+   The completion of the thread identified by *this synchronizes with the corresponding successful return from join().
 
-   No synchronization is performed on *this itself. Concurrently calling join() on the
-   same std::thread object from multiple threads constitutes a data race that results
-   in undefined behavior.
+   No synchronization is performed on *this itself. Concurrently calling join() on the same std::thread object from multiple threads constitutes a data race that results in undefined behavior.
 
 .SH Parameters
 
@@ -33,8 +29,7 @@ std::thread::join \- std::thread::join
 
 .SH Error Conditions
 
-     * resource_deadlock_would_occur if this->get_id() == std::this_thread::get_id()
-       \fI(deadlock detected)\fP
+     * resource_deadlock_would_occur if this->get_id() == std::this_thread::get_id() \fI(deadlock detected)\fP
      * no_such_process if the thread is not valid
      * invalid_argument if joinable() is false
 
@@ -85,12 +80,11 @@ std::thread::join \- std::thread::join
 
      * C++11 standard (ISO/IEC 14882:2011):
 
-     * 30.3.1.5 thread members [thread.thread.member]
+              * 30.3.1.5 thread members [thread.thread.member]
 
 .SH See also
 
    detach   permits the thread to execute independently from the thread handle
             \fI(public member function)\fP
-            checks whether the thread is joinable, i.e. potentially running in parallel
-   joinable context
+   joinable checks whether the thread is joinable, i.e. potentially running in parallel context
             \fI(public member function)\fP

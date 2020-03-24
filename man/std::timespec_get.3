@@ -1,4 +1,4 @@
-.TH std::timespec_get 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::timespec_get 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::timespec_get \- std::timespec_get
 
@@ -7,19 +7,15 @@ std::timespec_get \- std::timespec_get
    int timespec_get( std::timespec* ts, int base)  \fI(since C++17)\fP
    #define TIME_UTC /* implementation-defined */   \fI(since C++17)\fP
 
-   1) Modifies the std::timespec object pointed to by ts to hold the current calendar
-   time in the time base base.
+   1) Modifies the std::timespec object pointed to by ts to hold the current calendar time in the time base base.
    2) Expands to a value suitable for use as the base argument of std::timespec_get
 
-   Other macro constants beginning with TIME_ may be provided by the implementation to
-   indicate additional time bases
+   Other macro constants beginning with TIME_ may be provided by the implementation to indicate additional time bases
 
    If base is TIME_UTC, then
 
-     * ts->tv_sec is set to the number of seconds since an implementation defined
-       epoch, truncated to a whole value
-     * ts->tv_nsec member is set to the integral number of nanoseconds, rounded to the
-       resolution of the system clock
+     * ts->tv_sec is set to the number of seconds since an implementation defined epoch, truncated to a whole value
+     * ts->tv_nsec member is set to the integral number of nanoseconds, rounded to the resolution of the system clock
 
 .SH Parameters
 
@@ -32,8 +28,7 @@ std::timespec_get \- std::timespec_get
 
 .SH Notes
 
-   The POSIX function clock_gettime(CLOCK_REALTIME, ts) may also be used to populate a
-   std::timespec with the time since the Epoch.
+   The POSIX function clock_gettime(CLOCK_REALTIME, ts) may also be used to populate a std::timespec with the time since the Epoch.
 
 .SH Example
 

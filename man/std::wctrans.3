@@ -1,4 +1,4 @@
-.TH std::wctrans 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wctrans 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wctrans \- std::wctrans
 
@@ -6,9 +6,7 @@ std::wctrans \- std::wctrans
    Defined in header <cwctype>
    std::wctrans_t wctrans( const char* str );
 
-   Constructs a value of type std::wctrans_t that describes a LC_CTYPE category of wide
-   character mapping. It may be one of the standard mappings, or a locale-specific
-   mapping, such as "tojhira" or "tojkana".
+   Constructs a value of type std::wctrans_t that describes a LC_CTYPE category of wide character mapping. It may be one of the standard mappings, or a locale-specific mapping, such as "tojhira" or "tojkana".
 
 .SH Parameters
 
@@ -22,12 +20,9 @@ std::wctrans \- std::wctrans
 
 .SH Return value
 
-   std::wctrans_t object suitable for use with std::towctrans to map wide characters
-   according to the named mapping of the current C locale or zero if str does not name
-   a mapping supported by the current C locale.
+   std::wctrans_t object suitable for use with std::towctrans to map wide characters according to the named mapping of the current C locale or zero if str does not name a mapping supported by the current C locale.
 
 .SH See also
 
-             performs character mapping according to the specified LC_CTYPE mapping
-   towctrans category
+   towctrans performs character mapping according to the specified LC_CTYPE mapping category
              \fI(function)\fP

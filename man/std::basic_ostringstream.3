@@ -1,4 +1,4 @@
-.TH std::basic_ostringstream 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ostringstream 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ostringstream \- std::basic_ostringstream
 
@@ -18,15 +18,11 @@ std::basic_ostringstream \- std::basic_ostringstream
 
    > class basic_ostringstream;
 
-   The class template std::basic_ostringstream implements output operations on memory
-   (std::basic_string) based streams. It essentially wraps a raw string device
-   implementation (std::basic_stringbuf) into a higher-level interface
-   (std::basic_ostream). The complete interface to unique std::basic_stringbuf members
-   is provided.
+   The class template std::basic_ostringstream implements output operations on memory (std::basic_string) based streams. It essentially wraps a raw string device implementation (std::basic_stringbuf) into a higher-level interface (std::basic_ostream). The complete interface to unique std::basic_stringbuf members is provided.
 
    std-basic ostringstream-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
    Two specializations for common character types are also defined:
 
@@ -164,14 +160,11 @@ Inherited from std::ios_base
    getloc            returns current locale
                      \fI(public member function of std::ios_base)\fP
 .SH Internal extensible array
-   xalloc            returns a program-wide unique integer that is safe to use as index
-   \fB[static]\fP          to pword() and iword()
-                     \fI(public static member function of std::ios_base)\fP
-                     resizes the private storage if necessary and access to the long
-   iword             element at the given index
+   xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
+   \fB[static]\fP          \fI(public static member function of std::ios_base)\fP
+   iword             resizes the private storage if necessary and access to the long element at the given index
                      \fI(public member function of std::ios_base)\fP
-                     resizes the private storage if necessary and access to the void*
-   pword             element at the given index
+   pword             resizes the private storage if necessary and access to the void* element at the given index
                      \fI(public member function of std::ios_base)\fP
 .SH Miscellaneous
    register_callback registers event callback function
@@ -208,35 +201,21 @@ Inherited from std::ios_base
                   oct         use octal base for integer I/O: see std::oct
                   hex         use hexadecimal base for integer I/O: see std::hex
                   basefield   dec|oct|hex. Useful for masking operations
-                  left        left adjustment (adds fill characters to the right): see
-                              std::left
-                  right       right adjustment (adds fill characters to the left): see
-                              std::right
-                  internal    internal adjustment (adds fill characters to the internal
-                              designated point): see std::internal
-                  adjustfield left|right|internal. Useful for masking operations
-                              generate floating point types using scientific notation,
-                  scientific  or hex notation if combined with fixed: see
-                              std::scientific
-   fmtflags       fixed       generate floating point types using fixed notation, or
-                              hex notation if combined with scientific: see std::fixed
+                  left        left adjustment (adds fill characters to the right): see std::left
+                  right       right adjustment (adds fill characters to the left): see std::right
+                  internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
+   fmtflags       adjustfield left|right|internal. Useful for masking operations
+                  scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
+                  fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
                   floatfield  scientific|fixed. Useful for masking operations
-                  boolalpha   insert and extract bool type in alphanumeric format: see
-                              std::boolalpha
-                              generate a prefix indicating the numeric base for integer
-                  showbase    output, require the currency indicator in monetary I/O:
-                              see std::showbase
-                  showpoint   generate a decimal-point character unconditionally for
-                              floating-point number output: see std::showpoint
-                  showpos     generate a + character for non-negative numeric output:
-                              see std::showpos
-                  skipws      skip leading whitespace before certain input operations:
-                              see std::skipws
-                  unitbuf     flush the output after each output operation: see
-                              std::unitbuf
-                              replace certain lowercase letters with their uppercase
-                  uppercase   equivalents in certain output operations: see
-                              std::uppercase
+                  boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
+                  showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
+                  showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
+                  showpos     generate a + character for non-negative numeric output: see std::showpos
+                  skipws      skip leading whitespace before certain input operations: see std::skipws
+                  unitbuf     flush the output after each output operation: see std::unitbuf
+                  uppercase   replace certain lowercase letters with their uppercase
+                              equivalents in certain output operations: see std::uppercase
 
                   \fI(typedef)\fP
                   state of the stream type
@@ -246,8 +225,7 @@ Inherited from std::ios_base
                   Constant Explanation
    iostate        goodbit  no error
                   badbit   irrecoverable stream error
-                  failbit  input/output operation failed (formatting or extraction
-                           error)
+                  failbit  input/output operation failed (formatting or extraction error)
                   eofbit   associated input sequence has reached end-of-file
 
                   \fI(typedef)\fP

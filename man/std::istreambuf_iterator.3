@@ -1,4 +1,4 @@
-.TH std::istreambuf_iterator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::istreambuf_iterator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::istreambuf_iterator \- std::istreambuf_iterator
 
@@ -6,26 +6,20 @@ std::istreambuf_iterator \- std::istreambuf_iterator
    Defined in header <iterator>
    template< class CharT, class Traits = std::char_traits<CharT> >
 
-   class istreambuf_iterator : public std::iterator<
-   std::input_iterator_tag,
-   CharT,                                                                 \fI(until C++17)\fP
+   class istreambuf_iterator : public std::iterator< std::input_iterator_tag,
+   CharT,                                                                      \fI(until C++17)\fP
    typename Traits::off_type,
    /* unspecified, usually CharT* */,
 
    CharT >
-   template< class CharT, class Traits = std::char_traits<CharT> >        \fI(since C++17)\fP
+   template< class CharT, class Traits = std::char_traits<CharT> >             \fI(since C++17)\fP
    class istreambuf_iterator;
 
-   std::istreambuf_iterator is a single-pass input iterator that reads successive
-   characters from the std::basic_streambuf object for which it was constructed.
+   std::istreambuf_iterator is a single-pass input iterator that reads successive characters from the std::basic_streambuf object for which it was constructed.
 
-   The default-constructed std::istreambuf_iterator is known as the end-of-stream
-   iterator. When a valid std::istreambuf_iterator reaches the end of the underlying
-   stream, it becomes equal to the end-of-stream iterator. Dereferencing or
-   incrementing it further invokes undefined behavior.
+   The default-constructed std::istreambuf_iterator is known as the end-of-stream iterator. When a valid std::istreambuf_iterator reaches the end of the underlying stream, it becomes equal to the end-of-stream iterator. Dereferencing or incrementing it further invokes undefined behavior.
 
-   std::istreambuf_iterator has a trivial copy constructor, a constexpr default
-   constructor, and a trivial destructor.
+   std::istreambuf_iterator has a trivial copy constructor, a constexpr default constructor, and a trivial destructor.
 
 .SH Member types
 
@@ -35,12 +29,9 @@ std::istreambuf_iterator \- std::istreambuf_iterator
    int_type       typename traits::int_type
    streambuf_type std::basic_streambuf<CharT, Traits>
    istream_type   std::basic_istream<CharT, Traits>
-                  Implementation defined class type. The name proxy is for exposition
-                  only.
-   /* proxy */    A proxy object holds a char_type character and a streambuf_type*
-                  pointer.
-                  Deferencing a proxy object with operator* yields the stored
-                  character.
+                  Implementation defined class type. The name proxy is for exposition only.
+   /* proxy */    A proxy object holds a char_type character and a streambuf_type* pointer.
+                  Deferencing a proxy object with operator* yields the stored character.
 
 .SH Member functions
 
@@ -49,13 +40,11 @@ std::istreambuf_iterator \- std::istreambuf_iterator
    destructor                 destructs an istreambuf_iterator
    (implicitly declared)      \fI(public member function)\fP
    operator*                  obtains a copy of the current character
-   operator->                 accesses a member of the current character, if CharT has
-   \fI(since C++11)\fP\fI(until C++17)\fP members
-                              \fI(public member function)\fP
+   operator->                 accesses a member of the current character, if CharT has members
+   \fI(since C++11)\fP\fI(until C++17)\fP \fI(public member function)\fP
    operator++                 advances the iterator
    operator++(int)            \fI(public member function)\fP
-                              tests if both istreambuf_iterators are end-of-stream or
-   equal                      if both are valid
+   equal                      tests if both istreambuf_iterators are end-of-stream or if both are valid
                               \fI(public member function)\fP
 
 .SH Non-member functions
@@ -72,9 +61,7 @@ std::istreambuf_iterator \- std::istreambuf_iterator
    reference         CharT
    iterator_category std::input_iterator_tag
 
-   These member types are required to be obtained by inheriting from
-   std::iterator<std::input_iterator_tag, CharT, Traits::off_type, /*     \fI(until C++17)\fP
-   unspecified, usually CharT* */, CharT>.
+   These member types are required to be obtained by inheriting from std::iterator<std::input_iterator_tag, CharT, Traits::off_type, /* unspecified, usually CharT* */, CharT>. \fI(until C++17)\fP
 
 .SH Example
 

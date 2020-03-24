@@ -1,4 +1,4 @@
-.TH std::towctrans 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::towctrans 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::towctrans \- std::towctrans
 
@@ -6,11 +6,9 @@ std::towctrans \- std::towctrans
    Defined in header <cwctype>
    std::wint_t towctrans( std::wint_t wc, std::wctrans_t desc );
 
-   Maps the wide character wc using the current C locale's LC_CTYPE mapping category
-   identified by desc.
+   Maps the wide character wc using the current C locale's LC_CTYPE mapping category identified by desc.
 
-   If the value of ch is neither representable as a wchar_t nor equal to the value of
-   the macro WEOF, the behavior is undefined.
+   If the value of ch is neither representable as a wchar_t nor equal to the value of the macro WEOF, the behavior is undefined.
 
 .SH Parameters
 
@@ -19,8 +17,7 @@ std::towctrans \- std::towctrans
 
 .SH Return value
 
-   The mapped value of ch using the mapping identified by desc in LC_CTYPE facet of the
-   current C locale.
+   The mapped value of ch using the mapping identified by desc in LC_CTYPE facet of the current C locale.
 
 .SH Example
 

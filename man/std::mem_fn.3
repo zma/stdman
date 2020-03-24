@@ -1,4 +1,4 @@
-.TH std::mem_fn 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::mem_fn 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::mem_fn \- std::mem_fn
 
@@ -9,9 +9,7 @@ std::mem_fn \- std::mem_fn
    template< class M, class T >                 \fI(since C++17)\fP
    /*unspecified*/ mem_fn(M T::* pm) noexcept;
 
-   Function template std::mem_fn generates wrapper objects for pointers to members,
-   which can store, copy, and invoke a pointer to member. Both references and pointers
-   (including smart pointers) to an object can be used when invoking a std::mem_fn.
+   Function template std::mem_fn generates wrapper objects for pointers to members, which can store, copy, and invoke a pointer to member. Both references and pointers (including smart pointers) to an object can be used when invoking a std::mem_fn.
 
 .SH Parameters
 
@@ -19,37 +17,24 @@ std::mem_fn \- std::mem_fn
 
 .SH Return value
 
-   std::mem_fn returns a call wrapper of unspecified type that has the following
-   members:
+   std::mem_fn returns a call wrapper of unspecified type that has the following members:
 
 std::mem_fn Return type
 
 .SH Member types
 
    type                                      definition
-                                             the return type of pm if pm
-   result_type(deprecated in C++17)          is a pointer to member
-                                             function, not defined for
-                                             pointer to member object
-                                             T*, possibly cv-qualified,   \fI(until C++20)\fP
-   argument_type(deprecated in C++17)        if pm is a pointer to member
-                                             function taking no arguments
-                                             T* if pm is a pointer to
-   first_argument_type(deprecated in C++17)  member function taking one
-                                             argument
-                                             T1 if pm is a pointer to
-   second_argument_type(deprecated in C++17) member function taking one
-                                             argument of type T1
+   result_type(deprecated in C++17)          the return type of pm if pm is a pointer to member function, not defined for pointer to member object \fI(until C++20)\fP
+   argument_type(deprecated in C++17)        T*, possibly cv-qualified, if pm is a pointer to member function taking no arguments
+   first_argument_type(deprecated in C++17)  T* if pm is a pointer to member function taking one argument
+   second_argument_type(deprecated in C++17) T1 if pm is a pointer to member function taking one argument of type T1
 
 .SH Member function
 
    template<class... Args>
    /* see below */ operator()(Args&&... args);
 
-   Let fn be the call wrapper returned by a call to std::mem_fn with a pointer to
-   member pm. Then the expression fn(t, a2, ..., aN) is equivalent to INVOKE(pm, t, a2,
-   ..., aN), where INVOKE is the operation defined in Callable. (Thus, the return type
-   of operator() is std::result_of<decltype(pm)(Args&&...)>::type.)
+   Let fn be the call wrapper returned by a call to std::mem_fn with a pointer to member pm. Then the expression fn(t, a2, ..., aN) is equivalent to INVOKE(pm, t, a2, ..., aN), where INVOKE is the operation defined in Callable. (Thus, the return type of operator() is std::result_of<decltype(pm)(Args&&...)>::type.)
 
    Each argument in args is perfectly forwarded, as if by std::forward<Args>(args)....
 
@@ -94,8 +79,7 @@ std::mem_fn Return type
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
       DR    Applied to     Behavior as published      Correct behavior
    LWG 2048 C++11      unnecessary overloads provided removed

@@ -1,4 +1,4 @@
-.TH std::experimental::latch::~latch 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::latch::~latch 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::latch::~latch \- std::experimental::latch::~latch
 
@@ -9,11 +9,8 @@ std::experimental::latch::~latch \- std::experimental::latch::~latch
 
    The behavior is undefined if a thread is blocked at the synchronization point.
 
-   The destructor may be called even if not all threads have returned from wait() or
-   count_down_and_wait(), provided the internal counter must equal zero.
+   The destructor may be called even if not all threads have returned from wait() or count_down_and_wait(), provided the internal counter must equal zero.
 
-   The destructor may block until all threads have returned from the blocking
-   functions.
+   The destructor may block until all threads have returned from the blocking functions.
 
-   No thread is allowed to block on this latch after one thread has invoked the
-   destructor.
+   No thread is allowed to block on this latch after one thread has invoked the destructor.

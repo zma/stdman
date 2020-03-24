@@ -1,4 +1,4 @@
-.TH std::insert_iterator<Container>::operator++ 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::insert_iterator<Container>::operator++ 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::insert_iterator<Container>::operator++ \- std::insert_iterator<Container>::operator++
 
@@ -8,9 +8,7 @@ std::insert_iterator<Container>::operator++ \- std::insert_iterator<Container>::
    insert_iterator& operator++( int );            \fI(until C++20)\fP
    constexpr insert_iterator& operator++( int );  \fI(since C++20)\fP
 
-   Does nothing. These operator overloads are provided to satisfy the requirements of
-   LegacyOutputIterator. They make it possible for the expressions *iter++=value and
-   *++iter=value to be used to output (insert) a value into the underlying container.
+   Does nothing. These operator overloads are provided to satisfy the requirements of LegacyOutputIterator. They make it possible for the expressions *iter++=value and *++iter=value to be used to output (insert) a value into the underlying container.
 
 .SH Parameters
 

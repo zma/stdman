@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::radix 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::radix 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::radix \- std::numeric_limits<T>::radix
 
@@ -6,10 +6,7 @@ std::numeric_limits<T>::radix \- std::numeric_limits<T>::radix
    static const int radix;      \fI(until C++11)\fP
    static constexpr int radix;  \fI(since C++11)\fP
 
-   The value of std::numeric_limits<T>::radix is the base of the number system used in
-   the representation of the type. It is 2 for all binary numeric types, but it may be,
-   for example, 10 for IEEE 754 decimal floating-point types or for third-party
-   binary-coded decimal integers. This constant is meaningful for all specializations.
+   The value of std::numeric_limits<T>::radix is the base of the number system used in the representation of the type. It is 2 for all binary numeric types, but it may be, for example, 10 for IEEE 754 decimal floating-point types or for third-party binary-coded decimal integers. This constant is meaningful for all specializations.
 
 .SH Standard specializations
 
@@ -39,9 +36,7 @@ std::numeric_limits<T>::radix \- std::numeric_limits<T>::radix
 
    digits       number of radix digits that can be represented without change
    \fB[static]\fP     \fI(public static member constant)\fP
-   min_exponent one more than the smallest negative power of the radix that is a valid
-   \fB[static]\fP     normalized floating-point value
-                \fI(public static member constant)\fP
-   max_exponent one more than the largest integer power of the radix that is a valid
-   \fB[static]\fP     finite floating-point value
-                \fI(public static member constant)\fP
+   min_exponent one more than the smallest negative power of the radix that is a valid normalized floating-point value
+   \fB[static]\fP     \fI(public static member constant)\fP
+   max_exponent one more than the largest integer power of the radix that is a valid finite floating-point value
+   \fB[static]\fP     \fI(public static member constant)\fP

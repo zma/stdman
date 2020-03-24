@@ -1,53 +1,40 @@
-.TH std::experimental::ranges::count,std::experimental::ranges::count_if 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::count,std::experimental::ranges::count_if 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::count,std::experimental::ranges::count_if \- std::experimental::ranges::count,std::experimental::ranges::count_if
 
 .SH Synopsis
    Defined in header <experimental/ranges/algorithm>
-   template< InputIterator I, Sentinel<I> S, class T, class Proj =
-   ranges::identity >
+   template< InputIterator I, Sentinel<I> S, class T, class Proj = ranges::identity >
 
-   requires IndirectRelation<ranges::equal_to<>, projected<I, Proj>,    \fB(1)\fP (ranges TS)
-   const T*>
+   requires IndirectRelation<ranges::equal_to<>, projected<I, Proj>, const T*>              \fB(1)\fP (ranges TS)
 
-   ranges::difference_type_t<I> count(I first, S last, const T& value,
-   Proj proj = Proj{});
+   ranges::difference_type_t<I> count(I first, S last, const T& value, Proj proj = Proj{});
    template< InputRange R, class T, class Proj = ranges::identity >
 
    requires IndirectRelation<ranges::equal_to<>,
-   projected<ranges::iterator_t<R>, Proj>, const T*>                    \fB(2)\fP (ranges TS)
+   projected<ranges::iterator_t<R>, Proj>, const T*>                                        \fB(2)\fP (ranges TS)
    ranges::difference_type_t<ranges::iterator_t<R>>
 
    count(R&& r, const T& value, Proj proj = Proj{});
-   template< InputIterator I, Sentinel<I> S, class Proj =
-   ranges::identity,
+   template< InputIterator I, Sentinel<I> S, class Proj = ranges::identity,
 
-   IndirectUnaryPredicate<projected<I, Proj>> Pred >                    \fB(3)\fP (ranges TS)
+   IndirectUnaryPredicate<projected<I, Proj>> Pred >                                        \fB(3)\fP (ranges TS)
 
-   ranges::difference_type_t<I> count_if(I first, S last, Pred pred,
-   Proj proj = Proj{});
+   ranges::difference_type_t<I> count_if(I first, S last, Pred pred, Proj proj = Proj{});
    template< InputRange R, class Proj = ranges::identity,
 
-   IndirectUnaryPredicate<projected<ranges::iterator_t<R>, Proj>> Pred
-   >                                                                    \fB(4)\fP (ranges TS)
+   IndirectUnaryPredicate<projected<ranges::iterator_t<R>, Proj>> Pred >                    \fB(4)\fP (ranges TS)
    ranges::difference_type_t<ranges::iterator_t<R>>
 
    count_if(R&& r, Pred pred, Proj proj = Proj{});
 
-   Returns the number of elements in the range [first, last) satisfying specific
-   criteria.
+   Returns the number of elements in the range [first, last) satisfying specific criteria.
 
-   1) counts the elements whose projected values are equal to value (i.e.,
-   ranges::invoke(proj, *i) == value).
-   3) counts the elements whose projected values satisfy the predicate pred (i.e.,
-   ranges::invoke(pred, ranges::invoke(proj, *i)) != false).
-   2,4) Same as (1,3), but uses r as the source range, as if using ranges::begin(r) as
-   first and ranges::end(r) as last.
+   1) counts the elements whose projected values are equal to value (i.e., ranges::invoke(proj, *i) == value).
+   3) counts the elements whose projected values satisfy the predicate pred (i.e., ranges::invoke(pred, ranges::invoke(proj, *i)) != false).
+   2,4) Same as (1,3), but uses r as the source range, as if using ranges::begin(r) as first and ranges::end(r) as last.
 
-   Notwithstanding the declarations depicted above, the actual number and order of
-   template parameters for algorithm declarations is unspecified. Thus, if explicit
-   template arguments are used when calling an algorithm, the program is probably
-   non-portable.
+   Notwithstanding the declarations depicted above, the actual number and order of template parameters for algorithm declarations is unspecified. Thus, if explicit template arguments are used when calling an algorithm, the program is probably non-portable.
 
 .SH Parameters
 
@@ -63,13 +50,11 @@ std::experimental::ranges::count,std::experimental::ranges::count_if \- std::exp
 
 .SH Complexity
 
-   exactly last - first comparisons / applications of the predicate, and the same
-   number of applications of the projection.
+   exactly last - first comparisons / applications of the predicate, and the same number of applications of the projection.
 
 .SH Notes
 
-   For the number of elements in the range [first, last) without any additional
-   criteria, see ranges::distance.
+   For the number of elements in the range [first, last) without any additional criteria, see ranges::distance.
 
 .SH Possible implementation
 
@@ -109,6 +94,5 @@ std::experimental::ranges::count,std::experimental::ranges::count_if \- std::exp
 
    count    returns the number of elements satisfying specific criteria
    count_if \fI(function template)\fP
-            returns the distance between an iterator and a sentinel, or between the
-   distance beginning and the end of a range
+   distance returns the distance between an iterator and a sentinel, or between the beginning and the end of a range
             \fI(function template)\fP

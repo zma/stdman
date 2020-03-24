@@ -1,4 +1,4 @@
-.TH std::generate_canonical 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::generate_canonical 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::generate_canonical \- std::generate_canonical
 
@@ -9,8 +9,7 @@ std::generate_canonical \- std::generate_canonical
 
    Generates a random floating point number in range [0, 1).
 
-   To generate enough entropy, generate_canonical() will call g() exactly k times,
-   where \\(k = max(1, \\lceil \\frac{b}{log_2 R} \\rceil)\\)k = max(1, ⌈ b / log
+   To generate enough entropy, generate_canonical() will call g() exactly k times, where \\(k = max(1, \\lceil \\frac{b}{log_2 R} \\rceil)\\)k = max(1, ⌈ b / log
    2 R ⌉) and
 
      * b = std::min<std::size_t>(bits, std::numeric_limits<RealType>::digits)
@@ -30,13 +29,11 @@ std::generate_canonical \- std::generate_canonical
 
 .SH Notes
 
-   Some existing implementations have a bug where they may occasionally return 1.0 if
-   RealType is float GCC #63176 LLVM #18767. This is LWG issue 2524
+   Some existing implementations have a bug where they may occasionally return 1.0 if RealType is float GCC #63176 LLVM #18767. This is LWG issue 2524
 
 .SH Example
 
-   produce random numbers with 10 bits of randomness: this may produce only k*R
-   distinct values
+   produce random numbers with 10 bits of randomness: this may produce only k*R distinct values
 
    
 // Run this code

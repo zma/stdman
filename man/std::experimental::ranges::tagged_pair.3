@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::tagged_pair 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::tagged_pair 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::tagged_pair \- std::experimental::ranges::tagged_pair
 
@@ -9,24 +9,17 @@ std::experimental::ranges::tagged_pair \- std::experimental::ranges::tagged_pair
 
    Convenience alias template for naming a ranges::tagged wrapping a std::pair.
 
-   A TaggedType is a function type S(T), where S is a TagSpecifier and T is the type of
-   the element.
+   A TaggedType is a function type S(T), where S is a TagSpecifier and T is the type of the element.
 
-   tagged_pair<S1(T1), S2(T2)> is an alias for ranges::tagged<std::pair<T1, T2>, S1,
-   S2>.
+   tagged_pair<S1(T1), S2(T2)> is an alias for ranges::tagged<std::pair<T1, T2>, S1, S2>.
 
 .SH Notes
 
-   Because a function type is used to "glue" the tag specifier and the corresponding
-   element type together, the usual parameter type adjustments apply. In particular,
-   top-level cv-qualifiers are removed and array types are adjusted to pointers:
-   tagged_pair<tag::in(const int* const), tag::out(int[])> is
-   ranges::tagged<std::pair<const int*, int*>, tag::in, tag::out>.
+   Because a function type is used to "glue" the tag specifier and the corresponding element type together, the usual parameter type adjustments apply. In particular, top-level cv-qualifiers are removed and array types are adjusted to pointers: tagged_pair<tag::in(const int* const), tag::out(int[])> is ranges::tagged<std::pair<const int*, int*>, tag::in, tag::out>.
 
 .SH See also
 
-                     specifies that a type represents a tag specifier and its element
-   TaggedType        type
+   TaggedType        specifies that a type represents a tag specifier and its element type
                      (concept)
    tagged            augument a tuple-like type with named accessors
                      \fI(class template)\fP

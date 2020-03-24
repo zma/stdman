@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::round_style 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::round_style 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::round_style \- std::numeric_limits<T>::round_style
 
@@ -6,9 +6,7 @@ std::numeric_limits<T>::round_style \- std::numeric_limits<T>::round_style
    static const std::float_round_style round_style;      \fI(until C++11)\fP
    static constexpr std::float_round_style round_style;  \fI(since C++11)\fP
 
-   The value of std::numeric_limits<T>::round_style identifies the rounding style used
-   by the floating-point type T whenever a value that is not one of the exactly
-   repesentable values of T is stored in an object of that type.
+   The value of std::numeric_limits<T>::round_style identifies the rounding style used by the floating-point type T whenever a value that is not one of the exactly repesentable values of T is stored in an object of that type.
 
 .SH Standard specializations
 
@@ -36,14 +34,11 @@ std::numeric_limits<T>::round_style \- std::numeric_limits<T>::round_style
 
 .SH Notes
 
-   These values are constants, and do not reflect the changes to the rounding made by
-   std::fesetround. The changed values may be obtained from FLT_ROUNDS or
-   std::fegetround.
+   These values are constants, and do not reflect the changes to the rounding made by std::fesetround. The changed values may be obtained from FLT_ROUNDS or std::fegetround.
 
 .SH Example
 
-   The decimal value 0.1 cannot be represented by a binary floating-point type. When
-   stored in an IEEE-745 double, it falls between 0x1.9999999999999*2-4
+   The decimal value 0.1 cannot be represented by a binary floating-point type. When stored in an IEEE-745 double, it falls between 0x1.9999999999999*2-4
    and 0x1.999999999999a*2-4
    . Rounding to nearest representable value results in 0x1.999999999999a*2-4
    .

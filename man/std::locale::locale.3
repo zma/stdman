@@ -1,43 +1,29 @@
-.TH std::locale::locale 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::locale::locale 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::locale::locale \- std::locale::locale
 
 .SH Synopsis
    Defined in header <locale>
-   locale() throw();                                        \fI(until C++11)\fP
-   locale() noexcept;                                       \fI(since C++11)\fP
-   locale( const locale& other ) throw();                                 \fI(until C++11)\fP
-   locale( const locale& other ) noexcept;                                \fI(since C++11)\fP
-   explicit locale( const char* std_name );                 \fB(3)\fP
-   explicit locale( const std::string& std_name );          \fB(4)\fP           \fI(since C++11)\fP
-   locale( const locale& other, const char*         \fB(1)\fP     \fB(5)\fP
-   std_name, category cat );                            \fB(2)\fP
-   locale( const locale& other, const std::string&          \fB(6)\fP           \fI(since C++11)\fP
-   std_name, category cat );
-   template< class Facet >                                  \fB(7)\fP
+   locale() throw();                                                                 \fI(until C++11)\fP
+   locale() noexcept;                                                                \fI(since C++11)\fP
+   locale( const locale& other ) throw();                                                          \fI(until C++11)\fP
+   locale( const locale& other ) noexcept;                                                         \fI(since C++11)\fP
+   explicit locale( const char* std_name );                                          \fB(3)\fP
+   explicit locale( const std::string& std_name );                           \fB(1)\fP     \fB(4)\fP           \fI(since C++11)\fP
+   locale( const locale& other, const char* std_name, category cat );            \fB(2)\fP \fB(5)\fP
+   locale( const locale& other, const std::string& std_name, category cat );         \fB(6)\fP           \fI(since C++11)\fP
+   template< class Facet >                                                           \fB(7)\fP
    locale( const locale& other, Facet* f );
-   locale( const locale& other, const locale& one,          \fB(8)\fP
-   category cat );
+   locale( const locale& other, const locale& one, category cat );                   \fB(8)\fP
 
    Contstructs a new locale object.
 
-   1) Default constructor. Constructs a copy of the global C++ locale, which is the
-   locale most recently used as the argument to std::locale::global or a copy of
-   std::locale::classic if no call to std::locale::global has been made.
+   1) Default constructor. Constructs a copy of the global C++ locale, which is the locale most recently used as the argument to std::locale::global or a copy of std::locale::classic if no call to std::locale::global has been made.
    2) Copy constructor. Constructs a copy of other.
-   3-4) Constructs a copy of the system locale with specified std_name (such as "C", or
-   "POSIX", or "en_US.UTF-8", or "English_US.1251"), if such locale is supported by the
-   operating system. The locale constructed in this manner has a name.
-   5-6) Constructs a copy of other except for all the facets identified by the cat
-   argument, which are copied from the system locale identified by its std_name. The
-   locale constructed in this manner has a name if and only if other has a name.
-   7) Constructs a copy of other except for the facet of type Facet (typically deduced
-   from the type of the argument) which is installed from the argument facet. If facet
-   is NULL, the constructed locale is a full copy of other. The locale constructed in
-   this manner has no name.
-   8) Constructs a copy of other except for all the facets identified by the cat
-   argument, which are copied from one. If both other and one have names, then the
-   resulting locale also has a name.
+   3-4) Constructs a copy of the system locale with specified std_name (such as "C", or "POSIX", or "en_US.UTF-8", or "English_US.1251"), if such locale is supported by the operating system. The locale constructed in this manner has a name.
+   5-6) Constructs a copy of other except for all the facets identified by the cat argument, which are copied from the system locale identified by its std_name. The locale constructed in this manner has a name if and only if other has a name.
+   7) Constructs a copy of other except for the facet of type Facet (typically deduced from the type of the argument) which is installed from the argument facet. If facet is NULL, the constructed locale is a full copy of other. The locale constructed in this manner has no name.
+   8) Constructs a copy of other except for all the facets identified by the cat argument, which are copied from one. If both other and one have names, then the resulting locale also has a name.
 
 .SH Parameters
 
@@ -49,16 +35,13 @@ std::locale::locale \- std::locale::locale
 
 .SH Exceptions
 
-   3,5) std::runtime_error if the operating system has no locale named std_name or if
-   std_name is NULL.
+   3,5) std::runtime_error if the operating system has no locale named std_name or if std_name is NULL.
    4,6) std::runtime_error if the operating system has no locale named std_name.
    7,8) \fI(none)\fP
 
 .SH Notes
 
-   Overload 7 is typically called with its second argument, f, obtained directly from a
-   new-expression: the locale is responsible for calling the matching delete from its
-   own destructor.
+   Overload 7 is typically called with its second argument, f, obtained directly from a new-expression: the locale is responsible for calling the matching delete from its own destructor.
 
 .SH Example
 

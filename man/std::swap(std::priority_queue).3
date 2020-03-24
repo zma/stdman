@@ -1,4 +1,4 @@
-.TH std::swap(std::priority_queue) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::swap(std::priority_queue) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::swap(std::priority_queue) \- std::swap(std::priority_queue)
 
@@ -14,12 +14,9 @@ std::swap(std::priority_queue) \- std::swap(std::priority_queue)
 
    priority_queue<T,Container,Compare>& rhs ) noexcept(/* see below */);
 
-   Specializes the std::swap algorithm for std::priority_queue. Swaps the contents of
-   lhs and rhs. Calls lhs.swap(rhs).
+   Specializes the std::swap algorithm for std::priority_queue. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
-   This overload only participates in overload resolution if
-   std::is_swappable<Container>::value and                                \fI(since C++17)\fP
-   std::is_swappable<Compare>::value are both true.
+   This overload only participates in overload resolution if std::is_swappable<Container>::value and std::is_swappable<Compare>::value are both true. \fI(since C++17)\fP
 
 .SH Parameters
 

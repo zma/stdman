@@ -1,22 +1,16 @@
-.TH std::piecewise_construct_t 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::piecewise_construct_t 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::piecewise_construct_t \- std::piecewise_construct_t
 
 .SH Synopsis
    Defined in header <utility>
-   struct piecewise_construct_t { };                                      \fI(since C++11)\fP
-                                                                          \fI(until C++17)\fP
-   struct piecewise_construct_t { explicit piecewise_construct_t() =      \fI(since C++17)\fP
-   default; };
+   struct piecewise_construct_t { };                                              \fI(since C++11)\fP
+                                                                                  \fI(until C++17)\fP
+   struct piecewise_construct_t { explicit piecewise_construct_t() = default; };  \fI(since C++17)\fP
 
-   std::piecewise_construct_t is an empty struct tag type used to disambiguate between
-   different functions that take two tuple arguments.
+   std::piecewise_construct_t is an empty struct tag type used to disambiguate between different functions that take two tuple arguments.
 
-   The overloads that do not use std::piecewise_construct_t assume that each tuple
-   argument becomes the element of a pair. The overloads that use
-   std::piecewise_construct_t assume that each tuple argument is used to construct,
-   piecewise, a new object of specified type, which will become the element of the
-   pair.
+   The overloads that do not use std::piecewise_construct_t assume that each tuple argument becomes the element of a pair. The overloads that use std::piecewise_construct_t assume that each tuple argument is used to construct, piecewise, a new object of specified type, which will become the element of the pair.
 
 .SH Example
 
@@ -54,8 +48,7 @@ std::piecewise_construct_t \- std::piecewise_construct_t
 
 .SH See also
 
-   piecewise_construct an object of type piecewise_construct_t used to disambiguate
-   \fI(C++11)\fP             functions for piecewise construction
-                       (constant)
+   piecewise_construct an object of type piecewise_construct_t used to disambiguate functions for piecewise construction
+   \fI(C++11)\fP             (constant)
    constructor         constructs new pair
                        \fI(public member function of std::pair<T1,T2>)\fP

@@ -1,10 +1,9 @@
-.TH std::enable_shared_from_this<T>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::enable_shared_from_this<T>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::enable_shared_from_this<T>::operator= \- std::enable_shared_from_this<T>::operator=
 
 .SH Synopsis
-   enable_shared_from_this<T>& operator=( const                           \fI(since C++11)\fP
-   enable_shared_from_this<T> &obj ) noexcept;
+   enable_shared_from_this<T>& operator=( const enable_shared_from_this<T> &obj ) noexcept;  \fI(since C++11)\fP
 
    Does nothing; returns *this.
 
@@ -22,8 +21,7 @@ std::enable_shared_from_this<T>::operator= \- std::enable_shared_from_this<T>::o
 
 .SH Example
 
-   Note: enable_shared_from_this::operator= is defined as protected in order to prevent
-   accidental slicing but allow derived classes to have default assignment operators.
+   Note: enable_shared_from_this::operator= is defined as protected in order to prevent accidental slicing but allow derived classes to have default assignment operators.
 
    
 // Run this code

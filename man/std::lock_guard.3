@@ -1,4 +1,4 @@
-.TH std::lock_guard 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::lock_guard 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::lock_guard \- std::lock_guard
 
@@ -7,19 +7,15 @@ std::lock_guard \- std::lock_guard
    template< class Mutex >
    class lock_guard;
 
-   The class lock_guard is a mutex wrapper that provides a convenient RAII-style
-   mechanism for owning a mutex for the duration of a scoped block.
+   The class lock_guard is a mutex wrapper that provides a convenient RAII-style mechanism for owning a mutex for the duration of a scoped block.
 
-   When a lock_guard object is created, it attempts to take ownership of the mutex it
-   is given. When control leaves the scope in which the lock_guard object was created,
-   the lock_guard is destructed and the mutex is released.
+   When a lock_guard object is created, it attempts to take ownership of the mutex it is given. When control leaves the scope in which the lock_guard object was created, the lock_guard is destructed and the mutex is released.
 
    The lock_guard class is non-copyable.
 
 .SH Template parameters
 
-   Mutex - the type of the mutex to lock. The type must meet the BasicLockable
-           requirements
+   Mutex - the type of the mutex to lock. The type must meet the BasicLockable requirements
 
 .SH Member types
 
@@ -80,12 +76,10 @@ std::lock_guard \- std::lock_guard
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to              Behavior as published              Correct behavior
-   LWG 2981 C++17      redundant deduction guide from                  removed
-                       lock_guard<Mutex> was provided
+      DR    Applied to                     Behavior as published                     Correct behavior
+   LWG 2981 C++17      redundant deduction guide from lock_guard<Mutex> was provided removed
 
 .SH See also
 

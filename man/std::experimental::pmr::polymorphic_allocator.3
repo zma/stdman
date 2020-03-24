@@ -1,4 +1,4 @@
-.TH std::experimental::pmr::polymorphic_allocator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::pmr::polymorphic_allocator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::pmr::polymorphic_allocator \- std::experimental::pmr::polymorphic_allocator
 
@@ -7,12 +7,7 @@ std::experimental::pmr::polymorphic_allocator \- std::experimental::pmr::polymor
    template< class T >                               (library fundamentals TS)
    class polymorphic_allocator;
 
-   The class template std::experimental::pmr::polymorphic_allocator is an Allocator
-   whose allocation behavior depends on the memory resource it is constructed with.
-   Thus, different instances of polymorphic_allocator can exhibit entirely different
-   allocation behavior. This runtime polymorphism allows objects using
-   polymorphic_allocator to behave as if they used different allocator types at run
-   time despite the identical static allocator type.
+   The class template std::experimental::pmr::polymorphic_allocator is an Allocator whose allocation behavior depends on the memory resource it is constructed with. Thus, different instances of polymorphic_allocator can exhibit entirely different allocation behavior. This runtime polymorphism allows objects using polymorphic_allocator to behave as if they used different allocator types at run time despite the identical static allocator type.
 
 .SH Member types
 
@@ -36,11 +31,9 @@ std::experimental::pmr::polymorphic_allocator \- std::experimental::pmr::polymor
                                          \fI(public member function)\fP
    destroy                               Destroys an object in allocated storage
                                          \fI(public member function)\fP
-                                         Create a new polymorphic_allocator for use by
-   select_on_container_copy_construction a container's copy constructor
+   select_on_container_copy_construction Create a new polymorphic_allocator for use by a container's copy constructor
                                          \fI(public member function)\fP
-                                         Returns a pointer to the underlying memory
-   resource                              resource
+   resource                              Returns a pointer to the underlying memory resource
                                          \fI(public member function)\fP
 
 .SH Non-member functions

@@ -1,21 +1,16 @@
-.TH std::shared_lock<Mutex>::try_lock_until 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_lock<Mutex>::try_lock_until 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_lock<Mutex>::try_lock_until \- std::shared_lock<Mutex>::try_lock_until
 
 .SH Synopsis
-   template< class Clock, class Duration >
-   bool try_lock_until( const std::chrono::time_point<Clock,Duration>&    \fI(since C++14)\fP
-   timeout_time );
+   template< class Clock, class Duration >                                              \fI(since C++14)\fP
+   bool try_lock_until( const std::chrono::time_point<Clock,Duration>& timeout_time );
 
-   Tries to lock the associated mutex in shared mode. Blocks until specified
-   timeout_time has been reached or the lock is acquired, whichever comes first. On
-   successful lock acquisition returns true, otherwise returns false. May block for
-   longer than until timeout_time has been reached.
+   Tries to lock the associated mutex in shared mode. Blocks until specified timeout_time has been reached or the lock is acquired, whichever comes first. On successful lock acquisition returns true, otherwise returns false. May block for longer than until timeout_time has been reached.
 
    Effectively calls mutex()->try_lock_shared_until(timeout_time)
 
-   std::system_error is thrown if there is no associated mutex or if the mutex is
-   already locked.
+   std::system_error is thrown if there is no associated mutex or if the mutex is already locked.
 
 .SH Parameters
 
@@ -29,11 +24,9 @@ std::shared_lock<Mutex>::try_lock_until \- std::shared_lock<Mutex>::try_lock_unt
 
      * Any exceptions thrown by mutex()->try_lock_shared_for(timeout_time)
 
-     * If there is no associated mutex, std::system_error with an error code of
-       std::errc::operation_not_permitted
+     * If there is no associated mutex, std::system_error with an error code of std::errc::operation_not_permitted
 
-     * If the mutex is already locked, std::system_error with an error code of
-       std::errc::resource_deadlock_would_occur
+     * If the mutex is already locked, std::system_error with an error code of std::errc::resource_deadlock_would_occur
 
 .SH Example
 
@@ -50,7 +43,5 @@ std::shared_lock<Mutex>::try_lock_until \- std::shared_lock<Mutex>::try_lock_unt
                   \fI(public member function)\fP
    unlock         unlocks the associated mutex
                   \fI(public member function)\fP
-                  tries to lock the associated TimedLockable mutex, returns if the
-   try_lock_until mutex has been unavailable until specified time point has been
-                  reached
+   try_lock_until tries to lock the associated TimedLockable mutex, returns if the mutex has been unavailable until specified time point has been reached
                   \fI(public member function of std::unique_lock<Mutex>)\fP

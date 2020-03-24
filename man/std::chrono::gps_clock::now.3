@@ -1,13 +1,11 @@
-.TH std::chrono::gps_clock::now 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::gps_clock::now 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::gps_clock::now \- std::chrono::gps_clock::now
 
 .SH Synopsis
    static std::chrono::time_point<std::chrono::gps_clock> now();  \fI(since C++20)\fP
 
-   Returns a time point representing the current point in time. The result is
-   calculated as if by std::chrono::gps_clock::from_utc(std::chrono::utc_clock::now()).
-   Implementations may use a more accurate value of GPS time.
+   Returns a time point representing the current point in time. The result is calculated as if by std::chrono::gps_clock::from_utc(std::chrono::utc_clock::now()). Implementations may use a more accurate value of GPS time.
 
 .SH Parameters
 

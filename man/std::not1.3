@@ -1,24 +1,18 @@
-.TH std::not1 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::not1 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::not1 \- std::not1
 
 .SH Synopsis
    Defined in header <functional>
-   template< class Predicate >                                    \fI(until C++14)\fP
+   template< class Predicate >                                          \fI(until C++14)\fP
    std::unary_negate<Predicate> not1(const Predicate& pred);
-   template< class Predicate >                                    \fI(since C++14)\fP
-   constexpr std::unary_negate<Predicate> not1(const Predicate&   (deprecated in C++17)
-   pred);                                                         (removed in C++20)
+   template< class Predicate >                                          \fI(since C++14)\fP
+   constexpr std::unary_negate<Predicate> not1(const Predicate& pred);  (deprecated in C++17)
+                                                                        (removed in C++20)
 
-   not1 is a helper function to create a function object that returns the complement of
-   the unary predicate function passed. The function object created is of type
-   std::unary_negate<Predicate>.
+   not1 is a helper function to create a function object that returns the complement of the unary predicate function passed. The function object created is of type std::unary_negate<Predicate>.
 
-   The unary predicate type must define a member type, argument_type, that is
-   convertible to the predicate's parameter type. The unary function objects obtained
-   from std::ref, std::cref, std::negate, std::logical_not, std::mem_fn, std::function,
-   std::hash, or from another call to std::not1 have this type defined, as are function
-   objects derived from the deprecated std::unary_function.
+   The unary predicate type must define a member type, argument_type, that is convertible to the predicate's parameter type. The unary function objects obtained from std::ref, std::cref, std::negate, std::logical_not, std::mem_fn, std::function, std::hash, or from another call to std::not1 have this type defined, as are function objects derived from the deprecated std::unary_function.
 
 .SH Parameters
 
@@ -26,8 +20,7 @@ std::not1 \- std::not1
 
 .SH Return value
 
-   std::not1 returns an object of type std::unary_negate<Predicate>, constructed with
-   pred.
+   std::not1 returns an object of type std::unary_negate<Predicate>, constructed with pred.
 
 .SH Exceptions
 
@@ -69,21 +62,19 @@ std::not1 \- std::not1
 
 .SH See also
 
-   not_fn                Creates a function object that returns the complement of the
-   \fI(C++17)\fP               result of the function object it holds
-                         \fI(function template)\fP
-   unary_negate          wrapper function object returning the complement of the unary
-   (deprecated in C++17) predicate it holds
-   (removed in C++20)    \fI(class template)\fP
-   function              wraps callable object of any type with specified function call
-   \fI(C++11)\fP               signature
-                         \fI(class template)\fP
+   not_fn                Creates a function object that returns the complement of the result of the function object it holds
+   \fI(C++17)\fP               \fI(function template)\fP
+   unary_negate          wrapper function object returning the complement of the unary predicate it holds
+   (deprecated in C++17) \fI(class template)\fP
+   (removed in C++20)
+   function              wraps callable object of any type with specified function call signature
+   \fI(C++11)\fP               \fI(class template)\fP
    not2                  constructs custom std::binary_negate object
    (deprecated in C++17) \fI(function template)\fP
    (removed in C++20)
-   ptr_fun               creates an adaptor-compatible function object wrapper from a
-   (deprecated in C++11) pointer to function
-   (removed in C++17)    \fI(function template)\fP
+   ptr_fun               creates an adaptor-compatible function object wrapper from a pointer to function
+   (deprecated in C++11) \fI(function template)\fP
+   (removed in C++17)
    unary_function        adaptor-compatible unary function base class
    (deprecated in C++11) \fI(class template)\fP
    (removed in C++17)

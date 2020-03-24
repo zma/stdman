@@ -1,4 +1,4 @@
-.TH std::cosh(std::complex) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::cosh(std::complex) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::cosh(std::complex) \- std::cosh(std::complex)
 
@@ -26,23 +26,16 @@ std::cosh(std::complex) \- std::cosh(std::complex)
      * std::cosh(std::conj(z)) == std::conj(std::cosh(z))
      * std::cosh(z) == std::cosh(-z)
      * If z is (+0,+0), the result is (1,+0)
-     * If z is (+0,+∞), the result is (NaN,±0) (the sign of the imaginary part is
-       unspecified) and FE_INVALID is raised
-     * If z is (+0,NaN), the result is (NaN,±0) (the sign of the imaginary part is
-       unspecified)
-     * If z is (x,+∞) (for any finite non-zero x), the result is (NaN,NaN) and
-       FE_INVALID is raised
-     * If z is (x,NaN) (for any finite non-zero x), the result is (NaN,NaN) and
-       FE_INVALID may be raised
+     * If z is (+0,+∞), the result is (NaN,±0) (the sign of the imaginary part is unspecified) and FE_INVALID is raised
+     * If z is (+0,NaN), the result is (NaN,±0) (the sign of the imaginary part is unspecified)
+     * If z is (x,+∞) (for any finite non-zero x), the result is (NaN,NaN) and FE_INVALID is raised
+     * If z is (x,NaN) (for any finite non-zero x), the result is (NaN,NaN) and FE_INVALID may be raised
      * If z is (+∞,+0), the result is (+∞,+0)
      * If z is (+∞,y) (for any finite non-zero y), the result is +∞cis(y)
-     * If z is (+∞,+∞), the result is (±∞,NaN) (the sign of the real part is
-       unspecified) and FE_INVALID is raised
+     * If z is (+∞,+∞), the result is (±∞,NaN) (the sign of the real part is unspecified) and FE_INVALID is raised
      * If z is (+∞,NaN), the result is (+∞,NaN)
-     * If z is (NaN,+0), the result is (NaN,±0) (the sign of the imaginary part is
-       unspecified)
-     * If z is (NaN,+y) (for any finite non-zero y), the result is (NaN,NaN) and
-       FE_INVALID may be raised
+     * If z is (NaN,+0), the result is (NaN,±0) (the sign of the imaginary part is unspecified)
+     * If z is (NaN,+y) (for any finite non-zero y), the result is (NaN,NaN) and FE_INVALID may be raised
      * If z is (NaN,NaN), the result is (NaN,NaN)
 
    where cis(y) is cos(y) + i sin(y)
@@ -55,8 +48,7 @@ std::cosh(std::complex) \- std::cosh(std::complex)
    +e-z
    2
 
-   Hyperbolic cosine is an entire function in the complex plane and has no branch cuts.
-   It is periodic with respect to the imaginary component, with period 2πi
+   Hyperbolic cosine is an entire function in the complex plane and has no branch cuts. It is periodic with respect to the imaginary component, with period 2πi
 
 .SH Examples
 

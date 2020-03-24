@@ -1,4 +1,4 @@
-.TH std::is_same 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_same 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_same \- std::is_same
 
@@ -7,11 +7,9 @@ std::is_same \- std::is_same
    template< class T, class U >     \fI(since C++11)\fP
    struct is_same;
 
-   If T and U name the same type (including const/volatile qualifications), provides
-   the member constant value equal to true. Otherwise value is false.
+   If T and U name the same type (including const/volatile qualifications), provides the member constant value equal to true. Otherwise value is false.
 
-   Commutativity is satisfied, i.e. for any two types T and U, is_same<T, U>::value ==
-   true if and only if is_same<U, T>::value == true.
+   Commutativity is satisfied, i.e. for any two types T and U, is_same<T, U>::value == true if and only if is_same<U, T>::value == true.
 
   Helper variable template
 

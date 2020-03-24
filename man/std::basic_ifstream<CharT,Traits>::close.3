@@ -1,4 +1,4 @@
-.TH std::basic_ifstream<CharT,Traits>::close 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ifstream<CharT,Traits>::close 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ifstream<CharT,Traits>::close \- std::basic_ifstream<CharT,Traits>::close
 
@@ -7,8 +7,7 @@ std::basic_ifstream<CharT,Traits>::close \- std::basic_ifstream<CharT,Traits>::c
 
    Closes the associated file.
 
-   Effectively calls rdbuf()->close(). If an error occurs during operation,
-   setstate(failbit) is called.
+   Effectively calls rdbuf()->close(). If an error occurs during operation, setstate(failbit) is called.
 
 .SH Parameters
 
@@ -20,8 +19,7 @@ std::basic_ifstream<CharT,Traits>::close \- std::basic_ifstream<CharT,Traits>::c
 
 .SH Notes
 
-   This function is called by the destructor of basic_ifstream when the stream object
-   goes out of scope and is not usually invoked directly.
+   This function is called by the destructor of basic_ifstream when the stream object goes out of scope and is not usually invoked directly.
 
 .SH Example
 

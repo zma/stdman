@@ -1,4 +1,4 @@
-.TH std::filesystem::absolute 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::absolute 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::absolute \- std::filesystem::absolute
 
@@ -7,9 +7,7 @@ std::filesystem::absolute \- std::filesystem::absolute
    path absolute(const std::filesystem::path& p);                       \fI(since C++17)\fP
    path absolute(const std::filesystem::path& p, std::error_code& ec);
 
-   Returns a path referencing the same file system location as p, for which
-   is_absolute() is true. The non-throwing overload returns default-constructed path if
-   an error occurs.
+   Returns a path referencing the same file system location as p, for which is_absolute() is true. The non-throwing overload returns default-constructed path if an error occurs.
 
 .SH Parameters
 
@@ -18,24 +16,17 @@ std::filesystem::absolute \- std::filesystem::absolute
 
 .SH Return value
 
-   Returns an absolute (although not necessarily canonical) pathname referencing the
-   same file as p
+   Returns an absolute (although not necessarily canonical) pathname referencing the same file as p
 
 .SH Exceptions
 
-   The overload that does not take a std::error_code& parameter throws filesystem_error
-   on underlying OS API errors, constructed with p as the first path argument and the
-   OS error code as the error code argument. The overload taking a std::error_code&
-   parameter sets it to the OS API error code if an OS API call fails, and executes
-   ec.clear() if no errors occur. Any overload not marked noexcept may throw
-   std::bad_alloc if memory allocation fails.
+   The overload that does not take a std::error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first path argument and the OS error code as the error code argument. The overload taking a std::error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. Any overload not marked noexcept may throw std::bad_alloc if memory allocation fails.
 
 .SH Notes
 
    Implementations are encouraged to not consider p not existing to be an error.
 
-   For POSIX-based operating systems, std::filesystem::absolute(p) is equivalent to
-   std::filesystem::current_path() / p
+   For POSIX-based operating systems, std::filesystem::absolute(p) is equivalent to std::filesystem::current_path() / p
 
    For Windows, absolute may be implemented as a call to GetFullPathNameW.
 

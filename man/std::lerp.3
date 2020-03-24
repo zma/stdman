@@ -1,22 +1,16 @@
-.TH std::lerp 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::lerp 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::lerp \- std::lerp
 
 .SH Synopsis
    Defined in header <cmath>
-   constexpr float lerp( float a, float b, float t );                 \fB(1)\fP \fI(since C++20)\fP
-   constexpr double lerp( double a, double b, double t );             \fB(2)\fP \fI(since C++20)\fP
-   constexpr long double lerp( long double a, long double b, long     \fB(3)\fP \fI(since C++20)\fP
-   double t );
-   constexpr Promoted lerp( Arithmetic1 a, Arithmetic2 b, Arithmetic3 \fB(4)\fP \fI(since C++20)\fP
-   t );
+   constexpr float lerp( float a, float b, float t );                         \fB(1)\fP \fI(since C++20)\fP
+   constexpr double lerp( double a, double b, double t );                     \fB(2)\fP \fI(since C++20)\fP
+   constexpr long double lerp( long double a, long double b, long double t ); \fB(3)\fP \fI(since C++20)\fP
+   constexpr Promoted lerp( Arithmetic1 a, Arithmetic2 b, Arithmetic3 t );    \fB(4)\fP \fI(since C++20)\fP
 
-   1-3) Computes a+t*(b−a), i.e. the linear interpolation between a and b for the
-   parameter t (or extrapolation, when t is outside the range [0,1]).
-   4) A set of overloads or a function template for all combinations of arguments of
-   arithmetic type not covered by 1-3). If any argument has integral type, it is cast
-   to double. If any other argument is long double, then the return type is long
-   double, otherwise it is double.
+   1-3) Computes a+t*(b−a), i.e. the linear interpolation between a and b for the parameter t (or extrapolation, when t is outside the range [0,1]).
+   4) A set of overloads or a function template for all combinations of arguments of arithmetic type not covered by 1-3). If any argument has integral type, it is cast to double. If any other argument is long double, then the return type is long double, otherwise it is double.
 
 .SH Parameters
 
@@ -34,9 +28,7 @@ std::lerp \- std::lerp
      * If isfinite(t) && a == b, the result is equal to a.
      * If isfinite(t) || (!isnan(t) && b-a != 0), the result is not NaN.
 
-   Let CMP(x,y) be 1 if x > y, -1 if x < y, and 0 otherwise. For any t1 and t2, the
-   product of CMP(lerp(a, b, t2), lerp(a, b, t1)), CMP(t2, t1), and CMP(b, a) is
-   non-negative. (That is, lerp is monotonic.)
+   Let CMP(x,y) be 1 if x > y, -1 if x < y, and 0 otherwise. For any t1 and t2, the product of CMP(lerp(a, b, t2), lerp(a, b, t1)), CMP(t2, t1), and CMP(b, a) is non-negative. (That is, lerp is monotonic.)
 
 .SH Examples
 

@@ -1,4 +1,4 @@
-.TH std::SignedIntegral 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::SignedIntegral 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::SignedIntegral \- std::SignedIntegral
 
@@ -7,13 +7,11 @@ std::SignedIntegral \- std::SignedIntegral
    template < class T >                                               \fI(since C++20)\fP
    concept SignedIntegral = std::Integral<T> && std::is_signed_v<T>;
 
-   The concept SignedIntegral<T> is satisfied if and only if T is an integral type and
-   std::is_signed_v<T> is true.
+   The concept SignedIntegral<T> is satisfied if and only if T is an integral type and std::is_signed_v<T> is true.
 
 .SH Notes
 
-   SignedIntegral<T> may be satisfied by a type that is not a signed integer type, for
-   example, char (on a system where char is signed).
+   SignedIntegral<T> may be satisfied by a type that is not a signed integer type, for example, char (on a system where char is signed).
 
 .SH See also
 

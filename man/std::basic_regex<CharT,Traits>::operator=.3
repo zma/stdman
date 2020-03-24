@@ -1,4 +1,4 @@
-.TH std::basic_regex<CharT,Traits>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_regex<CharT,Traits>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_regex<CharT,Traits>::operator= \- std::basic_regex<CharT,Traits>::operator=
 
@@ -13,13 +13,9 @@ std::basic_regex<CharT,Traits>::operator= \- std::basic_regex<CharT,Traits>::ope
 
    Assigns the contents.
 
-   1) Copy assignment operator. Assigns the contents of other. Equivalent to
-   assign(other);.
-   2) Move assignment operator. Assigns the contents of other using move semantics.
-   other is in valid, but unspecified state after the operation. Equivalent to
-   assign(other);.
-   3) Assigns a null-terminated character string pointed to by ptr. Equivalent to
-   assign(ptr);.
+   1) Copy assignment operator. Assigns the contents of other. Equivalent to assign(other);.
+   2) Move assignment operator. Assigns the contents of other using move semantics. other is in valid, but unspecified state after the operation. Equivalent to assign(other);.
+   3) Assigns a null-terminated character string pointed to by ptr. Equivalent to assign(ptr);.
    4) Assigns characters contained in initializer list il. Equivalent to assign(il);.
    5) Assigns the contents of the string p. Equivalent to assign(p);.
 
@@ -37,8 +33,7 @@ std::basic_regex<CharT,Traits>::operator= \- std::basic_regex<CharT,Traits>::ope
 .SH Exceptions
 
    1-2) \fI(none)\fP
-   3-5) std::regex_error if the supplied regular expression is not valid. The object is
-   not modified in that case.
+   3-5) std::regex_error if the supplied regular expression is not valid. The object is not modified in that case.
 
 .SH See also
 

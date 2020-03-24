@@ -1,4 +1,4 @@
-.TH std::tuple_cat 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tuple_cat 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tuple_cat \- std::tuple_cat
 
@@ -15,8 +15,7 @@ std::tuple_cat \- std::tuple_cat
 
 .SH Return value
 
-   A std::tuple object composed of all elements of all argument tuples constructed from
-   std::get<i>(std::forward<Ti>(arg)) for each individual element.
+   A std::tuple object composed of all elements of all argument tuples constructed from std::get<i>(std::forward<Ti>(arg)) for each individual element.
 
 .SH Example
 
@@ -71,8 +70,7 @@ std::tuple_cat \- std::tuple_cat
 
    make_tuple       creates a tuple object of the type defined by the argument types
                     \fI(function template)\fP
-                    creates a tuple of lvalue references or unpacks a tuple into
-   tie              individual objects
+   tie              creates a tuple of lvalue references or unpacks a tuple into individual objects
                     \fI(function template)\fP
    forward_as_tuple creates a tuple of rvalue references
                     \fI(function template)\fP

@@ -1,4 +1,4 @@
-.TH std::memcmp 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::memcmp 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::memcmp \- std::memcmp
 
@@ -6,13 +6,9 @@ std::memcmp \- std::memcmp
    Defined in header <cstring>
    int memcmp( const void* lhs, const void* rhs, std::size_t count );
 
-   Reinterprets the objects pointed to by lhs and rhs as arrays of unsigned char and
-   compares the first count characters of these arrays. The comparison is done
-   lexicographically.
+   Reinterprets the objects pointed to by lhs and rhs as arrays of unsigned char and compares the first count characters of these arrays. The comparison is done lexicographically.
 
-   The sign of the result is the sign of the difference between the values of the first
-   pair of bytes (both interpreted as unsigned char) that differ in the objects being
-   compared.
+   The sign of the result is the sign of the difference between the values of the first pair of bytes (both interpreted as unsigned char) that differ in the objects being compared.
 
 .SH Parameters
 
@@ -21,22 +17,15 @@ std::memcmp \- std::memcmp
 
 .SH Return value
 
-   Negative value if the first differing byte (reinterpreted as unsigned char) in lhs
-   is less than the corresponding byte in rhs.
+   Negative value if the first differing byte (reinterpreted as unsigned char) in lhs is less than the corresponding byte in rhs.
 
    0 if all count bytes of lhs and rhs are equal.
 
-   Positive value if the first differing byte in lhs is greater than the corresponding
-   byte in rhs.
+   Positive value if the first differing byte in lhs is greater than the corresponding byte in rhs.
 
 .SH Notes
 
-   This function reads object representations, not the object values, and is typically
-   only meaningful for trivially-copyable objects with no padding. For example,
-   memcmp() between two objects of type std::string or std::vector will not compare
-   their contents, and memcmp() between two objects of type struct{char c; int n;} will
-   compare the padding bytes whose values may differ when the values of c and n are the
-   same.
+   This function reads object representations, not the object values, and is typically only meaningful for trivially-copyable objects with no padding. For example, memcmp() between two objects of type std::string or std::vector will not compare their contents, and memcmp() between two objects of type struct{char c; int n;} will compare the padding bytes whose values may differ when the values of c and n are the same.
 
 .SH Example
 

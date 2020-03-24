@@ -1,4 +1,4 @@
-.TH std::ctype_byname 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype_byname 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype_byname \- std::ctype_byname
 
@@ -7,15 +7,12 @@ std::ctype_byname \- std::ctype_byname
    template< class CharT >
    class ctype_byname : public std::ctype<CharT>;
 
-   std::ctype_byname is a std::ctype facet which encapsulates character classification
-   rules of the locale specified at its construction.
+   std::ctype_byname is a std::ctype facet which encapsulates character classification rules of the locale specified at its construction.
 
    Two specializations are provided by the standard library
 
    Defined in header <locale>
-                              provides narrow character classification. This
-   std::ctype_byname<char>    specialization uses table lookup for character
-                              classification
+   std::ctype_byname<char>    provides narrow character classification. This specialization uses table lookup for character classification
    std::ctype_byname<wchar_t> provides wide character classification
 
 .SH Member types
@@ -33,14 +30,11 @@ std::ctype_byname \- std::ctype_byname
 std::ctype_byname::ctype_byname
 
    explicit ctype_byname( const char* name, std::size_t refs = 0 );
-   explicit ctype_byname( const std::string& name, std::size_t refs = 0   \fI(since C++11)\fP
-   );
+   explicit ctype_byname( const std::string& name, std::size_t refs = 0 );  \fI(since C++11)\fP
 
    Constructs a new std::ctype_byname facet for a locale with name.
 
-   refs is used for resource management: if refs == 0, the implementation destroys the
-   facet, when the last std::locale object holding it is destroyed. Otherwise, the
-   object is not destroyed.
+   refs is used for resource management: if refs == 0, the implementation destroys the facet, when the last std::locale object holding it is destroyed. Otherwise, the object is not destroyed.
 
 .SH Parameters
 
@@ -94,23 +88,21 @@ Inherited from std::ctype<CharT>
 
 .SH Protected member functions
 
-   do_toupper   converts a character or characters to uppercase
-   \fB[virtual]\fP    \fI(virtual protected member function of std::ctype<CharT>)\fP
-   do_tolower   converts a character or characters to lowercase
-   \fB[virtual]\fP    \fI(virtual protected member function of std::ctype<CharT>)\fP
-   do_widen     converts a character or characters from char to charT
-   \fB[virtual]\fP    \fI(virtual protected member function of std::ctype<CharT>)\fP
-   do_narrow    converts a character or characters from charT to char
-   \fB[virtual]\fP    \fI(virtual protected member function of std::ctype<CharT>)\fP
+   do_toupper  converts a character or characters to uppercase
+   \fB[virtual]\fP   \fI(virtual protected member function of std::ctype<CharT>)\fP
+   do_tolower  converts a character or characters to lowercase
+   \fB[virtual]\fP   \fI(virtual protected member function of std::ctype<CharT>)\fP
+   do_widen    converts a character or characters from char to charT
+   \fB[virtual]\fP   \fI(virtual protected member function of std::ctype<CharT>)\fP
+   do_narrow   converts a character or characters from charT to char
+   \fB[virtual]\fP   \fI(virtual protected member function of std::ctype<CharT>)\fP
          if CharT is char, the following members of std::ctype are NOT inherited
-   do_is        classifies a character or a character sequence
-   \fB[virtual]\fP    \fI(virtual protected member function of std::ctype<CharT>)\fP
-   do_scan_is   locates the first character in a sequence that conforms to given
-   \fB[virtual]\fP    classification
-                \fI(virtual protected member function of std::ctype<CharT>)\fP
-   do_scan_not  locates the first character in a sequence that fails given
-   \fB[virtual]\fP    classification
-                \fI(virtual protected member function of std::ctype<CharT>)\fP
+   do_is       classifies a character or a character sequence
+   \fB[virtual]\fP   \fI(virtual protected member function of std::ctype<CharT>)\fP
+   do_scan_is  locates the first character in a sequence that conforms to given classification
+   \fB[virtual]\fP   \fI(virtual protected member function of std::ctype<CharT>)\fP
+   do_scan_not locates the first character in a sequence that fails given classification
+   \fB[virtual]\fP   \fI(virtual protected member function of std::ctype<CharT>)\fP
 
 Inherited from std::ctype_base
 
@@ -137,9 +129,8 @@ Inherited from std::ctype_base
    \fB[static]\fP         \fI(public static member constant)\fP
    punct            the value of mask identifying punctuation character classification
    \fB[static]\fP         \fI(public static member constant)\fP
-   xdigit           the value of mask identifying hexadecimal digit character
-   \fB[static]\fP         classification
-                    \fI(public static member constant)\fP
+   xdigit           the value of mask identifying hexadecimal digit character classification
+   \fB[static]\fP         \fI(public static member constant)\fP
    blank            the value of mask identifying blank character classification
    \fB[static]\fP \fI(C++11)\fP \fI(public static member constant)\fP
    alnum            alpha | digit
@@ -149,9 +140,7 @@ Inherited from std::ctype_base
 
 .SH Notes
 
-   The explicit specialization std::ctype_byname<char> was listed as a separate entry
-   in the header file <locale> until C++11. it was removed in C++11 as defect #1298,
-   but it remains a required specialization, just like std::ctype_byname<wchar_t>.
+   The explicit specialization std::ctype_byname<char> was listed as a separate entry in the header file <locale> until C++11. it was removed in C++11 as defect #1298, but it remains a required specialization, just like std::ctype_byname<wchar_t>.
 
 .SH Example
 

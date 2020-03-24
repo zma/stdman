@@ -1,4 +1,4 @@
-.TH std::rend(std::initializer_list) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::rend(std::initializer_list) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::rend(std::initializer_list) \- std::rend(std::initializer_list)
 
@@ -7,8 +7,7 @@ std::rend(std::initializer_list) \- std::rend(std::initializer_list)
    template <class E>                                                    \fI(since C++14)\fP
    std::reverse_iterator<const E*> rend( std::initializer_list<E> il );
 
-   The overload of std::rend for initializer_list returns an std::reverse_iterator
-   pointing at the first element of il.
+   The overload of std::rend for initializer_list returns an std::reverse_iterator pointing at the first element of il.
 
 .SH Parameters
 
@@ -24,9 +23,7 @@ std::rend(std::initializer_list) \- std::rend(std::initializer_list)
 
 .SH Notes
 
-   This overload is necessary because std::initializer_list does not have a member
-   function rend. No overload is needed for std::crend because it is implemented in
-   terms of std::rend.
+   This overload is necessary because std::initializer_list does not have a member function rend. No overload is needed for std::crend because it is implemented in terms of std::rend.
 
 .SH Example
 

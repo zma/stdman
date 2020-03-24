@@ -1,4 +1,4 @@
-.TH std::locale::global 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::locale::global 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::locale::global \- std::locale::global
 
@@ -6,11 +6,7 @@ std::locale::global \- std::locale::global
    Defined in header <locale>
    static locale global( const locale& loc );
 
-   Replaces the global C++ locale with loc, which means all future calls to the
-   std::locale default constructor will now return a copy of loc. If loc has a name,
-   also replaces the C locale as if by std::setlocale(LC_ALL, loc.name().c_str());.
-   This function is the only way to modify the global C++ locale, which is otherwise
-   equivalent to std::locale::classic() at program startup.
+   Replaces the global C++ locale with loc, which means all future calls to the std::locale default constructor will now return a copy of loc. If loc has a name, also replaces the C locale as if by std::setlocale(LC_ALL, loc.name().c_str());. This function is the only way to modify the global C++ locale, which is otherwise equivalent to std::locale::classic() at program startup.
 
 .SH Parameters
 

@@ -1,4 +1,4 @@
-.TH std::experimental::lcm 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::lcm 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::lcm \- std::experimental::lcm
 
@@ -15,16 +15,13 @@ std::experimental::lcm \- std::experimental::lcm
 
 .SH Return value
 
-   If either m or n is zero, returns zero. Otherwise, return the least common multiple
-   of |m| and |n|.
+   If either m or n is zero, returns zero. Otherwise, return the least common multiple of |m| and |n|.
 
   Remarks
 
-   If either M or N is not an integer type, or if either is (possibly cv-qualified)
-   bool, the program is ill-formed.
+   If either M or N is not an integer type, or if either is (possibly cv-qualified) bool, the program is ill-formed.
 
-   The behavior is undefined if |m|, |n| or the least common multiple of |m| and |n| is
-   not representable as a value of type std::common_type_t<M,N>.
+   The behavior is undefined if |m|, |n| or the least common multiple of |m| and |n| is not representable as a value of type std::common_type_t<M,N>.
 
 .SH Exceptions
 
@@ -32,6 +29,5 @@ std::experimental::lcm \- std::experimental::lcm
 
 .SH See also
 
-       constexpr function template returning the greatest common divisor of two
-   gcd integers
+   gcd constexpr function template returning the greatest common divisor of two integers
        \fI(function template)\fP

@@ -1,4 +1,4 @@
-.TH std::basic_osyncstream 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_osyncstream 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_osyncstream \- std::basic_osyncstream
 
@@ -12,9 +12,7 @@ std::basic_osyncstream \- std::basic_osyncstream
 
    > class basic_osyncstream: public std::basic_ostream<CharT, Traits>
 
-   The class template std::basic_osyncstream is a convenience wrapper for
-   std::basic_syncbuf. It provides a mechanism to synchronize threads writing to the
-   same stream.
+   The class template std::basic_osyncstream is a convenience wrapper for std::basic_syncbuf. It provides a mechanism to synchronize threads writing to the same stream.
 
    It can be used with a named variable:
 
@@ -30,14 +28,9 @@ std::basic_osyncstream \- std::basic_osyncstream
 
  std::osyncstream(std::cout) << "Hello, " << "World!" << '\\n';
 
-   It provides the guarantee that all output made to the same final destination buffer
-   (std::cout in the examples above) will be free of data races and will not be
-   interleaved or garbled in any way, as long as every write to the that final
-   destination buffer is made through (possibly different) instances of
-   std::basic_osyncstream.
+   It provides the guarantee that all output made to the same final destination buffer (std::cout in the examples above) will be free of data races and will not be interleaved or garbled in any way, as long as every write to the that final destination buffer is made through (possibly different) instances of std::basic_osyncstream.
 
-   Typical implementation of std::basic_osyncstream holds only one member: the wrapped
-   std::basic_syncbuf
+   Typical implementation of std::basic_osyncstream holds only one member: the wrapped std::basic_syncbuf
 
    Two specializations for common character types are also defined:
 
@@ -70,8 +63,7 @@ std::basic_osyncstream \- std::basic_osyncstream
                  \fI(public member function)\fP
    get_wrapped   obtains a pointer to the final destination stream buffer
                  \fI(public member function)\fP
-                 calls emit on the underlying basic_syncbuf to transmit its internal
-   emit          data to the final destination
+   emit          calls emit on the underlying basic_syncbuf to transmit its internal data to the final destination
                  \fI(public member function)\fP
 
 Inherited from std::basic_ostream
@@ -174,14 +166,11 @@ Inherited from std::ios_base
    getloc            returns current locale
                      \fI(public member function of std::ios_base)\fP
 .SH Internal extensible array
-   xalloc            returns a program-wide unique integer that is safe to use as index
-   \fB[static]\fP          to pword() and iword()
-                     \fI(public static member function of std::ios_base)\fP
-                     resizes the private storage if necessary and access to the long
-   iword             element at the given index
+   xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
+   \fB[static]\fP          \fI(public static member function of std::ios_base)\fP
+   iword             resizes the private storage if necessary and access to the long element at the given index
                      \fI(public member function of std::ios_base)\fP
-                     resizes the private storage if necessary and access to the void*
-   pword             element at the given index
+   pword             resizes the private storage if necessary and access to the void* element at the given index
                      \fI(public member function of std::ios_base)\fP
 .SH Miscellaneous
    register_callback registers event callback function
@@ -218,35 +207,21 @@ Inherited from std::ios_base
                   oct         use octal base for integer I/O: see std::oct
                   hex         use hexadecimal base for integer I/O: see std::hex
                   basefield   dec|oct|hex. Useful for masking operations
-                  left        left adjustment (adds fill characters to the right): see
-                              std::left
-                  right       right adjustment (adds fill characters to the left): see
-                              std::right
-                  internal    internal adjustment (adds fill characters to the internal
-                              designated point): see std::internal
-                  adjustfield left|right|internal. Useful for masking operations
-                              generate floating point types using scientific notation,
-                  scientific  or hex notation if combined with fixed: see
-                              std::scientific
-   fmtflags       fixed       generate floating point types using fixed notation, or
-                              hex notation if combined with scientific: see std::fixed
+                  left        left adjustment (adds fill characters to the right): see std::left
+                  right       right adjustment (adds fill characters to the left): see std::right
+                  internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
+   fmtflags       adjustfield left|right|internal. Useful for masking operations
+                  scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
+                  fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
                   floatfield  scientific|fixed. Useful for masking operations
-                  boolalpha   insert and extract bool type in alphanumeric format: see
-                              std::boolalpha
-                              generate a prefix indicating the numeric base for integer
-                  showbase    output, require the currency indicator in monetary I/O:
-                              see std::showbase
-                  showpoint   generate a decimal-point character unconditionally for
-                              floating-point number output: see std::showpoint
-                  showpos     generate a + character for non-negative numeric output:
-                              see std::showpos
-                  skipws      skip leading whitespace before certain input operations:
-                              see std::skipws
-                  unitbuf     flush the output after each output operation: see
-                              std::unitbuf
-                              replace certain lowercase letters with their uppercase
-                  uppercase   equivalents in certain output operations: see
-                              std::uppercase
+                  boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
+                  showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
+                  showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
+                  showpos     generate a + character for non-negative numeric output: see std::showpos
+                  skipws      skip leading whitespace before certain input operations: see std::skipws
+                  unitbuf     flush the output after each output operation: see std::unitbuf
+                  uppercase   replace certain lowercase letters with their uppercase
+                              equivalents in certain output operations: see std::uppercase
 
                   \fI(typedef)\fP
                   state of the stream type
@@ -256,8 +231,7 @@ Inherited from std::ios_base
                   Constant Explanation
    iostate        goodbit  no error
                   badbit   irrecoverable stream error
-                  failbit  input/output operation failed (formatting or extraction
-                           error)
+                  failbit  input/output operation failed (formatting or extraction error)
                   eofbit   associated input sequence has reached end-of-file
 
                   \fI(typedef)\fP

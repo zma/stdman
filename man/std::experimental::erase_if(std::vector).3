@@ -1,4 +1,4 @@
-.TH std::experimental::erase_if(std::vector) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::erase_if(std::vector) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::erase_if(std::vector) \- std::experimental::erase_if(std::vector)
 
@@ -7,8 +7,7 @@ std::experimental::erase_if(std::vector) \- std::experimental::erase_if(std::vec
    template< class T, class Alloc, class Pred >        (library fundamentals TS v2)
    void erase_if(std::vector<T,Alloc>& c, Pred pred);
 
-   Erases all elements that satisfy the predicate pred from the container. Equivalent
-   to c.erase(std::remove_if(c.begin(), c.end(), pred), c.end());
+   Erases all elements that satisfy the predicate pred from the container. Equivalent to c.erase(std::remove_if(c.begin(), c.end(), pred), c.end());
 
 .SH Parameters
 
@@ -28,6 +27,5 @@ std::experimental::erase_if(std::vector) \- std::experimental::erase_if(std::vec
 
    remove                      removes elements satisfying specific criteria
    remove_if                   \fI(function template)\fP
-   erase (std::vector)         Erases all elements equal to a specific value from a
-   (library fundamentals 2 TS) std::vector
-                               \fI(function template)\fP
+   erase (std::vector)         Erases all elements equal to a specific value from a std::vector
+   (library fundamentals 2 TS) \fI(function template)\fP

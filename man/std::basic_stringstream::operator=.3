@@ -1,15 +1,13 @@
-.TH std::basic_stringstream::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_stringstream::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_stringstream::operator= \- std::basic_stringstream::operator=
 
 .SH Synopsis
    basic_stringstream& operator=( basic_stringstream&& other );  \fI(since C++11)\fP
 
-   Move assigns the string stream other to *this, effectively move-assigning both the
-   std::basic_iostream base class and the associated std::basic_stringbuf.
+   Move assigns the string stream other to *this, effectively move-assigning both the std::basic_iostream base class and the associated std::basic_stringbuf.
 
-   Note that the base class move assignment swaps all stream state variables (except
-   for rdbuf) between *this and other.
+   Note that the base class move assignment swaps all stream state variables (except for rdbuf) between *this and other.
 
 .SH Parameters
 

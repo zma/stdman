@@ -1,4 +1,4 @@
-.TH std::shared_future 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_future 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_future \- std::shared_future
 
@@ -8,15 +8,9 @@ std::shared_future \- std::shared_future
    template< class T > class shared_future<T&>; \fB(2)\fP \fI(since C++11)\fP
    template<> class shared_future<void>;        \fB(3)\fP \fI(since C++11)\fP
 
-   The class template std::shared_future provides a mechanism to access the result of
-   asynchronous operations, similar to std::future, except that multiple threads are
-   allowed to wait for the same shared state. Unlike std::future, which is only
-   moveable (so only one instance can refer to any particular asynchronous result),
-   std::shared_future is copyable and multiple shared future objects may refer to the
-   same shared state.
+   The class template std::shared_future provides a mechanism to access the result of asynchronous operations, similar to std::future, except that multiple threads are allowed to wait for the same shared state. Unlike std::future, which is only moveable (so only one instance can refer to any particular asynchronous result), std::shared_future is copyable and multiple shared future objects may refer to the same shared state.
 
-   Access to the same shared state from multiple threads is safe if each thread does it
-   through its own copy of a shared_future object.
+   Access to the same shared state from multiple threads is safe if each thread does it through its own copy of a shared_future object.
 
 .SH Member functions
 
@@ -34,17 +28,14 @@ std::shared_future \- std::shared_future
                  \fI(public member function)\fP
    wait          waits for the result to become available
                  \fI(public member function)\fP
-                 waits for the result, returns if it is not available for the specified
-   wait_for      timeout duration
+   wait_for      waits for the result, returns if it is not available for the specified timeout duration
                  \fI(public member function)\fP
-                 waits for the result, returns if it is not available until specified
-   wait_until    time point has been reached
+   wait_until    waits for the result, returns if it is not available until specified time point has been reached
                  \fI(public member function)\fP
 
 .SH Example
 
-   A shared_future may be used to signal multiple threads simultaneously, similar to
-   std::condition_variable::notify_all()
+   A shared_future may be used to signal multiple threads simultaneously, similar to std::condition_variable::notify_all()
 
    
 // Run this code

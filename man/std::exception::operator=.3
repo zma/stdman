@@ -1,4 +1,4 @@
-.TH std::exception::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::exception::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::exception::operator= \- std::exception::operator=
 
@@ -8,10 +8,8 @@ std::exception::operator= \- std::exception::operator=
 
    Copy assignment operator. Assigns the contents of other
 
-   The effects of calling what() after assignment are                     \fI(until C++11)\fP
-   implementation-defined.
-   If *this and other both have dynamic type std::exception then          \fI(since C++11)\fP
-   std::strcmp(what(), other.what()) == 0.
+   The effects of calling what() after assignment are implementation-defined.                            \fI(until C++11)\fP
+   If *this and other both have dynamic type std::exception then std::strcmp(what(), other.what()) == 0. \fI(since C++11)\fP
 
 .SH Parameters
 

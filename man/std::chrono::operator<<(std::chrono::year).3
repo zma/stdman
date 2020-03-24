@@ -1,19 +1,15 @@
-.TH std::chrono::operator<<(std::chrono::year) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator<<(std::chrono::year) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator<<(std::chrono::year) \- std::chrono::operator<<(std::chrono::year)
 
 .SH Synopsis
    template <class CharT, class Traits>
 
-   std::basic_ostream<CharT, Traits>&                                     \fI(since C++20)\fP
+   std::basic_ostream<CharT, Traits>&                                              \fI(since C++20)\fP
 
-   operator<<(std::basic_ostream<CharT, Traits>& os, const
-   std::chrono::year& y);
+   operator<<(std::basic_ostream<CharT, Traits>& os, const std::chrono::year& y);
 
-   Forms a std::basic_string<CharT> s consisting of the year value stored in y
-   formatted as a decimal number, left-padded with 0 to four digits if the result would
-   otherwise be less than four digits. Inserts that string into os. Then, if !y.ok(),
-   inserts the string " is not a valid year" into os.
+   Forms a std::basic_string<CharT> s consisting of the year value stored in y formatted as a decimal number, left-padded with 0 to four digits if the result would otherwise be less than four digits. Inserts that string into os. Then, if !y.ok(), inserts the string " is not a valid year" into os.
 
 .SH Return value
 
@@ -21,8 +17,7 @@ std::chrono::operator<<(std::chrono::year) \- std::chrono::operator<<(std::chron
 
 .SH Notes
 
-   This operator<< is primarily intended for debugging use. For control over
-   formatting, use std::chrono::format.
+   This operator<< is primarily intended for debugging use. For control over formatting, use std::chrono::format.
 
 .SH See also
 

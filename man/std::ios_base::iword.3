@@ -1,29 +1,19 @@
-.TH std::ios_base::iword 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ios_base::iword 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ios_base::iword \- std::ios_base::iword
 
 .SH Synopsis
    long& iword( int index );
 
-   First, allocates or resizes the private storage (dynamic array of long or another
-   indexable data structure) sufficiently to make index a valid index, then returns a
-   reference to the long element of the private storage with the index index.
+   First, allocates or resizes the private storage (dynamic array of long or another indexable data structure) sufficiently to make index a valid index, then returns a reference to the long element of the private storage with the index index.
 
-   The reference may be invalidated by any operation on this ios_base object, including
-   another call to iword(), but the stored values are retained, so that reading from
-   iword(index) with the same index later will produce the same value (until the next
-   call to std::basic_ios::copyfmt()). The value can be used for any purpose. The index
-   of the element must be obtained by a previous call to xalloc(), otherwise the
-   behavior is undefined. New elements are initialized to 0.
+   The reference may be invalidated by any operation on this ios_base object, including another call to iword(), but the stored values are retained, so that reading from iword(index) with the same index later will produce the same value (until the next call to std::basic_ios::copyfmt()). The value can be used for any purpose. The index of the element must be obtained by a previous call to xalloc(), otherwise the behavior is undefined. New elements are initialized to 0.
 
-   If allocation fails, calls std::basic_ios<>::setstate(badbit) which may throw
-   std::ios_base::failure
+   If allocation fails, calls std::basic_ios<>::setstate(badbit) which may throw std::ios_base::failure
 
 .SH Notes
 
-   Typical use of iword storage is to pass information (e.g. custom formatting flags)
-   from user-defined I/O manipulators to user-defined operator<< and operator>> or to
-   user-defined formatting facets imbued into standard streams.
+   Typical use of iword storage is to pass information (e.g. custom formatting flags) from user-defined I/O manipulators to user-defined operator<< and operator>> or to user-defined formatting facets imbued into standard streams.
 
 .SH Parameters
 
@@ -84,9 +74,7 @@ std::ios_base::iword \- std::ios_base::iword
 
 .SH See also
 
-            resizes the private storage if necessary and access to the void* element at
-   pword    the given index
+   pword    resizes the private storage if necessary and access to the void* element at the given index
             \fI(public member function)\fP
-   xalloc   returns a program-wide unique integer that is safe to use as index to
-   \fB[static]\fP pword() and iword()
-            \fI(public static member function)\fP
+   xalloc   returns a program-wide unique integer that is safe to use as index to pword() and iword()
+   \fB[static]\fP \fI(public static member function)\fP

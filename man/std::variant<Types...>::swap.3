@@ -1,4 +1,4 @@
-.TH std::variant<Types...>::swap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::variant<Types...>::swap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::variant<Types...>::swap \- std::variant<Types...>::swap
 
@@ -8,16 +8,10 @@ std::variant<Types...>::swap \- std::variant<Types...>::swap
    Swaps two variant objects.
 
      * if both *this and rhs are valueless by exception, does nothing
-     * otherwise, if both *this and rhs hold the same alternative, calls
-       swap(std::get<i>(*this), std:get<i>(rhs)) where i is index(). If an exception is
-       thrown, the state of the values depends on the exception safety of the swap
-       function called.
-     * otherwise, exchanges values of rhs and *this. If an exception is thrown, the
-       state of *this and rhs depends on exception safety of variant's move
-       constructor.
+     * otherwise, if both *this and rhs hold the same alternative, calls swap(std::get<i>(*this), std:get<i>(rhs)) where i is index(). If an exception is thrown, the state of the values depends on the exception safety of the swap function called.
+     * otherwise, exchanges values of rhs and *this. If an exception is thrown, the state of *this and rhs depends on exception safety of variant's move constructor.
 
-   The behavior is undefined unless lvalues of type T_i are Swappable and
-   std::is_move_constructible_v<T_i> is true for all T_i in Types....
+   The behavior is undefined unless lvalues of type T_i are Swappable and std::is_move_constructible_v<T_i> is true for all T_i in Types....
 
 .SH Parameters
 
@@ -29,11 +23,9 @@ std::variant<Types...>::swap \- std::variant<Types...>::swap
 
 .SH Exceptions
 
-   If this->index() == rhs.index(), may throw any exception thrown by
-   swap(std::get<i>(*this), std::get<i>(rhs)) with i being index().
+   If this->index() == rhs.index(), may throw any exception thrown by swap(std::get<i>(*this), std::get<i>(rhs)) with i being index().
 
-   Otherwise, may throw any exception thrown by the move constructors of the
-   alternatives currently held by *this and rhs.
+   Otherwise, may throw any exception thrown by the move constructors of the alternatives currently held by *this and rhs.
 
    noexcept specification:
    noexcept(((std::is_nothrow_move_constructible_v<Types> &&

@@ -1,4 +1,4 @@
-.TH std::compare_3way 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::compare_3way 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::compare_3way \- std::compare_3way
 
@@ -7,27 +7,23 @@ std::compare_3way \- std::compare_3way
    template< class T, class U >                            \fI(since C++20)\fP
    constexpr auto compare_3way( const T& a, const U& b );
 
-   Compares two values using three-way comparison and produces a result of the
-   strongest applicable comparison category type.
+   Compares two values using three-way comparison and produces a result of the strongest applicable comparison category type.
 
 .SH In detail:
 
      * If the expression a <=> b is well-formed, returns its result
-     * Otherwise, if the expressions a == b and a < b are both well-formed and
-       convertible to bool,
+     * Otherwise, if the expressions a == b and a < b are both well-formed and convertible to bool,
 
-     * if a == b equals true, returns std::strong_ordering::equal
-     * otherwise, if a < b equals true, returns std::strong_ordering::less
-     * otherwise, returns std::strong_ordering::greater
+              * if a == b equals true, returns std::strong_ordering::equal
+              * otherwise, if a < b equals true, returns std::strong_ordering::less
+              * otherwise, returns std::strong_ordering::greater
 
-     * Otherwise, if the expression a == b is well-formed and convertible to bool (but
-       a < b is not),
+     * Otherwise, if the expression a == b is well-formed and convertible to bool (but a < b is not),
 
-     * if a == b equals true, returns std::strong_equality::equal
-     * otherwise, returns std::strong_equality::nonequal
+              * if a == b equals true, returns std::strong_equality::equal
+              * otherwise, returns std::strong_equality::nonequal
 
-     * Otherwise (if neither a <=> b nor a == b are well-formed), the function is
-       defined as deleted.
+     * Otherwise (if neither a <=> b nor a == b are well-formed), the function is defined as deleted.
 
 .SH Parameters
 
@@ -39,8 +35,7 @@ std::compare_3way \- std::compare_3way
 
 .SH Notes
 
-   This function is useful in generic programming, since it uses < and == as fallbacks
-   when <=> is not available.
+   This function is useful in generic programming, since it uses < and == as fallbacks when <=> is not available.
 
 .SH Example
 
@@ -112,19 +107,13 @@ std::compare_3way \- std::compare_3way
 
    lexicographical_compare_3way compares two ranges using three-way comparison
    (C++20)                      \fI(function template)\fP
-   strong_equality              the result type of 3-way comparison that supports only
-   (C++20)                      equality/inequality and is substitutable
-                                \fI(class)\fP
-   weak_equality                the result type of 3-way comparison that supports only
-   (C++20)                      equality/inequality and is not substitutable
-                                \fI(class)\fP
-   strong_ordering              the result type of 3-way comparison that supports all 6
-   (C++20)                      operators and is substitutable
-                                \fI(class)\fP
-   weak_ordering                the result type of 3-way comparison that supports all 6
-   (C++20)                      operators and is not substitutable
-                                \fI(class)\fP
-                                the result type of 3-way comparison that supports all 6
-   partial_ordering             operators, is not substitutable, and allows
-   (C++20)                      incomparable values
-                                \fI(class)\fP
+   strong_equality              the result type of 3-way comparison that supports only equality/inequality and is substitutable
+   (C++20)                      \fI(class)\fP
+   weak_equality                the result type of 3-way comparison that supports only equality/inequality and is not substitutable
+   (C++20)                      \fI(class)\fP
+   strong_ordering              the result type of 3-way comparison that supports all 6 operators and is substitutable
+   (C++20)                      \fI(class)\fP
+   weak_ordering                the result type of 3-way comparison that supports all 6 operators and is not substitutable
+   (C++20)                      \fI(class)\fP
+   partial_ordering             the result type of 3-way comparison that supports all 6 operators, is not substitutable, and allows incomparable values
+   (C++20)                      \fI(class)\fP

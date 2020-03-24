@@ -1,4 +1,4 @@
-.TH std::multiset 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::multiset 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::multiset \- std::multiset
 
@@ -19,21 +19,13 @@ std::multiset \- std::multiset
 
    }
 
-   std::multiset is an associative container that contains a sorted set of objects of
-   type Key. Unlike set, multiple keys with equivalent values are allowed. Sorting is
-   done using the key comparison function Compare. Search, insertion, and removal
-   operations have logarithmic complexity.
+   std::multiset is an associative container that contains a sorted set of objects of type Key. Unlike set, multiple keys with equivalent values are allowed. Sorting is done using the key comparison function Compare. Search, insertion, and removal operations have logarithmic complexity.
 
-   Everywhere the standard library uses the Compare requirements, equivalence is
-   determined by using the equivalence relation as described on Compare. In imprecise
-   terms, two objects a and b are considered equivalent if neither compares less than
-   the other: !comp(a, b) && !comp(b, a).
+   Everywhere the standard library uses the Compare requirements, equivalence is determined by using the equivalence relation as described on Compare. In imprecise terms, two objects a and b are considered equivalent if neither compares less than the other: !comp(a, b) && !comp(b, a).
 
-   The order of the elements that compare equivalent is the order of insertion and does
-   not change. \fI(since C++11)\fP
+   The order of the elements that compare equivalent is the order of insertion and does not change. \fI(since C++11)\fP
 
-   std::multiset meets the requirements of Container, AllocatorAwareContainer,
-   AssociativeContainer and ReversibleContainer.
+   std::multiset meets the requirements of Container, AllocatorAwareContainer, AssociativeContainer and ReversibleContainer.
 
 .SH Member types
 
@@ -140,14 +132,11 @@ std::multiset \- std::multiset
 
 .SH Notes
 
-   The member types iterator and const_iterator may be aliases to the same type. Since
-   iterator is convertible to const_iterator, const_iterator should be used in function
-   parameter lists to avoid violations of the One Definition Rule.
+   The member types iterator and const_iterator may be aliases to the same type. Since iterator is convertible to const_iterator, const_iterator should be used in function parameter lists to avoid violations of the One Definition Rule.
 
   Defect Reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
      DR    Applied to        Behavior as published            Correct behavior
    LWG 103 C++98      iterator allows modification of keys iterator made constant

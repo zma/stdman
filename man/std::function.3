@@ -1,4 +1,4 @@
-.TH std::function 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::function 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::function \- std::function
 
@@ -9,27 +9,19 @@ std::function \- std::function
    template< class R, class... Args >  \fI(since C++11)\fP
    class function<R(Args...)>;
 
-   Class template std::function is a general-purpose polymorphic function wrapper.
-   Instances of std::function can store, copy, and invoke any Callable target --
-   functions, lambda expressions, bind expressions, or other function objects, as well
-   as pointers to member functions and pointers to data members.
+   Class template std::function is a general-purpose polymorphic function wrapper. Instances of std::function can store, copy, and invoke any Callable target -- functions, lambda expressions, bind expressions, or other function objects, as well as pointers to member functions and pointers to data members.
 
-   The stored callable object is called the target of std::function. If a std::function
-   contains no target, it is called empty. Invoking the target of an empty
-   std::function results in std::bad_function_call exception being thrown.
+   The stored callable object is called the target of std::function. If a std::function contains no target, it is called empty. Invoking the target of an empty std::function results in std::bad_function_call exception being thrown.
 
    std::function satisfies the requirements of CopyConstructible and CopyAssignable.
 
 .SH Member types
 
-   Type                                          Definition
-   result_type                                   R
-   argument_type(deprecated in C++17)(removed in T if sizeof...(Args)==1 and T is the
-   C++20)                                        first and only type in Args...
-   first_argument_type(deprecated in             T1 if sizeof...(Args)==2 and T1 is the
-   C++17)(removed in C++20)                      first of the two types in Args...
-   second_argument_type(deprecated in            T2 if sizeof...(Args)==2 and T2 is the
-   C++17)(removed in C++20)                      second of the two types in Args...
+   Type                                                        Definition
+   result_type                                                 R
+   argument_type(deprecated in C++17)(removed in C++20)        T if sizeof...(Args)==1 and T is the first and only type in Args...
+   first_argument_type(deprecated in C++17)(removed in C++20)  T1 if sizeof...(Args)==2 and T1 is the first of the two types in Args...
+   second_argument_type(deprecated in C++17)(removed in C++20) T2 if sizeof...(Args)==2 and T2 is the second of the two types in Args...
 
 .SH Member functions
 

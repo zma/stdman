@@ -1,4 +1,4 @@
-.TH std::basic_streambuf<CharT,Traits>::eback,gptr,egptr 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_streambuf<CharT,Traits>::eback,gptr,egptr 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_streambuf<CharT,Traits>::eback,gptr,egptr \- std::basic_streambuf<CharT,Traits>::eback,gptr,egptr
 
@@ -29,9 +29,7 @@ std::basic_streambuf<CharT,Traits>::eback,gptr,egptr \- std::basic_streambuf<Cha
 
 .SH Notes
 
-   While the names "gptr" and "egptr" refer to the get area, the name "eback" refers to
-   the end of the putback area: stepping backwards from gptr, characters can be put
-   back until eback.
+   While the names "gptr" and "egptr" refer to the get area, the name "eback" refers to the end of the putback area: stepping backwards from gptr, characters can be put back until eback.
 
 .SH Example
 
@@ -40,6 +38,6 @@ std::basic_streambuf<CharT,Traits>::eback,gptr,egptr \- std::basic_streambuf<Cha
 
 .SH See also
 
-   pbase returns a pointer to the beginning, current character and the end of the put
-   pptr  area
-   epptr \fI(protected member function)\fP
+   pbase returns a pointer to the beginning, current character and the end of the put area
+   pptr  \fI(protected member function)\fP
+   epptr

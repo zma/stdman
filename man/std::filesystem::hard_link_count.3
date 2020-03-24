@@ -1,4 +1,4 @@
-.TH std::filesystem::hard_link_count 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::hard_link_count 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::hard_link_count \- std::filesystem::hard_link_count
 
@@ -25,12 +25,7 @@ std::filesystem::hard_link_count \- std::filesystem::hard_link_count
 
 .SH Exceptions
 
-   The overload that does not take a std::error_code& parameter throws filesystem_error
-   on underlying OS API errors, constructed with p as the first path argument and the
-   OS error code as the error code argument. The overload taking a std::error_code&
-   parameter sets it to the OS API error code if an OS API call fails, and executes
-   ec.clear() if no errors occur. Any overload not marked noexcept may throw
-   std::bad_alloc if memory allocation fails.
+   The overload that does not take a std::error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first path argument and the OS error code as the error code argument. The overload taking a std::error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. Any overload not marked noexcept may throw std::bad_alloc if memory allocation fails.
 
 .SH Example
 
@@ -64,6 +59,5 @@ std::filesystem::hard_link_count \- std::filesystem::hard_link_count
 
    create_hard_link creates a hard link
    \fI(C++17)\fP          \fI(function)\fP
-                    returns the number of hard links referring to the file to which the
-   hard_link_count  directory entry refers
+   hard_link_count  returns the number of hard links referring to the file to which the directory entry refers
                     \fI(public member function of std::filesystem::directory_entry)\fP

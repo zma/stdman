@@ -1,4 +1,4 @@
-.TH std::DerivedFrom 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::DerivedFrom 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::DerivedFrom \- std::DerivedFrom
 
@@ -11,12 +11,9 @@ std::DerivedFrom \- std::DerivedFrom
 
    std::is_convertible_v<const volatile Derived*, const volatile Base*>;
 
-   The concept DerivedFrom<Derived, Base> is satisfied if and only if Base is a class
-   type that is either Derived or a public and unambiguous base of Derived, ignoring
-   cv-qualifiers.
+   The concept DerivedFrom<Derived, Base> is satisfied if and only if Base is a class type that is either Derived or a public and unambiguous base of Derived, ignoring cv-qualifiers.
 
-   Note that this behaviour is different to std::is_base_of when Base is a private or
-   protected base of Derived.
+   Note that this behaviour is different to std::is_base_of when Base is a private or protected base of Derived.
 
 .SH See also
 

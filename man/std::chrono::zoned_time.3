@@ -1,4 +1,4 @@
-.TH std::chrono::zoned_time 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::zoned_time 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::zoned_time \- std::chrono::zoned_time
 
@@ -11,26 +11,15 @@ std::chrono::zoned_time \- std::chrono::zoned_time
 
    > class zoned_time;
 
-   The class zoned_time represents a logical pairing of a time zone and a
-   std::chrono::time_point whose resolution is Duration.
+   The class zoned_time represents a logical pairing of a time zone and a std::chrono::time_point whose resolution is Duration.
 
-   An invariant of zoned_time is that it always refers to a valid time zone and
-   represents an existing and unambiguous time point in that time zone. Consistent with
-   this invariant, zoned_time has no move constructor or move assignment operator;
-   attempts to move a zoned_time will perform a copy.
+   An invariant of zoned_time is that it always refers to a valid time zone and represents an existing and unambiguous time point in that time zone. Consistent with this invariant, zoned_time has no move constructor or move assignment operator; attempts to move a zoned_time will perform a copy.
 
-   The program is ill-formed if Duration is not a specialization of
-   std::chrono::duration.
+   The program is ill-formed if Duration is not a specialization of std::chrono::duration.
 
-   The template parameter TimeZonePtr allows users to supply their own time zone
-   pointer types and further customize the behavior of zoned_time via
-   std::chrono::zoned_traits. Custom time zone types need not support all the
-   operations supported by std::chrono::time_zone, only those used by the functions
-   actually called on the zoned_time.
+   The template parameter TimeZonePtr allows users to supply their own time zone pointer types and further customize the behavior of zoned_time via std::chrono::zoned_traits. Custom time zone types need not support all the operations supported by std::chrono::time_zone, only those used by the functions actually called on the zoned_time.
 
-   TimeZonePtr must be MoveConstructible. Move-only TimeZonePtrs are allowed but
-   difficult to use, as the zoned_time will be immovable and it is not possible to
-   access the stored TimeZonePtr.
+   TimeZonePtr must be MoveConstructible. Move-only TimeZonePtrs are allowed but difficult to use, as the zoned_time will be immovable and it is not possible to access the stored TimeZonePtr.
 
 .SH Member types
 

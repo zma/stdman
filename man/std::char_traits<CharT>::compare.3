@@ -1,15 +1,12 @@
-.TH std::char_traits<CharT>::compare 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::char_traits<CharT>::compare 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::char_traits<CharT>::compare \- std::char_traits<CharT>::compare
 
 .SH Synopsis
-   static int compare( const char_type* s1, const char_type* s2,          \fI(until C++17)\fP
-   std::size_t count );
-   static constexpr int compare( const char_type* s1, const char_type*    \fI(since C++17)\fP
-   s2, std::size_t count );
+   static int compare( const char_type* s1, const char_type* s2, std::size_t count );            \fI(until C++17)\fP
+   static constexpr int compare( const char_type* s1, const char_type* s2, std::size_t count );  \fI(since C++17)\fP
 
-   Compares the first count characters of the character strings s1 and s2. The
-   comparison is done lexicographically.
+   Compares the first count characters of the character strings s1 and s2. The comparison is done lexicographically.
 
    If count is zero, strings are considered equal.
 

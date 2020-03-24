@@ -1,15 +1,13 @@
-.TH std::experimental::to_array 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::to_array 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::to_array \- std::experimental::to_array
 
 .SH Synopsis
    Defined in header <experimental/array>
-   template <class T, std::size_t N>                           (library fundamentals TS
-   constexpr std::array<std::remove_cv_t<T>, N> to_array(T     v2)
-   (&a)[N]);
+   template <class T, std::size_t N>                                  (library fundamentals TS v2)
+   constexpr std::array<std::remove_cv_t<T>, N> to_array(T (&a)[N]);
 
-   Creates a std::array from the built-in array a. The elements of the std::array are
-   copy-initialized from the corresponding element of a.
+   Creates a std::array from the built-in array a. The elements of the std::array are copy-initialized from the corresponding element of a.
 
 .SH Parameters
 
@@ -17,8 +15,7 @@ std::experimental::to_array \- std::experimental::to_array
 
 .SH Return value
 
-   An std::array object whose elements are copy-initialized from the corresponding
-   element of a.
+   An std::array object whose elements are copy-initialized from the corresponding element of a.
 
 .SH Possible implementation
 
@@ -68,6 +65,5 @@ std::experimental::to_array \- std::experimental::to_array
 
 .SH See also
 
-              Creates a std::array object whose size and optionally element type are
-   make_array deduced from the arguments
+   make_array Creates a std::array object whose size and optionally element type are deduced from the arguments
               \fI(function template)\fP

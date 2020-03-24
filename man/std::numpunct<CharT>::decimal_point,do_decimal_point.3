@@ -1,4 +1,4 @@
-.TH std::numpunct<CharT>::decimal_point,do_decimal_point 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numpunct<CharT>::decimal_point,do_decimal_point 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numpunct<CharT>::decimal_point,do_decimal_point \- std::numpunct<CharT>::decimal_point,do_decimal_point
 
@@ -9,15 +9,12 @@ std::numpunct<CharT>::decimal_point,do_decimal_point \- std::numpunct<CharT>::de
    protected:                                  \fB(2)\fP
    virtual char_type do_decimal_point() const;
 
-   1) Public member function, calls the member function do_decimal_point of the most
-   derived class.
-   2) Returns the character to be used as the decimal separator between integer and
-   fractional parts.
+   1) Public member function, calls the member function do_decimal_point of the most derived class.
+   2) Returns the character to be used as the decimal separator between integer and fractional parts.
 
 .SH Return value
 
-   The value of type char_type to use as the decimal separator. The standard
-   specializations of std::numpunct return '.' and L'.'.
+   The value of type char_type to use as the decimal separator. The standard specializations of std::numpunct return '.' and L'.'.
 
 .SH Example
 

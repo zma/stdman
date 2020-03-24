@@ -1,4 +1,4 @@
-.TH std::chrono::locate_zone 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::locate_zone 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::locate_zone \- std::chrono::locate_zone
 
@@ -6,19 +6,15 @@ std::chrono::locate_zone \- std::chrono::locate_zone
    Defined in header <chrono>
    const std::chrono::time_zone* locate_zone(std::string_view tz_name);  \fI(since C++20)\fP
 
-   Convenience function for locating a time zone in the time zone database. Equivalent
-   to std::chrono::get_tzdb().locate_zone(tz_name).
+   Convenience function for locating a time zone in the time zone database. Equivalent to std::chrono::get_tzdb().locate_zone(tz_name).
 
 .SH Exceptions
 
-   std::runtime_error if the specified time zone cannot be found, or if this is the
-   first reference to the time zone database and the time zone database cannot be
-   initialized.
+   std::runtime_error if the specified time zone cannot be found, or if this is the first reference to the time zone database and the time zone database cannot be initialized.
 
 .SH Notes
 
-   A call to this function that is the first reference to the time zone database will
-   cause it to be initialized.
+   A call to this function that is the first reference to the time zone database will cause it to be initialized.
 
 .SH See also
 

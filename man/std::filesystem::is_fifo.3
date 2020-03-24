@@ -1,16 +1,14 @@
-.TH std::filesystem::is_fifo 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::is_fifo 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::is_fifo \- std::filesystem::is_fifo
 
 .SH Synopsis
    Defined in header <filesystem>
-   bool is_fifo( std::filesystem::file_status s ) noexcept;           \fB(1)\fP \fI(since C++17)\fP
-   bool is_fifo( const std::filesystem::path& p );
-   bool is_fifo( const std::filesystem::path& p, std::error_code& ec  \fB(2)\fP \fI(since C++17)\fP
-   ) noexcept;
+   bool is_fifo( std::filesystem::file_status s ) noexcept;                      \fB(1)\fP \fI(since C++17)\fP
+   bool is_fifo( const std::filesystem::path& p );                               \fB(2)\fP \fI(since C++17)\fP
+   bool is_fifo( const std::filesystem::path& p, std::error_code& ec ) noexcept;
 
-   Checks if the given file status or path corresponds to a FIFO or pipe file as if
-   determined by POSIX S_ISFIFO.
+   Checks if the given file status or path corresponds to a FIFO or pipe file as if determined by POSIX S_ISFIFO.
 
    1) Equivalent to s.type() == file_type::fifo.
    2) Equivalent to is_fifo(status(p)) or is_fifo(status(p, ec)) respectively
@@ -23,17 +21,11 @@ std::filesystem::is_fifo \- std::filesystem::is_fifo
 
 .SH Return value
 
-   true if the file indicated by p or if the type indicated s refers to a FIFO pipe,
-   false otherwise. The non-throwing overload returns false if an error occurs.
+   true if the file indicated by p or if the type indicated s refers to a FIFO pipe, false otherwise. The non-throwing overload returns false if an error occurs.
 
 .SH Exceptions
 
-   2) The overload that does not take a std::error_code& parameter throws
-   filesystem_error on underlying OS API errors, constructed with p as the first path
-   argument and the OS error code as the error code argument. The overload taking a
-   std::error_code& parameter sets it to the OS API error code if an OS API call fails,
-   and executes ec.clear() if no errors occur. Any overload not marked noexcept may
-   throw std::bad_alloc if memory allocation fails.
+   2) The overload that does not take a std::error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first path argument and the OS error code as the error code argument. The overload taking a std::error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. Any overload not marked noexcept may throw std::bad_alloc if memory allocation fails.
 
 .SH Example
 

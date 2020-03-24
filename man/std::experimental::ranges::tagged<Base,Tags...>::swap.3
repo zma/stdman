@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::tagged<Base,Tags...>::swap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::tagged<Base,Tags...>::swap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::tagged<Base,Tags...>::swap \- std::experimental::ranges::tagged<Base,Tags...>::swap
 
@@ -6,8 +6,7 @@ std::experimental::ranges::tagged<Base,Tags...>::swap \- std::experimental::rang
    constexpr void swap(tagged& rhs) noexcept(/* see below */)
    requires Swappable<Base>;
 
-   Swap the contents of *this and rhs, as if by ranges::swap(static_cast<Base&>(*this),
-   static_cast<Base&>(rhs));.
+   Swap the contents of *this and rhs, as if by ranges::swap(static_cast<Base&>(*this), static_cast<Base&>(rhs));.
 
 .SH Exceptions
 

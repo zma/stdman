@@ -1,4 +1,4 @@
-.TH std::filesystem::hash_value 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::hash_value 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::hash_value \- std::filesystem::hash_value
 
@@ -12,16 +12,13 @@ std::filesystem::hash_value \- std::filesystem::hash_value
 
 .SH Return value
 
-   A hash value such that if for two paths, p1 == p2 then hash_value(p1) ==
-   hash_value(p2).
+   A hash value such that if for two paths, p1 == p2 then hash_value(p1) == hash_value(p2).
 
 .SH Notes
 
-   Equality of two paths is determined by comparing each component separately, so, for
-   example "a//b" equals "a/b" and has the same hash_value
+   Equality of two paths is determined by comparing each component separately, so, for example "a//b" equals "a/b" and has the same hash_value
 
-   hash_value originates from the boost.filesystem library where it was used for
-   interoperability with boost.hash (which calls hash_value where available)
+   hash_value originates from the boost.filesystem library where it was used for interoperability with boost.hash (which calls hash_value where available)
 
 .SH Example
 

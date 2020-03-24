@@ -1,4 +1,4 @@
-.TH std::strcspn 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::strcspn 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::strcspn \- std::strcspn
 
@@ -6,22 +6,18 @@ std::strcspn \- std::strcspn
    Defined in header <cstring>
    size_t strcspn( const char *dest, const char *src );
 
-   Returns the length of the maximum initial segment of the byte string pointed to by
-   dest, that consists of only the characters not found in byte string pointed to by
-   src.
+   Returns the length of the maximum initial segment of the byte string pointed to by dest, that consists of only the characters not found in byte string pointed to by src.
 
    The function name stands for "complementary span"
 
 .SH Parameters
 
    dest - pointer to the null-terminated byte string to be analyzed
-   src  - pointer to the null-terminated byte string that contains the characters to
-          search for
+   src  - pointer to the null-terminated byte string that contains the characters to search for
 
 .SH Return value
 
-   The length of the maximum initial segment that contains only characters not found in
-   the byte string pointed to by src
+   The length of the maximum initial segment that contains only characters not found in the byte string pointed to by src
 
 .SH Example
 

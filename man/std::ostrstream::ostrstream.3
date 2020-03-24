@@ -1,4 +1,4 @@
-.TH std::ostrstream::ostrstream 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ostrstream::ostrstream 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ostrstream::ostrstream \- std::ostrstream::ostrstream
 
@@ -8,30 +8,20 @@ std::ostrstream::ostrstream \- std::ostrstream::ostrstream
 
    Constructs new output strstream and its underlying std::strstreambuf.
 
-   1) Default-constructs the underlying std::strstreambuf, which creates a dynamically
-   growing buffer, and initializes the base class with the address of the strstreambuf
-   member.
-   2) Initialized the base class with the address of the underlying std::strstreambuf
-   member, which is initialized in one of the two possible ways, both of which write to
-   user-provided fixed-size array:
-   a) if the app bit is not set in mode, constructs the buffer by calling
-   strstreambuf(s, n, s). The behavior is undefined if there are less than n elements
-   in the array whose first element is pointed to by s
-   b) if the app bit is set in mode, constructs the buffer by calling strstreambuf(s,
-   n, s + std::strlen(s)). The behavior is undefined if there are less than n elements
-   in the array whose first element is pointed to by s or if the array does not contain
-   a valid null-terminated character sequence.
+   1) Default-constructs the underlying std::strstreambuf, which creates a dynamically growing buffer, and initializes the base class with the address of the strstreambuf member.
+   2) Initialized the base class with the address of the underlying std::strstreambuf member, which is initialized in one of the two possible ways, both of which write to user-provided fixed-size array:
+   a) if the app bit is not set in mode, constructs the buffer by calling strstreambuf(s, n, s). The behavior is undefined if there are less than n elements in the array whose first element is pointed to by s
+   b) if the app bit is set in mode, constructs the buffer by calling strstreambuf(s, n, s + std::strlen(s)). The behavior is undefined if there are less than n elements in the array whose first element is pointed to by s or if the array does not contain a valid null-terminated character sequence.
 
 .SH Parameters
 
    s    - char array to use as the output buffer
    n    - size of the array to be used as the output buffer
-          specifies stream open mode. It is a bitmask type, the following constants are
-          defined (although only app is used):
+          specifies stream open mode. It is a bitmask type, the following constants are defined (although only app is used):
 
           Constant Explanation
-   mode - app      seek to the end of stream before each write
-          binary   open in binary mode
+          app      seek to the end of stream before each write
+   mode - binary   open in binary mode
           in       open for reading
           out      open for writing
           trunc    discard the contents of the stream when opening

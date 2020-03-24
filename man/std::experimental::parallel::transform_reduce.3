@@ -1,4 +1,4 @@
-.TH std::experimental::parallel::transform_reduce 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::parallel::transform_reduce 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::parallel::transform_reduce \- std::experimental::parallel::transform_reduce
 
@@ -17,33 +17,26 @@ std::experimental::parallel::transform_reduce \- std::experimental::parallel::tr
 
    UnaryOp unary_op, T init, BinaryOp binary_op);
 
-   Applies unary_op to each element in the range [first; last) and reduces the results
-   (possibly permuted and aggregated in unspecified manner) along with the initial
-   value init over binary_op.
+   Applies unary_op to each element in the range [first; last) and reduces the results (possibly permuted and aggregated in unspecified manner) along with the initial value init over binary_op.
 
-   The behavior is non-deterministic if binary_op is not associative or not
-   commutative.
+   The behavior is non-deterministic if binary_op is not associative or not commutative.
 
-   The behavior is undefined if unary_op or binary_op modifies any element or
-   invalidates any iterator in [first; last).
+   The behavior is undefined if unary_op or binary_op modifies any element or invalidates any iterator in [first; last).
 
 .SH Parameters
 
    first, last - the range of elements to apply the algorithm to
    init        - the initial value of the generalized sum
    policy      - the execution policy
-   unary_op    - unary FunctionObject that will be applied to each element of the input
-                 range. The return type must be acceptable as input to binary_op
-   binary_op   - binary FunctionObject that will be applied in unspecified order to the
-                 results of unary_op, the results of other binary_op and init.
+   unary_op    - unary FunctionObject that will be applied to each element of the input range. The return type must be acceptable as input to binary_op
+   binary_op   - binary FunctionObject that will be applied in unspecified order to the results of unary_op, the results of other binary_op and init.
 .SH Type requirements
    -
    InputIt must meet the requirements of LegacyInputIterator.
 
 .SH Return value
 
-   Generalized sum of init and unary_op(*first), unary_op(*(first+1)), ...
-   unary_op(*(last-1)) over binary_op,
+   Generalized sum of init and unary_op(*first), unary_op(*(first+1)), ... unary_op(*(last-1)) over binary_op,
 
    where generalized sum GSUM(op, a
    1, ..., a
@@ -57,13 +50,12 @@ std::experimental::parallel::transform_reduce \- std::experimental::parallel::tr
        M, ..., b
        N)) where
 
-     * b
-       1, ..., b
-       N may be any permutation of a1, ..., aN and
-     * 1 < K+1 = M ≤ N
+              * b
+                1, ..., b
+                N may be any permutation of a1, ..., aN and
+              * 1 < K+1 = M ≤ N
 
-   in other words, the results of unary_op may be grouped and arranged in arbitrary
-   order.
+   in other words, the results of unary_op may be grouped and arranged in arbitrary order.
 
 .SH Complexity
 
@@ -73,16 +65,11 @@ std::experimental::parallel::transform_reduce \- std::experimental::parallel::tr
 
      * If execution of a function invoked as part of the algorithm throws an exception,
 
-     * if policy is parallel_vector_execution_policy, std::terminate is called
-     * if policy is sequential_execution_policy or parallel_execution_policy, the
-       algorithm exits with an exception_list containing all uncaught exceptions. If
-       there was only one uncaught exception, the algorithm may rethrow it without
-       wrapping in exception_list. It is unspecified how much work the algorithm will
-       perform before returning after the first exception was encountered.
-     * if policy is some other type, the behavior is implementation-defined
+              * if policy is parallel_vector_execution_policy, std::terminate is called
+              * if policy is sequential_execution_policy or parallel_execution_policy, the algorithm exits with an exception_list containing all uncaught exceptions. If there was only one uncaught exception, the algorithm may rethrow it without wrapping in exception_list. It is unspecified how much work the algorithm will perform before returning after the first exception was encountered.
+              * if policy is some other type, the behavior is implementation-defined
 
-     * If the algorithm fails to allocate memory (either for itself or to construct an
-       exception_list when handling a user exception), std::bad_alloc is thrown.
+     * If the algorithm fails to allocate memory (either for itself or to construct an exception_list when handling a user exception), std::bad_alloc is thrown.
 
 .SH Notes
 
@@ -90,16 +77,9 @@ std::experimental::parallel::transform_reduce \- std::experimental::parallel::tr
 
    If the range is empty, init is returned, unmodified
 
-     * If policy is an instance of sequential_execution_policy, all operations are
-       performed in the calling thread.
-     * If policy is an instance of parallel_execution_policy, operations may be
-       performed in unspecified number of threads, indeterminately sequenced with each
-       other
-     * If policy is an instance of parallel_vector_execution_policy, execution may be
-       both parallelized and vectorized: function body boundaries are not respected and
-       user code may be overlapped and combined in arbitrary manner (in particular,
-       this implies that a user-provided Callable must not acquire a mutex to access a
-       shared resource)
+     * If policy is an instance of sequential_execution_policy, all operations are performed in the calling thread.
+     * If policy is an instance of parallel_execution_policy, operations may be performed in unspecified number of threads, indeterminately sequenced with each other
+     * If policy is an instance of parallel_vector_execution_policy, execution may be both parallelized and vectorized: function body boundaries are not respected and user code may be overlapped and combined in arbitrary manner (in particular, this implies that a user-provided Callable must not acquire a mutex to access a shared resource)
 
 .SH Example
 

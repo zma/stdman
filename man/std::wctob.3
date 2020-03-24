@@ -1,4 +1,4 @@
-.TH std::wctob 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wctob 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wctob \- std::wctob
 
@@ -6,12 +6,9 @@ std::wctob \- std::wctob
    Defined in header <cwchar>
    int wctob( std::wint_t c );
 
-   Narrows a wide character c if its multibyte character equivalent in the initial
-   shift state is a single byte.
+   Narrows a wide character c if its multibyte character equivalent in the initial shift state is a single byte.
 
-   This is typically possible for the characters from the ASCII character set, since
-   most multibyte encodings (such as UTF-8) use single bytes to encode those
-   characters.
+   This is typically possible for the characters from the ASCII character set, since most multibyte encodings (such as UTF-8) use single bytes to encode those characters.
 
 .SH Parameters
 
@@ -19,8 +16,7 @@ std::wctob \- std::wctob
 
 .SH Return value
 
-   EOF if c does not represent a multibyte character with length 1 in initial shift
-   state.
+   EOF if c does not represent a multibyte character with length 1 in initial shift state.
 
    Otherwise, the single-byte representation of c as unsigned char converted to int
 

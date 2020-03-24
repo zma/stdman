@@ -1,4 +1,4 @@
-.TH std::istrstream::istrstream 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::istrstream::istrstream 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::istrstream::istrstream \- std::istrstream::istrstream
 
@@ -10,13 +10,8 @@ std::istrstream::istrstream \- std::istrstream::istrstream
 
    Constructs new istrstream and its underlying std::strstreambuf.
 
-   1,2) Constructs the underlying std::strstreambuf by calling strstreambuf(s,0) and
-   initializes the base class with the address of the strstreambuf. The behavior is
-   undefined if s is not pointing at an element of a null-terminated array.
-   3,4) Constructs the underlying std::strstreambuf by calling strstreambuf(s,n) and
-   initializes the base class with the address of the strstreambuf. The behavior is
-   undefined if s is not pointing at an element of an array whose length is at least n
-   elements.
+   1,2) Constructs the underlying std::strstreambuf by calling strstreambuf(s,0) and initializes the base class with the address of the strstreambuf. The behavior is undefined if s is not pointing at an element of a null-terminated array.
+   3,4) Constructs the underlying std::strstreambuf by calling strstreambuf(s,n) and initializes the base class with the address of the strstreambuf. The behavior is undefined if s is not pointing at an element of an array whose length is at least n elements.
 
 .SH Parameters
 

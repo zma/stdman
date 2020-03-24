@@ -1,4 +1,4 @@
-.TH std::not_fn 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::not_fn 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::not_fn \- std::not_fn
 
@@ -7,13 +7,11 @@ std::not_fn \- std::not_fn
    template< class F>                \fI(since C++17)\fP
    /*unspecified*/ not_fn( F&& f );
 
-   Creates a forwarding call wrapper that returns the negation of the callable object
-   it holds.
+   Creates a forwarding call wrapper that returns the negation of the callable object it holds.
 
 .SH Parameters
 
-   f     -     the object from which the Callable object held by the wrapper is
-               constructed
+   f       -       the object from which the Callable object held by the wrapper is constructed
 .SH Type requirements
    -
    std::decay_t<F> must meet the requirements of Callable and MoveConstructible.
@@ -36,28 +34,23 @@ std::not_fn return type
    T(T&& f) = default;      \fB(2)\fP
    T(const T& f) = default;
 
-   1) The constructor initializes the member object (of type std::decay_t<F>) from
-   std::forward<F>(f). Throws any exception thrown by the constructor selected
-   2) Because std::decay_t<F> is required to be MoveConstructible, the returned call
-   wrapper is always MoveConstructible, and is CopyConstructible if std::decay_t<F> is
-   CopyConstructible.
+   1) The constructor initializes the member object (of type std::decay_t<F>) from std::forward<F>(f). Throws any exception thrown by the constructor selected
+   2) Because std::decay_t<F> is required to be MoveConstructible, the returned call wrapper is always MoveConstructible, and is CopyConstructible if std::decay_t<F> is CopyConstructible.
 
 .SH Member function operator()
 
    template<class... Args> auto operator()(Args&&... args) &
 
-   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F>&, Args...>>());
-   template<class... Args> auto operator()(Args&&... args) const&                  \fB(1)\fP
+   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F>&, Args...>>());       \fB(1)\fP
+   template<class... Args> auto operator()(Args&&... args) const&
 
-   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F> const&,
-   Args...>>());
+   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F> const&, Args...>>());
    template<class... Args> auto operator()(Args&&... args) &&
 
-   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F>, Args...>>());
-   template<class... Args> auto operator()(Args&&... args) const&&                 \fB(2)\fP
+   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F>, Args...>>());        \fB(2)\fP
+   template<class... Args> auto operator()(Args&&... args) const&&
 
-   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F> const,
-   Args...>>());
+   -> decltype(!std::declval<std::invoke_result_t<std::decay_t<F> const, Args...>>());
 
    1) Equivalent to return !std::invoke(fd, std::forward<Args>(args)...)
    2) Equivalent to return !std::invoke(std::move(fd), std::forward<Args>(args)...)

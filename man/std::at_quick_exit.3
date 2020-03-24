@@ -1,4 +1,4 @@
-.TH std::at_quick_exit 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::at_quick_exit 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::at_quick_exit \- std::at_quick_exit
 
@@ -9,14 +9,11 @@ std::at_quick_exit \- std::at_quick_exit
    extern "C++" using /*atexit-handler*/ = void(); // exposition-only \fB(2)\fP
    extern "C" using /*c-atexit-handler*/ = void(); // exposition-only
 
-   Registers the function pointed to by func to be called on quick program termination
-   (via std::quick_exit).
+   Registers the function pointed to by func to be called on quick program termination (via std::quick_exit).
 
-   Calling the function from several threads does not induce a data race. The
-   implementation shall support the registration of at least 32 functions.
+   Calling the function from several threads does not induce a data race. The implementation shall support the registration of at least 32 functions.
 
-   The registered functions will not be called on normal program termination. If a
-   function need to be called in that case, std::atexit must be used.
+   The registered functions will not be called on normal program termination. If a function need to be called in that case, std::atexit must be used.
 
 .SH Parameters
 
@@ -28,8 +25,7 @@ std::at_quick_exit \- std::at_quick_exit
 
 .SH Notes
 
-   The two overloads are distinct because the types of the parameter func are distinct
-   (language linkage is part of its type)
+   The two overloads are distinct because the types of the parameter func are distinct (language linkage is part of its type)
 
 .SH Example
 

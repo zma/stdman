@@ -1,4 +1,4 @@
-.TH std::basic_ios<CharT,Traits>::tie 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ios<CharT,Traits>::tie 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ios<CharT,Traits>::tie \- std::basic_ios<CharT,Traits>::tie
 
@@ -6,14 +6,10 @@ std::basic_ios<CharT,Traits>::tie \- std::basic_ios<CharT,Traits>::tie
    std::basic_ostream<CharT,Traits>* tie() const;                                  \fB(1)\fP
    std::basic_ostream<CharT,Traits>* tie( std::basic_ostream<CharT,Traits>* str ); \fB(2)\fP
 
-   Manages the tied stream. A tied stream is an output stream which is synchronized
-   with the sequence controlled by the stream buffer (rdbuf()), that is, flush() is
-   called on the tied stream before any input/output operation on *this.
+   Manages the tied stream. A tied stream is an output stream which is synchronized with the sequence controlled by the stream buffer (rdbuf()), that is, flush() is called on the tied stream before any input/output operation on *this.
 
-   1) Returns the current tied stream. If there is no tied stream, a null pointer is
-   returned.
-   2) Sets the current tied stream to str. Returns the tied stream before the
-   operation. If there is no tied stream, a null pointer is returned.
+   1) Returns the current tied stream. If there is no tied stream, a null pointer is returned.
+   2) Sets the current tied stream to str. Returns the tied stream before the operation. If there is no tied stream, a null pointer is returned.
 
 .SH Parameters
 
@@ -29,8 +25,7 @@ std::basic_ios<CharT,Traits>::tie \- std::basic_ios<CharT,Traits>::tie
 
 .SH Notes
 
-   By default, the standard streams cin and cerr are tied to cout. Similarly, their
-   wide counterparts wcin and wcerr are tied to wcout.
+   By default, the standard streams cin and cerr are tied to cout. Similarly, their wide counterparts wcin and wcerr are tied to wcout.
 
 .SH Example
 

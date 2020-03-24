@@ -1,4 +1,4 @@
-.TH std::memchr 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::memchr 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::memchr \- std::memchr
 
@@ -7,14 +7,9 @@ std::memchr \- std::memchr
    const void* memchr( const void* ptr, int ch, std::size_t count );
    void* memchr( void* ptr, int ch, std::size_t count );
 
-   Converts ch to unsigned char and locates the first occurrence of that value in the
-   initial count characters (each interpreted as unsigned char) of the object pointed
-   to by ptr.
+   Converts ch to unsigned char and locates the first occurrence of that value in the initial count characters (each interpreted as unsigned char) of the object pointed to by ptr.
 
-   This function behaves as if it reads the characters sequentially and
-   stops as soon as a matching character is found: if the array pointed   \fI(since C++17)\fP
-   to by ptr is smaller than count, but the match is found within the
-   array, the behavior is well-defined
+   This function behaves as if it reads the characters sequentially and stops as soon as a matching character is found: if the array pointed to by ptr is smaller than count, but the match is found within the array, the behavior is well-defined \fI(since C++17)\fP
 
 .SH Parameters
 

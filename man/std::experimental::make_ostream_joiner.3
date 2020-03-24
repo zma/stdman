@@ -1,4 +1,4 @@
-.TH std::experimental::make_ostream_joiner 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::make_ostream_joiner 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::make_ostream_joiner \- std::experimental::make_ostream_joiner
 
@@ -6,14 +6,11 @@ std::experimental::make_ostream_joiner \- std::experimental::make_ostream_joiner
    Defined in header <experimental/iterator>
    template <class charT, class traits, class DelimT>
 
-   std::experimental::ostream_joiner<std::decay_t<DelimT>, charT,       (library
-   traits>                                                              fundamentals TS
-                                                                        v2)
-   make_ostream_joiner(std::basic_ostream<charT, traits>& os, DelimT&&
-   delimiter);
+   std::experimental::ostream_joiner<std::decay_t<DelimT>, charT, traits>           (library fundamentals TS v2)
 
-   Creates an ostream_joiner object, deducing the template arguments from the types of
-   the function arguments.
+   make_ostream_joiner(std::basic_ostream<charT, traits>& os, DelimT&& delimiter);
+
+   Creates an ostream_joiner object, deducing the template arguments from the types of the function arguments.
 
 .SH Parameters
 
@@ -22,9 +19,7 @@ std::experimental::make_ostream_joiner \- std::experimental::make_ostream_joiner
 
 .SH Return value
 
-   A ostream_joiner object, created as if by
-   std::experimental::ostream_joiner<std::decay_t<DelimT>, charT, traits>(os,
-   std::forward<DelimT>(delimiter)).
+   A ostream_joiner object, created as if by std::experimental::ostream_joiner<std::decay_t<DelimT>, charT, traits>(os, std::forward<DelimT>(delimiter)).
 
 .SH Example
 

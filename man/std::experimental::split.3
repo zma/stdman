@@ -1,4 +1,4 @@
-.TH std::experimental::split 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::split 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::split \- std::experimental::split
 
@@ -27,14 +27,10 @@ std::experimental::split \- std::experimental::split
 
    Splits the input simd or simd_mask object into multiple simd or simd_mask objects.
 
-   1-2) split the input object into potentially different types (e.g. types with
-   different sizes) of objects. These functions do not participate in overloading
-   resolution unless Sizes... sum up to v.size().
-   3-4) split the input object into a array of objects. These functions do not
-   participate in overloading resolution unless
+   1-2) split the input object into potentially different types (e.g. types with different sizes) of objects. These functions do not participate in overloading resolution unless Sizes... sum up to v.size().
+   3-4) split the input object into a array of objects. These functions do not participate in overloading resolution unless
 
-     * The array element must be of type simd or simd_mask, for the type of v as simd
-       or simd_mask, respectively.
+     * The array element must be of type simd or simd_mask, for the type of v as simd or simd_mask, respectively.
      * simd_size_v<typename V::value_type, Abi> is an integral multiple of V::size().
 
 .SH Parameters

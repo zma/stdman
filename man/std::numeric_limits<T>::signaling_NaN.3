@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::signaling_NaN 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::signaling_NaN 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::signaling_NaN \- std::numeric_limits<T>::signaling_NaN
 
@@ -6,12 +6,7 @@ std::numeric_limits<T>::signaling_NaN \- std::numeric_limits<T>::signaling_NaN
    static T signaling_NaN() throw();             \fI(until C++11)\fP
    static constexpr T signaling_NaN() noexcept;  \fI(since C++11)\fP
 
-   Returns the special value "signaling not-a-number", as represented by the
-   floating-point type T. Only meaningful if std::numeric_limits<T>::has_signaling_NaN
-   == true. In IEEE 754, the most common binary representation of floating-point
-   numbers, any value with all bits of the exponent set and at least one bit of the
-   fraction set represents a NaN. It is implementation-defined which values of the
-   fraction represent quiet or signaling NaNs, and whether the sign bit is meaningful.
+   Returns the special value "signaling not-a-number", as represented by the floating-point type T. Only meaningful if std::numeric_limits<T>::has_signaling_NaN == true. In IEEE 754, the most common binary representation of floating-point numbers, any value with all bits of the exponent set and at least one bit of the fraction set represents a NaN. It is implementation-defined which values of the fraction represent quiet or signaling NaNs, and whether the sign bit is meaningful.
 
 .SH Return value
 
@@ -39,12 +34,9 @@ std::numeric_limits<T>::signaling_NaN \- std::numeric_limits<T>::signaling_NaN
 
 .SH Notes
 
-   A NaN never compares equal to itself. Copying a NaN is not required, by IEEE-754, to
-   preserve its bit representation (sign and payload), though most implementation do.
+   A NaN never compares equal to itself. Copying a NaN is not required, by IEEE-754, to preserve its bit representation (sign and payload), though most implementation do.
 
-   When a signaling NaN is used as an argument to an arithmetic expression, the
-   appropriate floating-point exception may be raised and the NaN is "quieted", that
-   is, the expression returns a quiet NaN.
+   When a signaling NaN is used as an argument to an arithmetic expression, the appropriate floating-point exception may be raised and the NaN is "quieted", that is, the expression returns a quiet NaN.
 
 .SH Example
 
@@ -87,9 +79,8 @@ std::numeric_limits<T>::signaling_NaN \- std::numeric_limits<T>::signaling_NaN
 
 .SH See also
 
-   has_signaling_NaN identifies floating-point types that can represent the special
-   \fB[static]\fP          value "signaling not-a-number" (NaN)
-                     \fI(public static member constant)\fP
+   has_signaling_NaN identifies floating-point types that can represent the special value "signaling not-a-number" (NaN)
+   \fB[static]\fP          \fI(public static member constant)\fP
    quiet_NaN         returns a quiet NaN value of the given floating-point type
    \fB[static]\fP          \fI(public static member function)\fP
    isnan             checks if the given number is NaN

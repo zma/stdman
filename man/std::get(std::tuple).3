@@ -1,45 +1,39 @@
-.TH std::get(std::tuple) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::get(std::tuple) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::get(std::tuple) \- std::get(std::tuple)
 
 .SH Synopsis
    template< std::size_t I, class... Types >
-                                                                \fI(since C++11)\fP
-   typename std::tuple_element<I, tuple<Types...> >::type&  \fB(1)\fP (constexpr since C++14)
+                                                                      \fI(since C++11)\fP
+   typename std::tuple_element<I, tuple<Types...> >::type&        \fB(1)\fP (constexpr since C++14)
 
    get( tuple<Types...>& t ) noexcept;
    template< std::size_t I, class... Types >
-                                                                \fI(since C++11)\fP
-   typename std::tuple_element<I, tuple<Types...> >::type&& \fB(2)\fP (constexpr since C++14)
+                                                                      \fI(since C++11)\fP
+   typename std::tuple_element<I, tuple<Types...> >::type&&       \fB(2)\fP (constexpr since C++14)
 
    get( tuple<Types...>&& t ) noexcept;
    template< std::size_t I, class... Types >
-
-   typename std::tuple_element<I, tuple<Types...> >::type   \fB(3)\fP \fI(since C++11)\fP
-   const&                                                       (constexpr since C++14)
+                                                                      \fI(since C++11)\fP
+   typename std::tuple_element<I, tuple<Types...> >::type const&  \fB(3)\fP (constexpr since C++14)
 
    get( const tuple<Types...>& t ) noexcept;
    template< std::size_t I, class... Types >
-
-   typename std::tuple_element<I, tuple<Types...> >::type   \fB(4)\fP \fI(since C++11)\fP
-   const&&                                                      (constexpr since C++14)
+                                                                      \fI(since C++11)\fP
+   typename std::tuple_element<I, tuple<Types...> >::type const&& \fB(4)\fP (constexpr since C++14)
 
    get( const tuple<Types...>&& t ) noexcept;
-   template< class T, class... Types >                      \fB(5)\fP \fI(since C++14)\fP
+   template< class T, class... Types >                            \fB(5)\fP \fI(since C++14)\fP
    constexpr T& get(tuple<Types...>& t) noexcept;
-   template< class T, class... Types >                      \fB(6)\fP \fI(since C++14)\fP
+   template< class T, class... Types >                            \fB(6)\fP \fI(since C++14)\fP
    constexpr T&& get(tuple<Types...>&& t) noexcept;
-   template< class T, class... Types >
-   constexpr const T& get(const tuple<Types...>& t)         \fB(7)\fP \fI(since C++14)\fP
-   noexcept;
-   template< class T, class... Types >
-   constexpr const T&& get(const tuple<Types...>&& t)       \fB(8)\fP \fI(since C++14)\fP
-   noexcept;
+   template< class T, class... Types >                            \fB(7)\fP \fI(since C++14)\fP
+   constexpr const T& get(const tuple<Types...>& t) noexcept;
+   template< class T, class... Types >                            \fB(8)\fP \fI(since C++14)\fP
+   constexpr const T&& get(const tuple<Types...>&& t) noexcept;
 
-   1-4) Extracts the Ith element from the tuple. I must be an integer value in [0,
-   sizeof...(Types)).
-   5-8) Extracts the element of the tuple t whose type is T. Fails to compile unless
-   the tuple has exactly one element of that type.
+   1-4) Extracts the Ith element from the tuple. I must be an integer value in [0, sizeof...(Types)).
+   5-8) Extracts the element of the tuple t whose type is T. Fails to compile unless the tuple has exactly one element of that type.
 
 .SH Parameters
 
@@ -51,8 +45,7 @@ std::get(std::tuple) \- std::get(std::tuple)
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
       DR    Applied to          Behavior as published              Correct behavior
    LWG 2485 C++11      there are no overloads for const tuple&& the overloads are added
@@ -89,6 +82,5 @@ std::get(std::tuple) \- std::get(std::tuple)
                           \fI(function template)\fP
    std::get(std::pair)    accesses an element of a pair
    \fI(C++11)\fP                \fI(function template)\fP
-   std::get(std::variant) reads the value of the variant given the index or the type
-   \fI(C++17)\fP                (if the type is unique), throws on error
-                          \fI(function template)\fP
+   std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
+   \fI(C++17)\fP                \fI(function template)\fP

@@ -1,23 +1,15 @@
-.TH std::ios_base::pword 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ios_base::pword 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ios_base::pword \- std::ios_base::pword
 
 .SH Synopsis
    void*& pword( int index );
 
-   First, allocates or resizes the private storage (dynamic array of void* or another
-   indexable data structure) sufficiently to make index a valid index, then returns a
-   reference to the void* element of the private storage with the index index.
+   First, allocates or resizes the private storage (dynamic array of void* or another indexable data structure) sufficiently to make index a valid index, then returns a reference to the void* element of the private storage with the index index.
 
-   The reference may be invalidated by any operation on this ios_base object, including
-   another call to pword(), but the stored values are retained, so that reading from
-   pword(index) with the same index later will produce the same value (until the next
-   call to copyfmt()). The value can be used for any purpose. The index of the element
-   must be obtained by xalloc(), otherwise the behavior is undefined. New elements are
-   initialized to NULL.
+   The reference may be invalidated by any operation on this ios_base object, including another call to pword(), but the stored values are retained, so that reading from pword(index) with the same index later will produce the same value (until the next call to copyfmt()). The value can be used for any purpose. The index of the element must be obtained by xalloc(), otherwise the behavior is undefined. New elements are initialized to NULL.
 
-   If allocation fails, calls std::basic_ios<>::setstate(badbit) which may throw
-   std::ios_base::failure
+   If allocation fails, calls std::basic_ios<>::setstate(badbit) which may throw std::ios_base::failure
 
 .SH Parameters
 
@@ -33,13 +25,11 @@ std::ios_base::pword \- std::ios_base::pword
 
 .SH Notes
 
-   If the pointers stored in pword require management, register_callback() may be used
-   to install handlers that execute deep copy or deallocation as needed.
+   If the pointers stored in pword require management, register_callback() may be used to install handlers that execute deep copy or deallocation as needed.
 
 .SH Example
 
-   Uses base class pword storage for runtime type identification of derived stream
-   objects.
+   Uses base class pword storage for runtime type identification of derived stream objects.
 
    
 // Run this code
@@ -99,9 +89,7 @@ std::ios_base::pword \- std::ios_base::pword
 
 .SH See also
 
-            resizes the private storage if necessary and access to the long element at
-   iword    the given index
+   iword    resizes the private storage if necessary and access to the long element at the given index
             \fI(public member function)\fP
-   xalloc   returns a program-wide unique integer that is safe to use as index to
-   \fB[static]\fP pword() and iword()
-            \fI(public static member function)\fP
+   xalloc   returns a program-wide unique integer that is safe to use as index to pword() and iword()
+   \fB[static]\fP \fI(public static member function)\fP

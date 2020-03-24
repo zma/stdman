@@ -1,13 +1,12 @@
-.TH std::ranges::swap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ranges::swap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ranges::swap \- std::ranges::swap
 
 .SH Synopsis
    Defined in header <concepts>
    inline namespace /* unspecified */ {
-
-   inline constexpr /* unspecified */ swap = /*            \fI(since C++20)\fP
-   unspecified */;                                         (customization point object)
+                                                                 \fI(since C++20)\fP
+   inline constexpr /* unspecified */ swap = /* unspecified */;  (customization point object)
 
    }
    Call signature
@@ -15,46 +14,30 @@ std::ranges::swap \- std::ranges::swap
 
    requires /* see below */
 
-   constexpr void swap(T&& t, U&& u) noexcept(/* see
-   below */);
+   constexpr void swap(T&& t, U&& u) noexcept(/* see below */);
 
    Exchanges the values referenced by t and u.
 
    A call to ranges::swap is equivalent to:
 
-   1) (void)swap(std::forward<T>(t), std::forward<U>(u)), if that expression is valid,
-   where the overload resolution is performed with the following candidates:
+   1) (void)swap(std::forward<T>(t), std::forward<U>(u)), if that expression is valid, where the overload resolution is performed with the following candidates:
 
      * template<class T> void swap(T&, T&) = delete;
      * template<class T, std::size_t N> void swap(T(&)[N], T(&)[N]) = delete;
      * any declarations of swap found by argument-dependent lookup.
 
-   If the function selected by overload resolution does not exchange the values
-   referenced by t and u, the program is ill-formed; no diagnostic required.
-   2) Otherwise, (void)ranges::swap_ranges(t, u), if T and U are lvalue references to
-   array types of equal extent (but possibly different element types) and
-   ranges::swap(*t, *u) is a valid expression;
-   3) Otherwise, if T and U are both V& for some type V that meets the syntactic
-   requirements of MoveConstructible<V> and Assignable<V&, V>, exchanges the referenced
-   values as if by V v{std::move(t)}; t = std::move(u); u = std::move(v);. If the
-   semantic requirements of either concept are not satisfied, the program is
-   ill-formed; no diagnostic required.
+   If the function selected by overload resolution does not exchange the values referenced by t and u, the program is ill-formed; no diagnostic required.
+   2) Otherwise, (void)ranges::swap_ranges(t, u), if T and U are lvalue references to array types of equal extent (but possibly different element types) and ranges::swap(*t, *u) is a valid expression;
+   3) Otherwise, if T and U are both V& for some type V that meets the syntactic requirements of MoveConstructible<V> and Assignable<V&, V>, exchanges the referenced values as if by V v{std::move(t)}; t = std::move(u); u = std::move(v);. If the semantic requirements of either concept are not satisfied, the program is ill-formed; no diagnostic required.
    4) In all other cases, a call to ranges::swap is ill-formed.
 
-   ranges::swap can be used in a constant expression if every function it calls (as
-   specified above) can be so used.
+   ranges::swap can be used in a constant expression if every function it calls (as specified above) can be so used.
 
   Customization point objects
 
-   The name ranges::swap denotes a customization point object, which is a function
-   object of a literal Semiregular class type (denoted, for exposition purposes, as
-   SwapT). All instances of SwapT are equal. Thus, ranges::swap can be copied freely
-   and its copies can be used interchangeably.
+   The name ranges::swap denotes a customization point object, which is a function object of a literal Semiregular class type (denoted, for exposition purposes, as SwapT). All instances of SwapT are equal. Thus, ranges::swap can be copied freely and its copies can be used interchangeably.
 
-   Given a set of types Args..., if std::declval<Args>()... meet the requirements for
-   arguments to ranges::swap above, SwapT will satisfy std::Invocable<const SwapT&,
-   Args...>. Otherwise, no function call operator of SwapT participates in overload
-   resolution.
+   Given a set of types Args..., if std::declval<Args>()... meet the requirements for arguments to ranges::swap above, SwapT will satisfy std::Invocable<const SwapT&, Args...>. Otherwise, no function call operator of SwapT participates in overload resolution.
 
 .SH Exceptions
 
@@ -77,8 +60,8 @@ std::ranges::swap \- std::ranges::swap
 
 .SH See also
 
-   Swappable     specifies that a type can be swapped or that two types can be swapped
-   SwappableWith with each other
-   (C++20)       (concept)
+   Swappable     specifies that a type can be swapped or that two types can be swapped with each other
+   SwappableWith (concept)
+   (C++20)
    swap          swaps the values of two objects
                  \fI(function template)\fP

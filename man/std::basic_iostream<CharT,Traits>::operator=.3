@@ -1,4 +1,4 @@
-.TH std::basic_iostream<CharT,Traits>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_iostream<CharT,Traits>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_iostream<CharT,Traits>::operator= \- std::basic_iostream<CharT,Traits>::operator=
 
@@ -10,10 +10,7 @@ std::basic_iostream<CharT,Traits>::operator= \- std::basic_iostream<CharT,Traits
    Assigns another stream object.
 
    1) Copy assignment is not allowed.
-   2) Move assigns another stream object. Effectively calls swap(rhs). This move
-   assignment operator is protected: it is called by the move assignment operators of
-   the derived stream classes std::basic_stringstream and std::basic_fstream which know
-   how to properly move-assign the associated stream buffers.
+   2) Move assigns another stream object. Effectively calls swap(rhs). This move assignment operator is protected: it is called by the move assignment operators of the derived stream classes std::basic_stringstream and std::basic_fstream which know how to properly move-assign the associated stream buffers.
 
 .SH Parameters
 

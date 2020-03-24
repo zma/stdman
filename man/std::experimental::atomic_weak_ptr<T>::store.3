@@ -1,16 +1,13 @@
-.TH std::experimental::atomic_weak_ptr<T>::store 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::atomic_weak_ptr<T>::store 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::atomic_weak_ptr<T>::store \- std::experimental::atomic_weak_ptr<T>::store
 
 .SH Synopsis
-   void store( weak_ptr<T> desired, std::memory_order order =
-   std::memory_order_seq_cst ) noexcept;
+   void store( weak_ptr<T> desired, std::memory_order order = std::memory_order_seq_cst ) noexcept;
 
-   Atomically replaces the current value with desired. Memory is affected according to
-   the value of order.
+   Atomically replaces the current value with desired. Memory is affected according to the value of order.
 
-   order must be one of std::memory_order_relaxed, std::memory_order_release or
-   std::memory_order_seq_cst. Otherwise the behavior is undefined.
+   order must be one of std::memory_order_relaxed, std::memory_order_release or std::memory_order_seq_cst. Otherwise the behavior is undefined.
 
 .SH Parameters
 
@@ -23,26 +20,20 @@ std::experimental::atomic_weak_ptr<T>::store \- std::experimental::atomic_weak_p
 
   Remarks
 
-   All changes to the atomic_weak_ptr object itself, and all associated use_count
-   increments, are guaranteed to be performed atomically. Associated use_count
-   decrements take place after the atomic operation, but are not required to be part of
-   it. Any associated destruction or deallocation operations take place after the
-   atomic operation and are not part of it.
+   All changes to the atomic_weak_ptr object itself, and all associated use_count increments, are guaranteed to be performed atomically. Associated use_count decrements take place after the atomic operation, but are not required to be part of it. Any associated destruction or deallocation operations take place after the atomic operation and are not part of it.
 
 .SH See also
 
-                                                                 stores a value into an
-   operator=                                                     atomic_weak_ptr object
-                                                                 \fI\fI(public member\fP\fP
-                                                                 function)
+   operator=                                                     stores a value into an atomic_weak_ptr object
+                                                                 \fI(public member function)\fP
    std::atomic_is_lock_free(std::shared_ptr)
    std::atomic_load(std::shared_ptr)
    std::atomic_load_explicit(std::shared_ptr)
    std::atomic_store(std::shared_ptr)
-   std::atomic_store_explicit(std::shared_ptr)                   specializes atomic
-   std::atomic_exchange(std::shared_ptr)                         operations for
-   std::atomic_exchange_explicit(std::shared_ptr)                std::shared_ptr
-   std::atomic_compare_exchange_weak(std::shared_ptr)            \fI(function template)\fP
+   std::atomic_store_explicit(std::shared_ptr)
+   std::atomic_exchange(std::shared_ptr)                         specializes atomic operations for std::shared_ptr
+   std::atomic_exchange_explicit(std::shared_ptr)                \fI(function template)\fP
+   std::atomic_compare_exchange_weak(std::shared_ptr)
    std::atomic_compare_exchange_strong(std::shared_ptr)
    std::atomic_compare_exchange_weak_explicit(std::shared_ptr)
    std::atomic_compare_exchange_strong_explicit(std::shared_ptr)

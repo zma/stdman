@@ -1,38 +1,29 @@
-.TH std::invoke 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::invoke 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::invoke \- std::invoke
 
 .SH Synopsis
    Defined in header <functional>
-   template< class F, class... Args>
-   std::invoke_result_t<F, Args...> invoke(F&& f, Args&&... args)         \fI(since C++17)\fP
-   noexcept(/* see below */);
+   template< class F, class... Args>                                                          \fI(since C++17)\fP
+   std::invoke_result_t<F, Args...> invoke(F&& f, Args&&... args) noexcept(/* see below */);
 
-   Invoke the Callable object f with the parameters args. As by
-   INVOKE(std::forward<F>(f), std::forward<Args>(args)...).
+   Invoke the Callable object f with the parameters args. As by INVOKE(std::forward<F>(f), std::forward<Args>(args)...).
 
    where INVOKE(f, t1, t2, ..., tN) is defined as follows:
 
      * If f is a pointer to member function of class T:
 
-     * If std::is_base_of<T, std::decay_t<decltype(t1)>>::value is true, then INVOKE(f,
-       t1, t2, ..., tN) is equivalent to (t1.*f)(t2, ..., tN)
-     * If std::decay_t<decltype(t1)> is a specialization of std::reference_wrapper,
-       then INVOKE(f, t1, t2, ..., tN) is equivalent to (t1.get().*f)(t2, ..., tN)
-     * If t1 does not satisfy the previous items, then INVOKE(f, t1, t2, ..., tN) is
-       equivalent to ((*t1).*f)(t2, ..., tN).
+              * If std::is_base_of<T, std::decay_t<decltype(t1)>>::value is true, then INVOKE(f, t1, t2, ..., tN) is equivalent to (t1.*f)(t2, ..., tN)
+              * If std::decay_t<decltype(t1)> is a specialization of std::reference_wrapper, then INVOKE(f, t1, t2, ..., tN) is equivalent to (t1.get().*f)(t2, ..., tN)
+              * If t1 does not satisfy the previous items, then INVOKE(f, t1, t2, ..., tN) is equivalent to ((*t1).*f)(t2, ..., tN).
 
      * Otherwise, if N == 1 and f is a pointer to data member of class T:
 
-     * If std::is_base_of<T, std::decay_t<decltype(t1)>>::value is true, then INVOKE(f,
-       t1) is equivalent to t1.*f
-     * If std::decay_t<decltype(t1)> is a specialization of std::reference_wrapper,
-       then INVOKE(f, t1) is equivalent to t1.get().*f
-     * If t1 does not satisfy the previous items, then INVOKE(f, t1) is equivalent to
-       (*t1).*f
+              * If std::is_base_of<T, std::decay_t<decltype(t1)>>::value is true, then INVOKE(f, t1) is equivalent to t1.*f
+              * If std::decay_t<decltype(t1)> is a specialization of std::reference_wrapper, then INVOKE(f, t1) is equivalent to t1.get().*f
+              * If t1 does not satisfy the previous items, then INVOKE(f, t1) is equivalent to (*t1).*f
 
-     * Otherwise, INVOKE(f, t1, t2, ..., tN) is equivalent to f(t1, t2, ..., tN) (that
-       is, f is a FunctionObject)
+     * Otherwise, INVOKE(f, t1, t2, ..., tN) is equivalent to f(t1, t2, ..., tN) (that is, f is a FunctionObject)
 
 .SH Parameters
 
@@ -147,14 +138,14 @@ std::invoke \- std::invoke
 
    mem_fn                    creates a function object out of a pointer to a member
    \fI(C++11)\fP                   \fI(function template)\fP
-   result_of                 deduces the result type of invoking a callable object with
-   invoke_result             a set of arguments
+   result_of
+   invoke_result             deduces the result type of invoking a callable object with a set of arguments
    \fI(C++11)\fP(removed in C++20) \fI(class template)\fP
    \fI(C++17)\fP
    is_invocable
-   is_invocable_r            checks if a type can be invoked (as if by std::invoke)
-   is_nothrow_invocable      with the given argument types
-   is_nothrow_invocable_r    \fI(class template)\fP
+   is_invocable_r            checks if a type can be invoked (as if by std::invoke) with the given argument types
+   is_nothrow_invocable      \fI(class template)\fP
+   is_nothrow_invocable_r
    \fI(C++17)\fP
    apply                     calls a function with a tuple of arguments
    \fI(C++17)\fP                   \fI(function template)\fP

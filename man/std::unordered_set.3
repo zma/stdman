@@ -1,4 +1,4 @@
-.TH std::unordered_set 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unordered_set 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unordered_set \- std::unordered_set
 
@@ -22,59 +22,47 @@ std::unordered_set \- std::unordered_set
 
    }
 
-   Unordered set is an associative container that contains a set of unique objects of
-   type Key. Search, insertion, and removal have average constant-time complexity.
+   Unordered set is an associative container that contains a set of unique objects of type Key. Search, insertion, and removal have average constant-time complexity.
 
-   Internally, the elements are not sorted in any particular order, but organized into
-   buckets. Which bucket an element is placed into depends entirely on the hash of its
-   value. This allows fast access to individual elements, since once a hash is
-   computed, it refers to the exact bucket the element is placed into.
+   Internally, the elements are not sorted in any particular order, but organized into buckets. Which bucket an element is placed into depends entirely on the hash of its value. This allows fast access to individual elements, since once a hash is computed, it refers to the exact bucket the element is placed into.
 
-   Container elements may not be modified (even by non const iterators) since
-   modification could change an element's hash and corrupt the container.
+   Container elements may not be modified (even by non const iterators) since modification could change an element's hash and corrupt the container.
 
-   std::unordered_set meets the requirements of Container, AllocatorAwareContainer,
-   UnorderedAssociativeContainer.
+   std::unordered_set meets the requirements of Container, AllocatorAwareContainer, UnorderedAssociativeContainer.
 
 .SH Member types
 
-   Member type              Definition
-   key_type                 Key
-   value_type               Key
-   size_type                Unsigned integer type (usually std::size_t)
-   difference_type          Signed integer type (usually std::ptrdiff_t)
-   hasher                   Hash
-                            KeyEqual                                         \fI(until C++20)\fP
-   key_equal                Hash::transparent_key_equal if defined and names \fI(since C++20)\fP
-                            a type, otherwise KeyEqual
-   allocator_type           Allocator
-   reference                value_type&
-   const_reference          const value_type&
-   pointer                  std::allocator_traits<Allocator>::pointer
-   const_pointer            std::allocator_traits<Allocator>::const_pointer
-   iterator                 Constant LegacyForwardIterator
-   const_iterator           Constant LegacyForwardIterator
-                            An iterator type whose category, value, difference, pointer
-                            and
-   local_iterator           reference types are the same as iterator. This iterator
-                            can be used to iterate through a single bucket but not across
-                            buckets
-                            An iterator type whose category, value, difference, pointer
-                            and
-   const_local_iterator     reference types are the same as const_iterator. This iterator
-                            can be used to iterate through a single bucket but not across
-                            buckets
-   node_type\fI(since C++17)\fP   a specialization of node handle representing a container node
-                            type describing the result of inserting a node_type, a
-                            specialization of
+   Member type                     Definition
+   key_type                        Key
+   value_type                      Key
+   size_type                       Unsigned integer type (usually std::size_t)
+   difference_type                 Signed integer type (usually std::ptrdiff_t)
+   hasher                          Hash
+   key_equal                       KeyEqual                                                                    \fI(until C++20)\fP
+                                   Hash::transparent_key_equal if defined and names a type, otherwise KeyEqual \fI(since C++20)\fP
+   allocator_type                  Allocator
+   reference                       value_type&
+   const_reference                 const value_type&
+   pointer                         std::allocator_traits<Allocator>::pointer
+   const_pointer                   std::allocator_traits<Allocator>::const_pointer
+   iterator                        Constant LegacyForwardIterator
+   const_iterator                  Constant LegacyForwardIterator
+                                   An iterator type whose category, value, difference, pointer and
+   local_iterator                  reference types are the same as iterator. This iterator
+                                   can be used to iterate through a single bucket but not across buckets
+                                   An iterator type whose category, value, difference, pointer and
+   const_local_iterator            reference types are the same as const_iterator. This iterator
+                                   can be used to iterate through a single bucket but not across buckets
+   node_type\fI(since C++17)\fP          a specialization of node handle representing a container node
+                                   type describing the result of inserting a node_type, a specialization of
 
-                            template <class Iter, class NodeType> struct /*unspecified*/ {
-   insert_return_type(since     Iter     position;
-   C++17)                       bool     inserted;
-                                NodeType node;
-                            };
+                                   template <class Iter, class NodeType> struct /*unspecified*/ {
+                                       Iter     position;
+   insert_return_type\fI(since C++17)\fP     bool     inserted;
+                                       NodeType node;
+                                   };
 
-                            instantiated with template arguments iterator and node_type.
+                                   instantiated with template arguments iterator and node_type.
 
 .SH Member functions
 
@@ -169,6 +157,4 @@ std::unordered_set \- std::unordered_set
 
 .SH Notes
 
-   The member types iterator and const_iterator may be aliases to the same type. Since
-   iterator is convertible to const_iterator, const_iterator should be used in function
-   parameter lists to avoid violations of the One Definition Rule.
+   The member types iterator and const_iterator may be aliases to the same type. Since iterator is convertible to const_iterator, const_iterator should be used in function parameter lists to avoid violations of the One Definition Rule.

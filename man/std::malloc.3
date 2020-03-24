@@ -1,4 +1,4 @@
-.TH std::malloc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::malloc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::malloc \- std::malloc
 
@@ -8,25 +8,19 @@ std::malloc \- std::malloc
 
    Allocates size bytes of uninitialized storage.
 
-   If allocation succeeds, returns a pointer to the lowest (first) byte in the
-   allocated memory block that is suitably aligned for any scalar type.
+   If allocation succeeds, returns a pointer to the lowest (first) byte in the allocated memory block that is suitably aligned for any scalar type.
 
-   If size is zero, the behavior is implementation defined (null pointer may be
-   returned, or some non-null pointer may be returned that may not be used to access
-   storage, but has to be passed to std::free)
+   If size is zero, the behavior is implementation defined (null pointer may be returned, or some non-null pointer may be returned that may not be used to access storage, but has to be passed to std::free)
 
    The following functions are required to be thread-safe:
 
      * The library versions of operator new and operator delete
-     * User replacement versions of global operator new and operator
-       delete
-     * std::calloc, std::malloc, std::realloc                             \fI(since C++11)\fP
+     * User replacement versions of global operator new and operator delete
+     * std::calloc, std::malloc, std::realloc                                                                                                                                                                  \fI(since C++11)\fP
        , std::aligned_alloc
        \fI(since C++17)\fP, std::free
 
-   Calls to these functions that allocate or deallocate a particular unit
-   of storage occur in a single total order, and each such deallocation
-   call happens-before the next allocation (if any) in this order.
+   Calls to these functions that allocate or deallocate a particular unit of storage occur in a single total order, and each such deallocation call happens-before the next allocation (if any) in this order.
 
 .SH Parameters
 
@@ -34,19 +28,13 @@ std::malloc \- std::malloc
 
 .SH Return value
 
-   On success, returns the pointer to the beginning of newly allocated memory. To avoid
-   a memory leak, the returned pointer must be deallocated with std::free() or
-   std::realloc().
+   On success, returns the pointer to the beginning of newly allocated memory. To avoid a memory leak, the returned pointer must be deallocated with std::free() or std::realloc().
 
    On failure, returns a null pointer.
 
 .SH Notes
 
-   This function does not call constructors or initialize memory in any way. There are
-   no ready-to-use smart pointers that could guarantee that the matching deallocation
-   function is called. The preferred method of memory allocation in C++ is using
-   RAII-ready functions std::make_unique, std::make_shared, container constructors,
-   etc, and, in low-level library code, new-expression.
+   This function does not call constructors or initialize memory in any way. There are no ready-to-use smart pointers that could guarantee that the matching deallocation function is called. The preferred method of memory allocation in C++ is using RAII-ready functions std::make_unique, std::make_shared, container constructors, etc, and, in low-level library code, new-expression.
 
 .SH Example
 

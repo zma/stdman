@@ -1,19 +1,15 @@
-.TH std::vector<T,Allocator>::reserve 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::vector<T,Allocator>::reserve 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::vector<T,Allocator>::reserve \- std::vector<T,Allocator>::reserve
 
 .SH Synopsis
    void reserve( size_type new_cap );
 
-   Increase the capacity of the vector to a value that's greater or equal to new_cap.
-   If new_cap is greater than the current capacity(), new storage is allocated,
-   otherwise the method does nothing.
+   Increase the capacity of the vector to a value that's greater or equal to new_cap. If new_cap is greater than the current capacity(), new storage is allocated, otherwise the method does nothing.
 
    reserve() does not change the size of the vector.
 
-   If new_cap is greater than capacity(), all iterators, including the past-the-end
-   iterator, and all references to the elements are invalidated. Otherwise, no
-   iterators or references are invalidated.
+   If new_cap is greater than capacity(), all iterators, including the past-the-end iterator, and all references to the elements are invalidated. Otherwise, no iterators or references are invalidated.
 
 .SH Parameters
 
@@ -33,9 +29,7 @@ std::vector<T,Allocator>::reserve \- std::vector<T,Allocator>::reserve
 
    If an exception is thrown, this function has no effect \fI(strong exception guarantee)\fP.
 
-   If T's move constructor is not noexcept and T is not CopyInsertable
-   into *this, vector will use the throwing move constructor. If it       \fI(since C++11)\fP
-   throws, the guarantee is waived and the effects are unspecified.
+   If T's move constructor is not noexcept and T is not CopyInsertable into *this, vector will use the throwing move constructor. If it throws, the guarantee is waived and the effects are unspecified. \fI(since C++11)\fP
 
 .SH Complexity
 
@@ -43,20 +37,11 @@ std::vector<T,Allocator>::reserve \- std::vector<T,Allocator>::reserve
 
 .SH Notes
 
-   Correctly using reserve() can prevent unnecessary reallocations, but inappropriate
-   uses of reserve() (for instance, calling it before every push_back() call) may
-   actually increase the number of reallocations (by causing the capacity to grow
-   linearly rather than exponentially) and result in increased computational complexity
-   and decreased performance. For example, a function that receives an arbitrary vector
-   by reference and appends elements to it should usually not call reserve() on the
-   vector, since it does not know of the vector's usage characteristics.
+   Correctly using reserve() can prevent unnecessary reallocations, but inappropriate uses of reserve() (for instance, calling it before every push_back() call) may actually increase the number of reallocations (by causing the capacity to grow linearly rather than exponentially) and result in increased computational complexity and decreased performance. For example, a function that receives an arbitrary vector by reference and appends elements to it should usually not call reserve() on the vector, since it does not know of the vector's usage characteristics.
 
-   When inserting a range, the range version of insert() is generally preferable as it
-   preserves the correct capacity growth behavior, unlike reserve() followed by a
-   series of push_back()s.
+   When inserting a range, the range version of insert() is generally preferable as it preserves the correct capacity growth behavior, unlike reserve() followed by a series of push_back()s.
 
-   reserve() cannot be used to reduce the capacity of the container; to that end
-   shrink_to_fit() is provided.
+   reserve() cannot be used to reduce the capacity of the container; to that end shrink_to_fit() is provided.
 
 .SH Example
 
@@ -132,8 +117,7 @@ std::vector<T,Allocator>::reserve \- std::vector<T,Allocator>::reserve
 
 .SH See also
 
-                 returns the number of elements that can be held in currently allocated
-   capacity      storage
+   capacity      returns the number of elements that can be held in currently allocated storage
                  \fI(public member function)\fP
    max_size      returns the maximum possible number of elements
                  \fI(public member function)\fP

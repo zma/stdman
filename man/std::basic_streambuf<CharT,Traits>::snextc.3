@@ -1,4 +1,4 @@
-.TH std::basic_streambuf<CharT,Traits>::snextc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_streambuf<CharT,Traits>::snextc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_streambuf<CharT,Traits>::snextc \- std::basic_streambuf<CharT,Traits>::snextc
 
@@ -7,10 +7,7 @@ std::basic_streambuf<CharT,Traits>::snextc \- std::basic_streambuf<CharT,Traits>
 
    Advances the input sequence by one character and reads one character.
 
-   The function calls sbumpc() to advance the input sequence. If that function returns
-   Traits::eof() meaning that input sequence has been exhausted and uflow() could not
-   retrieve more data, Traits::eof() is returned. Otherwise sgetc() is called in order
-   to read the character.
+   The function calls sbumpc() to advance the input sequence. If that function returns Traits::eof() meaning that input sequence has been exhausted and uflow() could not retrieve more data, Traits::eof() is returned. Otherwise sgetc() is called in order to read the character.
 
 .SH Parameters
 
@@ -18,8 +15,7 @@ std::basic_streambuf<CharT,Traits>::snextc \- std::basic_streambuf<CharT,Traits>
 
 .SH Return value
 
-   The value of the next character. If the input sequence has been exhausted,
-   Traits::eof() is returned.
+   The value of the next character. If the input sequence has been exhausted, Traits::eof() is returned.
 
 .SH Example
 

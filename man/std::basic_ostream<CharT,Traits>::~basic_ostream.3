@@ -1,14 +1,11 @@
-.TH std::basic_ostream<CharT,Traits>::~basic_ostream 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ostream<CharT,Traits>::~basic_ostream 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ostream<CharT,Traits>::~basic_ostream \- std::basic_ostream<CharT,Traits>::~basic_ostream
 
 .SH Synopsis
    virtual ~basic_ostream();
 
-   Destroys the basic_ostream object. This destructor does not perform any operation on
-   the underlying streambuffer (rdbuf()): the destructors of the derived output streams
-   such as std::basic_ofstream and std::basic_ostringstream are responsible for calling
-   the destructors of the stream buffers.
+   Destroys the basic_ostream object. This destructor does not perform any operation on the underlying streambuffer (rdbuf()): the destructors of the derived output streams such as std::basic_ofstream and std::basic_ostringstream are responsible for calling the destructors of the stream buffers.
 
 .SH Example
 

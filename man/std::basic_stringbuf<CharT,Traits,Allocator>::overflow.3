@@ -1,4 +1,4 @@
-.TH std::basic_stringbuf<CharT,Traits,Allocator>::overflow 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_stringbuf<CharT,Traits,Allocator>::overflow 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_stringbuf<CharT,Traits,Allocator>::overflow \- std::basic_stringbuf<CharT,Traits,Allocator>::overflow
 
@@ -8,19 +8,11 @@ std::basic_stringbuf<CharT,Traits,Allocator>::overflow \- std::basic_stringbuf<C
 
    Appends the character c to the output character sequence.
 
-   If c is the end-of-file indicator (traits::eq_int_type(c,traits::eof()) == true),
-   then there is no character to append. The function does nothing and returns an
-   unspecified value other than traits::eof().
+   If c is the end-of-file indicator (traits::eq_int_type(c,traits::eof()) == true), then there is no character to append. The function does nothing and returns an unspecified value other than traits::eof().
 
-   Otherwise, if the output sequence has a write position available or this function
-   can successfully make a write position available, then calls sputc(c) and returns c.
+   Otherwise, if the output sequence has a write position available or this function can successfully make a write position available, then calls sputc(c) and returns c.
 
-   This function can make a write position available if the stringbuf is open for
-   output (mode & ios_base::out) != 0): in this case, it reallocates (or initially
-   allocates) the buffer big enough to hold the entire current buffer plus at least one
-   more character. If the stringbuf is also open for input ((mode & ios_base::in) !=
-   0), then overflow also increases the size of the get area by moving egptr() to point
-   just past the new write position.
+   This function can make a write position available if the stringbuf is open for output (mode & ios_base::out) != 0): in this case, it reallocates (or initially allocates) the buffer big enough to hold the entire current buffer plus at least one more character. If the stringbuf is also open for input ((mode & ios_base::in) != 0), then overflow also increases the size of the get area by moving egptr() to point just past the new write position.
 
 .SH Parameters
 
@@ -28,20 +20,15 @@ std::basic_stringbuf<CharT,Traits,Allocator>::overflow \- std::basic_stringbuf<C
 
 .SH Return value
 
-   Traits::eof() to indicate failure, c if the character c was successfully appended,
-   or some value other than Traits::eof() if called with Traits::eof() as the argument.
+   Traits::eof() to indicate failure, c if the character c was successfully appended, or some value other than Traits::eof() if called with Traits::eof() as the argument.
 
 .SH Notes
 
-   This function is different from a typical overflow() which moves the contents of the
-   buffer to the associated character sequence because for a std::basic_stringbuf, the
-   buffer and the associated sequence are one and the same.
+   This function is different from a typical overflow() which moves the contents of the buffer to the associated character sequence because for a std::basic_stringbuf, the buffer and the associated sequence are one and the same.
 
 .SH Example
 
-   In the implementation used to execute this example, overflow() over-allocates the
-   put area to 512 bytes: a call to str() would only return the four initialized bytes,
-   but the next 508 calls to sputc() would not require new calls to overflow()
+   In the implementation used to execute this example, overflow() over-allocates the put area to 512 bytes: a call to str() would only return the four initialized bytes, but the next 508 calls to sputc() would not require new calls to overflow()
 
    
 // Run this code

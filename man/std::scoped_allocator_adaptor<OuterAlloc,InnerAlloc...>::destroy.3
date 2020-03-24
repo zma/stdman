@@ -1,4 +1,4 @@
-.TH std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::destroy 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::destroy 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::destroy \- std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::destroy
 
@@ -7,15 +7,11 @@ std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::destroy \- std::scoped_
    template< class T >                   \fI(since C++11)\fP
    void destroy( T* p );
 
-   Uses the outer allocator to call the destructor of the object pointed to by p, by
-   calling
+   Uses the outer allocator to call the destructor of the object pointed to by p, by calling
 
    std::allocator_traits<OUTERMOST>::destroy(OUTERMOST(*this), p)
 
-   where OUTERMOST is the type that would be returned by calling
-   this->outer_allocator(), and then calling the outer_allocator() member function
-   recursively on the result of this call until reaching the type that has no such
-   member function.
+   where OUTERMOST is the type that would be returned by calling this->outer_allocator(), and then calling the outer_allocator() member function recursively on the result of this call until reaching the type that has no such member function.
 
 .SH Parameters
 

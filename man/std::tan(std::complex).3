@@ -1,4 +1,4 @@
-.TH std::tan(std::complex) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tan(std::complex) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tan(std::complex) \- std::tan(std::complex)
 
@@ -17,16 +17,11 @@ std::tan(std::complex) \- std::tan(std::complex)
 
    If no errors occur, the complex tangent of z is returned.
 
-   Errors and special cases are handled as if the operation is implemented by -i *
-   std::tanh(i*z), where i is the imaginary unit.
+   Errors and special cases are handled as if the operation is implemented by -i * std::tanh(i*z), where i is the imaginary unit.
 
 .SH Notes
 
-   Tangent is an analytical function on the complex plain and has no branch cuts. It is
-   periodic with respect to the real component, with period πi, and has poles of the
-   first order along the real line, at coordinates (π(1/2 + n), 0). However no common
-   floating-point representation is able to represent π/2 exactly, thus there is no
-   value of the argument for which a pole error occurs.
+   Tangent is an analytical function on the complex plain and has no branch cuts. It is periodic with respect to the real component, with period πi, and has poles of the first order along the real line, at coordinates (π(1/2 + n), 0). However no common floating-point representation is able to represent π/2 exactly, thus there is no value of the argument for which a pole error occurs.
 
    Mathematical definition of the tangent is tan z =
 

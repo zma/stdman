@@ -1,4 +1,4 @@
-.TH std::unordered_multiset<Key,Hash,KeyEqual,Allocator>::count 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unordered_multiset<Key,Hash,KeyEqual,Allocator>::count 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unordered_multiset<Key,Hash,KeyEqual,Allocator>::count \- std::unordered_multiset<Key,Hash,KeyEqual,Allocator>::count
 
@@ -10,19 +10,10 @@ std::unordered_multiset<Key,Hash,KeyEqual,Allocator>::count \- std::unordered_mu
    template< class K >                                        \fB(2)\fP \fI(since C++20)\fP
    size_type count( const K& x, std::size_t hash ) const;
 
-   1) Returns the number of elements with key that compares equal to the specified
-   argument key.
-   2) Returns the number of elements with key that compares equivalent to the specified
-   argument x. This overload only participates in overload resolution if the
-   qualified-id Hash::transparent_key_equal is valid and denotes a type. This assumes
-   that such Hash is callable with both K and Key type, and that its key_equal is
-   transparent, which, together, allows calling this function without constructing an
-   instance of Key.
+   1) Returns the number of elements with key that compares equal to the specified argument key.
+   2) Returns the number of elements with key that compares equivalent to the specified argument x. This overload only participates in overload resolution if the qualified-id Hash::transparent_key_equal is valid and denotes a type. This assumes that such Hash is callable with both K and Key type, and that its key_equal is transparent, which, together, allows calling this function without constructing an instance of Key.
 
-   If present, the hash parameter may be used to pass a pre-computed hash
-   value as an optimization. The behavior is undefined if invoking        \fI(since C++20)\fP
-   hash_function() on the key passed do not produce the same value as
-   hash.
+   If present, the hash parameter may be used to pass a pre-computed hash value as an optimization. The behavior is undefined if invoking hash_function() on the key passed do not produce the same value as hash. \fI(since C++20)\fP
 
 .SH Parameters
 
@@ -37,8 +28,7 @@ std::unordered_multiset<Key,Hash,KeyEqual,Allocator>::count \- std::unordered_mu
 
 .SH Complexity
 
-   linear in the number of elements with key key on average, worst case linear in the
-   size of the container.
+   linear in the number of elements with key key on average, worst case linear in the size of the container.
 
 .SH See also
 

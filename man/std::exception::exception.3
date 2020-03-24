@@ -1,4 +1,4 @@
-.TH std::exception::exception 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::exception::exception 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::exception::exception \- std::exception::exception
 
@@ -12,8 +12,7 @@ std::exception::exception \- std::exception::exception
 
    1) Default constructor. what() returns an implementation-defined string.
    2) Copy constructor. Initializes the contents with those of other.
-   If *this and other both have dynamic type std::exception then std::strcmp(what(),
-   other.what()) == 0.
+   If *this and other both have dynamic type std::exception then std::strcmp(what(), other.what()) == 0.
    \fI(since C++11)\fP
 
 .SH Parameters
@@ -22,6 +21,4 @@ std::exception::exception \- std::exception::exception
 
 .SH Notes
 
-   Because copying std::exception is not permitted to throw exceptions, when derived
-   classes (such as std::runtime_error) have to manage a user-defined diagnostic
-   message, it is typically implemented as a copy-on-write string.
+   Because copying std::exception is not permitted to throw exceptions, when derived classes (such as std::runtime_error) have to manage a user-defined diagnostic message, it is typically implemented as a copy-on-write string.

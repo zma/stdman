@@ -1,4 +1,4 @@
-.TH std::list<T,Allocator>::emplace_front 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::list<T,Allocator>::emplace_front 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::list<T,Allocator>::emplace_front \- std::list<T,Allocator>::emplace_front
 
@@ -8,10 +8,7 @@ std::list<T,Allocator>::emplace_front \- std::list<T,Allocator>::emplace_front
    template< class... Args >                   \fI(since C++17)\fP
    reference emplace_front( Args&&... args );
 
-   Inserts a new element to the beginning of the container. The element is constructed
-   through std::allocator_traits::construct, which typically uses placement-new to
-   construct the element in-place at the location provided by the container. The
-   arguments args... are forwarded to the constructor as std::forward<Args>(args)....
+   Inserts a new element to the beginning of the container. The element is constructed through std::allocator_traits::construct, which typically uses placement-new to construct the element in-place at the location provided by the container. The arguments args... are forwarded to the constructor as std::forward<Args>(args)....
 
    No iterators or references are invalidated.
 

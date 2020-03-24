@@ -1,20 +1,17 @@
-.TH std::span<T,Extent>::last 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::span<T,Extent>::last 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::span<T,Extent>::last \- std::span<T,Extent>::last
 
 .SH Synopsis
    template< std::size_t Count >
    constexpr std::span<element_type, Count> last() const;
-   constexpr std::span<element_type, std::dynamic_extent> last( std::size_t Count )
-   const;
+   constexpr std::span<element_type, std::dynamic_extent> last( std::size_t Count ) const;
 
-   Obtains a span that is a view over the last Count elements of this span. The
-   behavior is undefined if Count > size().
+   Obtains a span that is a view over the last Count elements of this span. The behavior is undefined if Count > size().
 
 .SH Return value
 
-   A span r that is a view over the last Count elements of *this, such that r.data() ==
-   this->data() + (this->size() - Count) && r.size() == Count.
+   A span r that is a view over the last Count elements of *this, such that r.data() == this->data() + (this->size() - Count) && r.size() == Count.
 
 .SH See also
 

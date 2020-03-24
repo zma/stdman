@@ -1,4 +1,4 @@
-.TH std::rewind 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::rewind 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::rewind \- std::rewind
 
@@ -8,8 +8,7 @@ std::rewind \- std::rewind
 
    Moves the file position indicator to the beginning of the given file stream.
 
-   The function is equivalent to std::fseek(stream, 0, SEEK_SET);, except that
-   end-of-file and error indicators are cleared.
+   The function is equivalent to std::fseek(stream, 0, SEEK_SET);, except that end-of-file and error indicators are cleared.
 
    The function drops any effects from previous calls to ungetc.
 

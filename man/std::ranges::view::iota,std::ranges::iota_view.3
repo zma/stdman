@@ -1,25 +1,21 @@
-.TH std::ranges::view::iota,std::ranges::iota_view 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ranges::view::iota,std::ranges::iota_view 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ranges::view::iota,std::ranges::iota_view \- std::ranges::view::iota,std::ranges::iota_view
 
 .SH Synopsis
-   template<WeaklyIncrementable W, Semiregular Bound =
-   unreachable_sentinel_t>
-                                                                      \fB(1)\fP \fI(since C++20)\fP
-   requires _WeaklyEqualityComparableWith<W, Bound>
+   template<WeaklyIncrementable W, Semiregular Bound = unreachable_sentinel_t>
+
+   requires _WeaklyEqualityComparableWith<W, Bound>                            \fB(1)\fP \fI(since C++20)\fP
 
    class iota_view : public view_interface<iota_view<W, Bound>>
    namespace view {
 
-   inline constexpr /*unspecified*/ iota = /*unspecified*/;           \fB(2)\fP \fI(since C++20)\fP
+   inline constexpr /*unspecified*/ iota = /*unspecified*/;                    \fB(2)\fP \fI(since C++20)\fP
 
    }
 
-   1) A range factory that generates a sequence of elements by repeatedly incrementing
-   an initial value. Can be both bounded and unbounded (infinite)
-   2) view::iota(E) and view::iota(E, F) are expression-equivalent to (has the same
-   effect as) iota_view{E} and iota_view{E, F} respectively for any suitable
-   subexpressions E and F
+   1) A range factory that generates a sequence of elements by repeatedly incrementing an initial value. Can be both bounded and unbounded (infinite)
+   2) view::iota(E) and view::iota(E, F) are expression-equivalent to (has the same effect as) iota_view{E} and iota_view{E, F} respectively for any suitable subexpressions E and F
 
   Data members
 
@@ -45,12 +41,8 @@ std::ranges::iota_view::iota_view
    std::type_identity_t<Bound> bound);
 
    1) Default-initializes value_ and bound_
-   2) Initializes value_ with value and expects that Bound is either
-   unreachable_sentinel_t (the default) or Bound() is reachable from value. This
-   constructor is used to create unbounded iota views, e.g. iota\fB(0)\fP yields numbers
-   0,1,2..., infinitely.
-   3) Initializes value_ with value and bound_ with bound. This constructor is used to
-   create bounded iota views, e.g. iota(10, 20) yields numbers from 10 to 19.
+   2) Initializes value_ with value and expects that Bound is either unreachable_sentinel_t (the default) or Bound() is reachable from value. This constructor is used to create unbounded iota views, e.g. iota\fB(0)\fP yields numbers 0,1,2..., infinitely.
+   3) Initializes value_ with value and bound_ with bound. This constructor is used to create bounded iota views, e.g. iota(10, 20) yields numbers from 10 to 19.
 
 .SH Parameters
 
@@ -68,8 +60,7 @@ std::ranges::iota_view::end
    constexpr sentinel end() const;                         \fB(1)\fP
    constexpr iterator end() const requires Same<W, Bound>; \fB(2)\fP
 
-   Returns the iterator initialized with bound_ if this view is bounded, or the
-   sentinel initialized with bound_ if this view is unbounded.
+   Returns the iterator initialized with bound_ if this view is bounded, or the sentinel initialized with bound_ if this view is unbounded.
 
 std::ranges::iota_view::size
 
@@ -87,14 +78,11 @@ std::ranges::iota_view::size
 
    template<class W, class Bound>
 
-   requires (!Integral<W> || !Integral<Bound> || is_signed_v<W> ==
-   is_signed_v<Bound>)
+   requires (!Integral<W> || !Integral<Bound> || is_signed_v<W> == is_signed_v<Bound>)
 
    iota_view(W, Bound) -> iota_view<W, Bound>;
 
-   Note that the guide protects itself against signed/unsigned mismatch bugs, like
-   view::iota(0, v.size()), where 0 is a (signed) int and v.size() is an (unsigned)
-   std::size_t.
+   Note that the guide protects itself against signed/unsigned mismatch bugs, like view::iota(0, v.size()), where 0 is a (signed) int and v.size() is an (unsigned) std::size_t.
 
   Nested classes
 
@@ -105,16 +93,13 @@ std::ranges::iota_view::iterator
 
    The return type of iota_view::begin.
 
-   This is a RandomAccessIterator if W models _Advanceable, a BidirectionalIterator if
-   W models _Decrementable, a ForwardIterator if W models Incrementable, and
-   InputIterator otherwise.
+   This is a RandomAccessIterator if W models _Advanceable, a BidirectionalIterator if W models _Decrementable, a ForwardIterator if W models Incrementable, and InputIterator otherwise.
 
 std::ranges::iota_view::iterator::iterator
 
    constexpr explicit iterator(W value);
 
-   Initializes exposition-only data member value_ with value. This value will be
-   returned by operator* and incremented by operator++
+   Initializes exposition-only data member value_ with value. This value will be returned by operator* and incremented by operator++
 
 std::ranges::iota_view::iterator::operator*
 
@@ -161,9 +146,7 @@ std::ranges::iota_view::sentinel::bound_
 
    Bound bound_ = Bound();; /* exposition only */
 
-   Exposition-only data member holding the sentinel (typically either a number, for a
-   bounded iota view, or an instance of std::unreachable_sentinel_t for an unbounded
-   iota view.
+   Exposition-only data member holding the sentinel (typically either a number, for a bounded iota view, or an instance of std::unreachable_sentinel_t for an unbounded iota view.
 
 std::ranges::iota_view::sentinel::sentinel
 

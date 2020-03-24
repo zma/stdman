@@ -1,4 +1,4 @@
-.TH std::experimental::latch 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::latch 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::latch \- std::experimental::latch
 
@@ -6,14 +6,9 @@ std::experimental::latch \- std::experimental::latch
    Defined in header <experimental/latch>
    class latch;                            (concurrency TS)
 
-   The latch class is a downward counter of type ptrdiff_t which can be used to
-   synchronize threads. The value of the counter is initialized on creation. Threads
-   may block on the latch until the counter is decremented to zero. There is no
-   possibility to increase or reset the counter, which makes the latch a single-use
-   barrier.
+   The latch class is a downward counter of type ptrdiff_t which can be used to synchronize threads. The value of the counter is initialized on creation. Threads may block on the latch until the counter is decremented to zero. There is no possibility to increase or reset the counter, which makes the latch a single-use barrier.
 
-   Unlike std::experimental::barrier, std::experimental::latch can be decremented by a
-   participating thread more than once.
+   Unlike std::experimental::barrier, std::experimental::latch can be decremented by a participating thread more than once.
 
 .SH Member functions
 

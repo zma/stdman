@@ -1,4 +1,4 @@
-.TH std::experimental::promise<R>::promise(libraryfundamentalsTS) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::promise<R>::promise(libraryfundamentalsTS) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::promise<R>::promise(libraryfundamentalsTS) \- std::experimental::promise<R>::promise(libraryfundamentalsTS)
 
@@ -12,32 +12,23 @@ std::experimental::promise<R>::promise(libraryfundamentalsTS) \- std::experiment
    Constructs a std::experimental::promise object.
 
    1) Default constructor. Constructs the promise with an empty shared state.
-   2) Constructs the promise with an empty shared state. The shared state is allocated
-   using alloc, which is treated as a type-erased allocator (see below).
-   3) Move constructor. Constructs the promise with the shared state of other using
-   move semantics. After construction, other has no shared state.
+   2) Constructs the promise with an empty shared state. The shared state is allocated using alloc, which is treated as a type-erased allocator (see below).
+   3) Move constructor. Constructs the promise with the shared state of other using move semantics. After construction, other has no shared state.
    4) std::experimental::promise is not copyable.
 
   Type-erased allocator
 
-   The constructors of promise taking an allocator argument alloc treats that argument
-   as a type-erased allocator. The memory resource pointer used by promise to allocate
-   memory is determined using the allocator argument (if specified) as follows:
+   The constructors of promise taking an allocator argument alloc treats that argument as a type-erased allocator. The memory resource pointer used by promise to allocate memory is determined using the allocator argument (if specified) as follows:
 
-Type of alloc                                 value of the memory resource pointer
-Non-existent (no allocator specified at time  The value of std::experimental::pmr::get_default_resource()
-of construction)                              at time of construction.
-std::nullptr_t                                The value of std::experimental::pmr::get_default_resource()
-                                              at time of construction
-A pointer type convertible to                 static_cast<std::experimental::pmr::memory_resource*>(alloc)
-std::experimental::pmr::memory_resource*
-A specialization of                           alloc.resource()
-std::experimental::pmr::polymorphic_allocator
-                                              A pointer to a value of type
-Any other type meeting the Allocator          std::experimental::pmr::resource_adaptor<A>(alloc), where A
-requirements                                  is the type of alloc. The pointer remains valid only for the
-                                              lifetime of the promise object.
-None of the above                             The program is ill-formed.
+   Type of alloc                                                 value of the memory resource pointer
+   Non-existent (no allocator specified at time of construction) The value of std::experimental::pmr::get_default_resource() at time of construction.
+   std::nullptr_t                                                The value of std::experimental::pmr::get_default_resource() at time of construction
+   A pointer type convertible to                                 static_cast<std::experimental::pmr::memory_resource*>(alloc)
+   std::experimental::pmr::memory_resource*
+   A specialization of                                           alloc.resource()
+   std::experimental::pmr::polymorphic_allocator
+   Any other type meeting the Allocator requirements             A pointer to a value of type std::experimental::pmr::resource_adaptor<A>(alloc), where A is the type of alloc. The pointer remains valid only for the lifetime of the promise object.
+   None of the above                                             The program is ill-formed.
 
 .SH Parameters
 

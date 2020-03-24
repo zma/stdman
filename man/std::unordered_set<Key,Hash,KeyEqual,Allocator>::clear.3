@@ -1,4 +1,4 @@
-.TH std::unordered_set<Key,Hash,KeyEqual,Allocator>::clear 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unordered_set<Key,Hash,KeyEqual,Allocator>::clear 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unordered_set<Key,Hash,KeyEqual,Allocator>::clear \- std::unordered_set<Key,Hash,KeyEqual,Allocator>::clear
 
@@ -7,8 +7,7 @@ std::unordered_set<Key,Hash,KeyEqual,Allocator>::clear \- std::unordered_set<Key
 
    Erases all elements from the container. After this call, size() returns zero.
 
-   Invalidates any references, pointers, or iterators referring to contained elements.
-   May also invalidate past-the-end iterators.
+   Invalidates any references, pointers, or iterators referring to contained elements. May also invalidate past-the-end iterators.
 
 .SH Parameters
 
@@ -24,13 +23,10 @@ std::unordered_set<Key,Hash,KeyEqual,Allocator>::clear \- std::unordered_set<Key
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to          Behavior as published              Correct behavior
-                       for unordered associative containers,    clarified that it's
-   LWG 2550 C++11      unclear if complexity is linear in the   linear in the number of
-                       number of elements or buckets            elements
+      DR    Applied to                                           Behavior as published                                                              Correct behavior
+   LWG 2550 C++11      for unordered associative containers, unclear if complexity is linear in the number of elements or buckets clarified that it's linear in the number of elements
 
 .SH See also
 

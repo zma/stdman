@@ -1,4 +1,4 @@
-.TH std::experimental::filesystem::path::extension 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::path::extension 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::path::extension \- std::experimental::filesystem::path::extension
 
@@ -7,17 +7,11 @@ std::experimental::filesystem::path::extension \- std::experimental::filesystem:
 
    Returns the extension of the filename component of the path *this.
 
-   If the filename() component of the path contains a period (.), and is not one of the
-   special filesystem elements dot or dot-dot, then the extension is the substring
-   beginning at the rightmost period (including the period) and until the end of the
-   pathname.
+   If the filename() component of the path contains a period (.), and is not one of the special filesystem elements dot or dot-dot, then the extension is the substring beginning at the rightmost period (including the period) and until the end of the pathname.
 
-   If the pathname is either . or .., or if filename() does not contain the .
-   character, then empty path is returned.
+   If the pathname is either . or .., or if filename() does not contain the . character, then empty path is returned.
 
-   Additional behavior may be defined by the implementations for file systems which
-   append additional elements (such as alternate data streams or partitioned dataset
-   names) to extensions.
+   Additional behavior may be defined by the implementations for file systems which append additional elements (such as alternate data streams or partitioned dataset names) to extensions.
 
 .SH Parameters
 
@@ -33,9 +27,7 @@ std::experimental::filesystem::path::extension \- std::experimental::filesystem:
 
 .SH Notes
 
-   The extension as returned by this function includes a period to make it possible to
-   distinguish the file that ends with a period \fI(function returns ".") from a file with\fP
-   no extension \fI(function returns "")\fP
+   The extension as returned by this function includes a period to make it possible to distinguish the file that ends with a period \fI(function returns ".") from a file with no extension (function returns "")\fP
 
    For any path p, p.stem()+p.extension() == p.filename()
 

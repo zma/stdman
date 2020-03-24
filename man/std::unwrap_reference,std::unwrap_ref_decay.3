@@ -1,28 +1,23 @@
-.TH std::unwrap_reference,std::unwrap_ref_decay 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unwrap_reference,std::unwrap_ref_decay 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unwrap_reference,std::unwrap_ref_decay \- std::unwrap_reference,std::unwrap_ref_decay
 
 .SH Synopsis
    Defined in header <functional>
-   template< class T >                                                \fB(1)\fP \fI(since C++20)\fP
+   template< class T >                                                  \fB(1)\fP \fI(since C++20)\fP
    struct unwrap_reference;
-   template< class T >
-   struct unwrap_ref_decay : std::unwrap_reference<std::decay_t<T>>   \fB(2)\fP \fI(since C++20)\fP
-   {};
+   template< class T >                                                  \fB(2)\fP \fI(since C++20)\fP
+   struct unwrap_ref_decay : std::unwrap_reference<std::decay_t<T>> {};
 
-   1) If T is std::reference_wrapper<U> for some type U, provides a member typedef type
-   that names U&; otherwise, provides a member typedef type that names T.
-   2) If T is std::reference_wrapper<U> for some type U, ignoring cv-qualification and
-   referenceness, provides a member typedef type that names U&; otherwise, provides a
-   member typedef type that names std::decay_t<T>.
+   1) If T is std::reference_wrapper<U> for some type U, provides a member typedef type that names U&; otherwise, provides a member typedef type that names T.
+   2) If T is std::reference_wrapper<U> for some type U, ignoring cv-qualification and referenceness, provides a member typedef type that names U&; otherwise, provides a member typedef type that names std::decay_t<T>.
 
 .SH Member types
 
    Name Definition
         1) U& if T is std::reference_wrapper<U>; T otherwise
    type
-        2) U& if std::decay_t<T> is std::reference_wrapper<U>; std::decay_t<T>
-        otherwise
+        2) U& if std::decay_t<T> is std::reference_wrapper<U>; std::decay_t<T> otherwise
 
 .SH Helper types
 
@@ -38,8 +33,7 @@ std::unwrap_reference,std::unwrap_ref_decay \- std::unwrap_reference,std::unwrap
 
 .SH Notes
 
-   std::unwrap_ref_decay performs the same transformation as used by std::make_pair and
-   std::make_tuple.
+   std::unwrap_ref_decay performs the same transformation as used by std::make_pair and std::make_tuple.
 
 .SH Example
 

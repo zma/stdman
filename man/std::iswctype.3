@@ -1,4 +1,4 @@
-.TH std::iswctype 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::iswctype 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::iswctype \- std::iswctype
 
@@ -6,11 +6,9 @@ std::iswctype \- std::iswctype
    Defined in header <cwctype>
    int iswctype( std::wint_t wc, std::wctype_t desc );
 
-   Classifies the wide character wc using the current C locale's LC_CTYPE category
-   identified by desc.
+   Classifies the wide character wc using the current C locale's LC_CTYPE category identified by desc.
 
-   If the value of wc is neither representable as a wchar_t nor equal to the value of
-   the macro WEOF, the behavior is undefined.
+   If the value of wc is neither representable as a wchar_t nor equal to the value of the macro WEOF, the behavior is undefined.
 
 .SH Parameters
 
@@ -19,8 +17,7 @@ std::iswctype \- std::iswctype
 
 .SH Return value
 
-   Non-zero if the character ch has the property identified by desc in LC_CTYPE facet
-   of the current C locale, zero otherwise.
+   Non-zero if the character ch has the property identified by desc in LC_CTYPE facet of the current C locale, zero otherwise.
 
 .SH Example
 

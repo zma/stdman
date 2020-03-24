@@ -1,16 +1,13 @@
-.TH std::atomic_ref<T>::store 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic_ref<T>::store 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic_ref<T>::store \- std::atomic_ref<T>::store
 
 .SH Synopsis
-   void store( T desired, std::memory_order order =                       \fI(since C++20)\fP
-   std::memory_order_seq_cst ) const noexcept;
+   void store( T desired, std::memory_order order = std::memory_order_seq_cst ) const noexcept;  \fI(since C++20)\fP
 
-   Atomically replaces the current value of the referenced object with desired. Memory
-   is affected according to the value of order.
+   Atomically replaces the current value of the referenced object with desired. Memory is affected according to the value of order.
 
-   order must be one of std::memory_order_relaxed, std::memory_order_release or
-   std::memory_order_seq_cst. Otherwise the behavior is undefined.
+   order must be one of std::memory_order_relaxed, std::memory_order_release or std::memory_order_seq_cst. Otherwise the behavior is undefined.
 
 .SH Parameters
 

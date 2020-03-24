@@ -1,17 +1,13 @@
-.TH std::experimental::filesystem::resize_file 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::resize_file 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::resize_file \- std::experimental::filesystem::resize_file
 
 .SH Synopsis
    Defined in header <experimental/filesystem>
-   void resize_file(const path& p, std::uintmax_t new_size);
-   void resize_file(const path& p, std::uintmax_t new_size,             (filesystem TS)
-   error_code& ec);
+   void resize_file(const path& p, std::uintmax_t new_size);                  (filesystem TS)
+   void resize_file(const path& p, std::uintmax_t new_size, error_code& ec);
 
-   Changes the size of the regular file named by p as if by POSIX truncate: if the file
-   size was previously larger than new_size, the remainder of the file is discarded. If
-   the file was previously smaller than new_size, the file size is increased and the
-   new area appears as if zero-filled.
+   Changes the size of the regular file named by p as if by POSIX truncate: if the file size was previously larger than new_size, the remainder of the file is discarded. If the file was previously smaller than new_size, the file size is increased and the new area appears as if zero-filled.
 
 .SH Parameters
 
@@ -25,20 +21,13 @@ std::experimental::filesystem::resize_file \- std::experimental::filesystem::res
 
 .SH Exceptions
 
-   The overload that does not take a error_code& parameter throws filesystem_error on
-   underlying OS API errors, constructed with p as the first argument and the OS error
-   code as the error code argument. std::bad_alloc may be thrown if memory allocation
-   fails. The overload taking a error_code& parameter sets it to the OS API error code
-   if an OS API call fails, and executes ec.clear() if no errors occur. This overload
-   has
+   The overload that does not take a error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first argument and the OS error code as the error code argument. std::bad_alloc may be thrown if memory allocation fails. The overload taking a error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. This overload has
    noexcept specification:
    noexcept
 
 .SH Notes
 
-   On systems that support sparse files, increasing the file size does not increase the
-   space it occupies on the file system: space allocation takes place only when
-   non-zero bytes are written to the file.
+   On systems that support sparse files, increasing the file size does not increase the space it occupies on the file system: space allocation takes place only when non-zero bytes are written to the file.
 
 .SH Example
 

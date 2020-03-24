@@ -1,17 +1,14 @@
-.TH std::swap(std::unique_ptr) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::swap(std::unique_ptr) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::swap(std::unique_ptr) \- std::swap(std::unique_ptr)
 
 .SH Synopsis
-   template< class T, class Deleter >
-   void swap( unique_ptr<T,Deleter>& lhs, unique_ptr<T,Deleter>& rhs )    \fI(since C++11)\fP
-   noexcept;
+   template< class T, class Deleter >                                             \fI(since C++11)\fP
+   void swap( unique_ptr<T,Deleter>& lhs, unique_ptr<T,Deleter>& rhs ) noexcept;
 
-   Specializes the std::swap algorithm for std::unique_ptr. Swaps the pointers of lhs
-   and rhs. Calls lhs.swap(rhs).
+   Specializes the std::swap algorithm for std::unique_ptr. Swaps the pointers of lhs and rhs. Calls lhs.swap(rhs).
 
-   This function does not participate in overload resolution unless       \fI(since C++17)\fP
-   std::is_swappable<D>::value is true.
+   This function does not participate in overload resolution unless std::is_swappable<D>::value is true. \fI(since C++17)\fP
 
 .SH Parameters
 

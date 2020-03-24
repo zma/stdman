@@ -1,4 +1,4 @@
-.TH std::memcpy 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::memcpy 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::memcpy \- std::memcpy
 
@@ -6,16 +6,13 @@ std::memcpy \- std::memcpy
    Defined in header <cstring>
    void* memcpy( void* dest, const void* src, std::size_t count );
 
-   Copies count bytes from the object pointed to by src to the object pointed to by
-   dest. Both objects are reinterpreted as arrays of unsigned char.
+   Copies count bytes from the object pointed to by src to the object pointed to by dest. Both objects are reinterpreted as arrays of unsigned char.
 
    If the objects overlap, the behavior is undefined.
 
-   If either dest or src is a null pointer, the behavior is undefined, even if count is
-   zero.
+   If either dest or src is a null pointer, the behavior is undefined, even if count is zero.
 
-   If the objects are potentially-overlapping or not TriviallyCopyable, the behavior of
-   memcpy is not specified and may be undefined.
+   If the objects are potentially-overlapping or not TriviallyCopyable, the behavior of memcpy is not specified and may be undefined.
 
 .SH Parameters
 
@@ -29,14 +26,11 @@ std::memcpy \- std::memcpy
 
 .SH Notes
 
-   std::memcpy is meant to be the fastest library routine for memory-to-memory copy. It
-   is usually more efficient than std::strcpy, which must scan the data it copies or
-   std::memmove, which must take precautions to handle overlapping inputs.
+   std::memcpy is meant to be the fastest library routine for memory-to-memory copy. It is usually more efficient than std::strcpy, which must scan the data it copies or std::memmove, which must take precautions to handle overlapping inputs.
 
    Several C++ compilers transform suitable memory-copying loops to std::memcpy calls.
 
-   Where strict aliasing prohibits examining the same memory as values of two different
-   types, std::memcpy may be used to convert the values.
+   Where strict aliasing prohibits examining the same memory as values of two different types, std::memcpy may be used to convert the values.
 
 .SH Example
 
@@ -79,8 +73,7 @@ std::memcpy \- std::memcpy
                          \fI(function)\fP
    memset                fills a buffer with a character
                          \fI(function)\fP
-                         copies a certain amount of wide characters between two
-   wmemcpy               non-overlapping arrays
+   wmemcpy               copies a certain amount of wide characters between two non-overlapping arrays
                          \fI(function)\fP
    copy                  copies a range of elements to a new location
    copy_if               \fI(function template)\fP

@@ -1,4 +1,4 @@
-.TH std::wcstombs 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wcstombs 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wcstombs \- std::wcstombs
 
@@ -6,28 +6,19 @@ std::wcstombs \- std::wcstombs
    Defined in header <cstdlib>
    std::size_t wcstombs( char* dst, const wchar_t* src, std::size_t len);
 
-   Converts a sequence of wide characters from the array whose first element is pointed
-   to by src to its narrow multibyte representation that begins in the initial shift
-   state. Converted characters are stored in the successive elements of the char array
-   pointed to by dst. No more than len bytes are written to the destination array.
+   Converts a sequence of wide characters from the array whose first element is pointed to by src to its narrow multibyte representation that begins in the initial shift state. Converted characters are stored in the successive elements of the char array pointed to by dst. No more than len bytes are written to the destination array.
 
-   Each character is converted as if by a call to std::wctomb, except that the wctomb's
-   conversion state is unaffected. The conversion stops if:
+   Each character is converted as if by a call to std::wctomb, except that the wctomb's conversion state is unaffected. The conversion stops if:
 
      * The null character was converted and stored.
-     * A wchar_t was found that does not correspond to a valid character in the current
-       C locale.
+     * A wchar_t was found that does not correspond to a valid character in the current C locale.
      * The next multibyte character to be stored would exceed len.
 
 .SH Notes
 
-   In most implementations, this function updates a global static object of type
-   std::mbstate_t as it processes through the string, and cannot be called
-   simultaneously by two threads, std::wcsrtombs should be used in such cases.
+   In most implementations, this function updates a global static object of type std::mbstate_t as it processes through the string, and cannot be called simultaneously by two threads, std::wcsrtombs should be used in such cases.
 
-   POSIX specifies a common extension: if dst is a null pointer, this function returns
-   the number of bytes that would be written to dst, if converted. Similar behavior is
-   standard for std::wcsrtombs.
+   POSIX specifies a common extension: if dst is a null pointer, this function returns the number of bytes that would be written to dst, if converted. Similar behavior is standard for std::wcsrtombs.
 
 .SH Parameters
 
@@ -37,12 +28,9 @@ std::wcstombs \- std::wcstombs
 
 .SH Return value
 
-   On success, returns the number of bytes (including any shift sequences, but
-   excluding the terminating '\\0') written to the character array whose first element
-   is pointed to by dst.
+   On success, returns the number of bytes (including any shift sequences, but excluding the terminating '\\0') written to the character array whose first element is pointed to by dst.
 
-   On conversion error (if invalid wide character was encountered), returns
-   static_cast<std::size_t>(-1).
+   On conversion error (if invalid wide character was encountered), returns static_cast<std::size_t>(-1).
 
 .SH Example
 

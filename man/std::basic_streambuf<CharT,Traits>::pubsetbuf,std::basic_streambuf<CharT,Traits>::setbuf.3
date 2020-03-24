@@ -1,18 +1,14 @@
-.TH std::basic_streambuf<CharT,Traits>::pubsetbuf,std::basic_streambuf<CharT,Traits>::setbuf 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_streambuf<CharT,Traits>::pubsetbuf,std::basic_streambuf<CharT,Traits>::setbuf 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_streambuf<CharT,Traits>::pubsetbuf,std::basic_streambuf<CharT,Traits>::setbuf \- std::basic_streambuf<CharT,Traits>::pubsetbuf,std::basic_streambuf<CharT,Traits>::setbuf
 
 .SH Synopsis
-   basic_streambuf<CharT, Traits>* pubsetbuf( char_type* s, std::streamsize n )    \fB(1)\fP
-   protected:
-   virtual basic_streambuf<CharT, Traits>* setbuf( char_type* s, std::streamsize n \fB(2)\fP
-   )
+   basic_streambuf<CharT, Traits>* pubsetbuf( char_type* s, std::streamsize n )      \fB(1)\fP
+   protected:                                                                        \fB(2)\fP
+   virtual basic_streambuf<CharT, Traits>* setbuf( char_type* s, std::streamsize n )
 
    1) Calls setbuf(s, n) of the most derived class
-   2) The base class version of this function has no effect. The derived classes may
-   override this function to allow removal or replacement of the controlled character
-   sequence (the buffer) with a user-provided array, or for any other
-   implementation-specific purpose.
+   2) The base class version of this function has no effect. The derived classes may override this function to allow removal or replacement of the controlled character sequence (the buffer) with a user-provided array, or for any other implementation-specific purpose.
 
 .SH Parameters
 
@@ -26,8 +22,7 @@ std::basic_streambuf<CharT,Traits>::pubsetbuf,std::basic_streambuf<CharT,Traits>
 
 .SH Example
 
-   provide a 10k buffer for reading. On linux, the strace utility may be used to
-   observe the actual number of bytes read
+   provide a 10k buffer for reading. On linux, the strace utility may be used to observe the actual number of bytes read
 
    
 // Run this code
@@ -56,8 +51,7 @@ std::basic_streambuf<CharT,Traits>::pubsetbuf,std::basic_streambuf<CharT,Traits>
 .SH See also
 
    setbuf    attempts to replace the controlled character sequence with an array
-   \fB[virtual]\fP \fI\fI(virtual protected member function\fP of\fP
-             std::basic_stringbuf<CharT,Traits,Allocator>)
+   \fB[virtual]\fP \fI(virtual protected member function of std::basic_stringbuf<CharT,Traits,Allocator>)\fP
    setbuf    provides user-supplied buffer or turns this filebuf unbuffered
    \fB[virtual]\fP \fI(virtual protected member function of std::basic_filebuf<CharT,Traits>)\fP
    setbuf    attempts to replace the controlled character sequence with an array

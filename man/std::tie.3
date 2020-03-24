@@ -1,4 +1,4 @@
-.TH std::tie 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tie 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tie \- std::tie
 
@@ -34,16 +34,14 @@ std::tie \- std::tie
 
 .SH Notes
 
-   std::tie may be used to unpack a std::pair because std::tuple has a converting
-   assignment from pairs:
+   std::tie may be used to unpack a std::pair because std::tuple has a converting assignment from pairs:
 
  bool result;
  std::tie(std::ignore, result) = set.insert(value);
 
 .SH Example
 
-   std::tie can be used to introduce lexicographical comparison to a struct or to
-   unpack a tuple:
+   std::tie can be used to introduce lexicographical comparison to a struct or to unpack a tuple:
 
    
 // Run this code

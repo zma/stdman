@@ -1,19 +1,16 @@
-.TH std::filesystem::is_other 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::is_other 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::is_other \- std::filesystem::is_other
 
 .SH Synopsis
    Defined in header <filesystem>
-   bool is_other( std::filesystem::file_status s ) noexcept;          \fB(1)\fP \fI(since C++17)\fP
-   bool is_other( const std::filesystem::path& p );
-   bool is_other( const std::filesystem::path& p, std::error_code& ec \fB(2)\fP \fI(since C++17)\fP
-   ) noexcept;
+   bool is_other( std::filesystem::file_status s ) noexcept;                      \fB(1)\fP \fI(since C++17)\fP
+   bool is_other( const std::filesystem::path& p );                               \fB(2)\fP \fI(since C++17)\fP
+   bool is_other( const std::filesystem::path& p, std::error_code& ec ) noexcept;
 
-   Checks if the given file status or path corresponds to a file of type other type.
-   That is, the file exists, but is neither regular file, nor directory nor a symlink.
+   Checks if the given file status or path corresponds to a file of type other type. That is, the file exists, but is neither regular file, nor directory nor a symlink.
 
-   1) Equivalent to exists(s) && !is_regular_file(s) && !is_directory(s) &&
-   !is_symlink(s).
+   1) Equivalent to exists(s) && !is_regular_file(s) && !is_directory(s) && !is_symlink(s).
    2) Equivalent to is_other(status(p)) or is_other(status(p, ec)), respectively.
 
 .SH Parameters
@@ -24,18 +21,11 @@ std::filesystem::is_other \- std::filesystem::is_other
 
 .SH Return value
 
-   true if the file indicated by p or if the type indicated s refers to a file that is
-   not regular file, directory, or a symlink, false otherwise. The non-throwing
-   overload returns false if an error occurs.
+   true if the file indicated by p or if the type indicated s refers to a file that is not regular file, directory, or a symlink, false otherwise. The non-throwing overload returns false if an error occurs.
 
 .SH Exceptions
 
-   2) The overload that does not take a std::error_code& parameter throws
-   filesystem_error on underlying OS API errors, constructed with p as the first path
-   argument and the OS error code as the error code argument. The overload taking a
-   std::error_code& parameter sets it to the OS API error code if an OS API call fails,
-   and executes ec.clear() if no errors occur. Any overload not marked noexcept may
-   throw std::bad_alloc if memory allocation fails.
+   2) The overload that does not take a std::error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first path argument and the OS error code as the error code argument. The overload taking a std::error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. Any overload not marked noexcept may throw std::bad_alloc if memory allocation fails.
 
 .SH Example
 

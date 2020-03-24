@@ -1,4 +1,4 @@
-.TH std::pair 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pair 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pair \- std::pair
 
@@ -11,13 +11,9 @@ std::pair \- std::pair
 
    > struct pair;
 
-   std::pair is a struct template that provides a way to store two heterogeneous
-   objects as a single unit. A pair is a specific case of a std::tuple with two
-   elements.
+   std::pair is a struct template that provides a way to store two heterogeneous objects as a single unit. A pair is a specific case of a std::tuple with two elements.
 
-   If std::is_trivially_destructible_v<T1> &&
-   std::is_trivially_destructible_v<T2> is true, the destructor of pair   \fI(since C++17)\fP
-   is trivial.
+   If std::is_trivially_destructible_v<T1> && std::is_trivially_destructible_v<T2> is true, the destructor of pair is trivial. \fI(since C++17)\fP
 
 .SH Template parameters
 
@@ -70,9 +66,7 @@ std::pair \- std::pair
 
 .SH See also
 
-   tuple   implements fixed size container, which holds elements of possibly different
-   \fI(C++11)\fP types
-           \fI(class template)\fP
-           creates a tuple of lvalue references or unpacks a tuple into individual
-   tie     objects
+   tuple   implements fixed size container, which holds elements of possibly different types
+   \fI(C++11)\fP \fI(class template)\fP
+   tie     creates a tuple of lvalue references or unpacks a tuple into individual objects
            \fI(function template)\fP

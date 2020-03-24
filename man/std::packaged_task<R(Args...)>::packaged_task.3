@@ -1,56 +1,42 @@
-.TH std::packaged_task<R(Args...)>::packaged_task 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::packaged_task<R(Args...)>::packaged_task 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::packaged_task<R(Args...)>::packaged_task \- std::packaged_task<R(Args...)>::packaged_task
 
 .SH Synopsis
-   packaged_task() noexcept;                                          \fB(1)\fP \fI(since C++11)\fP
-   template <class F>                                                 \fB(2)\fP \fI(since C++11)\fP
+   packaged_task() noexcept;                                                  \fB(1)\fP \fI(since C++11)\fP
+   template <class F>                                                         \fB(2)\fP \fI(since C++11)\fP
    explicit packaged_task( F&& f );
-   template <class F, class Allocator>                                    \fI(since C++11)\fP
-   explicit packaged_task( std::allocator_arg_t, const Allocator& a,  \fB(3)\fP \fI(until C++17)\fP
-   F&& f );
-   packaged_task( const packaged_task& ) = delete;                    \fB(4)\fP \fI(since C++11)\fP
-   packaged_task( packaged_task&& rhs ) noexcept;                     \fB(5)\fP \fI(since C++11)\fP
+   template <class F, class Allocator>                                        \fB(3)\fP \fI(since C++11)\fP
+   explicit packaged_task( std::allocator_arg_t, const Allocator& a, F&& f );     \fI(until C++17)\fP
+   packaged_task( const packaged_task& ) = delete;                            \fB(4)\fP \fI(since C++11)\fP
+   packaged_task( packaged_task&& rhs ) noexcept;                             \fB(5)\fP \fI(since C++11)\fP
 
    Constructs a new std::packaged_task object.
 
    1) Constructs a std::packaged_task object with no task and no shared state.
-   2) Constructs a std::packaged_task object with a shared state and a copy of the
-   task, initialized with std::forward<F>(f). This constructor does not participate in
-   overload resolution if std::decay<F>::type is the same type as
-   std::packaged_task<R(ArgTypes...)>.
-   3) Constructs a std::packaged_task object with a shared state and a copy of the
-   task, initialized with std::forward<F>(f). Uses the provided allocator to allocate
-   memory necessary to store the task. This constructor does not participate in
-   overload resolution if std::decay<F>::type is the same type as
-   std::packaged_task<R(ArgTypes...)>.
+   2) Constructs a std::packaged_task object with a shared state and a copy of the task, initialized with std::forward<F>(f). This constructor does not participate in overload resolution if std::decay<F>::type is the same type as std::packaged_task<R(ArgTypes...)>.
+   3) Constructs a std::packaged_task object with a shared state and a copy of the task, initialized with std::forward<F>(f). Uses the provided allocator to allocate memory necessary to store the task. This constructor does not participate in overload resolution if std::decay<F>::type is the same type as std::packaged_task<R(ArgTypes...)>.
    4) The copy constructor is deleted, std::packaged_task is move-only.
-   5) Constructs a std::packaged_task with the shared state and task formerly owned by
-   rhs, leaving rhs with no shared state and a moved-from task.
+   5) Constructs a std::packaged_task with the shared state and task formerly owned by rhs, leaving rhs with no shared state and a moved-from task.
 
 .SH Parameters
 
-   f   - the callable target \fI(function, member function, lambda-expression, functor) to\fP
-         execute
+   f   - the callable target \fI(function, member function, lambda-expression, functor) to execute\fP
    a   - the allocator to use when storing the task
    rhs - the std::packaged_task to move from
 
 .SH Exceptions
 
-   2) Any exceptions thrown by copy/move constructor of f and possiblly std::bad_alloc
-   if the allocation fails.
-   3) Any exceptions thrown by copy/move constructor of f and by the allocator's
-   allocate function if memory allocation fails.
+   2) Any exceptions thrown by copy/move constructor of f and possiblly std::bad_alloc if the allocation fails.
+   3) Any exceptions thrown by copy/move constructor of f and by the allocator's allocate function if memory allocation fails.
    4) \fI(none)\fP
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to              Behavior as published              Correct behavior
-   LWG 2067 C++11      the deleted copy constructor took reference to  made const
-                       non-const
+      DR    Applied to                  Behavior as published                   Correct behavior
+   LWG 2067 C++11      the deleted copy constructor took reference to non-const made const
 
 .SH Example
 

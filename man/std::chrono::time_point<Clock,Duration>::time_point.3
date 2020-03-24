@@ -1,36 +1,24 @@
-.TH std::chrono::time_point<Clock,Duration>::time_point 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::time_point<Clock,Duration>::time_point 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::time_point<Clock,Duration>::time_point \- std::chrono::time_point<Clock,Duration>::time_point
 
 .SH Synopsis
-                                                                (since
-   time_point();                                                C++11)
-                                                                (until
-                                                                C++14)
-   constexpr time_point();                                      (since
-                                                                C++14)
-                                                                        (since
-   explicit time_point( const duration& d );                            C++11)
-                                                                        (until
-                                                        \fB(1)\fP             C++14)
-   constexpr explicit time_point( const duration& d );                  (since
-                                                                        C++14)
-                                                            \fB(2)\fP                 (since
-   template< class Duration2 >                                                  C++11)
-   time_point( const time_point<Clock,Duration2>& t );                          (until
-                                                                \fB(3)\fP             C++14)
-   template< class Duration2 >                                                  (since
-   constexpr time_point( const                                                  C++14)
-   time_point<Clock,Duration2>& t );
+   time_point();                                                         \fI(since C++11)\fP
+                                                                         \fI(until C++14)\fP
+   constexpr time_point();                                               \fI(since C++14)\fP
+   explicit time_point( const duration& d );                                           \fI(since C++11)\fP
+                                                                 \fB(1)\fP                   \fI(until C++14)\fP
+   constexpr explicit time_point( const duration& d );                                 \fI(since C++14)\fP
+   template< class Duration2 >                                       \fB(2)\fP                             \fI(since C++11)\fP
+   time_point( const time_point<Clock,Duration2>& t );                   \fB(3)\fP                         \fI(until C++14)\fP
+   template< class Duration2 >                                                                       \fI(since C++14)\fP
+   constexpr time_point( const time_point<Clock,Duration2>& t );
 
    Constructs a new time_point from one of several optional data sources.
 
-   1) Default constructor, creates a time_point representing the Clock's epoch (i.e.,
-   time_since_epoch() is zero).
+   1) Default constructor, creates a time_point representing the Clock's epoch (i.e., time_since_epoch() is zero).
    2) Constructs a time_point at Clock's epoch plus d.
-   3) Constructs a time_point by converting t to duration. This constructor only
-   participates in overload resolution if Duration2 is implicitly convertible to
-   duration.
+   3) Constructs a time_point by converting t to duration. This constructor only participates in overload resolution if Duration2 is implicitly convertible to duration.
 
 .SH Parameters
 

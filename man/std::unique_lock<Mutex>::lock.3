@@ -1,4 +1,4 @@
-.TH std::unique_lock<Mutex>::lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unique_lock<Mutex>::lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unique_lock<Mutex>::lock \- std::unique_lock<Mutex>::lock
 
@@ -19,12 +19,9 @@ std::unique_lock<Mutex>::lock \- std::unique_lock<Mutex>::lock
 
      * Any exceptions thrown by mutex()->lock()
 
-     * If there is no associated mutex, std::system_error with an error code of
-       std::errc::operation_not_permitted
+     * If there is no associated mutex, std::system_error with an error code of std::errc::operation_not_permitted
 
-     * If the mutex is already locked by this unique_lock (in other words, owns_lock is
-       true), std::system_error with an error code of
-       std::errc::resource_deadlock_would_occur
+     * If the mutex is already locked by this unique_lock (in other words, owns_lock is true), std::system_error with an error code of std::errc::resource_deadlock_would_occur
 
 .SH Example
 

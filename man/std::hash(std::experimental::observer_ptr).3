@@ -1,17 +1,14 @@
-.TH std::hash(std::experimental::observer_ptr) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::hash(std::experimental::observer_ptr) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::hash(std::experimental::observer_ptr) \- std::hash(std::experimental::observer_ptr)
 
 .SH Synopsis
    Defined in header <experimental/memory>
-   template<class T> struct                                       (library fundamentals
-   hash<std::experimental::observer_ptr<T>>;                      TS v2)
+   template<class T> struct hash<std::experimental::observer_ptr<T>>;  (library fundamentals TS v2)
 
-   The template specialization of std::hash for std::experimental::observer_ptr<T>
-   allows users to obtain hashes of objects of type std::experimental::observer_ptr<T>.
+   The template specialization of std::hash for std::experimental::observer_ptr<T> allows users to obtain hashes of objects of type std::experimental::observer_ptr<T>.
 
-   For a given std::experimental::observer_ptr<T> p, this specialization ensures that
-   std::hash<std::experimental::observer_ptr<T>>()(p) == std::hash<T*>()(p.get()).
+   For a given std::experimental::observer_ptr<T> p, this specialization ensures that std::hash<std::experimental::observer_ptr<T>>()(p) == std::hash<T*>()(p.get()).
 
 .SH Example
 

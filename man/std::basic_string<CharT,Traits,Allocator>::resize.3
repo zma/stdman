@@ -1,4 +1,4 @@
-.TH std::basic_string<CharT,Traits,Allocator>::resize 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::resize 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::resize \- std::basic_string<CharT,Traits,Allocator>::resize
 
@@ -10,11 +10,9 @@ std::basic_string<CharT,Traits,Allocator>::resize \- std::basic_string<CharT,Tra
 
    If the current size is less than count, additional characters are appended.
 
-   If the current size is greater than count, the string is reduced to its first count
-   elements.
+   If the current size is greater than count, the string is reduced to its first count elements.
 
-   The first version initializes new characters to CharT(), the second version
-   initializes new characters to ch.
+   The first version initializes new characters to CharT(), the second version initializes new characters to ch.
 
 .SH Parameters
 
@@ -27,11 +25,9 @@ std::basic_string<CharT,Traits,Allocator>::resize \- std::basic_string<CharT,Tra
 
 .SH Exceptions
 
-   std::length_error if count > max_size(). Any exceptions thrown by corresponding
-   Allocator.
+   std::length_error if count > max_size(). Any exceptions thrown by corresponding Allocator.
 
-   If an exception is thrown for any reason, this function has no effect (strong
-   exception guarantee).
+   If an exception is thrown for any reason, this function has no effect \fI(strong exception guarantee)\fP.
    \fI(since C++11)\fP
 
 .SH Example

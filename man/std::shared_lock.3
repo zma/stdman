@@ -1,4 +1,4 @@
-.TH std::shared_lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_lock \- std::shared_lock
 
@@ -7,22 +7,15 @@ std::shared_lock \- std::shared_lock
    template< class Mutex >           \fI(since C++14)\fP
    class shared_lock;
 
-   The class shared_lock is a general-purpose shared mutex ownership wrapper allowing
-   deferred locking, timed locking and transfer of lock ownership. Locking a
-   shared_lock locks the associated shared mutex in shared mode (to lock it in
-   exclusive mode, std::unique_lock can be used)
+   The class shared_lock is a general-purpose shared mutex ownership wrapper allowing deferred locking, timed locking and transfer of lock ownership. Locking a shared_lock locks the associated shared mutex in shared mode (to lock it in exclusive mode, std::unique_lock can be used)
 
-   The shared_lock class is movable, but not copyable -- it meets the requirements of
-   MoveConstructible and MoveAssignable but not of CopyConstructible or CopyAssignable.
+   The shared_lock class is movable, but not copyable -- it meets the requirements of MoveConstructible and MoveAssignable but not of CopyConstructible or CopyAssignable.
 
-   In order to wait in a shared mutex in shared ownership mode,
-   std::condition_variable_any can be used (std::condition_variable requires
-   std::unique_lock and so can only wait in unique ownership mode)
+   In order to wait in a shared mutex in shared ownership mode, std::condition_variable_any can be used (std::condition_variable requires std::unique_lock and so can only wait in unique ownership mode)
 
 .SH Template parameters
 
-   Mutex - the type of the shared mutex to lock. The type must meet the SharedMutex
-           requirements
+   Mutex - the type of the shared mutex to lock. The type must meet the SharedMutex requirements
 
 .SH Member types
 
@@ -68,9 +61,7 @@ std::shared_lock \- std::shared_lock
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to              Behavior as published              Correct behavior
-   LWG 2981 C++17      redundant deduction guide from                  removed
-                       shared_lock<Mutex> was provided
+      DR    Applied to                     Behavior as published                      Correct behavior
+   LWG 2981 C++17      redundant deduction guide from shared_lock<Mutex> was provided removed

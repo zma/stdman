@@ -1,4 +1,4 @@
-.TH std::experimental::filesystem::is_symlink 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::is_symlink 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::is_symlink \- std::experimental::filesystem::is_symlink
 
@@ -8,8 +8,7 @@ std::experimental::filesystem::is_symlink \- std::experimental::filesystem::is_s
    bool is_symlink( const path& p );                 \fB(2)\fP (filesystem TS)
    bool is_symlink( const path& p, error_code& ec );
 
-   Checks if the given file status or path corresponds to a symbolic link, as if
-   determined by the POSIX S_IFLNK.
+   Checks if the given file status or path corresponds to a symbolic link, as if determined by the POSIX S_IFLNK.
 
    1) Equivalent to s.type() == file_type::symlink.
    2) Equivalent to is_symlink(status(p)) or is_symlink(status(p, ec)).
@@ -22,28 +21,20 @@ std::experimental::filesystem::is_symlink \- std::experimental::filesystem::is_s
 
 .SH Return value
 
-   true if the file indicated by p or if the type indicated s refers to a symbolic
-   link. The non-throwing overload returns false if an error occurs.
+   true if the file indicated by p or if the type indicated s refers to a symbolic link. The non-throwing overload returns false if an error occurs.
 
 .SH Exceptions
 
    1)
    noexcept specification:
    noexcept
-   2,3) The overload that does not take a error_code& parameter throws filesystem_error
-   on underlying OS API errors, constructed with p as the first argument and the OS
-   error code as the error code argument. std::bad_alloc may be thrown if memory
-   allocation fails. The overload taking a error_code& parameter sets it to the OS API
-   error code if an OS API call fails, and executes ec.clear() if no errors occur. This
-   overload has
+   2,3) The overload that does not take a error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first argument and the OS error code as the error code argument. std::bad_alloc may be thrown if memory allocation fails. The overload taking a error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. This overload has
    noexcept specification:
    noexcept
 
 .SH Notes
 
-   The information provided by this function is usually also provided as a byproduct of
-   directory iteration. During directory iteration, calling is_symlink(*iterator) is
-   less efficient than is_symlink(iterator->status())
+   The information provided by this function is usually also provided as a byproduct of directory iteration. During directory iteration, calling is_symlink(*iterator) is less efficient than is_symlink(iterator->status())
 
 .SH Example
 
@@ -137,8 +128,6 @@ std::experimental::filesystem::is_symlink \- std::experimental::filesystem::is_s
                      \fI(function)\fP
    exists            checks whether path refers to existing file system object
                      \fI(function)\fP
-                     cached status of the file designated by this directory entry
-   status            cached symlink_status of the file designated by this directory
-   symlink_status    entry
-                     \fI\fI(public member\fP function of\fP
-                     std::experimental::filesystem::directory_entry)
+   status            cached status of the file designated by this directory entry
+   symlink_status    cached symlink_status of the file designated by this directory entry
+                     \fI(public member function of std::experimental::filesystem::directory_entry)\fP

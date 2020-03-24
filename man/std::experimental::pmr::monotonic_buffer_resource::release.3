@@ -1,15 +1,13 @@
-.TH std::experimental::pmr::monotonic_buffer_resource::release 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::pmr::monotonic_buffer_resource::release 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::pmr::monotonic_buffer_resource::release \- std::experimental::pmr::monotonic_buffer_resource::release
 
 .SH Synopsis
    void release();  (library fundamentals TS)
 
-   Releases all allocated memory by calling the deallocate function on the upstream
-   memory resource as necessary.
+   Releases all allocated memory by calling the deallocate function on the upstream memory resource as necessary.
 
-   Memory is released back to the upstream resource even if deallocate has not been
-   called for some of the allocated blocks.
+   Memory is released back to the upstream resource even if deallocate has not been called for some of the allocated blocks.
 
 .SH See also
 

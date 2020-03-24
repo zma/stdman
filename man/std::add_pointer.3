@@ -1,4 +1,4 @@
-.TH std::add_pointer 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::add_pointer 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::add_pointer \- std::add_pointer
 
@@ -7,15 +7,11 @@ std::add_pointer \- std::add_pointer
    template< class T >              \fI(since C++11)\fP
    struct add_pointer;
 
-   If T is a reference type, then provides the member typedef type which is a pointer
-   to the referred type.
+   If T is a reference type, then provides the member typedef type which is a pointer to the referred type.
 
-   Otherwise, if T names an object type, a function type that is not cv- or
-   ref-qualified, or a (possibly cv-qualified) void type, provides the member typedef
-   type which is the type T*.
+   Otherwise, if T names an object type, a function type that is not cv- or ref-qualified, or a (possibly cv-qualified) void type, provides the member typedef type which is the type T*.
 
-   Otherwise (if T is a cv- or ref-qualified function type), provides the member
-   typedef type which is the type T.
+   Otherwise (if T is a cv- or ref-qualified function type), provides the member typedef type which is the type T.
 
 .SH Member types
 
@@ -82,14 +78,11 @@ std::add_pointer \- std::add_pointer
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to     Behavior as published              Correct behavior
-                       std::add_pointer was required
-   LWG 2101 C++11      to produce                    Produces cv-/ref-qualified
-                       pointer to cv-/ref-qualified  function types themselves.
-                       function types.
+      DR    Applied to            Behavior as published                               Correct behavior
+   LWG 2101 C++11      std::add_pointer was required to produce     Produces cv-/ref-qualified function types themselves.
+                       pointer to cv-/ref-qualified function types.
 
 .SH See also
 

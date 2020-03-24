@@ -1,4 +1,4 @@
-.TH std::experimental::filesystem::is_fifo 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::is_fifo 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::is_fifo \- std::experimental::filesystem::is_fifo
 
@@ -12,8 +12,7 @@ std::experimental::filesystem::is_fifo \- std::experimental::filesystem::is_fifo
 
    1) Equivalent to s.type() == file_type::fifo.
    2) Equivalent to is_fifo(status(p)).
-   3) Equivalent to is_fifo(status(p, ec)). Returns false and sets ec to an appropriate
-   error code if an error occurs. Otherwise, ec is cleared with a call to ec.clear().
+   3) Equivalent to is_fifo(status(p, ec)). Returns false and sets ec to an appropriate error code if an error occurs. Otherwise, ec is cleared with a call to ec.clear().
 
 .SH Parameters
 
@@ -30,8 +29,7 @@ std::experimental::filesystem::is_fifo \- std::experimental::filesystem::is_fifo
    1,3)
    noexcept specification:
    noexcept
-   2) Throws filesystem_error if an error occurs. The exception object is constructed
-   with p as an argument.
+   2) Throws filesystem_error if an error occurs. The exception object is constructed with p as an argument.
 
 .SH See also
 

@@ -1,4 +1,4 @@
-.TH std::abort 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::abort 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::abort \- std::abort
 
@@ -7,17 +7,13 @@ std::abort \- std::abort
    void abort();                        \fI(until C++11)\fP
    [[noreturn]] void abort() noexcept;  \fI(since C++11)\fP
 
-   Causes abnormal program termination unless SIGABRT is being caught by a signal
-   handler passed to std::signal and the handler does not return.
+   Causes abnormal program termination unless SIGABRT is being caught by a signal handler passed to std::signal and the handler does not return.
 
    Destructors of variables with automatic,
    thread local
-   \fI(since C++11)\fP and static storage durations are not called. Functions registered with
-   std::atexit()
+   \fI(since C++11)\fP and static storage durations are not called. Functions registered with std::atexit()
    and std::at_quick_exit
-   \fI(since C++11)\fP are also not called. Whether open resources such as files are closed
-   is implementation defined. An implementation defined status is returned to the host
-   environment that indicates unsuccessful execution.
+   \fI(since C++11)\fP are also not called. Whether open resources such as files are closed is implementation defined. An implementation defined status is returned to the host environment that indicates unsuccessful execution.
 
 .SH Parameters
 
@@ -33,8 +29,7 @@ std::abort \- std::abort
 
 .SH Notes
 
-   POSIX specifies that the abort() function overrides blocking or ignoring the SIGABRT
-   signal.
+   POSIX specifies that the abort() function overrides blocking or ignoring the SIGABRT signal.
 
 .SH Example
 

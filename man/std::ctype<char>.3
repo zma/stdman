@@ -1,4 +1,4 @@
-.TH std::ctype<char> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype<char> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype<char> \- std::ctype<char>
 
@@ -7,20 +7,13 @@ std::ctype<char> \- std::ctype<char>
    template<>
    class ctype<char>;
 
-   This specialization of std::ctype encapsulates character classification features for
-   type char. Unlike general-purpose std::ctype, which uses virtual functions, this
-   specialization uses table lookup to classify characters (which is generally faster).
+   This specialization of std::ctype encapsulates character classification features for type char. Unlike general-purpose std::ctype, which uses virtual functions, this specialization uses table lookup to classify characters (which is generally faster).
 
-   The base class std::ctype<char> implements character classification equivalent to
-   the minimal "C" locale. The classification rules can be extended or modified if
-   constructed with a non-default classification table argument, if constructed as
-   std::ctype_byname<char> or as a user-defined derived facet. All std::istream
-   formatted input functions are required to use std::ctype<char> for character
-   classing during input parsing.
+   The base class std::ctype<char> implements character classification equivalent to the minimal "C" locale. The classification rules can be extended or modified if constructed with a non-default classification table argument, if constructed as std::ctype_byname<char> or as a user-defined derived facet. All std::istream formatted input functions are required to use std::ctype<char> for character classing during input parsing.
 
    std-ctype char-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
 .SH Member types
 
@@ -37,14 +30,11 @@ std::ctype<char> \- std::ctype<char>
                  \fI(public member function)\fP
    classic_table obtains the "C" locale character classification table
    \fB[static]\fP      \fI(public static member function)\fP
-                 classifies a character or a character sequence, using the
-   is            classification table
+   is            classifies a character or a character sequence, using the classification table
                  \fI(public member function)\fP
-                 locates the first character in a sequence that conforms to given
-   scan_is       classification, using the classification table
+   scan_is       locates the first character in a sequence that conforms to given classification, using the classification table
                  \fI(public member function)\fP
-                 locates the first character in a sequence that fails given
-   scan_not      classification, using the classification table
+   scan_not      locates the first character in a sequence that fails given classification, using the classification table
                  \fI(public member function)\fP
    toupper       invokes do_toupper
                  \fI(public member function of std::ctype<CharT>)\fP
@@ -98,9 +88,8 @@ Inherited from std::ctype_base
    \fB[static]\fP         \fI(public static member constant)\fP
    punct            the value of mask identifying punctuation character classification
    \fB[static]\fP         \fI(public static member constant)\fP
-   xdigit           the value of mask identifying hexadecimal digit character
-   \fB[static]\fP         classification
-                    \fI(public static member constant)\fP
+   xdigit           the value of mask identifying hexadecimal digit character classification
+   \fB[static]\fP         \fI(public static member constant)\fP
    blank            the value of mask identifying blank character classification
    \fB[static]\fP \fI(C++11)\fP \fI(public static member constant)\fP
    alnum            alpha | digit
@@ -110,8 +99,7 @@ Inherited from std::ctype_base
 
 .SH Example
 
-   The following example demonstrates modification of ctype<char> to tokenize
-   comma-separated values
+   The following example demonstrates modification of ctype<char> to tokenize comma-separated values
 
    
 // Run this code

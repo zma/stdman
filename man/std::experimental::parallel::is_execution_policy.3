@@ -1,4 +1,4 @@
-.TH std::experimental::parallel::is_execution_policy 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::parallel::is_execution_policy 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::parallel::is_execution_policy \- std::experimental::parallel::is_execution_policy
 
@@ -9,13 +9,9 @@ std::experimental::parallel::is_execution_policy \- std::experimental::parallel:
 
    Checks whether T is a standard or implementation-defined execution policy type.
 
-   Provides the member constant value which is equal to true, if T is execution_policy,
-   sequential_execution_policy, parallel_execution_policy,
-   parallel_vector_execution_policy, or an implementation-defined execution policy
-   type. Otherwise, value is equal to false.
+   Provides the member constant value which is equal to true, if T is execution_policy, sequential_execution_policy, parallel_execution_policy, parallel_vector_execution_policy, or an implementation-defined execution policy type. Otherwise, value is equal to false.
 
-   The behavior of a program that adds specializations for is_execution_policy is
-   undefined.
+   The behavior of a program that adds specializations for is_execution_policy is undefined.
 
 .SH Template parameters
 
@@ -24,17 +20,15 @@ std::experimental::parallel::is_execution_policy \- std::experimental::parallel:
   Helper template
 
    Defined in header <experimental/execution_policy>
-   template< class T >
-   constexpr bool is_execution_policy_v =                              (parallelism TS)
-   is_execution_policy<T>::value;
+   template< class T >                                                    (parallelism TS)
+   constexpr bool is_execution_policy_v = is_execution_policy<T>::value;
 
 Inherited from std::integral_constant
 
 .SH Member constants
 
-   value    true if T is a standard or implementation-defined execution policy type ,
-   \fB[static]\fP false otherwise
-            \fI(public static member constant)\fP
+   value    true if T is a standard or implementation-defined execution policy type , false otherwise
+   \fB[static]\fP \fI(public static member constant)\fP
 
 .SH Member functions
 

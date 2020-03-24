@@ -1,4 +1,4 @@
-.TH std::atomic_fetch_sub,std::atomic_fetch_sub_explicit 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic_fetch_sub,std::atomic_fetch_sub_explicit 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic_fetch_sub,std::atomic_fetch_sub_explicit \- std::atomic_fetch_sub,std::atomic_fetch_sub_explicit
 
@@ -27,9 +27,7 @@ std::atomic_fetch_sub,std::atomic_fetch_sub_explicit \- std::atomic_fetch_sub,st
 
    std::memory_order order ) noexcept;
 
-   Performs atomic subtraction. Atomically subtracts arg from the value pointed to by
-   obj and returns the value obj held previously. The operation is performed as if the
-   following was executed:
+   Performs atomic subtraction. Atomically subtracts arg from the value pointed to by obj and returns the value obj held previously. The operation is performed as if the following was executed:
 
    1) obj->fetch_sub(arg)
    2) obj->fetch_sub(arg, order)
@@ -38,13 +36,11 @@ std::atomic_fetch_sub,std::atomic_fetch_sub_explicit \- std::atomic_fetch_sub,st
 
    obj   - pointer to the atomic object to modify
    arg   - the value to subtract from the value stored in the atomic object
-   order - the memory sycnhronization ordering for this operation: all values are
-           permitted.
+   order - the memory sycnhronization ordering for this operation: all values are permitted.
 
 .SH Return value
 
-   The value immediately preceding the effects of this function in the modification
-   order of *obj.
+   The value immediately preceding the effects of this function in the modification order of *obj.
 
 .SH Possible implementation
 
@@ -113,19 +109,16 @@ std::atomic_fetch_sub,std::atomic_fetch_sub_explicit \- std::atomic_fetch_sub,st
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-     DR    Applied to            Behavior as published              Correct behavior
-   P0558R1 C++11      exact type match required because T is      T is deduced from the
-                      deduced from multiple arguments             atomic argument only
+     DR    Applied to                         Behavior as published                                       Correct behavior
+   P0558R1 C++11      exact type match required because T is deduced from multiple arguments T is deduced from the atomic argument only
 
 .SH See also
 
-                             atomically subtracts the argument from the value stored in
-   fetch_sub                 the atomic object and obtains the value held previously
+   fetch_sub                 atomically subtracts the argument from the value stored in the atomic object and obtains the value held previously
                              \fI(public member function of std::atomic<T>)\fP
-   atomic_fetch_add          adds a non-atomic value to an atomic object and obtains
-   atomic_fetch_add_explicit the previous value of the atomic
+   atomic_fetch_add
+   atomic_fetch_add_explicit adds a non-atomic value to an atomic object and obtains the previous value of the atomic
    \fI(C++11)\fP                   \fI(function template)\fP
    \fI(C++11)\fP

@@ -1,18 +1,16 @@
-.TH std::uses_allocator<std::experimental::packaged_task> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::uses_allocator<std::experimental::packaged_task> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::uses_allocator<std::experimental::packaged_task> \- std::uses_allocator<std::experimental::packaged_task>
 
 .SH Synopsis
    Defined in header <experimental/future>
    template< class R, class Alloc >
-                                                                      (library
-   struct uses_allocator<std::experimental::packaged_task<R>, Alloc>  fundamentals TS)
+
+   struct uses_allocator<std::experimental::packaged_task<R>, Alloc>  (library fundamentals TS)
 
    : std::true_type { };
 
-   This specialization of std::uses_allocator informs other library components that all
-   objects of type std::experimental::packaged_task support uses-allocator
-   construction.
+   This specialization of std::uses_allocator informs other library components that all objects of type std::experimental::packaged_task support uses-allocator construction.
 
 Inherited from std::integral_constant
 

@@ -1,4 +1,4 @@
-.TH std::chrono::round(std::chrono::duration) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::round(std::chrono::duration) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::round(std::chrono::duration) \- std::chrono::round(std::chrono::duration)
 
@@ -7,13 +7,9 @@ std::chrono::round(std::chrono::duration) \- std::chrono::round(std::chrono::dur
    template <class ToDuration, class Rep, class Period>         \fI(since C++17)\fP
    constexpr ToDuration round(const duration<Rep, Period>& d);
 
-   Returns the value t representable in ToDuration that is the closest to d. If there
-   are two such values, returns the even value (that is, the value t such that t % 2 ==
-   0).
+   Returns the value t representable in ToDuration that is the closest to d. If there are two such values, returns the even value (that is, the value t such that t % 2 == 0).
 
-   The function does not participate in the overload resolution unless ToDuration is an
-   instance of std::chrono::duration and std::chrono::treat_as_floating_point<typename
-   ToDuration::rep>::value is false
+   The function does not participate in the overload resolution unless ToDuration is an instance of std::chrono::duration and std::chrono::treat_as_floating_point<typename ToDuration::rep>::value is false
 
 .SH Parameters
 
@@ -21,8 +17,7 @@ std::chrono::round(std::chrono::duration) \- std::chrono::round(std::chrono::dur
 
 .SH Return value
 
-   d rounded to the nearest duration of type ToDuration, rounding to even in halfway
-   cases.
+   d rounded to the nearest duration of type ToDuration, rounding to even in halfway cases.
 
 .SH Possible implementation
 
@@ -56,16 +51,14 @@ std::chrono::round(std::chrono::duration) \- std::chrono::round(std::chrono::dur
 
 .SH See also
 
-                                  converts a duration to another, with a different tick
-   duration_cast                  interval
+   duration_cast                  converts a duration to another, with a different tick interval
                                   \fI(function template)\fP
    floor(std::chrono::duration)   converts a duration to another, rounding down
    \fI(C++17)\fP                        \fI(function template)\fP
    ceil(std::chrono::duration)    converts a duration to another, rounding up
    \fI(C++17)\fP                        \fI(function template)\fP
-   round(std::chrono::time_point) converts a time_point to another, rounding to
-   \fI(C++17)\fP                        nearest, ties to even
-                                  \fI(function template)\fP
+   round(std::chrono::time_point) converts a time_point to another, rounding to nearest, ties to even
+   \fI(C++17)\fP                        \fI(function template)\fP
    round
    roundf
    roundl
@@ -73,8 +66,8 @@ std::chrono::round(std::chrono::duration) \- std::chrono::round(std::chrono::dur
    lroundf
    lroundl
    llround
-   llroundf                       nearest integer, rounding away from zero in halfway
-   llroundl                       cases
+   llroundf
+   llroundl                       nearest integer, rounding away from zero in halfway cases
    \fI(C++11)\fP                        \fI(function)\fP
    \fI(C++11)\fP
    \fI(C++11)\fP

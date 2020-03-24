@@ -1,12 +1,11 @@
-.TH std::basic_ostream<CharT,Traits>::put 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ostream<CharT,Traits>::put 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ostream<CharT,Traits>::put \- std::basic_ostream<CharT,Traits>::put
 
 .SH Synopsis
    basic_ostream& put( char_type ch );
 
-   Behaves as an UnformattedOutputFunction. After constructing and checking the sentry
-   object, writes the character ch to the output stream.
+   Behaves as an UnformattedOutputFunction. After constructing and checking the sentry object, writes the character ch to the output stream.
 
    If the output fails for any reason, sets badbit.
 
@@ -20,11 +19,9 @@ std::basic_ostream<CharT,Traits>::put \- std::basic_ostream<CharT,Traits>::put
 
 .SH Notes
 
-   This function is not overloaded for the types signed char or unsigned char, unlike
-   the formatted operator<<
+   This function is not overloaded for the types signed char or unsigned char, unlike the formatted operator<<
 
-   Unlike formatted output functions, this function does not set the failbit if the
-   output fails.
+   Unlike formatted output functions, this function does not set the failbit if the output fails.
 
 .SH Example
 

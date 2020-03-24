@@ -1,4 +1,4 @@
-.TH std::abs(std::complex) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::abs(std::complex) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::abs(std::complex) \- std::abs(std::complex)
 
@@ -15,11 +15,9 @@ std::abs(std::complex) \- std::abs(std::complex)
 
 .SH Return value
 
-   If no errors occur, returns the absolute value (also known as norm, modulus, or
-   magnitude) of z.
+   If no errors occur, returns the absolute value (also known as norm, modulus, or magnitude) of z.
 
-   Errors and special cases are handled as if the function is implemented as
-   std::hypot(std::real(z), std::imag(z))
+   Errors and special cases are handled as if the function is implemented as std::hypot(std::real(z), std::imag(z))
 
 .SH Examples
 
@@ -56,12 +54,11 @@ std::abs(std::complex) \- std::abs(std::complex)
    fabsl              \fI(function)\fP
    \fI(C++11)\fP
    \fI(C++11)\fP
-   hypot              computes square root of the sum of the squares of two given
-   hypotf             numbers (
-   hypotl             √
-   \fI(C++11)\fP            x2
+   hypot              computes square root of the sum of the squares of two given numbers (
+   hypotf             √
+   hypotl             x2
    \fI(C++11)\fP            +y2
    \fI(C++11)\fP            )
-                      \fI(function)\fP
+   \fI(C++11)\fP            \fI(function)\fP
    abs(std::valarray) applies the function std::abs to each element of valarray
                       \fI(function template)\fP

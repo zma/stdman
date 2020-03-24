@@ -1,4 +1,4 @@
-.TH std::norm(std::complex) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::norm(std::complex) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::norm(std::complex) \- std::norm(std::complex)
 
@@ -23,9 +23,7 @@ std::norm(std::complex) \- std::norm(std::complex)
 
    1) Returns the squared magnitude of the complex number z.
 
-   2) Additional overloads are provided for float, double, long double,
-   and all integer types, which are treated as complex numbers with zero  \fI(since C++11)\fP
-   imaginary component.
+   2) Additional overloads are provided for float, double, long double, and all integer types, which are treated as complex numbers with zero imaginary component. \fI(since C++11)\fP
 
 .SH Parameters
 
@@ -39,9 +37,7 @@ std::norm(std::complex) \- std::norm(std::complex)
 
    The norm calculated by this function is also known as field norm or absolute square.
 
-   The Euclidean norm of a complex number is provided by std::abs, which is more costly
-   to compute. In some situations, it may be replaced by std::norm, for example, if
-   abs(z1) > abs(z2) then norm(z1) > norm(z2).
+   The Euclidean norm of a complex number is provided by std::abs, which is more costly to compute. In some situations, it may be replaced by std::norm, for example, if abs(z1) > abs(z2) then norm(z1) > norm(z2).
 
 .SH See also
 

@@ -1,4 +1,4 @@
-.TH std::basic_string_view<CharT,Traits>::starts_with 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string_view<CharT,Traits>::starts_with 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string_view<CharT,Traits>::starts_with \- std::basic_string_view<CharT,Traits>::starts_with
 
@@ -9,17 +9,13 @@ std::basic_string_view<CharT,Traits>::starts_with \- std::basic_string_view<Char
 
    Checks if the string view begins with the given prefix, where
 
-   1) the prefix is a string view. Effectively returns size() >= x.size() && compare(0,
-   x.size(), x) == 0
-   2) the prefix is a single character. Effectively returns !empty() &&
-   Traits::eq(front(), x)
-   3) the prefix is a C-style string. Effectively returns
-   starts_with(basic_string_view(x))
+   1) the prefix is a string view. Effectively returns size() >= x.size() && compare(0, x.size(), x) == 0
+   2) the prefix is a single character. Effectively returns !empty() && Traits::eq(front(), x)
+   3) the prefix is a C-style string. Effectively returns starts_with(basic_string_view(x))
 
 .SH Parameters
 
-   x - a character sequence or a single character to compare to the start of the string
-       view
+   x - a character sequence or a single character to compare to the start of the string view
 
 .SH Return value
 

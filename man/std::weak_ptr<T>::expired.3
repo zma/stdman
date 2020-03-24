@@ -1,13 +1,11 @@
-.TH std::weak_ptr<T>::expired 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::weak_ptr<T>::expired 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::weak_ptr<T>::expired \- std::weak_ptr<T>::expired
 
 .SH Synopsis
    bool expired() const noexcept;  \fI(since C++11)\fP
 
-   Equivalent to use_count() == 0. The destructor for the managed object may not yet
-   have been called, but this object's destruction is imminent (or may have already
-   happened).
+   Equivalent to use_count() == 0. The destructor for the managed object may not yet have been called, but this object's destruction is imminent (or may have already happened).
 
 .SH Parameters
 
@@ -19,9 +17,7 @@ std::weak_ptr<T>::expired \- std::weak_ptr<T>::expired
 
 .SH Notes
 
-   This function is inherently racy if the managed object is shared among threads. In
-   particular, a false result may become stale before it can be used. A true result is
-   reliable.
+   This function is inherently racy if the managed object is shared among threads. In particular, a false result may become stale before it can be used. A true result is reliable.
 
 .SH Example
 

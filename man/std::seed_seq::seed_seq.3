@@ -1,4 +1,4 @@
-.TH std::seed_seq::seed_seq 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::seed_seq::seed_seq 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::seed_seq::seed_seq \- std::seed_seq::seed_seq
 
@@ -10,22 +10,16 @@ std::seed_seq::seed_seq \- std::seed_seq::seed_seq
    template< class T >                      \fB(4)\fP \fI(since C++11)\fP
    seed_seq( std::initializer_list<T> il );
 
-   1) The default constructor creates a std::seed_seq object with an initial seed
-   sequence of length zero.
+   1) The default constructor creates a std::seed_seq object with an initial seed sequence of length zero.
    2) The copy constructor is deleted: std::seed_seq is not copyable.
-   3) Constructs a std::seed_seq with the initial seed sequence obtained by iterating
-   over the range [begin, end) and copying the values obtained by dereferencing the
-   iterator, modulo 232
+   3) Constructs a std::seed_seq with the initial seed sequence obtained by iterating over the range [begin, end) and copying the values obtained by dereferencing the iterator, modulo 232
    (that is, the lower 32 bits are copied)
-   4) Equivalent to seed_seq(il.begin(), il.end()). This constructor enables
-   list-initialization.
+   4) Equivalent to seed_seq(il.begin(), il.end()). This constructor enables list-initialization.
 
 .SH Parameters
 
-   begin, end - the initial seed sequence represented as a pair of input iterators
-                whose std::iterator_traits<>::value_type is an integer type
-   il         - std::initializer_list of objects of integer type, providing the initial
-                seed sequence
+   begin, end - the initial seed sequence represented as a pair of input iterators whose std::iterator_traits<>::value_type is an integer type
+   il         - std::initializer_list of objects of integer type, providing the initial seed sequence
 .SH Type requirements
    -
    InputIt must meet the requirements of LegacyInputIterator.

@@ -1,4 +1,4 @@
-.TH std::wmemset 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wmemset 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wmemset \- std::wmemset
 
@@ -6,8 +6,7 @@ std::wmemset \- std::wmemset
    Defined in header <cwchar>
    wchar_t* wmemset( wchar_t* dest, wchar_t ch, std::size_t count );
 
-   Copies the wide character ch into each of the first count wide characters of the
-   wide character array pointed to by dest.
+   Copies the wide character ch into each of the first count wide characters of the wide character array pointed to by dest.
 
    If overflow occurs, the behavior is undefined.
 
@@ -25,8 +24,7 @@ std::wmemset \- std::wmemset
 
 .SH Notes
 
-   This function is not locale-sensitive and pays no attention to the values of the
-   wchar_t objects it writes: nulls as well as invalid wide characters are written too.
+   This function is not locale-sensitive and pays no attention to the values of the wchar_t objects it writes: nulls as well as invalid wide characters are written too.
 
 .SH Example
 
@@ -57,8 +55,7 @@ std::wmemset \- std::wmemset
 
    memset  fills a buffer with a character
            \fI(function)\fP
-           copies a certain amount of wide characters between two non-overlapping
-   wmemcpy arrays
+   wmemcpy copies a certain amount of wide characters between two non-overlapping arrays
            \fI(function)\fP
    fill_n  copy-assigns the given value to N elements in a range
            \fI(function template)\fP

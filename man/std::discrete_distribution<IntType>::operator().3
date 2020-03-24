@@ -1,4 +1,4 @@
-.TH std::discrete_distribution<IntType>::operator() 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::discrete_distribution<IntType>::operator() 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::discrete_distribution<IntType>::operator() \- std::discrete_distribution<IntType>::operator()
 
@@ -8,11 +8,9 @@ std::discrete_distribution<IntType>::operator() \- std::discrete_distribution<In
    template< class Generator >                                       \fB(2)\fP \fI(since C++11)\fP
    result_type operator()( Generator& g, const param_type& params );
 
-   Generates random numbers that are distributed according to the associated
-   probability function. The entropy is acquired by calling g.operator().
+   Generates random numbers that are distributed according to the associated probability function. The entropy is acquired by calling g.operator().
 
-   The first version uses the associated parameter set, the second version uses params.
-   The associated parameter set is not modified.
+   The first version uses the associated parameter set, the second version uses params. The associated parameter set is not modified.
 
 .SH Parameters
 

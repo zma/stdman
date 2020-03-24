@@ -1,4 +1,4 @@
-.TH std::pmr::polymorphic_allocator<T>::allocate_object 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::polymorphic_allocator<T>::allocate_object 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::polymorphic_allocator<T>::allocate_object \- std::pmr::polymorphic_allocator<T>::allocate_object
 
@@ -8,8 +8,7 @@ std::pmr::polymorphic_allocator<T>::allocate_object \- std::pmr::polymorphic_all
 
    Allocates storage for n objects of type U using the underlying memory resource.
 
-   If SIZE_MAX / sizeof(U) < n, throws std::length_error, otherwise equivalent to
-   return static_cast<U*>(allocate_bytes(n * sizeof(U), alignof(U)) );
+   If SIZE_MAX / sizeof(U) < n, throws std::length_error, otherwise equivalent to return static_cast<U*>(allocate_bytes(n * sizeof(U), alignof(U)) );
 
 .SH Parameters
 
@@ -21,18 +20,13 @@ std::pmr::polymorphic_allocator<T>::allocate_object \- std::pmr::polymorphic_all
 
 .SH Notes
 
-   This function was introduced for use with the fully-specialized allocator
-   std::polymorphic_allocator<>, but it may be useful in any specialization as a
-   shortcut to avoid having to rebind from std::polymorphic_allocator<T> to
-   std::polymorphic_allocator<U>.
+   This function was introduced for use with the fully-specialized allocator std::polymorphic_allocator<>, but it may be useful in any specialization as a shortcut to avoid having to rebind from std::polymorphic_allocator<T> to std::polymorphic_allocator<U>.
 
-   Since U is not deduced, it must be provided as a template argument when calling this
-   function.
+   Since U is not deduced, it must be provided as a template argument when calling this function.
 
 .SH Exceptions
 
-   Throws std::length_error if n > SIZE_MAX / sizeof(T); may also any exceptions thrown
-   by the call to resource()->allocate.
+   Throws std::length_error if n > SIZE_MAX / sizeof(T); may also any exceptions thrown by the call to resource()->allocate.
 
 .SH See also
 

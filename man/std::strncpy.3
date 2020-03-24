@@ -1,4 +1,4 @@
-.TH std::strncpy 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::strncpy 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::strncpy \- std::strncpy
 
@@ -6,15 +6,11 @@ std::strncpy \- std::strncpy
    Defined in header <cstring>
    char *strncpy( char *dest, const char *src, std::size_t count );
 
-   Copies at most count characters of the byte string pointed to by src (including the
-   terminating null character) to character array pointed to by dest.
+   Copies at most count characters of the byte string pointed to by src (including the terminating null character) to character array pointed to by dest.
 
-   If count is reached before the entire string src was copied, the resulting character
-   array is not null-terminated.
+   If count is reached before the entire string src was copied, the resulting character array is not null-terminated.
 
-   If, after copying the terminating null character from src, count is not reached,
-   additional null characters are written to dest until the total of count characters
-   have been written.
+   If, after copying the terminating null character from src, count is not reached, additional null characters are written to dest until the total of count characters have been written.
 
    If the strings overlap, the behavior is undefined.
 

@@ -1,4 +1,4 @@
-.TH std::list 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::list 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::list \- std::list
 
@@ -17,42 +17,21 @@ std::list \- std::list
 
    }
 
-   std::list is a container that supports constant time insertion and removal of
-   elements from anywhere in the container. Fast random access is not supported. It is
-   usually implemented as a doubly-linked list. Compared to std::forward_list this
-   container provides bidirectional iteration capability while being less space
-   efficient.
+   std::list is a container that supports constant time insertion and removal of elements from anywhere in the container. Fast random access is not supported. It is usually implemented as a doubly-linked list. Compared to std::forward_list this container provides bidirectional iteration capability while being less space efficient.
 
-   Adding, removing and moving the elements within the list or across several lists
-   does not invalidate the iterators or references. An iterator is invalidated only
-   when the corresponding element is deleted.
+   Adding, removing and moving the elements within the list or across several lists does not invalidate the iterators or references. An iterator is invalidated only when the corresponding element is deleted.
 
-   std::list meets the requirements of Container, AllocatorAwareContainer,
-   SequenceContainer and ReversibleContainer.
+   std::list meets the requirements of Container, AllocatorAwareContainer, SequenceContainer and ReversibleContainer.
 
 .SH Template parameters
 
                The type of the elements.
 
-               T must meet the requirements of CopyAssignable and         \fI(until C++11)\fP
-               CopyConstructible.
-               The requirements that are imposed on the elements depend
-               on the actual operations performed on the container.       \fI(since C++11)\fP
-               Generally, it is required that element type is a complete  \fI(until C++17)\fP
-               type and meets the requirements of Erasable, but many
-   T         - member functions impose stricter requirements.
-               The requirements that are imposed on the elements depend
-               on the actual operations performed on the container.
-               Generally, it is required that element type meets the
-               requirements of Erasable, but many member functions impose \fI(since C++17)\fP
-               stricter requirements. This container (but not its
-               members) can be instantiated with an incomplete element
-               type if the allocator satisfies the allocator completeness
-               requirements.
-               An allocator that is used to acquire/release memory and to
-   Allocator - construct/destroy the elements in that memory. The type must meet the
-               requirements of Allocator. The behavior is undefined if
-               Allocator::value_type is not the same as T.
+   T         - T must meet the requirements of CopyAssignable and CopyConstructible.                                                                                                                                                                                                                                                                                                                                              \fI(until C++11)\fP
+               The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type is a complete type and meets the requirements of Erasable, but many member functions impose stricter requirements.                                                                                                                                       \fI(since C++11)\fP
+                                                                                                                                                                                                                                                                                                                                                                                                                                  \fI(until C++17)\fP
+               The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type meets the requirements of Erasable, but many member functions impose stricter requirements. This container (but not its members) can be instantiated with an incomplete element type if the allocator satisfies the allocator completeness requirements. \fI(since C++17)\fP
+   Allocator - An allocator that is used to acquire/release memory and to construct/destroy the elements in that memory. The type must meet the requirements of Allocator. The behavior is undefined if Allocator::value_type is not the same as T.
 
 .SH Member types
 

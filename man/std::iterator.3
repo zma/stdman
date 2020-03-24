@@ -1,4 +1,4 @@
-.TH std::iterator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::iterator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::iterator \- std::iterator
 
@@ -14,14 +14,12 @@ std::iterator \- std::iterator
 
    > struct iterator;
 
-   std::iterator is the base class provided to simplify definitions of the required
-   types for iterators.
+   std::iterator is the base class provided to simplify definitions of the required types for iterators.
 
 .SH Template parameters
 
    Category  - the category of the iterator. Must be one of iterator category tags.
-   T         - the type of the values that can be obtained by dereferencing the
-               iterator. This type should be void for output iterators.
+   T         - the type of the values that can be obtained by dereferencing the iterator. This type should be void for output iterators.
    Distance  - a type that can be used to identify distance between iterators
    Pointer   - defines a pointer to the type iterated over (T)
    Reference - defines a reference to the type iterated over (T)
@@ -37,8 +35,7 @@ std::iterator \- std::iterator
 
 .SH Example
 
-   The following example shows how to implement a input iterator by inheriting from
-   std::iterator
+   The following example shows how to implement a input iterator by inheriting from std::iterator
 
    
 // Run this code
@@ -90,8 +87,7 @@ std::iterator \- std::iterator
 
 .SH See also
 
-                              provides uniform interface to the properties of an
-   iterator_traits            iterator
+   iterator_traits            provides uniform interface to the properties of an iterator
                               \fI(class template)\fP
    input_iterator_tag
    output_iterator_tag

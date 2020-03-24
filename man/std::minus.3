@@ -1,4 +1,4 @@
-.TH std::minus 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::minus 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::minus \- std::minus
 
@@ -9,17 +9,13 @@ std::minus \- std::minus
    template< class T = void >      \fI(since C++14)\fP
    struct minus;
 
-   Function object for performing subtraction. Effectively calls operator- on two
-   instances of type T.
+   Function object for performing subtraction. Effectively calls operator- on two instances of type T.
 
 .SH Specializations
 
-   The standard library provides a specialization of std::minus when T is
-   not specified, which leaves the parameter types and return type to be
-   deduced.
-                                                                          \fI(since C++14)\fP
-               function object implementing x - y deducing argument and
-   minus<void> return types
+   The standard library provides a specialization of std::minus when T is not specified, which leaves the parameter types and return type to be deduced.
+                                                                                                                                                         \fI(since C++14)\fP
+   minus<void> function object implementing x - y deducing argument and return types
                \fI(class template specialization)\fP
 
 .SH Member types

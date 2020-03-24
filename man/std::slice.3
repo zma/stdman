@@ -1,4 +1,4 @@
-.TH std::slice 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::slice 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::slice \- std::slice
 
@@ -6,10 +6,7 @@ std::slice \- std::slice
    Defined in header <valarray>
    class slice;
 
-   std::slice is the selector class that identifies a subset of std::valarray similar
-   to BLAS slice. An object of type std::slice holds three values: the starting index,
-   the stride, and the total number of values in the subset. Objects of type std::slice
-   can be used as indexes with valarray's operator[].
+   std::slice is the selector class that identifies a subset of std::valarray similar to BLAS slice. An object of type std::slice holds three values: the starting index, the stride, and the total number of values in the subset. Objects of type std::slice can be used as indexes with valarray's operator[].
 
 .SH Member functions
 
@@ -27,10 +24,8 @@ std::slice::slice
 
    Constructs a new slice.
 
-   1) Default constructor. Equivalent to slice(0, 0, 0). This constructor exists only
-   to allow construction of arrays of slices.
-   2) Constructs a new slice with parameters start, size, stride. This slice will refer
-   to size number of elements, each with the position:
+   1) Default constructor. Equivalent to slice(0, 0, 0). This constructor exists only to allow construction of arrays of slices.
+   2) Constructs a new slice with parameters start, size, stride. This slice will refer to size number of elements, each with the position:
    start + 0*stride
    start + 1*stride
    ...
@@ -50,8 +45,7 @@ std::slice::start, size, stride
    std::size_t size() const;   \fB(2)\fP
    std::size_t stride() const; \fB(3)\fP
 
-   Returns the parameters passed to the slice on construction - start, size and stride
-   respectively.
+   Returns the parameters passed to the slice on construction - start, size and stride respectively.
 
 .SH Parameters
 
@@ -102,8 +96,7 @@ std::slice::start, size, stride
 
    operator[]  get/set valarray element, slice, or mask
                \fI(public member function)\fP
-               generalized slice of a valarray: starting index, set of lengths, set of
-   gslice      strides
+   gslice      generalized slice of a valarray: starting index, set of lengths, set of strides
                \fI(class)\fP
    slice_array proxy to a subset of a valarray after applying a slice
                \fI(class template)\fP

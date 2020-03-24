@@ -1,4 +1,4 @@
-.TH std::divides 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::divides 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::divides \- std::divides
 
@@ -9,17 +9,13 @@ std::divides \- std::divides
    template< class T = void >      \fI(since C++14)\fP
    struct divides;
 
-   Function object for performing division. Effectively calls operator/ on two
-   instances of type T.
+   Function object for performing division. Effectively calls operator/ on two instances of type T.
 
 .SH Specializations
 
-   The standard library provides a specialization of std::divides when T
-   is not specified, which leaves the parameter types and return type to
-   be deduced.
-                                                                          \fI(since C++14)\fP
-                 function object implementing x / y deducing argument and
-   divides<void> return types
+   The standard library provides a specialization of std::divides when T is not specified, which leaves the parameter types and return type to be deduced.
+                                                                                                                                                           \fI(since C++14)\fP
+   divides<void> function object implementing x / y deducing argument and return types
                  \fI(class template specialization)\fP
 
 .SH Member types
@@ -31,8 +27,7 @@ std::divides \- std::divides
 
 .SH Member functions
 
-              returns the result of the division of the first argument by the second
-   operator() argument
+   operator() returns the result of the division of the first argument by the second argument
               \fI(public member function)\fP
 
 std::divides::operator()

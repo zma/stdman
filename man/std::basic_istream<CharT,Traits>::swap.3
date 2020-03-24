@@ -1,4 +1,4 @@
-.TH std::basic_istream<CharT,Traits>::swap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_istream<CharT,Traits>::swap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_istream<CharT,Traits>::swap \- std::basic_istream<CharT,Traits>::swap
 
@@ -6,11 +6,7 @@ std::basic_istream<CharT,Traits>::swap \- std::basic_istream<CharT,Traits>::swap
    protected:                      \fI(since C++11)\fP
    void swap(basic_istream& rhs);
 
-   Calls basic_ios::swap(rhs) to swap all data members of the base class except for
-   rdbuf(), and swaps the values of the gcount() counters between *this and rhs. This
-   swap function is protected: it is called by the swap functions of the swappable
-   input stream classes std::basic_ifstream and std::basic_istringstream, which know
-   how to correctly swap the associated streambuffers.
+   Calls basic_ios::swap(rhs) to swap all data members of the base class except for rdbuf(), and swaps the values of the gcount() counters between *this and rhs. This swap function is protected: it is called by the swap functions of the swappable input stream classes std::basic_ifstream and std::basic_istringstream, which know how to correctly swap the associated streambuffers.
 
 .SH Parameters
 

@@ -1,4 +1,4 @@
-.TH std::variant<Types...>::valueless_by_exception 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::variant<Types...>::valueless_by_exception 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::variant<Types...>::valueless_by_exception \- std::variant<Types...>::valueless_by_exception
 
@@ -11,17 +11,12 @@ std::variant<Types...>::valueless_by_exception \- std::variant<Types...>::valuel
 
    A variant may become valueless in the following situations:
 
-     * (guaranteed) an exception is thrown during the move initialization of the
-       contained value from the temporary in copy assignment
-     * (guaranteed) an exception is thrown during the move initialization of the
-       contained value during move assignment
-     * (optionally) an exception is thrown when initializing the contained value during
-       a type-changing assignment
-     * (optionally) an exception is thrown when initializing the contained value during
-       a type-changing emplace
+     * (guaranteed) an exception is thrown during the move initialization of the contained value from the temporary in copy assignment
+     * (guaranteed) an exception is thrown during the move initialization of the contained value during move assignment
+     * (optionally) an exception is thrown when initializing the contained value during a type-changing assignment
+     * (optionally) an exception is thrown when initializing the contained value during a type-changing emplace
 
-   Since variant is never permitted to allocate dynamic memory, previous value cannot
-   be retained in these situations.
+   Since variant is never permitted to allocate dynamic memory, previous value cannot be retained in these situations.
 
    This applies even to variants of non-class types:
 
@@ -31,5 +26,4 @@ std::variant<Types...>::valueless_by_exception \- std::variant<Types...>::valuel
  variant<float, int> v{12.f}; // OK
  v.emplace<1>(S()); // v may be valueless
 
-   A variant that is valueless by exception is treated as being in an invalid state:
-   index returns variant_npos, get and visit throw bad_variant_access.
+   A variant that is valueless by exception is treated as being in an invalid state: index returns variant_npos, get and visit throw bad_variant_access.

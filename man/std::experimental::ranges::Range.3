@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::Range 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::Range 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::Range \- std::experimental::ranges::Range
 
@@ -16,7 +16,5 @@ std::experimental::ranges::Range \- std::experimental::ranges::Range
    Given an lvalue t of type std::remove_reference_t<T>, Range<T> is satisfied only if
 
      * [ranges::begin(t), ranges::end(t)) denotes a range; and
-     * both ranges::begin(t) and ranges::end(t) are amortized constant time and
-       non-modifying.
-     * If ranges::iterator_t<T> satisfies ForwardIterator, ranges::begin(t) is equality
-       preserving.
+     * both ranges::begin(t) and ranges::end(t) are amortized constant time and non-modifying.
+     * If ranges::iterator_t<T> satisfies ForwardIterator, ranges::begin(t) is equality preserving.

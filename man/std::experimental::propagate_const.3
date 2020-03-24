@@ -1,4 +1,4 @@
-.TH std::experimental::propagate_const 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::propagate_const 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::propagate_const \- std::experimental::propagate_const
 
@@ -7,20 +7,13 @@ std::experimental::propagate_const \- std::experimental::propagate_const
    template<class T>                                 (library fundamentals TS v2)
    class propagate_const;
 
-   std::experimental::propagate_const is a const-propagating wrapper for pointers and
-   pointer-like objects. It treats the wrapped pointer as a pointer to const when
-   accessed through a const access path, hence the name.
+   std::experimental::propagate_const is a const-propagating wrapper for pointers and pointer-like objects. It treats the wrapped pointer as a pointer to const when accessed through a const access path, hence the name.
 
-   The class satisfies the requirements of MoveConstructible and MoveAssignable if the
-   underlying pointer-like type satisfies the corresponding requirement, but
-   propagate_const is neither CopyConstructible nor CopyAssignable.
+   The class satisfies the requirements of MoveConstructible and MoveAssignable if the underlying pointer-like type satisfies the corresponding requirement, but propagate_const is neither CopyConstructible nor CopyAssignable.
 
 .SH Type requirements
    -
-   T must be an object pointer type or a pointer-like class type, as specified below.
-   The program is ill-formed if T is an array type, reference type, pointer to function
-   type, pointer to (possibly cv-qualified) void, or if decltype(*std::declval<T&>())
-   is not an lvalue reference type.
+   T must be an object pointer type or a pointer-like class type, as specified below. The program is ill-formed if T is an array type, reference type, pointer to function type, pointer to (possibly cv-qualified) void, or if decltype(*std::declval<T&>()) is not an lvalue reference type.
 
   Requirements on pointer-like class types
 
@@ -34,48 +27,37 @@ std::experimental::propagate_const \- std::experimental::propagate_const
 
    The following expressions must be valid and have their specified effects:
 
-     Expression         Return type         Pre-conditions      Operational semantics
+     Expression                Return type                Pre-conditions                Operational semantics
    t.get()         element_type*
-   ct.get()        element_type* or const                     t.get() == ct.get()
-                   element_type*
-   *t              element_type&          t.get() != nullptr  *t refers to the same
-                                                              object as *(t.get())
-   *ct             element_type& or const ct.get() != nullptr *ct refers to the same
-                   element_type&                              object as *(ct.get())
-   t.operator->()  element_type*          t.get() != nullptr  t.operator->() == t.get()
-   ct.operator->() element_type* or const ct.get() != nullptr ct.operator->() ==
-                   element_type*                              ct.get()
-   (bool)t         bool                                       (bool)t is equivalent to
-                                                              t.get() != nullptr
-   (bool)ct        bool                                       (bool)ct is equivalent to
-                                                              ct.get() != nullptr
+   ct.get()        element_type* or const element_type*                     t.get() == ct.get()
+   *t              element_type&                        t.get() != nullptr  *t refers to the same object as *(t.get())
+   *ct             element_type& or const element_type& ct.get() != nullptr *ct refers to the same object as *(ct.get())
+   t.operator->()  element_type*                        t.get() != nullptr  t.operator->() == t.get()
+   ct.operator->() element_type* or const element_type* ct.get() != nullptr ct.operator->() == ct.get()
+   (bool)t         bool                                                     (bool)t is equivalent to t.get() != nullptr
+   (bool)ct        bool                                                     (bool)ct is equivalent to ct.get() != nullptr
 
    Further, T and const T shall be contextually convertible to bool.
 
-   In addition, if T is implicitly convertible to element_type*, then (element_type*)t
-   shall be equal to t.get(). Similarly, if const T is implicitly convertible to const
-   element_type*, then (const element_type*)ct shall be equal to ct.get().
+   In addition, if T is implicitly convertible to element_type*, then (element_type*)t shall be equal to t.get(). Similarly, if const T is implicitly convertible to const element_type*, then (const element_type*)ct shall be equal to ct.get().
 
 .SH Member types
 
    Member type  Definition
-   element_type std::remove_reference_t<decltype(*std::declval<T&>())>, the type of the
-                object pointed to by T
+   element_type std::remove_reference_t<decltype(*std::declval<T&>())>, the type of the object pointed to by T
 
 .SH Member functions
 
    constructor                  constructs a new propagate_const
                                 \fI(public member function)\fP
-   destructor                   destructs an propagate_const, destroying the contained
-   (implicitly declared)        pointer
-                                \fI(public member function)\fP
+   destructor                   destructs an propagate_const, destroying the contained pointer
+   (implicitly declared)        \fI(public member function)\fP
    operator=                    assigns the propagate_const object
                                 \fI(public member function)\fP
    swap                         swaps the wrapped pointer
                                 \fI(public member function)\fP
 .SH Observers
-                                returns a pointer to the object pointed to by the
-   get                          wrapped pointer
+   get                          returns a pointer to the object pointed to by the wrapped pointer
                                 \fI(public member function)\fP
    operator bool                checks if the wrapped pointer is null
                                 \fI(public member function)\fP
@@ -87,30 +69,25 @@ std::experimental::propagate_const \- std::experimental::propagate_const
 .SH Non-member functions
 
    operator==
-   operator!=                                                  compares to another
-   operator<                                                   propagate_const, another
-   operator<=                                                  pointer, or with nullptr
-   operator>                                                   \fI(function template)\fP
+   operator!=
+   operator<                                                   compares to another propagate_const, another pointer, or with nullptr
+   operator<=                                                  \fI(function template)\fP
+   operator>
    operator>=
-                                                               specializes the swap
-   std::experimental::swap(std::experimental::propagate_const) algorithm
+   std::experimental::swap(std::experimental::propagate_const) specializes the swap algorithm
                                                                \fI(function template)\fP
-                                                               Retrieves a reference to
-   get_underlying                                              the wrapped pointer-like
-                                                               object
+   get_underlying                                              Retrieves a reference to the wrapped pointer-like object
                                                                \fI(function template)\fP
 
 .SH Helper classes
 
-                                                          hash support for
-   std::hash<std::experimental::propagate_const>          propagate_const
-                                                          (class template
-                                                          specialization)
-   std::equal_to<std::experimental::propagate_const>      Specializations of the
-   std::not_equal_to<std::experimental::propagate_const>  standard comparison function
-   std::less<std::experimental::propagate_const>          objects for propagate_const
-   std::greater<std::experimental::propagate_const>       (class template
-   std::less_equal<std::experimental::propagate_const>    specialization)
+   std::hash<std::experimental::propagate_const>          hash support for propagate_const
+                                                          \fI(class template specialization)\fP
+   std::equal_to<std::experimental::propagate_const>
+   std::not_equal_to<std::experimental::propagate_const>
+   std::less<std::experimental::propagate_const>          Specializations of the standard comparison function objects for propagate_const
+   std::greater<std::experimental::propagate_const>       \fI(class template specialization)\fP
+   std::less_equal<std::experimental::propagate_const>
    std::greater_equal<std::experimental::propagate_const>
 
 .SH Example

@@ -1,4 +1,4 @@
-.TH std::fopen 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::fopen 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::fopen \- std::fopen
 
@@ -6,58 +6,37 @@ std::fopen \- std::fopen
    Defined in header <cstdio>
    std::FILE* fopen( const char* filename, const char* mode );
 
-   Opens a file indicated by filename and returns a file stream associated with that
-   file. mode is used to determine the file access mode.
+   Opens a file indicated by filename and returns a file stream associated with that file. mode is used to determine the file access mode.
 
 .SH Parameters
 
    filename - file name to associate the file stream to
               null-terminated character string determining file access mode
 
-                                                                Action if    Action if
-              File access     Meaning         Explanation         file         file
-              mode string                                        already     does not
-                                                                 exists        exist
-              "r"          read           Open a file for     read from     failure to
-                                          reading             start         open
-              "w"          write          Create a file for   destroy       create new
-                                          writing             contents
-              "a"          append         Append to a file    write to end  create new
-              "r+"         read extended  Open a file for     read from     error
-                                          read/write          start
-   mode     - "w+"         write extended Create a file for   destroy       create new
-                                          read/write          contents
-              "a+"         append         Open a file for     write to end  create new
-                           extended       read/write
-              File access mode flag "b" can optionally be specified to open a file in
-              binary mode. This flag has no effect on POSIX systems, but on Windows,
-              for example, it disables special handling of '\\n' and '\\x1A'.
-              On the append file access modes, data is written to the end of the file
-              regardless of the current position of the file position indicator.
-              File access mode flag "x" can optionally be appended to "w" or "w+"
-              specifiers. This flag forces the function to fail if the file exists,
-              instead of overwriting it. \fI(C++17)\fP
-              The behavior is undefined if the mode is not one of the strings listed
-              above. Some implementations define additional supported modes (e.g.
-              Windows).
+                         File access                            Meaning                                     Explanation                                 Action if file                          Action if file
+                         mode string                                                                                                                    already exists                          does not exist
+              "r"                                read                                   Open a file for reading                             read from start                         failure to open
+              "w"                                write                                  Create a file for writing                           destroy contents                        create new
+   mode     - "a"                                append                                 Append to a file                                    write to end                            create new
+              "r+"                               read extended                          Open a file for read/write                          read from start                         error
+              "w+"                               write extended                         Create a file for read/write                        destroy contents                        create new
+              "a+"                               append extended                        Open a file for read/write                          write to end                            create new
+              File access mode flag "b" can optionally be specified to open a file in binary mode. This flag has no effect on POSIX systems, but on Windows, for example, it disables special handling of '\\n' and '\\x1A'.
+              On the append file access modes, data is written to the end of the file regardless of the current position of the file position indicator.
+              File access mode flag "x" can optionally be appended to "w" or "w+" specifiers. This flag forces the function to fail if the file exists, instead of overwriting it. \fI(C++17)\fP
+              The behavior is undefined if the mode is not one of the strings listed above. Some implementations define additional supported modes (e.g. Windows).
 
 .SH Return value
 
-   If successful, returns a pointer to the object that controls the opened file stream,
-   with both eof and error bits cleared. The stream is fully buffered unless filename
-   refers to an interactive device.
+   If successful, returns a pointer to the object that controls the opened file stream, with both eof and error bits cleared. The stream is fully buffered unless filename refers to an interactive device.
 
    On error, returns a null pointer. POSIX requires that errno is set in this case.
 
 .SH Notes
 
-   The format of filename is implementation-defined, and does not necessarily refer to
-   a file (e.g. it may be the console or another device accessible through filesystem
-   API). On platforms that support them, filename may include absolute or relative
-   filesystem path.
+   The format of filename is implementation-defined, and does not necessarily refer to a file (e.g. it may be the console or another device accessible through filesystem API). On platforms that support them, filename may include absolute or relative filesystem path.
 
-   For portable directory and file naming, see C++ filesystem library or
-   boost.filesystem
+   For portable directory and file naming, see C++ filesystem library or boost.filesystem
 
 .SH Example
 

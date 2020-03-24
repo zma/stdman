@@ -1,4 +1,4 @@
-.TH std::minus<void> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::minus<void> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::minus<void> \- std::minus<void>
 
@@ -7,8 +7,7 @@ std::minus<void> \- std::minus<void>
    template<>                      \fI(since C++14)\fP
    class minus<void>;
 
-   std::minus<> is a specialization of std::minus with parameter and return type
-   deduced.
+   std::minus<> is a specialization of std::minus with parameter and return type deduced.
 
 .SH Member types
 
@@ -28,8 +27,7 @@ std::minus<>::operator()
 
    -> decltype(std::forward<T>(lhs) - std::forward<U>(rhs));
 
-   Returns the result of subtracting rhs from lhs (or whatever operator- if overloaded
-   to do)
+   Returns the result of subtracting rhs from lhs (or whatever operator- if overloaded to do)
 
 .SH Parameters
 
@@ -41,12 +39,7 @@ std::minus<>::operator()
 
 .SH Notes
 
-   The member type is_transparent indicates to the caller that this function object is
-   a transparent function object: it accepts arguments of arbitrary types and uses
-   perfect forwarding, which avoids unnecessary copying and conversion when the
-   function object is used in heterogeneous context, or with rvalue arguments. In
-   particular, template functions such as std::set::find and std::set::lower_bound make
-   use of this member type on their Compare types.
+   The member type is_transparent indicates to the caller that this function object is a transparent function object: it accepts arguments of arbitrary types and uses perfect forwarding, which avoids unnecessary copying and conversion when the function object is used in heterogeneous context, or with rvalue arguments. In particular, template functions such as std::set::find and std::set::lower_bound make use of this member type on their Compare types.
 
 .SH Example
 

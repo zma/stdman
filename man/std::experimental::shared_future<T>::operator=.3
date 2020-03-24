@@ -1,20 +1,15 @@
-.TH std::experimental::shared_future<T>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::shared_future<T>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::shared_future<T>::operator= \- std::experimental::shared_future<T>::operator=
 
 .SH Synopsis
-   std::experimental::shared_future<T>& operator=( const                           \fB(1)\fP
-   std::experimental::shared_future<T>& other );
-   std::experimental::shared_future<T>& operator=(                                 \fB(2)\fP
-   std::experimental::shared_future<T>&& other ) noexcept;
+   std::experimental::shared_future<T>& operator=( const std::experimental::shared_future<T>& other );     \fB(1)\fP
+   std::experimental::shared_future<T>& operator=( std::experimental::shared_future<T>&& other ) noexcept; \fB(2)\fP
 
    Assigns the contents of another std::experimental::shared_future object.
 
-   1) Releases any shared state and assigns the contents of other to *this. After the
-   assignment, this->valid() == other.valid().
-   2) Releases any shared state and move-assigns the contents of other to *this. After
-   the assignment, other.valid() == false and this->valid() will yield the same value
-   as other.valid() before the assignment.
+   1) Releases any shared state and assigns the contents of other to *this. After the assignment, this->valid() == other.valid().
+   2) Releases any shared state and move-assigns the contents of other to *this. After the assignment, other.valid() == false and this->valid() will yield the same value as other.valid() before the assignment.
 
 .SH Parameters
 

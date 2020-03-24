@@ -1,4 +1,4 @@
-.TH std::next 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::next 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::next \- std::next
 
@@ -37,8 +37,7 @@ std::next \- std::next
 
    Linear.
 
-   However, if InputIt or ForwardIt additionally meets the requirements of
-   LegacyRandomAccessIterator, complexity is constant.
+   However, if InputIt or ForwardIt additionally meets the requirements of LegacyRandomAccessIterator, complexity is constant.
 
 .SH Possible implementation
 
@@ -52,11 +51,7 @@ std::next \- std::next
 
 .SH Notes
 
-   Although the expression ++c.begin() often compiles, it is not guaranteed to do so:
-   c.begin() is an rvalue expression, and there is no LegacyBidirectionalIterator
-   requirement that specifies that increment of an rvalue is guaranteed to work. In
-   particular, when iterators are implemented as pointers, ++c.begin() does not
-   compile, while std::next(c.begin()) does.
+   Although the expression ++c.begin() often compiles, it is not guaranteed to do so: c.begin() is an rvalue expression, and there is no LegacyBidirectionalIterator requirement that specifies that increment of an rvalue is guaranteed to work. In particular, when iterators are implemented as pointers, ++c.begin() does not compile, while std::next(c.begin()) does.
 
 .SH Example
 

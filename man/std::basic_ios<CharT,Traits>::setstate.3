@@ -1,20 +1,18 @@
-.TH std::basic_ios<CharT,Traits>::setstate 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ios<CharT,Traits>::setstate 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ios<CharT,Traits>::setstate \- std::basic_ios<CharT,Traits>::setstate
 
 .SH Synopsis
    void setstate( iostate state );
 
-   Sets the stream error flags state in addition to currently set flags. Essentially
-   calls clear(rdstate() | state). May throw an exception.
+   Sets the stream error flags state in addition to currently set flags. Essentially calls clear(rdstate() | state). May throw an exception.
 
 .SH Parameters
 
-           stream error state flags to set. It can be a combination of the following
-           constants:
+           stream error state flags to set. It can be a combination of the following constants:
 
-   state - Constant Explanation
-           goodbit  no error
+           Constant Explanation
+   state - goodbit  no error
            badbit   irrecoverable stream error
            failbit  input/output operation failed (formatting or extraction error)
            eofbit   associated input sequence has reached end-of-file

@@ -1,20 +1,17 @@
-.TH std::UnsignedIntegral 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::UnsignedIntegral 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::UnsignedIntegral \- std::UnsignedIntegral
 
 .SH Synopsis
    Defined in header <concepts>
-   template < class T >
-   concept UnsignedIntegral = std::Integral<T> &&                         \fI(since C++20)\fP
-   !std::SignedIntegral<T>;
+   template < class T >                                                     \fI(since C++20)\fP
+   concept UnsignedIntegral = std::Integral<T> && !std::SignedIntegral<T>;
 
-   The concept UnsignedIntegral<T> is satisfied if and only if T is an integral type
-   and std::is_signed_v<T> is false.
+   The concept UnsignedIntegral<T> is satisfied if and only if T is an integral type and std::is_signed_v<T> is false.
 
 .SH Notes
 
-   UnsignedIntegral<T> may be satisfied by a type that is not a unsigned integer type,
-   for example, bool.
+   UnsignedIntegral<T> may be satisfied by a type that is not a unsigned integer type, for example, bool.
 
 .SH See also
 

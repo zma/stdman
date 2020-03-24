@@ -1,4 +1,4 @@
-.TH std::make_error_condition(std::future_errc) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::make_error_condition(std::future_errc) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::make_error_condition(std::future_errc) \- std::make_error_condition(std::future_errc)
 
@@ -6,8 +6,7 @@ std::make_error_condition(std::future_errc) \- std::make_error_condition(std::fu
    Defined in header <future>
    std::error_condition make_error_condition( std::future_errc e );  \fI(since C++11)\fP
 
-   Constructs an std::error_condition object from a value of type std::future_errc as
-   if by:
+   Constructs an std::error_condition object from a value of type std::future_errc as if by:
 
    std::error_condition(static_cast<int>(e), std::future_category()).
 
@@ -17,8 +16,7 @@ std::make_error_condition(std::future_errc) \- std::make_error_condition(std::fu
 
 .SH Return value
 
-   A value of type std::error_condition that holds the error code number from e
-   associated with the error category "future".
+   A value of type std::error_condition that holds the error code number from e associated with the error category "future".
 
 .SH Example
 

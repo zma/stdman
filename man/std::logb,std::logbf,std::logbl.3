@@ -1,4 +1,4 @@
-.TH std::logb,std::logbf,std::logbl 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::logb,std::logbf,std::logbl 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::logb,std::logbf,std::logbl \- std::logb,std::logbf,std::logbl
 
@@ -11,15 +11,11 @@ std::logb,std::logbf,std::logbl \- std::logb,std::logbf,std::logbl
    long double logbl( long double arg );
    double logb ( IntegralType arg );     \fB(4)\fP \fI(since C++11)\fP
 
-   1-3) Extracts the value of the unbiased radix-independent exponent from the
-   floating-point argument arg, and returns it as a floating-point value.
-   4) A set of overloads or a function template accepting an argument of any integral
-   type. Equivalent to \fB(2)\fP (the argument is cast to double).
+   1-3) Extracts the value of the unbiased radix-independent exponent from the floating-point argument arg, and returns it as a floating-point value.
+   4) A set of overloads or a function template accepting an argument of any integral type. Equivalent to \fB(2)\fP (the argument is cast to double).
 
    Formally, the unbiased exponent is the signed integral part of log
-   r|arg| (returned by this function as a floating-point value), for non-zero arg,
-   where r is std::numeric_limits<T>::radix and T is the floating-point type of arg. If
-   arg is subnormal, it is treated as though it was normalized.
+   r|arg| (returned by this function as a floating-point value), for non-zero arg, where r is std::numeric_limits<T>::radix and T is the floating-point type of arg. If arg is subnormal, it is treated as though it was normalized.
 
 .SH Parameters
 
@@ -27,8 +23,7 @@ std::logb,std::logbf,std::logbl \- std::logb,std::logbf,std::logbl
 
 .SH Return value
 
-   If no errors occur, the unbiased exponent of arg is returned as a signed
-   floating-point value.
+   If no errors occur, the unbiased exponent of arg is returned as a signed floating-point value.
 
    If a domain error occurs, an implementation-defined value is returned
 
@@ -45,18 +40,14 @@ std::logb,std::logbf,std::logbl \- std::logb,std::logbf,std::logbl
      * If arg is ±0, -∞ is returned and FE_DIVBYZERO is raised.
      * If arg is ±∞, +∞ is returned
      * If arg is NaN, NaN is returned.
-     * In all other cases, the result is exact (FE_INEXACT is never raised) and the
-       current rounding mode is ignored
+     * In all other cases, the result is exact (FE_INEXACT is never raised) and the current rounding mode is ignored
 
 .SH Notes
 
    POSIX requires that a pole error occurs if arg is ±0.
 
-   The value of the exponent returned by std::logb is always 1 less than the exponent
-   retuned by std::frexp because of the different normalization requirements: for the
-   exponent e returned by std::logb, |arg*r-e
-   | is between 1 and r (typically between 1 and 2), but for the exponent e returned by
-   std::frexp, |arg*2-e
+   The value of the exponent returned by std::logb is always 1 less than the exponent retuned by std::frexp because of the different normalization requirements: for the exponent e returned by std::logb, |arg*r-e
+   | is between 1 and r (typically between 1 and 2), but for the exponent e returned by std::frexp, |arg*2-e
    | is between 0.5 and 1.
 
 .SH Example

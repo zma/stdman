@@ -1,4 +1,4 @@
-.TH std::chrono::ambiguous_local_time 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::ambiguous_local_time 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::ambiguous_local_time \- std::chrono::ambiguous_local_time
 
@@ -6,18 +6,13 @@ std::chrono::ambiguous_local_time \- std::chrono::ambiguous_local_time
    Defined in header <chrono>
    class ambiguous_local_time;  \fI(since C++20)\fP
 
-   Defines a type of object to be thrown as exception to report that an attempt was
-   made to convert a ambiguous std::chrono::local_time to a std::chrono::sys_time
-   without specifying a std::chrono::choose (such as choose::earliest or
-   choose::latest).
+   Defines a type of object to be thrown as exception to report that an attempt was made to convert a ambiguous std::chrono::local_time to a std::chrono::sys_time without specifying a std::chrono::choose (such as choose::earliest or choose::latest).
 
-   This exception is thrown by std::chrono::time_zone::to_sys and functions that call
-   it (such as the constructors of std::chrono::zoned_time that takes a
-   std::chrono::local_time).
+   This exception is thrown by std::chrono::time_zone::to_sys and functions that call it (such as the constructors of std::chrono::zoned_time that takes a std::chrono::local_time).
 
    std-chrono-ambiguous local time-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
 .SH Member functions
 
@@ -32,8 +27,7 @@ std::chrono::ambiguous_local_time::ambiguous_local_time
 
    const std::chrono::local_info& i);
 
-   Constructs the exception object. The explanatory string returned by what() is
-   equivalent to that produced by os.str() after the following code:
+   Constructs the exception object. The explanatory string returned by what() is equivalent to that produced by os.str() after the following code:
 
  std::ostringstream os;
  os << tp << " is ambiguous.  It could be\\n"
@@ -42,9 +36,7 @@ std::chrono::ambiguous_local_time::ambiguous_local_time
     << tp << ' ' << i.second.abbrev  << " == "
     << tp - i.second.offset  << " UTC";
 
-   Because copying a standard library class derived from std::exception is not
-   permitted to throw exceptions, this message is typically stored internally as a
-   separately-allocated reference-counted string.
+   Because copying a standard library class derived from std::exception is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string.
 
    The behavior is undefined if i.result != std::chrono::local_info::ambiguous.
 

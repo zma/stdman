@@ -1,4 +1,4 @@
-.TH std::basic_istream<CharT,Traits>::sync 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_istream<CharT,Traits>::sync 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_istream<CharT,Traits>::sync \- std::basic_istream<CharT,Traits>::sync
 
@@ -7,13 +7,11 @@ std::basic_istream<CharT,Traits>::sync \- std::basic_istream<CharT,Traits>::sync
 
    Synchronizes the input buffer with the associated data source.
 
-   Behaves as UnformattedInputFunction, except that gcount() is not affected. After
-   constructing and checking the sentry object,
+   Behaves as UnformattedInputFunction, except that gcount() is not affected. After constructing and checking the sentry object,
 
    if rdbuf() is a null pointer, returns -1
 
-   Otherwise, calls rdbuf()->pubsync(). If that function returns -1, calls
-   setstate(badbit) and returns -1. Otherwise, returns 0.
+   Otherwise, calls rdbuf()->pubsync(). If that function returns -1, calls setstate(badbit) and returns -1. Otherwise, returns 0.
 
 .SH Parameters
 
@@ -21,23 +19,15 @@ std::basic_istream<CharT,Traits>::sync \- std::basic_istream<CharT,Traits>::sync
 
 .SH Return value
 
-   0 on success, -1 on failure or if the stream does not support this operation (is
-   unbuffered).
+   0 on success, -1 on failure or if the stream does not support this operation (is unbuffered).
 
 .SH Notes
 
-   As with readsome(), it is implementation-defined whether this function does anything
-   with library-supplied streams. The intent is typically for the next read operation
-   to pick up any changes that may have been made to the associated input sequence
-   after the stream buffer last filled its get area. To achieve that, sync() may empty
-   the get area, or it may refill it, or it may do nothing. A notable exception is
-   Visual Studio, where this operation discards the unprocessed input when called with
-   a standard input stream.
+   As with readsome(), it is implementation-defined whether this function does anything with library-supplied streams. The intent is typically for the next read operation to pick up any changes that may have been made to the associated input sequence after the stream buffer last filled its get area. To achieve that, sync() may empty the get area, or it may refill it, or it may do nothing. A notable exception is Visual Studio, where this operation discards the unprocessed input when called with a standard input stream.
 
 .SH Example
 
-   Demonstrates the use of input stream sync() with file input, as implemented on some
-   platforms.
+   Demonstrates the use of input stream sync() with file input, as implemented on some platforms.
 
    
 // Run this code

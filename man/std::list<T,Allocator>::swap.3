@@ -1,4 +1,4 @@
-.TH std::list<T,Allocator>::swap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::list<T,Allocator>::swap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::list<T,Allocator>::swap \- std::list<T,Allocator>::swap
 
@@ -6,17 +6,11 @@ std::list<T,Allocator>::swap \- std::list<T,Allocator>::swap
    void swap( list& other );                            \fI(until C++17)\fP
    void swap( list& other ) noexcept(/* see below */);  \fI(since C++17)\fP
 
-   Exchanges the contents of the container with those of other. Does not invoke any
-   move, copy, or swap operations on individual elements.
+   Exchanges the contents of the container with those of other. Does not invoke any move, copy, or swap operations on individual elements.
 
-   All iterators and references remain valid. It is unspecified whether an iterator
-   holding the past-the-end value in this container will refer to this or the other
-   container after the operation.
+   All iterators and references remain valid. It is unspecified whether an iterator holding the past-the-end value in this container will refer to this or the other container after the operation.
 
-   If std::allocator_traits<allocator_type>::propagate_on_container_swap::value
-   is true, then the allocators are exchanged using an unqualified call to       (since
-   non-member swap. Otherwise, they are not swapped (and if get_allocator() !=   C++11)
-   other.get_allocator(), the behavior is undefined).
+   If std::allocator_traits<allocator_type>::propagate_on_container_swap::value is true, then the allocators are exchanged using an unqualified call to non-member swap. Otherwise, they are not swapped (and if get_allocator() != other.get_allocator(), the behavior is undefined). \fI(since C++11)\fP
 
 .SH Parameters
 

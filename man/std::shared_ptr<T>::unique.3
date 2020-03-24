@@ -1,4 +1,4 @@
-.TH std::shared_ptr<T>::unique 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_ptr<T>::unique 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_ptr<T>::unique \- std::shared_ptr<T>::unique
 
@@ -6,8 +6,7 @@ std::shared_ptr<T>::unique \- std::shared_ptr<T>::unique
    bool unique() const noexcept;  (deprecated in C++17)
                                   (removed in C++20)
 
-   Checks if *this is the only shared_ptr instance managing the current object, i.e.
-   whether use_count() == 1.
+   Checks if *this is the only shared_ptr instance managing the current object, i.e. whether use_count() == 1.
 
 .SH Parameters
 
@@ -15,13 +14,11 @@ std::shared_ptr<T>::unique \- std::shared_ptr<T>::unique
 
 .SH Return value
 
-   true if *this is the only shared_ptr instance managing the current object, false
-   otherwise.
+   true if *this is the only shared_ptr instance managing the current object, false otherwise.
 
 .SH Notes
 
-   This function was deprecated in C++17 and removed in C++20 because use_count is only
-   an approximation in multithreaded environment (see Notes in use_count)
+   This function was deprecated in C++17 and removed in C++20 because use_count is only an approximation in multithreaded environment (see Notes in use_count)
 
 .SH Example
 
@@ -48,6 +45,5 @@ std::shared_ptr<T>::unique \- std::shared_ptr<T>::unique
 
 .SH See also
 
-             returns the number of shared_ptr objects referring to the same managed
-   use_count object
+   use_count returns the number of shared_ptr objects referring to the same managed object
              \fI(public member function)\fP

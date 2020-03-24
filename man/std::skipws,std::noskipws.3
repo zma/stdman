@@ -1,4 +1,4 @@
-.TH std::skipws,std::noskipws 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::skipws,std::noskipws 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::skipws,std::noskipws \- std::skipws,std::noskipws
 
@@ -7,22 +7,15 @@ std::skipws,std::noskipws \- std::skipws,std::noskipws
    std::ios_base& skipws( std::ios_base& str );   \fB(1)\fP
    std::ios_base& noskipws( std::ios_base& str ); \fB(2)\fP
 
-   Enables or disables skipping of leading whitespace by the formatted input functions
-   (enabled by default). Has no effect on output.
+   Enables or disables skipping of leading whitespace by the formatted input functions (enabled by default). Has no effect on output.
 
-   1) enables the skipws flag in the stream str as if by calling
-   str.setf(std::ios_base::skipws)
+   1) enables the skipws flag in the stream str as if by calling str.setf(std::ios_base::skipws)
 
-   2) disables the skipws flag in the stream str as if by calling
-   str.unsetf(std::ios_base::skipws)
+   2) disables the skipws flag in the stream str as if by calling str.unsetf(std::ios_base::skipws)
 
-   The whitespace skipping is performed by the constructor of
-   std::basic_istream::sentry, which reads and discards the characters classified as
-   whitespace by the std::ctype facet of the stream's imbued locale.
+   The whitespace skipping is performed by the constructor of std::basic_istream::sentry, which reads and discards the characters classified as whitespace by the std::ctype facet of the stream's imbued locale.
 
-   This is an I/O manipulator, it may be called with an expression such as out <<
-   std::noskipws for any out of type std::basic_ostream or with an expression such as
-   in >> std::noskipws for any in of type std::basic_istream.
+   This is an I/O manipulator, it may be called with an expression such as out << std::noskipws for any out of type std::basic_ostream or with an expression such as in >> std::noskipws for any in of type std::basic_istream.
 
 .SH Parameters
 

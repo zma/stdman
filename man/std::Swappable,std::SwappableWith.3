@@ -1,4 +1,4 @@
-.TH std::Swappable,std::SwappableWith 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::Swappable,std::SwappableWith 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::Swappable,std::SwappableWith \- std::Swappable,std::SwappableWith
 
@@ -27,25 +27,15 @@ std::Swappable,std::SwappableWith \- std::Swappable,std::SwappableWith
 
    The concept Swappable<T> specifies that lvalues of type T are swappable.
 
-   The concept SwappableWith<T, U> specifies that expressions of the type and value
-   category encoded by T and U are swappable with each other. SwappableWith<T, U> is
-   satisfied only if a call to ranges::swap(t, u) exchanges the value of t and u, that
-   is, given distinct objects t2 equal to t and u2 equal to u, after evaluating either
-   ranges::swap(t, u) or ranges::swap(u, t), t2 is equal to u and u2 is equal to t.
+   The concept SwappableWith<T, U> specifies that expressions of the type and value category encoded by T and U are swappable with each other. SwappableWith<T, U> is satisfied only if a call to ranges::swap(t, u) exchanges the value of t and u, that is, given distinct objects t2 equal to t and u2 equal to u, after evaluating either ranges::swap(t, u) or ranges::swap(u, t), t2 is equal to u and u2 is equal to t.
 
   Equality preservation
 
-   An expression is equality preserving if it results in equal outputs given equal
-   inputs.
+   An expression is equality preserving if it results in equal outputs given equal inputs.
 
      * The inputs to an expression consist of its operands.
-     * The outputs of an expression consist of its result and all operands modified by
-       the expression (if any).
+     * The outputs of an expression consist of its result and all operands modified by the expression (if any).
 
-   Every expression required to be equality preserving is further required to be
-   stable: two evaluations of such an expression with the same input objects must have
-   equal outputs absent any explicit intervening modification of those input objects.
+   Every expression required to be equality preserving is further required to be stable: two evaluations of such an expression with the same input objects must have equal outputs absent any explicit intervening modification of those input objects.
 
-   Unless noted otherwise, every expression used in a requires-expression is required
-   to be equality preserving and stable, and the evaluation of the expression may only
-   modify its non-constant operands. Operands that are constant must not be modified.
+   Unless noted otherwise, every expression used in a requires-expression is required to be equality preserving and stable, and the evaluation of the expression may only modify its non-constant operands. Operands that are constant must not be modified.

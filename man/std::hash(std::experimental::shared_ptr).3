@@ -1,16 +1,13 @@
-.TH std::hash(std::experimental::shared_ptr) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::hash(std::experimental::shared_ptr) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::hash(std::experimental::shared_ptr) \- std::hash(std::experimental::shared_ptr)
 
 .SH Synopsis
-   template<class T> struct                                       (library fundamentals
-   hash<std::experimental::shared_ptr<T>>;                        TS)
+   template<class T> struct hash<std::experimental::shared_ptr<T>>;  (library fundamentals TS)
 
-   The template specialization of std::hash for std::experimental::shared_ptr<T> allows
-   users to obtain hashes of objects of type std::experimental::shared_ptr<T>.
+   The template specialization of std::hash for std::experimental::shared_ptr<T> allows users to obtain hashes of objects of type std::experimental::shared_ptr<T>.
 
-   For a given std::experimental::shared_ptr<T> p, this specialization ensures that
-   std::hash<std::experimental::shared_ptr<T>>()(p) == std::hash<T*>()(p.get()).
+   For a given std::experimental::shared_ptr<T> p, this specialization ensures that std::hash<std::experimental::shared_ptr<T>>()(p) == std::hash<T*>()(p.get()).
 
 .SH Example
 

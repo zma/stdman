@@ -1,4 +1,4 @@
-.TH std::chrono::duration_cast 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::duration_cast 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::duration_cast \- std::chrono::duration_cast
 
@@ -8,10 +8,7 @@ std::chrono::duration_cast \- std::chrono::duration_cast
 
    Converts a std::chrono::duration to a duration of different type ToDuration.
 
-   No implicit conversions are used. Multiplications and divisions are avoided where
-   possible, if it is known at compile time that one or more parameters are 1.
-   Computations are done in the widest type available and converted, as if by
-   static_cast, to the result type only when finished.
+   No implicit conversions are used. Multiplications and divisions are avoided where possible, if it is known at compile time that one or more parameters are 1. Computations are done in the widest type available and converted, as if by static_cast, to the result type only when finished.
 
 .SH Parameters
 
@@ -23,18 +20,11 @@ std::chrono::duration_cast \- std::chrono::duration_cast
 
 .SH Notes
 
-   The function does not participate in overload resolution unless ToDuration is an
-   instance of std::chrono::duration.
+   The function does not participate in overload resolution unless ToDuration is an instance of std::chrono::duration.
 
-   Casting between integer durations where the source period is exactly divisible by
-   the target period (e.g. hours to minutes) or between floating-point durations can be
-   performed with ordinary casts or implicitly via std::chrono::duration constructors,
-   no duration_cast is needed.
+   Casting between integer durations where the source period is exactly divisible by the target period (e.g. hours to minutes) or between floating-point durations can be performed with ordinary casts or implicitly via std::chrono::duration constructors, no duration_cast is needed.
 
-   Casting from a floating-point duration to an integer duration is subject to
-   undefined behavior when the floating-point value is NaN, infinity, or too large to
-   be representable by the target's integer type. Otherwise, casting to an integer
-   duration is subject to truncation as with any static_cast to an integer type.
+   Casting from a floating-point duration to an integer duration is subject to undefined behavior when the floating-point value is NaN, infinity, or too large to be representable by the target's integer type. Otherwise, casting to an integer duration is subject to truncation as with any static_cast to an integer type.
 
 .SH Example
 
@@ -80,13 +70,11 @@ std::chrono::duration_cast \- std::chrono::duration_cast
 
 .SH See also
 
-                                converts a time point to another time point on the same
-   time_point_cast              clock, with a different duration
+   time_point_cast              converts a time point to another time point on the same clock, with a different duration
                                 \fI(function template)\fP
    floor(std::chrono::duration) converts a duration to another, rounding down
    \fI(C++17)\fP                      \fI(function template)\fP
    ceil(std::chrono::duration)  converts a duration to another, rounding up
    \fI(C++17)\fP                      \fI(function template)\fP
-   round(std::chrono::duration) converts a duration to another, rounding to nearest,
-   \fI(C++17)\fP                      ties to even
-                                \fI(function template)\fP
+   round(std::chrono::duration) converts a duration to another, rounding to nearest, ties to even
+   \fI(C++17)\fP                      \fI(function template)\fP

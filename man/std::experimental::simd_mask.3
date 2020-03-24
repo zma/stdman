@@ -1,4 +1,4 @@
-.TH std::experimental::simd_mask 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::simd_mask 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::simd_mask \- std::experimental::simd_mask
 
@@ -7,10 +7,7 @@ std::experimental::simd_mask \- std::experimental::simd_mask
    template< class T, class Abi = simd_abi::compatible<T> >
    class simd_mask;
 
-   The class template simd_mask is a data-parallel type with the element type bool. The
-   width of a given simd_mask instantiation is a constant expression, determined by the
-   template parameters. Specifically, simd_mask<T, Abi>::size() is always simd<T,
-   Abi>::size().
+   The class template simd_mask is a data-parallel type with the element type bool. The width of a given simd_mask instantiation is a constant expression, determined by the template parameters. Specifically, simd_mask<T, Abi>::size() is always simd<T, Abi>::size().
 
 .SH Template parameters
 
@@ -19,10 +16,9 @@ std::experimental::simd_mask \- std::experimental::simd_mask
 
   Helper alias templates
 
-   Template                                       Definition
-   template <class T, int N> using                simd_mask<T, simd_abi::fixed_size<N>>
-   fixed_size_simd_mask
-   template <class T> using native_simd_mask      simd_mask<T, simd_abi::native>
+   Template                                             Definition
+   template <class T, int N> using fixed_size_simd_mask simd_mask<T, simd_abi::fixed_size<N>>
+   template <class T> using native_simd_mask            simd_mask<T, simd_abi::native>
 
 .SH Member types
 

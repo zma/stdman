@@ -1,4 +1,4 @@
-.TH std::logical_not 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::logical_not 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::logical_not \- std::logical_not
 
@@ -9,17 +9,13 @@ std::logical_not \- std::logical_not
    template< class T = void >      \fI(since C++14)\fP
    struct logical_not;
 
-   Function object for performing logical NOT (logical negation). Effectively calls
-   operator! for type T.
+   Function object for performing logical NOT (logical negation). Effectively calls operator! for type T.
 
 .SH Specializations
 
-   The standard library provides a specialization of std::logical_not
-   when T is not specified, which leaves the parameter types and return
-   type to be deduced.
-                                                                          \fI(since C++14)\fP
-                     function object implementing !x deducing argument
-   logical_not<void> and return types
+   The standard library provides a specialization of std::logical_not when T is not specified, which leaves the parameter types and return type to be deduced.
+                                                                                                                                                               \fI(since C++14)\fP
+   logical_not<void> function object implementing !x deducing argument and return types
                      \fI(class template specialization)\fP
 
 .SH Member types

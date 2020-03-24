@@ -1,4 +1,4 @@
-.TH std::rename 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::rename 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::rename \- std::rename
 
@@ -6,18 +6,14 @@ std::rename \- std::rename
    Defined in header <cstdio>
    int rename( const char *old_filename, const char *new_filename );
 
-   Changes the filename of a file. The file is identified by character string pointed
-   to by old_filename. The new filename is identified by character string pointed to by
-   new_filename.
+   Changes the filename of a file. The file is identified by character string pointed to by old_filename. The new filename is identified by character string pointed to by new_filename.
 
    If new_filename exists, the behavior is implementation-defined.
 
 .SH Parameters
 
-   old_filename - pointer to a null-terminated string containing the path identifying
-                  the file to rename
-   new_filename - pointer to a null-terminated string containing the new path of the
-                  file
+   old_filename - pointer to a null-terminated string containing the path identifying the file to rename
+   new_filename - pointer to a null-terminated string containing the new path of the file
 
 .SH Return value
 
@@ -25,8 +21,7 @@ std::rename \- std::rename
 
 .SH Notes
 
-   POSIX specifies many additional details on the semantics of this function, which are
-   reproduced in C++ by std::experimental::filesystem::rename.
+   POSIX specifies many additional details on the semantics of this function, which are reproduced in C++ by std::experimental::filesystem::rename.
 
 .SH Example
 

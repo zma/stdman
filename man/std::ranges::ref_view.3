@@ -1,4 +1,4 @@
-.TH std::ranges::ref_view 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ranges::ref_view 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ranges::ref_view \- std::ranges::ref_view
 
@@ -10,8 +10,7 @@ std::ranges::ref_view \- std::ranges::ref_view
 
    class ref_view : public ranges::view_interface<ref_view<R>>
 
-   ref_view is a View of the elements of some other Range. It wraps a reference to that
-.SH Range.
+   ref_view is a View of the elements of some other Range. It wraps a reference to that Range.
 
   Data members
 
@@ -37,9 +36,7 @@ std::ranges::ref_view::ref_view
 
    __NotSameAs is an exposition-only helper concept.
 
-   The expression in the requires-clause of \fB(2)\fP is equivalent to ConvertibleTo<T, R&>
-   && requires { FUN(declval<T>()); }, where the exposition-only functions FUN are
-   declared as void FUN(R&); void FUN(R&&) = delete;.
+   The expression in the requires-clause of \fB(2)\fP is equivalent to ConvertibleTo<T, R&> && requires { FUN(declval<T>()); }, where the exposition-only functions FUN are declared as void FUN(R&); void FUN(R&&) = delete;.
 
 .SH Parameters
 
@@ -96,9 +93,7 @@ begin, end(std::ranges::ref_view)
    1) Equivalent to return r.begin();
    2) Equivalent to return r.end();
 
-   These functions are not visible to ordinary unqualified or qualified lookup, and can
-   only be found by argument-dependent lookup when std::ranges::ref_view<R> is an
-   associated class of the arguments.
+   These functions are not visible to ordinary unqualified or qualified lookup, and can only be found by argument-dependent lookup when std::ranges::ref_view<R> is an associated class of the arguments.
 
   Deduction guides
 

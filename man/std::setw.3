@@ -1,4 +1,4 @@
-.TH std::setw 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::setw 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::setw \- std::setw
 
@@ -6,8 +6,7 @@ std::setw \- std::setw
    Defined in header <iomanip>
    /*unspecified*/ setw( int n );
 
-   When used in an expression out << setw(n) or in >> setw(n), sets the width parameter
-   of the stream out or in to exactly n.
+   When used in an expression out << setw(n) or in >> setw(n), sets the width parameter of the stream out or in to exactly n.
 
 .SH Parameters
 
@@ -15,34 +14,28 @@ std::setw \- std::setw
 
 .SH Return value
 
-   Returns an object of unspecified type such that if str is the name of an output
-   stream of type std::basic_ostream<CharT, Traits> or std::basic_istream<CharT,
-   Traits>, then the expression str << setw(n) or str >> setw(n) behaves as if the
-   following code was executed:
+   Returns an object of unspecified type such that if str is the name of an output stream of type std::basic_ostream<CharT, Traits> or std::basic_istream<CharT, Traits>, then the expression str << setw(n) or str >> setw(n) behaves as if the following code was executed:
 
    str.width(n);
 
 .SH Notes
 
-   The width property of the stream will be reset to zero (meaning "unspecified") if
-   any of the following functions are called:
+   The width property of the stream will be reset to zero (meaning "unspecified") if any of the following functions are called:
 
      * Input
 
-     * operator>>(basic_istream&, basic_string&)
-     * operator>>(basic_istream&, char*)
+              * operator>>(basic_istream&, basic_string&)
+              * operator>>(basic_istream&, char*)
 
      * Output
 
-     * Overloads 1-7 of basic_ostream::operator<<() (at Stage 3 of num_put::put())
-     * operator<<(basic_ostream&, char) and operator<<(basic_ostream&, char*)
-     * operator<<(basic_ostream&, basic_string&)
-     * std::put_money (inside money_put::put())
-     * std::quoted (when used with an output stream)
+              * Overloads 1-7 of basic_ostream::operator<<() (at Stage 3 of num_put::put())
+              * operator<<(basic_ostream&, char) and operator<<(basic_ostream&, char*)
+              * operator<<(basic_ostream&, basic_string&)
+              * std::put_money (inside money_put::put())
+              * std::quoted (when used with an output stream)
 
-   The exact effects this modifier has on the input and output vary between the
-   individual I/O functions and are described at each operator<< and operator>>
-   overload page individually.
+   The exact effects this modifier has on the input and output vary between the individual I/O functions and are described at each operator<< and operator>> overload page individually.
 
 .SH Example
 

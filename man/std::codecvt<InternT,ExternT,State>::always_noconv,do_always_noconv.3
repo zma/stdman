@@ -1,4 +1,4 @@
-.TH std::codecvt<InternT,ExternT,State>::always_noconv,do_always_noconv 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::codecvt<InternT,ExternT,State>::always_noconv,do_always_noconv 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::codecvt<InternT,ExternT,State>::always_noconv,do_always_noconv \- std::codecvt<InternT,ExternT,State>::always_noconv,do_always_noconv
 
@@ -9,24 +9,18 @@ std::codecvt<InternT,ExternT,State>::always_noconv,do_always_noconv \- std::code
    protected:                             \fB(2)\fP
    virtual bool do_always_noconv() const;
 
-   1) Public member function, calls the member function do_always_noconv of the most
-   derived class.
-   2) Returns true if both do_in() and do_out() return std::codecvt_base::noconv for
-   all valid inputs.
+   1) Public member function, calls the member function do_always_noconv of the most derived class.
+   2) Returns true if both do_in() and do_out() return std::codecvt_base::noconv for all valid inputs.
 
 .SH Return value
 
    true if this conversion facet performs no conversions, false otherwise.
 
-   The non-converting specialization std::codecvt<char, char, std::mbstate_t> returns
-   true
+   The non-converting specialization std::codecvt<char, char, std::mbstate_t> returns true
 
 .SH Notes
 
-   This function may be used e.g. in the implementation of
-   std::basic_filebuf::underflow and std::basic_filebuf::overflow to use bulk character
-   copy instead of calling std::codecvt::in or std::codecvt::out if it is known that
-   the locale imbued in the std::basic_filebuf does not perform any conversions.
+   This function may be used e.g. in the implementation of std::basic_filebuf::underflow and std::basic_filebuf::overflow to use bulk character copy instead of calling std::codecvt::in or std::codecvt::out if it is known that the locale imbued in the std::basic_filebuf does not perform any conversions.
 
 .SH Exceptions
 

@@ -1,4 +1,4 @@
-.TH std::is_function 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_function 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_function \- std::is_function
 
@@ -7,10 +7,7 @@ std::is_function \- std::is_function
    template< class T >              \fI(since C++11)\fP
    struct is_function;
 
-   Checks whether T is a function type. Types like std::function, lambdas, classes with
-   overloaded operator() and pointers to functions don't count as function types.
-   Provides the member constant value which is equal to true, if T is a function type.
-   Otherwise, value is equal to false.
+   Checks whether T is a function type. Types like std::function, lambdas, classes with overloaded operator() and pointers to functions don't count as function types. Provides the member constant value which is equal to true, if T is a function type. Otherwise, value is equal to false.
 
 .SH Template parameters
 
@@ -199,9 +196,9 @@ Inherited from std::integral_constant
 .SH See also
 
    is_invocable
-   is_invocable_r         checks if a type can be invoked (as if by std::invoke) with
-   is_nothrow_invocable   the given argument types
-   is_nothrow_invocable_r \fI(class template)\fP
+   is_invocable_r         checks if a type can be invoked (as if by std::invoke) with the given argument types
+   is_nothrow_invocable   \fI(class template)\fP
+   is_nothrow_invocable_r
    \fI(C++17)\fP
    is_object              checks if a type is an object type
    \fI(C++11)\fP                \fI(class template)\fP

@@ -1,4 +1,4 @@
-.TH std::experimental::promise(libraryfundamentalsTS) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::promise(libraryfundamentalsTS) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::promise(libraryfundamentalsTS) \- std::experimental::promise(libraryfundamentalsTS)
 
@@ -8,9 +8,7 @@ std::experimental::promise(libraryfundamentalsTS) \- std::experimental::promise(
    template< class R > class promise<R&>;  \fB(2)\fP (library fundamentals TS)
    template<> class promise<void>;         \fB(3)\fP (library fundamentals TS)
 
-   std::experimental::fundamentals_v1::promise (and
-   std::experimental::fundamentals_v2::promise) is a modified version of std::promise
-   provided by the library fundamentals TS with support for type-erased allocators.
+   std::experimental::fundamentals_v1::promise (and std::experimental::fundamentals_v2::promise) is a modified version of std::promise provided by the library fundamentals TS with support for type-erased allocators.
 
 .SH Member types
 
@@ -21,8 +19,7 @@ std::experimental::promise(libraryfundamentalsTS) \- std::experimental::promise(
 
    constructor         constructs the promise object
                        \fI(public member function)\fP
-                       retrieves a pointer to the memory resource used by this object
-   get_memory_resource to allocate memory
+   get_memory_resource retrieves a pointer to the memory resource used by this object to allocate memory
                        \fI(public member function)\fP
 
   Non-member function
@@ -32,8 +29,7 @@ std::experimental::promise(libraryfundamentalsTS) \- std::experimental::promise(
 
 .SH Helper classes
 
-                                                   specializes the std::uses_allocator
-   std::uses_allocator<std::experimental::promise> type trait
+   std::uses_allocator<std::experimental::promise> specializes the std::uses_allocator type trait
                                                    \fI(class template specialization)\fP
 
 Members identical to std::promise
@@ -52,11 +48,9 @@ Members identical to std::promise
 .SH Setting the result
    set_value                    sets the result to specific value
                                 \fI(public member function of std::promise<R>)\fP
-                                sets the result to specific value while delivering the
-   set_value_at_thread_exit     notification only at thread exit
+   set_value_at_thread_exit     sets the result to specific value while delivering the notification only at thread exit
                                 \fI(public member function of std::promise<R>)\fP
    set_exception                sets the result to indicate an exception
                                 \fI(public member function of std::promise<R>)\fP
-                                sets the result to indicate an exception while
-   set_exception_at_thread_exit delivering the notification only at thread exit
+   set_exception_at_thread_exit sets the result to indicate an exception while delivering the notification only at thread exit
                                 \fI(public member function of std::promise<R>)\fP

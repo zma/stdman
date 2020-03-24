@@ -1,4 +1,4 @@
-.TH std::integer_sequence 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::integer_sequence 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::integer_sequence \- std::integer_sequence
 
@@ -7,9 +7,7 @@ std::integer_sequence \- std::integer_sequence
    template< class T, T... Ints >  \fI(since C++14)\fP
    class integer_sequence;
 
-   The class template std::integer_sequence represents a compile-time sequence of
-   integers. When used as an argument to a function template, the parameter pack Ints
-   can be deduced and used in pack expansion.
+   The class template std::integer_sequence represents a compile-time sequence of integers. When used as an argument to a function template, the parameter pack Ints can be deduced and used in pack expansion.
 
 .SH Template parameters
 
@@ -42,27 +40,21 @@ std::integer_sequence::size
 
   Helper templates
 
-   A helper alias template std::index_sequence is defined for the common case where T
-   is std::size_t.
+   A helper alias template std::index_sequence is defined for the common case where T is std::size_t.
 
    template<std::size_t... Ints>
    using index_sequence = std::integer_sequence<std::size_t, Ints...>;
 
-   A helper alias template std::make_integer_sequence is defined to simplify creation
-   of std::integer_sequence and std::index_sequence types with 0, 1, 2, ..., N-1 as
-   Ints:
+   A helper alias template std::make_integer_sequence is defined to simplify creation of std::integer_sequence and std::index_sequence types with 0, 1, 2, ..., N-1 as Ints:
 
    template<class T, T N>
-   using make_integer_sequence = std::integer_sequence<T, /* a sequence 0, 1, 2, ...,
-   N-1 */ >;
+   using make_integer_sequence = std::integer_sequence<T, /* a sequence 0, 1, 2, ..., N-1 */ >;
    template<std::size_t N>
    using make_index_sequence = make_integer_sequence<std::size_t, N>;
 
-   The program is ill-formed if N is negative. If N is zero, the indicated type is
-   integer_sequence<T>.
+   The program is ill-formed if N is negative. If N is zero, the indicated type is integer_sequence<T>.
 
-   A helper alias template std::index_sequence_for is defined to convert any type
-   parameter pack into an index sequence of the same length
+   A helper alias template std::index_sequence_for is defined to convert any type parameter pack into an index sequence of the same length
 
    template<class... T>
    using index_sequence_for = std::make_index_sequence<sizeof...(T)>;

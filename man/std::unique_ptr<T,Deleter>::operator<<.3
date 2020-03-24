@@ -1,12 +1,11 @@
-.TH std::unique_ptr<T,Deleter>::operator<< 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unique_ptr<T,Deleter>::operator<< 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unique_ptr<T,Deleter>::operator<< \- std::unique_ptr<T,Deleter>::operator<<
 
 .SH Synopsis
    template <class CharT, class Traits, class Y, class D>
 
-   std::basic_ostream<CharT, Traits>&                                     \fI(since C++20)\fP
-   operator<<(std::basic_ostream<CharT, Traits>& os,
+   std::basic_ostream<CharT, Traits>& operator<<(std::basic_ostream<CharT, Traits>& os,  \fI(since C++20)\fP
 
    const std::unique_ptr<Y, D>& p);
 
@@ -14,8 +13,7 @@ std::unique_ptr<T,Deleter>::operator<< \- std::unique_ptr<T,Deleter>::operator<<
 
    Equivalent to os << p.get().
 
-   This overload only participates in overload resolution if os << p.get() is a valid
-   expression.
+   This overload only participates in overload resolution if os << p.get() is a valid expression.
 
 .SH Parameters
 
@@ -28,11 +26,7 @@ std::unique_ptr<T,Deleter>::operator<< \- std::unique_ptr<T,Deleter>::operator<<
 
 .SH Notes
 
-   If std::unique_ptr<Y, D>::pointer is a pointer to a character type (e.g., when Y is
-   char or char[] or CharT), this may end up calling the overloads of operator<< for
-   null-terminated character strings (causing undefined behavior if the pointer does
-   not in fact point to such a string), rather than the overload for printing the value
-   of the pointer itself.
+   If std::unique_ptr<Y, D>::pointer is a pointer to a character type (e.g., when Y is char or char[] or CharT), this may end up calling the overloads of operator<< for null-terminated character strings (causing undefined behavior if the pointer does not in fact point to such a string), rather than the overload for printing the value of the pointer itself.
 
 .SH Example
 

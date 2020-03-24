@@ -1,4 +1,4 @@
-.TH std::basic_ostream<CharT,Traits>::tellp 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ostream<CharT,Traits>::tellp 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ostream<CharT,Traits>::tellp \- std::basic_ostream<CharT,Traits>::tellp
 
@@ -7,11 +7,9 @@ std::basic_ostream<CharT,Traits>::tellp \- std::basic_ostream<CharT,Traits>::tel
 
    Returns the output position indicator of the current associated streambuf object.
 
-   Behaves as UnformattedOutputFunction (except without actually          \fI(since C++11)\fP
-   performing output). After constructing and checking the sentry object,
+   Behaves as UnformattedOutputFunction (except without actually performing output). After constructing and checking the sentry object, \fI(since C++11)\fP
 
-   If fail()==true, returns pos_type(-1). Otherwise, returns rdbuf()->pubseekoff(0,
-   std::ios_base::cur, std::ios_base::out).
+   If fail()==true, returns pos_type(-1). Otherwise, returns rdbuf()->pubseekoff(0, std::ios_base::cur, std::ios_base::out).
 
 .SH Parameters
 

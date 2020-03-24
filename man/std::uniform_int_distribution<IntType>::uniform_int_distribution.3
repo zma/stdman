@@ -1,4 +1,4 @@
-.TH std::uniform_int_distribution<IntType>::uniform_int_distribution 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::uniform_int_distribution<IntType>::uniform_int_distribution 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::uniform_int_distribution<IntType>::uniform_int_distribution \- std::uniform_int_distribution<IntType>::uniform_int_distribution
 
@@ -8,8 +8,7 @@ std::uniform_int_distribution<IntType>::uniform_int_distribution \- std::uniform
    IntType b = std::numeric_limits<IntType>::max() );
    explicit uniform_int_distribution( const param_type& params ); \fB(3)\fP \fI(since C++11)\fP
 
-   Constructs new distribution object. \fB(2)\fP uses a and b as the distribution parameters,
-   \fB(3)\fP uses params as the distribution parameters.
+   Constructs new distribution object. \fB(2)\fP uses a and b as the distribution parameters, \fB(3)\fP uses params as the distribution parameters.
 
    The behavior is undefined if a>b.
 
@@ -21,8 +20,7 @@ std::uniform_int_distribution<IntType>::uniform_int_distribution \- std::uniform
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
      DR    Applied to      Behavior as published       Correct behavior
    P0935R0 C++11      default constructor was explicit made implicit

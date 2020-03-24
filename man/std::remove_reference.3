@@ -1,4 +1,4 @@
-.TH std::remove_reference 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::remove_reference 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::remove_reference \- std::remove_reference
 
@@ -7,8 +7,7 @@ std::remove_reference \- std::remove_reference
    template< class T >              \fI(since C++11)\fP
    struct remove_reference;
 
-   If the type T is a reference type, provides the member typedef type which is the
-   type referred to by T. Otherwise type is T.
+   If the type T is a reference type, provides the member typedef type which is the type referred to by T. Otherwise type is T.
 
 .SH Member types
 
@@ -62,9 +61,8 @@ std::remove_reference \- std::remove_reference
 
 .SH See also
 
-   is_reference         checks if a type is either a lvalue reference or rvalue
-   \fI(C++11)\fP              reference
-                        \fI(class template)\fP
+   is_reference         checks if a type is either a lvalue reference or rvalue reference
+   \fI(C++11)\fP              \fI(class template)\fP
    add_lvalue_reference
    add_rvalue_reference adds a lvalue or rvalue reference to the given type
    \fI(C++11)\fP              \fI(class template)\fP

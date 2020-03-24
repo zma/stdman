@@ -1,4 +1,4 @@
-.TH std::remove_cv,std::remove_const,std::remove_volatile 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::remove_cv,std::remove_const,std::remove_volatile 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::remove_cv,std::remove_const,std::remove_volatile \- std::remove_cv,std::remove_const,std::remove_volatile
 
@@ -11,8 +11,7 @@ std::remove_cv,std::remove_const,std::remove_volatile \- std::remove_cv,std::rem
    template< class T >             \fB(3)\fP \fI(since C++11)\fP
    struct remove_volatile;
 
-   Provides the member typedef type which is the same as T, except that its topmost
-   cv-qualifiers are removed.
+   Provides the member typedef type which is the same as T, except that its topmost cv-qualifiers are removed.
 
    1) removes the topmost const, the topmost volatile, or both, if present.
 
@@ -36,21 +35,20 @@ std::remove_cv,std::remove_const,std::remove_volatile \- std::remove_cv,std::rem
 
 .SH Possible implementation
 
-template< class T >
-struct remove_cv {
-    typedef typename std::remove_volatile<typename std::remove_const<T>::type>::type type;
-};
+   template< class T >
+   struct remove_cv {
+       typedef typename std::remove_volatile<typename std::remove_const<T>::type>::type type;
+   };
 
-template< class T > struct remove_const          { typedef T type; };
-template< class T > struct remove_const<const T> { typedef T type; };
+   template< class T > struct remove_const          { typedef T type; };
+   template< class T > struct remove_const<const T> { typedef T type; };
 
-template< class T > struct remove_volatile             { typedef T type; };
-template< class T > struct remove_volatile<volatile T> { typedef T type; };
+   template< class T > struct remove_volatile             { typedef T type; };
+   template< class T > struct remove_volatile<volatile T> { typedef T type; };
 
 .SH Example
 
-   Removing const/volatile from const volatile int * does not modify the type, because
-   the pointer itself is neither const nor volatile.
+   Removing const/volatile from const volatile int * does not modify the type, because the pointer itself is neither const nor volatile.
 
    
 // Run this code

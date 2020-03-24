@@ -1,15 +1,13 @@
-.TH std::pmr::synchronized_pool_resource::release 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::synchronized_pool_resource::release 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::synchronized_pool_resource::release \- std::pmr::synchronized_pool_resource::release
 
 .SH Synopsis
    void release();  \fI(since C++17)\fP
 
-   Releases all memory owned by this resource by calling the deallocate function of the
-   upstream memory resource as needed.
+   Releases all memory owned by this resource by calling the deallocate function of the upstream memory resource as needed.
 
-   Memory is released back to the upstream resource even if deallocate has not been
-   called for some of the allocated blocks.
+   Memory is released back to the upstream resource even if deallocate has not been called for some of the allocated blocks.
 
 .SH See also
 

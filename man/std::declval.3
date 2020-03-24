@@ -1,4 +1,4 @@
-.TH std::declval 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::declval 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::declval \- std::declval
 
@@ -7,16 +7,11 @@ std::declval \- std::declval
    template<class T>                                                \fI(since C++11)\fP
    typename std::add_rvalue_reference<T>::type declval() noexcept;
 
-   Converts any type T to a reference type, making it possible to use member functions
-   in decltype expressions without the need to go through constructors.
+   Converts any type T to a reference type, making it possible to use member functions in decltype expressions without the need to go through constructors.
 
-   declval is commonly used in templates where acceptable template parameters may have
-   no constructor in common, but have the same member function whose return type is
-   needed.
+   declval is commonly used in templates where acceptable template parameters may have no constructor in common, but have the same member function whose return type is needed.
 
-   Note that because no definition exists for declval, it can only be used in
-   unevaluated contexts; it is an error to evaluate an expression that contains this
-   function. Formally, the program is ill-formed if this function is odr-used.
+   Note that because no definition exists for declval, it can only be used in unevaluated contexts; it is an error to evaluate an expression that contains this function. Formally, the program is ill-formed if this function is odr-used.
 
 .SH Parameters
 
@@ -24,8 +19,7 @@ std::declval \- std::declval
 
 .SH Return value
 
-   Cannot be called and thus never returns a value. The return type is T&& unless T is
-   (possibly cv-qualified) void, in which case the return type is T.
+   Cannot be called and thus never returns a value. The return type is T&& unless T is (possibly cv-qualified) void, in which case the return type is T.
 
 .SH Example
 
@@ -59,9 +53,8 @@ std::declval \- std::declval
 
 .SH See also
 
-   decltype specifier        defines a type equivalent to the type of an expression
-                             \fI(C++11)\fP
-   result_of                 deduces the result type of invoking a callable object with
-   invoke_result             a set of arguments
+   decltype specifier        defines a type equivalent to the type of an expression \fI(C++11)\fP
+   result_of
+   invoke_result             deduces the result type of invoking a callable object with a set of arguments
    \fI(C++11)\fP(removed in C++20) \fI(class template)\fP
    \fI(C++17)\fP

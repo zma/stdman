@@ -1,4 +1,4 @@
-.TH std::experimental::erase(std::deque) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::erase(std::deque) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::erase(std::deque) \- std::experimental::erase(std::deque)
 
@@ -7,8 +7,7 @@ std::experimental::erase(std::deque) \- std::experimental::erase(std::deque)
    template <class T, class A, class U>              (library fundamentals TS v2)
    void erase(std::deque<T, A>& c, const U& value);
 
-   Erases all elements that compare equal to value from the container. Equivalent to
-   c.erase(std::remove(c.begin(), c.end(), value), c.end());
+   Erases all elements that compare equal to value from the container. Equivalent to c.erase(std::remove(c.begin(), c.end(), value), c.end());
 
 .SH Parameters
 
@@ -28,6 +27,5 @@ std::experimental::erase(std::deque) \- std::experimental::erase(std::deque)
 
    remove                      removes elements satisfying specific criteria
    remove_if                   \fI(function template)\fP
-   erase_if (std::deque)       Erases all elements satisfying a predicate from a
-   (library fundamentals 2 TS) std::deque
-                               \fI(function template)\fP
+   erase_if (std::deque)       Erases all elements satisfying a predicate from a std::deque
+   (library fundamentals 2 TS) \fI(function template)\fP

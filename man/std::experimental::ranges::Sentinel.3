@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::Sentinel 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::Sentinel 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::Sentinel \- std::experimental::ranges::Sentinel
 
@@ -11,16 +11,11 @@ std::experimental::ranges::Sentinel \- std::experimental::ranges::Sentinel
 
    WeaklyEqualityComparableWith<S, I>;
 
-   The Sentinel concept specifies the relationship between an Iterator type and a
-   Semiregular type whose values denote a range.
+   The Sentinel concept specifies the relationship between an Iterator type and a Semiregular type whose values denote a range.
 
-   Let s and i be values of type S and I, respectively, such that [i, s) denotes a
-   range. Sentinel<S, I> is satisfied only if:
+   Let s and i be values of type S and I, respectively, such that [i, s) denotes a range. Sentinel<S, I> is satisfied only if:
 
      * i == s is well-defined.
      * If bool(i != s) then i is dereferenceable and [++i, s) denotes a range.
 
-   The domain of == can change over time. Given an iterator i and sentinel s such that
-   [i, s) denotes a range and i != s, [i, s) is not required to continue to denote a
-   range after incrementing any iterator equal to i (and so i == s is no longer
-   required to be well-defined after such an increment).
+   The domain of == can change over time. Given an iterator i and sentinel s such that [i, s) denotes a range and i != s, [i, s) is not required to continue to denote a range after incrementing any iterator equal to i (and so i == s is no longer required to be well-defined after such an increment).

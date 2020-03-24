@@ -1,4 +1,4 @@
-.TH std::money_put 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::money_put 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::money_put \- std::money_put
 
@@ -11,13 +11,11 @@ std::money_put \- std::money_put
 
    > class money_put;
 
-   Class std::money_put encapsulates the rules for formatting monetary values as
-   strings. The standard I/O manipulator std::put_money uses the std::money_put facet
-   of the I/O stream's locale.
+   Class std::money_put encapsulates the rules for formatting monetary values as strings. The standard I/O manipulator std::put_money uses the std::money_put facet of the I/O stream's locale.
 
    std-money put-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
 .SH Type requirements
 
@@ -26,21 +24,15 @@ std::money_put \- std::money_put
 
 .SH Specializations
 
-   Two standalone (locale-independent) full specializations and two partial
-   specializations are provided by the standard library:
+   Two standalone (locale-independent) full specializations and two partial specializations are provided by the standard library:
 
    Defined in header <locale>
-   std::money_put<char>              creates narrow string representations of monetary
-                                     values
-   std::money_put<wchar_t>           creates wide string representations of monetary
-                                     values
-   std::money_put<char, OutputIt>    creates narrow string representations of monetary
-                                     values using custom output iterator
-   std::money_put<wchar_t, OutputIt> creates wide string representations of monetary
-                                     values using custom output iterator
+   std::money_put<char>              creates narrow string representations of monetary values
+   std::money_put<wchar_t>           creates wide string representations of monetary values
+   std::money_put<char, OutputIt>    creates narrow string representations of monetary values using custom output iterator
+   std::money_put<wchar_t, OutputIt> creates wide string representations of monetary values using custom output iterator
 
-   In addition, every locale object constructed in a C++ program implements its own
-   (locale-specific) versions of these specializations.
+   In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 
@@ -99,8 +91,7 @@ std::money_put \- std::money_put
 
 .SH See also
 
-              defines monetary formatting parameters used by std::money_get and
-   moneypunct std::money_put
+   moneypunct defines monetary formatting parameters used by std::money_get and std::money_put
               \fI(class template)\fP
    money_get  parses and constructs a monetary value from an input character sequence
               \fI(class template)\fP

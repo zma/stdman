@@ -1,4 +1,4 @@
-.TH std::shared_ptr<T>::operator*,std::shared_ptr<T>::operator-> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_ptr<T>::operator*,std::shared_ptr<T>::operator-> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_ptr<T>::operator*,std::shared_ptr<T>::operator-> \- std::shared_ptr<T>::operator*,std::shared_ptr<T>::operator->
 
@@ -6,8 +6,7 @@ std::shared_ptr<T>::operator*,std::shared_ptr<T>::operator-> \- std::shared_ptr<
    T& operator*() const noexcept;  \fB(1)\fP \fI(since C++11)\fP
    T* operator->() const noexcept; \fB(2)\fP \fI(since C++11)\fP
 
-   Dereferences the stored pointer. The behavior is undefined if the stored pointer is
-   null.
+   Dereferences the stored pointer. The behavior is undefined if the stored pointer is null.
 
 .SH Parameters
 
@@ -20,18 +19,11 @@ std::shared_ptr<T>::operator*,std::shared_ptr<T>::operator-> \- std::shared_ptr<
 
   Remarks
 
-   When T is a (possibly cv-qualified) void, it is unspecified whether function \fB(1)\fP is
-   declared.
+   When T is a (possibly cv-qualified) void, it is unspecified whether function \fB(1)\fP is declared.
 
-   When T is an array type, it is unspecified whether these member
-   functions are declared, and if they are, what their return type is,    \fI(since C++17)\fP
-   except that the declaration (not necessarily the definition) of these
-   functions is well-formed.
+   When T is an array type, it is unspecified whether these member functions are declared, and if they are, what their return type is, except that the declaration (not necessarily the definition) of these functions is well-formed. \fI(since C++17)\fP
 
-   If either function is declared despite being unspecified, it is unspecified what its
-   return type is, except that the declaration (although not necessarily the
-   definition) of the function is guaranteed to be legal. This makes it possible to
-   instantiate std::shared_ptr<void>.
+   If either function is declared despite being unspecified, it is unspecified what its return type is, except that the declaration (although not necessarily the definition) of the function is guaranteed to be legal. This makes it possible to instantiate std::shared_ptr<void>.
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::has_quiet_NaN 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::has_quiet_NaN 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::has_quiet_NaN \- std::numeric_limits<T>::has_quiet_NaN
 
@@ -6,10 +6,7 @@ std::numeric_limits<T>::has_quiet_NaN \- std::numeric_limits<T>::has_quiet_NaN
    static const bool has_quiet_NaN;      \fI(until C++11)\fP
    static constexpr bool has_quiet_NaN;  \fI(since C++11)\fP
 
-   The value of std::numeric_limits<T>::has_quiet_NaN is true for all types T capable
-   of representing the special value "Quiet Not-A-Number". This constant is meaningful
-   for all floating-point types and is guaranteed to be true if
-   std::numeric_limits<T>::is_iec559 == true.
+   The value of std::numeric_limits<T>::has_quiet_NaN is true for all types T capable of representing the special value "Quiet Not-A-Number". This constant is meaningful for all floating-point types and is guaranteed to be true if std::numeric_limits<T>::is_iec559 == true.
 
 .SH Standard specializations
 
@@ -39,9 +36,7 @@ std::numeric_limits<T>::has_quiet_NaN \- std::numeric_limits<T>::has_quiet_NaN
 
    quiet_NaN         returns a quiet NaN value of the given floating-point type
    \fB[static]\fP          \fI(public static member function)\fP
-   has_infinity      identifies floating-point types that can represent the special
-   \fB[static]\fP          value "positive infinity"
-                     \fI(public static member constant)\fP
-   has_signaling_NaN identifies floating-point types that can represent the special
-   \fB[static]\fP          value "signaling not-a-number" (NaN)
-                     \fI(public static member constant)\fP
+   has_infinity      identifies floating-point types that can represent the special value "positive infinity"
+   \fB[static]\fP          \fI(public static member constant)\fP
+   has_signaling_NaN identifies floating-point types that can represent the special value "signaling not-a-number" (NaN)
+   \fB[static]\fP          \fI(public static member constant)\fP

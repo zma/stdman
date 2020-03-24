@@ -1,4 +1,4 @@
-.TH std::forward_list 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::forward_list 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::forward_list \- std::forward_list
 
@@ -6,54 +6,30 @@ std::forward_list \- std::forward_list
    Defined in header <forward_list>
    template<
 
-   class T,                                                           \fB(1)\fP \fI(since C++11)\fP
+   class T,                                                                       \fB(1)\fP \fI(since C++11)\fP
    class Allocator = std::allocator<T>
 
    > class forward_list;
    namespace pmr {
 
-   template <class T>
-   using forward_list = std::forward_list<T,                          \fB(2)\fP \fI(since C++17)\fP
-   std::pmr::polymorphic_allocator<T>>;
+   template <class T>                                                             \fB(2)\fP \fI(since C++17)\fP
+   using forward_list = std::forward_list<T, std::pmr::polymorphic_allocator<T>>;
 
    }
 
-   std::forward_list is a container that supports fast insertion and removal of
-   elements from anywhere in the container. Fast random access is not supported. It is
-   implemented as a singly-linked list and essentially does not have any overhead
-   compared to its implementation in C. Compared to std::list this container provides
-   more space efficient storage when bidirectional iteration is not needed.
+   std::forward_list is a container that supports fast insertion and removal of elements from anywhere in the container. Fast random access is not supported. It is implemented as a singly-linked list and essentially does not have any overhead compared to its implementation in C. Compared to std::list this container provides more space efficient storage when bidirectional iteration is not needed.
 
-   Adding, removing and moving the elements within the list, or across several lists,
-   does not invalidate the iterators currently referring to other elements in the list.
-   However, an iterator or reference referring to an element is invalidated when the
-   corresponding element is removed (via erase_after) from the list.
+   Adding, removing and moving the elements within the list, or across several lists, does not invalidate the iterators currently referring to other elements in the list. However, an iterator or reference referring to an element is invalidated when the corresponding element is removed (via erase_after) from the list.
 
-   std::forward_list meets the requirements of Container (except for the size member
-   function and that operator=='s complexity is always linear), AllocatorAwareContainer
-   and SequenceContainer.
+   std::forward_list meets the requirements of Container (except for the size member function and that operator=='s complexity is always linear), AllocatorAwareContainer and SequenceContainer.
 
 .SH Template parameters
 
                The type of the elements.
-
-               The requirements that are imposed on the elements depend
-               on the actual operations performed on the container.
-               Generally, it is required that element type is a complete  \fI(until C++17)\fP
-               type and meets the requirements of Erasable, but many
-               member functions impose stricter requirements.
-   T         - The requirements that are imposed on the elements depend
-               on the actual operations performed on the container.
-               Generally, it is required that element type meets the
-               requirements of Erasable, but many member functions impose \fI(since C++17)\fP
-               stricter requirements. This container (but not its
-               members) can be instantiated with an incomplete element
-               type if the allocator satisfies the allocator completeness
-               requirements.
-               An allocator that is used to acquire/release memory and to
-   Allocator - construct/destroy the elements in that memory. The type must meet the
-               requirements of Allocator. The behavior is undefined if
-               Allocator::value_type is not the same as T.
+   T         -
+               The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type is a complete type and meets the requirements of Erasable, but many member functions impose stricter requirements.                                                                                                                                       \fI(until C++17)\fP
+               The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type meets the requirements of Erasable, but many member functions impose stricter requirements. This container (but not its members) can be instantiated with an incomplete element type if the allocator satisfies the allocator completeness requirements. \fI(since C++17)\fP
+   Allocator - An allocator that is used to acquire/release memory and to construct/destroy the elements in that memory. The type must meet the requirements of Allocator. The behavior is undefined if Allocator::value_type is not the same as T.
 
 .SH Member types
 
@@ -132,8 +108,8 @@ std::forward_list \- std::forward_list
 .SH Non-member functions
 
    operator==
-   operator!=                   lexicographically compares the values in the
-   operator<                    forward_list
+   operator!=
+   operator<                    lexicographically compares the values in the forward_list
    operator<=                   \fI(function template)\fP
    operator>
    operator>=

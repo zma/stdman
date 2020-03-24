@@ -1,14 +1,11 @@
-.TH std::filesystem::filesystem_error::what 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::filesystem_error::what 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::filesystem_error::what \- std::filesystem::filesystem_error::what
 
 .SH Synopsis
    const char* what() const noexcept override;  \fI(since C++17)\fP
 
-   Returns an explanatory byte string. This explanatory string contains the explanatory
-   string passed at the time of construction. Implementations are encouraged to include
-   the pathnames of path1() and path2() in native format and the
-   std::system_error::what() string inside the returned string as well.
+   Returns an explanatory byte string. This explanatory string contains the explanatory string passed at the time of construction. Implementations are encouraged to include the pathnames of path1() and path2() in native format and the std::system_error::what() string inside the returned string as well.
 
 .SH Parameters
 

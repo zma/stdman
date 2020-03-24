@@ -1,4 +1,4 @@
-.TH std::fgetwc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::fgetwc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::fgetwc \- std::fgetwc
 
@@ -7,8 +7,7 @@ std::fgetwc \- std::fgetwc
    wint_t fgetwc( std::FILE* stream );
    wint_t getwc( std::FILE* stream );
 
-   Reads the next wide character from the given input stream. getwc() may be
-   implemented as a macro and may evaluate stream more than once.
+   Reads the next wide character from the given input stream. getwc() may be implemented as a macro and may evaluate stream more than once.
 
 .SH Parameters
 
@@ -16,8 +15,7 @@ std::fgetwc \- std::fgetwc
 
 .SH Return value
 
-   The next wide character from the stream or WEOF if an error has occurred or the end
-   of file has been reached. If an encoding error occurred, errno is set to EILSEQ.
+   The next wide character from the stream or WEOF if an error has occurred or the end of file has been reached. If an encoding error occurred, errno is set to EILSEQ.
 
 .SH See also
 

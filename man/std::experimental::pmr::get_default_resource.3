@@ -1,4 +1,4 @@
-.TH std::experimental::pmr::get_default_resource 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::pmr::get_default_resource 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::pmr::get_default_resource \- std::experimental::pmr::get_default_resource
 
@@ -8,12 +8,9 @@ std::experimental::pmr::get_default_resource \- std::experimental::pmr::get_defa
 
    Gets the default memory resource pointer.
 
-   The default memory resource pointer is used by certain facilities when an explicit
-   memory resource is not supplied. The initial default memory resource pointer is the
-   return value of new_delete_resource().
+   The default memory resource pointer is used by certain facilities when an explicit memory resource is not supplied. The initial default memory resource pointer is the return value of new_delete_resource().
 
-   This function is thread-safe. Previous call to set_default_resource synchronizes
-   with (see std::memory_order) the subsequent get_default_resource calls.
+   This function is thread-safe. Previous call to set_default_resource synchronizes with (see std::memory_order) the subsequent get_default_resource calls.
 
 .SH Return value
 
@@ -23,7 +20,5 @@ std::experimental::pmr::get_default_resource \- std::experimental::pmr::get_defa
 
    set_default_resource sets the default memory_resource
                         \fI(function)\fP
-                        returns a static program-wide memory_resource that uses the
-   new_delete_resource  global operator new and operator delete to allocate and
-                        deallocate memory
+   new_delete_resource  returns a static program-wide memory_resource that uses the global operator new and operator delete to allocate and deallocate memory
                         \fI(function)\fP

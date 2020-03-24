@@ -1,4 +1,4 @@
-.TH std::experimental::simd 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::simd 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::simd \- std::experimental::simd
 
@@ -7,11 +7,9 @@ std::experimental::simd \- std::experimental::simd
    template< class T, class Abi = simd_abi::compatible<T> >
    class simd;
 
-   The class template simd is a data-parallel type. The width of a given simd
-   instantiation is a constant expression, determined by the template parameters.
+   The class template simd is a data-parallel type. The width of a given simd instantiation is a constant expression, determined by the template parameters.
 
-   An ABI tag is a type in the simd_abi namespace that indicates a choice of size and
-   binary representation for objects of data-parallel type.
+   An ABI tag is a type in the simd_abi namespace that indicates a choice of size and binary representation for objects of data-parallel type.
 
 .SH Template parameters
 
@@ -21,11 +19,9 @@ std::experimental::simd \- std::experimental::simd
   Helper alias templates
 
    template< class T, int N >
-   using fixed_size_simd = std::experimental::simd<T,
-   std::experimental::simd_abi::fixed_size<N>>;
+   using fixed_size_simd = std::experimental::simd<T, std::experimental::simd_abi::fixed_size<N>>;
    template< class T, int N >
-   using native_simd = std::experimental::simd<T,
-   std::experimental::simd_abi::native>;
+   using native_simd = std::experimental::simd<T, std::experimental::simd_abi::native>;
 
 .SH Member types
 

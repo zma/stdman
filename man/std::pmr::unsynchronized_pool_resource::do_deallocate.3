@@ -1,14 +1,11 @@
-.TH std::pmr::unsynchronized_pool_resource::do_deallocate 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::unsynchronized_pool_resource::do_deallocate 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::unsynchronized_pool_resource::do_deallocate \- std::pmr::unsynchronized_pool_resource::do_deallocate
 
 .SH Synopsis
-   virtual void do_deallocate(void* p, std::size_t bytes, std::size_t     \fI(since C++17)\fP
-   alignment);
+   virtual void do_deallocate(void* p, std::size_t bytes, std::size_t alignment);  \fI(since C++17)\fP
 
-   Returns the memory at p to the pool. It is unspecified if or under what
-   circumstances this operation will result in a call to deallocate() on the upstream
-   memory resource.
+   Returns the memory at p to the pool. It is unspecified if or under what circumstances this operation will result in a call to deallocate() on the upstream memory resource.
 
 .SH Exceptions
 

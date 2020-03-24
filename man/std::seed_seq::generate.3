@@ -1,4 +1,4 @@
-.TH std::seed_seq::generate 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::seed_seq::generate 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::seed_seq::generate \- std::seed_seq::generate
 
@@ -7,13 +7,9 @@ std::seed_seq::generate \- std::seed_seq::generate
    void generate( RandomIt begin, RandomIt end );
 
    Fills the range [begin, end) with unsigned integer values i, 0 ≤ i < 232
-   , based on the data originally provided in the constructor of this seed_seq. The
-   produced values are distributed over the entire 32-bit range even if the initial
-   values were strongly biased.
+   , based on the data originally provided in the constructor of this seed_seq. The produced values are distributed over the entire 32-bit range even if the initial values were strongly biased.
 
-   The following algorithm is used (adapted from the initialization sequence of the
-   Mersenne Twister generator by Makoto Matsumoto and Takuji Nishimura, incorporating
-   the improvements made by Mutsuo Saito in 2007)
+   The following algorithm is used (adapted from the initialization sequence of the Mersenne Twister generator by Makoto Matsumoto and Takuji Nishimura, incorporating the improvements made by Mutsuo Saito in 2007)
 
      * If begin == end, do nothing. Otherwise,
 
@@ -26,8 +22,7 @@ std::seed_seq::generate \- std::seed_seq::generate
    where m=max(s+1, n)
    and n=end-begin
    and s=v.size()
-   and v is the private container holding the values originally provided by the
-   constructor of this seed_seq object,
+   and v is the private container holding the values originally provided by the constructor of this seed_seq object,
 
     1. begin[k+p] += r1
     2. begin[k+q] += r2
@@ -54,9 +49,7 @@ std::seed_seq::generate \- std::seed_seq::generate
 
 .SH Parameters
 
-                mutable random-access iterators whose
-   begin, end - std::iterator_traits<>::value_type is an unsigned integer type suitable
-                for storing 32-bit values
+   begin, end - mutable random-access iterators whose std::iterator_traits<>::value_type is an unsigned integer type suitable for storing 32-bit values
 .SH Type requirements
    -
    RandomIt must meet the requirements of LegacyRandomAccessIterator.

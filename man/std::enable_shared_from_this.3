@@ -1,4 +1,4 @@
-.TH std::enable_shared_from_this 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::enable_shared_from_this 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::enable_shared_from_this \- std::enable_shared_from_this
 
@@ -6,14 +6,9 @@ std::enable_shared_from_this \- std::enable_shared_from_this
    Defined in header <memory>
    template< class T > class enable_shared_from_this;  \fI(since C++11)\fP
 
-   std::enable_shared_from_this allows an object t that is currently managed by a
-   std::shared_ptr named pt to safely generate additional std::shared_ptr instances
-   pt1, pt2, ... that all share ownership of t with pt.
+   std::enable_shared_from_this allows an object t that is currently managed by a std::shared_ptr named pt to safely generate additional std::shared_ptr instances pt1, pt2, ... that all share ownership of t with pt.
 
-   Publicly inheriting from std::enable_shared_from_this<T> provides the type T with a
-   member function shared_from_this. If an object t of type T is managed by a
-   std::shared_ptr<T> named pt, then calling T::shared_from_this will return a new
-   std::shared_ptr<T> that shares ownership of t with pt.
+   Publicly inheriting from std::enable_shared_from_this<T> provides the type T with a member function shared_from_this. If an object t of type T is managed by a std::shared_ptr<T> named pt, then calling T::shared_from_this will return a new std::shared_ptr<T> that shares ownership of t with pt.
 
 .SH Member functions
 
@@ -31,33 +26,23 @@ std::enable_shared_from_this \- std::enable_shared_from_this
 .SH Member objects
 
    Member name                Definition
-   weak_this (private)\fI(C++17)\fP std::weak_ptr object tracking the control block of the
-                              first shared owner of *this. Exposition only
+   weak_this (private)\fI(C++17)\fP std::weak_ptr object tracking the control block of the first shared owner of *this. Exposition only
 
 .SH Notes
 
-   A common implementation for enable_shared_from_this is to hold a weak reference
-   (such as std::weak_ptr) to this. The constructors of std::shared_ptr detect the
-   presence of an
+   A common implementation for enable_shared_from_this is to hold a weak reference (such as std::weak_ptr) to this. The constructors of std::shared_ptr detect the presence of an
    unambiguous and accessible
-   \fI(since C++17)\fP enable_shared_from_this base and assign the newly created
-   std::shared_ptr to the internally stored weak reference
+   \fI(since C++17)\fP enable_shared_from_this base and assign the newly created std::shared_ptr to the internally stored weak reference
    if not already owned by a live std::shared_ptr
-   \fI(since C++17)\fP. Constructing a std::shared_ptr for an object that is already managed
-   by another std::shared_ptr will not consult the internally stored weak reference and
-   thus will lead to undefined behavior.
+   \fI(since C++17)\fP. Constructing a std::shared_ptr for an object that is already managed by another std::shared_ptr will not consult the internally stored weak reference and thus will lead to undefined behavior.
 
-   It is permitted to call shared_from_this only on a previously shared object, i.e. on
-   an object managed by std::shared_ptr<T>. Otherwise
+   It is permitted to call shared_from_this only on a previously shared object, i.e. on an object managed by std::shared_ptr<T>. Otherwise
    the behavior is undefined
    \fI(until C++17)\fP
-   std::bad_weak_ptr is thrown (by the shared_ptr constructor from a
-   default-constructed weak_this)
+   std::bad_weak_ptr is thrown (by the shared_ptr constructor from a default-constructed weak_this)
    \fI(since C++17)\fP.
 
-   enable_shared_from_this provides the safe alternative to an expression like
-   std::shared_ptr<T>(this), which is likely to result in this being destructed more
-   than once by multiple owners that are unaware of each other (see example below)
+   enable_shared_from_this provides the safe alternative to an expression like std::shared_ptr<T>(this), which is likely to result in this being destructed more than once by multiple owners that are unaware of each other (see example below)
 
 .SH Example
 

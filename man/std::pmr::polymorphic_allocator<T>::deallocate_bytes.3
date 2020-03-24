@@ -1,4 +1,4 @@
-.TH std::pmr::polymorphic_allocator<T>::deallocate_bytes 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::polymorphic_allocator<T>::deallocate_bytes 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::polymorphic_allocator<T>::deallocate_bytes \- std::pmr::polymorphic_allocator<T>::deallocate_bytes
 
@@ -9,10 +9,7 @@ std::pmr::polymorphic_allocator<T>::deallocate_bytes \- std::pmr::polymorphic_al
 
    std::size_t alignment = alignof(std::max_align_t) );
 
-   Deallocates the storage pointed to by p, which must have been allocated from a
-   std::pmr::memory_resource x that compares equal to *resource(). using
-   x.allocate(nbytes, alignment), typically through a call to allocate_bytes(nbytes,
-   alignment.
+   Deallocates the storage pointed to by p, which must have been allocated from a std::pmr::memory_resource x that compares equal to *resource(). using x.allocate(nbytes, alignment), typically through a call to allocate_bytes(nbytes, alignment.
 
    Equivalent to resorce()->deallocate(p, nbytes, alignment);
 
@@ -28,8 +25,7 @@ std::pmr::polymorphic_allocator<T>::deallocate_bytes \- std::pmr::polymorphic_al
 
 .SH Notes
 
-   This function was introduced for use with the fully-specialized allocator
-   std::polymorphic_allocator<>, but it may be useful in any specialization.
+   This function was introduced for use with the fully-specialized allocator std::polymorphic_allocator<>, but it may be useful in any specialization.
 
 .SH See also
 

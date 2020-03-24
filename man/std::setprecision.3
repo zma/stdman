@@ -1,4 +1,4 @@
-.TH std::setprecision 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::setprecision 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::setprecision \- std::setprecision
 
@@ -6,8 +6,7 @@ std::setprecision \- std::setprecision
    Defined in header <iomanip>
    /*unspecified*/ setprecision( int n );
 
-   When used in an expression out << setprecision(n) or in >> setprecision(n), sets the
-   precision parameter of the stream out or in to exactly n.
+   When used in an expression out << setprecision(n) or in >> setprecision(n), sets the precision parameter of the stream out or in to exactly n.
 
 .SH Parameters
 
@@ -15,10 +14,7 @@ std::setprecision \- std::setprecision
 
 .SH Return value
 
-   Returns an object of unspecified type such that if str is the name of an output
-   stream of type std::basic_ostream<CharT, Traits> or an input stream of type
-   std::basic_istream<CharT, Traits>, then the expression str << setprecision(n) or str
-   >> setprecision(n) behaves as if the following code was executed:
+   Returns an object of unspecified type such that if str is the name of an output stream of type std::basic_ostream<CharT, Traits> or an input stream of type std::basic_istream<CharT, Traits>, then the expression str << setprecision(n) or str >> setprecision(n) behaves as if the following code was executed:
 
    str.precision(n);
 

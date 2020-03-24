@@ -1,22 +1,17 @@
-.TH std::atomic_flag_test_and_set,std::atomic_flag_test_and_set_explicit 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic_flag_test_and_set,std::atomic_flag_test_and_set_explicit 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic_flag_test_and_set,std::atomic_flag_test_and_set_explicit \- std::atomic_flag_test_and_set,std::atomic_flag_test_and_set_explicit
 
 .SH Synopsis
    Defined in header <atomic>
-   bool atomic_flag_test_and_set( volatile std::atomic_flag*
-   p ) noexcept;
-   bool atomic_flag_test_and_set( std::atomic_flag* p )
-   noexcept;
-   bool atomic_flag_test_and_set_explicit( volatile           \fB(1)\fP (since
-   std::atomic_flag* p,                                           C++11)
-   std::memory_order order ) noexcept;                                    \fB(2)\fP (since
-   bool atomic_flag_test_and_set_explicit( std::atomic_flag*                  C++11)
-   p,
+   bool atomic_flag_test_and_set( volatile std::atomic_flag* p ) noexcept;
+   bool atomic_flag_test_and_set( std::atomic_flag* p ) noexcept;
+   bool atomic_flag_test_and_set_explicit( volatile std::atomic_flag* p,   \fB(1)\fP \fI(since C++11)\fP
+   std::memory_order order ) noexcept;                                                       \fB(2)\fP \fI(since C++11)\fP
+   bool atomic_flag_test_and_set_explicit( std::atomic_flag* p,
    std::memory_order order ) noexcept;
 
-   Atomically changes the state of a std::atomic_flag pointed to by p to set (true) and
-   returns the value it held before.
+   Atomically changes the state of a std::atomic_flag pointed to by p to set (true) and returns the value it held before.
 
 .SH Parameters
 
@@ -102,6 +97,5 @@ std::atomic_flag_test_and_set,std::atomic_flag_test_and_set_explicit \- std::ato
    atomic_flag_clear_explicit atomically sets the value of the flag to false
    \fI(C++11)\fP                    \fI(function)\fP
    \fI(C++11)\fP
-   memory_order               defines memory ordering constraints for the given atomic
-   \fI(C++11)\fP                    operation
-                              \fI(enum)\fP
+   memory_order               defines memory ordering constraints for the given atomic operation
+   \fI(C++11)\fP                    \fI(enum)\fP

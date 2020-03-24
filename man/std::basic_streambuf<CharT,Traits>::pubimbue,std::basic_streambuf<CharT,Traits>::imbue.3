@@ -1,4 +1,4 @@
-.TH std::basic_streambuf<CharT,Traits>::pubimbue,std::basic_streambuf<CharT,Traits>::imbue 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_streambuf<CharT,Traits>::pubimbue,std::basic_streambuf<CharT,Traits>::imbue 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_streambuf<CharT,Traits>::pubimbue,std::basic_streambuf<CharT,Traits>::imbue \- std::basic_streambuf<CharT,Traits>::pubimbue,std::basic_streambuf<CharT,Traits>::imbue
 
@@ -11,9 +11,7 @@ std::basic_streambuf<CharT,Traits>::pubimbue,std::basic_streambuf<CharT,Traits>:
 
    1) Sets loc as the associated locale. Calls imbue(loc) of the most derived class
 
-   2) The base class version of this function has no effect. The derived classes may
-   override this function in order to be informed about the changes of the locale. The
-   derived class may cache the locale and member facets between calls to imbue().
+   2) The base class version of this function has no effect. The derived classes may override this function in order to be informed about the changes of the locale. The derived class may cache the locale and member facets between calls to imbue().
 
 .SH Parameters
 

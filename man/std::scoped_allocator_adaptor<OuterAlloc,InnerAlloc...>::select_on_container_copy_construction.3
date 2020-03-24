@@ -1,15 +1,12 @@
-.TH std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::select_on_container_copy_construction 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::select_on_container_copy_construction 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::select_on_container_copy_construction \- std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::select_on_container_copy_construction
 
 .SH Synopsis
    Defined in header <scoped_allocator>
-   scoped_allocator_adaptor select_on_container_copy_construction()       \fI(since C++11)\fP
-   const;
+   scoped_allocator_adaptor select_on_container_copy_construction() const;  \fI(since C++11)\fP
 
-   Creates a new instance of std::scoped_allocator_adaptor, where the outer allocator
-   base class and each inner allocator subobject are obtained by calling
-   std::allocator_traits<A>::select_on_container_copy_construction().
+   Creates a new instance of std::scoped_allocator_adaptor, where the outer allocator base class and each inner allocator subobject are obtained by calling std::allocator_traits<A>::select_on_container_copy_construction().
 
 .SH Parameters
 
@@ -17,12 +14,9 @@ std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::select_on_container_cop
 
 .SH Return value
 
-   A new std::scoped_allocator_adaptor object, constructed from correctly copied
-   allocators.
+   A new std::scoped_allocator_adaptor object, constructed from correctly copied allocators.
 
 .SH See also
 
-                                         obtains the allocator to use after copying a
-   select_on_container_copy_construction standard container
-   \fB[static]\fP                              \fI\fI(public static member\fP function of\fP
-                                         std::allocator_traits<Alloc>)
+   select_on_container_copy_construction obtains the allocator to use after copying a standard container
+   \fB[static]\fP                              \fI(public static member function of std::allocator_traits<Alloc>)\fP

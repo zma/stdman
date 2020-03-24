@@ -1,25 +1,21 @@
-.TH std::error_condition::error_condition 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::error_condition::error_condition 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::error_condition::error_condition \- std::error_condition::error_condition
 
 .SH Synopsis
-   error_condition() noexcept;                                \fB(1)\fP \fI(since C++11)\fP
-   error_condition( const error_condition& other ) noexcept;  \fB(2)\fP \fI(since C++11)\fP
-                                                                  (implicitly declared)
-   error_condition( int val, const error_category& cat )      \fB(3)\fP \fI(since C++11)\fP
-   noexcept;
-   template< class ErrorConditionEnum >                       \fB(4)\fP \fI(since C++11)\fP
+   error_condition() noexcept;                                     \fB(1)\fP \fI(since C++11)\fP
+   error_condition( const error_condition& other ) noexcept;       \fB(2)\fP \fI(since C++11)\fP
+                                                                       (implicitly declared)
+   error_condition( int val, const error_category& cat ) noexcept; \fB(3)\fP \fI(since C++11)\fP
+   template< class ErrorConditionEnum >                            \fB(4)\fP \fI(since C++11)\fP
    error_condition( ErrorConditionEnum e ) noexcept;
 
    Constructs new error condition.
 
-   1) Default constructor. Initializes the error condition with generic category and
-   error code 0.
+   1) Default constructor. Initializes the error condition with generic category and error code 0.
    2) Copy constructor. Initializes the error condition with the contents of other.
    3) Initializes the error condition with error code val and error category cat.
-   4) Initializes the error condition with enum e. Effectively calls
-   make_error_condition(). Does not participate in the overload resolution unless
-   is_error_condition_enum<ErrorConditionEnum>::value is true.
+   4) Initializes the error condition with enum e. Effectively calls make_error_condition(). Does not participate in the overload resolution unless is_error_condition_enum<ErrorConditionEnum>::value is true.
 
 .SH Parameters
 

@@ -1,4 +1,4 @@
-.TH std::experimental::optional<T>::value_or 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::optional<T>::value_or 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::optional<T>::value_or \- std::experimental::optional<T>::value_or
 
@@ -10,10 +10,8 @@ std::experimental::optional<T>::value_or \- std::experimental::optional<T>::valu
 
    Returns the contained value if *this has a value, otherwise returns default_value.
 
-   1) Equivalent to bool(*this) ? **this :
-   static_cast<T>(std::forward<U>(default_value))
-   2) Equivalent to bool(*this) ? std::move(**this) :
-   static_cast<T>(std::forward<U>(default_value))
+   1) Equivalent to bool(*this) ? **this : static_cast<T>(std::forward<U>(default_value))
+   2) Equivalent to bool(*this) ? std::move(**this) : static_cast<T>(std::forward<U>(default_value))
 
 .SH Parameters
 

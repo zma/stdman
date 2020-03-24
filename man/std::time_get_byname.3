@@ -1,4 +1,4 @@
-.TH std::time_get_byname 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::time_get_byname 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::time_get_byname \- std::time_get_byname
 
@@ -11,8 +11,7 @@ std::time_get_byname \- std::time_get_byname
 
    > class time_get_byname : public std::time_get<CharT, InputIt>
 
-   std::time_get_byname is a std::time_get facet which encapsulates time and date
-   parsing rules of the locale specified at its construction.
+   std::time_get_byname is a std::time_get facet which encapsulates time and date parsing rules of the locale specified at its construction.
 
    Two specializations are provided by the standard library
 
@@ -36,14 +35,11 @@ std::time_get_byname \- std::time_get_byname
 std::time_get_byname::time_get_byname
 
    explicit time_get_byname( const char* name, std::size_t refs = 0 );
-   explicit time_get_byname( const std::string& name, std::size_t refs =  \fI(since C++11)\fP
-   0 );
+   explicit time_get_byname( const std::string& name, std::size_t refs = 0 );  \fI(since C++11)\fP
 
    Constructs a new std::time_get_byname facet for a locale with name.
 
-   refs is used for resource management: if refs == 0, the implementation destroys the
-   facet, when the last std::locale object holding it is destroyed. Otherwise, the
-   object is not destroyed.
+   refs is used for resource management: if refs == 0, the implementation destroys the facet, when the last std::locale object holding it is destroyed. Otherwise, the object is not destroyed.
 
 .SH Parameters
 
@@ -88,33 +84,24 @@ Inherited from std::time_get
 .SH Protected member functions
 
    do_date_order     obtains preferred ordering of day, month, and year
-   \fB[virtual]\fP         \fI\fI(virtual protected member function\fP of\fP
-                     std::time_get<CharT,InputIt>)
+   \fB[virtual]\fP         \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
    do_get_time       extracts hours, minutes, and seconds from input stream
-   \fB[virtual]\fP         \fI\fI(virtual protected member function\fP of\fP
-                     std::time_get<CharT,InputIt>)
+   \fB[virtual]\fP         \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
    do_get_date       extracts month, day, and year from input stream
-   \fB[virtual]\fP         \fI\fI(virtual protected member function\fP of\fP
-                     std::time_get<CharT,InputIt>)
+   \fB[virtual]\fP         \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
    do_get_weekday    extracts the name of a day of the week from input stream
-   \fB[virtual]\fP         \fI\fI(virtual protected member function\fP of\fP
-                     std::time_get<CharT,InputIt>)
+   \fB[virtual]\fP         \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
    do_get_monthname  extacts a month name from input stream
-   \fB[virtual]\fP         \fI\fI(virtual protected member function\fP of\fP
-                     std::time_get<CharT,InputIt>)
+   \fB[virtual]\fP         \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
    do_get_year       extracts a year from input stream
-   \fB[virtual]\fP         \fI\fI(virtual protected member function\fP of\fP
-                     std::time_get<CharT,InputIt>)
-                     extracts date/time components from input stream, according to the
-   do_get            specified format
-   \fB[virtual]\fP \fI(C++11)\fP \fI\fI(virtual protected member function\fP of\fP
-                     std::time_get<CharT,InputIt>)
+   \fB[virtual]\fP         \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
+   do_get            extracts date/time components from input stream, according to the specified format
+   \fB[virtual]\fP \fI(C++11)\fP \fI(virtual protected member function of std::time_get<CharT,InputIt>)\fP
 
 Inherited from std::time_base
 
    Type      Definition
-   dateorder date order enumeration type, defining the values no_order, dmy, mdy, ymd,
-             and ydm
+   dateorder date order enumeration type, defining the values no_order, dmy, mdy, ymd, and ydm
 
 .SH Example
 
@@ -123,8 +110,7 @@ Inherited from std::time_base
 
 .SH See also
 
-            parses time/date values from an input character sequence into struct
-   time_get std::tm
+   time_get parses time/date values from an input character sequence into struct std::tm
             \fI(class template)\fP
    get_time parses a date/time value of specified format
    \fI(C++11)\fP  \fI(function template)\fP

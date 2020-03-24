@@ -1,4 +1,4 @@
-.TH std::integral_constant 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::integral_constant 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::integral_constant \- std::integral_constant
 
@@ -7,13 +7,11 @@ std::integral_constant \- std::integral_constant
    template< class T, T v >         \fI(since C++11)\fP
    struct integral_constant;
 
-   std::integral_constant wraps a static constant of specified type. It is the base
-   class for the C++ type traits.
+   std::integral_constant wraps a static constant of specified type. It is the base class for the C++ type traits.
 
      Helper templates
 
-   A helper alias template std::bool_constant is defined for the common
-   case where T is bool.                                                  \fI(since C++17)\fP
+   A helper alias template std::bool_constant is defined for the common case where T is bool. \fI(since C++17)\fP
 
    template <bool B>
    using bool_constant = integral_constant<bool, B>;
@@ -54,8 +52,7 @@ std::integral_constant::operator()
 
    constexpr value_type operator()() const noexcept;  \fI(since C++14)\fP
 
-   Returns the wrapped value. This function enables std::integral_constant to serve as
-   a source of compile-time function objects.
+   Returns the wrapped value. This function enables std::integral_constant to serve as a source of compile-time function objects.
 
 .SH Possible implementation
 

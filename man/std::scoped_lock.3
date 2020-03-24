@@ -1,4 +1,4 @@
-.TH std::scoped_lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::scoped_lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::scoped_lock \- std::scoped_lock
 
@@ -7,22 +7,15 @@ std::scoped_lock \- std::scoped_lock
    template< class... MutexTypes >  \fI(since C++17)\fP
    class scoped_lock;
 
-   The class scoped_lock is a mutex wrapper that provides a convenient RAII-style
-   mechanism for owning one or more mutexes for the duration of a scoped block.
+   The class scoped_lock is a mutex wrapper that provides a convenient RAII-style mechanism for owning one or more mutexes for the duration of a scoped block.
 
-   When a scoped_lock object is created, it attempts to take ownership of the mutexes
-   it is given. When control leaves the scope in which the scoped_lock object was
-   created, the scoped_lock is destructed and the mutexes are released, in reverse
-   order. If several mutexes are given, deadlock avoidance algorithm is used as if by
-   std::lock.
+   When a scoped_lock object is created, it attempts to take ownership of the mutexes it is given. When control leaves the scope in which the scoped_lock object was created, the scoped_lock is destructed and the mutexes are released, in reverse order. If several mutexes are given, deadlock avoidance algorithm is used as if by std::lock.
 
    The scoped_lock class is non-copyable.
 
 .SH Template parameters
 
-                the types of the mutexes to lock. The types must meet the Lockable
-   MutexTypes - requirements unless sizeof...(MutexTypes)==1, in which case the only
-                type must meet BasicLockable
+   MutexTypes - the types of the mutexes to lock. The types must meet the Lockable requirements unless sizeof...(MutexTypes)==1, in which case the only type must meet BasicLockable
 
 .SH Member types
 
@@ -40,8 +33,7 @@ std::scoped_lock \- std::scoped_lock
 
 .SH Example
 
-   The following example uses std::scoped_lock to lock pairs of mutexes without
-   deadlock and is RAII-style.
+   The following example uses std::scoped_lock to lock pairs of mutexes without deadlock and is RAII-style.
 
    
 // Run this code
@@ -144,12 +136,10 @@ std::scoped_lock \- std::scoped_lock
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to              Behavior as published              Correct behavior
-   LWG 2981 C++17      redundant deduction guide from                  removed
-                       scoped_lock<MutexTypes...> was provided
+      DR    Applied to                         Behavior as published                          Correct behavior
+   LWG 2981 C++17      redundant deduction guide from scoped_lock<MutexTypes...> was provided removed
 
 .SH See also
 

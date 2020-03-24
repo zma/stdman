@@ -1,24 +1,18 @@
-.TH std::hash<std::unique_ptr> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::hash<std::unique_ptr> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::hash<std::unique_ptr> \- std::hash<std::unique_ptr>
 
 .SH Synopsis
    template<class T, class Deleter> struct hash<unique_ptr<T, Deleter>>;  \fI(since C++11)\fP
 
-   The template specialization of std::hash for std::unique_ptr<T, Deleter> allows
-   users to obtain hashes of objects of type std::unique_ptr<T, Deleter>.
+   The template specialization of std::hash for std::unique_ptr<T, Deleter> allows users to obtain hashes of objects of type std::unique_ptr<T, Deleter>.
 
-   The specialization std::hash<std::unique_ptr<T,D>> is enabled (see
-   std::hash) if std::hash<typename std::unique_ptr<T,D>::pointer> is     \fI(since C++17)\fP
-   enabled, and is disabled otherwise.
+   The specialization std::hash<std::unique_ptr<T,D>> is enabled (see std::hash) if std::hash<typename std::unique_ptr<T,D>::pointer> is enabled, and is disabled otherwise. \fI(since C++17)\fP
 
    When enabled,
-   \fI(since C++17)\fP for a given std::unique_ptr<T, D> p, this specialization ensures that
-   std::hash<std::unique_ptr<T, D>>()(p) == std::hash<typename std::unique_ptr<T,
-   D>::pointer>()(p.get()).
+   \fI(since C++17)\fP for a given std::unique_ptr<T, D> p, this specialization ensures that std::hash<std::unique_ptr<T, D>>()(p) == std::hash<typename std::unique_ptr<T, D>::pointer>()(p.get()).
 
-   The member functions of this specialization are not guaranteed to be noexcept
-   because the pointer may be a fancy pointer and its hash might throw.
+   The member functions of this specialization are not guaranteed to be noexcept because the pointer may be a fancy pointer and its hash might throw.
 
 .SH Example
 

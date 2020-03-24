@@ -1,4 +1,4 @@
-.TH std::chrono::time_point_cast 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::time_point_cast 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::time_point_cast \- std::chrono::time_point_cast
 
@@ -22,13 +22,11 @@ std::chrono::time_point_cast \- std::chrono::time_point_cast
 
 .SH Return value
 
-   std::chrono::time_point<Clock,
-   ToDuration>(std::chrono::duration_cast<ToDuration>(t.time_since_epoch()))
+   std::chrono::time_point<Clock, ToDuration>(std::chrono::duration_cast<ToDuration>(t.time_since_epoch()))
 
 .SH Notes
 
-   time_point_cast will only participate in overload resolution if ToDuration is an
-   instantiation of duration.
+   time_point_cast will only participate in overload resolution if ToDuration is an instantiation of duration.
 
 .SH Example
 

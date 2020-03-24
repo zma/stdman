@@ -1,4 +1,4 @@
-.TH std::basic_streambuf<CharT,Traits>::sputc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_streambuf<CharT,Traits>::sputc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_streambuf<CharT,Traits>::sputc \- std::basic_streambuf<CharT,Traits>::sputc
 
@@ -7,8 +7,7 @@ std::basic_streambuf<CharT,Traits>::sputc \- std::basic_streambuf<CharT,Traits>:
 
    Writes one character to the output sequence.
 
-   If the output sequence write position is not available (the buffer is full), then
-   calls overflow(ch).
+   If the output sequence write position is not available (the buffer is full), then calls overflow(ch).
 
 .SH Parameters
 
@@ -16,8 +15,7 @@ std::basic_streambuf<CharT,Traits>::sputc \- std::basic_streambuf<CharT,Traits>:
 
 .SH Return value
 
-   The written character, converted to int_type with Traits::to_int_type(ch) on
-   success.
+   The written character, converted to int_type with Traits::to_int_type(ch) on success.
 
    Traits::eof() (as returned by overflow()) on failure.
 

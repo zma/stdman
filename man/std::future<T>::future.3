@@ -1,4 +1,4 @@
-.TH std::future<T>::future 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::future<T>::future 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::future<T>::future \- std::future<T>::future
 
@@ -9,10 +9,8 @@ std::future<T>::future \- std::future<T>::future
 
    Constructs a std::future object.
 
-   1) Default constructor. Constructs a std::future with no shared state. After
-   construction, valid() == false.
-   2) Move constructor. Constructs a std::future with the shared state of other using
-   move semantics. After construction, other.valid() == false.
+   1) Default constructor. Constructs a std::future with no shared state. After construction, valid() == false.
+   2) Move constructor. Constructs a std::future with the shared state of other using move semantics. After construction, other.valid() == false.
    3) std::future is not CopyConstructible.
 
 .SH Parameters

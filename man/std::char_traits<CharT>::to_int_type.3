@@ -1,4 +1,4 @@
-.TH std::char_traits<CharT>::to_int_type 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::char_traits<CharT>::to_int_type 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::char_traits<CharT>::to_int_type \- std::char_traits<CharT>::to_int_type
 
@@ -22,7 +22,4 @@ std::char_traits<CharT>::to_int_type \- std::char_traits<CharT>::to_int_type
 
 .SH Notes
 
-   For every valid value of char_type, there must be a unique value of int_type
-   distinct from eof(). For example, a common implementation of
-   char_traits<char>::eof() is return -1, and a corresponding valid implementation of
-   char_traits<char>::to_int_type(c) is return (unsigned char)c.
+   For every valid value of char_type, there must be a unique value of int_type distinct from eof(). For example, a common implementation of char_traits<char>::eof() is return -1, and a corresponding valid implementation of char_traits<char>::to_int_type(c) is return (unsigned char)c.

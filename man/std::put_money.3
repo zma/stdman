@@ -1,4 +1,4 @@
-.TH std::put_money 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::put_money 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::put_money \- std::put_money
 
@@ -7,12 +7,9 @@ std::put_money \- std::put_money
    template< class MoneyT >                                            \fI(since C++11)\fP
    /*unspecified*/ put_money( const MoneyT& mon, bool intl = false );
 
-   When used in an expression out << put_money(mon, intl), converts the monetary value
-   mon to its character representation as specified by the std::money_put facet of the
-   locale currently imbued in out.
+   When used in an expression out << put_money(mon, intl), converts the monetary value mon to its character representation as specified by the std::money_put facet of the locale currently imbued in out.
 
-   The insertion operation in out << put_money(mon, intl) behaves as a
-   FormattedOutputFunction.
+   The insertion operation in out << put_money(mon, intl) behaves as a FormattedOutputFunction.
 
 .SH Parameters
 
@@ -21,9 +18,7 @@ std::put_money \- std::put_money
 
 .SH Return value
 
-   Returns an object of unspecified type such that if out is the name of an output
-   stream of type std::basic_ostream<CharT, Traits>, then the expression out <<
-   put_money(mon, intl) behaves as if the following code was executed:
+   Returns an object of unspecified type such that if out is the name of an output stream of type std::basic_ostream<CharT, Traits>, then the expression out << put_money(mon, intl) behaves as if the following code was executed:
 
    typedef std::ostreambuf_iterator<CharT, Traits> Iter;
    typedef std::money_put<CharT, Iter> MoneyPut;

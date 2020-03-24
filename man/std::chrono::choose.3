@@ -1,4 +1,4 @@
-.TH std::chrono::choose 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::choose 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::choose \- std::chrono::choose
 
@@ -11,13 +11,6 @@ std::chrono::choose \- std::chrono::choose
 
    };
 
-   The scoped enumeration choose can be passed to certain member functions of
-   std::chrono::time_zone and std::chrono::zoned_time to control how ambiguous or
-   nonexistent local times should be resolved. Passing choose::earliest causes the
-   earlier time point to be returned, while passing choose::latest causes the later
-   time point to be returned. (For nonexistent local times, these two time points are
-   identical.)
+   The scoped enumeration choose can be passed to certain member functions of std::chrono::time_zone and std::chrono::zoned_time to control how ambiguous or nonexistent local times should be resolved. Passing choose::earliest causes the earlier time point to be returned, while passing choose::latest causes the later time point to be returned. (For nonexistent local times, these two time points are identical.)
 
-   If a choose is not passed and an ambiguous or nonexistent local time is encountered,
-   a std::chrono::ambiguous_local_time or std::chrono::nonexistent_local_time exception
-   (as applicable) will be thrown.
+   If a choose is not passed and an ambiguous or nonexistent local time is encountered, a std::chrono::ambiguous_local_time or std::chrono::nonexistent_local_time exception (as applicable) will be thrown.

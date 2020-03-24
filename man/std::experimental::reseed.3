@@ -1,16 +1,13 @@
-.TH std::experimental::reseed 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::reseed 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::reseed \- std::experimental::reseed
 
 .SH Synopsis
    Defined in header <experimental/random>
-   void reseed();                                              \fB(1)\fP (library
-                                                                   fundamentals TS v2)
-   void reseed(std::default_random_engine::result_type value); \fB(2)\fP (library
-                                                                   fundamentals TS v2)
+   void reseed();                                              \fB(1)\fP (library fundamentals TS v2)
+   void reseed(std::default_random_engine::result_type value); \fB(2)\fP (library fundamentals TS v2)
 
-   Reseeds the per-thread random number engine and any std::uniform_int_distribution
-   instances used by randint.
+   Reseeds the per-thread random number engine and any std::uniform_int_distribution instances used by randint.
 
    1) Sets the per-thread engine to an unpredictable state.
    2) Seeds the per-thread engine g as if by g.seed(value).
@@ -21,8 +18,7 @@ std::experimental::reseed \- std::experimental::reseed
 
   Remarks
 
-   Subsequent calls to randint do not depend on values produced by the per-thread
-   engine prior to calling reseed.
+   Subsequent calls to randint do not depend on values produced by the per-thread engine prior to calling reseed.
 
 .SH Example
 

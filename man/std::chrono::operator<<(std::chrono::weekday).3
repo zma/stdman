@@ -1,19 +1,15 @@
-.TH std::chrono::operator<<(std::chrono::weekday) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator<<(std::chrono::weekday) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator<<(std::chrono::weekday) \- std::chrono::operator<<(std::chrono::weekday)
 
 .SH Synopsis
    template <class CharT, class Traits>
 
-   std::basic_ostream<CharT, Traits>&                                     \fI(since C++20)\fP
+   std::basic_ostream<CharT, Traits>&                                                  \fI(since C++20)\fP
 
-   operator<<(std::basic_ostream<CharT, Traits>& os, const
-   std::chrono::weekday& wd);
+   operator<<(std::basic_ostream<CharT, Traits>& os, const std::chrono::weekday& wd);
 
-   If !wd.ok(), equivalent to os << unsigned(wd) << " is not a valid weekday";.
-   Otherwise, forms a std::basic_string<CharT> s consisting of the abbreviated weekday
-   name for the weekday represented by wd, determined using the locale associated with
-   os, and inserts s into os.
+   If !wd.ok(), equivalent to os << unsigned(wd) << " is not a valid weekday";. Otherwise, forms a std::basic_string<CharT> s consisting of the abbreviated weekday name for the weekday represented by wd, determined using the locale associated with os, and inserts s into os.
 
 .SH Return value
 
@@ -21,8 +17,7 @@ std::chrono::operator<<(std::chrono::weekday) \- std::chrono::operator<<(std::ch
 
 .SH Notes
 
-   This operator<< is primarily intended for debugging use. For control over
-   formatting, use std::chrono::format.
+   This operator<< is primarily intended for debugging use. For control over formatting, use std::chrono::format.
 
 .SH See also
 

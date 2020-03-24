@@ -1,20 +1,17 @@
-.TH std::chrono::utc_clock::from_sys 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::utc_clock::from_sys 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::utc_clock::from_sys \- std::chrono::utc_clock::from_sys
 
 .SH Synopsis
    template <class Duration>
 
-   static std::chrono::utc_time<std::common_type_t<Duration,              \fI(since C++20)\fP
-   std::chrono::seconds>>
+   static std::chrono::utc_time<std::common_type_t<Duration, std::chrono::seconds>>  \fI(since C++20)\fP
 
    from_sys(const std::chrono::sys_time<Duration>& t);
 
    Converts a sys_time t to a utc_time u that represents the same point in time.
 
-   u.time_since_epoch() - t.time_since_epoch() is equal to the number of leap seconds
-   that was inserted between t and 1 January 1970. If t is the exact date of a leap
-   second insertion, that leap second is counted as inserted.
+   u.time_since_epoch() - t.time_since_epoch() is equal to the number of leap seconds that was inserted between t and 1 January 1970. If t is the exact date of a leap second insertion, that leap second is counted as inserted.
 
 .SH Return value
 

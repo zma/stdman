@@ -1,4 +1,4 @@
-.TH std::chrono::time_point 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::time_point 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::time_point \- std::chrono::time_point
 
@@ -11,9 +11,7 @@ std::chrono::time_point \- std::chrono::time_point
 
    > class time_point;
 
-   Class template std::chrono::time_point represents a point in time. It is implemented
-   as if it stores a value of type Duration indicating the time interval from the start
-   of the Clock's epoch.
+   Class template std::chrono::time_point represents a point in time. It is implemented as if it stores a value of type Duration indicating the time interval from the start of the Clock's epoch.
 
    Clock must meet the requirements for Clock
    or be std::chrono::local_t
@@ -23,8 +21,7 @@ std::chrono::time_point \- std::chrono::time_point
 
    Member type Definition
    clock       Clock, the clock on which this time point is measured
-   duration    Duration, a std::chrono::duration type used to measure the time since
-               epoch
+   duration    Duration, a std::chrono::duration type used to measure the time since epoch
    rep         Rep, an arithmetic type representing the number of ticks of the duration
    period      Period, a std::ratio type representing the tick period of the duration
 
@@ -50,28 +47,22 @@ std::chrono::time_point \- std::chrono::time_point
 
    std::common_type<std::chrono::time_point> specializes the std::common_type trait
                                              \fI(class template specialization)\fP
-   operator+                                 performs add and subtract operations
-   operator-                                 involving a time point
-                                             \fI(function template)\fP
+   operator+                                 performs add and subtract operations involving a time point
+   operator-                                 \fI(function template)\fP
    operator==
    operator!=
    operator<                                 compares two time points
    operator<=                                \fI(function template)\fP
    operator>
    operator>=
-                                             converts a time point to another time
-   time_point_cast                           point on the same clock, with a different
-                                             duration
+   time_point_cast                           converts a time point to another time point on the same clock, with a different duration
                                              \fI(function template)\fP
-   floor(std::chrono::time_point)            converts a time_point to another, rounding
-   \fI(C++17)\fP                                   down
-                                             \fI(function template)\fP
-   ceil(std::chrono::time_point)             converts a time_point to another, rounding
-   \fI(C++17)\fP                                   up
-                                             \fI(function template)\fP
-   round(std::chrono::time_point)            converts a time_point to another, rounding
-   \fI(C++17)\fP                                   to nearest, ties to even
-                                             \fI(function template)\fP
+   floor(std::chrono::time_point)            converts a time_point to another, rounding down
+   \fI(C++17)\fP                                   \fI(function template)\fP
+   ceil(std::chrono::time_point)             converts a time_point to another, rounding up
+   \fI(C++17)\fP                                   \fI(function template)\fP
+   round(std::chrono::time_point)            converts a time_point to another, rounding to nearest, ties to even
+   \fI(C++17)\fP                                   \fI(function template)\fP
 
 .SH Example
 

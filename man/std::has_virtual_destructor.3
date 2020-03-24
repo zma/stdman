@@ -1,4 +1,4 @@
-.TH std::has_virtual_destructor 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::has_virtual_destructor 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::has_virtual_destructor \- std::has_virtual_destructor
 
@@ -7,17 +7,14 @@ std::has_virtual_destructor \- std::has_virtual_destructor
    template< class T >              \fI(since C++11)\fP
    struct has_virtual_destructor;
 
-   If T is a type with a virtual destructor, provides the member constant value equal
-   true. For any other type, value is false.
+   If T is a type with a virtual destructor, provides the member constant value equal true. For any other type, value is false.
 
-   If T is a non-union class type, T shall be a complete type; otherwise, the behavior
-   is undefined.
+   If T is a non-union class type, T shall be a complete type; otherwise, the behavior is undefined.
 
   Helper variable template
 
-   template< class T >
-   inline constexpr bool has_virtual_destructor_v =                       \fI(since C++17)\fP
-   has_virtual_destructor<T>::value;
+   template< class T >                                                                 \fI(since C++17)\fP
+   inline constexpr bool has_virtual_destructor_v = has_virtual_destructor<T>::value;
 
 Inherited from std::integral_constant
 
@@ -41,8 +38,7 @@ Inherited from std::integral_constant
 
 .SH Notes
 
-   If a class has a public virtual destructor, it can be derived from, and the derived
-   object can be safely deleted through a pointer to the base object (GotW #18)
+   If a class has a public virtual destructor, it can be derived from, and the derived object can be safely deleted through a pointer to the base object (GotW #18)
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::terminate 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::terminate 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::terminate \- std::terminate
 
@@ -7,47 +7,29 @@ std::terminate \- std::terminate
    void terminate();                        \fI(until C++11)\fP
    [[noreturn]] void terminate() noexcept;  \fI(since C++11)\fP
 
-   std::terminate() is called by the C++ runtime when exception handling fails for any
-   of the following reasons:
+   std::terminate() is called by the C++ runtime when exception handling fails for any of the following reasons:
 
-   1) an exception is thrown and not caught (it is implementation-defined whether any
-   stack unwinding is done in this case)
-   2) a function directly invoked by the exception handling mechanism while handling an
-   exception that has not yet been caught exits via an exception (e.g. a destructor of
-   some local object, or a copy constructor constructing a catch-clause parameter)
-   3) the constructor or the destructor of a static or thread-local object throws an
-   exception
+   1) an exception is thrown and not caught (it is implementation-defined whether any stack unwinding is done in this case)
+   2) a function directly invoked by the exception handling mechanism while handling an exception that has not yet been caught exits via an exception (e.g. a destructor of some local object, or a copy constructor constructing a catch-clause parameter)
+   3) the constructor or the destructor of a static or thread-local object throws an exception
    4) a function registered with std::atexit or std::at_quick_exit throws an exception
-   5) a noexcept specification is violated (it is implementation-defined whether any
-   stack unwinding is done in this case)
+   5) a noexcept specification is violated (it is implementation-defined whether any stack unwinding is done in this case)
 
-   6) a dynamic exception specification is violated and the default
-   handler for std::unexpected is executed
-   7) a non-default handler for std::unexpected throws an exception that  \fI(until C++17)\fP
-   violates the previously violated dynamic exception specification, if
-   the specification does not include std::bad_exception
+   6) a dynamic exception specification is violated and the default handler for std::unexpected is executed                                                                                         \fI(until C++17)\fP
+   7) a non-default handler for std::unexpected throws an exception that violates the previously violated dynamic exception specification, if the specification does not include std::bad_exception
 
-   8) std::nested_exception::rethrow_nested is called for an object that isn't holding
-   a captured exception
+   8) std::nested_exception::rethrow_nested is called for an object that isn't holding a captured exception
    9) an exception is thrown from the initial function of std::thread
    10) a joinable std::thread is destroyed or assigned to
 
-   11) a function invoked by a parallel algorithm exits via an uncaught   \fI(since C++17)\fP
-   exception and the execution policy specifies termination.
+   11) a function invoked by a parallel algorithm exits via an uncaught exception and the execution policy specifies termination. \fI(since C++17)\fP
 
    std::terminate() may also be called directly from the program.
 
-   In any case, std::terminate calls the currently installed std::terminate_handler.
-   The default std::terminate_handler calls std::abort.
+   In any case, std::terminate calls the currently installed std::terminate_handler. The default std::terminate_handler calls std::abort.
 
-   If a destructor reset the terminate handler during stack unwinding and
-   the unwinding later led to terminate being called, the handler that
-   was installed at the end of the throw expression is the one that will  \fI(until C++11)\fP
-   be called. (note: it was ambiguous whether re-throwing applied the new
-   handlers)
-   If a destructor reset the terminate handler during stack unwinding, it
-   is unspecified which handler is called if the unwinding later led to   \fI(since C++11)\fP
-   terminate being called.
+   If a destructor reset the terminate handler during stack unwinding and the unwinding later led to terminate being called, the handler that was installed at the end of the throw expression is the one that will be called. (note: it was ambiguous whether re-throwing applied the new handlers) \fI(until C++11)\fP
+   If a destructor reset the terminate handler during stack unwinding, it is unspecified which handler is called if the unwinding later led to terminate being called.                                                                                                                               \fI(since C++11)\fP
 
 .SH Parameters
 
@@ -59,13 +41,10 @@ std::terminate \- std::terminate
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to              Behavior as published              Correct behavior
-                       effect of calling set_terminate during stack
-   LWG 2111 C++11      unwinding differs from C++98 and breaks some    made unspecified
-                       ABIs
+      DR    Applied to                                     Behavior as published                                      Correct behavior
+   LWG 2111 C++11      effect of calling set_terminate during stack unwinding differs from C++98 and breaks some ABIs made unspecified
 
 .SH See also
 

@@ -1,18 +1,16 @@
-.TH std::hash(std::shared_ptr) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::hash(std::shared_ptr) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::hash(std::shared_ptr) \- std::hash(std::shared_ptr)
 
 .SH Synopsis
    template<class T> struct hash<shared_ptr<T>>;  \fI(since C++11)\fP
 
-   The template specialization of std::hash for std::shared_ptr<T> allows users to
-   obtain hashes of objects of type std::shared_ptr<T>.
+   The template specialization of std::hash for std::shared_ptr<T> allows users to obtain hashes of objects of type std::shared_ptr<T>.
 
    For a given std::shared_ptr<T> p, this specialization ensures that
 
-   std::hash<std::shared_ptr<T>>()(p) == std::hash<T*>()(p.get()).        \fI(until C++17)\fP
-   std::hash<std::shared_ptr<T>>()(p) == std::hash<typename               \fI(since C++17)\fP
-   std::shared_ptr<T>::element_type*>()(p.get()).
+   std::hash<std::shared_ptr<T>>()(p) == std::hash<T*>()(p.get()).                                         \fI(until C++17)\fP
+   std::hash<std::shared_ptr<T>>()(p) == std::hash<typename std::shared_ptr<T>::element_type*>()(p.get()). \fI(since C++17)\fP
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::shared_lock<Mutex>::release 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_lock<Mutex>::release 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_lock<Mutex>::release \- std::shared_lock<Mutex>::release
 
@@ -7,8 +7,7 @@ std::shared_lock<Mutex>::release \- std::shared_lock<Mutex>::release
 
    Breaks the association of the associated mutex, if any, and *this.
 
-   No locks are unlocked. If the *this held ownership of the associated mutex prior to
-   the call, the caller is now responsible to unlock the mutex.
+   No locks are unlocked. If the *this held ownership of the associated mutex prior to the call, the caller is now responsible to unlock the mutex.
 
 .SH Parameters
 

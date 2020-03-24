@@ -1,4 +1,4 @@
-.TH std::function<R(Args...)>::operator() 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::function<R(Args...)>::operator() 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::function<R(Args...)>::operator() \- std::function<R(Args...)>::operator()
 
@@ -7,8 +7,7 @@ std::function<R(Args...)>::operator() \- std::function<R(Args...)>::operator()
 
    Invokes the stored callable function target with the parameters args.
 
-   Effectively does INVOKE<R>(f, std::forward<Args>(args)...), where f is the target
-   object of *this and INVOKE is the operation described in Callable.
+   Effectively does INVOKE<R>(f, std::forward<Args>(args)...), where f is the target object of *this and INVOKE is the operation described in Callable.
 
 .SH Parameters
 
@@ -16,18 +15,15 @@ std::function<R(Args...)>::operator() \- std::function<R(Args...)>::operator()
 
 .SH Return value
 
-   None if R is void. Otherwise the return value of the invocation of the stored
-   callable object.
+   None if R is void. Otherwise the return value of the invocation of the stored callable object.
 
 .SH Exceptions
 
-     * std::bad_function_call if *this does not store a callable function target, i.e.
-       !*this == true.
+     * std::bad_function_call if *this does not store a callable function target, i.e. !*this == true.
 
 .SH Example
 
-   The following example shows how std::function can passed to other functions by
-   value. Also, it shows how std::function can store lambdas.
+   The following example shows how std::function can passed to other functions by value. Also, it shows how std::function can store lambdas.
 
    
 // Run this code

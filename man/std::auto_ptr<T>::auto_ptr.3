@@ -1,4 +1,4 @@
-.TH std::auto_ptr<T>::auto_ptr 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::auto_ptr<T>::auto_ptr 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::auto_ptr<T>::auto_ptr \- std::auto_ptr<T>::auto_ptr
 
@@ -15,16 +15,10 @@ std::auto_ptr<T>::auto_ptr \- std::auto_ptr<T>::auto_ptr
    Constructs the auto_ptr from a pointer that refers to the object to manage.
 
    1) Constructs the auto_ptr with pointer p.
-   2) Constructs the auto_ptr with the pointer held in r. r.release() is called to
-   acquire the ownership of the object.
+   2) Constructs the auto_ptr with the pointer held in r. r.release() is called to acquire the ownership of the object.
    3) Same as \fB(2)\fP. Y* must be implicitly convertible to T*.
-   4) Constructs the auto_ptr with the pointer held in the auto_ptr instance referred
-   to by m. p.release() is called for the auto_ptr p that m holds to acquire the
-   ownership of the object.
-   auto_ptr_ref is an implementation-defined type that holds a reference to auto_ptr.
-   std::auto_ptr is implicitly convertible to and assignable from this type. The
-   implementation is allowed to provide the template with a different name or implement
-   equivalent functionality in other ways.
+   4) Constructs the auto_ptr with the pointer held in the auto_ptr instance referred to by m. p.release() is called for the auto_ptr p that m holds to acquire the ownership of the object.
+   auto_ptr_ref is an implementation-defined type that holds a reference to auto_ptr. std::auto_ptr is implicitly convertible to and assignable from this type. The implementation is allowed to provide the template with a different name or implement equivalent functionality in other ways.
 
 .SH Parameters
 
@@ -34,10 +28,4 @@ std::auto_ptr<T>::auto_ptr \- std::auto_ptr<T>::auto_ptr
 
 .SH Notes
 
-   The constructor and the copy assignment operator from auto_ptr_ref is provided to
-   allow copy-constructing and assigning std::auto_ptr from nameless temporaries. Since
-   its copy constructor and copy assignment operator take the argument as non-const
-   reference, they cannot bind rvalue arguments directly. However, a user-defined
-   conversion can be executed (which releases the original auto_ptr), followed by a
-   call to the constructor or copy-assignment operator that take auto_ptr_ref by value.
-   This is an early implementation of move semantics.
+   The constructor and the copy assignment operator from auto_ptr_ref is provided to allow copy-constructing and assigning std::auto_ptr from nameless temporaries. Since its copy constructor and copy assignment operator take the argument as non-const reference, they cannot bind rvalue arguments directly. However, a user-defined conversion can be executed (which releases the original auto_ptr), followed by a call to the constructor or copy-assignment operator that take auto_ptr_ref by value. This is an early implementation of move semantics.

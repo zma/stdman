@@ -1,4 +1,4 @@
-.TH std::tuple<Types...>::tuple 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tuple<Types...>::tuple 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tuple<Types...>::tuple \- std::tuple<Types...>::tuple
 
@@ -72,78 +72,45 @@ std::tuple<Types...>::tuple \- std::tuple<Types...>::tuple
    Constructs a new tuple.
 
    1) Default constructor. Value-initializes all elements.
-   This overload only participates in overload resolution if
-   std::is_default_constructible<Ti>::value is true for all i
-   The constructor is explicit if and only if Ti is not implicitly
-   default-constructible for at least one i.
-   2) Direct constructor. Initializes each element of the tuple with the corresponding
-   parameter.
-   This overload only participates in overload resolution if sizeof...(Types) >= 1 and
-   std::is_copy_constructible<Ti>::value is true for all i.
-   This constructor is explicit if and only if std::is_convertible<const Ti&,
-   Ti>::value is false for at least one i.
-   3) Converting constructor. Initializes each element of the tuple with the
-   corresponding value in std::forward<UTypes>(args).
-   This overload only participates in overload resolution if sizeof...(Types) ==
-   sizeof...(UTypes) and sizeof...(Types) >= 1 and std::is_constructible<Ti,
-   Ui&&>::value is true for all i.
-   The constructor is explicit if and only if std::is_convertible<Ui&&, Ti>::value is
-   false for at least one i.
-   4) Converting copy-constructor. For all i in sizeof...(UTypes), initializes ith
-   element of the tuple with std::get<i>(other).
+   This overload only participates in overload resolution if std::is_default_constructible<Ti>::value is true for all i
+   The constructor is explicit if and only if Ti is not implicitly default-constructible for at least one i.
+   2) Direct constructor. Initializes each element of the tuple with the corresponding parameter.
+   This overload only participates in overload resolution if sizeof...(Types) >= 1 and std::is_copy_constructible<Ti>::value is true for all i.
+   This constructor is explicit if and only if std::is_convertible<const Ti&, Ti>::value is false for at least one i.
+   3) Converting constructor. Initializes each element of the tuple with the corresponding value in std::forward<UTypes>(args).
+   This overload only participates in overload resolution if sizeof...(Types) == sizeof...(UTypes) and sizeof...(Types) >= 1 and std::is_constructible<Ti, Ui&&>::value is true for all i.
+   The constructor is explicit if and only if std::is_convertible<Ui&&, Ti>::value is false for at least one i.
+   4) Converting copy-constructor. For all i in sizeof...(UTypes), initializes ith element of the tuple with std::get<i>(other).
    This overload only participates in overload resolution if
 
    sizeof...(Types) == sizeof...(UTypes) and
    std::is_constructible_v<Ti, const Ui&> is true for all i and
    sizeof...(Types) != 1 or
 
-   (when Types... expands to T and UTypes... expands to U) std::is_convertible_v<const
-   tuple<U>&, T>, std::is_constructible_v<T, const tuple<U>&>, and std::is_same_v<T, U>
-   are all false .
-   The constructor is explicit if and only if std::is_convertible<const Ui&, Ti>::value
-   is false for at least one i.
-   5) Converting move-constructor. For all i in sizeof...(UTypes), initializes ith
-   element of the tuple with std::forward<Ui>(std::get<i>(other)).
+   (when Types... expands to T and UTypes... expands to U) std::is_convertible_v<const tuple<U>&, T>, std::is_constructible_v<T, const tuple<U>&>, and std::is_same_v<T, U> are all false .
+   The constructor is explicit if and only if std::is_convertible<const Ui&, Ti>::value is false for at least one i.
+   5) Converting move-constructor. For all i in sizeof...(UTypes), initializes ith element of the tuple with std::forward<Ui>(std::get<i>(other)).
    This overload only participates in overload resolution if
 
    sizeof...(Types) == sizeof...(UTypes) and
    std::is_constructible_v<Ti, Ui&&> is true for all i and
    sizeof...(Types) != 1 or
 
-   (when Types... expands to T and UTypes... expands to U)
-   std::is_convertible_v<tuple<U>, T>, std::is_constructible_v<T, tuple<U>>, and
-   std::is_same_v<T, U> are all false .
-   The constructor is explicit if and only if std::is_convertible<Ui&&, Ti>::value is
-   false for at least one i.
-   6) Pair copy constructor. Constructs a 2-element tuple with the first element
-   constructed from p.first and the second element from p.second
-   This overload only participates in overload resolution if sizeof...(Types) == 2 and
-   std::is_constructible<T0,const U1&>::value and std::is_constructible<T1, const
-   U2&>::value are both true
-   The constructor is explicit if and only if std::is_convertible<const U1&, T0>::value
-   or std::is_convertible<const U2&, T1>::value is false.
-   7) Pair move constructor. Constructs a 2-element tuple with the first element
-   constructed from std::forward<U1>(p.first) and the second element from
-   std::forward<U2>(p.second)
-   This overload only participates in overload resolution if sizeof...(Types) == 2 and
-   std::is_constructible<T0, U1&&>::value and std::is_constructible<T1, U2&&>::value
-   are both true
-   The constructor is explicit if and only if std::is_convertible<U1&&, T0>::value or
-   std::convertible<U2&&, T1>::value is false.
-   8) Implicitly-defined copy constructor. Initializes each element of the tuple with
-   the corresponding element of other.
-   This constructor is constexpr if every operation it performs is constexpr. For the
-   empty tuple std::tuple<>, it is constexpr.
+   (when Types... expands to T and UTypes... expands to U) std::is_convertible_v<tuple<U>, T>, std::is_constructible_v<T, tuple<U>>, and std::is_same_v<T, U> are all false .
+   The constructor is explicit if and only if std::is_convertible<Ui&&, Ti>::value is false for at least one i.
+   6) Pair copy constructor. Constructs a 2-element tuple with the first element constructed from p.first and the second element from p.second
+   This overload only participates in overload resolution if sizeof...(Types) == 2 and std::is_constructible<T0,const U1&>::value and std::is_constructible<T1, const U2&>::value are both true
+   The constructor is explicit if and only if std::is_convertible<const U1&, T0>::value or std::is_convertible<const U2&, T1>::value is false.
+   7) Pair move constructor. Constructs a 2-element tuple with the first element constructed from std::forward<U1>(p.first) and the second element from std::forward<U2>(p.second)
+   This overload only participates in overload resolution if sizeof...(Types) == 2 and std::is_constructible<T0, U1&&>::value and std::is_constructible<T1, U2&&>::value are both true
+   The constructor is explicit if and only if std::is_convertible<U1&&, T0>::value or std::convertible<U2&&, T1>::value is false.
+   8) Implicitly-defined copy constructor. Initializes each element of the tuple with the corresponding element of other.
+   This constructor is constexpr if every operation it performs is constexpr. For the empty tuple std::tuple<>, it is constexpr.
    Requires that std::is_copy_constructible<Ti>::value is true for all i.
-   9) Implicitly-defined move constructor. Initializes each ith element of the tuple
-   with std::forward<Ui>(std::get<i>(other)).
-   This constructor is constexpr if every operation it performs is constexpr. For the
-   empty tuple std::tuple<>, it is constexpr.
+   9) Implicitly-defined move constructor. Initializes each ith element of the tuple with std::forward<Ui>(std::get<i>(other)).
+   This constructor is constexpr if every operation it performs is constexpr. For the empty tuple std::tuple<>, it is constexpr.
    Requires that std::is_move_constructible<Ti>::value is true for all i.
-   10-18) Identical to (1-9) except each element is created by uses-allocator
-   construction, that is, the Allocator object a is passed as an additional argument to
-   the constructor of each element for which std::uses_allocator<Ui, Alloc>::value is
-   true.
+   10-18) Identical to (1-9) except each element is created by uses-allocator construction, that is, the Allocator object a is passed as an additional argument to the constructor of each element for which std::uses_allocator<Ui, Alloc>::value is true.
 
 .SH Parameters
 
@@ -154,8 +121,7 @@ std::tuple<Types...>::tuple \- std::tuple<Types...>::tuple
 
 .SH Notes
 
-   Conditionally-explicit constructors make it possible to construct a tuple in
-   copy-initialization context using list-initialization syntax:
+   Conditionally-explicit constructors make it possible to construct a tuple in copy-initialization context using list-initialization syntax:
 
  std::tuple<int, int> foo_tuple()
  {
@@ -163,8 +129,7 @@ std::tuple<Types...>::tuple \- std::tuple<Types...>::tuple
    return std::make_tuple(1, -1); // Always works
  }
 
-   Note that if some element of the list is not implicitly convertible to the
-   corresponding element of the target tuple, the constructors become explicit:
+   Note that if some element of the list is not implicitly convertible to the corresponding element of the target tuple, the constructors become explicit:
 
  using namespace std::chrono;
  void launch_rocket_at(std::tuple<hours, minutes, seconds>);
@@ -175,13 +140,11 @@ std::tuple<Types...>::tuple \- std::tuple<Types...>::tuple
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to        Behavior as published              Correct behavior
-   N4387    C++11      some constructors were explicit,    most constructors made
-                       preventing useful behavior          conditionally-explicit
-   LWG 2510 C++11      default constructor was implicit    made conditionally-explicit
+      DR    Applied to                    Behavior as published                                  Correct behavior
+   N4387    C++11      some constructors were explicit, preventing useful behavior most constructors made conditionally-explicit
+   LWG 2510 C++11      default constructor was implicit                            made conditionally-explicit
 
 .SH Example
 
@@ -251,8 +214,7 @@ std::tuple<Types...>::tuple \- std::tuple<Types...>::tuple
 
    make_tuple       creates a tuple object of the type defined by the argument types
                     \fI(function template)\fP
-                    creates a tuple of lvalue references or unpacks a tuple into
-   tie              individual objects
+   tie              creates a tuple of lvalue references or unpacks a tuple into individual objects
                     \fI(function template)\fP
    forward_as_tuple creates a tuple of rvalue references
                     \fI(function template)\fP

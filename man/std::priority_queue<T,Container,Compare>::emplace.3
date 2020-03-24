@@ -1,4 +1,4 @@
-.TH std::priority_queue<T,Container,Compare>::emplace 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::priority_queue<T,Container,Compare>::emplace 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::priority_queue<T,Container,Compare>::emplace \- std::priority_queue<T,Container,Compare>::emplace
 
@@ -6,12 +6,9 @@ std::priority_queue<T,Container,Compare>::emplace \- std::priority_queue<T,Conta
    template< class... Args >        \fI(since C++11)\fP
    void emplace( Args&&... args );
 
-   Pushes a new element to the priority queue. The element is constructed in-place,
-   i.e. no copy or move operations are performed. The constructor of the element is
-   called with exactly the same arguments as supplied to the function.
+   Pushes a new element to the priority queue. The element is constructed in-place, i.e. no copy or move operations are performed. The constructor of the element is called with exactly the same arguments as supplied to the function.
 
-   Effectively calls c.emplace_back(std::forward<Args>(args)...);
-   std::push_heap(c.begin(), c.end(), comp);
+   Effectively calls c.emplace_back(std::forward<Args>(args)...); std::push_heap(c.begin(), c.end(), comp);
 
 .SH Parameters
 

@@ -1,4 +1,4 @@
-.TH std::span<T,Extent>::subspan 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::span<T,Extent>::subspan 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::span<T,Extent>::subspan \- std::span<T,Extent>::subspan
 
@@ -14,9 +14,7 @@ std::span<T,Extent>::subspan \- std::span<T,Extent>::subspan
 
    std::size_t Count = std::dynamic_extent ) const;
 
-   Obtains a span that is a view over the Count elements of this span starting at
-   offset Offset. If Count is std::dynamic_extent, the number of elements in the
-   subspan is size() - offset (i.e., it ends at the end of *this.).
+   Obtains a span that is a view over the Count elements of this span starting at offset Offset. If Count is std::dynamic_extent, the number of elements in the subspan is size() - offset (i.e., it ends at the end of *this.).
 
    The behavior is undefined if either Offset or Count is out of range. This happens if
 
@@ -31,8 +29,7 @@ std::span<T,Extent>::subspan \- std::span<T,Extent>::subspan
 
 .SH Return value
 
-   The requested subspan r, such that r.data() == this->data() + Offset. If Count is
-   std::dynamic_extent, r.size() == this->size() - Offset; otherwise r.size() == Count.
+   The requested subspan r, such that r.data() == this->data() + Offset. If Count is std::dynamic_extent, r.size() == this->size() - Offset; otherwise r.size() == Count.
 
 .SH See also
 

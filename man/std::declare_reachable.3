@@ -1,4 +1,4 @@
-.TH std::declare_reachable 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::declare_reachable 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::declare_reachable \- std::declare_reachable
 
@@ -6,12 +6,7 @@ std::declare_reachable \- std::declare_reachable
    Defined in header <memory>
    void declare_reachable( void* p );  \fI(since C++11)\fP
 
-   Declares the object referenced by the pointer p reachable. Reachable objects will
-   not be deleted by the garbage collector or considered to be a leak by a leak
-   detector even if all pointers to it are destroyed. An object may be declared
-   reachable multiple times, in which case multiple calls to std::undeclare_reachable
-   would be needed to remove this property. For example, a XOR linked list needs to
-   declare its nodes reachable if the implementation has garbage collection enabled.
+   Declares the object referenced by the pointer p reachable. Reachable objects will not be deleted by the garbage collector or considered to be a leak by a leak detector even if all pointers to it are destroyed. An object may be declared reachable multiple times, in which case multiple calls to std::undeclare_reachable would be needed to remove this property. For example, a XOR linked list needs to declare its nodes reachable if the implementation has garbage collection enabled.
 
 .SH Parameters
 
@@ -23,8 +18,7 @@ std::declare_reachable \- std::declare_reachable
 
 .SH Exceptions
 
-   May throw std::bad_alloc if the system cannot allocate memory required to track
-   reachable objects.
+   May throw std::bad_alloc if the system cannot allocate memory required to track reachable objects.
 
 .SH Example
 

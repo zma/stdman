@@ -1,4 +1,4 @@
-.TH std::weak_equal 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::weak_equal 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::weak_equal \- std::weak_equal
 
@@ -7,20 +7,16 @@ std::weak_equal \- std::weak_equal
    template< class T >                                               \fI(since C++20)\fP
    constexpr std::weak_equality weak_equal(const T& a, const T& b);
 
-   Compares two values using 3-way comparison and produces a result of type
-   std::weak_equality
+   Compares two values using 3-way comparison and produces a result of type std::weak_equality
 
    Specifically,
 
-     * If the expression a <=> b is well-formed and its result is convertible to
-       std::weak_equality, returns that result.
-     * Otherwise, if the expression a <=> b is well-formed, but its result is not
-       convertible to std::weak_equality, then the function is defined as deleted.
-     * Otherwise, if the expression a <=> b is ill-formed, but the expression a == b is
-       well-formed and convertible to bool,
+     * If the expression a <=> b is well-formed and its result is convertible to std::weak_equality, returns that result.
+     * Otherwise, if the expression a <=> b is well-formed, but its result is not convertible to std::weak_equality, then the function is defined as deleted.
+     * Otherwise, if the expression a <=> b is ill-formed, but the expression a == b is well-formed and convertible to bool,
 
-     * if a == b is true, returns std::weak_equality::equivalent
-     * otherwise, returns std::weak_equality::nonequivalent
+              * if a == b is true, returns std::weak_equality::equivalent
+              * otherwise, returns std::weak_equality::nonequivalent
 
      * Otherwise, the function is defined as deleted.
 
@@ -41,18 +37,13 @@ std::weak_equal \- std::weak_equal
 
 .SH See also
 
-   weak_equality the result type of 3-way comparison that supports only
-   (C++20)       equality/inequality and is not substitutable
-                 \fI(class)\fP
-   strong_equal  performs 3-way comparison and produces a result of type
-   (C++20)       std::strong_equality
-                 \fI(function template)\fP
-   strong_order  performs 3-way comparison and produces a result of type
-   (C++20)       std::strong_ordering
-                 \fI(function template)\fP
-   partial_order performs 3-way comparison and produces a result of type
-   (C++20)       std::partial_ordering
-                 \fI(function template)\fP
-   weak_order    performs 3-way comparison and produces a result of type
-   (C++20)       std::weak_ordering
-                 \fI(function template)\fP
+   weak_equality the result type of 3-way comparison that supports only equality/inequality and is not substitutable
+   (C++20)       \fI(class)\fP
+   strong_equal  performs 3-way comparison and produces a result of type std::strong_equality
+   (C++20)       \fI(function template)\fP
+   strong_order  performs 3-way comparison and produces a result of type std::strong_ordering
+   (C++20)       \fI(function template)\fP
+   partial_order performs 3-way comparison and produces a result of type std::partial_ordering
+   (C++20)       \fI(function template)\fP
+   weak_order    performs 3-way comparison and produces a result of type std::weak_ordering
+   (C++20)       \fI(function template)\fP

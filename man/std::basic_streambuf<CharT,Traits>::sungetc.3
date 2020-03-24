@@ -1,18 +1,15 @@
-.TH std::basic_streambuf<CharT,Traits>::sungetc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_streambuf<CharT,Traits>::sungetc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_streambuf<CharT,Traits>::sungetc \- std::basic_streambuf<CharT,Traits>::sungetc
 
 .SH Synopsis
    int_type sungetc();
 
-   If a putback position is available in the get area (gptr() > eback()), then
-   decrements the next pointer (gptr()) and returns the character it now points to.
+   If a putback position is available in the get area (gptr() > eback()), then decrements the next pointer (gptr()) and returns the character it now points to.
 
-   If a putback position is not available, then calls pbackfail() to back up the input
-   sequence if possible.
+   If a putback position is not available, then calls pbackfail() to back up the input sequence if possible.
 
-   The I/O stream function basic_istream::unget is implemented in terms of this
-   function.
+   The I/O stream function basic_istream::unget is implemented in terms of this function.
 
 .SH Parameters
 
@@ -20,12 +17,9 @@ std::basic_streambuf<CharT,Traits>::sungetc \- std::basic_streambuf<CharT,Traits
 
 .SH Return value
 
-   If putback position was available, returns the character that the next pointer is
-   now pointing at, converted to int_type with Traits::to_int_type(*gptr()). The next
-   single-character input from this streambuf will return this character.
+   If putback position was available, returns the character that the next pointer is now pointing at, converted to int_type with Traits::to_int_type(*gptr()). The next single-character input from this streambuf will return this character.
 
-   If putback position was not available, returns what pbackfail() returns, which is
-   Traits::eof() on failure.
+   If putback position was not available, returns what pbackfail() returns, which is Traits::eof() on failure.
 
 .SH Example
 

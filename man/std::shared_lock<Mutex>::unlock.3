@@ -1,15 +1,13 @@
-.TH std::shared_lock<Mutex>::unlock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_lock<Mutex>::unlock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_lock<Mutex>::unlock \- std::shared_lock<Mutex>::unlock
 
 .SH Synopsis
    void unlock();  \fI(since C++14)\fP
 
-   Unlocks the associated mutex from shared mode. Effectively calls
-   mutex()->unlock_shared()
+   Unlocks the associated mutex from shared mode. Effectively calls mutex()->unlock_shared()
 
-   std::system_error is thrown if there is no associated mutex or if the mutex is not
-   locked.
+   std::system_error is thrown if there is no associated mutex or if the mutex is not locked.
 
 .SH Parameters
 
@@ -23,8 +21,7 @@ std::shared_lock<Mutex>::unlock \- std::shared_lock<Mutex>::unlock
 
      * Any exceptions thrown by mutex()->unlock_shared()
 
-     * If there is no associated mutex, std::system_error with an error code of
-       std::errc::operation_not_permitted
+     * If there is no associated mutex, std::system_error with an error code of std::errc::operation_not_permitted
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::mbtowc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::mbtowc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::mbtowc \- std::mbtowc
 
@@ -6,11 +6,9 @@ std::mbtowc \- std::mbtowc
    Defined in header <cstdlib>
    int mbtowc( wchar_t* pwc, const char* s, std::size_t n );
 
-   Converts a multibyte character whose first byte is pointed to by s to a wide
-   character, written to *pwc if pwc is not null.
+   Converts a multibyte character whose first byte is pointed to by s to a wide character, written to *pwc if pwc is not null.
 
-   If s is a null pointer, resets the global conversion state and determines whether
-   shift sequences are used.
+   If s is a null pointer, resets the global conversion state and determines whether shift sequences are used.
 
 .SH Parameters
 
@@ -20,22 +18,13 @@ std::mbtowc \- std::mbtowc
 
 .SH Return value
 
-   If s is not a null pointer, returns the number of bytes that are contained in the
-   multibyte character or -1 if the first bytes pointed to by s do not form a valid
-   multibyte character or 0 if s is pointing at the null charcter '\\0'.
+   If s is not a null pointer, returns the number of bytes that are contained in the multibyte character or -1 if the first bytes pointed to by s do not form a valid multibyte character or 0 if s is pointing at the null charcter '\\0'.
 
-   If s is a null pointer, resets its internal conversion state to represent the
-   initial shift state and returns 0 if the current multibyte encoding is not
-   state-dependent (does not use shift sequences) or a non-zero value if the current
-   multibyte encoding is state-dependent (uses shift sequences).
+   If s is a null pointer, resets its internal conversion state to represent the initial shift state and returns 0 if the current multibyte encoding is not state-dependent (does not use shift sequences) or a non-zero value if the current multibyte encoding is state-dependent (uses shift sequences).
 
 .SH Notes
 
-   Each call to mbtowc updates the internal global conversion state (a static object of
-   type std::mbstate_t, only known to this function). If the multibyte encoding uses
-   shift states, care must be taken to avoid backtracking or multiple scans. In any
-   case, multiple threads should not call mbtowc without synchronization: std::mbrtowc
-   may be used instead.
+   Each call to mbtowc updates the internal global conversion state (a static object of type std::mbstate_t, only known to this function). If the multibyte encoding uses shift states, care must be taken to avoid backtracking or multiple scans. In any case, multiple threads should not call mbtowc without synchronization: std::mbrtowc may be used instead.
 
 .SH Example
 

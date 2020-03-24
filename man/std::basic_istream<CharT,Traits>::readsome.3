@@ -1,23 +1,19 @@
-.TH std::basic_istream<CharT,Traits>::readsome 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_istream<CharT,Traits>::readsome 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_istream<CharT,Traits>::readsome \- std::basic_istream<CharT,Traits>::readsome
 
 .SH Synopsis
    std::streamsize readsome( char_type* s, std::streamsize count );
 
-   Extracts up to count immediately available characters from the input stream. The
-   extracted characters are stored into the character array pointed to by s.
+   Extracts up to count immediately available characters from the input stream. The extracted characters are stored into the character array pointed to by s.
 
-   Behaves as UnformattedInputFunction. After constructing and checking the sentry
-   object,
+   Behaves as UnformattedInputFunction. After constructing and checking the sentry object,
 
      * If rdbuf()->in_avail() == -1, calls setstate(eofbit) and extracts no characters.
 
      * If rdbuf()->in_avail() == 0, extracts no characters.
 
-     * If rdbuf()->in_avail() > 0, extracts std::min(rdbuf()->in_avail(), count)
-       characters and stores them into successive locations of the characater array
-       whose first element is pointed to by s.
+     * If rdbuf()->in_avail() > 0, extracts std::min(rdbuf()->in_avail(), count) characters and stores them into successive locations of the characater array whose first element is pointed to by s.
 
 .SH Parameters
 
@@ -30,22 +26,13 @@ std::basic_istream<CharT,Traits>::readsome \- std::basic_istream<CharT,Traits>::
 
 .SH Exceptions
 
-   failure if an error occurred (the error state flag is not goodbit) and exceptions()
-   is set to throw for that state.
+   failure if an error occurred (the error state flag is not goodbit) and exceptions() is set to throw for that state.
 
-   If an internal operation throws an exception, it is caught and badbit is set. If
-   exceptions() is set for badbit, the exception is rethrown.
+   If an internal operation throws an exception, it is caught and badbit is set. If exceptions() is set for badbit, the exception is rethrown.
 
 .SH Notes
 
-   The behavior of this function is highly implementation-specific. For example, when
-   used with std::ifstream, some library implementations fill the underlying filebuf
-   with data as soon as the file is opened (and readsome() on such implementations
-   reads data, potentially, but not necessarily, the entire file), while other
-   implementations only read from file when an actual input operation is requested (and
-   readsome() issued after file opening never extracts any characters). Likewise, a
-   call to std::cin.readsome() may return all pending unprocessed console input, or may
-   always return zero and extract no characters.
+   The behavior of this function is highly implementation-specific. For example, when used with std::ifstream, some library implementations fill the underlying filebuf with data as soon as the file is opened (and readsome() on such implementations reads data, potentially, but not necessarily, the entire file), while other implementations only read from file when an actual input operation is requested (and readsome() issued after file opening never extracts any characters). Likewise, a call to std::cin.readsome() may return all pending unprocessed console input, or may always return zero and extract no characters.
 
 .SH Example
 

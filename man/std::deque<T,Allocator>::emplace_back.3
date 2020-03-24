@@ -1,4 +1,4 @@
-.TH std::deque<T,Allocator>::emplace_back 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::deque<T,Allocator>::emplace_back 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::deque<T,Allocator>::emplace_back \- std::deque<T,Allocator>::emplace_back
 
@@ -8,13 +8,9 @@ std::deque<T,Allocator>::emplace_back \- std::deque<T,Allocator>::emplace_back
    template< class... Args >                  \fI(since C++17)\fP
    reference emplace_back( Args&&... args );
 
-   Appends a new element to the end of the container. The element is constructed
-   through std::allocator_traits::construct, which typically uses placement-new to
-   construct the element in-place at the location provided by the container. The
-   arguments args... are forwarded to the constructor as std::forward<Args>(args)....
+   Appends a new element to the end of the container. The element is constructed through std::allocator_traits::construct, which typically uses placement-new to construct the element in-place at the location provided by the container. The arguments args... are forwarded to the constructor as std::forward<Args>(args)....
 
-   All iterators, including the past-the-end iterator, are invalidated. No references
-   are invalidated.
+   All iterators, including the past-the-end iterator, are invalidated. No references are invalidated.
 
 .SH Parameters
 
@@ -38,10 +34,7 @@ std::deque<T,Allocator>::emplace_back \- std::deque<T,Allocator>::emplace_back
 
 .SH Example
 
-   The following code uses emplace_back to append an object of type President to a
-   std::deque. It demonstrates how emplace_back forwards parameters to the President
-   constructor and shows how using emplace_back avoids the extra copy or move operation
-   required when using push_back.
+   The following code uses emplace_back to append an object of type President to a std::deque. It demonstrates how emplace_back forwards parameters to the President constructor and shows how using emplace_back avoids the extra copy or move operation required when using push_back.
 
    
 // Run this code

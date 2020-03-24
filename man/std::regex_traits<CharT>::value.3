@@ -1,14 +1,11 @@
-.TH std::regex_traits<CharT>::value 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::regex_traits<CharT>::value 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::regex_traits<CharT>::value \- std::regex_traits<CharT>::value
 
 .SH Synopsis
    int value( CharT ch, int radix ) const;  \fI(since C++11)\fP
 
-   Determines the value represented by the digit ch in the numeric base radix, given
-   the currently imbued locale. This function is called by std::regex when processing
-   Quantifiers such as {1} or {2,5}, Backreferences such as \\1, and hexadecimal and
-   Unicode character escapes.
+   Determines the value represented by the digit ch in the numeric base radix, given the currently imbued locale. This function is called by std::regex when processing Quantifiers such as {1} or {2,5}, Backreferences such as \\1, and hexadecimal and Unicode character escapes.
 
 .SH Parameters
 
@@ -17,8 +14,7 @@ std::regex_traits<CharT>::value \- std::regex_traits<CharT>::value
 
 .SH Return value
 
-   The numeric value if ch indeed represents a digit in the currently imbued locale
-   that is valid for the numeric base radix, or -1 on error.
+   The numeric value if ch indeed represents a digit in the currently imbued locale that is valid for the numeric base radix, or -1 on error.
 
 .SH Example
 

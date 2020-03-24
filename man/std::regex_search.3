@@ -1,4 +1,4 @@
-.TH std::regex_search 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::regex_search 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::regex_search \- std::regex_search
 
@@ -7,8 +7,8 @@ std::regex_search \- std::regex_search
    template< class BidirIt,
 
    class Alloc, class CharT, class Traits >
-   bool regex_search( BidirIt first, BidirIt last,                          (since
-   std::match_results<BidirIt,Alloc>& m,                                \fB(1)\fP C++11)
+   bool regex_search( BidirIt first, BidirIt last,
+   std::match_results<BidirIt,Alloc>& m,                                \fB(1)\fP \fI(since C++11)\fP
    const std::basic_regex<CharT,Traits>& e,
    std::regex_constants::match_flag_type flags =
 
@@ -16,8 +16,8 @@ std::regex_search \- std::regex_search
    template< class CharT, class Alloc, class Traits >
 
    bool regex_search( const CharT* str,
-   std::match_results<const CharT*,Alloc>& m,                           \fB(2)\fP (since
-   const std::basic_regex<CharT,Traits>& e,                                 C++11)
+   std::match_results<const CharT*,Alloc>& m,                           \fB(2)\fP \fI(since C++11)\fP
+   const std::basic_regex<CharT,Traits>& e,
    std::regex_constants::match_flag_type flags =
 
    std::regex_constants::match_default );
@@ -26,8 +26,8 @@ std::regex_search \- std::regex_search
    class Alloc, class CharT, class Traits >
    bool regex_search( const std::basic_string<CharT,STraits,SAlloc>& s,
    std::match_results<
-   typename std::basic_string<CharT,STraits,SAlloc>::const_iterator,    \fB(3)\fP (since
-   Alloc                                                                    C++11)
+   typename std::basic_string<CharT,STraits,SAlloc>::const_iterator,    \fB(3)\fP \fI(since C++11)\fP
+   Alloc
    >& m,
    const std::basic_regex<CharT, Traits>& e,
    std::regex_constants::match_flag_type flags =
@@ -36,23 +36,23 @@ std::regex_search \- std::regex_search
    template< class BidirIt,
 
    class CharT, class Traits >
-   bool regex_search( BidirIt first, BidirIt last,                      \fB(4)\fP (since
-   const std::basic_regex<CharT,Traits>& e,                                 C++11)
+   bool regex_search( BidirIt first, BidirIt last,                      \fB(4)\fP \fI(since C++11)\fP
+   const std::basic_regex<CharT,Traits>& e,
    std::regex_constants::match_flag_type flags =
 
    std::regex_constants::match_default );
    template< class CharT, class Traits >
 
-   bool regex_search( const CharT* str,                                     (since
-   const std::basic_regex<CharT,Traits>& e,                             \fB(5)\fP C++11)
+   bool regex_search( const CharT* str,
+   const std::basic_regex<CharT,Traits>& e,                             \fB(5)\fP \fI(since C++11)\fP
    std::regex_constants::match_flag_type flags =
 
    std::regex_constants::match_default );
    template< class STraits, class SAlloc,
 
    class CharT, class Traits >
-   bool regex_search( const std::basic_string<CharT,STraits,SAlloc>& s, \fB(6)\fP (since
-   const std::basic_regex<CharT,Traits>& e,                                 C++11)
+   bool regex_search( const std::basic_string<CharT,STraits,SAlloc>& s, \fB(6)\fP \fI(since C++11)\fP
+   const std::basic_regex<CharT,Traits>& e,
    std::regex_constants::match_flag_type flags =
 
    std::regex_constants::match_default );
@@ -61,29 +61,23 @@ std::regex_search \- std::regex_search
    class Alloc, class CharT, class Traits >
    bool regex_search( const std::basic_string<CharT,STraits,SAlloc>&&,
    std::match_results<
-   typename std::basic_string<CharT,STraits,SAlloc>::const_iterator,    \fB(7)\fP (since
-   Alloc                                                                    C++14)
+   typename std::basic_string<CharT,STraits,SAlloc>::const_iterator,    \fB(7)\fP \fI(since C++14)\fP
+   Alloc
    >&,
    const std::basic_regex<CharT, Traits>&,
    std::regex_constants::match_flag_type flags =
 
    std::regex_constants::match_default ) = delete;
 
-   Determines if there is a match between the regular expression e and some subsequence
-   in the target character sequence.
+   Determines if there is a match between the regular expression e and some subsequence in the target character sequence.
 
    1) Analyzes generic range [first,last). Match results are returned in m.
-   2) Analyzes a null-terminated string pointed to by str. Match results are returned
-   in m.
+   2) Analyzes a null-terminated string pointed to by str. Match results are returned in m.
    3) Analyzes a string s. Match results are returned in m.
    4-6) Equivalent to (1-3), just omits the match results.
-   7) The overload 3 is prohibited from accepting temporary strings, otherwise this
-   function populates match_results m with string iterators that become invalid
-   immediately.
+   7) The overload 3 is prohibited from accepting temporary strings, otherwise this function populates match_results m with string iterators that become invalid immediately.
 
-   regex_search will successfully match any subsequence of the given sequence, whereas
-   std::regex_match will only return true if the regular expression matches the entire
-   sequence.
+   regex_search will successfully match any subsequence of the given sequence, whereas std::regex_match will only return true if the regular expression matches the entire sequence.
 
 .SH Parameters
 
@@ -101,8 +95,7 @@ std::regex_search \- std::regex_search
 
 .SH Return value
 
-   Returns true if a match exists, false otherwise. In either case, the object m is
-   updated, as follows:
+   Returns true if a match exists, false otherwise. In either case, the object m is updated, as follows:
 
    If the match does not exist:
 
@@ -124,18 +117,13 @@ std::regex_search \- std::regex_search
    m[0].first         the start of the matching sequence
    m[0].second        the end of the matching sequence
    m[0].matched       true
-   m[n].first         the start of the sequence that matched marked sub-expression n,
-                      or last if the subexpression did not participate in the match
-   m[n].second        the end of the sequence that matched marked sub-expression n, or
-                      last if the subexpression did not participate in the match
-   m[n].matched       true if sub-expression n participated in the match, false
-                      otherwise
+   m[n].first         the start of the sequence that matched marked sub-expression n, or last if the subexpression did not participate in the match
+   m[n].second        the end of the sequence that matched marked sub-expression n, or last if the subexpression did not participate in the match
+   m[n].matched       true if sub-expression n participated in the match, false otherwise
 
 .SH Notes
 
-   In order to examine all matches within the target sequence, std::regex_search may be
-   called in a loop, restarting each time from m[0].second of the previous call.
-   std::regex_iterator offers an easy interface to this iteration.
+   In order to examine all matches within the target sequence, std::regex_search may be called in a loop, restarting each time from m[0].second of the previous call. std::regex_iterator offers an easy interface to this iteration.
 
 .SH Example
 
@@ -229,8 +217,7 @@ std::regex_search \- std::regex_search
 
    basic_regex   regular expression object
    \fI(C++11)\fP       \fI(class template)\fP
-   match_results identifies one regular expression match, including all sub-expression
-   \fI(C++11)\fP       matches
-                 \fI(class template)\fP
+   match_results identifies one regular expression match, including all sub-expression matches
+   \fI(C++11)\fP       \fI(class template)\fP
    regex_match   attempts to match a regular expression to an entire character sequence
    \fI(C++11)\fP       \fI(function template)\fP

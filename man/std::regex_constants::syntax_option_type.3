@@ -1,4 +1,4 @@
-.TH std::regex_constants::syntax_option_type 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::regex_constants::syntax_option_type 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::regex_constants::syntax_option_type \- std::regex_constants::syntax_option_type
 
@@ -31,64 +31,36 @@ std::regex_constants::syntax_option_type \- std::regex_constants::syntax_option_
 
    inline constexpr syntax_option_type multiline = /*unspecified*/;
 
-   The syntax_option_type is a BitmaskType that contains options that govern how
-   regular expressions behave.
+   The syntax_option_type is a BitmaskType that contains options that govern how regular expressions behave.
 
-   The possible values for this type (icase, optimize, etc.) are duplicated inside
-   std::basic_regex.
+   The possible values for this type (icase, optimize, etc.) are duplicated inside std::basic_regex.
 
 .SH Constants
 
    Value             Effect(s)
    icase             Character matching should be performed without regard to case.
-                     When performing matches, all marked sub-expressions (expr) are
-   nosubs            treated as non-marking sub-expressions (?:expr). No matches are
-                     stored in the supplied std::regex_match structure and mark_count()
-                     is zero
-                     Instructs the regular expression engine to make matching faster,
-   optimize          with the potential cost of making construction slower. For
-                     example, this might mean converting a non-deterministic FSA to a
-                     deterministic FSA.
+   nosubs            When performing matches, all marked sub-expressions (expr) are treated as non-marking sub-expressions (?:expr). No matches are stored in the supplied std::regex_match structure and mark_count() is zero
+   optimize          Instructs the regular expression engine to make matching faster, with the potential cost of making construction slower. For example, this might mean converting a non-deterministic FSA to a deterministic FSA.
    collate           Character ranges of the form "[a-b]" will be locale sensitive.
-   multiline \fI(C++17)\fP Specifies that ^ shall match the beginning of a line and $ shall
-                     match the end of a line, if the ECMAScript engine is selected.
+   multiline \fI(C++17)\fP Specifies that ^ shall match the beginning of a line and $ shall match the end of a line, if the ECMAScript engine is selected.
    ECMAScript        Use the Modified ECMAScript regular expression grammar
-   basic             Use the basic POSIX regular expression grammar (grammar
-                     documentation).
-   extended          Use the extended POSIX regular expression grammar (grammar
-                     documentation).
-   awk               Use the regular expression grammar used by the awk utility in
-                     POSIX (grammar documentation)
-                     Use the regular expression grammar used by the grep utility in
-   grep              POSIX. This is effectively the same as the basic option with the
-                     addition of newline '\\n' as an alternation separator.
-                     Use the regular expression grammar used by the grep utility, with
-   egrep             the -E option, in POSIX. This is effectively the same as the
-                     extended option with the addition of newline '\\n' as an
-                     alternation separator in addtion to '|'.
+   basic             Use the basic POSIX regular expression grammar (grammar documentation).
+   extended          Use the extended POSIX regular expression grammar (grammar documentation).
+   awk               Use the regular expression grammar used by the awk utility in POSIX (grammar documentation)
+   grep              Use the regular expression grammar used by the grep utility in POSIX. This is effectively the same as the basic option with the addition of newline '\\n' as an alternation separator.
+   egrep             Use the regular expression grammar used by the grep utility, with the -E option, in POSIX. This is effectively the same as the extended option with the addition of newline '\\n' as an alternation separator in addtion to '|'.
 
-   At most one grammar option must be chosen out of ECMAScript, basic, extended, awk,
-   grep, egrep. If no grammar is chosen, ECMAScript is assumed to be selected. The
-   other options serve as modifiers, such that std::regex("meow", std::regex::icase) is
-   equivalent to std::regex("meow", std::regex::ECMAScript|std::regex::icase)
+   At most one grammar option must be chosen out of ECMAScript, basic, extended, awk, grep, egrep. If no grammar is chosen, ECMAScript is assumed to be selected. The other options serve as modifiers, such that std::regex("meow", std::regex::icase) is equivalent to std::regex("meow", std::regex::ECMAScript|std::regex::icase)
 
 .SH Notes
 
-   Because POSIX uses "leftmost longest" matching rule (the longest matching
-   subsequence is matched, and if there are several such subsequences, the first one is
-   matched), it is not suitable, for example, for parsing markup languages: a POSIX
-   regex such as "<tag[^>]*>.*</tag>" would match everything from the first "<tag" to
-   the last "</tag>", including every "</tag>" and "<tag>" inbetween. On the other
-   hand, ECMAScript supports non-greedy matches, and the ECMAScript regex
-   "<tag[^>]*>.*?</tag>" would match only until the first closing tag.
+   Because POSIX uses "leftmost longest" matching rule (the longest matching subsequence is matched, and if there are several such subsequences, the first one is matched), it is not suitable, for example, for parsing markup languages: a POSIX regex such as "<tag[^>]*>.*</tag>" would match everything from the first "<tag" to the last "</tag>", including every "</tag>" and "<tag>" inbetween. On the other hand, ECMAScript supports non-greedy matches, and the ECMAScript regex "<tag[^>]*>.*?</tag>" would match only until the first closing tag.
 
-   In C++11, these constants were specified with redundant keyword static, which was
-   removed by C++14 via LWG issue 2053
+   In C++11, these constants were specified with redundant keyword static, which was removed by C++14 via LWG issue 2053
 
 .SH Example
 
-   Illustrates the difference in the matching algorithm between ECMAScript and POSIX
-   regular expressions
+   Illustrates the difference in the matching algorithm between ECMAScript and POSIX regular expressions
 
    
 // Run this code

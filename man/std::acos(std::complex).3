@@ -1,4 +1,4 @@
-.TH std::acos(std::complex) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::acos(std::complex) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::acos(std::complex) \- std::acos(std::complex)
 
@@ -7,8 +7,7 @@ std::acos(std::complex) \- std::acos(std::complex)
    template< class T >                      \fI(since C++11)\fP
    complex<T> acos( const complex<T>& z );
 
-   Computes complex arc cosine of a complex value z. Branch cuts exist outside the
-   interval [−1 ; +1] along the real axis.
+   Computes complex arc cosine of a complex value z. Branch cuts exist outside the interval [−1 ; +1] along the real axis.
 
 .SH Parameters
 
@@ -16,8 +15,7 @@ std::acos(std::complex) \- std::acos(std::complex)
 
 .SH Return value
 
-   If no errors occur, complex arc cosine of z is returned, in the range [0 ; ∞) along
-   the real axis and in the range [−iπ ; iπ] along the imaginary axis.
+   If no errors occur, complex arc cosine of z is returned, in the range [0 ; ∞) along the real axis and in the range [−iπ ; iπ] along the imaginary axis.
 
   Error handling and special values
 
@@ -29,24 +27,19 @@ std::acos(std::complex) \- std::acos(std::complex)
      * If z is (±0,+0), the result is (π/2,-0)
      * If z is (±0,NaN), the result is (π/2,NaN)
      * If z is (x,+∞) (for any finite x), the result is (π/2,-∞)
-     * If z is (x,NaN) (for any nonzero finite x), the result is (NaN,NaN) and
-       FE_INVALID may be raised.
+     * If z is (x,NaN) (for any nonzero finite x), the result is (NaN,NaN) and FE_INVALID may be raised.
      * If z is (-∞,y) (for any positive finite y), the result is (π,-∞)
      * If z is (+∞,y) (for any positive finite y), the result is (+0,-∞)
      * If z is (-∞,+∞), the result is (3π/4,-∞)
      * If z is (+∞,+∞), the result is (π/4,-∞)
-     * If z is (±∞,NaN), the result is (NaN,±∞) (the sign of the imaginary part is
-       unspecified)
-     * If z is (NaN,y) (for any finite y), the result is (NaN,NaN) and FE_INVALID may
-       be raised
+     * If z is (±∞,NaN), the result is (NaN,±∞) (the sign of the imaginary part is unspecified)
+     * If z is (NaN,y) (for any finite y), the result is (NaN,NaN) and FE_INVALID may be raised
      * If z is (NaN,+∞), the result is (NaN,-∞)
      * If z is (NaN,NaN), the result is (NaN,NaN)
 
 .SH Notes
 
-   Inverse cosine (or arc cosine) is a multivalued function and requires a branch cut
-   on the complex plane. The branch cut is conventionally placed at the line segments
-   (-∞,-1) and (1,∞) of the real axis.
+   Inverse cosine (or arc cosine) is a multivalued function and requires a branch cut on the complex plane. The branch cut is conventionally placed at the line segments (-∞,-1) and (1,∞) of the real axis.
 
    The mathematical definition of the principal value of arc cosine is acos z =
 

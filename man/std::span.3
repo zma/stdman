@@ -1,4 +1,4 @@
-.TH std::span 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::span 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::span \- std::span
 
@@ -11,10 +11,7 @@ std::span \- std::span
 
    > class span;
 
-   The class template span describes an object that can refer to a contiguous sequence
-   of objects with the first element of the sequence at position zero. A span can
-   either have a static extent, in which case the number of elements in the sequence is
-   known and encoded in the type, or a dynamic extent.
+   The class template span describes an object that can refer to a contiguous sequence of objects with the first element of the sequence at position zero. A span can either have a static extent, in which case the number of elements in the sequence is known and encoded in the type, or a dynamic extent.
 
    A typical implementation holds only two members: a pointer to T and a size.
 
@@ -34,19 +31,14 @@ std::span \- std::span
    const_pointer          const T*
    reference              T&
    const_reference        const T&
-                          implementation-defined LegacyRandomAccessIterator,
-   iterator               ConstexprIterator, and LegacyContiguousIterator whose
-                          value_type is value_type
-                          implementation-defined constant LegacyRandomAccessIterator,
-   const_iterator         ConstexprIterator, and LegacyContiguousIterator whose
-                          value_type is value_type
+   iterator               implementation-defined LegacyRandomAccessIterator, ConstexprIterator, and LegacyContiguousIterator whose value_type is value_type
+   const_iterator         implementation-defined constant LegacyRandomAccessIterator, ConstexprIterator, and LegacyContiguousIterator whose value_type is value_type
    reverse_iterator       std::reverse_iterator<iterator>
    const_reverse_iterator std::reverse_iterator<const_iterator>
 
    Note: iterator is a mutable iterator if T is not const-qualified.
 
-   All requirements on the iterator types of a Container applies to the iterator and
-   const_iterator types of span as well.
+   All requirements on the iterator types of a Container applies to the iterator and const_iterator types of span as well.
 
   Member constant
 
@@ -109,8 +101,7 @@ std::span \- std::span
 
    std::tuple_size<std::span>    obtains the size of a static-extent span
                                  \fI(class template specialization)\fP
-                                 obtains the type of the elements of a static-extent
-   std::tuple_element<std::span> span
+   std::tuple_element<std::span> obtains the type of the elements of a static-extent span
                                  \fI(class template specialization)\fP
 
   Deduction guides

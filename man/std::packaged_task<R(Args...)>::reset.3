@@ -1,12 +1,11 @@
-.TH std::packaged_task<R(Args...)>::reset 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::packaged_task<R(Args...)>::reset 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::packaged_task<R(Args...)>::reset \- std::packaged_task<R(Args...)>::reset
 
 .SH Synopsis
    void reset();  \fI(since C++11)\fP
 
-   Resets the state abandoning the results of previous executions. New shared state is
-   constructed.
+   Resets the state abandoning the results of previous executions. New shared state is constructed.
 
    Equivalent to *this = packaged_task(std::move(f)), where f is the stored task.
 
@@ -20,8 +19,7 @@ std::packaged_task<R(Args...)>::reset \- std::packaged_task<R(Args...)>::reset
 
 .SH Exceptions
 
-     * std::future_error if *this has no shared state. The error condition is set to
-       no_state.
+     * std::future_error if *this has no shared state. The error condition is set to no_state.
      * std::bad_alloc if there was not enough memory for a new shared state.
      * any exception thrown by the move constructor of the new packaged_task
 

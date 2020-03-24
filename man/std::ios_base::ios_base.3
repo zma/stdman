@@ -1,4 +1,4 @@
-.TH std::ios_base::ios_base 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ios_base::ios_base 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ios_base::ios_base \- std::ios_base::ios_base
 
@@ -12,14 +12,8 @@ std::ios_base::ios_base \- std::ios_base::ios_base
 
    1) The copy constructor is deleted: streams are not copyable
 
-   2) The default constructor is protected: only derived classes may construct
-   std::ios_base. The internal state is undefined after the construction. The derived
-   class must call basic_ios::init() to complete initialization before first use or
-   before destructor; otherwise the behavior is undefined.
+   2) The default constructor is protected: only derived classes may construct std::ios_base. The internal state is undefined after the construction. The derived class must call basic_ios::init() to complete initialization before first use or before destructor; otherwise the behavior is undefined.
 
 .SH Notes
 
-   The same applies to the constructors of the next class in the I/O hierarchy,
-   std::basic_ios. Further-derived classes (std::istream and std::ostream) are always
-   constructed with a concrete streambuffer object and call basic_ios::init(), possibly
-   more than once, to complete initialization of their virtual base.
+   The same applies to the constructors of the next class in the I/O hierarchy, std::basic_ios. Further-derived classes (std::istream and std::ostream) are always constructed with a concrete streambuffer object and call basic_ios::init(), possibly more than once, to complete initialization of their virtual base.

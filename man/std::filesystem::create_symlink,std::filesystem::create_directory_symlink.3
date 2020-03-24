@@ -1,4 +1,4 @@
-.TH std::filesystem::create_symlink,std::filesystem::create_directory_symlink 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::create_symlink,std::filesystem::create_directory_symlink 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::create_symlink,std::filesystem::create_directory_symlink \- std::filesystem::create_symlink,std::filesystem::create_directory_symlink
 
@@ -7,26 +7,21 @@ std::filesystem::create_symlink,std::filesystem::create_directory_symlink \- std
    void create_symlink( const std::filesystem::path& target,
 
    const std::filesystem::path& link );
-   void create_symlink( const std::filesystem::path& target,          \fB(1)\fP \fI(since C++17)\fP
+   void create_symlink( const std::filesystem::path& target,           \fB(1)\fP \fI(since C++17)\fP
    const std::filesystem::path& link,
 
    std::error_code& ec ) noexcept;
-   void create_directory_symlink( const std::filesystem::path&
-   target,
+   void create_directory_symlink( const std::filesystem::path& target,
 
    const std::filesystem::path& link );
-   void create_directory_symlink( const std::filesystem::path&        \fB(2)\fP \fI(since C++17)\fP
-   target,
+   void create_directory_symlink( const std::filesystem::path& target, \fB(2)\fP \fI(since C++17)\fP
    const std::filesystem::path& link,
 
    std::error_code& ec ) noexcept;
 
-   Creates a symbolic link link with its target set to target as if by POSIX symlink():
-   the pathname target may be invalid or non-existing.
+   Creates a symbolic link link with its target set to target as if by POSIX symlink(): the pathname target may be invalid or non-existing.
 
-   Some operating systems require symlink creation to identify that the link is to a
-   directory. Portable code should use \fB(2)\fP to create directory symlinks rather than
-   \fB(1)\fP, even though there is no distinction on POSIX systems.
+   Some operating systems require symlink creation to identify that the link is to a directory. Portable code should use \fB(2)\fP to create directory symlinks rather than \fB(1)\fP, even though there is no distinction on POSIX systems.
 
 .SH Parameters
 
@@ -40,26 +35,15 @@ std::filesystem::create_symlink,std::filesystem::create_directory_symlink \- std
 
 .SH Exceptions
 
-   The overload that does not take a std::error_code& parameter throws filesystem_error
-   on underlying OS API errors, constructed with target as the first path argument,
-   link as the second path argument, and the OS error code as the error code argument.
-   The overload taking a std::error_code& parameter sets it to the OS API error code if
-   an OS API call fails, and executes ec.clear() if no errors occur. Any overload not
-   marked noexcept may throw std::bad_alloc if memory allocation fails.
+   The overload that does not take a std::error_code& parameter throws filesystem_error on underlying OS API errors, constructed with target as the first path argument, link as the second path argument, and the OS error code as the error code argument. The overload taking a std::error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. Any overload not marked noexcept may throw std::bad_alloc if memory allocation fails.
 
 .SH Notes
 
-   Some operating systems do not support symbolic links at all or support them only for
-   regular files.
+   Some operating systems do not support symbolic links at all or support them only for regular files.
 
-   Some file systems do not support symbolic links regardless of the operating system,
-   for example the FAT system used on some memory cards and flash drives.
+   Some file systems do not support symbolic links regardless of the operating system, for example the FAT system used on some memory cards and flash drives.
 
-   Like a hard link, a symbolic link allows a file to have multiple logical names. The
-   presence of a hard link guarantees the existence of a file, even after the original
-   name has been removed. A symbolic link provides no such assurance; in fact, the file
-   named by the target argument need not exist when the link is created. A symbolic
-   link can cross file system boundaries.
+   Like a hard link, a symbolic link allows a file to have multiple logical names. The presence of a hard link guarantees the existence of a file, even after the original name has been removed. A symbolic link provides no such assurance; in fact, the file named by the target argument need not exist when the link is created. A symbolic link can cross file system boundaries.
 
 .SH Example
 

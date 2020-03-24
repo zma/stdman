@@ -1,4 +1,4 @@
-.TH std::ctype<char>::table 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype<char>::table 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype<char>::table \- std::ctype<char>::table
 
@@ -7,9 +7,7 @@ std::ctype<char>::table \- std::ctype<char>::table
    const mask* table() const throw();   \fI(until C++11)\fP
    const mask* table() const noexcept;  \fI(since C++11)\fP
 
-   Returns the classification table that was provided in the constructor of this
-   instance of std::ctype<char>, or returns a copy of classic_table() if none was
-   provided.
+   Returns the classification table that was provided in the constructor of this instance of std::ctype<char>, or returns a copy of classic_table() if none was provided.
 
 .SH Parameters
 
@@ -17,8 +15,7 @@ std::ctype<char>::table \- std::ctype<char>::table
 
 .SH Return value
 
-   A pointer to the first element in the classification table (which an array of size
-   std::ctype<char>::table_size).
+   A pointer to the first element in the classification table (which an array of size std::ctype<char>::table_size).
 
 .SH Example
 

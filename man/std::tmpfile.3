@@ -1,4 +1,4 @@
-.TH std::tmpfile 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tmpfile 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tmpfile \- std::tmpfile
 
@@ -8,18 +8,13 @@ std::tmpfile \- std::tmpfile
 
    Creates and opens a temporary file with a unique auto-generated filename.
 
-   The file is opened as a binary file for update (as by std::fopen with access mode
-   "wb+"). At least TMP_MAX files may be opened during the lifetime of a program (this
-   limit may be shared with std::tmpnam and may be further limited by FOPEN_MAX).
+   The file is opened as a binary file for update (as by std::fopen with access mode "wb+"). At least TMP_MAX files may be opened during the lifetime of a program (this limit may be shared with std::tmpnam and may be further limited by FOPEN_MAX).
 
-   If the program closes the file, e.g. by executing std::fclose, the file is
-   automatically deleted.
+   If the program closes the file, e.g. by executing std::fclose, the file is automatically deleted.
 
-   If the program terminates normally (by calling std::exit, returning from main, etc),
-   all files that were opened by calling std::tmpfile are also automatically deleted.
+   If the program terminates normally (by calling std::exit, returning from main, etc), all files that were opened by calling std::tmpfile are also automatically deleted.
 
-   If the program terminates abnormally, it is implementation-defined if these
-   temporary files are deleted.
+   If the program terminates abnormally, it is implementation-defined if these temporary files are deleted.
 
 .SH Parameters
 
@@ -31,15 +26,9 @@ std::tmpfile \- std::tmpfile
 
 .SH Notes
 
-   On some implementations (e.g. Linux), this function actually creates, opens, and
-   immediately deletes the file from the file system: as long as an open file
-   descriptor to a deleted file is held by a program, the file exists, but since it was
-   deleted, its name does not appear in any directory, so that no other process can
-   open it. Once the file descriptor is closed, the space occupied by the file is
-   reclaimed by the filesystem.
+   On some implementations (e.g. Linux), this function actually creates, opens, and immediately deletes the file from the file system: as long as an open file descriptor to a deleted file is held by a program, the file exists, but since it was deleted, its name does not appear in any directory, so that no other process can open it. Once the file descriptor is closed, the space occupied by the file is reclaimed by the filesystem.
 
-   On some implementations (e.g. Windows), elevated privileges are required as the
-   function may create the temporary file in a system directory.
+   On some implementations (e.g. Windows), elevated privileges are required as the function may create the temporary file in a system directory.
 
 .SH Example
 

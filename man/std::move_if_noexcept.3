@@ -1,4 +1,4 @@
-.TH std::move_if_noexcept 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::move_if_noexcept 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::move_if_noexcept \- std::move_if_noexcept
 
@@ -7,26 +7,21 @@ std::move_if_noexcept \- std::move_if_noexcept
    template< class T >
 
    typename std::conditional<
-   !std::is_nothrow_move_constructible<T>::value &&                       \fI(since C++11)\fP
-   std::is_copy_constructible<T>::value,                                  \fI(until C++14)\fP
-   const T&,
+   !std::is_nothrow_move_constructible<T>::value && std::is_copy_constructible<T>::value,  \fI(since C++11)\fP
+   const T&,                                                                               \fI(until C++14)\fP
    T&&
 
    >::type move_if_noexcept(T& x) noexcept;
    template< class T >
 
    constexpr typename std::conditional<
-   !std::is_nothrow_move_constructible<T>::value &&
-   std::is_copy_constructible<T>::value,                                  \fI(since C++14)\fP
+   !std::is_nothrow_move_constructible<T>::value && std::is_copy_constructible<T>::value,  \fI(since C++14)\fP
    const T&,
    T&&
 
    >::type move_if_noexcept(T& x) noexcept;
 
-   move_if_noexcept obtains an rvalue reference to its argument if its move constructor
-   does not throw exceptions or if there is no copy constructor (move-only type),
-   otherwise obtains an lvalue reference to its argument. It is typically used to
-   combine move semantics with strong exception guarantee.
+   move_if_noexcept obtains an rvalue reference to its argument if its move constructor does not throw exceptions or if there is no copy constructor (move-only type), otherwise obtains an lvalue reference to its argument. It is typically used to combine move semantics with strong exception guarantee.
 
 .SH Parameters
 
@@ -38,13 +33,7 @@ std::move_if_noexcept \- std::move_if_noexcept
 
 .SH Notes
 
-   This is used, for example, by std::vector::resize, which may have to allocate new
-   storage and then move or copy elements from old storage to new storage. If an
-   exception occurs during this operation, std::vector::resize undoes everything it did
-   to this point, which is only possible if std::move_if_noexcept was used to decide
-   whether to use move construction or copy construction. (unless copy constructor is
-   not available, in which case move constructor is used either way and the strong
-   exception guarantee may be waived)
+   This is used, for example, by std::vector::resize, which may have to allocate new storage and then move or copy elements from old storage to new storage. If an exception occurs during this operation, std::vector::resize undoes everything it did to this point, which is only possible if std::move_if_noexcept was used to decide whether to use move construction or copy construction. (unless copy constructor is not available, in which case move constructor is used either way and the strong exception guarantee may be waived)
 
 .SH Example
 

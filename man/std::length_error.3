@@ -1,4 +1,4 @@
-.TH std::length_error 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::length_error 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::length_error \- std::length_error
 
@@ -6,15 +6,13 @@ std::length_error \- std::length_error
    Defined in header <stdexcept>
    class length_error;
 
-   Defines a type of object to be thrown as exception. It reports errors that result
-   from attempts to exceed implementation defined length limits for some object.
+   Defines a type of object to be thrown as exception. It reports errors that result from attempts to exceed implementation defined length limits for some object.
 
-   This exception is thrown by member functions of std::basic_string and
-   std::vector::reserve
+   This exception is thrown by member functions of std::basic_string and std::vector::reserve
 
    std-length error-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
 .SH Member functions
 
@@ -26,13 +24,9 @@ std::length_error::length_error
    explicit length_error( const std::string& what_arg ); \fB(1)\fP
    explicit length_error( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
 
-   Constructs the exception object with what_arg as explanatory string that can be
-   accessed through what().
+   Constructs the exception object with what_arg as explanatory string that can be accessed through what().
 
-   Because copying std::length_error is not permitted to throw exceptions, this message
-   is typically stored internally as a separately-allocated reference-counted string.
-   This is also why there is no constructor taking std::string&&: it would have to copy
-   the content anyway.
+   Because copying std::length_error is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
 
 .SH Parameters
 

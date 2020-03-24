@@ -1,4 +1,4 @@
-.TH std::experimental::packaged_task(libraryfundamentalsTS) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::packaged_task(libraryfundamentalsTS) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::packaged_task(libraryfundamentalsTS) \- std::experimental::packaged_task(libraryfundamentalsTS)
 
@@ -8,10 +8,7 @@ std::experimental::packaged_task(libraryfundamentalsTS) \- std::experimental::pa
    template< class R, class ...Args >                   \fB(2)\fP (library fundamentals TS)
    class packaged_task<R(Args...)>;
 
-   std::experimental::fundamentals_v1::packaged_task (and
-   std::experimental::fundamentals_v2::packaged_task) is a modified version of
-   std::packaged_task provided by the library fundamentals TS with support for
-   type-erased allocators.
+   std::experimental::fundamentals_v1::packaged_task (and std::experimental::fundamentals_v2::packaged_task) is a modified version of std::packaged_task provided by the library fundamentals TS with support for type-erased allocators.
 
 .SH Member types
 
@@ -22,22 +19,18 @@ std::experimental::packaged_task(libraryfundamentalsTS) \- std::experimental::pa
 
    constructor         constructs the task object
                        \fI(public member function)\fP
-                       retrieves a pointer to the memory resource used by this object
-   get_memory_resource to allocate memory
+   get_memory_resource retrieves a pointer to the memory resource used by this object to allocate memory
                        \fI(public member function)\fP
 
   Non-member function
 
-                                                             specializes the swap
-   std::experimental::swap(std::experimental::packaged_task) algorithm
+   std::experimental::swap(std::experimental::packaged_task) specializes the swap algorithm
                                                              \fI(function template)\fP
 
 .SH Helper classes
 
-                                                         specializes the
-   std::uses_allocator<std::experimental::packaged_task> std::uses_allocator type trait
-                                                         (class template
-                                                         specialization)
+   std::uses_allocator<std::experimental::packaged_task> specializes the std::uses_allocator type trait
+                                                         \fI(class template specialization)\fP
 
 Members identical to std::packaged_task
 
@@ -57,9 +50,7 @@ Members identical to std::packaged_task
 .SH Execution
    operator()                executes the function
                              \fI(public member function of std::packaged_task<R(Args...)>)\fP
-                             executes the function ensuring that the result is ready
-   make_ready_at_thread_exit only once the current thread exits
+   make_ready_at_thread_exit executes the function ensuring that the result is ready only once the current thread exits
                              \fI(public member function of std::packaged_task<R(Args...)>)\fP
-                             resets the state abandoning any stored results of previous
-   reset                     executions
+   reset                     resets the state abandoning any stored results of previous executions
                              \fI(public member function of std::packaged_task<R(Args...)>)\fP

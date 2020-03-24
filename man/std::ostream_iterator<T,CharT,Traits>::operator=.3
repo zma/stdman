@@ -1,16 +1,13 @@
-.TH std::ostream_iterator<T,CharT,Traits>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ostream_iterator<T,CharT,Traits>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ostream_iterator<T,CharT,Traits>::operator= \- std::ostream_iterator<T,CharT,Traits>::operator=
 
 .SH Synopsis
    ostream_iterator& operator=( const T& value );
 
-   Inserts value into the associated stream, then inserts the delimiter, if one was
-   specified at construction time.
+   Inserts value into the associated stream, then inserts the delimiter, if one was specified at construction time.
 
-   If out_stream is a pointer to the associated std::basic_ostream and delim is the
-   delimiter specified at the construction of this object, then the effect is
-   equivalent to
+   If out_stream is a pointer to the associated std::basic_ostream and delim is the delimiter specified at the construction of this object, then the effect is equivalent to
 
    *out_stream << value;
    if(delim != 0)

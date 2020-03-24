@@ -1,4 +1,4 @@
-.TH std::codecvt<InternT,ExternT,State>::in,std::codecvt<InternT,ExternT,State>::do_in 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::codecvt<InternT,ExternT,State>::in,std::codecvt<InternT,ExternT,State>::do_in 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::codecvt<InternT,ExternT,State>::in,std::codecvt<InternT,ExternT,State>::do_in \- std::codecvt<InternT,ExternT,State>::in,std::codecvt<InternT,ExternT,State>::do_in
 
@@ -25,17 +25,10 @@ std::codecvt<InternT,ExternT,State>::in,std::codecvt<InternT,ExternT,State>::do_
 
    InternT*& to_next ) const;
 
-   1) Public member function, calls the member function do_in of the most derived
-   class.
-   2) If this codecvt facet defines a conversion, translates the external characters
-   from the source range [from, from_end) to internal characters, placing the results
-   in the subsequent locations starting at to. Converts no more than from_end - from
-   external characters and writes no more than to_end - to internal characters. Leaves
-   from_next and to_next pointing one beyond the last element successfully converted.
+   1) Public member function, calls the member function do_in of the most derived class.
+   2) If this codecvt facet defines a conversion, translates the external characters from the source range [from, from_end) to internal characters, placing the results in the subsequent locations starting at to. Converts no more than from_end - from external characters and writes no more than to_end - to internal characters. Leaves from_next and to_next pointing one beyond the last element successfully converted.
 
-   If this codecvt facet does not define a conversion, no characters are converted.
-   to_next is set to be equal to to, state is unchanged, and std::codecvt_base::noconv
-   is returned.
+   If this codecvt facet does not define a conversion, no characters are converted. to_next is set to be equal to to, state is unchanged, and std::codecvt_base::noconv is returned.
 
 .SH Return value
 
@@ -46,20 +39,13 @@ std::codecvt<InternT,ExternT,State>::in,std::codecvt<InternT,ExternT,State>::do_
    error   encountered a character that could not be converted
    noconv  this facet is non-converting, no output written
 
-   The non-converting specialization std::codecvt<char, char, std::mbstate_t> always
-   returns std::codecvt_base::noconv
+   The non-converting specialization std::codecvt<char, char, std::mbstate_t> always returns std::codecvt_base::noconv
 
 .SH Notes
 
-   Requires that from <= from_end && to <= to_end and that state either representing
-   the initial shift state or obtained by converting the preceding characters in the
-   sequence.
+   Requires that from <= from_end && to <= to_end and that state either representing the initial shift state or obtained by converting the preceding characters in the sequence.
 
-   The effect on state is deliberately unspecified. In standard facets, it is used to
-   maintain shift state like when calling std::mbsrtowcs, and is therefore updated to
-   reflect the conversion state after the last processed external character, but a
-   user-defined facet is free to use it to maintain any other state, e.g. count the
-   number of special characters encountered.
+   The effect on state is deliberately unspecified. In standard facets, it is used to maintain shift state like when calling std::mbsrtowcs, and is therefore updated to reflect the conversion state after the last processed external character, but a user-defined facet is free to use it to maintain any other state, e.g. count the number of special characters encountered.
 
 .SH Example
 
@@ -98,9 +84,8 @@ std::codecvt<InternT,ExternT,State>::in,std::codecvt<InternT,ExternT,State>::do_
 
    underflow  reads from the associated file
    \fB[virtual]\fP  \fI(virtual protected member function of std::basic_filebuf<CharT,Traits>)\fP
-              converts a byte string into a wide string
-   from_bytes \fI\fI(public member\fP function of\fP
-              std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>)
+   from_bytes converts a byte string into a wide string
+              \fI(public member function of std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>)\fP
    mbsrtowcs  converts a narrow multibyte character string to wide string, given state
               \fI(function)\fP
    do_out     converts a string from internT to externT, such as when writing to file

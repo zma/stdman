@@ -1,4 +1,4 @@
-.TH std::endian 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::endian 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::endian \- std::endian
 
@@ -15,17 +15,13 @@ std::endian \- std::endian
 
    Indicates the endianness of all scalar types:
 
-     * If all scalar types are little-endian, std::endian::native equals
-       std::endian::little
+     * If all scalar types are little-endian, std::endian::native equals std::endian::little
      * If all scalar types are big-endian, std::endian::native equals std::endian::big
 
    Corner case platforms are also supported:
 
-     * If all scalar types have sizeof equal to 1, endianness does not matter and all
-       three values, std::endian::little, std::endian::big, and std::endian::native are
-       the same
-     * If the platform uses mixed endian, std::endian::native does not equal either
-       std::endian::big nor std::endian::little
+     * If all scalar types have sizeof equal to 1, endianness does not matter and all three values, std::endian::little, std::endian::big, and std::endian::native are the same
+     * If the platform uses mixed endian, std::endian::native does not equal either std::endian::big nor std::endian::little
 
 .SH Possible implementation
 

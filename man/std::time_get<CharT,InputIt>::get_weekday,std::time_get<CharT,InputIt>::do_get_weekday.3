@@ -1,4 +1,4 @@
-.TH std::time_get<CharT,InputIt>::get_weekday,std::time_get<CharT,InputIt>::do_get_weekday 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::time_get<CharT,InputIt>::get_weekday,std::time_get<CharT,InputIt>::do_get_weekday 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::time_get<CharT,InputIt>::get_weekday,std::time_get<CharT,InputIt>::do_get_weekday \- std::time_get<CharT,InputIt>::get_weekday,std::time_get<CharT,InputIt>::do_get_weekday
 
@@ -6,54 +6,41 @@ std::time_get<CharT,InputIt>::get_weekday,std::time_get<CharT,InputIt>::do_get_w
    Defined in header <locale>
    public:
 
-   iter_type get_weekday( iter_type beg, iter_type end, std::ios_base& str,        \fB(1)\fP
+   iter_type get_weekday( iter_type beg, iter_type end, std::ios_base& str,            \fB(1)\fP
 
    std::ios_base::iostate& err, std::tm* t) const;
    protected:
 
-   virtual iter_type do_get_weekday( iter_type beg, iter_type end, std::ios_base&  \fB(2)\fP
-   str,
+   virtual iter_type do_get_weekday( iter_type beg, iter_type end, std::ios_base& str, \fB(2)\fP
 
    std::ios_base::iostate& err, std::tm* t) const;
 
-   1) public member function, calls the protected virtual member function
-   do_get_weekday of the most derived class.
-   2) Reads successive characters from the sequence [beg, end) and parses out the
-   weekday name (possibly abbreviated), using the default format for weekdays expected
-   by this locale, which is the same format as "%a" as used by the functions
-   std::get_time, time_get::get, and the POSIX function strptime()
+   1) public member function, calls the protected virtual member function do_get_weekday of the most derived class.
+   2) Reads successive characters from the sequence [beg, end) and parses out the weekday name (possibly abbreviated), using the default format for weekdays expected by this locale, which is the same format as "%a" as used by the functions std::get_time, time_get::get, and the POSIX function strptime()
 
-   If it finds abbreviated name, followed by the characters that are valid for the full
-   name, it continues reading until it consumes all the characters for the full name or
-   finds a character that isn't expected, in which case parsing fails even if the first
-   few characters were a valid abbreviation.
+   If it finds abbreviated name, followed by the characters that are valid for the full name, it continues reading until it consumes all the characters for the full name or finds a character that isn't expected, in which case parsing fails even if the first few characters were a valid abbreviation.
 
    The parsed weekday is stored in the std::tm field t->tm_wday.
 
-   If the end iterator is reached before a valid weekday name is read, the function
-   sets std::ios_base::eofbit in err. If a parsing error is encountered, the function
-   sets std::ios_base::failbit in err.
+   If the end iterator is reached before a valid weekday name is read, the function sets std::ios_base::eofbit in err. If a parsing error is encountered, the function sets std::ios_base::failbit in err.
 
 .SH Parameters
 
    beg - iterator designating the start of the sequence to parse
    end - one past the end iterator for the sequence to parse
-   str - a stream object that this function uses to obtain locale facets when needed,
-         e.g. std::ctype to skip whitespace or std::collate to compare strings
+   str - a stream object that this function uses to obtain locale facets when needed, e.g. std::ctype to skip whitespace or std::collate to compare strings
    err - stream error flags object that is modified by this function to indicate errors
    t   - pointer to the std::tm object that will hold the result of this function call
 
 .SH Return value
 
-   Iterator pointing one past the last character in [beg, end) that was recognized as a
-   part of a valid weekname.
+   Iterator pointing one past the last character in [beg, end) that was recognized as a part of a valid weekname.
 
 .SH Notes
 
    This function is usually case-insensitive.
 
-   If a parsing error is encountered, most implementations of this function leave *t
-   unmodified.
+   If a parsing error is encountered, most implementations of this function leave *t unmodified.
 
 .SH Example
 

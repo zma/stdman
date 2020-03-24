@@ -1,18 +1,15 @@
-.TH std::make_reverse_iterator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::make_reverse_iterator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::make_reverse_iterator \- std::make_reverse_iterator
 
 .SH Synopsis
    Defined in header <iterator>
-   template <class Iter>                                                  \fI(since C++14)\fP
-   std::reverse_iterator<Iter> make_reverse_iterator( Iter i );           \fI(until C++17)\fP
-   template <class Iter>
-   constexpr std::reverse_iterator<Iter> make_reverse_iterator( Iter i    \fI(since C++17)\fP
-   );
+   template <class Iter>                                                   \fI(since C++14)\fP
+   std::reverse_iterator<Iter> make_reverse_iterator( Iter i );            \fI(until C++17)\fP
+   template <class Iter>                                                   \fI(since C++17)\fP
+   constexpr std::reverse_iterator<Iter> make_reverse_iterator( Iter i );
 
-   make_reverse_iterator is a convenience function template that constructs a
-   std::reverse_iterator for the given iterator i with the type deduced from the type
-   of the argument.
+   make_reverse_iterator is a convenience function template that constructs a std::reverse_iterator for the given iterator i with the type deduced from the type of the argument.
 
 .SH Parameters
 

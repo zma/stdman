@@ -1,4 +1,4 @@
-.TH std::basic_ostream<CharT,Traits>::seekp 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ostream<CharT,Traits>::seekp 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ostream<CharT,Traits>::seekp \- std::basic_ostream<CharT,Traits>::seekp
 
@@ -8,14 +8,10 @@ std::basic_ostream<CharT,Traits>::seekp \- std::basic_ostream<CharT,Traits>::see
 
    Sets the output position indicator of the current associated streambuf object.
 
-   Behaves as UnformattedOutputFunction (except without actually          \fI(since C++11)\fP
-   performing output). After constructing and checking the sentry object,
+   Behaves as UnformattedOutputFunction (except without actually performing output). After constructing and checking the sentry object, \fI(since C++11)\fP
 
-   1) sets the output position indicator to absolute (relative to the beginning of the
-   file) value pos by calling rdbuf()->pubseekpos(pos, std::ios_base::out). If the call
-   returns (pos_type)-1, executes setstate(failbit).
-   2) sets the output position indicator to offset off relative to dir by calling
-   rdbuf()->pubseekoff(off, dir, std::ios_base::out).
+   1) sets the output position indicator to absolute (relative to the beginning of the file) value pos by calling rdbuf()->pubseekpos(pos, std::ios_base::out). If the call returns (pos_type)-1, executes setstate(failbit).
+   2) sets the output position indicator to offset off relative to dir by calling rdbuf()->pubseekoff(off, dir, std::ios_base::out).
 
    Does not report errors.                                       \fI(until C++14)\fP
    If the call returns (pos_type)-1, executes setstate(failbit). \fI(since C++14)\fP
@@ -24,8 +20,7 @@ std::basic_ostream<CharT,Traits>::seekp \- std::basic_ostream<CharT,Traits>::see
 
    pos - absolute position to set the output position indicator to.
    off - relative position to set the output position indicator to.
-         defines base position to apply the relative offset to. It can be one of the
-         following constants:
+         defines base position to apply the relative offset to. It can be one of the following constants:
 
    dir - Constant Explanation
          beg      the beginning of a stream
@@ -38,13 +33,11 @@ std::basic_ostream<CharT,Traits>::seekp \- std::basic_ostream<CharT,Traits>::see
 
 .SH Exceptions
 
-   1) May throw std::ios_base::failure in case of failure, if exceptions() & failbit !=
-   0.
+   1) May throw std::ios_base::failure in case of failure, if exceptions() & failbit != 0.
    2)
 
-   Does not throw unless rdbuf()->pubseekoff() throws                     \fI(until C++14)\fP
-   May throw std::ios_base::failure in case of failure, if exceptions() & \fI(since C++14)\fP
-   failbit != 0.
+   Does not throw unless rdbuf()->pubseekoff() throws                                   \fI(until C++14)\fP
+   May throw std::ios_base::failure in case of failure, if exceptions() & failbit != 0. \fI(since C++14)\fP
 
 .SH Example
 

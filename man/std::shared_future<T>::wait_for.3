@@ -1,22 +1,16 @@
-.TH std::shared_future<T>::wait_for 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_future<T>::wait_for 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_future<T>::wait_for \- std::shared_future<T>::wait_for
 
 .SH Synopsis
-   template< class Rep, class Period >
-   std::future_status wait_for( const std::chrono::duration<Rep,Period>&  \fI(since C++11)\fP
-   timeout_duration ) const;
+   template< class Rep, class Period >                                                              \fI(since C++11)\fP
+   std::future_status wait_for( const std::chrono::duration<Rep,Period>& timeout_duration ) const;
 
-   Waits for the result to become available. Blocks until specified timeout_duration
-   has elapsed or the result becomes available, whichever comes first. Returns value
-   identifies the state of the result.
+   Waits for the result to become available. Blocks until specified timeout_duration has elapsed or the result becomes available, whichever comes first. Returns value identifies the state of the result.
 
-   This function may block for longer than timeout_duration due to scheduling or
-   resource contention delays.
+   This function may block for longer than timeout_duration due to scheduling or resource contention delays.
 
-   The standard recommends that a steady clock is used to measure the duration. If an
-   implementation uses a system clock instead, the wait time may also be sensitive to
-   clock adjustments.
+   The standard recommends that a steady clock is used to measure the duration. If an implementation uses a system clock instead, the wait time may also be sensitive to clock adjustments.
 
    The behavior is undefined if valid()== false before the call to this function.
 
@@ -27,20 +21,17 @@ std::shared_future<T>::wait_for \- std::shared_future<T>::wait_for
 .SH Return value
 
    Constant                Explanation
-   future_status::deferred The function to calculate the result has not been started
-                           yet
+   future_status::deferred The function to calculate the result has not been started yet
    future_status::ready    The result is ready
    future_status::timeout  The timeout has expired
 
 .SH Exceptions
 
-   Any exception thrown by clock, time_point, or duration during the execution (clocks,
-   time points, and durations provided by the standard library never throw)
+   Any exception thrown by clock, time_point, or duration during the execution (clocks, time points, and durations provided by the standard library never throw)
 
 .SH Notes
 
-   The implementations are encouraged to detect the case when valid == false before the
-   call and throw a future_error with an error condition of future_errc::no_state.
+   The implementations are encouraged to detect the case when valid == false before the call and throw a future_error with an error condition of future_errc::no_state.
 
 .SH Example
 
@@ -87,6 +78,5 @@ std::shared_future<T>::wait_for \- std::shared_future<T>::wait_for
 
    wait       waits for the result to become available
               \fI(public member function)\fP
-              waits for the result, returns if it is not available until specified time
-   wait_until point has been reached
+   wait_until waits for the result, returns if it is not available until specified time point has been reached
               \fI(public member function)\fP

@@ -1,4 +1,4 @@
-.TH std::basic_ios 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ios 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ios \- std::basic_ios
 
@@ -11,13 +11,11 @@ std::basic_ios \- std::basic_ios
 
    > class basic_ios : public std::ios_base
 
-   The class std::basic_ios provides facilities for interfacing with objects that have
-   std::basic_streambuf interface. Several std::basic_ios objects can refer to one
-   actual std::basic_streambuf object.
+   The class std::basic_ios provides facilities for interfacing with objects that have std::basic_streambuf interface. Several std::basic_ios objects can refer to one actual std::basic_streambuf object.
 
    std-basic ios-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
    Two specializations for common character types are also provided:
 
@@ -114,14 +112,11 @@ Inherited from std::ios_base
    getloc            returns current locale
                      \fI(public member function of std::ios_base)\fP
 .SH Internal extensible array
-   xalloc            returns a program-wide unique integer that is safe to use as index
-   \fB[static]\fP          to pword() and iword()
-                     \fI(public static member function of std::ios_base)\fP
-                     resizes the private storage if necessary and access to the long
-   iword             element at the given index
+   xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
+   \fB[static]\fP          \fI(public static member function of std::ios_base)\fP
+   iword             resizes the private storage if necessary and access to the long element at the given index
                      \fI(public member function of std::ios_base)\fP
-                     resizes the private storage if necessary and access to the void*
-   pword             element at the given index
+   pword             resizes the private storage if necessary and access to the void* element at the given index
                      \fI(public member function of std::ios_base)\fP
 .SH Miscellaneous
    register_callback registers event callback function
@@ -158,35 +153,21 @@ Inherited from std::ios_base
                   oct         use octal base for integer I/O: see std::oct
                   hex         use hexadecimal base for integer I/O: see std::hex
                   basefield   dec|oct|hex. Useful for masking operations
-                  left        left adjustment (adds fill characters to the right): see
-                              std::left
-                  right       right adjustment (adds fill characters to the left): see
-                              std::right
-                  internal    internal adjustment (adds fill characters to the internal
-                              designated point): see std::internal
-                  adjustfield left|right|internal. Useful for masking operations
-                              generate floating point types using scientific notation,
-                  scientific  or hex notation if combined with fixed: see
-                              std::scientific
-   fmtflags       fixed       generate floating point types using fixed notation, or
-                              hex notation if combined with scientific: see std::fixed
+                  left        left adjustment (adds fill characters to the right): see std::left
+                  right       right adjustment (adds fill characters to the left): see std::right
+                  internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
+   fmtflags       adjustfield left|right|internal. Useful for masking operations
+                  scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
+                  fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
                   floatfield  scientific|fixed. Useful for masking operations
-                  boolalpha   insert and extract bool type in alphanumeric format: see
-                              std::boolalpha
-                              generate a prefix indicating the numeric base for integer
-                  showbase    output, require the currency indicator in monetary I/O:
-                              see std::showbase
-                  showpoint   generate a decimal-point character unconditionally for
-                              floating-point number output: see std::showpoint
-                  showpos     generate a + character for non-negative numeric output:
-                              see std::showpos
-                  skipws      skip leading whitespace before certain input operations:
-                              see std::skipws
-                  unitbuf     flush the output after each output operation: see
-                              std::unitbuf
-                              replace certain lowercase letters with their uppercase
-                  uppercase   equivalents in certain output operations: see
-                              std::uppercase
+                  boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
+                  showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
+                  showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
+                  showpos     generate a + character for non-negative numeric output: see std::showpos
+                  skipws      skip leading whitespace before certain input operations: see std::skipws
+                  unitbuf     flush the output after each output operation: see std::unitbuf
+                  uppercase   replace certain lowercase letters with their uppercase
+                              equivalents in certain output operations: see std::uppercase
 
                   \fI(typedef)\fP
                   state of the stream type
@@ -196,8 +177,7 @@ Inherited from std::ios_base
                   Constant Explanation
    iostate        goodbit  no error
                   badbit   irrecoverable stream error
-                  failbit  input/output operation failed (formatting or extraction
-                           error)
+                  failbit  input/output operation failed (formatting or extraction error)
                   eofbit   associated input sequence has reached end-of-file
 
                   \fI(typedef)\fP
@@ -218,9 +198,7 @@ Inherited from std::ios_base
 
 .SH Notes
 
-   Straightforward implementation of std::basic_ios stores only the following members
-   (which all depend on the template parameters and thus cannot be part of
-   std::ios_base):
+   Straightforward implementation of std::basic_ios stores only the following members (which all depend on the template parameters and thus cannot be part of std::ios_base):
 
      * the fill character (see fill())
      * the tied stream pointer (see tie())
@@ -230,8 +208,6 @@ Inherited from std::ios_base
 
    Microsoft Visual Studio stores just those three members.
 
-   LLVM libc++ stores 1 less member: it maintains the rdbuf pointer as a void* member
-   of ios_base.
+   LLVM libc++ stores 1 less member: it maintains the rdbuf pointer as a void* member of ios_base.
 
-   GNU libstdc++ stores 4 additional members: three cached facets and a flag to
-   indicate that fill was initialized
+   GNU libstdc++ stores 4 additional members: three cached facets and a flag to indicate that fill was initialized

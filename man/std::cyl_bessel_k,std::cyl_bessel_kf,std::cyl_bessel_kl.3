@@ -1,4 +1,4 @@
-.TH std::cyl_bessel_k,std::cyl_bessel_kf,std::cyl_bessel_kl 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::cyl_bessel_k,std::cyl_bessel_kf,std::cyl_bessel_kl 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::cyl_bessel_k,std::cyl_bessel_kf,std::cyl_bessel_kl \- std::cyl_bessel_k,std::cyl_bessel_kf,std::cyl_bessel_kl
 
@@ -10,12 +10,8 @@ std::cyl_bessel_k,std::cyl_bessel_kf,std::cyl_bessel_kl \- std::cyl_bessel_k,std
    long double cyl_bessel_kl( long double ν, long double x );
    Promoted cyl_bessel_k( Arithmetic ν, Arithmetic x );       \fB(2)\fP \fI(since C++17)\fP
 
-   1) Computes the irregular modified cylindrical Bessel function (also known as
-   modified Bessel function of the second kind) of ν and x.
-   2) A set of overloads or a function template for all combinations of arguments of
-   arithmetic type not covered by \fB(1)\fP. If any argument has integral type, it is cast to
-   double. If any argument is long double, then the return type Promoted is also long
-   double, otherwise the return type is always double.
+   1) Computes the irregular modified cylindrical Bessel function (also known as modified Bessel function of the second kind) of ν and x.
+   2) A set of overloads or a function template for all combinations of arguments of arithmetic type not covered by \fB(1)\fP. If any argument has integral type, it is cast to double. If any argument is long double, then the return type Promoted is also long double, otherwise the return type is always double.
 
 .SH Parameters
 
@@ -24,8 +20,7 @@ std::cyl_bessel_k,std::cyl_bessel_kf,std::cyl_bessel_kl \- std::cyl_bessel_k,std
 
 .SH Return value
 
-   If no errors occur, value of the irregular modified cylindrical Bessel function
-   (modified Bessel function of the second kind) of ν and x, is returned, that is K
+   If no errors occur, value of the irregular modified cylindrical Bessel function (modified Bessel function of the second kind) of ν and x, is returned, that is K
    ν(x) =
 
    π
@@ -37,8 +32,7 @@ std::cyl_bessel_k,std::cyl_bessel_kf,std::cyl_bessel_kl \- std::cyl_bessel_k,std
    sin(νπ)
 
    (where I
-   ν(x) is std::cyl_bessel_i(ν,x)) for x≥0 and non-integer ν; for integer ν a limit is
-   used.
+   ν(x) is std::cyl_bessel_i(ν,x)) for x≥0 and non-integer ν; for integer ν a limit is used.
 
 .SH Error handling
 
@@ -49,13 +43,9 @@ std::cyl_bessel_k,std::cyl_bessel_kf,std::cyl_bessel_kl \- std::cyl_bessel_k,std
 
 .SH Notes
 
-   Implementations that do not support C++17, but support ISO 29124:2010, provide this
-   function if __STDCPP_MATH_SPEC_FUNCS__ is defined by the implementation to a value
-   at least 201003L and if the user defines __STDCPP_WANT_MATH_SPEC_FUNCS__ before
-   including any standard library headers.
+   Implementations that do not support C++17, but support ISO 29124:2010, provide this function if __STDCPP_MATH_SPEC_FUNCS__ is defined by the implementation to a value at least 201003L and if the user defines __STDCPP_WANT_MATH_SPEC_FUNCS__ before including any standard library headers.
 
-   Implementations that do not support ISO 29124:2010 but support TR 19768:2007 (TR1),
-   provide this function in the header tr1/cmath and namespace std::tr1
+   Implementations that do not support ISO 29124:2010 but support TR 19768:2007 (TR1), provide this function in the header tr1/cmath and namespace std::tr1
 
    An implementation of this function is also available in boost.math
 
@@ -85,8 +75,7 @@ std::cyl_bessel_k,std::cyl_bessel_kf,std::cyl_bessel_kl \- std::cyl_bessel_k,std
 
 .SH External links
 
-   Weisstein, Eric W. "Modified Bessel Function of the Second Kind." From MathWorld--A
-   Wolfram Web Resource.
+   Weisstein, Eric W. "Modified Bessel Function of the Second Kind." From MathWorld--A Wolfram Web Resource.
 
 .SH See also
 

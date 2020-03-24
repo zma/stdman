@@ -1,4 +1,4 @@
-.TH std::experimental::atomic_weak_ptr 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::atomic_weak_ptr 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::atomic_weak_ptr \- std::experimental::atomic_weak_ptr
 
@@ -7,8 +7,7 @@ std::experimental::atomic_weak_ptr \- std::experimental::atomic_weak_ptr
    template < class T >                     (concurrency TS)
    class atomic_weak_ptr;
 
-   The class template atomic_weak_ptr provides thread-safe atomic pointer operations
-   over a std::weak_ptr.
+   The class template atomic_weak_ptr provides thread-safe atomic pointer operations over a std::weak_ptr.
 
 .SH Member functions
 
@@ -18,17 +17,13 @@ std::experimental::atomic_weak_ptr \- std::experimental::atomic_weak_ptr
                            \fI(public member function)\fP
    is_lock_free            checks if the atomic_weak_ptr object is lock-free
                            \fI(public member function)\fP
-                           atomically replaces the value of the atomic object with a
-   store                   non-atomic argument
+   store                   atomically replaces the value of the atomic object with a non-atomic argument
                            \fI(public member function)\fP
    load                    atomically obtains the value of the atomic object
                            \fI(public member function)\fP
    operator weak_ptr<T>    loads a value from an atomic object
                            \fI(public member function)\fP
-                           atomically replaces the value of the atomic object and
-   exchange                obtains the value held previously
+   exchange                atomically replaces the value of the atomic object and obtains the value held previously
                            \fI(public member function)\fP
-                           atomically compares the value of the atomic object with
-   compare_exchange_weak   non-atomic argument and performs atomic exchange if equal or
-   compare_exchange_strong atomic load if not
-                           \fI(public member function)\fP
+   compare_exchange_weak   atomically compares the value of the atomic object with non-atomic argument and performs atomic exchange if equal or atomic load if not
+   compare_exchange_strong \fI(public member function)\fP

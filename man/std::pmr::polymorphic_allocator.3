@@ -1,4 +1,4 @@
-.TH std::pmr::polymorphic_allocator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::polymorphic_allocator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::polymorphic_allocator \- std::pmr::polymorphic_allocator
 
@@ -8,15 +8,9 @@ std::pmr::polymorphic_allocator \- std::pmr::polymorphic_allocator
    template< class T = std::byte >  \fI(since C++20)\fP
    class polymorphic_allocator;
 
-   The class template std::pmr::polymorphic_allocator is an Allocator whose allocation
-   behavior depends on the memory resource it is constructed with. Thus, different
-   instances of polymorphic_allocator can exhibit entirely different allocation
-   behavior. This runtime polymorphism allows objects using polymorphic_allocator to
-   behave as if they used different allocator types at run time despite the identical
-   static allocator type.
+   The class template std::pmr::polymorphic_allocator is an Allocator whose allocation behavior depends on the memory resource it is constructed with. Thus, different instances of polymorphic_allocator can exhibit entirely different allocation behavior. This runtime polymorphism allows objects using polymorphic_allocator to behave as if they used different allocator types at run time despite the identical static allocator type.
 
-   All specializations of polymorphic_allocator meet the Allocator completeness
-   requirements.
+   All specializations of polymorphic_allocator meet the Allocator completeness requirements.
 
 .SH Member types
 
@@ -40,25 +34,21 @@ std::pmr::polymorphic_allocator \- std::pmr::polymorphic_allocator
                                          \fI(public member function)\fP
    destroy                               Destroys an object in allocated storage
                                          \fI(public member function)\fP
-   allocate_bytes                        Allocate raw aligned memory from the
-   (C++20)                               underlying resource
-                                         \fI(public member function)\fP
+   allocate_bytes                        Allocate raw aligned memory from the underlying resource
+   (C++20)                               \fI(public member function)\fP
    deallocate_bytes                      Free raw memory obtained from allocate_bytes
    (C++20)                               \fI(public member function)\fP
-   allocate_object                       Allocates raw memory suitable for an object or
-   (C++20)                               an array
-                                         \fI(public member function)\fP
+   allocate_object                       Allocates raw memory suitable for an object or an array
+   (C++20)                               \fI(public member function)\fP
    deallocate_object                     Frees raw memory obtained by allocate_object
    (C++20)                               \fI(public member function)\fP
    new_object                            Allocates and constructs an object
    (C++20)                               \fI(public member function)\fP
    delete_object                         Destroys and deallocates an object
    (C++20)                               \fI(public member function)\fP
-                                         Create a new polymorphic_allocator for use by
-   select_on_container_copy_construction a container's copy constructor
+   select_on_container_copy_construction Create a new polymorphic_allocator for use by a container's copy constructor
                                          \fI(public member function)\fP
-                                         Returns a pointer to the underlying memory
-   resource                              resource
+   resource                              Returns a pointer to the underlying memory resource
                                          \fI(public member function)\fP
 
 .SH Non-member functions
@@ -68,10 +58,7 @@ std::pmr::polymorphic_allocator \- std::pmr::polymorphic_allocator
 
 .SH Notes
 
-   polymorphic_allocator does not propagate on container copy assignment, move
-   assignment, or swap. As a result, move assignment of a polymorphic_allocator-using
-   container can throw, and swapping two polymorphic_allocator-using containers whose
-   allocators do not compare equal results in undefined behavior.
+   polymorphic_allocator does not propagate on container copy assignment, move assignment, or swap. As a result, move assignment of a polymorphic_allocator-using container can throw, and swapping two polymorphic_allocator-using containers whose allocators do not compare equal results in undefined behavior.
 
 .SH See also
 

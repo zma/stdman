@@ -1,4 +1,4 @@
-.TH std::basic_string<CharT,Traits,Allocator>::shrink_to_fit 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::shrink_to_fit 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::shrink_to_fit \- std::basic_string<CharT,Traits,Allocator>::shrink_to_fit
 
@@ -7,11 +7,9 @@ std::basic_string<CharT,Traits,Allocator>::shrink_to_fit \- std::basic_string<Ch
 
    Requests the removal of unused capacity.
 
-   It is a non-binding request to reduce capacity() to size(). It depends on the
-   implementation if the request is fulfilled.
+   It is a non-binding request to reduce capacity() to size(). It depends on the implementation if the request is fulfilled.
 
-   If (and only if) reallocation takes place, all pointers, references, and iterators
-   are invalidated.
+   If (and only if) reallocation takes place, all pointers, references, and iterators are invalidated.
 
 .SH Parameters
 
@@ -57,6 +55,5 @@ std::basic_string<CharT,Traits,Allocator>::shrink_to_fit \- std::basic_string<Ch
 
    size     returns the number of characters
    length   \fI(public member function)\fP
-            returns the number of characters that can be held in currently allocated
-   capacity storage
+   capacity returns the number of characters that can be held in currently allocated storage
             \fI(public member function)\fP

@@ -1,4 +1,4 @@
-.TH std::reference_wrapper<T>::reference_wrapper 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::reference_wrapper<T>::reference_wrapper 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::reference_wrapper<T>::reference_wrapper \- std::reference_wrapper<T>::reference_wrapper
 
@@ -9,11 +9,7 @@ std::reference_wrapper<T>::reference_wrapper \- std::reference_wrapper<T>::refer
 
    Constructs a new reference wrapper.
 
-   1) Converts x to T& as if by T& t = std::forward<U>(x);, then stores a reference to
-   t. This overload only participates in overload resolution if typename
-   std::decay<U>::type is not the same type as reference_wrapper and the expression
-   FUN(std::declval<U>()) is well-formed, where FUN names the set of imaginary
-   functions
+   1) Converts x to T& as if by T& t = std::forward<U>(x);, then stores a reference to t. This overload only participates in overload resolution if typename std::decay<U>::type is not the same type as reference_wrapper and the expression FUN(std::declval<U>()) is well-formed, where FUN names the set of imaginary functions
 
  void FUN(T&) noexcept;
  void FUN(T&&) = delete;
@@ -34,10 +30,7 @@ std::reference_wrapper<T>::reference_wrapper \- std::reference_wrapper<T>::refer
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-                       deleted reference_wrapper(T&&) constructor replaced with a
-   LWG 2993 C++11      interferes with overload resolution in     constructor template
-                       some cases
+      DR    Applied to                                    Behavior as published                                               Correct behavior
+   LWG 2993 C++11      deleted reference_wrapper(T&&) constructor interferes with overload resolution in some cases replaced with a constructor template

@@ -1,13 +1,11 @@
-.TH std::independent_bits_engine<Engine,W,UIntType>::discard 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::independent_bits_engine<Engine,W,UIntType>::discard 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::independent_bits_engine<Engine,W,UIntType>::discard \- std::independent_bits_engine<Engine,W,UIntType>::discard
 
 .SH Synopsis
    void discard( unsigned long long z );  \fI(since C++11)\fP
 
-   Advances the internal state by z times. Equivalent to calling operator() z times and
-   discarding the result. The state of the underlying engine may be advanced by more
-   than z times.
+   Advances the internal state by z times. Equivalent to calling operator() z times and discarding the result. The state of the underlying engine may be advanced by more than z times.
 
 .SH Parameters
 
@@ -23,6 +21,5 @@ std::independent_bits_engine<Engine,W,UIntType>::discard \- std::independent_bit
 
 .SH See also
 
-              advances the state of the underlying engine and returns the generated
-   operator() value
+   operator() advances the state of the underlying engine and returns the generated value
               \fI(public member function)\fP

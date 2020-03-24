@@ -1,4 +1,4 @@
-.TH std::forward_list<T,Allocator>::emplace_after 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::forward_list<T,Allocator>::emplace_after 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::forward_list<T,Allocator>::emplace_after \- std::forward_list<T,Allocator>::emplace_after
 
@@ -6,10 +6,7 @@ std::forward_list<T,Allocator>::emplace_after \- std::forward_list<T,Allocator>:
    template< class... Args >                                      \fI(since C++11)\fP
    iterator emplace_after( const_iterator pos, Args&&... args );
 
-   Inserts a new element into a position after the specified position in the container.
-   The element is constructed in-place, i.e. no copy or move operations are performed.
-   The constructor of the element is called with exactly the same arguments, as
-   supplied to the function.
+   Inserts a new element into a position after the specified position in the container. The element is constructed in-place, i.e. no copy or move operations are performed. The constructor of the element is called with exactly the same arguments, as supplied to the function.
 
    No iterators or references are invalidated.
 
@@ -28,8 +25,7 @@ std::forward_list<T,Allocator>::emplace_after \- std::forward_list<T,Allocator>:
 
 .SH Exceptions
 
-   If an exception is thrown (e.g. by the constructor), the container is left
-   unmodified, as if this function was never called \fI(strong exception guarantee)\fP.
+   If an exception is thrown (e.g. by the constructor), the container is left unmodified, as if this function was never called \fI(strong exception guarantee)\fP.
 
 .SH See also
 

@@ -1,4 +1,4 @@
-.TH std::swap(std::queue) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::swap(std::queue) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::swap(std::queue) \- std::swap(std::queue)
 
@@ -14,11 +14,9 @@ std::swap(std::queue) \- std::swap(std::queue)
 
    queue<T,Container>& rhs ) noexcept(/* see below */);
 
-   Specializes the std::swap algorithm for std::queue. Swaps the contents of lhs and
-   rhs. Calls lhs.swap(rhs).
+   Specializes the std::swap algorithm for std::queue. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
-   This overload only participates in overload resolution if              \fI(since C++17)\fP
-   std::is_swappable<Container>::value is true.
+   This overload only participates in overload resolution if std::is_swappable<Container>::value is true. \fI(since C++17)\fP
 
 .SH Parameters
 

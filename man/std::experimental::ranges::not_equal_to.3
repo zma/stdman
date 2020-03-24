@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::not_equal_to 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::not_equal_to 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::not_equal_to \- std::experimental::ranges::not_equal_to
 
@@ -7,18 +7,14 @@ std::experimental::ranges::not_equal_to \- std::experimental::ranges::not_equal_
    template< class T = void >
 
    requires EqualityComparable<T> ||
-   Same<T, void> ||                                                         (ranges TS)
-   /* == on two const T lvalues invokes a built-in operator comparing
-   pointers */
+   Same<T, void> ||                                                                (ranges TS)
+   /* == on two const T lvalues invokes a built-in operator comparing pointers */
 
    struct not_equal_to;
-   template <>                                                              (ranges TS)
+   template <>                                                                     (ranges TS)
    struct not_equal_to<void>;
 
-   Function object for performing comparisons. The primary template invokes operator ==
-   on const lvalues of type T and negates the result. The specialization
-   not_equal_to<void> deduces the parameter types of the function call operator from
-   the arguments (but not the return type).
+   Function object for performing comparisons. The primary template invokes operator == on const lvalues of type T and negates the result. The specialization not_equal_to<void> deduces the parameter types of the function call operator from the arguments (but not the return type).
 
    All specializations of not_equal_to are Semiregular.
 
@@ -34,29 +30,21 @@ std::experimental::ranges::not_equal_to \- std::experimental::ranges::not_equal_
 
 std::experimental::ranges::not_equal_to::operator()
 
-   constexpr bool operator()(const T& x, const   \fB(1)\fP (member only of primary
-   T& y) const;                                      not_equal_to<T> template)
+   constexpr bool operator()(const T& x, const T& y) const; \fB(1)\fP (member only of primary not_equal_to<T> template)
    template< class T, class U >
 
    requires EqualityComparableWith<T, U> ||
-   /* std::declval<T>() == std::declval<U>()         (member only of not_equal_to<void>
-   resolves to                                   \fB(2)\fP specialization)
+   /* std::declval<T>() == std::declval<U>() resolves to    \fB(2)\fP (member only of not_equal_to<void> specialization)
    a built-in operator comparing pointers */
 
-   constexpr bool operator()(T&& t, U&& u)
-   const;
+   constexpr bool operator()(T&& t, U&& u) const;
 
    1) Compares x and y. Equivalent to return !ranges::equal_to<>{}(x, y);
-   2) Compares t and u. Equivalent to return !ranges::equal_to<>{}(std::forward<T>(t),
-   std::forward<U>(u));.
+   2) Compares t and u. Equivalent to return !ranges::equal_to<>{}(std::forward<T>(t), std::forward<U>(u));.
 
 .SH Notes
 
-   Unlike std::not_equal_to, ranges::not_equal_to requires both == and != to be valid
-   (via the EqualityComparable and EqualityComparableWith constraints), and is entirely
-   defined in terms of ranges::equal_to. However, the implementation is free to use
-   operator!= directly, because those concepts require the results of == and != to be
-   consistent.
+   Unlike std::not_equal_to, ranges::not_equal_to requires both == and != to be valid (via the EqualityComparable and EqualityComparableWith constraints), and is entirely defined in terms of ranges::equal_to. However, the implementation is free to use operator!= directly, because those concepts require the results of == and != to be consistent.
 
 .SH Example
 

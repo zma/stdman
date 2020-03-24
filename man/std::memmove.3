@@ -1,4 +1,4 @@
-.TH std::memmove 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::memmove 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::memmove \- std::memmove
 
@@ -6,15 +6,11 @@ std::memmove \- std::memmove
    Defined in header <cstring>
    void* memmove( void* dest, const void* src, std::size_t count );
 
-   Copies count characters from the object pointed to by src to the object pointed to
-   by dest. Both objects are reinterpreted as arrays of unsigned char.
+   Copies count characters from the object pointed to by src to the object pointed to by dest. Both objects are reinterpreted as arrays of unsigned char.
 
-   The objects may overlap: copying takes place as if the characters were copied to a
-   temporary character array and then the characters were copied from the array to
-   dest.
+   The objects may overlap: copying takes place as if the characters were copied to a temporary character array and then the characters were copied from the array to dest.
 
-   If the objects are potentially-overlapping or not TriviallyCopyable, the behavior of
-   memmove is not specified and may be undefined.
+   If the objects are potentially-overlapping or not TriviallyCopyable, the behavior of memmove is not specified and may be undefined.
 
 .SH Parameters
 
@@ -28,12 +24,7 @@ std::memmove \- std::memmove
 
 .SH Notes
 
-   Despite being specified "as if" a temporary buffer is used, actual implementations
-   of this function do not incur the overhead of double copying or extra memory. For
-   small count, it may load up and write out registers; for larger blocks, a common
-   approach (glibc and bsd libc) is to copy bytes forwards from the beginning of the
-   buffer if the destination starts before the source, and backwards from the end
-   otherwise, with a fall back to std::memcpy when there is no overlap at all.
+   Despite being specified "as if" a temporary buffer is used, actual implementations of this function do not incur the overhead of double copying or extra memory. For small count, it may load up and write out registers; for larger blocks, a common approach (glibc and bsd libc) is to copy bytes forwards from the beginning of the buffer if the destination starts before the source, and backwards from the end otherwise, with a fall back to std::memcpy when there is no overlap at all.
 
 .SH Example
 
@@ -62,8 +53,7 @@ std::memmove \- std::memmove
                          \fI(function)\fP
    memset                fills a buffer with a character
                          \fI(function)\fP
-                         copies a certain amount of wide characters between two,
-   wmemmove              possibly overlapping, arrays
+   wmemmove              copies a certain amount of wide characters between two, possibly overlapping, arrays
                          \fI(function)\fP
    copy                  copies a range of elements to a new location
    copy_if               \fI(function template)\fP

@@ -1,4 +1,4 @@
-.TH std::filesystem::perm_options 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::perm_options 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::perm_options \- std::filesystem::perm_options
 
@@ -13,27 +13,19 @@ std::filesystem::perm_options \- std::filesystem::perm_options
 
    };
 
-   This type represents available options that control the behavior of the function
-   permissions().
+   This type represents available options that control the behavior of the function permissions().
 
-   perm_options satisfies the requirements of BitmaskType (which means the bitwise
-   operators operator&, operator|, operator^, operator~, operator&=, operator|=, and
-   operator^= are defined for this type)
+   perm_options satisfies the requirements of BitmaskType (which means the bitwise operators operator&, operator|, operator^, operator~, operator&=, operator|=, and operator^= are defined for this type)
 
 .SH Member constants
 
-   At most one of add, remove, replace may be present, otherwise the behavior of the
-   permissions function is undefined.
+   At most one of add, remove, replace may be present, otherwise the behavior of the permissions function is undefined.
 
-   Member constant                               Meaning
-   replace         Permissions will be completely replaced by the argument to
-                   permissions() (default behavior)
-   add             permissions will be replaced by the bitwise OR of the argument and
-                   the current permissions
-   remove          permissions will be replaced by the bitwise AND of the negated
-                   argument and current permissions
-   nofollow        permissions will be changed on the symlink itself, rather than on
-                   the file it resolves to
+   Member constant                                             Meaning
+   replace         Permissions will be completely replaced by the argument to permissions() (default behavior)
+   add             permissions will be replaced by the bitwise OR of the argument and the current permissions
+   remove          permissions will be replaced by the bitwise AND of the negated argument and current permissions
+   nofollow        permissions will be changed on the symlink itself, rather than on the file it resolves to
 
 .SH Example
 

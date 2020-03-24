@@ -1,4 +1,4 @@
-.TH std::chrono::is_clock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::is_clock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::is_clock \- std::chrono::is_clock
 
@@ -7,17 +7,12 @@ std::chrono::is_clock \- std::chrono::is_clock
    template< class T >
    struct is_clock;
 
-   If T satisfies the Clock requirements, provides the member constant value equal
-   true. For any other type, value is false.
+   If T satisfies the Clock requirements, provides the member constant value equal true. For any other type, value is false.
 
-   For the purpose of this trait, the extent to which an implementation determines that
-   a type cannot meet the Clock requirements is unspecified, except that a minimum T
-   shall not qualify as a Clock unless it meets all of the following conditions:
+   For the purpose of this trait, the extent to which an implementation determines that a type cannot meet the Clock requirements is unspecified, except that a minimum T shall not qualify as a Clock unless it meets all of the following conditions:
 
-     * The qualified-ids T::rep, T::period, T::duration, and T::time_point are all
-       valid and each denotes a type;
-     * The expressions T::is_steady and T::now() are each well-formed when treated as
-       an unevaluated operand.
+     * The qualified-ids T::rep, T::period, T::duration, and T::time_point are all valid and each denotes a type;
+     * The expressions T::is_steady and T::now() are each well-formed when treated as an unevaluated operand.
 
    The behavior of a program that adds specializations for is_clock is undefined.
 

@@ -1,4 +1,4 @@
-.TH std::time_get<CharT,InputIt>::date_order,std::time_get<CharT,InputIt>::do_date_order 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::time_get<CharT,InputIt>::date_order,std::time_get<CharT,InputIt>::do_date_order 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::time_get<CharT,InputIt>::date_order,std::time_get<CharT,InputIt>::do_date_order \- std::time_get<CharT,InputIt>::date_order,std::time_get<CharT,InputIt>::do_date_order
 
@@ -9,16 +9,12 @@ std::time_get<CharT,InputIt>::date_order,std::time_get<CharT,InputIt>::do_date_o
    protected:                               \fB(2)\fP
    virtual dateorder do_date_order() const;
 
-   1) Public member function, calls the protected virtual member function do_date_order
-   of the most derived class.
-   2) Returns a value of type std::time_base::dateorder, which describes the default
-   date format used by this locale (expected by get_date() and produced by
-   std::strftime() with format specifier '%x').
+   1) Public member function, calls the protected virtual member function do_date_order of the most derived class.
+   2) Returns a value of type std::time_base::dateorder, which describes the default date format used by this locale (expected by get_date() and produced by std::strftime() with format specifier '%x').
 
    The valid values (inherited from std::time_base) are:
 
-   no_order the format contains variable items (week day, Julian day, etc), or this
-            function is not implemented
+   no_order the format contains variable items (week day, Julian day, etc), or this function is not implemented
    dmy      day, month, year (European locales)
    mdy      month, day, year (American locales)
    ymd      year, month, day (Asian locales)

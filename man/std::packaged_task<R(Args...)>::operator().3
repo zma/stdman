@@ -1,13 +1,11 @@
-.TH std::packaged_task<R(Args...)>::operator() 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::packaged_task<R(Args...)>::operator() 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::packaged_task<R(Args...)>::operator() \- std::packaged_task<R(Args...)>::operator()
 
 .SH Synopsis
    void operator()( ArgTypes... args );  \fI(since C++11)\fP
 
-   Calls the stored task with args as the arguments. The return value of the task or
-   any exceptions thrown are stored in the shared state. The shared state is made ready
-   and any threads waiting for this are unblocked.
+   Calls the stored task with args as the arguments. The return value of the task or any exceptions thrown are stored in the shared state. The shared state is made ready and any threads waiting for this are unblocked.
 
 .SH Parameters
 
@@ -21,17 +19,13 @@ std::packaged_task<R(Args...)>::operator() \- std::packaged_task<R(Args...)>::op
 
    std::future_error on the following error conditions:
 
-     * The stored task has already been invoked. The error category is set to
-       promise_already_satisfied.
+     * The stored task has already been invoked. The error category is set to promise_already_satisfied.
      * *this has no shared state. The error category is set to no_state.
 
 .SH Notes
 
-   A successful call to operator() synchronizes with a call to any member
-   function of a std::future or std::shared_future that share their       \fI(until C++14)\fP
-   shared state with *this.
-   No additional synchronization guarantees other than what's already     \fI(since C++14)\fP
-   provided by shared state.
+   A successful call to operator() synchronizes with a call to any member function of a std::future or std::shared_future that share their shared state with *this. \fI(until C++14)\fP
+   No additional synchronization guarantees other than what's already provided by shared state.                                                                     \fI(since C++14)\fP
 
 .SH Example
 
@@ -40,6 +34,5 @@ std::packaged_task<R(Args...)>::operator() \- std::packaged_task<R(Args...)>::op
 
 .SH See also
 
-                             executes the function ensuring that the result is ready
-   make_ready_at_thread_exit only once the current thread exits
+   make_ready_at_thread_exit executes the function ensuring that the result is ready only once the current thread exits
                              \fI(public member function)\fP

@@ -1,4 +1,4 @@
-.TH std::shared_mutex 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_mutex 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_mutex \- std::shared_mutex
 
@@ -6,21 +6,15 @@ std::shared_mutex \- std::shared_mutex
    Defined in header <shared_mutex>
    class shared_mutex;               \fI(since C++17)\fP
 
-   The shared_mutex class is a synchronization primitive that can be used to protect
-   shared data from being simultaneously accessed by multiple threads. In contrast to
-   other mutex types which facilitate exclusive access, a shared_mutex has two levels
-   of access:
+   The shared_mutex class is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads. In contrast to other mutex types which facilitate exclusive access, a shared_mutex has two levels of access:
 
      * shared - several threads can share ownership of the same mutex.
 
      * exclusive - only one thread can own the mutex.
 
-   Shared mutexes are usually used in situations when multiple readers can access the
-   same resource at the same time without causing data races, but only one writer can
-   do so.
+   Shared mutexes are usually used in situations when multiple readers can access the same resource at the same time without causing data races, but only one writer can do so.
 
-   The shared_mutex class satisfies all requirements of SharedMutex and
-   StandardLayoutType.
+   The shared_mutex class satisfies all requirements of SharedMutex and StandardLayoutType.
 
 .SH Member types
 
@@ -43,11 +37,9 @@ std::shared_mutex \- std::shared_mutex
    unlock          unlocks the mutex
                    \fI(public member function)\fP
 .SH Shared locking
-                   locks the mutex for shared ownership, blocks if the mutex is not
-   lock_shared     available
+   lock_shared     locks the mutex for shared ownership, blocks if the mutex is not available
                    \fI(public member function)\fP
-                   tries to lock the mutex for shared ownership, returns if the mutex
-   try_lock_shared is not available
+   try_lock_shared tries to lock the mutex for shared ownership, returns if the mutex is not available
                    \fI(public member function)\fP
    unlock_shared   unlocks the mutex (shared ownership)
                    \fI(public member function)\fP
@@ -133,6 +125,5 @@ std::shared_mutex \- std::shared_mutex
 
 .SH See also
 
-   shared_timed_mutex provides shared mutual exclusion facility and implements locking
-   \fI(C++14)\fP            with a timeout
-                      \fI(class)\fP
+   shared_timed_mutex provides shared mutual exclusion facility and implements locking with a timeout
+   \fI(C++14)\fP            \fI(class)\fP

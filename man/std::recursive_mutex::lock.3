@@ -1,21 +1,17 @@
-.TH std::recursive_mutex::lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::recursive_mutex::lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::recursive_mutex::lock \- std::recursive_mutex::lock
 
 .SH Synopsis
    void lock();  \fI(since C++11)\fP
 
-   Locks the mutex. If another thread has already locked the mutex, a call to lock will
-   block execution until the lock is acquired.
+   Locks the mutex. If another thread has already locked the mutex, a call to lock will block execution until the lock is acquired.
 
-   A thread may call lock on a recursive mutex repeatedly. Ownership will only be
-   released after the thread makes a matching number of calls to unlock.
+   A thread may call lock on a recursive mutex repeatedly. Ownership will only be released after the thread makes a matching number of calls to unlock.
 
-   The maximum number of levels of ownership is unspecified. An exception of type
-   std::system_error will be thrown if this number is exceeded.
+   The maximum number of levels of ownership is unspecified. An exception of type std::system_error will be thrown if this number is exceeded.
 
-   Prior unlock() operations on the same mutex synchronize-with (as defined in
-   std::memory_order) this operation.
+   Prior unlock() operations on the same mutex synchronize-with (as defined in std::memory_order) this operation.
 
 .SH Parameters
 
@@ -27,14 +23,11 @@ std::recursive_mutex::lock \- std::recursive_mutex::lock
 
 .SH Exceptions
 
-   Throws std::system_error when errors occur, including errors from the underlying
-   operating system that would prevent lock from meeting its specifications. The mutex
-   is not locked in the case of any exception being thrown.
+   Throws std::system_error when errors occur, including errors from the underlying operating system that would prevent lock from meeting its specifications. The mutex is not locked in the case of any exception being thrown.
 
 .SH Notes
 
-   lock() is usually not called directly: std::unique_lock and std::lock_guard are used
-   to manage exclusive locking.
+   lock() is usually not called directly: std::unique_lock and std::lock_guard are used to manage exclusive locking.
 
 .SH Example
 

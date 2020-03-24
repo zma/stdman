@@ -1,4 +1,4 @@
-.TH std::tuple_element<std::pair> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tuple_element<std::pair> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tuple_element<std::pair> \- std::tuple_element<std::pair>
 
@@ -7,9 +7,7 @@ std::tuple_element<std::pair> \- std::tuple_element<std::pair>
    template< std::size_t I, class T1, class T2 >  \fI(since C++11)\fP
    struct tuple_element<I, std::pair<T1, T2>>;
 
-   The partial specializations of std::tuple_element for pairs provide compile-time
-   access to the types of the pair's elements, using tuple-like syntax. The program is
-   ill-formed if I >= 2
+   The partial specializations of std::tuple_element for pairs provide compile-time access to the types of the pair's elements, using tuple-like syntax. The program is ill-formed if I >= 2
 
 .SH Member types
 
@@ -88,12 +86,10 @@ std::tuple_element<std::pair> \- std::tuple_element<std::pair>
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-   LWG 2974 C++11      out-of-bounds index referred the undefined made ill-formed (hard
-                       primary template                           error)
+      DR    Applied to                    Behavior as published                          Correct behavior
+   LWG 2974 C++11      out-of-bounds index referred the undefined primary template made ill-formed (hard error)
 
 .SH See also
 

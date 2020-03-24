@@ -1,4 +1,4 @@
-.TH std::fputs 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::fputs 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::fputs \- std::fputs
 
@@ -6,8 +6,7 @@ std::fputs \- std::fputs
    Defined in header <cstdio>
    int fputs( const char* str, std::FILE* stream );
 
-   Writes every character from the null-terminated string str to the output stream
-   stream, as if by repeatedly executing std::fputc.
+   Writes every character from the null-terminated string str to the output stream stream, as if by repeatedly executing std::fputc.
 
    The terminating null character from str is not written.
 
@@ -24,13 +23,9 @@ std::fputs \- std::fputs
 
 .SH Notes
 
-   The related function std::puts appends a newline character to the output, while
-   std::fputs writes the string unmodified.
+   The related function std::puts appends a newline character to the output, while std::fputs writes the string unmodified.
 
-   Different implementations return different non-negative numbers: some return the
-   last character written, some return the number of characters written (or INT_MAX if
-   the string was longer than that), some simply return a non-negative constant such as
-   zero.
+   Different implementations return different non-negative numbers: some return the last character written, some return the number of characters written (or INT_MAX if the string was longer than that), some simply return a non-negative constant such as zero.
 
 .SH Example
 

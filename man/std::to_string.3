@@ -1,4 +1,4 @@
-.TH std::to_string 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::to_string 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::to_string \- std::to_string
 
@@ -16,22 +16,14 @@ std::to_string \- std::to_string
 
    Converts a numeric value to std::string.
 
-   1) Converts a signed decimal integer to a string with the same content as what
-   std::sprintf(buf, "%d", value) would produce for sufficiently large buf.
-   2) Converts a signed decimal integer to a string with the same content as what
-   std::sprintf(buf, "%ld", value) would produce for sufficiently large buf.
-   3) Converts a signed decimal integer to a string with the same content as what
-   std::sprintf(buf, "%lld", value) would produce for sufficiently large buf.
-   4) Converts an unsigned decimal integer to a string with the same content as what
-   std::sprintf(buf, "%u", value) would produce for sufficiently large buf.
-   5) Converts an unsigned decimal integer to a string with the same content as what
-   std::sprintf(buf, "%lu", value) would produce for sufficiently large buf.
-   6) Converts an unsigned decimal integer to a string with the same content as what
-   std::sprintf(buf, "%llu", value) would produce for sufficiently large buf.
-   7,8) Converts a floating point value to a string with the same content as what
-   std::sprintf(buf, "%f", value) would produce for sufficiently large buf.
-   9) Converts a floating point value to a string with the same content as what
-   std::sprintf(buf, "%Lf", value) would produce for sufficiently large buf.
+   1) Converts a signed decimal integer to a string with the same content as what std::sprintf(buf, "%d", value) would produce for sufficiently large buf.
+   2) Converts a signed decimal integer to a string with the same content as what std::sprintf(buf, "%ld", value) would produce for sufficiently large buf.
+   3) Converts a signed decimal integer to a string with the same content as what std::sprintf(buf, "%lld", value) would produce for sufficiently large buf.
+   4) Converts an unsigned decimal integer to a string with the same content as what std::sprintf(buf, "%u", value) would produce for sufficiently large buf.
+   5) Converts an unsigned decimal integer to a string with the same content as what std::sprintf(buf, "%lu", value) would produce for sufficiently large buf.
+   6) Converts an unsigned decimal integer to a string with the same content as what std::sprintf(buf, "%llu", value) would produce for sufficiently large buf.
+   7,8) Converts a floating point value to a string with the same content as what std::sprintf(buf, "%f", value) would produce for sufficiently large buf.
+   9) Converts a floating point value to a string with the same content as what std::sprintf(buf, "%Lf", value) would produce for sufficiently large buf.
 
 .SH Parameters
 
@@ -47,15 +39,9 @@ std::to_string \- std::to_string
 
 .SH Notes
 
-     * With floating point types std::to_string may yield unexpected results as the
-       number of significant digits in the returned string can be zero, see the
-       example.
-     * The return value may differ significantly from what std::cout prints by default,
-       see the example.
-     * std::to_string relies on the current locale for formatting purposes, and
-       therefore concurrent calls to std::to_string from multiple threads may result in
-       partial serialization of calls. C++17 provides std::to_chars as a
-       higher-performance locale-independent alternative.
+     * With floating point types std::to_string may yield unexpected results as the number of significant digits in the returned string can be zero, see the example.
+     * The return value may differ significantly from what std::cout prints by default, see the example.
+     * std::to_string relies on the current locale for formatting purposes, and therefore concurrent calls to std::to_string from multiple threads may result in partial serialization of calls. C++17 provides std::to_chars as a higher-performance locale-independent alternative.
 
 .SH Example
 

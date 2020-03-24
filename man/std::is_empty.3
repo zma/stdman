@@ -1,4 +1,4 @@
-.TH std::is_empty 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_empty 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_empty \- std::is_empty
 
@@ -7,13 +7,9 @@ std::is_empty \- std::is_empty
    template< class T >              \fI(since C++11)\fP
    struct is_empty;
 
-   If T is an empty type (that is, a non-union class type with no non-static data
-   members other than bit-fields of size 0, no virtual functions, no virtual base
-   classes, and no non-empty base classes), provides the member constant value equal
-   true. For any other type, value is false.
+   If T is an empty type (that is, a non-union class type with no non-static data members other than bit-fields of size 0, no virtual functions, no virtual base classes, and no non-empty base classes), provides the member constant value equal true. For any other type, value is false.
 
-   If T is a non-union class type, T shall be a complete type; otherwise, the behavior
-   is undefined.
+   If T is a non-union class type, T shall be a complete type; otherwise, the behavior is undefined.
 
 .SH Template parameters
 
@@ -46,8 +42,7 @@ Inherited from std::integral_constant
 
 .SH Notes
 
-   Inheriting from empty base classes usually does not increase the size of a class due
-   to empty base optimization.
+   Inheriting from empty base classes usually does not increase the size of a class due to empty base optimization.
 
    std::is_empty<T> and all other type traits are empty classes.
 

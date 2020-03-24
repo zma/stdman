@@ -1,4 +1,4 @@
-.TH std::chrono::duration<Rep,Period>::duration 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::duration<Rep,Period>::duration 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::duration<Rep,Period>::duration \- std::chrono::duration<Rep,Period>::duration
 
@@ -14,31 +14,22 @@ std::chrono::duration<Rep,Period>::duration \- std::chrono::duration<Rep,Period>
 
    1) The default constructor is defaulted.
    2) The copy constructor is defaulted (makes a bitwise copy of the tick count).
-   3) Constructs a duration with r ticks. Note that this constructor only participates
-   in overload resolution if Rep2 (the argument type) is implicitly convertible to rep
-   (the type of this duration's ticks) and
+   3) Constructs a duration with r ticks. Note that this constructor only participates in overload resolution if Rep2 (the argument type) is implicitly convertible to rep (the type of this duration's ticks) and
 
-     * std::chrono::treat_as_floating_point<rep>::value is true, or
-     * std::chrono::treat_as_floating_point<Rep2>::value is false.
+                           * std::chrono::treat_as_floating_point<rep>::value is true, or
+                           * std::chrono::treat_as_floating_point<Rep2>::value is false.
 
-   (that is, a duration with an integer tick count cannot be constructed from a
-   floating-point value, but a duration with a floating-point tick count can be
-   constructed from an integer value)
-   4) Constructs a duration by converting d to an appropriate period and tick count, as
-   if by std::chrono::duration_cast<duration>(d).count(). In order to prevent
-   truncation during conversion, this constructor only participates in overload
-   resolution if computation of the conversion factor (by std::ratio_divide<Period2,
-   Period>) does not overflow and:
+   (that is, a duration with an integer tick count cannot be constructed from a floating-point value, but a duration with a floating-point tick count can be constructed from an integer value)
+   4) Constructs a duration by converting d to an appropriate period and tick count, as if by std::chrono::duration_cast<duration>(d).count(). In order to prevent truncation during conversion, this constructor only participates in overload resolution if computation of the conversion factor (by std::ratio_divide<Period2, Period>) does not overflow and:
 
-     * std::chrono::treat_as_floating_point<rep>::value == true
+                           * std::chrono::treat_as_floating_point<rep>::value == true
 
    or both:
 
-     * std::ratio_divide<Period2, period>::den == 1, and
-     * std::chrono::treat_as_floating_point<Rep2>::value == false.
+                           * std::ratio_divide<Period2, period>::den == 1, and
+                           * std::chrono::treat_as_floating_point<Rep2>::value == false.
 
-   (that is, either the duration uses floating-point ticks, or Period2 is exactly
-   divisible by period)
+   (that is, either the duration uses floating-point ticks, or Period2 is exactly divisible by period)
 
 .SH Parameters
 
@@ -47,8 +38,7 @@ std::chrono::duration<Rep,Period>::duration \- std::chrono::duration<Rep,Period>
 
 .SH Example
 
-   The following code shows several examples (both valid and invalid) of how to
-   construct durations:
+   The following code shows several examples (both valid and invalid) of how to construct durations:
 
    
 // Run this code

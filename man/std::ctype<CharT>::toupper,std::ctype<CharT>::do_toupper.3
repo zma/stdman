@@ -1,4 +1,4 @@
-.TH std::ctype<CharT>::toupper,std::ctype<CharT>::do_toupper 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype<CharT>::toupper,std::ctype<CharT>::do_toupper 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype<CharT>::toupper,std::ctype<CharT>::do_toupper \- std::ctype<CharT>::toupper,std::ctype<CharT>::do_toupper
 
@@ -13,12 +13,9 @@ std::ctype<CharT>::toupper,std::ctype<CharT>::do_toupper \- std::ctype<CharT>::t
    protected:                                                             \fB(4)\fP
    virtual const CharT* do_toupper( CharT* beg, const CharT* end ) const;
 
-   1,2) public member function, calls the protected virtual member function do_toupper
-   of the most derived class.
-   3) Converts the character c to upper case if an upper case form is defined by this
-   locale.
-   4) For every character in the character array [beg, end), for which an upper case
-   form exists, replaces the character with that upper case form.
+   1,2) public member function, calls the protected virtual member function do_toupper of the most derived class.
+   3) Converts the character c to upper case if an upper case form is defined by this locale.
+   4) For every character in the character array [beg, end), for which an upper case form exists, replaces the character with that upper case form.
 
 .SH Parameters
 
@@ -33,9 +30,7 @@ std::ctype<CharT>::toupper,std::ctype<CharT>::do_toupper \- std::ctype<CharT>::t
 
 .SH Notes
 
-   Only 1:1 character mapping can be performed by this function, e.g. the uppercase
-   form of 'ß' is (with some exceptions) the two-character string "SS", which cannot be
-   obtained by do_toupper.
+   Only 1:1 character mapping can be performed by this function, e.g. the uppercase form of 'ß' is (with some exceptions) the two-character string "SS", which cannot be obtained by do_toupper.
 
 .SH Example
 

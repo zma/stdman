@@ -1,4 +1,4 @@
-.TH std::throw_with_nested 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::throw_with_nested 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::throw_with_nested \- std::throw_with_nested
 
@@ -7,12 +7,7 @@ std::throw_with_nested \- std::throw_with_nested
    template< class T >                            \fI(since C++11)\fP
    [[noreturn]] void throw_with_nested( T&& t );
 
-   If std::decay<T>::type is a non-final non-union class type that is neither
-   std::nested_exception nor derived from std::nested_exception, throws an exception of
-   an unspecified type that is publicly derived from both std::nested_exception and
-   from std::decay<T>::type, and constructed from std::forward<T>(t). The default
-   constructor of the nested_exception base class calls std::current_exception,
-   capturing the currently handled exception object, if any, in a std::exception_ptr.
+   If std::decay<T>::type is a non-final non-union class type that is neither std::nested_exception nor derived from std::nested_exception, throws an exception of an unspecified type that is publicly derived from both std::nested_exception and from std::decay<T>::type, and constructed from std::forward<T>(t). The default constructor of the nested_exception base class calls std::current_exception, capturing the currently handled exception object, if any, in a std::exception_ptr.
 
    Otherwise, throws std::forward<T>(t).
 

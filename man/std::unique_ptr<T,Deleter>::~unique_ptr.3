@@ -1,20 +1,17 @@
-.TH std::unique_ptr<T,Deleter>::~unique_ptr 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unique_ptr<T,Deleter>::~unique_ptr 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unique_ptr<T,Deleter>::~unique_ptr \- std::unique_ptr<T,Deleter>::~unique_ptr
 
 .SH Synopsis
    ~unique_ptr();  \fI(since C++11)\fP
 
-   If get() == nullptr there are no effects. Otherwise, the owned object is destroyed
-   via get_deleter()(get()).
+   If get() == nullptr there are no effects. Otherwise, the owned object is destroyed via get_deleter()(get()).
 
    Requires that get_deleter()(get()) does not throw exceptions.
 
 .SH Notes
 
-   Although std::unique_ptr<T> with the default deleter may be constructed with
-   incomplete type T, the type T must be complete at the point of code where the
-   destructor is called.
+   Although std::unique_ptr<T> with the default deleter may be constructed with incomplete type T, the type T must be complete at the point of code where the destructor is called.
 
 .SH Example
 

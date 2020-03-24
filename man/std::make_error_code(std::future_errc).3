@@ -1,4 +1,4 @@
-.TH std::make_error_code(std::future_errc) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::make_error_code(std::future_errc) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::make_error_code(std::future_errc) \- std::make_error_code(std::future_errc)
 
@@ -10,8 +10,7 @@ std::make_error_code(std::future_errc) \- std::make_error_code(std::future_errc)
 
    std::error_code(static_cast<int>(e), std::future_category()).
 
-   This function is called by the constructor of std::error_code when given an
-   std::future_errc argument.
+   This function is called by the constructor of std::error_code when given an std::future_errc argument.
 
 .SH Parameters
 
@@ -19,8 +18,7 @@ std::make_error_code(std::future_errc) \- std::make_error_code(std::future_errc)
 
 .SH Return value
 
-   A value of type std::error_code that holds the error code number from e associated
-   with the error category "future".
+   A value of type std::error_code that holds the error code number from e associated with the error category "future".
 
 .SH Example
 

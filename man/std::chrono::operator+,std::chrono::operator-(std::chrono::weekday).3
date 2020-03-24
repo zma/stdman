@@ -1,28 +1,20 @@
-.TH std::chrono::operator+,std::chrono::operator-(std::chrono::weekday) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator+,std::chrono::operator-(std::chrono::weekday) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator+,std::chrono::operator-(std::chrono::weekday) \- std::chrono::operator+,std::chrono::operator-(std::chrono::weekday)
 
 .SH Synopsis
-   constexpr std::chrono::weekday operator+(const
-   std::chrono::weekday& wd,                                          \fB(1)\fP \fI(since C++20)\fP
+   constexpr std::chrono::weekday operator+(const std::chrono::weekday& wd, \fB(1)\fP \fI(since C++20)\fP
    const std::chrono::days& d) noexcept;
-   constexpr std::chrono::weekday operator+(const std::chrono::days&
-   d,                                                                 \fB(2)\fP \fI(since C++20)\fP
+   constexpr std::chrono::weekday operator+(const std::chrono::days& d,     \fB(2)\fP \fI(since C++20)\fP
    const std::chrono::weekday& wd) noexcept;
-   constexpr std::chrono::weekday operator-(const
-   std::chrono::weekday& wd,                                          \fB(3)\fP \fI(since C++20)\fP
+   constexpr std::chrono::weekday operator-(const std::chrono::weekday& wd, \fB(3)\fP \fI(since C++20)\fP
    const std::chrono::days& d) noexcept;
-   constexpr std::chrono::days operator-(const std::chrono::weekday&
-   wd1,                                                               \fB(4)\fP \fI(since C++20)\fP
+   constexpr std::chrono::days operator-(const std::chrono::weekday& wd1,   \fB(4)\fP \fI(since C++20)\fP
    const std::chrono::weekday& wd2) noexcept;
 
-   1-2) Adds d.count() days to wd. The weekday value held in the result is computed by
-   first evaluating static_cast<long long>(unsigned(wd)) + d.count() and reducing it
-   modulo 7 to an integer in the range [0, 6].
+   1-2) Adds d.count() days to wd. The weekday value held in the result is computed by first evaluating static_cast<long long>(unsigned(wd)) + d.count() and reducing it modulo 7 to an integer in the range [0, 6].
    3) Subtracts d.count() days from wd. Equivalent to return wd + -d;
-   4) If wd1.ok() and wd2.ok() are both true, returns a std::chrono::days value d such
-   that d.count() is in the range [0, 6] and wd2 + d == wd1. Otherwise the returned
-   value is unspecified.
+   4) If wd1.ok() and wd2.ok() are both true, returns a std::chrono::days value d such that d.count() is in the range [0, 6] and wd2 + d == wd1. Otherwise the returned value is unspecified.
 
 .SH Return value
 
@@ -31,8 +23,7 @@ std::chrono::operator+,std::chrono::operator-(std::chrono::weekday) \- std::chro
 
 .SH Notes
 
-   As long as the computation doesn't overflow, (1-3) always return a valid weekday
-   even if wd.ok() is false.
+   As long as the computation doesn't overflow, (1-3) always return a valid weekday even if wd.ok() is false.
 
 .SH Example
 

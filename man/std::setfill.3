@@ -1,4 +1,4 @@
-.TH std::setfill 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::setfill 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::setfill \- std::setfill
 
@@ -7,8 +7,7 @@ std::setfill \- std::setfill
    template< class CharT >
    /*unspecified*/ setfill( CharT c );
 
-   When used in an expression out << setfill(c) sets the fill character of the stream
-   out to c.
+   When used in an expression out << setfill(c) sets the fill character of the stream out to c.
 
 .SH Parameters
 
@@ -16,9 +15,7 @@ std::setfill \- std::setfill
 
 .SH Return value
 
-   Returns an object of unspecified type such that if out is the name of an output
-   stream of type std::basic_ostream<CharT, Traits>, then the expression out <<
-   setfill(n) behaves as if the following code was executed:
+   Returns an object of unspecified type such that if out is the name of an output stream of type std::basic_ostream<CharT, Traits>, then the expression out << setfill(n) behaves as if the following code was executed:
 
    out.fill(n);
 

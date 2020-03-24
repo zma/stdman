@@ -1,4 +1,4 @@
-.TH std::numeric_limits 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits \- std::numeric_limits
 
@@ -6,12 +6,9 @@ std::numeric_limits \- std::numeric_limits
    Defined in header <limits>
    template< class T > class numeric_limits;
 
-   The numeric_limits class template provides a standardized way to query various
-   properties of arithmetic types (e.g. the largest possible value for type int is
-   std::numeric_limits<int>::max()).
+   The numeric_limits class template provides a standardized way to query various properties of arithmetic types (e.g. the largest possible value for type int is std::numeric_limits<int>::max()).
 
-   This information is provided via specializations of the numeric_limits template. The
-   standard library makes available specializations for all arithmetic types:
+   This information is provided via specializations of the numeric_limits template. The standard library makes available specializations for all arithmetic types:
 
    Defined in header <limits>
    template<> class numeric_limits<bool>;
@@ -36,22 +33,13 @@ std::numeric_limits \- std::numeric_limits
 
    template<> class numeric_limits<long double>;
 
-   Additionally, a specialization exists for every cv-qualified version of each
-   arithmetic type, identical to the unqualified specialization, e.g.
-   std::numeric_limits<const int>, std::numeric_limits<volatile int>, and
-   std::numeric_limits<const volatile int> are provided and are equivalent to
-   std::numeric_limits<int>.
+   Additionally, a specialization exists for every cv-qualified version of each arithmetic type, identical to the unqualified specialization, e.g. std::numeric_limits<const int>, std::numeric_limits<volatile int>, and std::numeric_limits<const volatile int> are provided and are equivalent to std::numeric_limits<int>.
 
-   The standard library types that are aliases of arithmetic types (such as std::size_t
-   or std::streamsize) may also be examined with the std::numeric_limits type traits.
+   The standard library types that are aliases of arithmetic types (such as std::size_t or std::streamsize) may also be examined with the std::numeric_limits type traits.
 
-   Non-arithmetic standard types, such as std::complex<T> or std::nullptr_t, do not
-   have specializations.
+   Non-arithmetic standard types, such as std::complex<T> or std::nullptr_t, do not have specializations.
 
-   Implementations may provide specializations of std::numeric_limits for
-   implementation-specific types: e.g. GCC provides std::numeric_limits<__int128>.
-   Non-standard libraries may add specializations for library-provided types, e.g.
-   OpenEXR provides std::numeric_limits<half> for a 16-bit floating-point type.
+   Implementations may provide specializations of std::numeric_limits for implementation-specific types: e.g. GCC provides std::numeric_limits<__int128>. Non-standard libraries may add specializations for library-provided types, e.g. OpenEXR provides std::numeric_limits<half> for a 16-bit floating-point type.
 
 .SH Template parameters
 
@@ -67,21 +55,16 @@ std::numeric_limits \- std::numeric_limits
    \fB[static]\fP          \fI(public static member constant)\fP
    is_exact          identifies exact types
    \fB[static]\fP          \fI(public static member constant)\fP
-   has_infinity      identifies floating-point types that can represent the special
-   \fB[static]\fP          value "positive infinity"
-                     \fI(public static member constant)\fP
-   has_quiet_NaN     identifies floating-point types that can represent the special
-   \fB[static]\fP          value "quiet not-a-number" (NaN)
-                     \fI(public static member constant)\fP
-   has_signaling_NaN identifies floating-point types that can represent the special
-   \fB[static]\fP          value "signaling not-a-number" (NaN)
-                     \fI(public static member constant)\fP
-   has_denorm        identifies the denormalization style used by the floating-point
-   \fB[static]\fP          type
-                     \fI(public static member constant)\fP
-   has_denorm_loss   identifies the floating-point types that detect loss of precision
-   \fB[static]\fP          as denormalization loss rather than inexact result
-                     \fI(public static member constant)\fP
+   has_infinity      identifies floating-point types that can represent the special value "positive infinity"
+   \fB[static]\fP          \fI(public static member constant)\fP
+   has_quiet_NaN     identifies floating-point types that can represent the special value "quiet not-a-number" (NaN)
+   \fB[static]\fP          \fI(public static member constant)\fP
+   has_signaling_NaN identifies floating-point types that can represent the special value "signaling not-a-number" (NaN)
+   \fB[static]\fP          \fI(public static member constant)\fP
+   has_denorm        identifies the denormalization style used by the floating-point type
+   \fB[static]\fP          \fI(public static member constant)\fP
+   has_denorm_loss   identifies the floating-point types that detect loss of precision as denormalization loss rather than inexact result
+   \fB[static]\fP          \fI(public static member constant)\fP
    round_style       identifies the rounding style used by the type
    \fB[static]\fP          \fI(public static member constant)\fP
    is_iec559         identifies the IEC 559/IEEE 754 floating-point types
@@ -94,29 +77,22 @@ std::numeric_limits \- std::numeric_limits
    \fB[static]\fP          \fI(public static member constant)\fP
    digits10          number of decimal digits that can be represented without change
    \fB[static]\fP          \fI(public static member constant)\fP
-   max_digits10      number of decimal digits necessary to differentiate all values of
-   \fB[static]\fP \fI(C++11)\fP  this type
-                     \fI(public static member constant)\fP
-   radix             the radix or integer base used by the representation of the given
-   \fB[static]\fP          type
-                     \fI(public static member constant)\fP
-   min_exponent      one more than the smallest negative power of the radix that is a
-   \fB[static]\fP          valid normalized floating-point value
-                     \fI(public static member constant)\fP
-   min_exponent10    the smallest negative power of ten that is a valid normalized
-   \fB[static]\fP          floating-point value
-                     \fI(public static member constant)\fP
-   max_exponent      one more than the largest integer power of the radix that is a
-   \fB[static]\fP          valid finite floating-point value
-                     \fI(public static member constant)\fP
-   max_exponent10    the largest integer power of 10 that is a valid finite
-   \fB[static]\fP          floating-point value
-                     \fI(public static member constant)\fP
+   max_digits10      number of decimal digits necessary to differentiate all values of this type
+   \fB[static]\fP \fI(C++11)\fP  \fI(public static member constant)\fP
+   radix             the radix or integer base used by the representation of the given type
+   \fB[static]\fP          \fI(public static member constant)\fP
+   min_exponent      one more than the smallest negative power of the radix that is a valid normalized floating-point value
+   \fB[static]\fP          \fI(public static member constant)\fP
+   min_exponent10    the smallest negative power of ten that is a valid normalized floating-point value
+   \fB[static]\fP          \fI(public static member constant)\fP
+   max_exponent      one more than the largest integer power of the radix that is a valid finite floating-point value
+   \fB[static]\fP          \fI(public static member constant)\fP
+   max_exponent10    the largest integer power of 10 that is a valid finite floating-point value
+   \fB[static]\fP          \fI(public static member constant)\fP
    traps             identifies types which can cause arithmetic operations to trap
    \fB[static]\fP          \fI(public static member constant)\fP
-   tinyness_before   identifies floating-point types that detect tinyness before
-   \fB[static]\fP          rounding
-                     \fI(public static member constant)\fP
+   tinyness_before   identifies floating-point types that detect tinyness before rounding
+   \fB[static]\fP          \fI(public static member constant)\fP
 
 .SH Member functions
 
@@ -126,21 +102,18 @@ std::numeric_limits \- std::numeric_limits
    \fB[static]\fP \fI(C++11)\fP \fI(public static member function)\fP
    max              returns the largest finite value of the given type
    \fB[static]\fP         \fI(public static member function)\fP
-   epsilon          returns the difference between 1.0 and the next representable value
-   \fB[static]\fP         of the given floating-point type
-                    \fI(public static member function)\fP
+   epsilon          returns the difference between 1.0 and the next representable value of the given floating-point type
+   \fB[static]\fP         \fI(public static member function)\fP
    round_error      returns the maximum rounding error of the given floating-point type
    \fB[static]\fP         \fI(public static member function)\fP
-   infinity         returns the positive infinity value of the given floating-point
-   \fB[static]\fP         type
-                    \fI(public static member function)\fP
+   infinity         returns the positive infinity value of the given floating-point type
+   \fB[static]\fP         \fI(public static member function)\fP
    quiet_NaN        returns a quiet NaN value of the given floating-point type
    \fB[static]\fP         \fI(public static member function)\fP
    signaling_NaN    returns a signaling NaN value of the given floating-point type
    \fB[static]\fP         \fI(public static member function)\fP
-   denorm_min       returns the smallest positive subnormal value of the given
-   \fB[static]\fP         floating-point type
-                    \fI(public static member function)\fP
+   denorm_min       returns the smallest positive subnormal value of the given floating-point type
+   \fB[static]\fP         \fI(public static member function)\fP
 
 .SH Helper classes
 
@@ -151,65 +124,32 @@ std::numeric_limits \- std::numeric_limits
 
 .SH Relationship with C library macro constants
 
-                                                                                   Members
- Specialization    min()   lowest()       max()        epsilon()      digits     digits10 min_exponent min_exponent10  max_exponent max_exponent10    radix
-                            \fI(C++11)\fP
-[numeric_limits<                                                                                                                                    2
-]bool [ >]
-[numeric_limits< CHAR_MIN  CHAR_MIN  CHAR_MAX                                                                                                       2
-]char [ >]
-[numeric_limits<
-]signed char [   SCHAR_MIN SCHAR_MIN SCHAR_MAX                                                                                                      2
->]
-[numeric_limits<
-]unsigned char [ 0       0       UCHAR_MAX                                                                                                      2
->]
-[numeric_limits< WCHAR_MIN WCHAR_MIN WCHAR_MAX                                                                                                      2
-]wchar_t [ >]
-[numeric_limits< 0       0       UCHAR_MAX                                                                                                      2
-]char8_t [ >]
-[numeric_limits< 0       0       UINT_LEAST16_MAX                                                                                               2
-]char16_t [ >]
-[numeric_limits< 0       0       UINT_LEAST32_MAX                                                                                               2
-]char32_t [ >]
-[numeric_limits<
-]short [ >]
-[numeric_limits< SHRT_MIN  SHRT_MIN  SHRT_MAX                                                                                                       2
-]signed short [
->]
-[numeric_limits<
-]unsigned short  0       0       USHRT_MAX                                                                                                      2
-[ >]
-[numeric_limits<
-]int [ >]        INT_MIN   INT_MIN   INT_MAX                                                                                                        2
-[numeric_limits<
-]signed int [ >]
-[numeric_limits<
-]unsigned int [  0       0       UINT_MAX                                                                                                       2
->]
-[numeric_limits<
-]long [ >]
-[numeric_limits< LONG_MIN  LONG_MIN  LONG_MAX                                                                                                       2
-]signed long [
->]
-[numeric_limits<
-]unsigned long [ 0       0       ULONG_MAX                                                                                                      2
->]
-[numeric_limits<
-]long long [ >]
-[numeric_limits< LLONG_MIN LLONG_MIN LLONG_MAX                                                                                                      2
-]signed long
-long [ >]
-[numeric_limits<
-]unsigned long   0       0       ULLONG_MAX                                                                                                     2
-long [ >]
-[numeric_limits< FLT_MIN   -FLT_MAX  FLT_MAX          FLT_EPSILON  FLT_MANT_DIG  FLT_DIG  FLT_MIN_EXP  FLT_MIN_10_EXP  FLT_MAX_EXP  FLT_MAX_10_EXP  FLT_RADIX
-]float [ >]
-[numeric_limits< DBL_MIN   -DBL_MAX  DBL_MAX          DBL_EPSILON  DBL_MANT_DIG  DBL_DIG  DBL_MIN_EXP  DBL_MIN_10_EXP  DBL_MAX_EXP  DBL_MAX_10_EXP  FLT_RADIX
-]double [ >]
-[numeric_limits<
-]long double [   LDBL_MIN  -LDBL_MAX LDBL_MAX         LDBL_EPSILON LDBL_MANT_DIG LDBL_DIG LDBL_MIN_EXP LDBL_MIN_10_EXP LDBL_MAX_EXP LDBL_MAX_10_EXP FLT_RADIX
->]
+                                                                                                               Members
+                Specialization                 min()   lowest()       max()        epsilon()      digits     digits10 min_exponent min_exponent10  max_exponent max_exponent10    radix
+                                                        \fI(C++11)\fP
+   [numeric_limits< ]bool [ >]                                                                                                                                                  2
+   [numeric_limits< ]char [ >]               CHAR_MIN  CHAR_MIN  CHAR_MAX                                                                                                       2
+   [numeric_limits< ]signed char [ >]        SCHAR_MIN SCHAR_MIN SCHAR_MAX                                                                                                      2
+   [numeric_limits< ]unsigned char [ >]      0       0       UCHAR_MAX                                                                                                      2
+   [numeric_limits< ]wchar_t [ >]            WCHAR_MIN WCHAR_MIN WCHAR_MAX                                                                                                      2
+   [numeric_limits< ]char8_t [ >]            0       0       UCHAR_MAX                                                                                                      2
+   [numeric_limits< ]char16_t [ >]           0       0       UINT_LEAST16_MAX                                                                                               2
+   [numeric_limits< ]char32_t [ >]           0       0       UINT_LEAST32_MAX                                                                                               2
+   [numeric_limits< ]short [ >]              SHRT_MIN  SHRT_MIN  SHRT_MAX                                                                                                       2
+   [numeric_limits< ]signed short [ >]
+   [numeric_limits< ]unsigned short [ >]     0       0       USHRT_MAX                                                                                                      2
+   [numeric_limits< ]int [ >]                INT_MIN   INT_MIN   INT_MAX                                                                                                        2
+   [numeric_limits< ]signed int [ >]
+   [numeric_limits< ]unsigned int [ >]       0       0       UINT_MAX                                                                                                       2
+   [numeric_limits< ]long [ >]               LONG_MIN  LONG_MIN  LONG_MAX                                                                                                       2
+   [numeric_limits< ]signed long [ >]
+   [numeric_limits< ]unsigned long [ >]      0       0       ULONG_MAX                                                                                                      2
+   [numeric_limits< ]long long [ >]          LLONG_MIN LLONG_MIN LLONG_MAX                                                                                                      2
+   [numeric_limits< ]signed long long [ >]
+   [numeric_limits< ]unsigned long long [ >] 0       0       ULLONG_MAX                                                                                                     2
+   [numeric_limits< ]float [ >]              FLT_MIN   -FLT_MAX  FLT_MAX          FLT_EPSILON  FLT_MANT_DIG  FLT_DIG  FLT_MIN_EXP  FLT_MIN_10_EXP  FLT_MAX_EXP  FLT_MAX_10_EXP  FLT_RADIX
+   [numeric_limits< ]double [ >]             DBL_MIN   -DBL_MAX  DBL_MAX          DBL_EPSILON  DBL_MANT_DIG  DBL_DIG  DBL_MIN_EXP  DBL_MIN_10_EXP  DBL_MAX_EXP  DBL_MAX_10_EXP  FLT_RADIX
+   [numeric_limits< ]long double [ >]        LDBL_MIN  -LDBL_MAX LDBL_MAX         LDBL_EPSILON LDBL_MANT_DIG LDBL_DIG LDBL_MIN_EXP LDBL_MIN_10_EXP LDBL_MAX_EXP LDBL_MAX_10_EXP FLT_RADIX
 
 .SH Example
 

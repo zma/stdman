@@ -1,4 +1,4 @@
-.TH std::swap_ranges 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::swap_ranges 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::swap_ranges \- std::swap_ranges
 
@@ -6,54 +6,43 @@ std::swap_ranges \- std::swap_ranges
    Defined in header <algorithm>
    template< class ForwardIt1, class ForwardIt2 >
 
-   ForwardIt2 swap_ranges( ForwardIt1 first1, ForwardIt1 last1,           \fI(until C++20)\fP
+   ForwardIt2 swap_ranges( ForwardIt1 first1, ForwardIt1 last1,                   \fI(until C++20)\fP
 
    ForwardIt2 first2 );
    template< class ForwardIt1, class ForwardIt2 >
 
-   constexpr ForwardIt2 swap_ranges( ForwardIt1 first1,                   \fI(since C++20)\fP
-   ForwardIt1 last1,                                              \fB(1)\fP
+   constexpr ForwardIt2 swap_ranges( ForwardIt1 first1, ForwardIt1 last1, \fB(1)\fP     \fI(since C++20)\fP
 
    ForwardIt2 first2 );
-   template< class ExecutionPolicy, class ForwardIt1, class
-   ForwardIt2 >
-                                                                      \fB(2)\fP \fI(since C++17)\fP
-   ForwardIt2 swap_ranges( ExecutionPolicy&& policy,
+   template< class ExecutionPolicy, class ForwardIt1, class ForwardIt2 >
+
+   ForwardIt2 swap_ranges( ExecutionPolicy&& policy,                          \fB(2)\fP \fI(since C++17)\fP
 
    ForwardIt1 first1, ForwardIt1 last1, ForwardIt2 first2 );
 
-   1) Exchanges elements between range [first1, last1) and another range starting at
-   first2.
-   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate
-   in overload resolution unless
-   std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
+   1) Exchanges elements between range [first1, last1) and another range starting at first2.
+   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
 
 .SH Parameters
 
-   first1, last1       -     the first range of elements to swap
-   first2              -     beginning of the second range of elements to swap
-   policy              -     the execution policy to use. See execution policy for
-                             details.
+   first1, last1      -     the first range of elements to swap
+   first2             -     beginning of the second range of elements to swap
+   policy             -     the execution policy to use. See execution policy for details.
 .SH Type requirements
    -
    ForwardIt1, ForwardIt2 must meet the requirements of LegacyForwardIterator.
    -
-   The types of dereferenced ForwardIt1 and ForwardIt2 must meet the requirements of
-   Swappable
+   The types of dereferenced ForwardIt1 and ForwardIt2 must meet the requirements of Swappable
 
 .SH Return value
 
-   Iterator to the element past the last element exchanged in the range beginning with
-   first2.
+   Iterator to the element past the last element exchanged in the range beginning with first2.
 
 .SH Exceptions
 
-   The overload with a template parameter named ExecutionPolicy reports errors as
-   follows:
+   The overload with a template parameter named ExecutionPolicy reports errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception
-       and ExecutionPolicy is one of the standard policies, std::terminate is called.
-       For any other ExecutionPolicy, the behavior is implementation-defined.
+     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
      * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 .SH Possible implementation

@@ -1,5 +1,14 @@
 C++ stdlib man pages
 ======
+
+### Changes compared to jeaye's version
+
+No forced 90-char width for the pages.
+
+Updated to 20190607 version.
+
+### Introduction
+
 stdman is a tool that parses archived HTML files from [cppreference](http://cppreference.com) and generates groff-formatted manual pages for Unix-based systems. The goal is to provide excellent formatting for easy readability. stdman has been tested on Linux and OS X.
 
 ![Sample](res/sample.gif)

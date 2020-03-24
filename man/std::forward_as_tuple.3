@@ -1,16 +1,13 @@
-.TH std::forward_as_tuple 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::forward_as_tuple 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::forward_as_tuple \- std::forward_as_tuple
 
 .SH Synopsis
    Defined in header <tuple>
-   template< class... Types >                                   \fI(since C++11)\fP
-   tuple<Types&&...> forward_as_tuple( Types&&... args )        (constexpr since C++14)
-   noexcept;
+   template< class... Types >                                       \fI(since C++11)\fP
+   tuple<Types&&...> forward_as_tuple( Types&&... args ) noexcept;  (constexpr since C++14)
 
-   Constructs a tuple of references to the arguments in args suitable for forwarding as
-   an argument to a function. The tuple has rvalue reference data members when rvalues
-   are used as arguments, and otherwise has lvalue reference data members.
+   Constructs a tuple of references to the arguments in args suitable for forwarding as an argument to a function. The tuple has rvalue reference data members when rvalues are used as arguments, and otherwise has lvalue reference data members.
 
 .SH Parameters
 
@@ -18,13 +15,11 @@ std::forward_as_tuple \- std::forward_as_tuple
 
 .SH Return value
 
-   A std::tuple object created as if by
-   std::tuple<Types&&...>(std::forward<Types>(args)...)
+   A std::tuple object created as if by std::tuple<Types&&...>(std::forward<Types>(args)...)
 
 .SH Notes
 
-   If the arguments are temporaries, forward_as_tuple does not extend their lifetime;
-   they have to be used before the end of the full expression.
+   If the arguments are temporaries, forward_as_tuple does not extend their lifetime; they have to be used before the end of the full expression.
 
 .SH Example
 
@@ -60,8 +55,7 @@ std::forward_as_tuple \- std::forward_as_tuple
 
    make_tuple creates a tuple object of the type defined by the argument types
               \fI(function template)\fP
-              creates a tuple of lvalue references or unpacks a tuple into individual
-   tie        objects
+   tie        creates a tuple of lvalue references or unpacks a tuple into individual objects
               \fI(function template)\fP
    tuple_cat  creates a tuple by concatenating any number of tuples
               \fI(function template)\fP

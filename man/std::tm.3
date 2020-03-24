@@ -1,4 +1,4 @@
-.TH std::tm 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tm 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tm \- std::tm
 
@@ -10,8 +10,7 @@ std::tm \- std::tm
 
 .SH Member objects
 
-                seconds after the minute – [0, 61]\fI(until C++11)\fP / [0, 60] (since
-   int tm_sec   C++11)^[note 1]
+   int tm_sec   seconds after the minute – [0, 61]\fI(until C++11)\fP / [0, 60] \fI(since C++11)\fP^[note 1]
                 \fI(public member object)\fP
    int tm_min   minutes after the hour – [0, 59]
                 \fI(public member object)\fP
@@ -27,20 +26,16 @@ std::tm \- std::tm
                 \fI(public member object)\fP
    int tm_yday  days since January 1 – [0, 365]
                 \fI(public member object)\fP
-                Daylight Saving Time flag. The value is positive if DST is in effect,
-   int tm_isdst zero if not and negative if no information is available
+   int tm_isdst Daylight Saving Time flag. The value is positive if DST is in effect, zero if not and negative if no information is available
                 \fI(public member object)\fP
 
 .SH Notes
 
-    1. ↑ Range allows for a positive leap second. Two leap seconds in the same minute
-       are not allowed (the range 0..61 was a defect introduced in C89 and corrected in
-       C99)
+    1. ↑ Range allows for a positive leap second. Two leap seconds in the same minute are not allowed (the range 0..61 was a defect introduced in C89 and corrected in C99)
 
 .SH See also
 
    localtime converts time since epoch to calendar time expressed as local time
              \fI(function)\fP
-             converts time since epoch to calendar time expressed as Universal
-   gmtime    Coordinated Time
+   gmtime    converts time since epoch to calendar time expressed as Universal Coordinated Time
              \fI(function)\fP

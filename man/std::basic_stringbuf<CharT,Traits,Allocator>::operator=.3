@@ -1,17 +1,12 @@
-.TH std::basic_stringbuf<CharT,Traits,Allocator>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_stringbuf<CharT,Traits,Allocator>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_stringbuf<CharT,Traits,Allocator>::operator= \- std::basic_stringbuf<CharT,Traits,Allocator>::operator=
 
 .SH Synopsis
-   std::basic_stringbuf& operator=( std::basic_stringbuf&& rhs );     \fB(1)\fP \fI(since C++11)\fP
-   std::basic_stringbuf& operator=( const std::basic_stringbuf& rhs ) \fB(2)\fP
-   = delete;
+   std::basic_stringbuf& operator=( std::basic_stringbuf&& rhs );               \fB(1)\fP \fI(since C++11)\fP
+   std::basic_stringbuf& operator=( const std::basic_stringbuf& rhs ) = delete; \fB(2)\fP
 
-   1) Move assignment operator: Moves the contents of rhs into *this. After the move,
-   *this has the associated string, the open mode, the locale, and all other state
-   formerly held by rhs. The six pointers of std::basic_streambuf in *this are
-   guaranteed to be different from the corresponding pointers in the moved-from rhs
-   unless null.
+   1) Move assignment operator: Moves the contents of rhs into *this. After the move, *this has the associated string, the open mode, the locale, and all other state formerly held by rhs. The six pointers of std::basic_streambuf in *this are guaranteed to be different from the corresponding pointers in the moved-from rhs unless null.
    2) The copy assignment operator is deleted; basic_stringbuf is not CopyAssignable.
 
 .SH Parameters

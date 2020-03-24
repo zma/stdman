@@ -1,4 +1,4 @@
-.TH std::terminate_handler 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::terminate_handler 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::terminate_handler \- std::terminate_handler
 
@@ -6,13 +6,9 @@ std::terminate_handler \- std::terminate_handler
    Defined in header <exception>
    typedef void (*terminate_handler)();
 
-   std::terminate_handler is the function pointer type (pointer to function that takes
-   no arguments and returns void), which is installed and queried by the functions
-   std::set_terminate and std::get_terminate and called by std::terminate.
+   std::terminate_handler is the function pointer type (pointer to function that takes no arguments and returns void), which is installed and queried by the functions std::set_terminate and std::get_terminate and called by std::terminate.
 
-   The C++ implementation provides a default std::terminate_handler function, which
-   calls std::abort(). If the null pointer value is installed (by means of
-   std::set_terminate), the implementation may restore the default handler instead.
+   The C++ implementation provides a default std::terminate_handler function, which calls std::abort(). If the null pointer value is installed (by means of std::set_terminate), the implementation may restore the default handler instead.
 
 .SH See also
 

@@ -1,4 +1,4 @@
-.TH std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::erase 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::erase 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::erase \- std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::erase
 
@@ -10,19 +10,14 @@ std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::erase \- std::unordered_
    Removes specified elements from the container.
 
    1) Removes the element at pos.
-   2) Removes the elements in the range [first; last), which must be a valid range in
-   *this.
+   2) Removes the elements in the range [first; last), which must be a valid range in *this.
    3) Removes all elements with the key equivalent to key.
 
-   References and iterators to the erased elements are invalidated. Other iterators and
-   references are not invalidated.
+   References and iterators to the erased elements are invalidated. Other iterators and references are not invalidated.
 
-   The iterator pos must be valid and dereferenceable. Thus the end() iterator (which
-   is valid, but is not dereferenceable) cannot be used as a value for pos.
+   The iterator pos must be valid and dereferenceable. Thus the end() iterator (which is valid, but is not dereferenceable) cannot be used as a value for pos.
 
-   The order of the elements that are not erased is preserved. (This
-   makes it possible to erase individual elements while iterating through \fI(since C++14)\fP
-   the container.)
+   The order of the elements that are not erased is preserved. (This makes it possible to erase individual elements while iterating through the container.) \fI(since C++14)\fP
 
 .SH Parameters
 

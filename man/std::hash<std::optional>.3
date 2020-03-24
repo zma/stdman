@@ -1,4 +1,4 @@
-.TH std::hash<std::optional> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::hash<std::optional> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::hash<std::optional> \- std::hash<std::optional>
 
@@ -7,19 +7,13 @@ std::hash<std::optional> \- std::hash<std::optional>
    template<class T>               \fI(since C++17)\fP
    struct hash<std::optional<T>>;
 
-   The template specialization of std::hash for the std::optional class allows users to
-   obtain hashes of the values contained in optional objects.
+   The template specialization of std::hash for the std::optional class allows users to obtain hashes of the values contained in optional objects.
 
-   The specialization std::hash<optional<T>> is enabled (see std::hash) if
-   std::hash<std::remove_const_t<T>> is enabled, and is disabled otherwise.
+   The specialization std::hash<optional<T>> is enabled (see std::hash) if std::hash<std::remove_const_t<T>> is enabled, and is disabled otherwise.
 
-   When enabled, for an object o of type std::optional<T> that contains a value,
-   std::hash<std::optional<T>>()(o) evaluates to the same value as
-   std::hash<std::remove_const_t<T>>()(*o). For an optional that does not contain a
-   value, the hash is unspecified.
+   When enabled, for an object o of type std::optional<T> that contains a value, std::hash<std::optional<T>>()(o) evaluates to the same value as std::hash<std::remove_const_t<T>>()(*o). For an optional that does not contain a value, the hash is unspecified.
 
-   The member functions of this specialization are not guaranteed to be noexcept
-   because the hash of the underlying type might throw.
+   The member functions of this specialization are not guaranteed to be noexcept because the hash of the underlying type might throw.
 
 .SH Template parameters
 

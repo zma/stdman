@@ -1,19 +1,16 @@
-.TH std::ios_base::event 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ios_base::event 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ios_base::event \- std::ios_base::event
 
 .SH Synopsis
    enum event {erase_event, imbue_event, copyfmt_event};
 
-   Specifies the event type which is passed to functions registered by
-   register_callback() on specific events. The following constants are defined:
+   Specifies the event type which is passed to functions registered by register_callback() on specific events. The following constants are defined:
 
    Constant      Explanation
-   erase_event   issued on ~ios_base() or basic_ios::copyfmt() (before the copy of
-                 members takes place)
+   erase_event   issued on ~ios_base() or basic_ios::copyfmt() (before the copy of members takes place)
    imbue_event   issued on imbue()
-   copyfmt_event issued on basic_ios::copyfmt() (after the copy of members takes place,
-                 but before the exception settings are copied)
+   copyfmt_event issued on basic_ios::copyfmt() (after the copy of members takes place, but before the exception settings are copied)
 
 .SH Example
 

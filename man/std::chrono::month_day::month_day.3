@@ -1,11 +1,10 @@
-.TH std::chrono::month_day::month_day 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::month_day::month_day 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::month_day::month_day \- std::chrono::month_day::month_day
 
 .SH Synopsis
-   month_day() = default;                                             \fB(1)\fP \fI(since C++20)\fP
-   constexpr month_day(const std::chrono::month& m, const             \fB(2)\fP \fI(since C++20)\fP
-   std::chrono::day& d) noexcept;
+   month_day() = default;                                                                \fB(1)\fP \fI(since C++20)\fP
+   constexpr month_day(const std::chrono::month& m, const std::chrono::day& d) noexcept; \fB(2)\fP \fI(since C++20)\fP
 
    Constructs a month_day.
 
@@ -14,8 +13,7 @@ std::chrono::month_day::month_day \- std::chrono::month_day::month_day
 
 .SH Notes
 
-   A more convenient way to construct a month_day is with operator/, e.g.,
-   std::chrono::April/1.
+   A more convenient way to construct a month_day is with operator/, e.g., std::chrono::April/1.
 
 .SH See also
 

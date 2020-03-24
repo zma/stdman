@@ -1,4 +1,4 @@
-.TH std::experimental::conjunction 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::conjunction 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::conjunction \- std::experimental::conjunction
 
@@ -7,33 +7,25 @@ std::experimental::conjunction \- std::experimental::conjunction
    template<class... B>                          (library fundamentals TS v2)
    struct conjunction;
 
-   Forms the logical conjunction of the type traits B..., effectively performing a
-   logical AND on the sequence of traits.
+   Forms the logical conjunction of the type traits B..., effectively performing a logical AND on the sequence of traits.
 
-   The specialization std::experimental::conjunction<B1, ..., BN> has a public and
-   unambiguous base that is
+   The specialization std::experimental::conjunction<B1, ..., BN> has a public and unambiguous base that is
 
      * if sizeof...(B) == 0, std::true_type; otherwise
-     * the first type Bi in B1, ..., BN for which bool(Bi::value) == false, or BN if
-       there is no such type.
+     * the first type Bi in B1, ..., BN for which bool(Bi::value) == false, or BN if there is no such type.
 
-   The member names of the base class, other than conjunction and operator=, are not
-   hidden and are unambiguously available in conjunction.
+   The member names of the base class, other than conjunction and operator=, are not hidden and are unambiguously available in conjunction.
 
-   Conjunction is short-circuiting: if there is a template type argument Bi with
-   bool(Bi::value) == false, then instantiating conjunction<B1, ..., BN>::value does
-   not require the instantiation of Bj::value for j > i.
+   Conjunction is short-circuiting: if there is a template type argument Bi with bool(Bi::value) == false, then instantiating conjunction<B1, ..., BN>::value does not require the instantiation of Bj::value for j > i.
 
 .SH Template parameters
 
-   B... - every template argument Bi for which Bi::value is instantiated must be usable
-          as a base class and define member value that is convertible to bool
+   B... - every template argument Bi for which Bi::value is instantiated must be usable as a base class and define member value that is convertible to bool
 
   Helper variable template
 
-   template<class... B>
-   constexpr bool conjunction_v =                          (library fundamentals TS v2)
-   conjunction<B...>::value;
+   template<class... B>                                      (library fundamentals TS v2)
+   constexpr bool conjunction_v = conjunction<B...>::value;
 
 .SH Possible implementation
 
@@ -45,11 +37,7 @@ std::experimental::conjunction \- std::experimental::conjunction
 
 .SH Notes
 
-   A specialization of conjunction does not necessarily inherit from either
-   std::true_type or std::false_type: it simply inherits from the first B whose
-   ::value, converted to bool, is false, or from the very last B when all of them
-   convert to true. For example, conjunction<std::integral_constant<int, 2>,
-   std::integral_constant<int, 4>>::value is 4.
+   A specialization of conjunction does not necessarily inherit from either std::true_type or std::false_type: it simply inherits from the first B whose ::value, converted to bool, is false, or from the very last B when all of them convert to true. For example, conjunction<std::integral_constant<int, 2>, std::integral_constant<int, 4>>::value is 4.
 
 .SH Example
 

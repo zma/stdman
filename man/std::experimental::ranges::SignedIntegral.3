@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::SignedIntegral 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::SignedIntegral 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::SignedIntegral \- std::experimental::ranges::SignedIntegral
 
@@ -7,16 +7,13 @@ std::experimental::ranges::SignedIntegral \- std::experimental::ranges::SignedIn
    template < class T >                                                    (ranges TS)
    concept bool SignedIntegral = Integral<T> && std::is_signed<T>::value;
 
-   The concept SignedIntegral<T> is satisfied if and only if T is an integral type and
-   std::is_signed<T>::value is true.
+   The concept SignedIntegral<T> is satisfied if and only if T is an integral type and std::is_signed<T>::value is true.
 
-   There need not be any subsumption relationship between SignedIntegral<T> and
-   std::is_signed<T>::value.
+   There need not be any subsumption relationship between SignedIntegral<T> and std::is_signed<T>::value.
 
 .SH Notes
 
-   SignedIntegral<T> may be satisfied by a type that is not a signed integer type, for
-   example, char (on a system where char is signed).
+   SignedIntegral<T> may be satisfied by a type that is not a signed integer type, for example, char (on a system where char is signed).
 
 .SH See also
 

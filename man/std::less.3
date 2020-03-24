@@ -1,4 +1,4 @@
-.TH std::less 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::less 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::less \- std::less
 
@@ -9,31 +9,17 @@ std::less \- std::less
    template< class T = void >      \fI(since C++14)\fP
    struct less;
 
-   Function object for performing comparisons. Unless specialized, invokes operator< on
-   type T.
+   Function object for performing comparisons. Unless specialized, invokes operator< on type T.
 
 .SH Specializations
 
-   A specialization of std::less for any pointer type yields a strict total order, even
-   if the built-in operator< does not. The strict total order is consistent among
-   specializations of std::less, std::greater, std::less_equal, and std::greater_equal
-   for that pointer type, and is also consistent with the partial order imposed by the
-   corresponding built-in operators (<, >, <= and >=).
+   A specialization of std::less for any pointer type yields a strict total order, even if the built-in operator< does not. The strict total order is consistent among specializations of std::less, std::greater, std::less_equal, and std::greater_equal for that pointer type, and is also consistent with the partial order imposed by the corresponding built-in operators (<, >, <= and >=).
 
-   If the function call operator of the specialization std::less<void>
-   calls a built-in operator comparing pointers, it yields a strict total
-   order even if the built-in operator< does not. This strict total order
-   is consistent among the specializations std::less<void>,               \fI(since C++14)\fP
-   std::greater<void>, std::less_equal<void>, and
-   std::greater_equal<void>, and is also consistent with the partial
-   order imposed by the corresponding built-in operators.
+   If the function call operator of the specialization std::less<void> calls a built-in operator comparing pointers, it yields a strict total order even if the built-in operator< does not. This strict total order is consistent among the specializations std::less<void>, std::greater<void>, std::less_equal<void>, and std::greater_equal<void>, and is also consistent with the partial order imposed by the corresponding built-in operators. \fI(since C++14)\fP
 
-   The standard library provides a specialization of std::less when T is
-   not specified, which leaves the parameter types and return type to be
-   deduced.
-                                                                          \fI(since C++14)\fP
-              function object implementing x < y deducing argument and
-   less<void> return types
+   The standard library provides a specialization of std::less when T is not specified, which leaves the parameter types and return type to be deduced.
+                                                                                                                                                        \fI(since C++14)\fP
+   less<void> function object implementing x < y deducing argument and return types
               \fI(class template specialization)\fP
 
 .SH Member types

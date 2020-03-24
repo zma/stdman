@@ -1,4 +1,4 @@
-.TH std::remove_cvref 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::remove_cvref 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::remove_cvref \- std::remove_cvref
 
@@ -7,15 +7,12 @@ std::remove_cvref \- std::remove_cvref
    template< class T >              \fI(since C++20)\fP
    struct remove_cvref;
 
-   If the type T is a reference type, provides the member typedef type which is the
-   type referred to by T with its topmost cv-qualifiers removed. Otherwise type is T
-   with its topmost cv-qualifiers removed.
+   If the type T is a reference type, provides the member typedef type which is the type referred to by T with its topmost cv-qualifiers removed. Otherwise type is T with its topmost cv-qualifiers removed.
 
 .SH Member types
 
    Name Definition
-   type the type referred by T or T itself if it is not a reference, with top-level
-        cv-qualifiers removed
+   type the type referred by T or T itself if it is not a reference, with top-level cv-qualifiers removed
 
 .SH Helper types
 
@@ -69,6 +66,5 @@ std::remove_cvref \- std::remove_cvref
    \fI(C++11)\fP
    remove_reference removes a reference from the given type
    \fI(C++11)\fP          \fI(class template)\fP
-   decay            applies type transformations as when passing a function argument by
-   \fI(C++11)\fP          value
-                    \fI(class template)\fP
+   decay            applies type transformations as when passing a function argument by value
+   \fI(C++11)\fP          \fI(class template)\fP

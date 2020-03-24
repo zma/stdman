@@ -1,4 +1,4 @@
-.TH std::basic_stringstream<CharT,Traits,Allocator>::str 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_stringstream<CharT,Traits,Allocator>::str 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_stringstream<CharT,Traits,Allocator>::str \- std::basic_stringstream<CharT,Traits,Allocator>::str
 
@@ -10,8 +10,7 @@ std::basic_stringstream<CharT,Traits,Allocator>::str \- std::basic_stringstream<
 
    1) Returns a copy of the underlying string as if by calling rdbuf()->str().
 
-   2) Replaces the contents of the underlying string as if by calling
-   rdbuf()->str(new_str).
+   2) Replaces the contents of the underlying string as if by calling rdbuf()->str(new_str).
 
 .SH Parameters
 
@@ -25,10 +24,7 @@ std::basic_stringstream<CharT,Traits,Allocator>::str \- std::basic_stringstream<
 
 .SH Notes
 
-   The copy of the underlying string returned by str is a temporary object that will be
-   destructed at the end of the expression, so directly calling c_str() on the result
-   of str() (for example in auto *ptr = out.str().c_str();) results in a dangling
-   pointer.
+   The copy of the underlying string returned by str is a temporary object that will be destructed at the end of the expression, so directly calling c_str() on the result of str() (for example in auto *ptr = out.str().c_str();) results in a dangling pointer.
 
 .SH Example
 

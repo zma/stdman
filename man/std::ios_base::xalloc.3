@@ -1,22 +1,17 @@
-.TH std::ios_base::xalloc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ios_base::xalloc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ios_base::xalloc \- std::ios_base::xalloc
 
 .SH Synopsis
    static int xalloc();
 
-   Returns a unique (program-wide) index value that can be used to access one long and
-   one void* elements in the private storage of std::ios_base by calling iword() and
-   pword(). The call to xalloc does not allocate memory.
+   Returns a unique (program-wide) index value that can be used to access one long and one void* elements in the private storage of std::ios_base by calling iword() and pword(). The call to xalloc does not allocate memory.
 
-   This function is thread-safe; concurrent access by multiple threads does not result
-   in a data race.
+   This function is thread-safe; concurrent access by multiple threads does not result in a data race.
    \fI(since C++14)\fP
 
-   Effectively increments a private static data member of std::ios_base, as if by
-   executing return index++;, if index is the name of that static member
-   (which may be std::atomic to support concurrent access by multiple threads, or
-   otherwise synchronized)
+   Effectively increments a private static data member of std::ios_base, as if by executing return index++;, if index is the name of that static member
+   (which may be std::atomic to support concurrent access by multiple threads, or otherwise synchronized)
    \fI(since C++14)\fP
 
 .SH Parameters
@@ -29,8 +24,7 @@ std::ios_base::xalloc \- std::ios_base::xalloc
 
 .SH Example
 
-   Uses base class pword storage for runtime type identification of derived stream
-   objects.
+   Uses base class pword storage for runtime type identification of derived stream objects.
 
    
 // Run this code
@@ -90,9 +84,7 @@ std::ios_base::xalloc \- std::ios_base::xalloc
 
 .SH See also
 
-         resizes the private storage if necessary and access to the void* element at
-   pword the given index
+   pword resizes the private storage if necessary and access to the void* element at the given index
          \fI(public member function)\fP
-         resizes the private storage if necessary and access to the long element at the
-   iword given index
+   iword resizes the private storage if necessary and access to the long element at the given index
          \fI(public member function)\fP

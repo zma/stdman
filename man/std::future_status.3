@@ -1,4 +1,4 @@
-.TH std::future_status 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::future_status 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::future_status \- std::future_status
 
@@ -12,27 +12,20 @@ std::future_status \- std::future_status
 
    };
 
-   Specifies state of a future as returned by wait_for and wait_until functions of
-   std::future and std::shared_future.
+   Specifies state of a future as returned by wait_for and wait_until functions of std::future and std::shared_future.
 
    Constant Explanation
-   deferred the shared state contains a deferred function, so the result will be
-            computed only when explicitly requested
+   deferred the shared state contains a deferred function, so the result will be computed only when explicitly requested
    ready    the shared state is ready
-   timeout  the shared state did not become ready before specified timeout duration has
-            passed
+   timeout  the shared state did not become ready before specified timeout duration has passed
 
 .SH See also
 
-              waits for the result, returns if it is not available for the specified
-   wait_for   timeout duration
+   wait_for   waits for the result, returns if it is not available for the specified timeout duration
               \fI(public member function of std::future<T>)\fP
-              waits for the result, returns if it is not available for the specified
-   wait_for   timeout duration
+   wait_for   waits for the result, returns if it is not available for the specified timeout duration
               \fI(public member function of std::shared_future<T>)\fP
-              waits for the result, returns if it is not available until specified time
-   wait_until point has been reached
+   wait_until waits for the result, returns if it is not available until specified time point has been reached
               \fI(public member function of std::future<T>)\fP
-              waits for the result, returns if it is not available until specified time
-   wait_until point has been reached
+   wait_until waits for the result, returns if it is not available until specified time point has been reached
               \fI(public member function of std::shared_future<T>)\fP

@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::Relation 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::Relation 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::Relation \- std::experimental::ranges::Relation
 
@@ -23,8 +23,7 @@ std::experimental::ranges::Relation \- std::experimental::ranges::Relation
 
    Predicate<R, U, T>;
 
-   The concept Relation<R, T, U> specifies that R defines a binary relation over the
-   set of expressions whose type and value category are those encoded by either T or U.
+   The concept Relation<R, T, U> specifies that R defines a binary relation over the set of expressions whose type and value category are those encoded by either T or U.
 
    Given
 
@@ -32,8 +31,7 @@ std::experimental::ranges::Relation \- std::experimental::ranges::Relation
      * t, an expression such that decltype((t)) is T,
      * u, an expression such that decltype((u)) is U,
 
-   and let C be ranges::common_reference_t<const std::remove_reference_t<T>&, const
-   std::remove_reference_t<U>&>,
+   and let C be ranges::common_reference_t<const std::remove_reference_t<T>&, const std::remove_reference_t<U>&>,
 
    then Relation<R, T, U> is satisfied only if
 

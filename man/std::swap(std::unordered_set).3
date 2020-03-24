@@ -1,22 +1,20 @@
-.TH std::swap(std::unordered_set) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::swap(std::unordered_set) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::swap(std::unordered_set) \- std::swap(std::unordered_set)
 
 .SH Synopsis
    template< class Key, class Hash, class KeyEqual, class Alloc >
-                                                                          \fI(since C++11)\fP
-   void swap( unordered_set<Key,Hash,KeyEqual,Alloc>& lhs,                \fI(until C++17)\fP
+                                                                             \fI(since C++11)\fP
+   void swap( unordered_set<Key,Hash,KeyEqual,Alloc>& lhs,                   \fI(until C++17)\fP
 
    unordered_set<Key,Hash,KeyEqual,Alloc>& rhs );
    template< class Key, class Hash, class KeyEqual, class Alloc >
 
-   void swap( unordered_set<Key,Hash,KeyEqual,Alloc>& lhs,                \fI(since C++17)\fP
+   void swap( unordered_set<Key,Hash,KeyEqual,Alloc>& lhs,                   \fI(since C++17)\fP
 
-   unordered_set<Key,Hash,KeyEqual,Alloc>& rhs ) noexcept(/* see below
-   */);
+   unordered_set<Key,Hash,KeyEqual,Alloc>& rhs ) noexcept(/* see below */);
 
-   Specializes the std::swap algorithm for std::unordered_set. Swaps the contents of
-   lhs and rhs. Calls lhs.swap(rhs).
+   Specializes the std::swap algorithm for std::unordered_set. Swaps the contents of lhs and rhs. Calls lhs.swap(rhs).
 
 .SH Parameters
 

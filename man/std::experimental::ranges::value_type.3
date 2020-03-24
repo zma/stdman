@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::value_type 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::value_type 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::value_type \- std::experimental::ranges::value_type
 
@@ -26,21 +26,14 @@ std::experimental::ranges::value_type \- std::experimental::ranges::value_type
 
    struct value_type<T>;
 
-   Computes the associated value type of the type I, if any. Users may specialize
-   value_type for a program-defined type.
+   Computes the associated value type of the type I, if any. Users may specialize value_type for a program-defined type.
 
    1) Primary template is an empty struct.
-   2) Specialization for pointers. If T is an object type, provides a member type type
-   equal to std::remove_cv_t<T>. Otherwise, there is no member type.
+   2) Specialization for pointers. If T is an object type, provides a member type type equal to std::remove_cv_t<T>. Otherwise, there is no member type.
    3) Specialization for array types.
    4) Specialization for const-qualified types.
-   5) Specialization for types that define a public and accessible member type
-   value_type. If T::value_type is an object type, provides a member type type equal to
-   T::value_type. Otherwise, there is no member type.
-   6) Specialization for types that define a public and accessible member type
-   element_type (e.g., std::shared_ptr). If T::element_type is an object type, provides
-   a member type type equal to std::remove_cv_t<typename T::element_type>. Otherwise,
-   there is no member type.
+   5) Specialization for types that define a public and accessible member type value_type. If T::value_type is an object type, provides a member type type equal to T::value_type. Otherwise, there is no member type.
+   6) Specialization for types that define a public and accessible member type element_type (e.g., std::shared_ptr). If T::element_type is an object type, provides a member type type equal to std::remove_cv_t<typename T::element_type>. Otherwise, there is no member type.
 
   Helper alias template
 
@@ -49,11 +42,9 @@ std::experimental::ranges::value_type \- std::experimental::ranges::value_type
 
 .SH Notes
 
-   If a type contains both a value_type member and a element_type member, then the
-   specializations \fB(5)\fP and \fB(6)\fP are ambiguous.
+   If a type contains both a value_type member and a element_type member, then the specializations \fB(5)\fP and \fB(6)\fP are ambiguous.
 
-   value_type is intended for use with Readable types such as iterators. It is not
-   intended for use with ranges.
+   value_type is intended for use with Readable types such as iterators. It is not intended for use with ranges.
 
 .SH Example
 
@@ -64,6 +55,5 @@ std::experimental::ranges::value_type \- std::experimental::ranges::value_type
 
    Readable        specifies that a type is readable by applying operator *
                    (concept)
-                   compatibility traits class that collects an iterator’s associated
-   iterator_traits types
+   iterator_traits compatibility traits class that collects an iterator’s associated types
                    (alias template)

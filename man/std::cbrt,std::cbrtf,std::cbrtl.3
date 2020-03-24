@@ -1,4 +1,4 @@
-.TH std::cbrt,std::cbrtf,std::cbrtl 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::cbrt,std::cbrtf,std::cbrtl 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::cbrt,std::cbrtf,std::cbrtl \- std::cbrt,std::cbrtf,std::cbrtl
 
@@ -12,8 +12,7 @@ std::cbrt,std::cbrtf,std::cbrtl \- std::cbrt,std::cbrtf,std::cbrtl
    double cbrt ( IntegralType arg );     \fB(4)\fP \fI(since C++11)\fP
 
    1-3) Computes the cubic root of arg.
-   4) A set of overloads or a function template accepting an argument of any integral
-   type. Equivalent to 2) (the argument is cast to double).
+   4) A set of overloads or a function template accepting an argument of any integral type. Equivalent to 2) (the argument is cast to double).
 
 .SH Parameters
 
@@ -26,8 +25,7 @@ std::cbrt,std::cbrtf,std::cbrtl \- std::cbrt,std::cbrtf,std::cbrtl
    √
    arg), is returned.
 
-   If a range error occurs due to underflow, the correct result (after rounding) is
-   returned.
+   If a range error occurs due to underflow, the correct result (after rounding) is returned.
 
 .SH Error handling
 
@@ -40,8 +38,7 @@ std::cbrt,std::cbrtf,std::cbrtl \- std::cbrt,std::cbrtf,std::cbrtl
 
 .SH Notes
 
-   std::cbrt(arg) is not equivalent to std::pow(arg, 1.0/3) because std::pow cannot
-   raise a negative base to a fractional exponent.
+   std::cbrt(arg) is not equivalent to std::pow(arg, 1.0/3) because std::pow cannot raise a negative base to a fractional exponent.
 
 .SH Example
 

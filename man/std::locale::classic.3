@@ -1,4 +1,4 @@
-.TH std::locale::classic 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::locale::classic 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::locale::classic \- std::locale::classic
 
@@ -6,8 +6,7 @@ std::locale::classic \- std::locale::classic
    Defined in header <locale>
    static const locale& classic();
 
-   Obtains a reference to the C++ locale that implements the classic "C" locale
-   semantics. This locale, unlike the global locale, cannot be altered.
+   Obtains a reference to the C++ locale that implements the classic "C" locale semantics. This locale, unlike the global locale, cannot be altered.
 
 .SH Parameters
 
@@ -19,10 +18,7 @@ std::locale::classic \- std::locale::classic
 
 .SH Notes
 
-   Some of the standard-required facets, such as the UTF-8/UTF-32 conversion facet
-   std::codecvt<char32_t, char, std::mbstate_t>, have no equivalents in the "C" locale,
-   but they are nevertheless present in the locale returned by std::locale::classic(),
-   as in any other locale constructed in a C++ program.
+   Some of the standard-required facets, such as the UTF-8/UTF-32 conversion facet std::codecvt<char32_t, char, std::mbstate_t>, have no equivalents in the "C" locale, but they are nevertheless present in the locale returned by std::locale::classic(), as in any other locale constructed in a C++ program.
 
 .SH Example
 

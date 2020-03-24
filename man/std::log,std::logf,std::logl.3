@@ -1,4 +1,4 @@
-.TH std::log,std::logf,std::logl 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::log,std::logf,std::logl 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::log,std::logf,std::logl \- std::log,std::logf,std::logl
 
@@ -12,8 +12,7 @@ std::log,std::logf,std::logl \- std::log,std::logf,std::logl
    double log ( IntegralType arg );             \fB(4)\fP           \fI(since C++11)\fP
 
    1-3) Computes the natural (base e) logarithm of arg.
-   4) A set of overloads or a function template accepting an argument of any integral
-   type. Equivalent to 2) (the argument is cast to double).
+   4) A set of overloads or a function template accepting an argument of any integral type. Equivalent to 2) (the argument is cast to double).
 
 .SH Parameters
 
@@ -24,8 +23,7 @@ std::log,std::logf,std::logl \- std::log,std::logf,std::logl
    If no errors occur, the natural (base-e) logarithm of arg (ln(arg) or log
    e(arg)) is returned.
 
-   If a domain error occurs, an implementation-defined value is returned (NaN where
-   supported)
+   If a domain error occurs, an implementation-defined value is returned (NaN where supported)
 
    If a pole error occurs, -HUGE_VAL, -HUGE_VALF, or -HUGE_VALL is returned.
 
@@ -97,8 +95,8 @@ std::log,std::logf,std::logl \- std::log,std::logf,std::logl
    \fI(C++11)\fP
    \fI(C++11)\fP
    log1p
-   log1pf             natural logarithm (to base e) of 1 plus the given number
-   log1pl             (ln(1+x))
+   log1pf
+   log1pl             natural logarithm (to base e) of 1 plus the given number (ln(1+x))
    \fI(C++11)\fP            \fI(function)\fP
    \fI(C++11)\fP
    \fI(C++11)\fP
@@ -107,8 +105,7 @@ std::log,std::logf,std::logl \- std::log,std::logf,std::logl
    expl               \fI(function)\fP
    \fI(C++11)\fP
    \fI(C++11)\fP
-                      complex natural logarithm with the branch cuts along the negative
-   log(std::complex)  real axis
+   log(std::complex)  complex natural logarithm with the branch cuts along the negative real axis
                       \fI(function template)\fP
    log(std::valarray) applies the function std::log to each element of valarray
                       \fI(function template)\fP

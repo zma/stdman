@@ -1,4 +1,4 @@
-.TH std::pmr::polymorphic_allocator<T>::allocate 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::polymorphic_allocator<T>::allocate 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::polymorphic_allocator<T>::allocate \- std::pmr::polymorphic_allocator<T>::allocate
 
@@ -7,9 +7,7 @@ std::pmr::polymorphic_allocator<T>::allocate \- std::pmr::polymorphic_allocator<
                                                 \fI(until C++20)\fP
    [[nodiscard]] T* allocate( std::size_t n );  \fI(since C++20)\fP
 
-   Allocates storage for n objects of type T using the underlying memory resource.
-   Equivalent to return static_cast<T*>(resource()->allocate(n * sizeof(T),
-   alignof(T)));.
+   Allocates storage for n objects of type T using the underlying memory resource. Equivalent to return static_cast<T*>(resource()->allocate(n * sizeof(T), alignof(T)));.
 
 .SH Parameters
 
@@ -21,8 +19,7 @@ std::pmr::polymorphic_allocator<T>::allocate \- std::pmr::polymorphic_allocator<
 
 .SH Exceptions
 
-   Throws std::length_error if n > SIZE_MAX / sizeof(T); may also any exceptions thrown
-   by the call to resource()->allocate.
+   Throws std::length_error if n > SIZE_MAX / sizeof(T); may also any exceptions thrown by the call to resource()->allocate.
 
 .SH See also
 

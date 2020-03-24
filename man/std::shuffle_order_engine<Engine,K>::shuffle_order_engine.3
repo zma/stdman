@@ -1,4 +1,4 @@
-.TH std::shuffle_order_engine<Engine,K>::shuffle_order_engine 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shuffle_order_engine<Engine,K>::shuffle_order_engine 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shuffle_order_engine<Engine,K>::shuffle_order_engine \- std::shuffle_order_engine<Engine,K>::shuffle_order_engine
 
@@ -14,13 +14,9 @@ std::shuffle_order_engine<Engine,K>::shuffle_order_engine \- std::shuffle_order_
 
    1) Default constructor. The underlying engine is also default-constructed.
    2) Constructs the underlying engine with s.
-   3) Constructs the underlying engine with seed sequence seq. This constructor only
-   participate in overload resolution if Sseq qualifies as a SeedSequence. In
-   particular, this constructor does not participate in overload resolution if Sseq is
-   implicitly convertible to result_type.
+   3) Constructs the underlying engine with seed sequence seq. This constructor only participate in overload resolution if Sseq qualifies as a SeedSequence. In particular, this constructor does not participate in overload resolution if Sseq is implicitly convertible to result_type.
    4) Constructs the underlying engine with a copy of e.
-   5) Move-constructs the underlying engine with e. e holds unspecified, but valid
-   state afterwards.
+   5) Move-constructs the underlying engine with e. e holds unspecified, but valid state afterwards.
 
 .SH Parameters
 

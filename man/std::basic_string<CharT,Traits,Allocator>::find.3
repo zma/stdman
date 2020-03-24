@@ -1,43 +1,26 @@
-.TH std::basic_string<CharT,Traits,Allocator>::find 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::find 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::find \- std::basic_string<CharT,Traits,Allocator>::find
 
 .SH Synopsis
-   size_type find( const basic_string& str,                 \fI(until C++11)\fP
-   size_type pos = 0 ) const;
-   size_type find( const basic_string& str,                 \fI(since C++11)\fP
-   size_type pos = 0 ) const noexcept;
-   size_type find( const CharT* s, size_type pos,       \fB(2)\fP
-   size_type count ) const;
-   size_type find( const CharT* s, size_type pos =      \fB(3)\fP
-   0 ) const;                                       \fB(1)\fP
-   size_type find( CharT ch, size_type pos = 0 )                          \fI(until C++11)\fP
-   const;
-   size_type find( CharT ch, size_type pos = 0 )                          \fI(since C++11)\fP
-   const noexcept;                                      \fB(4)\fP
-   template < class T >
-   size_type find( const T& t, size_type pos = 0 )          \fB(5)\fP           \fI(since C++17)\fP
-   const noexcept(/* see below */);
+   size_type find( const basic_string& str, size_type pos = 0 ) const;                      \fI(until C++11)\fP
+   size_type find( const basic_string& str, size_type pos = 0 ) const noexcept;             \fI(since C++11)\fP
+   size_type find( const CharT* s, size_type pos, size_type count ) const;              \fB(2)\fP
+   size_type find( const CharT* s, size_type pos = 0 ) const;                       \fB(1)\fP \fB(3)\fP
+   size_type find( CharT ch, size_type pos = 0 ) const;                                                   \fI(until C++11)\fP
+   size_type find( CharT ch, size_type pos = 0 ) const noexcept;                        \fB(4)\fP               \fI(since C++11)\fP
+   template < class T >                                                                     \fB(5)\fP           \fI(since C++17)\fP
+   size_type find( const T& t, size_type pos = 0 ) const noexcept(/* see below */);
 
-   Finds the first substring equal to the given character sequence. Search begins at
-   pos, i.e. the found substring must not begin in a position preceding pos.
+   Finds the first substring equal to the given character sequence. Search begins at pos, i.e. the found substring must not begin in a position preceding pos.
 
    1) Finds the first substring equal to str.
-   2) Finds the first substring equal to the range [s, s+count). This range may contain
-   null characters.
-   3) Finds the first substring equal to the character string pointed to by s. The
-   length of the string is determined by the first null character using
-   Traits::length(s).
-   4) Finds the first character ch (treated as a single-character substring by the
-   formal rules below).
-   5) Implicitly converts t to a string view sv as if by std::basic_string_view<CharT,
-   Traits> sv = t;, then finds the first substring equal to sv. This overload only
-   participates in overload resolution if std::is_convertible_v<const T&,
-   std::basic_string_view<CharT, Traits>> is true and std::is_convertible_v<const T&,
-   const CharT*> is false.
+   2) Finds the first substring equal to the range [s, s+count). This range may contain null characters.
+   3) Finds the first substring equal to the character string pointed to by s. The length of the string is determined by the first null character using Traits::length(s).
+   4) Finds the first character ch (treated as a single-character substring by the formal rules below).
+   5) Implicitly converts t to a string view sv as if by std::basic_string_view<CharT, Traits> sv = t;, then finds the first substring equal to sv. This overload only participates in overload resolution if std::is_convertible_v<const T&, std::basic_string_view<CharT, Traits>> is true and std::is_convertible_v<const T&, const CharT*> is false.
 
-   Formally, a substring str is said to be found at position xpos if all of the
-   following is true:
+   Formally, a substring str is said to be found at position xpos if all of the following is true:
 
      * xpos >= pos
      * xpos + str.size() <= size()
@@ -60,25 +43,21 @@ std::basic_string<CharT,Traits,Allocator>::find \- std::basic_string<CharT,Trait
 
 .SH Return value
 
-   Position of the first character of the found substring or npos if no such substring
-   is found.
+   Position of the first character of the found substring or npos if no such substring is found.
 
 .SH Exceptions
 
    2-3) Throws nothing.
    5)
    noexcept specification:
-   noexcept(std::is_nothrow_convertible_v<const T&, std::basic_string_view<CharT,
-   Traits>>)
+   noexcept(std::is_nothrow_convertible_v<const T&, std::basic_string_view<CharT, Traits>>)
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-   LWG 2946 C++17      string_view overload causes ambiguity in  avoided by making it a
-                       some cases                                template
+      DR    Applied to                Behavior as published                       Correct behavior
+   LWG 2946 C++17      string_view overload causes ambiguity in some cases avoided by making it a template
 
 .SH Example
 
@@ -130,8 +109,7 @@ std::basic_string<CharT,Traits,Allocator>::find \- std::basic_string<CharT,Trait
 
    strstr            finds the first occurrence of a substring of characters
                      \fI(function)\fP
-                     finds the first occurrence of a wide string within another wide
-   wcsstr            string
+   wcsstr            finds the first occurrence of a wide string within another wide string
                      \fI(function)\fP
    strchr            finds the first occurrence of a character
                      \fI(function)\fP

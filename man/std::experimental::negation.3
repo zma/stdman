@@ -1,4 +1,4 @@
-.TH std::experimental::negation 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::negation 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::negation \- std::experimental::negation
 
@@ -9,8 +9,7 @@ std::experimental::negation \- std::experimental::negation
 
    Forms the logical negation of the type trait B.
 
-   The type negation<B> is a UnaryTypeTrait with a BaseCharacteristic of
-   std::integral_constant<bool, !bool(B::value)>.
+   The type negation<B> is a UnaryTypeTrait with a BaseCharacteristic of std::integral_constant<bool, !bool(B::value)>.
 
 .SH Template parameters
 
@@ -25,9 +24,8 @@ Inherited from std::integral_constant
 
 .SH Member constants
 
-   value    true if B has a member ::value such that !bool(B::value) is true , false
-   \fB[static]\fP otherwise
-            \fI(public static member constant)\fP
+   value    true if B has a member ::value such that !bool(B::value) is true , false otherwise
+   \fB[static]\fP \fI(public static member constant)\fP
 
 .SH Member functions
 

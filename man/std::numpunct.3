@@ -1,4 +1,4 @@
-.TH std::numpunct 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numpunct 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numpunct \- std::numpunct
 
@@ -7,14 +7,9 @@ std::numpunct \- std::numpunct
    template< class CharT >
    class numpunct;
 
-   The facet std::numpunct encapsulates numeric punctuation preferences. Stream I/O
-   operations use std::numpunct through std::num_get and std::num_put for parsing
-   numeric input and formatting numeric output.
+   The facet std::numpunct encapsulates numeric punctuation preferences. Stream I/O operations use std::numpunct through std::num_get and std::num_put for parsing numeric input and formatting numeric output.
 
-   The numbers that are supported by std::numpunct have the format described below.
-   Here digit represents the radix set specified by the fmtflags argument value,
-   thousands-sep and decimal-point are the results of thousands_sep() and
-   decimal_point() functions respectively. The format of integer values is as follows:
+   The numbers that are supported by std::numpunct have the format described below. Here digit represents the radix set specified by the fmtflags argument value, thousands-sep and decimal-point are the results of thousands_sep() and decimal_point() functions respectively. The format of integer values is as follows:
 
  integer     ::= [sign] units
  sign        ::= plusminus
@@ -22,8 +17,7 @@ std::numpunct \- std::numpunct
  units       ::= digits [thousands-sep units]
  digits      ::= digit [digits]
 
-   The number of digits between the thousand-seps (maximum size of digits) is specified
-   by the result of grouping().
+   The number of digits between the thousand-seps (maximum size of digits) is specified by the result of grouping().
 
    The format of floating-point values is as follows:
 
@@ -33,18 +27,15 @@ std::numpunct \- std::numpunct
 
    std-numpunct-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
-   Two standalone (locale-independent) specializations are provided by the standard
-   library:
+   Two standalone (locale-independent) specializations are provided by the standard library:
 
    Defined in header <locale>
    std::numpunct<char>    provides equivalents of the "C" locale preferences
-   std::numpunct<wchar_t> provides wide character equivalents of the "C" locale
-                          preferences
+   std::numpunct<wchar_t> provides wide character equivalents of the "C" locale preferences
 
-   In addition, every locale object constructed in a C++ program implements its own
-   (locale-specific) versions of these specializations.
+   In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 
@@ -73,12 +64,11 @@ std::numpunct \- std::numpunct
    \fB[virtual]\fP        \fI(virtual protected member function)\fP
    do_thousands_sep provides the character to use as thousands separator
    \fB[virtual]\fP        \fI(virtual protected member function)\fP
-   do_grouping      provides the numbers of digits between each pair of thousands
-   \fB[virtual]\fP        separators
-                    \fI(virtual protected member function)\fP
-   do_truename      provides the string to use as the name of the boolean true and
-   do_falsename     false
+   do_grouping      provides the numbers of digits between each pair of thousands separators
    \fB[virtual]\fP        \fI(virtual protected member function)\fP
+   do_truename      provides the string to use as the name of the boolean true and false
+   do_falsename     \fI(virtual protected member function)\fP
+   \fB[virtual]\fP
 
 .SH Member objects
 

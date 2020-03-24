@@ -1,4 +1,4 @@
-.TH std::experimental::filesystem::current_path 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::current_path 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::current_path \- std::experimental::filesystem::current_path
 
@@ -11,8 +11,7 @@ std::experimental::filesystem::current_path \- std::experimental::filesystem::cu
 
    Returns or changes the current path.
 
-   1-2) Returns the absolute path of the current working directory, obtained as if by
-   POSIX getcwd. \fB(2)\fP returns path() if error occurs.
+   1-2) Returns the absolute path of the current working directory, obtained as if by POSIX getcwd. \fB(2)\fP returns path() if error occurs.
    3-4) Changes the current working directory to p, as if by POSIX chdir.
 
 .SH Parameters
@@ -27,32 +26,18 @@ std::experimental::filesystem::current_path \- std::experimental::filesystem::cu
 
 .SH Exceptions
 
-   1-2) The overload that does not take a error_code& parameter throws filesystem_error
-   on underlying OS API errors, constructed with the OS error code as the error code
-   argument. std::bad_alloc may be thrown if memory allocation fails. The overload
-   taking a error_code& parameter sets it to the OS API error code if an OS API call
-   fails, and executes ec.clear() if no errors occur. This overload has
+   1-2) The overload that does not take a error_code& parameter throws filesystem_error on underlying OS API errors, constructed with the OS error code as the error code argument. std::bad_alloc may be thrown if memory allocation fails. The overload taking a error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. This overload has
    noexcept specification:
    noexcept
-   3-4) The overload that does not take a error_code& parameter throws filesystem_error
-   on underlying OS API errors, constructed with p as the first argument and the OS
-   error code as the error code argument. std::bad_alloc may be thrown if memory
-   allocation fails. The overload taking a error_code& parameter sets it to the OS API
-   error code if an OS API call fails, and executes ec.clear() if no errors occur. This
-   overload has
+   3-4) The overload that does not take a error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first argument and the OS error code as the error code argument. std::bad_alloc may be thrown if memory allocation fails. The overload taking a error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. This overload has
    noexcept specification:
    noexcept
 
 .SH Notes
 
-   The current working directory is the directory that is used as the starting location
-   in path resolution for relative paths. Single current working directory is
-   associated with entire process.
+   The current working directory is the directory that is used as the starting location in path resolution for relative paths. Single current working directory is associated with entire process.
 
-   The current working directory is a dangerous global state of the program. Behavior
-   of various file input/output related functions are affected by the value of the
-   current path. The current path may be unexpectedly changed by any component of the
-   program, including various external libraries or other threads.
+   The current working directory is a dangerous global state of the program. Behavior of various file input/output related functions are affected by the value of the current path. The current path may be unexpectedly changed by any component of the program, including various external libraries or other threads.
 
 .SH See also
 

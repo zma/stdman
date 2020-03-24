@@ -1,4 +1,4 @@
-.TH std::basic_string<CharT,Traits,Allocator>::operator+= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::operator+= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::operator+= \- std::basic_string<CharT,Traits,Allocator>::operator+=
 
@@ -16,11 +16,7 @@ std::basic_string<CharT,Traits,Allocator>::operator+= \- std::basic_string<CharT
    2) Appends character ch
    3) Appends the null-terminated character string pointed to by s.
    4) Appends characters in the initializer list ilist.
-   5) Implicitly converts t to a string view sv as if by std::basic_string_view<CharT,
-   Traits> sv = t;, then appends characters in the string view sv as if by append(sv).
-   This overload only participates in overload resolution if
-   std::is_convertible_v<const T&, std::basic_string_view<CharT, Traits>> is true and
-   std::is_convertible_v<const T&, const CharT*> is false.
+   5) Implicitly converts t to a string view sv as if by std::basic_string_view<CharT, Traits> sv = t;, then appends characters in the string view sv as if by append(sv). This overload only participates in overload resolution if std::is_convertible_v<const T&, std::basic_string_view<CharT, Traits>> is true and std::is_convertible_v<const T&, const CharT*> is false.
 
 .SH Parameters
 
@@ -43,26 +39,21 @@ std::basic_string<CharT,Traits,Allocator>::operator+= \- std::basic_string<CharT
 
 .SH Exceptions
 
-   If an exception is thrown for any reason, this function has no effect (strong
-   exception guarantee).
+   If an exception is thrown for any reason, this function has no effect \fI(strong exception guarantee)\fP.
    \fI(since C++11)\fP
 
    If the operation would result in size() > max_size(), throws std::length_error.
 
 .SH Notes
 
-   Overload \fB(2)\fP can accept any types that are implicitly convertible to CharT. For
-   std::string, where CharT is char, the set of acceptable types includes all
-   arithmetic types. This may have unintended effects.
+   Overload \fB(2)\fP can accept any types that are implicitly convertible to CharT. For std::string, where CharT is char, the set of acceptable types includes all arithmetic types. This may have unintended effects.
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-   LWG 2946 C++17      string_view overload causes ambiguity in  avoided by making it a
-                       some cases                                template
+      DR    Applied to                Behavior as published                       Correct behavior
+   LWG 2946 C++17      string_view overload causes ambiguity in some cases avoided by making it a template
 
 .SH Example
 

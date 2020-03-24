@@ -1,17 +1,13 @@
-.TH std::negative_binomial_distribution<IntType>::negative_binomial_distribution 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::negative_binomial_distribution<IntType>::negative_binomial_distribution 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::negative_binomial_distribution<IntType>::negative_binomial_distribution \- std::negative_binomial_distribution<IntType>::negative_binomial_distribution
 
 .SH Synopsis
-   negative_binomial_distribution() :                                 \fB(1)\fP \fI(since C++11)\fP
-   negative_binomial_distribution\fB(1)\fP {}
-   explicit negative_binomial_distribution( IntType k, double p = 0.5 \fB(2)\fP \fI(since C++11)\fP
-   );
-   explicit negative_binomial_distribution( const param_type& params  \fB(3)\fP \fI(since C++11)\fP
-   );
+   negative_binomial_distribution() : negative_binomial_distribution\fB(1)\fP {} (1) \fI(since C++11)\fP
+   explicit negative_binomial_distribution( IntType k, double p = 0.5 );   \fB(2)\fP \fI(since C++11)\fP
+   explicit negative_binomial_distribution( const param_type& params );    \fB(3)\fP \fI(since C++11)\fP
 
-   Constructs a new distribution object. \fB(2)\fP uses k and p as the distribution
-   parameters. \fB(3)\fP uses params as the distribution parameters.
+   Constructs a new distribution object. \fB(2)\fP uses k and p as the distribution parameters. \fB(3)\fP uses params as the distribution parameters.
 
 .SH Parameters
 
@@ -23,16 +19,13 @@ std::negative_binomial_distribution<IntType>::negative_binomial_distribution \- 
 
    Requires that 0 < p ≤ 1 and 0 < k.
 
-   If p == 1, subsequent calls to the operator() overload that does not accept a
-   param_type object will cause undefined behavior.
+   If p == 1, subsequent calls to the operator() overload that does not accept a param_type object will cause undefined behavior.
 
-   The default-constructed std::negative_binomial_distribution is equivalent to the
-   default-constructed std::geometric_distribution.
+   The default-constructed std::negative_binomial_distribution is equivalent to the default-constructed std::geometric_distribution.
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
      DR    Applied to      Behavior as published       Correct behavior
    P0935R0 C++11      default constructor was explicit made implicit

@@ -1,4 +1,4 @@
-.TH std::basic_ios<CharT,Traits>::init 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ios<CharT,Traits>::init 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ios<CharT,Traits>::init \- std::basic_ios<CharT,Traits>::init
 
@@ -21,13 +21,7 @@ std::basic_ios<CharT,Traits>::init \- std::basic_ios<CharT,Traits>::init
    fill()       widen(' ')
    getloc()     a copy of the value returned by std::locale()
 
-   This member function is protected: it is called by the constructors of the derived
-   stream classes std::basic_istream and std::basic_ostream once the associated stream
-   buffer is known. Until this function is called, every member function (including the
-   destructor) of the default-constructed std::basic_ios invokes undefined behavior.
-   Note that basic_ios is a virtual base class, and therefore its constructor is not
-   called by the constructors of those directly derived classes, which is why two-stage
-   initialization is necessary.
+   This member function is protected: it is called by the constructors of the derived stream classes std::basic_istream and std::basic_ostream once the associated stream buffer is known. Until this function is called, every member function (including the destructor) of the default-constructed std::basic_ios invokes undefined behavior. Note that basic_ios is a virtual base class, and therefore its constructor is not called by the constructors of those directly derived classes, which is why two-stage initialization is necessary.
 
 .SH Parameters
 

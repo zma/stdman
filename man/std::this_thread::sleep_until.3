@@ -1,21 +1,15 @@
-.TH std::this_thread::sleep_until 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::this_thread::sleep_until 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::this_thread::sleep_until \- std::this_thread::sleep_until
 
 .SH Synopsis
    Defined in header <thread>
-   template< class Clock, class Duration >
-   void sleep_until( const std::chrono::time_point<Clock,Duration>&       \fI(since C++11)\fP
-   sleep_time );
+   template< class Clock, class Duration >                                         \fI(since C++11)\fP
+   void sleep_until( const std::chrono::time_point<Clock,Duration>& sleep_time );
 
-   Blocks the execution of the current thread until specified sleep_time has been
-   reached.
+   Blocks the execution of the current thread until specified sleep_time has been reached.
 
-   The clock tied to sleep_time is used, which means that adjustments of the clock are
-   taken into account. Thus, the duration of the block might, but might not, be less or
-   more than sleep_time - Clock::now() at the time of the call, depending on the
-   direction of the adjustment. The function also may block for longer than until after
-   sleep_time has been reached due to scheduling or resource contention delays.
+   The clock tied to sleep_time is used, which means that adjustments of the clock are taken into account. Thus, the duration of the block might, but might not, be less or more than sleep_time - Clock::now() at the time of the call, depending on the direction of the adjustment. The function also may block for longer than until after sleep_time has been reached due to scheduling or resource contention delays.
 
 .SH Parameters
 
@@ -27,8 +21,7 @@ std::this_thread::sleep_until \- std::this_thread::sleep_until
 
 .SH Exceptions
 
-   Any exception thrown by Clock or Duration (clocks and durations provided by the
-   standard library never throw)
+   Any exception thrown by Clock or Duration (clocks and durations provided by the standard library never throw)
 
 .SH See also
 

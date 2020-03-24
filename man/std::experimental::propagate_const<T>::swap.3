@@ -1,14 +1,11 @@
-.TH std::experimental::propagate_const<T>::swap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::propagate_const<T>::swap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::propagate_const<T>::swap \- std::experimental::propagate_const<T>::swap
 
 .SH Synopsis
-   constexpr void swap(propagate_const & pt) noexcept(/*   (library fundamentals TS v2)
-   see below */);
+   constexpr void swap(propagate_const & pt) noexcept(/* see below */);  (library fundamentals TS v2)
 
-   Swaps the wrapped pointer with that of pt. Let t_ designate the private data member
-   that is the wrapped pointer-like object, then this function is equivalent to
-   swap(t_, pt.t_).
+   Swaps the wrapped pointer with that of pt. Let t_ designate the private data member that is the wrapped pointer-like object, then this function is equivalent to swap(t_, pt.t_).
 
 .SH Parameters
 

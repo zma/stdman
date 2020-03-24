@@ -1,4 +1,4 @@
-.TH std::experimental::filesystem::path::begin,std::experimental::filesystem::path::end 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::path::begin,std::experimental::filesystem::path::end 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::path::begin,std::experimental::filesystem::path::end \- std::experimental::filesystem::path::begin,std::experimental::filesystem::path::end
 
@@ -6,18 +6,15 @@ std::experimental::filesystem::path::begin,std::experimental::filesystem::path::
    iterator begin() const; \fB(1)\fP (filesystem TS)
    iterator end() const;   \fB(2)\fP (filesystem TS)
 
-   1) Returns an iterator to the first element of the path. If the path is empty, the
-   returned iterator is equal to end().
-   2) Returns an iterator one past the last element of the path. Dereferencing this
-   iterator is undefined behavior.
+   1) Returns an iterator to the first element of the path. If the path is empty, the returned iterator is equal to end().
+   2) Returns an iterator one past the last element of the path. Dereferencing this iterator is undefined behavior.
 
    The sequence denoted by this pair of iterators consists of the following:
 
    1) root-name (if any)
    2) root-directory (if any)
    3) sequence of file-names, omitting any directory separators
-   4) If there is a directory separator after the last file-name in the path, the last
-   element before the end iterator is a fictitious dot file name.
+   4) If there is a directory separator after the last file-name in the path, the last element before the end iterator is a fictitious dot file name.
 
 .SH Parameters
 

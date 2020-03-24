@@ -1,4 +1,4 @@
-.TH std::get_unexpected 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::get_unexpected 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::get_unexpected \- std::get_unexpected
 
@@ -8,11 +8,9 @@ std::get_unexpected \- std::get_unexpected
    std::unexpected_handler get_unexpected() noexcept;  \fB(deprecated)\fP
                                                        (removed in C++17)
 
-   Returns the currently installed std::unexpected_handler, which may be a null
-   pointer.
+   Returns the currently installed std::unexpected_handler, which may be a null pointer.
 
-   This function is thread-safe. Prior call to std::set_unexpected synchronizes-with
-   (see std::memory_order) the subsequent calls to this function.
+   This function is thread-safe. Prior call to std::set_unexpected synchronizes-with (see std::memory_order) the subsequent calls to this function.
 
 .SH Parameters
 

@@ -1,4 +1,4 @@
-.TH std::btowc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::btowc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::btowc \- std::btowc
 
@@ -8,9 +8,7 @@ std::btowc \- std::btowc
 
    Widens a single-byte character c to its wide character equivalent.
 
-   Most multibyte character encodings use single-byte codes to represent the characters
-   from the ASCII character set. This function may be used to convert such characters
-   to wchar_t.
+   Most multibyte character encodings use single-byte codes to represent the characters from the ASCII character set. This function may be used to convert such characters to wchar_t.
 
 .SH Parameters
 
@@ -20,8 +18,7 @@ std::btowc \- std::btowc
 
    WEOF if c is EOF.
 
-   Wide character representation of c if (unsigned char)c is a valid single-byte
-   character in the initial shift state, WEOF otherwise.
+   Wide character representation of c if (unsigned char)c is a valid single-byte character in the initial shift state, WEOF otherwise.
 
 .SH Example
 

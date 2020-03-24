@@ -1,4 +1,4 @@
-.TH std::experimental::basic_string_view 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::basic_string_view 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::basic_string_view \- std::experimental::basic_string_view
 
@@ -11,12 +11,9 @@ std::experimental::basic_string_view \- std::experimental::basic_string_view
 
    > class basic_string_view;
 
-   The class template basic_string_view describes an object that can refer to a
-   constant contiguous sequence of char-like objects with the first element of the
-   sequence at position zero.
+   The class template basic_string_view describes an object that can refer to a constant contiguous sequence of char-like objects with the first element of the sequence at position zero.
 
-   A typical implementation holds only two members: a pointer to constant CharT and a
-   size.
+   A typical implementation holds only two members: a pointer to constant CharT and a size.
 
    Several typedefs for common character types are provided:
 
@@ -48,8 +45,7 @@ std::experimental::basic_string_view \- std::experimental::basic_string_view
    size_type              std::size_t
    difference_type        std::ptrdiff_t
 
-   Note: iterator and const_iterator are the same type because string views are views
-   into constant character sequences.
+   Note: iterator and const_iterator are the same type because string views are views into constant character sequences.
 
 .SH Member functions
 
@@ -137,6 +133,5 @@ std::experimental::basic_string_view \- std::experimental::basic_string_view
 
   Feature test macros
 
-                                      a value of at least 201411 indicates that
-   __cpp_lib_experimental_string_view basic_string_view template is supported
+   __cpp_lib_experimental_string_view a value of at least 201411 indicates that basic_string_view template is supported
                                       (macro constant)

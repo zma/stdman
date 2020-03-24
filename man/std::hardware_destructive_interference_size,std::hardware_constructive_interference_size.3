@@ -1,26 +1,22 @@
-.TH std::hardware_destructive_interference_size,std::hardware_constructive_interference_size 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::hardware_destructive_interference_size,std::hardware_constructive_interference_size 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::hardware_destructive_interference_size,std::hardware_constructive_interference_size \- std::hardware_destructive_interference_size,std::hardware_constructive_interference_size
 
 .SH Synopsis
    Defined in header <new>
-   inline constexpr std::size_t
-   hardware_destructive_interference_size =                           \fB(1)\fP \fI(since C++17)\fP
-   /*implementation-defined*/;
-   inline constexpr std::size_t
-   hardware_constructive_interference_size =                          \fB(2)\fP \fI(since C++17)\fP
-   /*implementation-defined*/;
+   inline constexpr std::size_t                                          \fB(1)\fP \fI(since C++17)\fP
+   hardware_destructive_interference_size = /*implementation-defined*/;
+   inline constexpr std::size_t                                          \fB(2)\fP \fI(since C++17)\fP
+   hardware_constructive_interference_size = /*implementation-defined*/;
 
-   1) Minimum offset between two objects to avoid false sharing. Guaranteed to be at
-   least alignof(std::max_align_t)
+   1) Minimum offset between two objects to avoid false sharing. Guaranteed to be at least alignof(std::max_align_t)
 
  struct keep_apart {
    alignas(std::hardware_destructive_interference_size) std::atomic<int> cat;
    alignas(std::hardware_destructive_interference_size) std::atomic<int> dog;
  };
 
-   2) Maximum size of contiguous memory to promote true sharing. Guaranteed to be at
-   least alignof(std::max_align_t)
+   2) Maximum size of contiguous memory to promote true sharing. Guaranteed to be at least alignof(std::max_align_t)
 
  struct together {
    std::atomic<int> dog;
@@ -44,6 +40,5 @@ std::hardware_destructive_interference_size,std::hardware_constructive_interfere
 
 .SH See also
 
-   hardware_concurrency returns the number of concurrent threads supported by the
-   \fB[static]\fP             implementation
-                        \fI(public static member function of std::thread)\fP
+   hardware_concurrency returns the number of concurrent threads supported by the implementation
+   \fB[static]\fP             \fI(public static member function of std::thread)\fP

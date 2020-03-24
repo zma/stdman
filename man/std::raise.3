@@ -1,4 +1,4 @@
-.TH std::raise 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::raise 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::raise \- std::raise
 
@@ -6,17 +6,13 @@ std::raise \- std::raise
    Defined in header <csignal>
    int raise( int sig );
 
-   Sends signal sig to the program. The signal handler (specified using the
-   std::signal() function) is invoked.
+   Sends signal sig to the program. The signal handler (specified using the std::signal() function) is invoked.
 
-   If the user-defined signal handling strategy is not set using std::signal() yet, it
-   is implementation-defined whether the signal will be ignored or default handler will
-   be invoked.
+   If the user-defined signal handling strategy is not set using std::signal() yet, it is implementation-defined whether the signal will be ignored or default handler will be invoked.
 
 .SH Parameters
 
-         the signal to be sent. It can be an implementation-defined value or one of the
-         following values:
+         the signal to be sent. It can be an implementation-defined value or one of the following values:
 
          SIGABRT
    sig - SIGFPE

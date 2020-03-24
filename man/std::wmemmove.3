@@ -1,4 +1,4 @@
-.TH std::wmemmove 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wmemmove 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wmemmove \- std::wmemmove
 
@@ -6,13 +6,11 @@ std::wmemmove \- std::wmemmove
    Defined in header <cwchar>
    wchar_t* wmemmove( wchar_t* dest, const wchar_t* src, std::size_t count );
 
-   Copies exactly count successive wide characters from the wide character array
-   pointed to by src to the wide character array pointed to by dest.
+   Copies exactly count successive wide characters from the wide character array pointed to by src to the wide character array pointed to by dest.
 
    If count is zero, the function does nothing.
 
-   The arrays may overlap: copying takes place as if the wide characters were copied to
-   a temporary wide character array and then copied from the temporary array to dest.
+   The arrays may overlap: copying takes place as if the wide characters were copied to a temporary wide character array and then copied from the temporary array to dest.
 
 .SH Parameters
 
@@ -26,8 +24,7 @@ std::wmemmove \- std::wmemmove
 
 .SH Notes
 
-   This function is not locale-sensitive and pays no attention to the values of the
-   wchar_t objects it copies: nulls as well as invalid characters are copied too.
+   This function is not locale-sensitive and pays no attention to the values of the wchar_t objects it copies: nulls as well as invalid characters are copied too.
 
 .SH Example
 
@@ -57,8 +54,7 @@ std::wmemmove \- std::wmemmove
 
 .SH See also
 
-                 copies a certain amount of wide characters between two non-overlapping
-   wmemcpy       arrays
+   wmemcpy       copies a certain amount of wide characters between two non-overlapping arrays
                  \fI(function)\fP
    memmove       moves one buffer to another
                  \fI(function)\fP

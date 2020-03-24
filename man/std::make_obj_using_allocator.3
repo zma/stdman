@@ -1,4 +1,4 @@
-.TH std::make_obj_using_allocator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::make_obj_using_allocator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::make_obj_using_allocator \- std::make_obj_using_allocator
 
@@ -26,8 +26,7 @@ std::make_obj_using_allocator \- std::make_obj_using_allocator
 
 .SH Exceptions
 
-   May throw any exception thrown by the constructor of T, typically including
-   std::bad_alloc
+   May throw any exception thrown by the constructor of T, typically including std::bad_alloc
 
 .SH Example
 
@@ -36,11 +35,7 @@ std::make_obj_using_allocator \- std::make_obj_using_allocator
 
 .SH See also
 
-                                           prepares the argument list matching the
-   uses_allocator_construction_args        flavor of uses-allocator construction
-   (C++20)                                 required by the given type
-                                           \fI(function template)\fP
-                                           creates an object of the given type at
-   uninitialized_construct_using_allocator specified memory location by means of
-   (C++20)                                 uses-allocator construction
-                                           \fI(function template)\fP
+   uses_allocator_construction_args        prepares the argument list matching the flavor of uses-allocator construction required by the given type
+   (C++20)                                 \fI(function template)\fP
+   uninitialized_construct_using_allocator creates an object of the given type at specified memory location by means of uses-allocator construction
+   (C++20)                                 \fI(function template)\fP

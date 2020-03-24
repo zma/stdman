@@ -1,4 +1,4 @@
-.TH std::pmr::memory_resource::deallocate 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::memory_resource::deallocate 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::memory_resource::deallocate \- std::pmr::memory_resource::deallocate
 
@@ -9,9 +9,7 @@ std::pmr::memory_resource::deallocate \- std::pmr::memory_resource::deallocate
 
    std::size_t alignment = alignof(std::max_align_t));
 
-   Deallocates the storage pointed to by p. p shall have been returned by a prior call
-   to allocate(bytes, alignment) on a memory_resource that compares equal to *this, and
-   the storage it points to shall not yet have been deallocated.
+   Deallocates the storage pointed to by p. p shall have been returned by a prior call to allocate(bytes, alignment) on a memory_resource that compares equal to *this, and the storage it points to shall not yet have been deallocated.
 
    Equivalent to do_deallocate(p, bytes, alignment);.
 

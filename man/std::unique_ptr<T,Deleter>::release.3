@@ -1,12 +1,11 @@
-.TH std::unique_ptr<T,Deleter>::release 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unique_ptr<T,Deleter>::release 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unique_ptr<T,Deleter>::release \- std::unique_ptr<T,Deleter>::release
 
 .SH Synopsis
    pointer release() noexcept;  \fI(since C++11)\fP
 
-   Releases the ownership of the managed object if any. get() returns nullptr after the
-   call.
+   Releases the ownership of the managed object if any. get() returns nullptr after the call.
 
 .SH Parameters
 
@@ -14,8 +13,7 @@ std::unique_ptr<T,Deleter>::release \- std::unique_ptr<T,Deleter>::release
 
 .SH Return value
 
-   Pointer to the managed object or nullptr if there was no managed object, i.e. the
-   value which would be returned by get() before the call.
+   Pointer to the managed object or nullptr if there was no managed object, i.e. the value which would be returned by get() before the call.
 
 .SH Example
 

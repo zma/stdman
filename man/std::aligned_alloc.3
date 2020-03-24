@@ -1,4 +1,4 @@
-.TH std::aligned_alloc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::aligned_alloc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::aligned_alloc \- std::aligned_alloc
 
@@ -6,51 +6,36 @@ std::aligned_alloc \- std::aligned_alloc
    Defined in header <cstdlib>
    void* aligned_alloc( std::size_t alignment, std::size_t size );  \fI(since C++17)\fP
 
-   Allocate size bytes of uninitialized storage whose alignment is specified by
-   alignment. The size parameter must be an integral multiple of alignment.
+   Allocate size bytes of uninitialized storage whose alignment is specified by alignment. The size parameter must be an integral multiple of alignment.
 
    The following functions are required to be thread-safe:
 
      * The library versions of operator new and operator delete
-     * User replacement versions of global operator new and operator
-       delete
-     * std::calloc, std::malloc, std::realloc                             \fI(since C++11)\fP
+     * User replacement versions of global operator new and operator delete
+     * std::calloc, std::malloc, std::realloc                                                                                                                                                                  \fI(since C++11)\fP
        , std::aligned_alloc
        \fI(since C++17)\fP, std::free
 
-   Calls to these functions that allocate or deallocate a particular unit
-   of storage occur in a single total order, and each such deallocation
-   call happens-before the next allocation (if any) in this order.
+   Calls to these functions that allocate or deallocate a particular unit of storage occur in a single total order, and each such deallocation call happens-before the next allocation (if any) in this order.
 
 .SH Parameters
 
-   alignment - specifies the alignment. Must be a valid alignment supported by the
-               implementation.
+   alignment - specifies the alignment. Must be a valid alignment supported by the implementation.
    size      - number of bytes to allocate. An integral multiple of alignment
 
 .SH Return value
 
-   On success, returns the pointer to the beginning of newly allocated memory. To avoid
-   a memory leak, the returned pointer must be deallocated with std::free() or
-   std::realloc().
+   On success, returns the pointer to the beginning of newly allocated memory. To avoid a memory leak, the returned pointer must be deallocated with std::free() or std::realloc().
 
    On failure, returns a null pointer.
 
 .SH Notes
 
-   Passing a size which is not an integral multiple of alignment or an alignment which
-   is not valid or not supported by the implementation causes the function to fail and
-   return a null pointer (C11, as published, specified undefined behavior in this case,
-   this was corrected by DR 460).
+   Passing a size which is not an integral multiple of alignment or an alignment which is not valid or not supported by the implementation causes the function to fail and return a null pointer (C11, as published, specified undefined behavior in this case, this was corrected by DR 460).
 
-   As an example of the "supported by the implementation" requirement, POSIX function
-   posix_memalign accepts any alignment that is a power of two and a multiple of
-   sizeof(void*), and POSIX-based implementations of aligned_alloc inherit this
-   requirements.
+   As an example of the "supported by the implementation" requirement, POSIX function posix_memalign accepts any alignment that is a power of two and a multiple of sizeof(void*), and POSIX-based implementations of aligned_alloc inherit this requirements.
 
-   Regular std::malloc aligns memory suitable for any object type (which, in practice,
-   means that it is aligned to alignof(std::max_align_t)). This function is useful for
-   over-aligned allocations, such as to SSE, cache line, or VM page boundary.
+   Regular std::malloc aligns memory suitable for any object type (which, in practice, means that it is aligned to alignof(std::max_align_t)). This function is useful for over-aligned allocations, such as to SSE, cache line, or VM page boundary.
 
 .SH Example
 
@@ -78,6 +63,5 @@ std::aligned_alloc \- std::aligned_alloc
 
 .SH See also
 
-   aligned_storage defines the type suitable for use as uninitialized storage for types
-   \fI(C++11)\fP         of given size
-                   \fI(class template)\fP
+   aligned_storage defines the type suitable for use as uninitialized storage for types of given size
+   \fI(C++11)\fP         \fI(class template)\fP

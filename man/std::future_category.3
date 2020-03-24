@@ -1,4 +1,4 @@
-.TH std::future_category 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::future_category 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::future_category \- std::future_category
 
@@ -6,10 +6,7 @@ std::future_category \- std::future_category
    Defined in header <future>
    const std::error_category& future_category() noexcept;  \fI(since C++11)\fP
 
-   Obtains a reference to the static error category object for the errors related to
-   futures and promises. The object is required to override the virtual function
-   error_category::name() to return a pointer to the string "future". It is used to
-   identify error codes provided in the exceptions of type std::future_error.
+   Obtains a reference to the static error category object for the errors related to futures and promises. The object is required to override the virtual function error_category::name() to return a pointer to the string "future". It is used to identify error codes provided in the exceptions of type std::future_error.
 
 .SH Parameters
 
@@ -17,8 +14,7 @@ std::future_category \- std::future_category
 
 .SH Return value
 
-   A reference to the static object of unspecified runtime type, derived from
-   std::error_category.
+   A reference to the static object of unspecified runtime type, derived from std::error_category.
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::chrono::time_zone 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::time_zone 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::time_zone \- std::chrono::time_zone
 
@@ -6,17 +6,11 @@ std::chrono::time_zone \- std::chrono::time_zone
    Defined in header <chrono>
    class time_zone;            \fI(since C++20)\fP
 
-   The class time_zone represents all time zone transitions for a specific geographic
-   area.
+   The class time_zone represents all time zone transitions for a specific geographic area.
 
-   Users cannot construct time_zone objects. The library implementation creates
-   time_zone objects when it initializes the time zone database and provides const
-   access to these objects.
+   Users cannot construct time_zone objects. The library implementation creates time_zone objects when it initializes the time zone database and provides const access to these objects.
 
-   time_zone is not copyable but does have a defaulted move constructor and a defaulted
-   move assignment operator. However, as users have only const access to time_zone
-   objects, these functions cannot be called in user code without invoking undefined
-   behavior.
+   time_zone is not copyable but does have a defaulted move constructor and a defaulted move assignment operator. However, as users have only const access to time_zone objects, these functions cannot be called in user code without invoking undefined behavior.
 
 .SH Member functions
 

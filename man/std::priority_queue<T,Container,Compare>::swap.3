@@ -1,12 +1,11 @@
-.TH std::priority_queue<T,Container,Compare>::swap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::priority_queue<T,Container,Compare>::swap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::priority_queue<T,Container,Compare>::swap \- std::priority_queue<T,Container,Compare>::swap
 
 .SH Synopsis
    void swap( priority_queue& other ) noexcept(/* see below */);  \fI(since C++11)\fP
 
-   Exchanges the contents of the container adaptor with those of other. Effectively
-   calls using std::swap; swap(c, other.c); swap(comp, other.comp);
+   Exchanges the contents of the container adaptor with those of other. Effectively calls using std::swap; swap(c, other.c); swap(comp, other.comp);
 
 .SH Parameters
 
@@ -19,13 +18,11 @@ std::priority_queue<T,Container,Compare>::swap \- std::priority_queue<T,Containe
 .SH Exceptions
 
    noexcept specification:
-   noexcept(noexcept(swap(c, other.c)) && noexcept(swap(comp, other.comp)))      (until
-                                                                                 C++17)
-   In the expression above, the identifier swap is looked up in the same manner
-   as the one used by the C++17 std::is_nothrow_swappable trait.
-   noexcept specification:                                                       (since
-   noexcept(std::is_nothrow_swappable<Container>::value &&                       C++17)
-   std::is_nothrow_swappable<Compare>::value)
+   noexcept(noexcept(swap(c, other.c)) && noexcept(swap(comp, other.comp)))                                                                   \fI(until C++17)\fP
+
+   In the expression above, the identifier swap is looked up in the same manner as the one used by the C++17 std::is_nothrow_swappable trait.
+   noexcept specification:                                                                                                                    \fI(since C++17)\fP
+   noexcept(std::is_nothrow_swappable<Container>::value && std::is_nothrow_swappable<Compare>::value)
 
 .SH Complexity
 
@@ -33,8 +30,7 @@ std::priority_queue<T,Container,Compare>::swap \- std::priority_queue<T,Containe
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
       DR    Applied to          Behavior as published           Correct behavior
    LWG 2456 C++11      the noexcept specification is ill-formed made to work

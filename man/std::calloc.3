@@ -1,4 +1,4 @@
-.TH std::calloc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::calloc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::calloc \- std::calloc
 
@@ -6,28 +6,21 @@ std::calloc \- std::calloc
    Defined in header <cstdlib>
    void* calloc( std::size_t num, std::size_t size );
 
-   Allocates memory for an array of num objects of size size and initializes it to all
-   bits zero.
+   Allocates memory for an array of num objects of size size and initializes it to all bits zero.
 
-   If allocation succeeds, returns a pointer to the lowest (first) byte in the
-   allocated memory block that is suitably aligned for any object type.
+   If allocation succeeds, returns a pointer to the lowest (first) byte in the allocated memory block that is suitably aligned for any object type.
 
-   If size is zero, the behavior is implementation defined (null pointer may be
-   returned, or some non-null pointer may be returned that may not be used to access
-   storage)
+   If size is zero, the behavior is implementation defined (null pointer may be returned, or some non-null pointer may be returned that may not be used to access storage)
 
    The following functions are required to be thread-safe:
 
      * The library versions of operator new and operator delete
-     * User replacement versions of global operator new and operator
-       delete
-     * std::calloc, std::malloc, std::realloc                             \fI(since C++11)\fP
+     * User replacement versions of global operator new and operator delete
+     * std::calloc, std::malloc, std::realloc                                                                                                                                                                  \fI(since C++11)\fP
        , std::aligned_alloc
        \fI(since C++17)\fP, std::free
 
-   Calls to these functions that allocate or deallocate a particular unit
-   of storage occur in a single total order, and each such deallocation
-   call happens-before the next allocation (if any) in this order.
+   Calls to these functions that allocate or deallocate a particular unit of storage occur in a single total order, and each such deallocation call happens-before the next allocation (if any) in this order.
 
 .SH Parameters
 
@@ -36,20 +29,15 @@ std::calloc \- std::calloc
 
 .SH Return value
 
-   On success, returns the pointer to the beginning of newly allocated memory. To avoid
-   a memory leak, the returned pointer must be deallocated with std::free() or
-   std::realloc().
+   On success, returns the pointer to the beginning of newly allocated memory. To avoid a memory leak, the returned pointer must be deallocated with std::free() or std::realloc().
 
    On failure, returns a null pointer.
 
 .SH Notes
 
-   Due to the alignment requirements, the number of allocated bytes is not necessarily
-   equal to num*size.
+   Due to the alignment requirements, the number of allocated bytes is not necessarily equal to num*size.
 
-   Initialization to all bits zero does not guarantee that a floating-point or a
-   pointer would be initialized to 0.0 and the null pointer value, respectively
-   (although that is true on all common platforms)
+   Initialization to all bits zero does not guarantee that a floating-point or a pointer would be initialized to 0.0 and the null pointer value, respectively (although that is true on all common platforms)
 
    Originally (in C89), support for zero size was added to accommodate code such as
 

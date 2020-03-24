@@ -1,4 +1,4 @@
-.TH std::advance 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::advance 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::advance \- std::advance
 
@@ -11,8 +11,7 @@ std::advance \- std::advance
 
    Increments given iterator it by n elements.
 
-   If n is negative, the iterator is decremented. In this case, InputIt must meet the
-   requirements of LegacyBidirectionalIterator, otherwise the behavior is undefined.
+   If n is negative, the iterator is decremented. In this case, InputIt must meet the requirements of LegacyBidirectionalIterator, otherwise the behavior is undefined.
 
 .SH Parameters
 
@@ -30,15 +29,11 @@ std::advance \- std::advance
 
    Linear.
 
-   However, if InputIt additionally meets the requirements of
-   LegacyRandomAccessIterator, complexity is constant.
+   However, if InputIt additionally meets the requirements of LegacyRandomAccessIterator, complexity is constant.
 
 .SH Notes
 
-   The behavior is undefined if the specified sequence of increments or decrements
-   would require that a non-incrementable iterator (such as the past-the-end iterator)
-   is incremented, or that a non-decrementable iterator (such as the front iterator or
-   the singular iterator) is decremented.
+   The behavior is undefined if the specified sequence of increments or decrements would require that a non-incrementable iterator (such as the past-the-end iterator) is incremented, or that a non-decrementable iterator (such as the front iterator or the singular iterator) is decremented.
 
 .SH Example
 

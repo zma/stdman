@@ -1,4 +1,4 @@
-.TH std::multimap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::multimap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::multimap \- std::multimap
 
@@ -20,21 +20,13 @@ std::multimap \- std::multimap
 
    }
 
-   Multimap is an associative container that contains a sorted list of key-value pairs,
-   while permitting multiple entries with the same key. Sorting is done according to
-   the comparison function Compare, applied to the keys. Search, insertion, and removal
-   operations have logarithmic complexity.
+   Multimap is an associative container that contains a sorted list of key-value pairs, while permitting multiple entries with the same key. Sorting is done according to the comparison function Compare, applied to the keys. Search, insertion, and removal operations have logarithmic complexity.
 
-   The order of the key-value pairs whose keys compare equivalent is the order of
-   insertion and does not change. \fI(since C++11)\fP
+   The order of the key-value pairs whose keys compare equivalent is the order of insertion and does not change. \fI(since C++11)\fP
 
-   Everywhere the standard library uses the Compare requirements, equivalence is
-   determined by using the equivalence relation as described on Compare. In imprecise
-   terms, two objects a and b are considered equivalent if neither compares less than
-   the other: !comp(a, b) && !comp(b, a).
+   Everywhere the standard library uses the Compare requirements, equivalence is determined by using the equivalence relation as described on Compare. In imprecise terms, two objects a and b are considered equivalent if neither compares less than the other: !comp(a, b) && !comp(b, a).
 
-   std::multimap meets the requirements of Container, AllocatorAwareContainer,
-   AssociativeContainer and ReversibleContainer.
+   std::multimap meets the requirements of Container, AllocatorAwareContainer, AssociativeContainer and ReversibleContainer.
 
 .SH Member types
 

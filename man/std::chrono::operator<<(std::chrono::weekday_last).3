@@ -1,17 +1,15 @@
-.TH std::chrono::operator<<(std::chrono::weekday_last) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator<<(std::chrono::weekday_last) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator<<(std::chrono::weekday_last) \- std::chrono::operator<<(std::chrono::weekday_last)
 
 .SH Synopsis
    template <class CharT, class Traits>
 
-   std::basic_ostream<CharT, Traits>&                                     \fI(since C++20)\fP
+   std::basic_ostream<CharT, Traits>&                                                        \fI(since C++20)\fP
 
-   operator<<(std::basic_ostream<CharT, Traits>& os, const
-   std::chrono::weekday_last& wdl);
+   operator<<(std::basic_ostream<CharT, Traits>& os, const std::chrono::weekday_last& wdl);
 
-   Outputs a textual representation of wdl into the stream os, as if by os <<
-   wdl.weekday() << "[last]";.
+   Outputs a textual representation of wdl into the stream os, as if by os << wdl.weekday() << "[last]";.
 
 .SH Return value
 
@@ -19,8 +17,7 @@ std::chrono::operator<<(std::chrono::weekday_last) \- std::chrono::operator<<(st
 
 .SH Notes
 
-   This operator<< is primarily intended for debugging use. When used with non-default
-   stream flags, the output may be surprising:
+   This operator<< is primarily intended for debugging use. When used with non-default stream flags, the output may be surprising:
 
  auto wdl = std::chrono::Sunday[std::chrono::last];
  std::cout.width\fB(10)\fP;

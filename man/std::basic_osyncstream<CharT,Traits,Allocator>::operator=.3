@@ -1,4 +1,4 @@
-.TH std::basic_osyncstream<CharT,Traits,Allocator>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_osyncstream<CharT,Traits,Allocator>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_osyncstream<CharT,Traits,Allocator>::operator= \- std::basic_osyncstream<CharT,Traits,Allocator>::operator=
 
@@ -7,14 +7,9 @@ std::basic_osyncstream<CharT,Traits,Allocator>::operator= \- std::basic_osyncstr
 
    Move-assigns a synchronized output stream:
 
-   First, calls emit(). If an exception is thrown by the call to emit(), it is caught
-   and ignored.
+   First, calls emit(). If an exception is thrown by the call to emit(), it is caught and ignored.
 
-   Then, move-assigns the wrapped std::basic_syncbuf from the corresponding member of
-   other (after this move-assignment, other.get_wrapped() returns a null pointer and
-   destruction of other produces no output) and move-assigns the base
-   std::basic_ostream (this swaps all stream state variables except for rdbuf between
-   *this and other)
+   Then, move-assigns the wrapped std::basic_syncbuf from the corresponding member of other (after this move-assignment, other.get_wrapped() returns a null pointer and destruction of other produces no output) and move-assigns the base std::basic_ostream (this swaps all stream state variables except for rdbuf between *this and other)
 
 .SH Parameters
 
@@ -31,6 +26,5 @@ std::basic_osyncstream<CharT,Traits,Allocator>::operator= \- std::basic_osyncstr
                  \fI(public member function)\fP
    destructor    destroys the basic_osyncstream and emits its internal buffer
                  \fI(public member function)\fP
-                 calls emit on the underlying basic_syncbuf to transmit its internal
-   emit          data to the final destination
+   emit          calls emit on the underlying basic_syncbuf to transmit its internal data to the final destination
                  \fI(public member function)\fP

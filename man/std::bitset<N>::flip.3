@@ -1,4 +1,4 @@
-.TH std::bitset<N>::flip 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::bitset<N>::flip 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::bitset<N>::flip \- std::bitset<N>::flip
 
@@ -7,8 +7,7 @@ std::bitset<N>::flip \- std::bitset<N>::flip
    bitset<N>& flip() noexcept;         \fB(1)\fP     \fI(since C++11)\fP
    bitset<N>& flip( std::size_t pos );     \fB(2)\fP
 
-   Flips bits, i.e. changes true values to false and false values to true. Equivalent
-   to a logical NOT operation on part or all of the bitset.
+   Flips bits, i.e. changes true values to false and false values to true. Equivalent to a logical NOT operation on part or all of the bitset.
 
    1) Flips all bits (like operator~, but in-place)
    2) Flips the bit at the position pos.
@@ -23,8 +22,7 @@ std::bitset<N>::flip \- std::bitset<N>::flip
 
 .SH Exceptions
 
-   2) throws std::out_of_range if pos does not correspond to a valid position within
-   the bitset.
+   2) throws std::out_of_range if pos does not correspond to a valid position within the bitset.
 
 .SH Example
 

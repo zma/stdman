@@ -1,4 +1,4 @@
-.TH std::pmr::new_delete_resource 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::new_delete_resource 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::new_delete_resource \- std::pmr::new_delete_resource
 
@@ -6,13 +6,11 @@ std::pmr::new_delete_resource \- std::pmr::new_delete_resource
    Defined in header <memory_resource>
    std::pmr::memory_resource* new_delete_resource() noexcept;  \fI(since C++17)\fP
 
-   Returns a pointer to a memory_resource that uses the global operator new and
-   operator delete to allocate memory.
+   Returns a pointer to a memory_resource that uses the global operator new and operator delete to allocate memory.
 
 .SH Return value
 
-   Returns a pointer p to a static storage duration object of a type derived from
-   std::pmr::memory_resource, with the following properties:
+   Returns a pointer p to a static storage duration object of a type derived from std::pmr::memory_resource, with the following properties:
 
      * its allocate() function uses ::operator new to allocate memory;
      * its deallocate() function uses ::operator delete to deallocate memory;

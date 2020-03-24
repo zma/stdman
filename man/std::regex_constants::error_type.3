@@ -1,4 +1,4 @@
-.TH std::regex_constants::error_type 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::regex_constants::error_type 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::regex_constants::error_type \- std::regex_constants::error_type
 
@@ -36,32 +36,28 @@ std::regex_constants::error_type \- std::regex_constants::error_type
 
    inline constexpr error_type error_stack = /*unspecified*/;
 
-   The error_type is a type that describes errors that may occur during regular
-   expression parsing.
+   The error_type is a type that describes errors that may occur during regular expression parsing.
 
 .SH Constants
 
    Constant         Explanation
    error_collate    the expression contains an invalid collating element name
    error_ctype      the expression contains an invalid character class name
-   error_escape     the expression contains an invalid escaped character or a trailing
-                    escape
+   error_escape     the expression contains an invalid escaped character or a trailing escape
    error_backref    the expression contains an invalid back reference
    error_brack      the expression contains mismatched square brackets ('[' and ']')
    error_paren      the expression contains mismatched parentheses ('(' and ')')
    error_brace      the expression contains mismatched curly braces ('{' and '}')
    error_badbrace   the expression contains an invalid range in a {} expression
    error_range      the expression contains an invalid character range (e.g. [b-a])
-   error_space      there was not enough memory to convert the expression into a finite
-                    state machine
+   error_space      there was not enough memory to convert the expression into a finite state machine
    error_badrepeat  one of *?+{ was not preceded by a valid regular expression
    error_complexity the complexity of an attempted match exceeded a predefined level
    error_stack      there was not enough memory to perform a match
 
 .SH Notes
 
-   In C++11, these constants were specified with redundant keyword static, which was
-   removed by C++14 via LWG issue 2053
+   In C++11, these constants were specified with redundant keyword static, which was removed by C++14 via LWG issue 2053
 
 .SH See also
 

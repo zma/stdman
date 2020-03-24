@@ -1,4 +1,4 @@
-.TH std::towupper 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::towupper 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::towupper \- std::towupper
 
@@ -8,8 +8,7 @@ std::towupper \- std::towupper
 
    Converts the given wide character to uppercase, if possible.
 
-   If the value of ch is neither representable as a wchar_t nor equal to the value of
-   the macro WEOF, the behavior is undefined.
+   If the value of ch is neither representable as a wchar_t nor equal to the value of the macro WEOF, the behavior is undefined.
 
 .SH Parameters
 
@@ -17,14 +16,11 @@ std::towupper \- std::towupper
 
 .SH Return value
 
-   Uppercase version of ch or unmodified ch if no uppercase version is listed in the
-   current C locale.
+   Uppercase version of ch or unmodified ch if no uppercase version is listed in the current C locale.
 
 .SH Notes
 
-   Only 1:1 character mapping can be performed by this function, e.g. the uppercase
-   form of 'ß' is (with some exceptions) the two-character string "SS", which cannot be
-   obtained by std::towupper.
+   Only 1:1 character mapping can be performed by this function, e.g. the uppercase form of 'ß' is (with some exceptions) the two-character string "SS", which cannot be obtained by std::towupper.
 
    ISO 30112 specifies which pairs of Unicode characters are included in this mapping.
 
@@ -60,8 +56,7 @@ std::towupper \- std::towupper
 
    towlower             converts a wide character to lowercase
                         \fI(function)\fP
-                        converts a character to uppercase using the ctype facet of a
-   toupper(std::locale) locale
+   toupper(std::locale) converts a character to uppercase using the ctype facet of a locale
                         \fI(function template)\fP
    toupper              converts a character to uppercase
                         \fI(function)\fP

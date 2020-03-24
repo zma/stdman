@@ -1,4 +1,4 @@
-.TH std::out_of_range 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::out_of_range 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::out_of_range \- std::out_of_range
 
@@ -6,16 +6,13 @@ std::out_of_range \- std::out_of_range
    Defined in header <stdexcept>
    class out_of_range;
 
-   Defines a type of object to be thrown as exception. It reports errors that are
-   consequence of attempt to access elements out of defined range.
+   Defines a type of object to be thrown as exception. It reports errors that are consequence of attempt to access elements out of defined range.
 
-   It may be thrown by the member functions of std::bitset and std::basic_string, by
-   std::stoi and std::stod families of functions, and by the bounds-checked member
-   access functions (e.g. std::vector::at and std::map::at)
+   It may be thrown by the member functions of std::bitset and std::basic_string, by std::stoi and std::stod families of functions, and by the bounds-checked member access functions (e.g. std::vector::at and std::map::at)
 
    std-out of range-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
 .SH Member functions
 
@@ -27,13 +24,9 @@ std::out_of_range::out_of_range
    explicit out_of_range( const std::string& what_arg ); \fB(1)\fP
    explicit out_of_range( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
 
-   Constructs the exception object with what_arg as explanatory string that can be
-   accessed through what().
+   Constructs the exception object with what_arg as explanatory string that can be accessed through what().
 
-   Because copying std::out_of_range is not permitted to throw exceptions, this message
-   is typically stored internally as a separately-allocated reference-counted string.
-   This is also why there is no constructor taking std::string&&: it would have to copy
-   the content anyway.
+   Because copying std::out_of_range is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
 
 .SH Parameters
 
@@ -54,9 +47,7 @@ Inherited from std::exception
 
 .SH Notes
 
-   The standard error condition std::errc::result_out_of_range typically indicates the
-   condition where the result, rather than the input, is out of range, and is more
-   closely related to std::range_error and ERANGE.
+   The standard error condition std::errc::result_out_of_range typically indicates the condition where the result, rather than the input, is out of range, and is more closely related to std::range_error and ERANGE.
 
 .SH See also
 

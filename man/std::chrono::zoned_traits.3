@@ -1,4 +1,4 @@
-.TH std::chrono::zoned_traits 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::zoned_traits 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::zoned_traits \- std::chrono::zoned_traits
 
@@ -9,15 +9,9 @@ std::chrono::zoned_traits \- std::chrono::zoned_traits
    template <>                                         \fB(2)\fP \fI(since C++20)\fP
    struct zoned_traits<const std::chrono::time_zone*>;
 
-   The class zoned_traits provides a way to customize the behavior of the constructors
-   of std::chrono::zoned_time with custom time zone pointer types. In particular, it
-   allows such types to specify the default time zone to use and the mapping of a time
-   zone's name to the corresponding time zone pointer. It is acceptable for custom time
-   zone pointer types to not support either operation, in which case the corresponding
-   constructors of zoned_time will not participate in overload resolution.
+   The class zoned_traits provides a way to customize the behavior of the constructors of std::chrono::zoned_time with custom time zone pointer types. In particular, it allows such types to specify the default time zone to use and the mapping of a time zone's name to the corresponding time zone pointer. It is acceptable for custom time zone pointer types to not support either operation, in which case the corresponding constructors of zoned_time will not participate in overload resolution.
 
-   The primary template is empty. A specialization is provided for const
-   std::chrono::time_zone*, the default time zone pointer type.
+   The primary template is empty. A specialization is provided for const std::chrono::time_zone*, the default time zone pointer type.
 
 .SH Member functions
 

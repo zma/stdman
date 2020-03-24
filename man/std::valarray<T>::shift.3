@@ -1,13 +1,11 @@
-.TH std::valarray<T>::shift 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::valarray<T>::shift 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::valarray<T>::shift \- std::valarray<T>::shift
 
 .SH Synopsis
    valarray<T> shift( int count ) const;
 
-   Returns a new valarray of the same size with elements whose positions are shifted by
-   count elements. The new position of each element is i−count where i is the previous
-   position. The value of shifted in elements is T().
+   Returns a new valarray of the same size with elements whose positions are shifted by count elements. The new position of each element is i−count where i is the previous position. The value of shifted in elements is T().
 
 .SH Parameters
 
@@ -19,19 +17,15 @@ std::valarray<T>::shift \- std::valarray<T>::shift
 
 .SH Notes
 
-   The function can be implemented with the return type different from std::valarray.
-   In this case, the replacement type has the following properties:
+   The function can be implemented with the return type different from std::valarray. In this case, the replacement type has the following properties:
 
-     * All const member functions of std::valarray are provided.
-     * std::valarray, std::slice_array, std::gslice_array, std::mask_array and
-       std::indirect_array can be constructed from the replacement type.
-     * All functions accepting an argument of type const std::valarray&
-       except begin() and end()
-       \fI(since C++11)\fP should also accept the replacement type.
-     * All functions accepting two arguments of type const std::valarray& should accept
-       every combination of const std::valarray& and the replacement type.
-     * The return type does not add more than two levels of template nesting over the
-       most deeply-nested argument type.
+              * All const member functions of std::valarray are provided.
+              * std::valarray, std::slice_array, std::gslice_array, std::mask_array and std::indirect_array can be constructed from the replacement type.
+              * All functions accepting an argument of type const std::valarray&
+                except begin() and end()
+                \fI(since C++11)\fP should also accept the replacement type.
+              * All functions accepting two arguments of type const std::valarray& should accept every combination of const std::valarray& and the replacement type.
+              * The return type does not add more than two levels of template nesting over the most deeply-nested argument type.
 
 .SH Example
 

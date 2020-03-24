@@ -1,21 +1,15 @@
-.TH std::basic_streambuf<CharT,Traits>::underflow 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_streambuf<CharT,Traits>::underflow 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_streambuf<CharT,Traits>::underflow \- std::basic_streambuf<CharT,Traits>::underflow
 
 .SH Synopsis
    virtual int_type underflow();
 
-   Ensures that at least one character is available in the input area by updating the
-   pointers to the input area (if needed) and reading more data in from the input
-   sequence (if applicable). Returns the value of that character (converted to int_type
-   with Traits::to_int_type(c)) on success or Traits::eof() on failure.
+   Ensures that at least one character is available in the input area by updating the pointers to the input area (if needed) and reading more data in from the input sequence (if applicable). Returns the value of that character (converted to int_type with Traits::to_int_type(c)) on success or Traits::eof() on failure.
 
-   The function may update gptr, egptr and eback pointers to define the location of
-   newly loaded data (if any). On failure, the function ensures that either gptr() ==
-   nullptr or gptr() == egptr.
+   The function may update gptr, egptr and eback pointers to define the location of newly loaded data (if any). On failure, the function ensures that either gptr() == nullptr or gptr() == egptr.
 
-   The base class version of the function does nothing. The derived classes may
-   override this function to allow updates to the get area in the case of exhaustion.
+   The base class version of the function does nothing. The derived classes may override this function to allow updates to the get area in the case of exhaustion.
 
 .SH Parameters
 
@@ -23,15 +17,13 @@ std::basic_streambuf<CharT,Traits>::underflow \- std::basic_streambuf<CharT,Trai
 
 .SH Return value
 
-   The value of the character pointed to by the get pointer after the call on success,
-   or Traits::eof() otherwise.
+   The value of the character pointed to by the get pointer after the call on success, or Traits::eof() otherwise.
 
    The base class version of the function returns traits::eof().
 
 .SH Note
 
-   The public functions of std::streambuf call this function only if gptr() == nullptr
-   or gptr() >= egptr().
+   The public functions of std::streambuf call this function only if gptr() == nullptr or gptr() >= egptr().
 
 .SH Example
 
@@ -79,16 +71,13 @@ std::basic_streambuf<CharT,Traits>::underflow \- std::basic_streambuf<CharT,Trai
 
 .SH See also
 
-   uflow     reads characters from the associated input sequence to the get area and
-   \fB[virtual]\fP advances the next pointer
-             \fI(virtual protected member function)\fP
+   uflow     reads characters from the associated input sequence to the get area and advances the next pointer
+   \fB[virtual]\fP \fI(virtual protected member function)\fP
    overflow  writes characters to the associated output sequence from the put area
    \fB[virtual]\fP \fI(virtual protected member function)\fP
    underflow reads from the associated file
    \fB[virtual]\fP \fI(virtual protected member function of std::basic_filebuf<CharT,Traits>)\fP
    underflow returns the next character available in the input sequence
-   \fB[virtual]\fP \fI\fI(virtual protected member function\fP of\fP
-             std::basic_stringbuf<CharT,Traits,Allocator>)
-   underflow reads a character from the input sequence without advancing the next
-   \fB[virtual]\fP pointer
-             \fI(virtual protected member function of std::strstreambuf)\fP
+   \fB[virtual]\fP \fI(virtual protected member function of std::basic_stringbuf<CharT,Traits,Allocator>)\fP
+   underflow reads a character from the input sequence without advancing the next pointer
+   \fB[virtual]\fP \fI(virtual protected member function of std::strstreambuf)\fP

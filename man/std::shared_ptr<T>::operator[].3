@@ -1,4 +1,4 @@
-.TH std::shared_ptr<T>::operator[] 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_ptr<T>::operator[] 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_ptr<T>::operator[] \- std::shared_ptr<T>::operator[]
 
@@ -9,8 +9,7 @@ std::shared_ptr<T>::operator[] \- std::shared_ptr<T>::operator[]
 
    The behavior is undefined if the stored pointer is null or if idx is negative.
 
-   If T (the template parameter of shared_ptr) is an array type U[N], idx must be less
-   than N, otherwise the behavior is undefined.
+   If T (the template parameter of shared_ptr) is an array type U[N], idx must be less than N, otherwise the behavior is undefined.
 
 .SH Parameters
 
@@ -26,10 +25,7 @@ std::shared_ptr<T>::operator[] \- std::shared_ptr<T>::operator[]
 
   Remarks
 
-   When T is not an array type, it is unspecified whether this function is declared. If
-   the function is declared, it is unspecified what its return type is, except that the
-   declaration (although not necessarily the definition) of the function is guaranteed
-   to be legal.
+   When T is not an array type, it is unspecified whether this function is declared. If the function is declared, it is unspecified what its return type is, except that the declaration (although not necessarily the definition) of the function is guaranteed to be legal.
 
 .SH Example
 

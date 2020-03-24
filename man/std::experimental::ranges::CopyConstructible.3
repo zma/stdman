@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::CopyConstructible 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::CopyConstructible 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::CopyConstructible \- std::experimental::ranges::CopyConstructible
 
@@ -13,14 +13,9 @@ std::experimental::ranges::CopyConstructible \- std::experimental::ranges::CopyC
 
    Constructible<T, const T> && ConvertibleTo<const T, T>;
 
-   The concept CopyConstructible is satisfied if T is an lvalue reference type, or if
-   it is a MoveConstructible object type where an object of that type can constructed
-   from a (possibly const) lvalue or const rvalue of that type in both direct- and
-   copy-initialization contexts with the usual semantics (a copy is constructed with
-   the source unchanged).
+   The concept CopyConstructible is satisfied if T is an lvalue reference type, or if it is a MoveConstructible object type where an object of that type can constructed from a (possibly const) lvalue or const rvalue of that type in both direct- and copy-initialization contexts with the usual semantics (a copy is constructed with the source unchanged).
 
-   More precisely, if T is an object type, then CopyConstructible<T> is satisfied only
-   if given
+   More precisely, if T is an object type, then CopyConstructible<T> is satisfied only if given
 
      * v, a lvalue of type (possibly const) T or an rvalue of type const T,
 

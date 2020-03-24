@@ -1,4 +1,4 @@
-.TH std::istreambuf_iterator<CharT,Traits>::operator++,operator++(int) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::istreambuf_iterator<CharT,Traits>::operator++,operator++(int) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::istreambuf_iterator<CharT,Traits>::operator++,operator++(int) \- std::istreambuf_iterator<CharT,Traits>::operator++,operator++(int)
 
@@ -6,8 +6,7 @@ std::istreambuf_iterator<CharT,Traits>::operator++,operator++(int) \- std::istre
    istreambuf_iterator& operator++(); \fB(1)\fP
    /* proxy */ operator++(int);       \fB(2)\fP
 
-   Advances the iterator by calling sbuf_->sbumpc() where sbuf_ is the stored pointer
-   to the stream buffer.
+   Advances the iterator by calling sbuf_->sbumpc() where sbuf_ is the stored pointer to the stream buffer.
 
    The behavior is undefined if the iterator is end-of-stream iterator.
 
@@ -18,9 +17,7 @@ std::istreambuf_iterator<CharT,Traits>::operator++,operator++(int) \- std::istre
 .SH Return value
 
    1) *this.
-   2) A proxy object holding the current character obtained via operator*() and the
-   sbuf_ pointer. Dereferencing a proxy object with operator* yields the stored
-   character.
+   2) A proxy object holding the current character obtained via operator*() and the sbuf_ pointer. Dereferencing a proxy object with operator* yields the stored character.
    The name proxy is for exposition only.
 
 .SH Exceptions

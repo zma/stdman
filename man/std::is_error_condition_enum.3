@@ -1,4 +1,4 @@
-.TH std::is_error_condition_enum 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_error_condition_enum 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_error_condition_enum \- std::is_error_condition_enum
 
@@ -7,19 +7,16 @@ std::is_error_condition_enum \- std::is_error_condition_enum
    template< class T >               \fI(since C++11)\fP
    struct is_error_condition_enum;
 
-   If T is an error condition enum, this template provides the member constant value
-   equal true. For any other type, value is false.
+   If T is an error condition enum, this template provides the member constant value equal true. For any other type, value is false.
 
-   This template may be specialized for a user-defined type to indicate that the type
-   is eligible for std::error_condition automatic conversions.
+   This template may be specialized for a user-defined type to indicate that the type is eligible for std::error_condition automatic conversions.
 
    The following class of the standard library is an error condition enum: std::errc.
 
   Helper variable template
 
-   template< class T >
-   inline constexpr bool is_error_condition_enum_v =                      \fI(since C++17)\fP
-   is_error_condition_enum<T>::value;
+   template< class T >                                                                   \fI(since C++17)\fP
+   inline constexpr bool is_error_condition_enum_v = is_error_condition_enum<T>::value;
 
 Inherited from std::integral_constant
 

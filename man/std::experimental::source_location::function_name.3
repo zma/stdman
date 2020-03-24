@@ -1,12 +1,11 @@
-.TH std::experimental::source_location::function_name 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::source_location::function_name 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::source_location::function_name \- std::experimental::source_location::function_name
 
 .SH Synopsis
    constexpr const char* function_name() const noexcept;  (library fundamentals TS v2)
 
-   Returns the name of the function associated with the position represented by this
-   object, if any.
+   Returns the name of the function associated with the position represented by this object, if any.
 
 .SH Parameters
 
@@ -14,9 +13,7 @@ std::experimental::source_location::function_name \- std::experimental::source_l
 
 .SH Return value
 
-   If this object represents a position in a body of a function, returns an
-   implementation-defined null-terminated byte string corresponding to the name of the
-   function.
+   If this object represents a position in a body of a function, returns an implementation-defined null-terminated byte string corresponding to the name of the function.
 
    Otherwise, an empty string is returned.
 

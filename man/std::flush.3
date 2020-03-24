@@ -1,4 +1,4 @@
-.TH std::flush 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::flush 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::flush \- std::flush
 
@@ -9,25 +9,15 @@ std::flush \- std::flush
 
    Flushes the output sequence os as if by calling os.flush().
 
-   This is an output-only I/O manipulator, it may be called with an expression such as
-   out << std::flush for any out of type std::basic_ostream.
+   This is an output-only I/O manipulator, it may be called with an expression such as out << std::flush for any out of type std::basic_ostream.
 
 .SH Notes
 
-   This manipulator may be used to produce an incomplete line of output immediately,
-   e.g. when displaying output from a long-running process, logging activity of
-   multiple threads or logging activity of a program that may crash unexpectedly. An
-   explicit flush of std::cout is also necessary before a call to std::system, if the
-   spawned process performs any screen I/O (a common example is std::system("pause") on
-   Windows). In most other usual interactive I/O scenarios, std::endl is redundant when
-   used with std::cout because any input from std::cin, output to std::cerr, or program
-   termination forces a call to std::cout.flush().
+   This manipulator may be used to produce an incomplete line of output immediately, e.g. when displaying output from a long-running process, logging activity of multiple threads or logging activity of a program that may crash unexpectedly. An explicit flush of std::cout is also necessary before a call to std::system, if the spawned process performs any screen I/O (a common example is std::system("pause") on Windows). In most other usual interactive I/O scenarios, std::endl is redundant when used with std::cout because any input from std::cin, output to std::cerr, or program termination forces a call to std::cout.flush().
 
-   When a complete line of output needs to be flushed, the std::endl manipulator may be
-   used.
+   When a complete line of output needs to be flushed, the std::endl manipulator may be used.
 
-   When every output operation needs to be flushed, the std::unitbuf manipulator may be
-   used.
+   When every output operation needs to be flushed, the std::unitbuf manipulator may be used.
 
 .SH Parameters
 

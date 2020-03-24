@@ -1,4 +1,4 @@
-.TH std::feupdateenv 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::feupdateenv 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::feupdateenv \- std::feupdateenv
 
@@ -6,17 +6,13 @@ std::feupdateenv \- std::feupdateenv
    Defined in header <cfenv>
    int feupdateenv( const std::fenv_t* envp )  \fI(since C++11)\fP
 
-   First, remembers the currently raised floating-point exceptions, then restores the
-   floating-point environment from the object pointed to by envp (similar to
-   std::fesetenv), then raises the floating-point exceptions that were saved.
+   First, remembers the currently raised floating-point exceptions, then restores the floating-point environment from the object pointed to by envp (similar to std::fesetenv), then raises the floating-point exceptions that were saved.
 
-   This function may be used to end the non-stop mode established by an earlier call to
-   std::feholdexcept.
+   This function may be used to end the non-stop mode established by an earlier call to std::feholdexcept.
 
 .SH Parameters
 
-   envp - pointer to the object of type std::fenv_t set by an earlier call to
-          std::feholdexcept or std::fegetenv or equal to FE_DFL_ENV
+   envp - pointer to the object of type std::fenv_t set by an earlier call to std::feholdexcept or std::fegetenv or equal to FE_DFL_ENV
 
 .SH Return value
 
@@ -24,9 +20,8 @@ std::feupdateenv \- std::feupdateenv
 
 .SH See also
 
-   feholdexcept saves the environment, clears all status flags and ignores all future
-   \fI(C++11)\fP      errors
-                \fI(function)\fP
+   feholdexcept saves the environment, clears all status flags and ignores all future errors
+   \fI(C++11)\fP      \fI(function)\fP
    fegetenv     saves or restores the current floating point environment
    fesetenv     \fI(function)\fP
    \fI(C++11)\fP

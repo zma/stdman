@@ -1,22 +1,16 @@
-.TH std::pmr::set_default_resource 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::set_default_resource 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::set_default_resource \- std::pmr::set_default_resource
 
 .SH Synopsis
    Defined in header <memory_resource>
-   std::pmr::memory_resource*                                             \fI(since C++17)\fP
-   set_default_resource(std::pmr::memory_resource* r) noexcept;
+   std::pmr::memory_resource* set_default_resource(std::pmr::memory_resource* r) noexcept;  \fI(since C++17)\fP
 
-   If r is not null, sets the default memory resource pointer to r; otherwise, sets the
-   default memory resource pointer to std::pmr::new_delete_resource().
+   If r is not null, sets the default memory resource pointer to r; otherwise, sets the default memory resource pointer to std::pmr::new_delete_resource().
 
-   The default memory resource pointer is used by certain facilities when an explicit
-   memory resource is not supplied. The initial default memory resource pointer is the
-   return value of std::pmr::new_delete_resource.
+   The default memory resource pointer is used by certain facilities when an explicit memory resource is not supplied. The initial default memory resource pointer is the return value of std::pmr::new_delete_resource.
 
-   This function is thread-safe. Every call to std::pmr::set_default_resource
-   synchronizes with (see std::memory_order) the subsequent
-   std::pmr::set_default_resource and std::pmr::get_default_resource calls.
+   This function is thread-safe. Every call to std::pmr::set_default_resource synchronizes with (see std::memory_order) the subsequent std::pmr::set_default_resource and std::pmr::get_default_resource calls.
 
 .SH Return value
 
@@ -26,7 +20,5 @@ std::pmr::set_default_resource \- std::pmr::set_default_resource
 
    get_default_resource gets the default std::pmr::memory_resource
    \fI(C++17)\fP              \fI(function)\fP
-                        returns a static program-wide std::pmr::memory_resource that
-   new_delete_resource  uses the global operator new and operator delete to allocate
-   \fI(C++17)\fP              and deallocate memory
-                        \fI(function)\fP
+   new_delete_resource  returns a static program-wide std::pmr::memory_resource that uses the global operator new and operator delete to allocate and deallocate memory
+   \fI(C++17)\fP              \fI(function)\fP

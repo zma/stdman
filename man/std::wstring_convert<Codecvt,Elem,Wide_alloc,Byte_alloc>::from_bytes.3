@@ -1,4 +1,4 @@
-.TH std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::from_bytes 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::from_bytes 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::from_bytes \- std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::from_bytes
 
@@ -9,33 +9,25 @@ std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::from_bytes \- std::wst
    wide_string from_bytes( const byte_string& str );             \fB(3)\fP
    wide_string from_bytes( const char* first, const char* last); \fB(4)\fP
 
-   Performs multibyte to wide conversion, using the codecvt facet supplied at
-   construction.
+   Performs multibyte to wide conversion, using the codecvt facet supplied at construction.
 
    1) Converts byte as if it was a string of length 1 to wide_string
 
-   2) Converts the null-terminated multibyte character sequence beginning at the
-   character pointed to by ptr to wide_string
+   2) Converts the null-terminated multibyte character sequence beginning at the character pointed to by ptr to wide_string
 
    3) Converts the narrow string str to wide_string.
 
    4) Converts the narrow multibyte character sequence [first, last) to wide_string
 
-   In all cases, the conversion begins in initial shift state, unless non-initial
-   starting state was provided to this wstring_convert constructor. The number of
-   characters converted and the final value of the conversion state are remembered and
-   can be accessed with state() and converted()
+   In all cases, the conversion begins in initial shift state, unless non-initial starting state was provided to this wstring_convert constructor. The number of characters converted and the final value of the conversion state are remembered and can be accessed with state() and converted()
 
 .SH Return value
 
-   A wide_string object containing the results of multibyte to wide conversion. If the
-   conversion failed and there was a user-supplied wide-error string provided to the
-   constructor of this wstring_convert, returns that wide-error string.
+   A wide_string object containing the results of multibyte to wide conversion. If the conversion failed and there was a user-supplied wide-error string provided to the constructor of this wstring_convert, returns that wide-error string.
 
 .SH Exceptions
 
-   If this wstring_convert object was constructed without a user-supplied wide-error
-   string, throws std::range_error on conversion failure.
+   If this wstring_convert object was constructed without a user-supplied wide-error string, throws std::range_error on conversion failure.
 
 .SH Example
 

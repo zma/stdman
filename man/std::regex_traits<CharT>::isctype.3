@@ -1,25 +1,17 @@
-.TH std::regex_traits<CharT>::isctype 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::regex_traits<CharT>::isctype 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::regex_traits<CharT>::isctype \- std::regex_traits<CharT>::isctype
 
 .SH Synopsis
    bool isctype( CharT c, char_class_type f ) const;
 
-   Determines whether the character c belongs to the character class identified by f,
-   which, in turn, is a value returned by lookup_classname() or a bitwise OR of several
-   such values.
+   Determines whether the character c belongs to the character class identified by f, which, in turn, is a value returned by lookup_classname() or a bitwise OR of several such values.
 
-   The version of this function provided in the standard library specializations of
-   std::regex_traits does the following:
+   The version of this function provided in the standard library specializations of std::regex_traits does the following:
 
-   1) First converts f to some temporary value m of type std::ctype_base::mask in
-   implementation-defined manner
-   2) Then attempts to classify the character in the imbued locale by calling
-   std::use_facet<std::ctype<CharT>>(getloc()).is(m, c). If that returned true, true is
-   returned by isctype().
-   3) Otherwise, checks whether c equals '_' and the bitmask f includes the result of
-   calling lookup_classname() for the character class [:w:], in which case true is
-   returned.
+   1) First converts f to some temporary value m of type std::ctype_base::mask in implementation-defined manner
+   2) Then attempts to classify the character in the imbued locale by calling std::use_facet<std::ctype<CharT>>(getloc()).is(m, c). If that returned true, true is returned by isctype().
+   3) Otherwise, checks whether c equals '_' and the bitmask f includes the result of calling lookup_classname() for the character class [:w:], in which case true is returned.
    4) Otherwise, false is returned.
 
 .SH Parameters
@@ -33,8 +25,7 @@ std::regex_traits<CharT>::isctype \- std::regex_traits<CharT>::isctype
 
 .SH Notes
 
-   The description above summarizes C++14; the C++11 phrasing required this function to
-   return true for '_' in all cases (LWG issue 2018)
+   The description above summarizes C++14; the C++11 phrasing required this function to return true for '_' in all cases (LWG issue 2018)
 
 .SH Example
 
@@ -115,6 +106,5 @@ std::regex_traits<CharT>::isctype \- std::regex_traits<CharT>::isctype
                     \fI(public member function)\fP
    do_is            classifies a character or a character sequence
    \fB[virtual]\fP        \fI(virtual protected member function of std::ctype<CharT>)\fP
-                    classifies a wide character according to the specified LC_CTYPE
-   iswctype         category
+   iswctype         classifies a wide character according to the specified LC_CTYPE category
                     \fI(function)\fP

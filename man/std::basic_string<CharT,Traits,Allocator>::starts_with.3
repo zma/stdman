@@ -1,22 +1,19 @@
-.TH std::basic_string<CharT,Traits,Allocator>::starts_with 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::starts_with 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::starts_with \- std::basic_string<CharT,Traits,Allocator>::starts_with
 
 .SH Synopsis
-   bool starts_with(std::basic_string_view<CharT, Traits> x) const    \fB(1)\fP \fI(since C++20)\fP
-   noexcept;
-   bool starts_with(CharT x) const noexcept;                          \fB(2)\fP \fI(since C++20)\fP
-   bool starts_with(const CharT* x) const;                            \fB(3)\fP \fI(since C++20)\fP
+   bool starts_with(std::basic_string_view<CharT, Traits> x) const noexcept; \fB(1)\fP \fI(since C++20)\fP
+   bool starts_with(CharT x) const noexcept;                                 \fB(2)\fP \fI(since C++20)\fP
+   bool starts_with(const CharT* x) const;                                   \fB(3)\fP \fI(since C++20)\fP
 
    Checks if the string begins with the given prefix, where
 
-   1) the prefix is a string view (which may be a result of implicit conversion from
-   another std::basic_string)
+   1) the prefix is a string view (which may be a result of implicit conversion from another std::basic_string)
    2) the prefix is a single character
    3) the prefix is a C-style string
 
-   All three overloads effectively return std::basic_string_view<CharT, Traits>(data(),
-   size()).starts_with(x);
+   All three overloads effectively return std::basic_string_view<CharT, Traits>(data(), size()).starts_with(x);
 
 .SH Parameters
 

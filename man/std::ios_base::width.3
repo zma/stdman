@@ -1,4 +1,4 @@
-.TH std::ios_base::width 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ios_base::width 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ios_base::width \- std::ios_base::width
 
@@ -6,8 +6,7 @@ std::ios_base::width \- std::ios_base::width
    streamsize width() const;                 \fB(1)\fP
    streamsize width( streamsize new_width ); \fB(2)\fP
 
-   Manages the minimum number of characters to generate on certain output operations
-   and the maximum number of characters to generate on certain input operations.
+   Manages the minimum number of characters to generate on certain output operations and the maximum number of characters to generate on certain input operations.
 
    1) Returns the current field width.
    2) Sets the field width to the given one. Returns the previous field width.
@@ -22,13 +21,9 @@ std::ios_base::width \- std::ios_base::width
 
 .SH Notes
 
-   Some I/O functions call width\fB(0)\fP before returning, see std::setw (this results in
-   this field having effect on the next I/O function only, and not on any subsequent
-   I/O)
+   Some I/O functions call width\fB(0)\fP before returning, see std::setw (this results in this field having effect on the next I/O function only, and not on any subsequent I/O)
 
-   The exact effects this modifier has on the input and output vary between the
-   individual I/O functions and are described at each operator<< and operator>>
-   overload page individually.
+   The exact effects this modifier has on the input and output vary between the individual I/O functions and are described at each operator<< and operator>> overload page individually.
 
 .SH Example
 

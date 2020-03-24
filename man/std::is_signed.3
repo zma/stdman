@@ -1,4 +1,4 @@
-.TH std::is_signed 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_signed 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_signed \- std::is_signed
 
@@ -7,9 +7,7 @@ std::is_signed \- std::is_signed
    template< class T >              \fI(since C++11)\fP
    struct is_signed;
 
-   If T is an arithmetic type, provides the member constant value equal true if T(-1) <
-   T\fB(0)\fP: this results in true for the floating-point types and the signed integer
-   types, and in false for the unsigned integer types and the type bool.
+   If T is an arithmetic type, provides the member constant value equal true if T(-1) < T\fB(0)\fP: this results in true for the floating-point types and the signed integer types, and in false for the unsigned integer types and the type bool.
 
    For any other type, value is false.
 

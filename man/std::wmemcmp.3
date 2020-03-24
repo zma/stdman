@@ -1,4 +1,4 @@
-.TH std::wmemcmp 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wmemcmp 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wmemcmp \- std::wmemcmp
 
@@ -6,11 +6,9 @@ std::wmemcmp \- std::wmemcmp
    Defined in header <cwchar>
    int wmemcmp( const wchar_t* lhs, const wchar_t* rhs, std::size_t count );
 
-   Compares the first count wide characters of the wide character arrays pointed to by
-   lhs and rhs. The comparison is done lexicographically.
+   Compares the first count wide characters of the wide character arrays pointed to by lhs and rhs. The comparison is done lexicographically.
 
-   The sign of the result is the sign of the difference between the values of the first
-   pair of wide characters that differ in the arrays being compared.
+   The sign of the result is the sign of the difference between the values of the first pair of wide characters that differ in the arrays being compared.
 
    If count is zero, the function does nothing.
 
@@ -21,21 +19,15 @@ std::wmemcmp \- std::wmemcmp
 
 .SH Return value
 
-   Negative value if the value of the first differing wide character in lhs is less
-   than the value of the corresponding wide character in rhs: lhs precedes rhs in
-   lexicographical order.
+   Negative value if the value of the first differing wide character in lhs is less than the value of the corresponding wide character in rhs: lhs precedes rhs in lexicographical order.
 
    0 if all count wide characters of lhs and rhs are equal.
 
-   Positive value if the value of the first differing wide character in lhs is greater
-   than the value of the corresponding wide character in rhs: rhs precedes lhs in
-   lexicographical order.
+   Positive value if the value of the first differing wide character in lhs is greater than the value of the corresponding wide character in rhs: rhs precedes lhs in lexicographical order.
 
 .SH Notes
 
-   This function is not locale-sensitive and pays no attention to the values of the
-   wchar_t objects it examines: nulls as well as invalid wide characters are compared
-   too.
+   This function is not locale-sensitive and pays no attention to the values of the wchar_t objects it examines: nulls as well as invalid wide characters are compared too.
 
 .SH Example
 

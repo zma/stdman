@@ -1,12 +1,11 @@
-.TH std::basic_streambuf<CharT,Traits>::gbump 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_streambuf<CharT,Traits>::gbump 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_streambuf<CharT,Traits>::gbump \- std::basic_streambuf<CharT,Traits>::gbump
 
 .SH Synopsis
    void gbump( int count );
 
-   Skips count characters in the get area. This is done by advancing the get pointer by
-   count characters. No checks are done for underflow.
+   Skips count characters in the get area. This is done by advancing the get pointer by count characters. No checks are done for underflow.
 
 .SH Parameters
 
@@ -18,8 +17,7 @@ std::basic_streambuf<CharT,Traits>::gbump \- std::basic_streambuf<CharT,Traits>:
 
 .SH Notes
 
-   Because this function takes an int, it cannot manipulate buffers larger than
-   std::numeric_limits<int>::max() characters (LWG 255)
+   Because this function takes an int, it cannot manipulate buffers larger than std::numeric_limits<int>::max() characters (LWG 255)
 
 .SH Example
 

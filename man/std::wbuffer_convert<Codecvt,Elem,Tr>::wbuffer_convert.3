@@ -1,4 +1,4 @@
-.TH std::wbuffer_convert<Codecvt,Elem,Tr>::wbuffer_convert 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wbuffer_convert<Codecvt,Elem,Tr>::wbuffer_convert 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wbuffer_convert<Codecvt,Elem,Tr>::wbuffer_convert \- std::wbuffer_convert<Codecvt,Elem,Tr>::wbuffer_convert
 
@@ -12,23 +12,18 @@ std::wbuffer_convert<Codecvt,Elem,Tr>::wbuffer_convert \- std::wbuffer_convert<C
    wbuffer_convert(const std::wbuffer_convert&) = delete; \fB(3)\fP \fI(since C++14)\fP
 
    1) Default constructor.
-   2) Constructs the wbuffer_convert object with the specified underlying byte stream,
-   specified codecvt facet, and specified initial conversion state (all parameters are
-   optional)
+   2) Constructs the wbuffer_convert object with the specified underlying byte stream, specified codecvt facet, and specified initial conversion state (all parameters are optional)
    3) The copy constructor is deleted, wbuffer_convert is not CopyConstructible
 
 .SH Parameters
 
-   bytebuf - pointer to std::streambuf to serve as the underlying narrow character
-             stream
-   pcvt    - pointer to a standalone (not managed by a locale) std::codecvt facet. The
-             behavior is undefined if this pointer is null.
+   bytebuf - pointer to std::streambuf to serve as the underlying narrow character stream
+   pcvt    - pointer to a standalone (not managed by a locale) std::codecvt facet. The behavior is undefined if this pointer is null.
    state   - the initial value of the character conversion state
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
      DR    Applied to      Behavior as published       Correct behavior
    P0935R0 C++11      default constructor was explicit made implicit

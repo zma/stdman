@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::min 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::min 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::min \- std::numeric_limits<T>::min
 
@@ -9,13 +9,9 @@ std::numeric_limits<T>::min \- std::numeric_limits<T>::min
 
    Returns the minimum finite value representable by the numeric type T.
 
-   For floating-point types with denormalization, min returns the minimum positive
-   normalized value. Note that this behavior may be unexpected, especially when
-   compared to the behavior of min for integral types. To find the value that has no
-   values less than it, use numeric_limits::lowest.
+   For floating-point types with denormalization, min returns the minimum positive normalized value. Note that this behavior may be unexpected, especially when compared to the behavior of min for integral types. To find the value that has no values less than it, use numeric_limits::lowest.
 
-   min is only meaningful for bounded types and for unbounded unsigned types, that is,
-   types that represent an infinite set of negative values have no meaningful minimum.
+   min is only meaningful for bounded types and for unbounded unsigned types, that is, types that represent an infinite set of negative values have no meaningful minimum.
 
 .SH Return value
 
@@ -43,8 +39,7 @@ std::numeric_limits<T>::min \- std::numeric_limits<T>::min
 
 .SH Example
 
-   Demonstrates the use with typedef types, and the difference in the sign of the
-   result between integer and floating-point types
+   Demonstrates the use with typedef types, and the difference in the sign of the result between integer and floating-point types
 
    
 // Run this code
@@ -85,8 +80,7 @@ std::numeric_limits<T>::min \- std::numeric_limits<T>::min
 
    lowest           returns the lowest finite value of the given type
    \fB[static]\fP \fI(C++11)\fP \fI(public static member function)\fP
-   denorm_min       returns the smallest positive subnormal value of the given
-   \fB[static]\fP         floating-point type
-                    \fI(public static member function)\fP
+   denorm_min       returns the smallest positive subnormal value of the given floating-point type
+   \fB[static]\fP         \fI(public static member function)\fP
    max              returns the largest finite value of the given type
    \fB[static]\fP         \fI(public static member function)\fP

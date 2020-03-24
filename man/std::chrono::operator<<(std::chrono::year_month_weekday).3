@@ -1,4 +1,4 @@
-.TH std::chrono::operator<<(std::chrono::year_month_weekday) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator<<(std::chrono::year_month_weekday) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator<<(std::chrono::year_month_weekday) \- std::chrono::operator<<(std::chrono::year_month_weekday)
 
@@ -10,8 +10,7 @@ std::chrono::operator<<(std::chrono::year_month_weekday) \- std::chrono::operato
 
    const std::chrono::year_month_weekday& ymwd);
 
-   Outputs a textual representation of ymwd into os, as if by os << ymwd.year() << '/'
-   << ymwd.month() << '/' << ymwdl.weekday_indexed();
+   Outputs a textual representation of ymwd into os, as if by os << ymwd.year() << '/' << ymwd.month() << '/' << ymwdl.weekday_indexed();
 
 .SH Return value
 
@@ -19,8 +18,7 @@ std::chrono::operator<<(std::chrono::year_month_weekday) \- std::chrono::operato
 
 .SH Notes
 
-   This operator<< is primarily intended for debugging use. When used with non-default
-   stream flags, the output may be surprising:
+   This operator<< is primarily intended for debugging use. When used with non-default stream flags, the output may be surprising:
 
  using namespace std::chrono;
  auto ymwd = 2001y/2/Tuesday[1];

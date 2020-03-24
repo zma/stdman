@@ -1,17 +1,13 @@
-.TH std::type_info::hash_code 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::type_info::hash_code 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::type_info::hash_code \- std::type_info::hash_code
 
 .SH Synopsis
    size_t hash_code() const;  \fI(since C++11)\fP
 
-   Returns an unspecified value such that for all type_info objects referring to the
-   same type, their hash_code() is the same.
+   Returns an unspecified value such that for all type_info objects referring to the same type, their hash_code() is the same.
 
-   No other guarantees are given: type_info objects referring to different types may
-   have the same hash_code (although the standard recommends that implementations avoid
-   this as much as possible), and hash_code for the same type can change between
-   invocations of the same program.
+   No other guarantees are given: type_info objects referring to different types may have the same hash_code (although the standard recommends that implementations avoid this as much as possible), and hash_code for the same type can change between invocations of the same program.
 
 .SH Parameters
 
@@ -23,8 +19,7 @@ std::type_info::hash_code \- std::type_info::hash_code
 
 .SH Example
 
-   The following program is an example of an efficient type-value mapping without using
-   std::type_index.
+   The following program is an example of an efficient type-value mapping without using std::type_index.
 
    
 // Run this code

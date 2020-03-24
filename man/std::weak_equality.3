@@ -1,4 +1,4 @@
-.TH std::weak_equality 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::weak_equality 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::weak_equality \- std::weak_equality
 
@@ -10,40 +10,25 @@ std::weak_equality \- std::weak_equality
 
      * admits only equality and inequality comparisons (no less-than/greater-than)
 
-     * does not imply substitutability: if a is equivalent to b, f(a) may not be
-       equivalent to f(b), where f denotes a function that reads only
-       comparison-salient state that is accessible via the argument's public const
-       members. In other words, equivalent values may be distinguishable.
+     * does not imply substitutability: if a is equivalent to b, f(a) may not be equivalent to f(b), where f denotes a function that reads only comparison-salient state that is accessible via the argument's public const members. In other words, equivalent values may be distinguishable.
 
-   std::weak_equality is the weakest comparison category type: it is not
-   implicitly-convertible to any other comparison category, but the other four
-   comparison categories (std::strong_equality, std::partial_ordering,
-   std::weak_ordering, std::strong_ordering) are implicitly-convertible to
-   std::weak_equality.
+   std::weak_equality is the weakest comparison category type: it is not implicitly-convertible to any other comparison category, but the other four comparison categories (std::strong_equality, std::partial_ordering, std::weak_ordering, std::strong_ordering) are implicitly-convertible to std::weak_equality.
 
 .SH Constants
 
-   The type std::weak_equality has only two valid values, implemented as const static
-   data members of its type: std::weak_equality::equivalent and
-   std::weak_equality::nonequivalent:
+   The type std::weak_equality has only two valid values, implemented as const static data members of its type: std::weak_equality::equivalent and std::weak_equality::nonequivalent:
 
    Member constant                 Definition
-   equivalent(inline constexpr)    a valid value of the type std::weak_equality
-   \fB[static]\fP                        indicating equivalence
-                                   \fI(public static member constant)\fP
-   nonequivalent(inline constexpr) a valid value of the type std::weak_equality
-   \fB[static]\fP                        indicating non-equivalence
-                                   \fI(public static member constant)\fP
+   equivalent(inline constexpr)    a valid value of the type std::weak_equality indicating equivalence
+   \fB[static]\fP                        \fI(public static member constant)\fP
+   nonequivalent(inline constexpr) a valid value of the type std::weak_equality indicating non-equivalence
+   \fB[static]\fP                        \fI(public static member constant)\fP
 
 .SH Comparisons
 
-   Comparison operators are defined between values of this type and literal 0. This
-   supports the expressions a <=> b == 0 and a <=> b != 0 used to convert the result of
-   a three-way comparison operator to a boolean relationship; see std::is_eq and
-   std::is_neq.
+   Comparison operators are defined between values of this type and literal 0. This supports the expressions a <=> b == 0 and a <=> b != 0 used to convert the result of a three-way comparison operator to a boolean relationship; see std::is_eq and std::is_neq.
 
-   The behavior of a program that attempts to compare a weak_equality with anything
-   other than the integer literal 0 is undefined.
+   The behavior of a program that attempts to compare a weak_equality with anything other than the integer literal 0 is undefined.
 
    operator==  compares with zero
    operator!=  \fI(function)\fP
@@ -79,10 +64,8 @@ operator!=
 
 operator<=>
 
-   friend constexpr weak_equality operator<=>(weak_equality v, /*unspecified*/ u)
-   noexcept;
-   friend constexpr weak_equality operator<=>(/*unspecified*/ u, weak_equality v)
-   noexcept;
+   friend constexpr weak_equality operator<=>(weak_equality v, /*unspecified*/ u) noexcept;
+   friend constexpr weak_equality operator<=>(/*unspecified*/ u, weak_equality v) noexcept;
 
 .SH Parameters
 
@@ -100,15 +83,11 @@ operator<=>
 
 .SH See also
 
-   strong_ordering  the result type of 3-way comparison that supports all 6 operators
-   (C++20)          and is substitutable
-                    \fI(class)\fP
-   weak_ordering    the result type of 3-way comparison that supports all 6 operators
-   (C++20)          and is not substitutable
-                    \fI(class)\fP
-   partial_ordering the result type of 3-way comparison that supports all 6 operators,
-   (C++20)          is not substitutable, and allows incomparable values
-                    \fI(class)\fP
-   strong_equality  the result type of 3-way comparison that supports only
-   (C++20)          equality/inequality and is substitutable
-                    \fI(class)\fP
+   strong_ordering  the result type of 3-way comparison that supports all 6 operators and is substitutable
+   (C++20)          \fI(class)\fP
+   weak_ordering    the result type of 3-way comparison that supports all 6 operators and is not substitutable
+   (C++20)          \fI(class)\fP
+   partial_ordering the result type of 3-way comparison that supports all 6 operators, is not substitutable, and allows incomparable values
+   (C++20)          \fI(class)\fP
+   strong_equality  the result type of 3-way comparison that supports only equality/inequality and is substitutable
+   (C++20)          \fI(class)\fP

@@ -1,15 +1,14 @@
-.TH std::mersenne_twister_engine<UIntType,w,n,m,r,a,u,d,s,b,t,c,l,f>::mersenne_twister_engine 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::mersenne_twister_engine<UIntType,w,n,m,r,a,u,d,s,b,t,c,l,f>::mersenne_twister_engine 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::mersenne_twister_engine<UIntType,w,n,m,r,a,u,d,s,b,t,c,l,f>::mersenne_twister_engine \- std::mersenne_twister_engine<UIntType,w,n,m,r,a,u,d,s,b,t,c,l,f>::mersenne_twister_engine
 
 .SH Synopsis
-   mersenne_twister_engine() :                                \fB(1)\fP \fI(since C++11)\fP
-   mersenne_twister_engine(default_seed) {}
-   explicit mersenne_twister_engine( result_type value );     \fB(2)\fP \fI(since C++11)\fP
-   template< class Sseq >                                     \fB(3)\fP \fI(since C++11)\fP
+   mersenne_twister_engine() : mersenne_twister_engine(default_seed) {} \fB(1)\fP \fI(since C++11)\fP
+   explicit mersenne_twister_engine( result_type value );               \fB(2)\fP \fI(since C++11)\fP
+   template< class Sseq >                                               \fB(3)\fP \fI(since C++11)\fP
    explicit mersenne_twister_engine( Sseq& s );
-   mersenne_twister_engine( const mersenne_twister_engine& ); \fB(4)\fP \fI(since C++11)\fP
-                                                                  (implicitly declared)
+   mersenne_twister_engine( const mersenne_twister_engine& );           \fB(4)\fP \fI(since C++11)\fP
+                                                                            (implicitly declared)
 
    Constructs the pseudo-random number engine.
 
@@ -21,9 +20,7 @@ std::mersenne_twister_engine<UIntType,w,n,m,r,a,u,d,s,b,t,c,l,f>::mersenne_twist
    i is initialized to [f·(X
    i-1xor(X
    i-1rshift(w-2)))+i mod n] mod 2w
-   3) Constructs the engine and initializes the state by calling s.generate(a, a+n*k)
-   where a is an array of length n*k and k is ceil(w/32) and then, iteratively for
-   i=-n,...,-1, setting each element of the engine state X
+   3) Constructs the engine and initializes the state by calling s.generate(a, a+n*k) where a is an array of length n*k and k is ceil(w/32) and then, iteratively for i=-n,...,-1, setting each element of the engine state X
    i to (Σk-1
    j=0a
    k(i+n)+j}·232j
@@ -34,12 +31,9 @@ std::mersenne_twister_engine<UIntType,w,n,m,r,a,u,d,s,b,t,c,l,f>::mersenne_twist
    0 with 2w-1
    .
 
-   Note: initialization requirements are based on the 2002 version of Mersenne Twister,
-   mt19937ar.c
+   Note: initialization requirements are based on the 2002 version of Mersenne Twister, mt19937ar.c
 
-   The overload \fB(3)\fP only participates in overload resolution if Sseq qualifies as a
-   SeedSequence. In particular, it is excluded from the set of candidate functions if
-   Sseq is convertible to result_type.
+   The overload \fB(3)\fP only participates in overload resolution if Sseq qualifies as a SeedSequence. In particular, it is excluded from the set of candidate functions if Sseq is convertible to result_type.
 
 .SH Parameters
 
@@ -52,8 +46,7 @@ std::mersenne_twister_engine<UIntType,w,n,m,r,a,u,d,s,b,t,c,l,f>::mersenne_twist
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
      DR    Applied to      Behavior as published       Correct behavior
    P0935R0 C++11      default constructor was explicit made implicit

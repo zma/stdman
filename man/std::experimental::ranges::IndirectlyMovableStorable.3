@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::IndirectlyMovableStorable 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::IndirectlyMovableStorable 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::IndirectlyMovableStorable \- std::experimental::ranges::IndirectlyMovableStorable
 
@@ -8,10 +8,9 @@ std::experimental::ranges::IndirectlyMovableStorable \- std::experimental::range
 
    concept bool IndirectlyMovableStorable =
    IndirectlyMovable<In, Out> &&
-   Writable<Out, ranges::value_type_t<In>> &&                               (ranges TS)
+   Writable<Out, ranges::value_type_t<In>> &&                                  (ranges TS)
    Movable<ranges::value_type_t<In>> &&
-   Constructible<ranges::value_type_t<In>, ranges::rvalue_reference_t<In>>
-   &&
+   Constructible<ranges::value_type_t<In>, ranges::rvalue_reference_t<In>> &&
 
    Assignable<ranges::value_type_t<In>&, ranges::rvalue_reference_t<In>>;
 

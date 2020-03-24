@@ -1,4 +1,4 @@
-.TH std::prev 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::prev 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::prev \- std::prev
 
@@ -35,8 +35,7 @@ std::prev \- std::prev
 
    Linear.
 
-   However, if BidirIt additionally meets the requirements of
-   LegacyRandomAccessIterator, complexity is constant.
+   However, if BidirIt additionally meets the requirements of LegacyRandomAccessIterator, complexity is constant.
 
 .SH Possible implementation
 
@@ -49,10 +48,7 @@ std::prev \- std::prev
 
 .SH Notes
 
-   Although the expression --c.end() often compiles, it is not guaranteed to do so:
-   c.end() is an rvalue expression, and there is no iterator requirement that specifies
-   that decrement of an rvalue is guaranteed to work. In particular, when iterators are
-   implemented as pointers, --c.end() does not compile, while std::prev(c.end()) does.
+   Although the expression --c.end() often compiles, it is not guaranteed to do so: c.end() is an rvalue expression, and there is no iterator requirement that specifies that decrement of an rvalue is guaranteed to work. In particular, when iterators are implemented as pointers, --c.end() does not compile, while std::prev(c.end()) does.
 
 .SH Example
 

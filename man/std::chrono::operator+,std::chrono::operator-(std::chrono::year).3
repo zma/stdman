@@ -1,17 +1,15 @@
-.TH std::chrono::operator+,std::chrono::operator-(std::chrono::year) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator+,std::chrono::operator-(std::chrono::year) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator+,std::chrono::operator-(std::chrono::year) \- std::chrono::operator+,std::chrono::operator-(std::chrono::year)
 
 .SH Synopsis
-   constexpr std::chrono::year operator+(const std::chrono::year& y,  \fB(1)\fP \fI(since C++20)\fP
+   constexpr std::chrono::year operator+(const std::chrono::year& y,   \fB(1)\fP \fI(since C++20)\fP
    const std::chrono::years& ys) noexcept;
-   constexpr std::chrono::year operator+(const std::chrono::years&
-   ys,                                                                \fB(2)\fP \fI(since C++20)\fP
+   constexpr std::chrono::year operator+(const std::chrono::years& ys, \fB(2)\fP \fI(since C++20)\fP
    const std::chrono::year& y) noexcept;
-   constexpr std::chrono::year operator-(const std::chrono::year& y,  \fB(3)\fP \fI(since C++20)\fP
+   constexpr std::chrono::year operator-(const std::chrono::year& y,   \fB(3)\fP \fI(since C++20)\fP
    const std::chrono::years& ys) noexcept;
-   constexpr std::chrono::years operator-(const std::chrono::year&
-   y1,                                                                \fB(4)\fP \fI(since C++20)\fP
+   constexpr std::chrono::years operator-(const std::chrono::year& y1, \fB(4)\fP \fI(since C++20)\fP
    const std::chrono::year& y2) noexcept;
 
    1-2) Adds ys.count() years to y.
@@ -26,14 +24,9 @@ std::chrono::operator+,std::chrono::operator-(std::chrono::year) \- std::chrono:
 
 .SH Notes
 
-   If the resulting year value for (1-3) is outside the range [-32767,32767], the
-   actual value stored is unspecified.
+   If the resulting year value for (1-3) is outside the range [-32767,32767], the actual value stored is unspecified.
 
-   The result of subtracting two year values is a duration of type std::chrono::years.
-   This duration unit represents the length of the average Gregorian year, and the
-   resulting duration bears no relationship to the number of days in the particular
-   years represented by the operands. For example, the result of 2018y - 2017y is
-   std::chrono::years\fB(1)\fP, which represents 365.2425 days, not 365 days.
+   The result of subtracting two year values is a duration of type std::chrono::years. This duration unit represents the length of the average Gregorian year, and the resulting duration bears no relationship to the number of days in the particular years represented by the operands. For example, the result of 2018y - 2017y is std::chrono::years\fB(1)\fP, which represents 365.2425 days, not 365 days.
 
 .SH Example
 

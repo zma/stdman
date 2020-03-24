@@ -1,15 +1,13 @@
-.TH std::uninitialized_construct_using_allocator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::uninitialized_construct_using_allocator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::uninitialized_construct_using_allocator \- std::uninitialized_construct_using_allocator
 
 .SH Synopsis
    Defined in header <memory>
-   template< class T, class Alloc, class... Args >
-   T* uninitialized_construct_using_allocator( T* p, const Alloc& alloc,  \fI(since C++20)\fP
-   Args&&... args )
+   template< class T, class Alloc, class... Args >                                         \fI(since C++20)\fP
+   T* uninitialized_construct_using_allocator( T* p, const Alloc& alloc, Args&&... args )
 
-   Creates an object of the given type T by means of uses-allocator construction at the
-   uninitialized memory location indicated by p
+   Creates an object of the given type T by means of uses-allocator construction at the uninitialized memory location indicated by p
 
    Equivalent to
 
@@ -29,8 +27,7 @@ std::uninitialized_construct_using_allocator \- std::uninitialized_construct_usi
 
 .SH Exceptions
 
-   May throw any exception thrown by the constructor of T, typically including
-   std::bad_alloc
+   May throw any exception thrown by the constructor of T, typically including std::bad_alloc
 
 .SH Example
 
@@ -39,9 +36,7 @@ std::uninitialized_construct_using_allocator \- std::uninitialized_construct_usi
 
 .SH See also
 
-   uses_allocator           checks if the specified type supports uses-allocator
-   \fI(C++11)\fP                  construction
-                            \fI(class template)\fP
-   make_obj_using_allocator creates an object of the given type by means of
-   (C++20)                  uses-allocator construction
-                            \fI(function template)\fP
+   uses_allocator           checks if the specified type supports uses-allocator construction
+   \fI(C++11)\fP                  \fI(class template)\fP
+   make_obj_using_allocator creates an object of the given type by means of uses-allocator construction
+   (C++20)                  \fI(function template)\fP

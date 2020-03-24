@@ -1,4 +1,4 @@
-.TH std::setvbuf 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::setvbuf 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::setvbuf \- std::setvbuf
 
@@ -6,21 +6,15 @@ std::setvbuf \- std::setvbuf
    Defined in header <cstdio>
    int setvbuf( std::FILE* stream, char* buffer, int mode, std::size_t size );
 
-   Changes the the buffering mode of the given file stream stream as indicated by the
-   argument mode. In addition,
+   Changes the the buffering mode of the given file stream stream as indicated by the argument mode. In addition,
 
      * If buffer is a null pointer, resizes the internal buffer to size.
-     * If buffer is not a null pointer, instructs the stream to use the user-provided
-       buffer of size size beginning at buffer. The stream must be closed (with fclose)
-       before the lifetime of the array pointed to by buffer ends. The contents of the
-       array after a successful call to setvbuf are indeterminate and any attempt to
-       use it is undefined behavior.
+     * If buffer is not a null pointer, instructs the stream to use the user-provided buffer of size size beginning at buffer. The stream must be closed (with fclose) before the lifetime of the array pointed to by buffer ends. The contents of the array after a successful call to setvbuf are indeterminate and any attempt to use it is undefined behavior.
 
 .SH Parameters
 
    stream - the file stream to set the buffer to
-   buffer - pointer to a buffer for the stream to use or null pointer to change size
-            and mode only
+   buffer - pointer to a buffer for the stream to use or null pointer to change size and mode only
             buffering mode to use. It can be one of the following values:
 
    mode   - _IOFBF full buffering
@@ -34,26 +28,20 @@ std::setvbuf \- std::setvbuf
 
 .SH Notes
 
-   This function may only be used after stream has been associated with an open file,
-   but before any other operation (other than a failed call to
-   std::setbuf/std::setvbuf).
+   This function may only be used after stream has been associated with an open file, but before any other operation (other than a failed call to std::setbuf/std::setvbuf).
 
-   Not all size bytes will necessarily be used for buffering: the actual buffer size is
-   usually rounded down to a multiple of 2, a multiple of page size, etc.
+   Not all size bytes will necessarily be used for buffering: the actual buffer size is usually rounded down to a multiple of 2, a multiple of page size, etc.
 
-   On many implementations, line buffering is only available for terminal input
-   streams.
+   On many implementations, line buffering is only available for terminal input streams.
 
-   A common error is setting the buffer of stdin or stdout to an array whose lifetime
-   ends before the program terminates:
+   A common error is setting the buffer of stdin or stdout to an array whose lifetime ends before the program terminates:
 
  int main() {
      char buf[BUFSIZ];
      std::setbuf(stdin, buf);
  } // lifetime of buf ends, undefined behavior
 
-   The default buffer size BUFSIZ is expected to be the most efficient buffer size for
-   file I/O on the implementation, but POSIX fstat often provides a better estimate.
+   The default buffer size BUFSIZ is expected to be the most efficient buffer size for file I/O on the implementation, but POSIX fstat often provides a better estimate.
 
 .SH Example
 

@@ -1,18 +1,15 @@
-.TH std::swap(std::variant) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::swap(std::variant) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::swap(std::variant) \- std::swap(std::variant)
 
 .SH Synopsis
    Defined in header <variant>
-   template <class... Types>
-   void swap(variant<Types...>& lhs, variant<Types...>& rhs) noexcept(/*  \fI(since C++17)\fP
-   see below */);
+   template <class... Types>                                                             \fI(since C++17)\fP
+   void swap(variant<Types...>& lhs, variant<Types...>& rhs) noexcept(/* see below */);
 
    Overloads the std::swap algorithm for std::variant. Effectively calls lhs.swap(rhs).
 
-   This overload only participates in overload resolution if
-   is_move_constructible_v<T_i> and is_swappable_v<T_i> are both true for all T_i in
-   Types...
+   This overload only participates in overload resolution if is_move_constructible_v<T_i> and is_swappable_v<T_i> are both true for all T_i in Types...
 
 .SH Parameters
 

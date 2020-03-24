@@ -1,4 +1,4 @@
-.TH std::enable_if 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::enable_if 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::enable_if \- std::enable_if
 
@@ -7,15 +7,9 @@ std::enable_if \- std::enable_if
    template< bool B, class T = void >  \fI(since C++11)\fP
    struct enable_if;
 
-   If B is true, std::enable_if has a public member typedef type, equal to T;
-   otherwise, there is no member typedef.
+   If B is true, std::enable_if has a public member typedef type, equal to T; otherwise, there is no member typedef.
 
-   This metafunction is a convenient way to leverage SFINAE to conditionally remove
-   functions from overload resolution based on type traits and to provide separate
-   function overloads and specializations for different type traits. std::enable_if can
-   be used as an additional function argument (not applicable to operator overloads),
-   as a return type (not applicable to constructors and destructors), or as a class
-   template or function template parameter.
+   This metafunction is a convenient way to leverage SFINAE to conditionally remove functions from overload resolution based on type traits and to provide separate function overloads and specializations for different type traits. std::enable_if can be used as an additional function argument (not applicable to operator overloads), as a return type (not applicable to constructors and destructors), or as a class template or function template parameter.
 
 .SH Member types
 
@@ -37,10 +31,7 @@ std::enable_if \- std::enable_if
 
 .SH Notes
 
-   A common mistake is to declare two function templates that differ only in their
-   default template arguments. This is illegal because default template arguments are
-   not part of function template's signature, and declaring two different function
-   templates with the same signature is illegal.
+   A common mistake is to declare two function templates that differ only in their default template arguments. This is illegal because default template arguments are not part of function template's signature, and declaring two different function templates with the same signature is illegal.
 
  /*** WRONG ***/
 
@@ -72,12 +63,7 @@ std::enable_if \- std::enable_if
      T(Floating) : m_type(float_t) {} // OK
  };
 
-   Care should be taken when using enable_if in the type of a template non-type
-   parameter of a namespace-scope function template. Some ABI specifications like the
-   Itanium ABI do not include the instantiation-dependent portions of non-type template
-   parameters in the mangling, meaning that specializations of two distinct function
-   templates might end up with the same mangled name and be erroneously linked
-   together. For example:
+   Care should be taken when using enable_if in the type of a template non-type parameter of a namespace-scope function template. Some ABI specifications like the Itanium ABI do not include the instantiation-dependent portions of non-type template parameters in the mangling, meaning that specializations of two distinct function templates might end up with the same mangled name and be erroneously linked together. For example:
 
  // first translation unit
 
@@ -101,11 +87,7 @@ std::enable_if \- std::enable_if
 
  template void func<X>(); //#4
 
-   The function templates #1 and #3 have different signatures and are distinct
-   templates. Nonetheless, #2 and #4, despite being instantiations of different
-   function templates, have the same mangled name in the Itanium C++ ABI
-   (_Z4funcI1XLi0EEvv), meaning that the linker will erroneously consider them to be
-   the same entity.
+   The function templates #1 and #3 have different signatures and are distinct templates. Nonetheless, #2 and #4, despite being instantiations of different function templates, have the same mangled name in the Itanium C++ ABI (_Z4funcI1XLi0EEvv), meaning that the linker will erroneously consider them to be the same entity.
 
 .SH Example
 

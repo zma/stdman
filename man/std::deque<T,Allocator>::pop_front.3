@@ -1,21 +1,14 @@
-.TH std::deque<T,Allocator>::pop_front 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::deque<T,Allocator>::pop_front 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::deque<T,Allocator>::pop_front \- std::deque<T,Allocator>::pop_front
 
 .SH Synopsis
    void pop_front();
 
-   Removes the first element of the container. If there are no elements in the
-   container, the behavior is undefined.
+   Removes the first element of the container. If there are no elements in the container, the behavior is undefined.
 
-   Iterators and references to the erased element are invalidated. It is
-   unspecified whether the past-the-end iterator is invalidated if the    \fI(until C++11)\fP
-   element is the last element in the container. Other references and
-   iterators are not affected.
-   Iterators and references to the erased element are invalidated. If the
-   element is the last element in the container, the past-the-end         \fI(since C++11)\fP
-   iterator is also invalidated. Other references and iterators are not
-   affected.
+   Iterators and references to the erased element are invalidated. It is unspecified whether the past-the-end iterator is invalidated if the element is the last element in the container. Other references and iterators are not affected. \fI(until C++11)\fP
+   Iterators and references to the erased element are invalidated. If the element is the last element in the container, the past-the-end iterator is also invalidated. Other references and iterators are not affected.                     \fI(since C++11)\fP
 
 .SH Parameters
 

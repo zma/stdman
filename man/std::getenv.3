@@ -1,4 +1,4 @@
-.TH std::getenv 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::getenv 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::getenv \- std::getenv
 
@@ -6,37 +6,24 @@ std::getenv \- std::getenv
    Defined in header <cstdlib>
    char* getenv( const char* env_var );
 
-   Searches the environment list provided by the host environment (the OS), for a
-   string that matches the C string pointed to by env_var and returns a pointer to the
-   C string that is associated with the matched environment list member.
+   Searches the environment list provided by the host environment (the OS), for a string that matches the C string pointed to by env_var and returns a pointer to the C string that is associated with the matched environment list member.
 
-   This function is not required to be thread-safe. Another call to
-   getenv, as well as a call to the POSIX functions setenv(), unsetenv(), \fI(until C++11)\fP
-   and putenv() may invalidate the pointer returned by a previous call or
-   modify the string obtained from a previous call.
-   This function is thread-safe (calling it from multiple threads does
-   not introduce a data race) as long as no other function modifies the
-   host environment. In particular, the POSIX functions setenv(),         \fI(since C++11)\fP
-   unsetenv(), and putenv() would introduce a data race if called without
-   synchronization.
+   This function is not required to be thread-safe. Another call to getenv, as well as a call to the POSIX functions setenv(), unsetenv(), and putenv() may invalidate the pointer returned by a previous call or modify the string obtained from a previous call.                                 \fI(until C++11)\fP
+   This function is thread-safe (calling it from multiple threads does not introduce a data race) as long as no other function modifies the host environment. In particular, the POSIX functions setenv(), unsetenv(), and putenv() would introduce a data race if called without synchronization. \fI(since C++11)\fP
 
    Modifying the string returned by getenv invokes undefined behavior.
 
 .SH Parameters
 
-   env_var - null-terminated character string identifying the name of the environmental
-             variable to look for
+   env_var - null-terminated character string identifying the name of the environmental variable to look for
 
 .SH Return value
 
-   Character string identifying the value of the environmental variable or null pointer
-   if such variable is not found.
+   Character string identifying the value of the environmental variable or null pointer if such variable is not found.
 
 .SH Notes
 
-   On POSIX systems, the environment variables are also accessible through the global
-   variable environ, declared as extern char **environ; in <unistd.h>, and through the
-   optional third argument, envp, of the main function.
+   On POSIX systems, the environment variables are also accessible through the global variable environ, declared as extern char **environ; in <unistd.h>, and through the optional third argument, envp, of the main function.
 
 .SH Example
 

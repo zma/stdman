@@ -1,4 +1,4 @@
-.TH std::free 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::free 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::free \- std::free
 
@@ -12,33 +12,25 @@ std::free \- std::free
 
    If ptr is a null pointer, the function does nothing.
 
-   The behavior is undefined if the value of ptr does not equal a value returned
-   earlier by std::malloc, std::calloc
+   The behavior is undefined if the value of ptr does not equal a value returned earlier by std::malloc, std::calloc
    , std::aligned_alloc
    \fI(since C++17)\fP, or std::realloc.
 
-   The behavior is undefined if the memory area referred to by ptr has already been
-   deallocated, that is, std::free or std::realloc has already been called with ptr as
-   the argument and no calls to std::malloc, std::calloc
+   The behavior is undefined if the memory area referred to by ptr has already been deallocated, that is, std::free or std::realloc has already been called with ptr as the argument and no calls to std::malloc, std::calloc
    , std::aligned_alloc
    \fI(since C++17)\fP, or std::realloc resulted in a pointer equal to ptr afterwards.
 
-   The behavior is undefined if after std::free returns, an access is made through the
-   pointer ptr (unless another allocation function happened to result in a pointer
-   value equal to ptr)
+   The behavior is undefined if after std::free returns, an access is made through the pointer ptr (unless another allocation function happened to result in a pointer value equal to ptr)
 
    The following functions are required to be thread-safe:
 
      * The library versions of operator new and operator delete
-     * User replacement versions of global operator new and operator
-       delete
-     * std::calloc, std::malloc, std::realloc                             \fI(since C++11)\fP
+     * User replacement versions of global operator new and operator delete
+     * std::calloc, std::malloc, std::realloc                                                                                                                                                                  \fI(since C++11)\fP
        , std::aligned_alloc
        \fI(since C++17)\fP, std::free
 
-   Calls to these functions that allocate or deallocate a particular unit
-   of storage occur in a single total order, and each such deallocation
-   call happens-before the next allocation (if any) in this order.
+   Calls to these functions that allocate or deallocate a particular unit of storage occur in a single total order, and each such deallocation call happens-before the next allocation (if any) in this order.
 
 .SH Parameters
 
@@ -50,9 +42,7 @@ std::free \- std::free
 
 .SH Notes
 
-   The function accepts (and does nothing with) the null pointer to reduce the amount
-   of special-casing. Whether allocation succeeds or not, the pointer returned by an
-   allocation function can be passed to std::free.
+   The function accepts (and does nothing with) the null pointer to reduce the amount of special-casing. Whether allocation succeeds or not, the pointer returned by an allocation function can be passed to std::free.
 
 .SH Example
 

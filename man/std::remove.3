@@ -1,4 +1,4 @@
-.TH std::remove 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::remove 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::remove \- std::remove
 
@@ -8,16 +8,11 @@ std::remove \- std::remove
 
    Deletes the file identified by character string pointed to by fname.
 
-   If the file is currently open by the current or another process, the behavior of
-   this function is implementation-defined (in particular, POSIX systems unlink the
-   file name, although the file system space is not reclaimed even if this was the last
-   hardlink to the file until the last running process closes the file, Windows does
-   not allow the file to be deleted)
+   If the file is currently open by the current or another process, the behavior of this function is implementation-defined (in particular, POSIX systems unlink the file name, although the file system space is not reclaimed even if this was the last hardlink to the file until the last running process closes the file, Windows does not allow the file to be deleted)
 
 .SH Parameters
 
-   fname - pointer to a null-terminated string containing the path identifying the file
-           to delete
+   fname - pointer to a null-terminated string containing the path identifying the file to delete
 
 .SH Return value
 
@@ -27,8 +22,7 @@ std::remove \- std::remove
 
    POSIX specifies many additional details for the behavior of this function.
 
-   The standard library also defines a function template std::remove taking a pair of
-   iterators and a value, this overload is one of the standard algorithms.
+   The standard library also defines a function template std::remove taking a pair of iterators and a value, this overload is one of the standard algorithms.
 
 .SH Example
 

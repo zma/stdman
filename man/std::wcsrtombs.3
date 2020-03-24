@@ -1,4 +1,4 @@
-.TH std::wcsrtombs 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wcsrtombs 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wcsrtombs \- std::wcsrtombs
 
@@ -11,41 +11,26 @@ std::wcsrtombs \- std::wcsrtombs
 
    std::mbstate_t* ps );
 
-   Converts a sequence of wide characters from the array whose first element is pointed
-   to by *src to its narrow multibyte representation that begins in the conversion
-   state described by *ps. If dst is not null, converted characters are stored in the
-   successive elements of the char array pointed to by dst. No more than len bytes are
-   written to the destination array.
+   Converts a sequence of wide characters from the array whose first element is pointed to by *src to its narrow multibyte representation that begins in the conversion state described by *ps. If dst is not null, converted characters are stored in the successive elements of the char array pointed to by dst. No more than len bytes are written to the destination array.
 
-   Each character is converted as if by a call to std::wcrtomb. The conversion stops
-   if:
+   Each character is converted as if by a call to std::wcrtomb. The conversion stops if:
 
-     * The null character was converted and stored. src is set to NULL and *ps
-       represents the initial shift state.
-     * A wchar_t was found that does not correspond to a valid character in the current
-       C locale. src is set to point at the first unconverted wide character.
-     * the next multibyte character to be stored would exceed len. src is set to point
-       at the first unconverted wide character. This condition is not checked if
-       dst==NULL.
+     * The null character was converted and stored. src is set to NULL and *ps represents the initial shift state.
+     * A wchar_t was found that does not correspond to a valid character in the current C locale. src is set to point at the first unconverted wide character.
+     * the next multibyte character to be stored would exceed len. src is set to point at the first unconverted wide character. This condition is not checked if dst==NULL.
 
 .SH Parameters
 
-   dst - pointer to narrow character array where the multibyte characters will be
-         stored
+   dst - pointer to narrow character array where the multibyte characters will be stored
    src - pointer to pointer to the first element of a null-terminated wide string
    len - number of bytes available in the array pointed to by dst
    ps  - pointer to the conversion state object
 
 .SH Return value
 
-   On success, returns the number of bytes (including any shift sequences, but
-   excluding the terminating '\\0') written to the character array whose first element
-   is pointed to by dst. If dst==NULL, returns the number of bytes that would have been
-   written (again, excluding the terminating null character '\\0').
+   On success, returns the number of bytes (including any shift sequences, but excluding the terminating '\\0') written to the character array whose first element is pointed to by dst. If dst==NULL, returns the number of bytes that would have been written (again, excluding the terminating null character '\\0').
 
-   On conversion error (if invalid wide character was encountered), returns
-   static_cast<std::size_t>(-1), stores EILSEQ in errno, and leaves *ps in unspecified
-   state.
+   On conversion error (if invalid wide character was encountered), returns static_cast<std::size_t>(-1), stores EILSEQ in errno, and leaves *ps in unspecified state.
 
 .SH Example
 

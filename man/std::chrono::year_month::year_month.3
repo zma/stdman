@@ -1,11 +1,10 @@
-.TH std::chrono::year_month::year_month 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::year_month::year_month 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::year_month::year_month \- std::chrono::year_month::year_month
 
 .SH Synopsis
-   year_month() = default;                                            \fB(1)\fP \fI(since C++20)\fP
-   constexpr year_month(const std::chrono::year& y, const             \fB(2)\fP \fI(since C++20)\fP
-   std::chrono::month& m) noexcept;
+   year_month() = default;                                                                 \fB(1)\fP \fI(since C++20)\fP
+   constexpr year_month(const std::chrono::year& y, const std::chrono::month& m) noexcept; \fB(2)\fP \fI(since C++20)\fP
 
    Constructs a year_month object.
 
@@ -14,8 +13,7 @@ std::chrono::year_month::year_month \- std::chrono::year_month::year_month
 
 .SH Notes
 
-   A more convenient way to construct a year_month is with operator/, e.g.,
-   2007y/std::chrono::April.
+   A more convenient way to construct a year_month is with operator/, e.g., 2007y/std::chrono::April.
 
 .SH See also
 

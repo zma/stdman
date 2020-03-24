@@ -1,4 +1,4 @@
-.TH std::time 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::time 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::time \- std::time
 
@@ -6,8 +6,7 @@ std::time \- std::time
    Defined in header <ctime>
    std::time_t time( std::time_t* arg );
 
-   Returns the current calendar time encoded as a std::time_t object, and also stores
-   it in the object pointed to by arg, unless arg is a null pointer.
+   Returns the current calendar time encoded as a std::time_t object, and also stores it in the object pointed to by arg, unless arg is a null pointer.
 
 .SH Parameters
 
@@ -15,16 +14,11 @@ std::time \- std::time
 
 .SH Return value
 
-   Current calendar time encoded as std::time_t object on success, (std::time_t)(-1) on
-   error. If arg is not null, the return value is also stored in the object pointed to
-   by arg.
+   Current calendar time encoded as std::time_t object on success, (std::time_t)(-1) on error. If arg is not null, the return value is also stored in the object pointed to by arg.
 
 .SH Notes
 
-   The encoding of calendar time in std::time_t is unspecified, but most systems
-   conform to POSIX specification and return a value of integral type holding the
-   number of seconds since the Epoch. Implementations in which std::time_t is a 32-bit
-   signed integer (many historical implementations) fail in the year 2038.
+   The encoding of calendar time in std::time_t is unspecified, but most systems conform to POSIX specification and return a value of integral type holding the number of seconds since the Epoch. Implementations in which std::time_t is a 32-bit signed integer (many historical implementations) fail in the year 2038.
 
 .SH Example
 
@@ -50,8 +44,7 @@ std::time \- std::time
 
    localtime    converts time since epoch to calendar time expressed as local time
                 \fI(function)\fP
-                converts time since epoch to calendar time expressed as Universal
-   gmtime       Coordinated Time
+   gmtime       converts time since epoch to calendar time expressed as Universal Coordinated Time
                 \fI(function)\fP
    system_clock wall clock time from the system-wide realtime clock
    \fI(C++11)\fP      \fI(class)\fP

@@ -1,4 +1,4 @@
-.TH std::longjmp 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::longjmp 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::longjmp \- std::longjmp
 
@@ -7,16 +7,11 @@ std::longjmp \- std::longjmp
    void longjmp( std::jmp_buf env, int status );               \fI(until C++17)\fP
    [[noreturn]] void longjmp( std::jmp_buf env, int status );  \fI(since C++17)\fP
 
-   Loads the execution context env saved by a previous call to setjmp. This function
-   does not return. Control is transferred to the call site of the macro setjmp that
-   set up env. That setjmp then returns the value, passed as the status.
+   Loads the execution context env saved by a previous call to setjmp. This function does not return. Control is transferred to the call site of the macro setjmp that set up env. That setjmp then returns the value, passed as the status.
 
-   If the function that called setjmp has exited, the behavior is undefined (in other
-   words, only long jumps up the call stack are allowed)
+   If the function that called setjmp has exited, the behavior is undefined (in other words, only long jumps up the call stack are allowed)
 
-   No destructors for automatic objects are called. If replacing of std::longjmp with
-   throw and setjmp with catch would execute a non-trivial destructor for any automatic
-   object, the behavior of such std::longjmp is undefined.
+   No destructors for automatic objects are called. If replacing of std::longjmp with throw and setjmp with catch would execute a non-trivial destructor for any automatic object, the behavior of such std::longjmp is undefined.
 
 .SH Parameters
 
@@ -29,9 +24,7 @@ std::longjmp \- std::longjmp
 
 .SH Notes
 
-   longjmp is the mechanism used in C to handle unexpected error conditions where the
-   function cannot return meaningfully. C++ generally uses exception handling for this
-   purpose.
+   longjmp is the mechanism used in C to handle unexpected error conditions where the function cannot return meaningfully. C++ generally uses exception handling for this purpose.
 
 .SH Example
 

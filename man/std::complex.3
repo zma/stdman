@@ -1,4 +1,4 @@
-.TH std::complex 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::complex 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::complex \- std::complex
 
@@ -10,8 +10,7 @@ std::complex \- std::complex
    template<> class complex<double>;      \fB(3)\fP
    template<> class complex<long double>; \fB(4)\fP
 
-   The specializations std::complex<float>, std::complex<double>, and std::complex<long
-   double> are LiteralTypes for representing and manipulating complex numbers.
+   The specializations std::complex<float>, std::complex<double>, and std::complex<long double> are LiteralTypes for representing and manipulating complex numbers.
 
    The effect of instantiating the template complex for any other type is unspecified.
 
@@ -39,8 +38,8 @@ std::complex \- std::complex
 
    operator+           applies unary operators to complex numbers
    operator-           \fI(function template)\fP
-   operator+           performs complex number arithmetics on two complex values or a
-   operator-           complex and a scalar
+   operator+
+   operator-           performs complex number arithmetics on two complex values or a complex and a scalar
    operator*           \fI(function template)\fP
    operator/
    operator==          compares two complex numbers or a complex and a scalar
@@ -66,11 +65,9 @@ std::complex \- std::complex
 .SH Exponential functions
    exp(std::complex)   complex base e exponential
                        \fI(function template)\fP
-                       complex natural logarithm with the branch cuts along the
-   log(std::complex)   negative real axis
+   log(std::complex)   complex natural logarithm with the branch cuts along the negative real axis
                        \fI(function template)\fP
-                       complex common logarithm with the branch cuts along the negative
-   log10(std::complex) real axis
+   log10(std::complex) complex common logarithm with the branch cuts along the negative real axis
                        \fI(function template)\fP
 .SH Power functions
    pow(std::complex)   complex power, one or both arguments may be a complex number
@@ -106,45 +103,21 @@ std::complex \- std::complex
 
   Array-oriented access
 
-   For any object z of type complex<T>, reinterpret_cast<T(&)[2]>(z)[0]
-   is the real part of z and reinterpret_cast<T(&)[2]>(z)[1] is the
-   imaginary part of z.
+   For any object z of type complex<T>, reinterpret_cast<T(&)[2]>(z)[0] is the real part of z and reinterpret_cast<T(&)[2]>(z)[1] is the imaginary part of z.
 
-   For any pointer to an element of an array of complex<T> named p and
-   any valid array index i, reinterpret_cast<T*>(p)[2*i] is the real part
-   of the complex number p[i], and reinterpret_cast<T*>(p)[2*i + 1] is    \fI(since C++11)\fP
-   the imaginary part of the complex number p[i]
+   For any pointer to an element of an array of complex<T> named p and any valid array index i, reinterpret_cast<T*>(p)[2*i] is the real part of the complex number p[i], and reinterpret_cast<T*>(p)[2*i + 1] is the imaginary part of the complex number p[i] \fI(since C++11)\fP
 
-   The intent of this requirement is to preserve binary compatibility
-   between the C++ library complex number types and the C language
-   complex number types (and arrays thereof), which have an identical
-   object representation requirement.
+   The intent of this requirement is to preserve binary compatibility between the C++ library complex number types and the C language complex number types (and arrays thereof), which have an identical object representation requirement.
 
 .SH Implementation notes
 
-   In order to satisfy the requirements of array-oriented access, an
-   implementation is constrained to store the real and imaginary
-   components of a std::complex specialization in separate and adjacent
-   memory locations. Possible declarations for its non-static data
-   members include:
+   In order to satisfy the requirements of array-oriented access, an implementation is constrained to store the real and imaginary components of a std::complex specialization in separate and adjacent memory locations. Possible declarations for its non-static data members include:
 
-     * an array of type value_type[2], with the first element holding the
-       real component and the second element holding the imaginary
-       component (e.g. Microsoft Visual Studio)
-     * a single member of type value_type _Complex (encapsulating the
-       corresponding C language complex number type) (e.g. GNU
-       libstdc++);                                                        \fI(since C++11)\fP
-     * two members of type value_type, with the same member access,
-       holding the real and the imaginary components respectively (e.g.
-       LLVM libc++).
+     * an array of type value_type[2], with the first element holding the real component and the second element holding the imaginary component (e.g. Microsoft Visual Studio)
+     * a single member of type value_type _Complex (encapsulating the corresponding C language complex number type) (e.g. GNU libstdc++);                                                                                                                                                                                                                                                                                              \fI(since C++11)\fP
+     * two members of type value_type, with the same member access, holding the real and the imaginary components respectively (e.g. LLVM libc++).
 
-   An implementation cannot declare additional non-static data members
-   that would occupy storage disjoint from the real and imaginary
-   components, and must ensure that the class template specialization
-   does not contain any padding. The implementation must also ensure that
-   optimizations to array access account for the possibility that a
-   pointer to value_type may be aliasing a std::complex specialization or
-   array thereof.
+   An implementation cannot declare additional non-static data members that would occupy storage disjoint from the real and imaginary components, and must ensure that the class template specialization does not contain any padding. The implementation must also ensure that optimizations to array access account for the possibility that a pointer to value_type may be aliasing a std::complex specialization or array thereof.
 
 .SH Literals
 

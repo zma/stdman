@@ -1,4 +1,4 @@
-.TH std::mbrlen 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::mbrlen 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::mbrlen \- std::mbrlen
 
@@ -6,12 +6,9 @@ std::mbrlen \- std::mbrlen
    Defined in header <cwchar>
    std::size_t mbrlen( const char* s, std::size_t n, std::mbstate_t* ps);
 
-   Determines the size, in bytes, of the remainder of the multibyte character whose
-   first byte is pointed to by s, given the current conversion state ps.
+   Determines the size, in bytes, of the remainder of the multibyte character whose first byte is pointed to by s, given the current conversion state ps.
 
-   This function is equivalent to the call std::mbrtowc(nullptr, s, n, ps?ps:&internal)
-   for some hidden object internal of type std::mbstate_t, except that the expression
-   ps is evaluated only once.
+   This function is equivalent to the call std::mbrtowc(nullptr, s, n, ps?ps:&internal) for some hidden object internal of type std::mbstate_t, except that the expression ps is evaluated only once.
 
 .SH Parameters
 
@@ -27,8 +24,7 @@ std::mbrlen \- std::mbrlen
 
    (size_t)-1 if encoding error occurs
 
-   (size_t)-2 if the next n bytes are part of a possibly valid multibyte character,
-   which is still incomplete after examining all n bytes
+   (size_t)-2 if the next n bytes are part of a possibly valid multibyte character, which is still incomplete after examining all n bytes
 
 .SH Example
 
@@ -73,6 +69,5 @@ std::mbrlen \- std::mbrlen
              \fI(function)\fP
    mblen     returns the number of bytes in the next multibyte character
              \fI(function)\fP
-   do_length calculates the length of the externT string that would be consumed by
-   \fB[virtual]\fP conversion into given internT buffer
-             \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP
+   do_length calculates the length of the externT string that would be consumed by conversion into given internT buffer
+   \fB[virtual]\fP \fI(virtual protected member function of std::codecvt<InternT,ExternT,State>)\fP

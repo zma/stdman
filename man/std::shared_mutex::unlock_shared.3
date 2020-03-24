@@ -1,4 +1,4 @@
-.TH std::shared_mutex::unlock_shared 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_mutex::unlock_shared 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_mutex::unlock_shared \- std::shared_mutex::unlock_shared
 
@@ -7,11 +7,9 @@ std::shared_mutex::unlock_shared \- std::shared_mutex::unlock_shared
 
    Releases the mutex from shared ownership by the calling thread.
 
-   The mutex must be locked by the current thread of execution in shared mode,
-   otherwise, the behavior is undefined.
+   The mutex must be locked by the current thread of execution in shared mode, otherwise, the behavior is undefined.
 
-   This operation synchronizes-with (as defined in std::memory_order) any subsequent
-   lock() operation that obtains ownership of the same mutex.
+   This operation synchronizes-with (as defined in std::memory_order) any subsequent lock() operation that obtains ownership of the same mutex.
 
 .SH Parameters
 
@@ -27,8 +25,7 @@ std::shared_mutex::unlock_shared \- std::shared_mutex::unlock_shared
 
 .SH Notes
 
-   unlock_shared() is usually not called directly: std::shared_lock is used to manage
-   shared locking.
+   unlock_shared() is usually not called directly: std::shared_lock is used to manage shared locking.
 
 .SH Example
 
@@ -37,8 +34,7 @@ std::shared_mutex::unlock_shared \- std::shared_mutex::unlock_shared
 
 .SH See also
 
-               locks the mutex for shared ownership, blocks if the mutex is not
-   lock_shared available
+   lock_shared locks the mutex for shared ownership, blocks if the mutex is not available
                \fI(public member function)\fP
    unlock      unlocks the mutex
                \fI(public member function)\fP

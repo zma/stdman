@@ -1,4 +1,4 @@
-.TH std::is_pointer 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_pointer 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_pointer \- std::is_pointer
 
@@ -7,9 +7,7 @@ std::is_pointer \- std::is_pointer
    template< class T >              \fI(since C++11)\fP
    struct is_pointer;
 
-   Checks whether T is a pointer to object or a pointer to function (but not a pointer
-   to member/member function). Provides the member constant value which is equal to
-   true, if T is a object/function pointer type. Otherwise, value is equal to false.
+   Checks whether T is a pointer to object or a pointer to function (but not a pointer to member/member function). Provides the member constant value which is equal to true, if T is a object/function pointer type. Otherwise, value is equal to false.
 
 .SH Template parameters
 
@@ -42,9 +40,9 @@ Inherited from std::integral_constant
 
 .SH Possible implementation
 
-template< class T > struct is_pointer_helper     : std::false_type {};
-template< class T > struct is_pointer_helper<T*> : std::true_type {};
-template< class T > struct is_pointer : is_pointer_helper<typename std::remove_cv<T>::type> {};
+   template< class T > struct is_pointer_helper     : std::false_type {};
+   template< class T > struct is_pointer_helper<T*> : std::true_type {};
+   template< class T > struct is_pointer : is_pointer_helper<typename std::remove_cv<T>::type> {};
 
 .SH Example
 
@@ -82,15 +80,12 @@ template< class T > struct is_pointer : is_pointer_helper<typename std::remove_c
 
 .SH See also
 
-   is_member_pointer          checks if a type is a pointer to an non-static member
-   \fI(C++11)\fP                    function or object
-                              \fI(class template)\fP
-   is_member_object_pointer   checks if a type is a pointer to a non-static member
-   \fI(C++11)\fP                    object
-                              \fI(class template)\fP
-   is_member_function_pointer checks if a type is a pointer to a non-static member
-   \fI(C++11)\fP                    function
-                              \fI(class template)\fP
+   is_member_pointer          checks if a type is a pointer to an non-static member function or object
+   \fI(C++11)\fP                    \fI(class template)\fP
+   is_member_object_pointer   checks if a type is a pointer to a non-static member object
+   \fI(C++11)\fP                    \fI(class template)\fP
+   is_member_function_pointer checks if a type is a pointer to a non-static member function
+   \fI(C++11)\fP                    \fI(class template)\fP
    is_array                   checks if a type is an array type
    \fI(C++11)\fP                    \fI(class template)\fP
    is_scalar                  checks if a type is a scalar type

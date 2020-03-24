@@ -1,4 +1,4 @@
-.TH std::istream_iterator<T,CharT,Traits,Distance>::istream_iterator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::istream_iterator<T,CharT,Traits,Distance>::istream_iterator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::istream_iterator<T,CharT,Traits,Distance>::istream_iterator \- std::istream_iterator<T,CharT,Traits,Distance>::istream_iterator
 
@@ -7,14 +7,9 @@ std::istream_iterator<T,CharT,Traits,Distance>::istream_iterator \- std::istream
    istream_iterator( istream_type& stream );                    \fB(2)\fP
    istream_iterator( const istream_iterator& other ) = default; \fB(3)\fP
 
-   1) Constructs the end-of-stream iterator, value-initializes the stored value. This
-   constructor is constexpr if the initializer in the definition auto x = T(); is a
-   constant initializer.
-   2) Initializes the iterator, stores the address of stream in a data member, and
-   performs the first read from the input stream to initialize the cached value data
-   member.
-   3) Constructs a copy of other. If std::is_trivially_copy_constructible_v<T> is true
-   , this copy constructor is a trivial copy constructor.
+   1) Constructs the end-of-stream iterator, value-initializes the stored value. This constructor is constexpr if the initializer in the definition auto x = T(); is a constant initializer.
+   2) Initializes the iterator, stores the address of stream in a data member, and performs the first read from the input stream to initialize the cached value data member.
+   3) Constructs a copy of other. If std::is_trivially_copy_constructible_v<T> is true , this copy constructor is a trivial copy constructor.
 
 .SH Parameters
 
@@ -23,12 +18,10 @@ std::istream_iterator<T,CharT,Traits,Distance>::istream_iterator \- std::istream
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-     DR    Applied to         Behavior as published              Correct behavior
-   P0738R2 C++98      the first read may be deferred to the the first read is performed
-                      first dereferencing                   in the constructor
+     DR    Applied to                   Behavior as published                                  Correct behavior
+   P0738R2 C++98      the first read may be deferred to the first dereferencing the first read is performed in the constructor
 
 .SH Examples
 

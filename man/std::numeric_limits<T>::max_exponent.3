@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::max_exponent 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::max_exponent 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::max_exponent \- std::numeric_limits<T>::max_exponent
 
@@ -6,10 +6,8 @@ std::numeric_limits<T>::max_exponent \- std::numeric_limits<T>::max_exponent
    static const int max_exponent;      \fI(until C++11)\fP
    static constexpr int max_exponent;  \fI(since C++11)\fP
 
-   The value of std::numeric_limits<T>::max_exponent is the largest positive number n
-   such that rn-1
-   , where r is std::numeric_limits<T>::radix, is a representable finite value of the
-   floating-point type T.
+   The value of std::numeric_limits<T>::max_exponent is the largest positive number n such that rn-1
+   , where r is std::numeric_limits<T>::radix, is a representable finite value of the floating-point type T.
 
 .SH Standard specializations
 
@@ -37,8 +35,7 @@ std::numeric_limits<T>::max_exponent \- std::numeric_limits<T>::max_exponent
 
 .SH Example
 
-   Demonstrates the relationships of max_exponent, max_exponent10, and max() for the
-   type float:
+   Demonstrates the relationships of max_exponent, max_exponent10, and max() for the type float:
 
    
 // Run this code
@@ -63,12 +60,9 @@ std::numeric_limits<T>::max_exponent \- std::numeric_limits<T>::max_exponent
 
 .SH See also
 
-   min_exponent10 the smallest negative power of ten that is a valid normalized
-   \fB[static]\fP       floating-point value
-                  \fI(public static member constant)\fP
-   min_exponent   one more than the smallest negative power of the radix that is a
-   \fB[static]\fP       valid normalized floating-point value
-                  \fI(public static member constant)\fP
-   max_exponent10 the largest integer power of 10 that is a valid finite floating-point
-   \fB[static]\fP       value
-                  \fI(public static member constant)\fP
+   min_exponent10 the smallest negative power of ten that is a valid normalized floating-point value
+   \fB[static]\fP       \fI(public static member constant)\fP
+   min_exponent   one more than the smallest negative power of the radix that is a valid normalized floating-point value
+   \fB[static]\fP       \fI(public static member constant)\fP
+   max_exponent10 the largest integer power of 10 that is a valid finite floating-point value
+   \fB[static]\fP       \fI(public static member constant)\fP

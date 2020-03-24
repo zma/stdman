@@ -1,4 +1,4 @@
-.TH std::experimental::packaged_task(concurrencyTS) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::packaged_task(concurrencyTS) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::packaged_task(concurrencyTS) \- std::experimental::packaged_task(concurrencyTS)
 
@@ -8,9 +8,6 @@ std::experimental::packaged_task(concurrencyTS) \- std::experimental::packaged_t
    template< class R, class ...Args >                   \fB(2)\fP (concurrency TS)
    class packaged_task<R(Args...)>;
 
-   std::experimental::concurrency_v1::packaged_task is a modified version of
-   std::packaged_task provided by the concurrency TS that works with
-   std::experimental::future.
+   std::experimental::concurrency_v1::packaged_task is a modified version of std::packaged_task provided by the concurrency TS that works with std::experimental::future.
 
-   The only change from std::packaged_task is that the get_future() member function
-   returns a std::experimental::future<R>.
+   The only change from std::packaged_task is that the get_future() member function returns a std::experimental::future<R>.

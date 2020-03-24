@@ -1,4 +1,4 @@
-.TH std::unordered_map 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unordered_map 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unordered_map \- std::unordered_map
 
@@ -24,17 +24,11 @@ std::unordered_map \- std::unordered_map
 
    }
 
-   Unordered map is an associative container that contains key-value pairs with unique
-   keys. Search, insertion, and removal of elements have average constant-time
-   complexity.
+   Unordered map is an associative container that contains key-value pairs with unique keys. Search, insertion, and removal of elements have average constant-time complexity.
 
-   Internally, the elements are not sorted in any particular order, but organized into
-   buckets. Which bucket an element is placed into depends entirely on the hash of its
-   key. This allows fast access to individual elements, since once the hash is
-   computed, it refers to the exact bucket the element is placed into.
+   Internally, the elements are not sorted in any particular order, but organized into buckets. Which bucket an element is placed into depends entirely on the hash of its key. This allows fast access to individual elements, since once the hash is computed, it refers to the exact bucket the element is placed into.
 
-   std::unordered_map meets the requirements of Container, AllocatorAwareContainer,
-   UnorderedAssociativeContainer.
+   std::unordered_map meets the requirements of Container, AllocatorAwareContainer, UnorderedAssociativeContainer.
 
   Iterator invalidation
 
@@ -46,53 +40,44 @@ std::unordered_map \- std::unordered_map
 
 .SH Notes
 
-     * The swap functions do not invalidate any of the iterators inside the container,
-       but they do invalidate the iterator marking the end of the swap region.
+     * The swap functions do not invalidate any of the iterators inside the container, but they do invalidate the iterator marking the end of the swap region.
 
-     * References and pointers to either key or data stored in the container are only
-       invalidated by erasing that element, even when the corresponding iterator is
-       invalidated.
+     * References and pointers to either key or data stored in the container are only invalidated by erasing that element, even when the corresponding iterator is invalidated.
 
 .SH Member types
 
-   Member type              Definition
-   key_type                 Key
-   mapped_type              T
-   value_type               std::pair<const Key, T>
-   size_type                Unsigned integer type (usually std::size_t)
-   difference_type          Signed integer type (usually std::ptrdiff_t)
-   hasher                   Hash
-                            KeyEqual                                         \fI(until C++20)\fP
-   key_equal                Hash::transparent_key_equal if defined and names \fI(since C++20)\fP
-                            a type, otherwise KeyEqual
-   allocator_type           Allocator
-   reference                value_type&
-   const_reference          const value_type&
-   pointer                  std::allocator_traits<Allocator>::pointer
-   const_pointer            std::allocator_traits<Allocator>::const_pointer
-   iterator                 LegacyForwardIterator
-   const_iterator           Constant LegacyForwardIterator
-                            An iterator type whose category, value, difference, pointer
-                            and
-   local_iterator           reference types are the same as iterator. This iterator
-                            can be used to iterate through a single bucket but not across
-                            buckets
-                            An iterator type whose category, value, difference, pointer
-                            and
-   const_local_iterator     reference types are the same as const_iterator. This iterator
-                            can be used to iterate through a single bucket but not across
-                            buckets
-   node_type\fI(since C++17)\fP   a specialization of node handle representing a container node
-                            type describing the result of inserting a node_type, a
-                            specialization of
+   Member type                     Definition
+   key_type                        Key
+   mapped_type                     T
+   value_type                      std::pair<const Key, T>
+   size_type                       Unsigned integer type (usually std::size_t)
+   difference_type                 Signed integer type (usually std::ptrdiff_t)
+   hasher                          Hash
+   key_equal                       KeyEqual                                                                    \fI(until C++20)\fP
+                                   Hash::transparent_key_equal if defined and names a type, otherwise KeyEqual \fI(since C++20)\fP
+   allocator_type                  Allocator
+   reference                       value_type&
+   const_reference                 const value_type&
+   pointer                         std::allocator_traits<Allocator>::pointer
+   const_pointer                   std::allocator_traits<Allocator>::const_pointer
+   iterator                        LegacyForwardIterator
+   const_iterator                  Constant LegacyForwardIterator
+                                   An iterator type whose category, value, difference, pointer and
+   local_iterator                  reference types are the same as iterator. This iterator
+                                   can be used to iterate through a single bucket but not across buckets
+                                   An iterator type whose category, value, difference, pointer and
+   const_local_iterator            reference types are the same as const_iterator. This iterator
+                                   can be used to iterate through a single bucket but not across buckets
+   node_type\fI(since C++17)\fP          a specialization of node handle representing a container node
+                                   type describing the result of inserting a node_type, a specialization of
 
-                            template <class Iter, class NodeType> struct /*unspecified*/ {
-   insert_return_type(since     Iter     position;
-   C++17)                       bool     inserted;
-                                NodeType node;
-                            };
+                                   template <class Iter, class NodeType> struct /*unspecified*/ {
+                                       Iter     position;
+   insert_return_type\fI(since C++17)\fP     bool     inserted;
+                                       NodeType node;
+                                   };
 
-                            instantiated with template arguments iterator and node_type.
+                                   instantiated with template arguments iterator and node_type.
 
 .SH Member functions
 
@@ -123,16 +108,14 @@ std::unordered_map \- std::unordered_map
    insert            or nodes
                      \fI(since C++17)\fP
                      \fI(public member function)\fP
-   insert_or_assign  inserts an element or assigns to the current element if the key
-   \fI(C++17)\fP           already exists
-                     \fI(public member function)\fP
+   insert_or_assign  inserts an element or assigns to the current element if the key already exists
+   \fI(C++17)\fP           \fI(public member function)\fP
    emplace           constructs element in-place
                      \fI(public member function)\fP
    emplace_hint      constructs elements in-place using a hint
                      \fI(public member function)\fP
-   try_emplace       inserts in-place if the key does not exist, does nothing if the
-   \fI(C++17)\fP           key exists
-                     \fI(public member function)\fP
+   try_emplace       inserts in-place if the key does not exist, does nothing if the key exists
+   \fI(C++17)\fP           \fI(public member function)\fP
    erase             erases elements
                      \fI(public member function)\fP
    swap              swaps the contents

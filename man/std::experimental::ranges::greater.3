@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::greater 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::greater 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::greater \- std::experimental::ranges::greater
 
@@ -7,18 +7,14 @@ std::experimental::ranges::greater \- std::experimental::ranges::greater
    template< class T = void >
 
    requires StrictTotallyOrdered<T> ||
-   Same<T, void> ||                                                         (ranges TS)
-   /* < on two const T lvalues invokes a built-in operator comparing
-   pointers */
+   Same<T, void> ||                                                               (ranges TS)
+   /* < on two const T lvalues invokes a built-in operator comparing pointers */
 
    struct greater;
-   template <>                                                              (ranges TS)
+   template <>                                                                    (ranges TS)
    struct greater<void>;
 
-   Function object for performing comparisons. The primary template invokes operator<
-   on const lvalues of type T with the argument order inverted. The specialization
-   greater<void> deduces the parameter types of the function call operator from the
-   arguments (but not the return type).
+   Function object for performing comparisons. The primary template invokes operator< on const lvalues of type T with the argument order inverted. The specialization greater<void> deduces the parameter types of the function call operator from the arguments (but not the return type).
 
    All specializations of greater are Semiregular.
 
@@ -34,28 +30,21 @@ std::experimental::ranges::greater \- std::experimental::ranges::greater
 
 std::experimental::ranges::greater::operator()
 
-   constexpr bool operator()(const T& x, const T& y)  \fB(1)\fP (member only of primary
-   const;                                                 greater<T> template)
+   constexpr bool operator()(const T& x, const T& y) const; \fB(1)\fP (member only of primary greater<T> template)
    template< class T, class U >
 
    requires StrictTotallyOrderedWith<T, U> ||
-   /* std::declval<T>() < std::declval<U>() resolves  \fB(2)\fP (member only of greater<void>
-   to                                                     specialization)
+   /* std::declval<T>() < std::declval<U>() resolves to     \fB(2)\fP (member only of greater<void> specialization)
    a built-in operator comparing pointers */
 
    constexpr bool operator()(T&& t, U&& u) const;
 
    1) Compares x and y. Equivalent to return ranges::less<>{}(y, x);
-   2) Compares t and u. Equivalent to return ranges::less<>{}(std::forward<U>(u),
-   std::forward<T>(t));.
+   2) Compares t and u. Equivalent to return ranges::less<>{}(std::forward<U>(u), std::forward<T>(t));.
 
 .SH Notes
 
-   Unlike std::greater, ranges::greater requires all six comparison operators <, <=, >,
-   >=, == and != to be valid (via the StrictTotallyOrdered and StrictTotallyOrderedWith
-   constraints) and is entirely defined in terms of ranges::less. However, the
-   implementation is free to use operator> directly, because those concepts require the
-   results of the comparison operators to be consistent.
+   Unlike std::greater, ranges::greater requires all six comparison operators <, <=, >, >=, == and != to be valid (via the StrictTotallyOrdered and StrictTotallyOrderedWith constraints) and is entirely defined in terms of ranges::less. However, the implementation is free to use operator> directly, because those concepts require the results of the comparison operators to be consistent.
 
 .SH Example
 

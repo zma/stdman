@@ -1,4 +1,4 @@
-.TH std::reference_wrapper 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::reference_wrapper 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::reference_wrapper \- std::reference_wrapper
 
@@ -7,25 +7,15 @@ std::reference_wrapper \- std::reference_wrapper
    template< class T >             \fI(since C++11)\fP
    class reference_wrapper;
 
-   std::reference_wrapper is a class template that wraps a reference in a copyable,
-   assignable object. It is frequently used as a mechanism to store references inside
-   standard containers (like std::vector) which cannot normally hold references.
+   std::reference_wrapper is a class template that wraps a reference in a copyable, assignable object. It is frequently used as a mechanism to store references inside standard containers (like std::vector) which cannot normally hold references.
 
-   Specifically, std::reference_wrapper is a CopyConstructible and CopyAssignable
-   wrapper around a reference to object or reference to function of type T. Instances
-   of std::reference_wrapper are objects (they can be copied or stored in containers)
-   but they are implicitly convertible to T&, so that they can be used as arguments
-   with the functions that take the underlying type by reference.
+   Specifically, std::reference_wrapper is a CopyConstructible and CopyAssignable wrapper around a reference to object or reference to function of type T. Instances of std::reference_wrapper are objects (they can be copied or stored in containers) but they are implicitly convertible to T&, so that they can be used as arguments with the functions that take the underlying type by reference.
 
-   If the stored reference is Callable, std::reference_wrapper is callable with the
-   same arguments.
+   If the stored reference is Callable, std::reference_wrapper is callable with the same arguments.
 
-   Helper functions std::ref and std::cref are often used to generate
-   std::reference_wrapper objects.
+   Helper functions std::ref and std::cref are often used to generate std::reference_wrapper objects.
 
-   std::reference_wrapper is also used to pass objects by reference to std::bind, the
-   constructor of std::thread, or the helper functions std::make_pair and
-   std::make_tuple.
+   std::reference_wrapper is also used to pass objects by reference to std::bind, the constructor of std::thread, or the helper functions std::make_pair and std::make_tuple.
 
    std::reference_wrapper is guaranteed to be TriviallyCopyable. \fI(since C++17)\fP
 
@@ -33,45 +23,21 @@ std::reference_wrapper \- std::reference_wrapper
 
 .SH Member types
 
-   type                                       definition
-   type                                       T
-   result_type(deprecated in C++17)(removed   The return type of T if T is a function.
-   in C++20)                                  Otherwise, not defined
-                                              1) if T is a function or pointer to
-                                              function that takes one argument of type
-                                              A1, then argument_type is A1.
-
-   argument_type(deprecated in C++17)(removed 2) if T is a pointer to member function
-   in C++20)                                  of class T0 that takes no arguments, then
-                                              argument_type is T0*, possibly
-                                              cv-qualified
-                                              3) if T is a class type with a member
-                                              type T::argument_type, then argument_type
-                                              is an alias of that
-                                              1) if T is a function or pointer to
-                                              function that takes two arguments of
-                                              types A1 and A2, then first_argument_type
-                                              is A1.
-
-   first_argument_type(deprecated in          2) if T is a pointer to member function
-   C++17)(removed in C++20)                   of class T0 that takes one argument, then
-                                              first_argument_type is T0*, possibly
-                                              cv-qualified
-                                              3) if T is a class type with a member
-                                              type T::first_argument_type, then
-                                              first_argument_type is an alias of that
-                                              1) if T is a function or pointer to
-                                              function that takes two arguments of type
-                                              s A1 and A2, then second_argument_type is
-                                              A2.
-
-   second_argument_type(deprecated in         2) if T is a pointer to member function
-   C++17)(removed in C++20)                   of class T0 that takes one argument A1,
-                                              then second_argument_type is A1, possibly
-                                              cv-qualified
-                                              3) if T is a class type with a member
-                                              type T::second_argument_type, then
-                                              second_argument_type is an alias of that
+   type                                                        definition
+   type                                                        T
+   result_type(deprecated in C++17)(removed in C++20)          The return type of T if T is a function. Otherwise, not defined
+                                                               1) if T is a function or pointer to function that takes one argument of type A1, then argument_type is A1.
+   argument_type(deprecated in C++17)(removed in C++20)
+                                                               2) if T is a pointer to member function of class T0 that takes no arguments, then argument_type is T0*, possibly cv-qualified
+                                                               3) if T is a class type with a member type T::argument_type, then argument_type is an alias of that
+                                                               1) if T is a function or pointer to function that takes two arguments of types A1 and A2, then first_argument_type is A1.
+   first_argument_type(deprecated in C++17)(removed in C++20)
+                                                               2) if T is a pointer to member function of class T0 that takes one argument, then first_argument_type is T0*, possibly cv-qualified
+                                                               3) if T is a class type with a member type T::first_argument_type, then first_argument_type is an alias of that
+                                                               1) if T is a function or pointer to function that takes two arguments of type s A1 and A2, then second_argument_type is A2.
+   second_argument_type(deprecated in C++17)(removed in C++20)
+                                                               2) if T is a pointer to member function of class T0 that takes one argument A1, then second_argument_type is A1, possibly cv-qualified
+                                                               3) if T is a class type with a member type T::second_argument_type, then second_argument_type is an alias of that
 
 .SH Member functions
 
@@ -131,8 +97,7 @@ std::reference_wrapper \- std::reference_wrapper
 
 .SH Example
 
-   Demonstrates the use of reference_wrapper as a container of references, which makes
-   it possible to access the same container using multiple indexes
+   Demonstrates the use of reference_wrapper as a container of references, which makes it possible to access the same container using multiple indexes
 
    
 // Run this code

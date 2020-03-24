@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::epsilon 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::epsilon 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::epsilon \- std::numeric_limits<T>::epsilon
 
@@ -6,9 +6,7 @@ std::numeric_limits<T>::epsilon \- std::numeric_limits<T>::epsilon
    static T epsilon() throw();             \fI(until C++11)\fP
    static constexpr T epsilon() noexcept;  \fI(since C++11)\fP
 
-   Returns the machine epsilon, that is, the difference between 1.0 and the next value
-   representable by the floating-point type T. It is only meaningful if
-   std::numeric_limits<T>::is_integer == false.
+   Returns the machine epsilon, that is, the difference between 1.0 and the next value representable by the floating-point type T. It is only meaningful if std::numeric_limits<T>::is_integer == false.
 
 .SH Return value
 
@@ -36,8 +34,7 @@ std::numeric_limits<T>::epsilon \- std::numeric_limits<T>::epsilon
 
 .SH Example
 
-   Demonstrates the use of machine epsilon to compare floating-point values for
-   equality
+   Demonstrates the use of machine epsilon to compare floating-point values for equality
 
    
 // Run this code

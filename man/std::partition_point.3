@@ -1,30 +1,22 @@
-.TH std::partition_point 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::partition_point 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::partition_point \- std::partition_point
 
 .SH Synopsis
    Defined in header <algorithm>
-   template< class ForwardIt, class UnaryPredicate >                      \fI(since C++11)\fP
-   ForwardIt partition_point( ForwardIt first, ForwardIt last,            \fI(until C++20)\fP
-   UnaryPredicate p );                                               \fB(1)\fP
-   template< class ForwardIt, class UnaryPredicate >
-   constexpr ForwardIt partition_point( ForwardIt first, ForwardIt        \fI(since C++20)\fP
-   last, UnaryPredicate p );
+   template< class ForwardIt, class UnaryPredicate >                                              \fI(since C++11)\fP
+   ForwardIt partition_point( ForwardIt first, ForwardIt last, UnaryPredicate p );           \fB(1)\fP  \fI(until C++20)\fP
+   template< class ForwardIt, class UnaryPredicate >                                              \fI(since C++20)\fP
+   constexpr ForwardIt partition_point( ForwardIt first, ForwardIt last, UnaryPredicate p );
 
-   Examines the partitioned (as if by std::partition) range [first, last) and locates
-   the end of the first partition, that is, the first element that does not satisfy p
-   or last if all elements satisfy p.
+   Examines the partitioned (as if by std::partition) range [first, last) and locates the end of the first partition, that is, the first element that does not satisfy p or last if all elements satisfy p.
 
 .SH Parameters
 
    first, last - the partitioned range of elements to examine
-                 unary predicate which returns true for the elements found in the
-                 beginning of the range.
+                 unary predicate which returns true for the elements found in the beginning of the range.
 
-                 The expression p(v) must be convertible to bool for every argument v
-   p           - of type (possibly const) VT, where VT is the value type of ForwardIt,
-                 regardless of value category, and must not modify v. Thus, a parameter
-                 type of VT&is not allowed
+   p           - The expression p(v) must be convertible to bool for every argument v of type (possibly const) VT, where VT is the value type of ForwardIt, regardless of value category, and must not modify v. Thus, a parameter type of VT&is not allowed
                  , nor is VT unless for VT a move is equivalent to a copy
                  \fI(since C++11)\fP. 
 .SH Type requirements
@@ -35,22 +27,17 @@ std::partition_point \- std::partition_point
 
 .SH Return value
 
-   The iterator past the end of the first partition within [first, last) or last if all
-   elements satisfy p.
+   The iterator past the end of the first partition within [first, last) or last if all elements satisfy p.
 
 .SH Complexity
 
-   Given N = std::distance(first, last), performs O(log N) applications of the
-   predicate p.
+   Given N = std::distance(first, last), performs O(log N) applications of the predicate p.
 
-   However, for non-LegacyRandomAccessIterators, the number of iterator increments is
-   O(N).
+   However, for non-LegacyRandomAccessIterators, the number of iterator increments is O(N).
 
 .SH Notes
 
-   This algorithm is a more general form of std::lower_bound, which can be expressed in
-   terms of std::partition_point with the predicate [&](auto const& e) { return e <
-   value; });.
+   This algorithm is a more general form of std::lower_bound, which can be expressed in terms of std::partition_point with the predicate [&](auto const& e) { return e < value; });.
 
 .SH Example
 

@@ -1,20 +1,15 @@
-.TH std::bitset<N>::reference 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::bitset<N>::reference 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::bitset<N>::reference \- std::bitset<N>::reference
 
 .SH Synopsis
    class reference;
 
-   The std::bitset class includes std::bitset::reference as a publicly-accessible
-   nested class. This class is used as a proxy object to allow users to interact with
-   individual bits of a bitset, since standard C++ types (like references and pointers)
-   are not built with enough precision to specify individual bits.
+   The std::bitset class includes std::bitset::reference as a publicly-accessible nested class. This class is used as a proxy object to allow users to interact with individual bits of a bitset, since standard C++ types (like references and pointers) are not built with enough precision to specify individual bits.
 
-   The primary use of std::bitset::reference is to provide an l-value that can be
-   returned from operator[].
+   The primary use of std::bitset::reference is to provide an l-value that can be returned from operator[].
 
-   Any reads or writes to a bitset that happen via a std::bitset::reference potentially
-   read or write to the entire underlying bitset.
+   Any reads or writes to a bitset that happen via a std::bitset::reference potentially read or write to the entire underlying bitset.
 
 .SH Member functions
 
@@ -39,11 +34,10 @@ std::bitset<N>::reference::~reference
 
 std::bitset<N>::reference::operator=
 
-   reference& operator=( bool x );                          \fI(until C++11)\fP
-   reference& operator=( bool x ) noexcept;                 \fI(since C++11)\fP
-   reference& operator=( const reference& x );      \fB(1)\fP                   \fI(until C++11)\fP
-   reference& operator=( const reference& x )           \fB(2)\fP               \fI(since C++11)\fP
-   noexcept;
+   reference& operator=( bool x );                              \fI(until C++11)\fP
+   reference& operator=( bool x ) noexcept;             \fB(1)\fP     \fI(since C++11)\fP
+   reference& operator=( const reference& x );              \fB(2)\fP               \fI(until C++11)\fP
+   reference& operator=( const reference& x ) noexcept;                       \fI(since C++11)\fP
 
    Assigns a value to the referenced bit.
 

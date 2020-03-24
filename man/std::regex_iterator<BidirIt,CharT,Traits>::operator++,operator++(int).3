@@ -1,4 +1,4 @@
-.TH std::regex_iterator<BidirIt,CharT,Traits>::operator++,operator++(int) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::regex_iterator<BidirIt,CharT,Traits>::operator++,operator++(int) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::regex_iterator<BidirIt,CharT,Traits>::operator++,operator++(int) \- std::regex_iterator<BidirIt,CharT,Traits>::operator++,operator++(int)
 
@@ -11,14 +11,11 @@ std::regex_iterator<BidirIt,CharT,Traits>::operator++,operator++(int) \- std::re
     This section is incomplete
     Reason: explain better
 
-   At first, a local variable of type BidirIt is constructed with the value of
-   match[0].second.
+   At first, a local variable of type BidirIt is constructed with the value of match[0].second.
 
-   If the iterator holds a zero-length match and start == end, *this is set to
-   end-of-sequence iterator and the function returns.
+   If the iterator holds a zero-length match and start == end, *this is set to end-of-sequence iterator and the function returns.
 
-   Otherwise, if the iterator holds a zero-length match the operator invokes the
-   following:
+   Otherwise, if the iterator holds a zero-length match the operator invokes the following:
 
    regex_search(start, end, match, *pregex,
    flags | regex_constants::match_not_null |
@@ -26,29 +23,19 @@ std::regex_iterator<BidirIt,CharT,Traits>::operator++,operator++(int) \- std::re
 
    If the call returns true, the function returns.
 
-   Otherwise the operator increments start and continues as if the most recent match
-   was not a zero-length match.
+   Otherwise the operator increments start and continues as if the most recent match was not a zero-length match.
 
-   If the most recent match was not a zero-length match, the operator sets flags to
-   flags | regex_constants::match_prev_avail and invokes the following:
+   If the most recent match was not a zero-length match, the operator sets flags to flags | regex_constants::match_prev_avail and invokes the following:
 
    regex_search(start, end, match, *pregex, flags);
 
-   If the call returns false, the iterator sets *this to the end-of-sequence iterator,
-   the function returns.
+   If the call returns false, the iterator sets *this to the end-of-sequence iterator, the function returns.
 
-   In all cases in which the call to regex_search returns true, match.prefix().first
-   will be equal to the previous value of match[0].second and for each index i in the
-   range [0, match.size()) for which match[i].matched is true, match[i].position() will
-   return distance(begin, match[i].first).
+   In all cases in which the call to regex_search returns true, match.prefix().first will be equal to the previous value of match[0].second and for each index i in the range [0, match.size()) for which match[i].matched is true, match[i].position() will return distance(begin, match[i].first).
 
-   This means that match[i].position() gives the offset from the beginning of the
-   target sequence, which is often not the same as the offset from the sequence passed
-   in the call to regex_search.
+   This means that match[i].position() gives the offset from the beginning of the target sequence, which is often not the same as the offset from the sequence passed in the call to regex_search.
 
-   It is unspecified how the implementation makes these adjustments. This means that a
-   compiler may call an implementation-specific search function, in which case a
-   user-defined specialization of regex_search will not be called.
+   It is unspecified how the implementation makes these adjustments. This means that a compiler may call an implementation-specific search function, in which case a user-defined specialization of regex_search will not be called.
 
    The behavior is undefined if the iterator is end-of-sequence iterator.
 

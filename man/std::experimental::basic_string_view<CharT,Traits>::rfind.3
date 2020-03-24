@@ -1,16 +1,12 @@
-.TH std::experimental::basic_string_view<CharT,Traits>::rfind 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::basic_string_view<CharT,Traits>::rfind 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::basic_string_view<CharT,Traits>::rfind \- std::experimental::basic_string_view<CharT,Traits>::rfind
 
 .SH Synopsis
-   constexpr size_type rfind(basic_string_view v,         \fB(1)\fP (library fundamentals TS)
-   size_type pos = npos) const noexcept;
-   constexpr size_type rfind(CharT c, size_type pos =     \fB(2)\fP (library fundamentals TS)
-   npos) const noexcept;
-   constexpr size_type rfind(const CharT* s, size_type    \fB(3)\fP (library fundamentals TS)
-   pos, size_type count) const;
-   constexpr size_type rfind(const CharT* s, size_type    \fB(4)\fP (library fundamentals TS)
-   pos = npos) const;
+   constexpr size_type rfind(basic_string_view v, size_type pos = npos) const noexcept; \fB(1)\fP (library fundamentals TS)
+   constexpr size_type rfind(CharT c, size_type pos = npos) const noexcept;             \fB(2)\fP (library fundamentals TS)
+   constexpr size_type rfind(const CharT* s, size_type pos, size_type count) const;     \fB(3)\fP (library fundamentals TS)
+   constexpr size_type rfind(const CharT* s, size_type pos = npos) const;               \fB(4)\fP (library fundamentals TS)
 
    Finds the last substring equal to the given character sequence.
 
@@ -29,8 +25,7 @@ std::experimental::basic_string_view<CharT,Traits>::rfind \- std::experimental::
 
 .SH Return value
 
-   Position of the first character of the found substring or npos if no such substring
-   is found.
+   Position of the first character of the found substring or npos if no such substring is found.
 
 .SH Complexity
 

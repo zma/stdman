@@ -1,4 +1,4 @@
-.TH std::basic_string 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string \- std::basic_string
 
@@ -19,22 +19,11 @@ std::basic_string \- std::basic_string
 
    }
 
-   The class template basic_string stores and manipulates sequences of char-like
-   objects, which are non-array objects of trivial standard-layout type. The class is
-   dependent neither on the character type nor on the nature of operations on that
-   type. The definitions of the operations are supplied via the Traits template
-   parameter - a specialization of std::char_traits or a compatible traits class.
-   Traits::char_type and CharT must name the same type; otherwise the program is
-   ill-formed.
+   The class template basic_string stores and manipulates sequences of char-like objects, which are non-array objects of trivial standard-layout type. The class is dependent neither on the character type nor on the nature of operations on that type. The definitions of the operations are supplied via the Traits template parameter - a specialization of std::char_traits or a compatible traits class. Traits::char_type and CharT must name the same type; otherwise the program is ill-formed.
 
-   The elements of a basic_string are stored contiguously, that is, for a
-   basic_string s, &*(s.begin() + n) == &*s.begin() + n for any n in [0,
-   s.size()), or, equivalently, a pointer to s[0] can be passed to        \fI(since C++11)\fP
-   functions that expect a pointer to the first element of a CharT[]
-   array.
+   The elements of a basic_string are stored contiguously, that is, for a basic_string s, &*(s.begin() + n) == &*s.begin() + n for any n in [0, s.size()), or, equivalently, a pointer to s[0] can be passed to functions that expect a pointer to the first element of a CharT[] array. \fI(since C++11)\fP
 
-   std::basic_string satisfies the requirements of AllocatorAwareContainer,
-   SequenceContainer
+   std::basic_string satisfies the requirements of AllocatorAwareContainer, SequenceContainer
    and ContiguousContainer
    \fI(since C++17)\fP
 
@@ -67,10 +56,8 @@ std::basic_string \- std::basic_string
    allocator_type         Allocator
    size_type              Allocator::size_type                        \fI(until C++11)\fP
                           std::allocator_traits<Allocator>::size_type \fI(since C++11)\fP
-                          Allocator::difference_type                        (until
-   difference_type                                                          C++11)
-                          std::allocator_traits<Allocator>::difference_type (since
-                                                                            C++11)
+   difference_type        Allocator::difference_type                        \fI(until C++11)\fP
+                          std::allocator_traits<Allocator>::difference_type \fI(since C++11)\fP
    reference              Allocator::reference \fI(until C++11)\fP
                           value_type&          \fI(since C++11)\fP
    const_reference        Allocator::const_reference \fI(until C++11)\fP
@@ -88,8 +75,7 @@ std::basic_string \- std::basic_string
 
    constructor                constructs a basic_string
                               \fI(public member function)\fP
-                              destroys the string, deallocating internal storage if
-   destructor                 used
+   destructor                 destroys the string, deallocating internal storage if used
                               \fI(public member function)\fP
    operator=                  assigns values to the string
                               \fI(public member function)\fP
@@ -108,12 +94,10 @@ std::basic_string \- std::basic_string
    \fI(C++11)\fP                    \fI(public member function)\fP
    data                       returns a pointer to the first character of a string
                               \fI(public member function)\fP
-                              returns a non-modifiable standard C character array
-   c_str                      version of the string
+   c_str                      returns a non-modifiable standard C character array version of the string
                               \fI(public member function)\fP
-   operator basic_string_view returns a non-modifiable string_view into the entire
-   \fI(C++17)\fP                    string
-                              \fI(public member function)\fP
+   operator basic_string_view returns a non-modifiable string_view into the entire string
+   \fI(C++17)\fP                    \fI(public member function)\fP
 .SH Iterators
    begin                      returns an iterator to the beginning
    cbegin                     \fI(public member function)\fP
@@ -136,8 +120,7 @@ std::basic_string \- std::basic_string
                               \fI(public member function)\fP
    reserve                    reserves storage
                               \fI(public member function)\fP
-                              returns the number of characters that can be held in
-   capacity                   currently allocated storage
+   capacity                   returns the number of characters that can be held in currently allocated storage
                               \fI(public member function)\fP
    shrink_to_fit              reduces memory usage by freeing unused memory
    \fI(C++11)\fP                    \fI(public member function)\fP

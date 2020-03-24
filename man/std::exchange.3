@@ -1,4 +1,4 @@
-.TH std::exchange 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::exchange 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::exchange \- std::exchange
 
@@ -13,12 +13,11 @@ std::exchange \- std::exchange
 
 .SH Parameters
 
-   obj                    -              object whose value to replace
-   new_value              -              the value to assign to obj
+   obj                                     -                               object whose value to replace
+   new_value                               -                               the value to assign to obj
 .SH Type requirements
    -
-   T must meet the requirements of MoveConstructible. Also, it must be possible to
-   move-assign objects of type U to objects of type T
+   T must meet the requirements of MoveConstructible. Also, it must be possible to move-assign objects of type U to objects of type T
 
 .SH Return value
 
@@ -40,8 +39,7 @@ std::exchange \- std::exchange
 
 .SH Notes
 
-   This function can be used when implementing move assignment operators and move
-   constructors:
+   This function can be used when implementing move assignment operators and move constructors:
 
  struct S
  {
@@ -135,7 +133,7 @@ std::exchange \- std::exchange
 
    swap                     swaps the values of two objects
                             \fI(function template)\fP
-   atomic_exchange          atomically replaces the value of the atomic object with
-   atomic_exchange_explicit non-atomic argument and returns the old value of the atomic
+   atomic_exchange
+   atomic_exchange_explicit atomically replaces the value of the atomic object with non-atomic argument and returns the old value of the atomic
    \fI(C++11)\fP                  \fI(function template)\fP
    \fI(C++11)\fP

@@ -1,4 +1,4 @@
-.TH std::priority_queue<T,Container,Compare>::push 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::priority_queue<T,Container,Compare>::push 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::priority_queue<T,Container,Compare>::push \- std::priority_queue<T,Container,Compare>::push
 
@@ -9,8 +9,7 @@ std::priority_queue<T,Container,Compare>::push \- std::priority_queue<T,Containe
    Pushes the given element value to the priority queue.
 
    1) Effectively calls c.push_back(value); std::push_heap(c.begin(), c.end(), comp);
-   2) Effectively calls c.push_back(std::move(value)); std::push_heap(c.begin(),
-   c.end(), comp);
+   2) Effectively calls c.push_back(std::move(value)); std::push_heap(c.begin(), c.end(), comp);
 
 .SH Parameters
 

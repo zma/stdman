@@ -1,23 +1,17 @@
-.TH std::atomic<T>::is_always_lock_free 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic<T>::is_always_lock_free 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic<T>::is_always_lock_free \- std::atomic<T>::is_always_lock_free
 
 .SH Synopsis
-   static constexpr bool is_always_lock_free =                            \fI(since C++17)\fP
-   /*implementation-defined*/;
+   static constexpr bool is_always_lock_free = /*implementation-defined*/;  \fI(since C++17)\fP
 
-   Equals true if this atomic type is always lock-free and false if it is never or
-   sometimes lock-free.
+   Equals true if this atomic type is always lock-free and false if it is never or sometimes lock-free.
 
-   The value of this constant is consistent with both the macro ATOMIC_xxx_LOCK_FREE,
-   where defined, with the member function is_lock_free and non-member function
-   std::atomic_is_lock_free.
+   The value of this constant is consistent with both the macro ATOMIC_xxx_LOCK_FREE, where defined, with the member function is_lock_free and non-member function std::atomic_is_lock_free.
 
 .SH Notes
 
-   There is no non-member function equivalent of this static member constant because
-   non-member functions take pointers to atomic types, and therefore aren't as useful
-   in constant expressions.
+   There is no non-member function equivalent of this static member constant because non-member functions take pointers to atomic types, and therefore aren't as useful in constant expressions.
 
 .SH See also
 

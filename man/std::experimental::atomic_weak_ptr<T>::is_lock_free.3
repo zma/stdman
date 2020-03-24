@@ -1,4 +1,4 @@
-.TH std::experimental::atomic_weak_ptr<T>::is_lock_free 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::atomic_weak_ptr<T>::is_lock_free 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::atomic_weak_ptr<T>::is_lock_free \- std::experimental::atomic_weak_ptr<T>::is_lock_free
 
@@ -13,8 +13,7 @@ std::experimental::atomic_weak_ptr<T>::is_lock_free \- std::experimental::atomic
 
 .SH Return value
 
-   true if the atomic operations on the objects of this type are lock-free, false
-   otherwise.
+   true if the atomic operations on the objects of this type are lock-free, false otherwise.
 
 .SH See also
 
@@ -22,10 +21,10 @@ std::experimental::atomic_weak_ptr<T>::is_lock_free \- std::experimental::atomic
    std::atomic_load(std::shared_ptr)
    std::atomic_load_explicit(std::shared_ptr)
    std::atomic_store(std::shared_ptr)
-   std::atomic_store_explicit(std::shared_ptr)                   specializes atomic
-   std::atomic_exchange(std::shared_ptr)                         operations for
-   std::atomic_exchange_explicit(std::shared_ptr)                std::shared_ptr
-   std::atomic_compare_exchange_weak(std::shared_ptr)            \fI(function template)\fP
+   std::atomic_store_explicit(std::shared_ptr)
+   std::atomic_exchange(std::shared_ptr)                         specializes atomic operations for std::shared_ptr
+   std::atomic_exchange_explicit(std::shared_ptr)                \fI(function template)\fP
+   std::atomic_compare_exchange_weak(std::shared_ptr)
    std::atomic_compare_exchange_strong(std::shared_ptr)
    std::atomic_compare_exchange_weak_explicit(std::shared_ptr)
    std::atomic_compare_exchange_strong_explicit(std::shared_ptr)

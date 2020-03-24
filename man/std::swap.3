@@ -1,34 +1,28 @@
-.TH std::swap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::swap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::swap \- std::swap
 
 .SH Synopsis
-   Defined in header <algorithm>              \fI(until C++11)\fP
-   Defined in header <utility>                \fI(since C++11)\fP
-   template< class T >                                      \fI(until C++11)\fP
+   Defined in header <algorithm>                                               \fI(until C++11)\fP
+   Defined in header <utility>                                                 \fI(since C++11)\fP
+   template< class T >                                                                       \fI(until C++11)\fP
    void swap( T& a, T& b );
-   template< class T >                                      \fI(since C++11)\fP
-   void swap( T& a, T& b ) noexcept(/*                      \fI(until C++20)\fP
-   see below */);
-   template< class T >
-   constexpr void swap( T& a, T& b )      \fB(1)\fP               \fI(since C++20)\fP
-   noexcept(/* see below */);
-   template< class T2, std::size_t N >                                    \fI(since C++11)\fP
-   void swap( T2 (&a)[N], T2 (&b)[N])                                     \fI(until C++20)\fP
-   noexcept(/* see below */);                 \fB(2)\fP
-   template< class T2, std::size_t N >
-   constexpr void swap( T2 (&a)[N], T2                                    \fI(since C++20)\fP
-   (&b)[N]) noexcept(/* see below */);
+   template< class T >                                                                       \fI(since C++11)\fP
+   void swap( T& a, T& b ) noexcept(/* see below */);                                        \fI(until C++20)\fP
+   template< class T >                                                     \fB(1)\fP               \fI(since C++20)\fP
+   constexpr void swap( T& a, T& b ) noexcept(/* see below */);
+   template< class T2, std::size_t N >                                                                     \fI(since C++11)\fP
+   void swap( T2 (&a)[N], T2 (&b)[N]) noexcept(/* see below */);               \fB(2)\fP                         \fI(until C++20)\fP
+   template< class T2, std::size_t N >                                                                     \fI(since C++20)\fP
+   constexpr void swap( T2 (&a)[N], T2 (&b)[N]) noexcept(/* see below */);
 
    Exchanges the given values.
 
    1) Swaps the values a and b.
-   This overload does not participate in overload resolution unless
-   std::is_move_constructible_v<T> && std::is_move_assignable_v<T> is true.
+   This overload does not participate in overload resolution unless std::is_move_constructible_v<T> && std::is_move_assignable_v<T> is true.
    \fI(since C++17)\fP
    2) Swaps the arrays a and b. In effect calls std::swap_ranges(a, a+N, b).
-   This overload does not participate in overload resolution unless
-   std::is_swappable_v<T2> is true.
+   This overload does not participate in overload resolution unless std::is_swappable_v<T2> is true.
    \fI(since C++17)\fP
 
 .SH Parameters
@@ -60,12 +54,9 @@ std::swap \- std::swap
    2)
 
    noexcept specification:
-   noexcept(noexcept(swap(*a, *b)))
-   The lookup for the identifier swap in the exception specification      \fI(until C++17)\fP
-   finds this function template in addition to anything found by the
-   usual lookup rules, making the exception specification equivalent to
-   C++17 std::is_nothrow_swappable.
-   noexcept specification:                                                \fI(since C++17)\fP
+   noexcept(noexcept(swap(*a, *b)))                                                                                                                                                                                                          \fI(until C++17)\fP
+   The lookup for the identifier swap in the exception specification finds this function template in addition to anything found by the usual lookup rules, making the exception specification equivalent to C++17 std::is_nothrow_swappable.
+   noexcept specification:                                                                                                                                                                                                                   \fI(since C++17)\fP
    noexcept(std::is_nothrow_swappable_v<T2>)
 
 .SH Complexity
@@ -75,12 +66,9 @@ std::swap \- std::swap
 
 .SH Specializations
 
-   std::swap may be specialized in namespace std for program-defined
-   types, but such specializations are not found by ADL (the namespace    \fI(until C++20)\fP
-   std is not the associated namespace for the program-defined type).
+   std::swap may be specialized in namespace std for program-defined types, but such specializations are not found by ADL (the namespace std is not the associated namespace for the program-defined type). \fI(until C++20)\fP
 
-   The expected way to make a program-defined type swappable is to provide a non-member
-   function swap in the same namespace as the type: see Swappable for details.
+   The expected way to make a program-defined type swappable is to provide a non-member function swap in the same namespace as the type: see Swappable for details.
 
    The following overloads are already provided by the standard library:
 
@@ -199,12 +187,10 @@ std::swap \- std::swap
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to              Behavior as published              Correct behavior
-   LWG 2554 C++11      swapping multi-dimensional arrays can never be  made to work
-                       noexcept due to name lookup problems
+      DR    Applied to                                Behavior as published                                Correct behavior
+   LWG 2554 C++11      swapping multi-dimensional arrays can never be noexcept due to name lookup problems made to work
 
 .SH See also
 

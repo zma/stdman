@@ -1,4 +1,4 @@
-.TH std::experimental::shared_ptr 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::shared_ptr 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::shared_ptr \- std::experimental::shared_ptr
 
@@ -6,8 +6,7 @@ std::experimental::shared_ptr \- std::experimental::shared_ptr
    Defined in header <experimental/memory>
    template< class T > class shared_ptr;    (library fundamentals TS)
 
-   std::experimental::shared_ptr is a modified version of std::shared_ptr that adds
-   support for arrays.
+   std::experimental::shared_ptr is a modified version of std::shared_ptr that adds support for arrays.
 
 .SH Member types
 
@@ -28,24 +27,21 @@ std::experimental::shared_ptr \- std::experimental::shared_ptr
 
 .SH Non-member functions
 
-   static_pointer_cast      applies static_cast, dynamic_cast, const_cast, or
-   dynamic_pointer_cast     reinterpret_cast to the stored pointer
+   static_pointer_cast
+   dynamic_pointer_cast     applies static_cast, dynamic_cast, const_cast, or reinterpret_cast to the stored pointer
    const_pointer_cast       \fI(function template)\fP
    reinterpret_pointer_cast
 
 .SH Helper classes
 
-                                            hash support for
-   std::hash<std::experimental::shared_ptr> std::experimental::shared_ptr
+   std::hash<std::experimental::shared_ptr> hash support for std::experimental::shared_ptr
                                             \fI(class template specialization)\fP
 
 Members and non-members identical to std::shared_ptr
 
 .SH Member functions
 
-   The following member functions work with std::experimental::shared_ptr instead of
-   std::shared_ptr and std::experimental::weak_ptr instead of std::weak_ptr. The
-   behavior is otherwise identical.
+   The following member functions work with std::experimental::shared_ptr instead of std::shared_ptr and std::experimental::weak_ptr instead of std::weak_ptr. The behavior is otherwise identical.
 
    destructor    destructs the owned object if no more shared_ptrs link to it
                  \fI(public member function of std::shared_ptr<T>)\fP
@@ -57,12 +53,10 @@ Members and non-members identical to std::shared_ptr
    swap          swaps the managed objects
                  \fI(public member function of std::shared_ptr<T>)\fP
 .SH Observers
-                 returns the number of shared_ptr objects referring to the same managed
-   use_count     object
+   use_count     returns the number of shared_ptr objects referring to the same managed object
                  \fI(public member function of std::shared_ptr<T>)\fP
-   unique        checks whether the managed object is managed only by the current
-   \fI(until C++20)\fP shared_ptr instance
-                 \fI(public member function of std::shared_ptr<T>)\fP
+   unique        checks whether the managed object is managed only by the current shared_ptr instance
+   \fI(until C++20)\fP \fI(public member function of std::shared_ptr<T>)\fP
    operator bool checks if the stored pointer is not null
                  \fI(public member function of std::shared_ptr<T>)\fP
    owner_before  provides owner-based ordering of shared pointers
@@ -70,16 +64,14 @@ Members and non-members identical to std::shared_ptr
 
 .SH Non-member functions
 
-   These non-member functions are declared in the std::experimental namespace, and work
-   with std::experimental::shared_ptr rather than std::shared_ptr, but otherwise
-   behaves identically to the corresponding C++14 function.
+   These non-member functions are declared in the std::experimental namespace, and work with std::experimental::shared_ptr rather than std::shared_ptr, but otherwise behaves identically to the corresponding C++14 function.
 
    make_shared                  creates a shared pointer that manages a new object
    make_shared_default_init     \fI(function template)\fP
    (C++20)
-   allocate_shared              creates a shared pointer that manages a new object
-   allocate_shared_default_init allocated using an allocator
-   (C++20)                      \fI(function template)\fP
+   allocate_shared              creates a shared pointer that manages a new object allocated using an allocator
+   allocate_shared_default_init \fI(function template)\fP
+   (C++20)
    get_deleter                  returns the deleter of specified type, if owned
                                 \fI(function template)\fP
    operator==
@@ -88,8 +80,7 @@ Members and non-members identical to std::shared_ptr
    operator<=                   \fI(function template)\fP
    operator>
    operator>=
-                                outputs the value of the stored pointer to an output
-   operator<<                   stream
+   operator<<                   outputs the value of the stored pointer to an output stream
                                 \fI(function template)\fP
    std::swap(std::shared_ptr)   specializes the std::swap algorithm
    \fI(C++11)\fP                      \fI(function template)\fP
@@ -98,10 +89,10 @@ Members and non-members identical to std::shared_ptr
    std::atomic_load(std::shared_ptr)
    std::atomic_load_explicit(std::shared_ptr)
    std::atomic_store(std::shared_ptr)
-   std::atomic_store_explicit(std::shared_ptr)                   specializes atomic
-   std::atomic_exchange(std::shared_ptr)                         operations for
-   std::atomic_exchange_explicit(std::shared_ptr)                std::shared_ptr
-   std::atomic_compare_exchange_weak(std::shared_ptr)            \fI(function template)\fP
+   std::atomic_store_explicit(std::shared_ptr)
+   std::atomic_exchange(std::shared_ptr)                         specializes atomic operations for std::shared_ptr
+   std::atomic_exchange_explicit(std::shared_ptr)                \fI(function template)\fP
+   std::atomic_compare_exchange_weak(std::shared_ptr)
    std::atomic_compare_exchange_strong(std::shared_ptr)
    std::atomic_compare_exchange_weak_explicit(std::shared_ptr)
    std::atomic_compare_exchange_strong_explicit(std::shared_ptr)
@@ -109,14 +100,10 @@ Members and non-members identical to std::shared_ptr
 
   Helper class templates
 
-   These class templates are declared in the std::experimental namespace, and work with
-   std::experimental::shared_ptr and std::experimental::weak_ptr rather than
-   std::shared_ptr and std::weak_ptr, but otherwise behaves identically to the
-   corresponding C++14 class template.
+   These class templates are declared in the std::experimental namespace, and work with std::experimental::shared_ptr and std::experimental::weak_ptr rather than std::shared_ptr and std::weak_ptr, but otherwise behaves identically to the corresponding C++14 class template.
 
-   owner_less              provides mixed-type owner-based ordering of shared and weak
-   \fI(C++11)\fP                 pointers
-                           \fI(class template)\fP
+   owner_less              provides mixed-type owner-based ordering of shared and weak pointers
+   \fI(C++11)\fP                 \fI(class template)\fP
    enable_shared_from_this allows an object to create a shared_ptr referring to itself
    \fI(C++11)\fP                 \fI(class template)\fP
 

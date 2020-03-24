@@ -1,4 +1,4 @@
-.TH std::ctype<CharT>::tolower,std::ctype<CharT>::do_tolower 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype<CharT>::tolower,std::ctype<CharT>::do_tolower 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype<CharT>::tolower,std::ctype<CharT>::do_tolower \- std::ctype<CharT>::tolower,std::ctype<CharT>::do_tolower
 
@@ -13,12 +13,9 @@ std::ctype<CharT>::tolower,std::ctype<CharT>::do_tolower \- std::ctype<CharT>::t
    protected:                                                             \fB(4)\fP
    virtual const CharT* do_tolower( CharT* beg, const CharT* end ) const;
 
-   1,2) public member function, calls the protected virtual member function do_tolower
-   of the most derived class.
-   3) Converts the character c to lower case if a lower case form is defined by this
-   locale.
-   4) For every character in the character array [beg, end), for which a lower case
-   form exists, replaces the character with that lower case form.
+   1,2) public member function, calls the protected virtual member function do_tolower of the most derived class.
+   3) Converts the character c to lower case if a lower case form is defined by this locale.
+   4) For every character in the character array [beg, end), for which a lower case form exists, replaces the character with that lower case form.
 
 .SH Parameters
 
@@ -33,10 +30,7 @@ std::ctype<CharT>::tolower,std::ctype<CharT>::do_tolower \- std::ctype<CharT>::t
 
 .SH Notes
 
-   Only 1:1 character mapping can be performed by this function, e.g. the Greek
-   uppercase letter 'Σ' has two lowercase forms, depending on the position in a word:
-   'σ' and 'ς'. A call to do_tolower cannot be used to obtain the correct lowercase
-   form in this case.
+   Only 1:1 character mapping can be performed by this function, e.g. the Greek uppercase letter 'Σ' has two lowercase forms, depending on the position in a word: 'σ' and 'ς'. A call to do_tolower cannot be used to obtain the correct lowercase form in this case.
 
 .SH Example
 

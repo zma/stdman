@@ -1,4 +1,4 @@
-.TH std::valarray 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::valarray 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::valarray \- std::valarray
 
@@ -7,24 +7,11 @@ std::valarray \- std::valarray
    template< class T >
    class valarray;
 
-   std::valarray is the class for representing and manipulating arrays of values. It
-   supports element-wise mathematical operations and various forms of generalized
-   subscript operators, slicing and indirect access.
+   std::valarray is the class for representing and manipulating arrays of values. It supports element-wise mathematical operations and various forms of generalized subscript operators, slicing and indirect access.
 
 .SH Notes
 
-   std::valarray and helper classes are defined to be free of certain forms of
-   aliasing, thus allowing operations on these classes to be optimized similar to the
-   effect of the keyword restrict in the C programming language. In addition, functions
-   and operators that take valarray arguments are allowed to return proxy objects to
-   make it possible for the compiler to optimize an expression such as v1 = a*v2 + v3;
-   as a single loop that executes v1[i] = a*v2[i] + v3[i]; avoiding any temporaries or
-   multiple passes. However, expression templates make the same optimization technique
-   available for any C++ container, and the majority of numeric libraries prefer
-   expression templates to valarrays for flexibility. Some C++ standard library
-   implementations use expression templates to implement efficient operations on
-   std::valarray (e.g. GNU libstdc++ and LLVM libc++). Only rarely are valarrays
-   optimized any further, as in e.g. Intel Integrated Performance Primitives.
+   std::valarray and helper classes are defined to be free of certain forms of aliasing, thus allowing operations on these classes to be optimized similar to the effect of the keyword restrict in the C programming language. In addition, functions and operators that take valarray arguments are allowed to return proxy objects to make it possible for the compiler to optimize an expression such as v1 = a*v2 + v3; as a single loop that executes v1[i] = a*v2[i] + v3[i]; avoiding any temporaries or multiple passes. However, expression templates make the same optimization technique available for any C++ container, and the majority of numeric libraries prefer expression templates to valarrays for flexibility. Some C++ standard library implementations use expression templates to implement efficient operations on std::valarray (e.g. GNU libstdc++ and LLVM libc++). Only rarely are valarrays optimized any further, as in e.g. Intel Integrated Performance Primitives.
 
 .SH Template parameters
 
@@ -90,8 +77,8 @@ std::valarray \- std::valarray
    operator-
    operator*
    operator/
-   operator%                 applies binary operators to each element of two valarrays,
-   operator&                 or a valarray and a value
+   operator%
+   operator&                 applies binary operators to each element of two valarrays, or a valarray and a value
    operator|                 \fI(function template)\fP
    operator^
    operator<<
@@ -111,12 +98,10 @@ std::valarray \- std::valarray
                              \fI(function template)\fP
    log(std::valarray)        applies the function std::log to each element of valarray
                              \fI(function template)\fP
-                             applies the function std::log10 to each element of
-   log10(std::valarray)      valarray
+   log10(std::valarray)      applies the function std::log10 to each element of valarray
                              \fI(function template)\fP
 .SH Power functions
-                             applies the function std::pow to two valarrays or a
-   pow(std::valarray)        valarray and a value
+   pow(std::valarray)        applies the function std::pow to two valarrays or a valarray and a value
                              \fI(function template)\fP
    sqrt(std::valarray)       applies the function std::sqrt to each element of valarray
                              \fI(function template)\fP
@@ -149,13 +134,11 @@ std::valarray \- std::valarray
                   \fI(class)\fP
    slice_array    proxy to a subset of a valarray after applying a slice
                   \fI(class template)\fP
-                  generalized slice of a valarray: starting index, set of lengths, set
-   gslice         of strides
+   gslice         generalized slice of a valarray: starting index, set of lengths, set of strides
                   \fI(class)\fP
    gslice_array   proxy to a subset of a valarray after applying a gslice
                   \fI(class template)\fP
-                  proxy to a subset of a valarray after applying a boolean mask
-   mask_array     operator[]
+   mask_array     proxy to a subset of a valarray after applying a boolean mask operator[]
                   \fI(class template)\fP
    indirect_array proxy to a subset of a valarray after applying indirect operator[]
                   \fI(class template)\fP

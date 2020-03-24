@@ -1,4 +1,4 @@
-.TH std::multimap<Key,T,Compare,Allocator>::emplace_hint 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::multimap<Key,T,Compare,Allocator>::emplace_hint 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::multimap<Key,T,Compare,Allocator>::emplace_hint \- std::multimap<Key,T,Compare,Allocator>::emplace_hint
 
@@ -6,13 +6,9 @@ std::multimap<Key,T,Compare,Allocator>::emplace_hint \- std::multimap<Key,T,Comp
    template <class... Args>                                       \fI(since C++11)\fP
    iterator emplace_hint( const_iterator hint, Args&&... args );
 
-   Inserts a new element into the container as close as possible to the position just
-   before hint. The element is constructed in-place, i.e. no copy or move operations
-   are performed.
+   Inserts a new element into the container as close as possible to the position just before hint. The element is constructed in-place, i.e. no copy or move operations are performed.
 
-   The constructor of the element type (value_type, that is, std::pair<const Key, T>)
-   is called with exactly the same arguments as supplied to the function, forwarded
-   with std::forward<Args>(args)....
+   The constructor of the element type (value_type, that is, std::pair<const Key, T>) is called with exactly the same arguments as supplied to the function, forwarded with std::forward<Args>(args)....
 
    No iterators or references are invalidated.
 
@@ -27,13 +23,11 @@ std::multimap<Key,T,Compare,Allocator>::emplace_hint \- std::multimap<Key,T,Comp
 
 .SH Exceptions
 
-   If an exception is thrown by any operation, this function has no effect (strong
-   exception guarantee).
+   If an exception is thrown by any operation, this function has no effect \fI(strong exception guarantee)\fP.
 
 .SH Complexity
 
-   Logarithmic in the size of the container in general, but amortized constant if the
-   new element is inserted just before hint.
+   Logarithmic in the size of the container in general, but amortized constant if the new element is inserted just before hint.
 
 .SH See also
 

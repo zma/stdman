@@ -1,4 +1,4 @@
-.TH std::chrono::link 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::link 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::link \- std::chrono::link
 
@@ -8,13 +8,9 @@ std::chrono::link \- std::chrono::link
 
    The class link represents an alternative name for a time zone.
 
-   Users cannot construct link objects. The library implementation creates link objects
-   when it initializes the time zone database and provides const access to these
-   objects.
+   Users cannot construct link objects. The library implementation creates link objects when it initializes the time zone database and provides const access to these objects.
 
-   link is not copyable but does have a defaulted move constructor and a defaulted move
-   assignment operator. However, as users have only const access to link objects, these
-   functions cannot be called in user code without invoking undefined behavior.
+   link is not copyable but does have a defaulted move constructor and a defaulted move assignment operator. However, as users have only const access to link objects, these functions cannot be called in user code without invoking undefined behavior.
 
 .SH Member functions
 

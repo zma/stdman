@@ -1,20 +1,16 @@
-.TH std::experimental::filesystem::last_write_time 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::last_write_time 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::last_write_time \- std::experimental::filesystem::last_write_time
 
 .SH Synopsis
    Defined in header <experimental/filesystem>
-   file_time_type last_write_time(const path& p);                   \fB(1)\fP (filesystem TS)
+   file_time_type last_write_time(const path& p);                                \fB(1)\fP (filesystem TS)
    file_time_type last_write_time(const path& p, error_code& ec)
-   void last_write_time(const path& p, file_time_type new_time);
-   void last_write_time(const path& p, file_time_type new_time,     \fB(2)\fP (filesystem TS)
-   error_code& ec);
+   void last_write_time(const path& p, file_time_type new_time);                 \fB(2)\fP (filesystem TS)
+   void last_write_time(const path& p, file_time_type new_time, error_code& ec);
 
-   1) Returns the time of the last modification of p, determined as if by accessing the
-   member st_mtime of the POSIX stat (symlinks are followed) The non-throwing overload
-   returns file_time_type::min() on errors.
-   2) Changes the time of the last modification of p, as if by POSIX futimens (symlinks
-   are followed)
+   1) Returns the time of the last modification of p, determined as if by accessing the member st_mtime of the POSIX stat (symlinks are followed) The non-throwing overload returns file_time_type::min() on errors.
+   2) Changes the time of the last modification of p, as if by POSIX futimens (symlinks are followed)
 
 .SH Parameters
 
@@ -29,20 +25,13 @@ std::experimental::filesystem::last_write_time \- std::experimental::filesystem:
 
 .SH Exceptions
 
-   The overload that does not take a error_code& parameter throws filesystem_error on
-   underlying OS API errors, constructed with p as the first argument and the OS error
-   code as the error code argument. std::bad_alloc may be thrown if memory allocation
-   fails. The overload taking a error_code& parameter sets it to the OS API error code
-   if an OS API call fails, and executes ec.clear() if no errors occur. This overload
-   has
+   The overload that does not take a error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first argument and the OS error code as the error code argument. std::bad_alloc may be thrown if memory allocation fails. The overload taking a error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. This overload has
    noexcept specification:
    noexcept
 
 .SH Notes
 
-   It is not guaranteed that immediately after setting the write time, the value
-   returned by \fB(1)\fP is the same as what was passed as the argument to \fB(2)\fP because the
-   file system's time may be more granular than file_time_type.
+   It is not guaranteed that immediately after setting the write time, the value returned by \fB(1)\fP is the same as what was passed as the argument to \fB(2)\fP because the file system's time may be more granular than file_time_type.
 
 .SH Example
 

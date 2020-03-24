@@ -1,4 +1,4 @@
-.TH std::make_pair 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::make_pair 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::make_pair \- std::make_pair
 
@@ -13,11 +13,7 @@ std::make_pair \- std::make_pair
 
    Creates a std::pair object, deducing the target type from the types of arguments.
 
-   The deduced types V1 and V2 are std::decay<T1>::type and
-   std::decay<T2>::type (the usual type transformations applied to
-   arguments of functions passed by value) unless application of          \fI(since C++11)\fP
-   std::decay results in std::reference_wrapper<X> for some type X, in
-   which case the deduced type is X&.
+   The deduced types V1 and V2 are std::decay<T1>::type and std::decay<T2>::type (the usual type transformations applied to arguments of functions passed by value) unless application of std::decay results in std::reference_wrapper<X> for some type X, in which case the deduced type is X&. \fI(since C++11)\fP
 
 .SH Parameters
 

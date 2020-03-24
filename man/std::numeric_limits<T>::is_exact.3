@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::is_exact 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::is_exact 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::is_exact \- std::numeric_limits<T>::is_exact
 
@@ -6,8 +6,7 @@ std::numeric_limits<T>::is_exact \- std::numeric_limits<T>::is_exact
    static const bool is_exact;      \fI(until C++11)\fP
    static constexpr bool is_exact;  \fI(since C++11)\fP
 
-   The value of std::numeric_limits<T>::is_exact is true for all arithmetic types T
-   that use exact representation.
+   The value of std::numeric_limits<T>::is_exact is true for all arithmetic types T that use exact representation.
 
 .SH Standard specializations
 
@@ -35,9 +34,7 @@ std::numeric_limits<T>::is_exact \- std::numeric_limits<T>::is_exact
 
 .SH Notes
 
-   While all fundamental types T for which std::numeric_limits<T>::is_exact==true are
-   integer types, a library may define exact types that aren't integers, e.g. a
-   rational arithmetics type representing fractions.
+   While all fundamental types T for which std::numeric_limits<T>::is_exact==true are integer types, a library may define exact types that aren't integers, e.g. a rational arithmetics type representing fractions.
 
 .SH See also
 

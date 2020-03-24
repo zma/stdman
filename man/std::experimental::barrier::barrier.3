@@ -1,4 +1,4 @@
-.TH std::experimental::barrier::barrier 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::barrier::barrier 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::barrier::barrier \- std::experimental::barrier::barrier
 
@@ -6,17 +6,13 @@ std::experimental::barrier::barrier \- std::experimental::barrier::barrier
    explicit barrier( std::ptrdiff_t num_threads ); \fB(1)\fP (concurrency TS)
    barrier( const barrier & ) = delete;            \fB(2)\fP (concurrency TS)
 
-   1) Constructs a barrier for num_threads participating threads. The set of
-   participating threads is the first num_threads threads to arrive at the
-   synchronization point.
+   1) Constructs a barrier for num_threads participating threads. The set of participating threads is the first num_threads threads to arrive at the synchronization point.
    2) Copy constructor is deleted; barrier is not copyable.
 
 .SH Parameters
 
-   num_threads - the number of participating threads for the barrier; must be
-                 non-negative
+   num_threads - the number of participating threads for the barrier; must be non-negative
 
 .SH Notes
 
-   If num_threads is zero, the set of participating threads is empty, and barrier can
-   only be destroyed.
+   If num_threads is zero, the set of participating threads is empty, and barrier can only be destroyed.

@@ -1,28 +1,24 @@
-.TH std::map<Key,T,Compare,Allocator>::erase 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::map<Key,T,Compare,Allocator>::erase 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::map<Key,T,Compare,Allocator>::erase \- std::map<Key,T,Compare,Allocator>::erase
 
 .SH Synopsis
-   void erase( iterator pos );                              \fI(until C++11)\fP
-   iterator erase( const_iterator pos );                    \fI(since C++11)\fP
-   iterator erase( iterator pos );                          \fI(since C++17)\fP
-   void erase( iterator first, iterator last );     \fB(1)\fP                   \fI(until C++11)\fP
-   iterator erase( const_iterator first,                \fB(2)\fP               \fI(since C++11)\fP
-   const_iterator last );
-   size_type erase( const key_type& key );                  \fB(3)\fP
+   void erase( iterator pos );                                          \fI(until C++11)\fP
+   iterator erase( const_iterator pos );                                \fI(since C++11)\fP
+   iterator erase( iterator pos );                              \fB(1)\fP     \fI(since C++17)\fP
+   void erase( iterator first, iterator last );                                       \fI(until C++11)\fP
+   iterator erase( const_iterator first, const_iterator last );     \fB(2)\fP               \fI(since C++11)\fP
+   size_type erase( const key_type& key );                              \fB(3)\fP
 
    Removes specified elements from the container.
 
    1) Removes the element at pos.
-   2) Removes the elements in the range [first; last), which must be a valid range in
-   *this.
+   2) Removes the elements in the range [first; last), which must be a valid range in *this.
    3) Removes the element (if one exists) with the key equivalent to key.
 
-   References and iterators to the erased elements are invalidated. Other references
-   and iterators are not affected.
+   References and iterators to the erased elements are invalidated. Other references and iterators are not affected.
 
-   The iterator pos must be valid and dereferenceable. Thus the end() iterator (which
-   is valid, but is not dereferenceable) cannot be used as a value for pos.
+   The iterator pos must be valid and dereferenceable. Thus the end() iterator (which is valid, but is not dereferenceable) cannot be used as a value for pos.
 
 .SH Parameters
 

@@ -1,4 +1,4 @@
-.TH std::is_constructible,std::is_trivially_constructible,std::is_nothrow_constructible 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_constructible,std::is_trivially_constructible,std::is_nothrow_constructible 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_constructible,std::is_trivially_constructible,std::is_nothrow_constructible \- std::is_constructible,std::is_trivially_constructible,std::is_nothrow_constructible
 
@@ -11,41 +11,26 @@ std::is_constructible,std::is_trivially_constructible,std::is_nothrow_constructi
    template< class T, class... Args > \fB(3)\fP \fI(since C++11)\fP
    struct is_nothrow_constructible;
 
-   1) If T is an object or reference type and the variable definition T
-   obj(std::declval<Args>()...); is well-formed, provides the member constant value
-   equal to true. In all other cases, value is false.
+   1) If T is an object or reference type and the variable definition T obj(std::declval<Args>()...); is well-formed, provides the member constant value equal to true. In all other cases, value is false.
 
-   For the purposes of this check, the variable definition is never interpreted as a
-   function declaration, and the use of std::declval is not considered an odr-use.
-   Access checks are performed as if from a context unrelated to T and any of the types
-   in Args. Only the validity of the immediate context of the variable definition is
-   considered.
+   For the purposes of this check, the variable definition is never interpreted as a function declaration, and the use of std::declval is not considered an odr-use. Access checks are performed as if from a context unrelated to T and any of the types in Args. Only the validity of the immediate context of the variable definition is considered.
 
-   2) same as 1), but the variable definition does not call any operation that is not
-   trivial. For the purposes of this check, the call to std::declval is considered
-   trivial.
+   2) same as 1), but the variable definition does not call any operation that is not trivial. For the purposes of this check, the call to std::declval is considered trivial.
 
    3) same as 1), but the variable definition is noexcept.
 
-   T and all types in the parameter pack Args shall each be a complete type, (possibly
-   cv-qualified) void, or an array of unknown bound. Otherwise, the behavior is
-   undefined.
+   T and all types in the parameter pack Args shall each be a complete type, (possibly cv-qualified) void, or an array of unknown bound. Otherwise, the behavior is undefined.
 
-   If an instantiation of a template above depends, directly or indirectly, on an
-   incomplete type, and that instantiation could yield a different result if that type
-   were hypothetically completed, the behavior is undefined.
+   If an instantiation of a template above depends, directly or indirectly, on an incomplete type, and that instantiation could yield a different result if that type were hypothetically completed, the behavior is undefined.
 
   Helper variable templates
 
-   template< class T, class... Args >
-   inline constexpr bool is_constructible_v = is_constructible<T,         \fI(since C++17)\fP
-   Args...>::value;
-   template< class T, class... Args >
-   inline constexpr bool is_trivially_constructible_v =                   \fI(since C++17)\fP
-   is_trivially_constructible<T, Args...>::value;
-   template< class T, class... Args >
-   inline constexpr bool is_nothrow_constructible_v =                     \fI(since C++17)\fP
-   is_nothrow_constructible<T, Args...>::value;
+   template< class T, class... Args >                                                                   \fI(since C++17)\fP
+   inline constexpr bool is_constructible_v = is_constructible<T, Args...>::value;
+   template< class T, class... Args >                                                                   \fI(since C++17)\fP
+   inline constexpr bool is_trivially_constructible_v = is_trivially_constructible<T, Args...>::value;
+   template< class T, class... Args >                                                                   \fI(since C++17)\fP
+   inline constexpr bool is_nothrow_constructible_v = is_nothrow_constructible<T, Args...>::value;
 
 Inherited from std::integral_constant
 
@@ -69,10 +54,7 @@ Inherited from std::integral_constant
 
 .SH Notes
 
-   In many implementations, is_nothrow_constructible also checks if the destructor
-   throws because it is effectively noexcept(T(arg)). Same applies to
-   is_trivially_constructible, which, in these implementations, also requires that the
-   destructor is trivial: GCC bug 51452 LWG issue 2116.
+   In many implementations, is_nothrow_constructible also checks if the destructor throws because it is effectively noexcept(T(arg)). Same applies to is_trivially_constructible, which, in these implementations, also requires that the destructor is trivial: GCC bug 51452 LWG issue 2116.
 
 .SH Example
 
@@ -128,8 +110,8 @@ Inherited from std::integral_constant
    \fI(C++11)\fP
    \fI(C++11)\fP
    is_move_constructible
-   is_trivially_move_constructible    checks if a type can be constructed from an
-   is_nothrow_move_constructible      rvalue reference
+   is_trivially_move_constructible
+   is_nothrow_move_constructible      checks if a type can be constructed from an rvalue reference
    \fI(C++11)\fP                            \fI(class template)\fP
    \fI(C++11)\fP
    \fI(C++11)\fP

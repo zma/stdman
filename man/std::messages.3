@@ -1,4 +1,4 @@
-.TH std::messages 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::messages 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::messages \- std::messages
 
@@ -7,25 +7,21 @@ std::messages \- std::messages
    template< class CharT >
    class messages;
 
-   Class template std::messages is a standard locale facet that encapsulates retrieval
-   of strings from message catalogs, such as the ones provided by GNU gettext or by
-   POSIX catgets.
+   Class template std::messages is a standard locale facet that encapsulates retrieval of strings from message catalogs, such as the ones provided by GNU gettext or by POSIX catgets.
 
    The source of the messages is implementation-defined.
 
    std-messages-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
-   Two standalone (locale-independent) specializations are provided by the standard
-   library:
+   Two standalone (locale-independent) specializations are provided by the standard library:
 
    Defined in header <locale>
    std::messages<char>    accesses narrow string message catalog
    std::messages<wchar_t> accesses wide string message catalog
 
-   In addition, every locale object constructed in a C++ program implements its own
-   (locale-specific) versions of these specializations.
+   In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 

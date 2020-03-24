@@ -1,25 +1,18 @@
-.TH std::copy_n 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::copy_n 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::copy_n \- std::copy_n
 
 .SH Synopsis
    Defined in header <algorithm>
-   template< class InputIt, class Size, class OutputIt >                  \fI(since C++11)\fP
-   OutputIt copy_n( InputIt first, Size count, OutputIt result );         \fI(until C++20)\fP
-   template< class InputIt, class Size, class OutputIt >
-   constexpr OutputIt copy_n( InputIt first, Size count, OutputIt         \fI(since C++20)\fP
-   result );                                                      \fB(1)\fP
-   template< class ExecutionPolicy, class ForwardIt1, class Size,
-   class ForwardIt2 >                                                 \fB(2)\fP \fI(since C++17)\fP
-   ForwardIt2 copy_n( ExecutionPolicy&& policy, ForwardIt1 first,
-   Size count, ForwardIt2 result );
+   template< class InputIt, class Size, class OutputIt >                                                   \fI(since C++11)\fP
+   OutputIt copy_n( InputIt first, Size count, OutputIt result );                                          \fI(until C++20)\fP
+   template< class InputIt, class Size, class OutputIt >                                           \fB(1)\fP     \fI(since C++20)\fP
+   constexpr OutputIt copy_n( InputIt first, Size count, OutputIt result );
+   template< class ExecutionPolicy, class ForwardIt1, class Size, class ForwardIt2 >                   \fB(2)\fP \fI(since C++17)\fP
+   ForwardIt2 copy_n( ExecutionPolicy&& policy, ForwardIt1 first, Size count, ForwardIt2 result );
 
-   1) Copies exactly count values from the range beginning at first to the range
-   beginning at result. Formally, for each non-negative integer i < n, performs
-   *(result + i) = *(first + i). Overlap of ranges is not permitted.
-   2) Same as \fB(1)\fP, but executed according to policy. This overload only participates in
-   overload resolution if std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is
-   true
+   1) Copies exactly count values from the range beginning at first to the range beginning at result. Formally, for each non-negative integer i < n, performs *(result + i) = *(first + i). Overlap of ranges is not permitted.
+   2) Same as \fB(1)\fP, but executed according to policy. This overload only participates in overload resolution if std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
 
 .SH Parameters
 
@@ -37,8 +30,7 @@ std::copy_n \- std::copy_n
 
 .SH Return value
 
-   Iterator in the destination range, pointing past the last element copied if count>0
-   or result otherwise.
+   Iterator in the destination range, pointing past the last element copied if count>0 or result otherwise.
 
 .SH Complexity
 
@@ -46,12 +38,9 @@ std::copy_n \- std::copy_n
 
 .SH Exceptions
 
-   The overload with a template parameter named ExecutionPolicy reports errors as
-   follows:
+   The overload with a template parameter named ExecutionPolicy reports errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception
-       and ExecutionPolicy is one of the standard policies, std::terminate is called.
-       For any other ExecutionPolicy, the behavior is implementation-defined.
+     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
      * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 .SH Possible implementation

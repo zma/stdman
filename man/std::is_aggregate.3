@@ -1,4 +1,4 @@
-.TH std::is_aggregate 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_aggregate 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_aggregate \- std::is_aggregate
 
@@ -7,11 +7,9 @@ std::is_aggregate \- std::is_aggregate
    template< class T >              \fI(since C++17)\fP
    struct is_aggregate;
 
-   Checks if T is an aggregate type. The member constant value is equal to true if T is
-   an aggregate type and false otherwise.
+   Checks if T is an aggregate type. The member constant value is equal to true if T is an aggregate type and false otherwise.
 
-   The behavior is undefined if std::remove_all_extents_t<T> is an incomplete type
-   other than (possibly cv-qualified) void.
+   The behavior is undefined if std::remove_all_extents_t<T> is an incomplete type other than (possibly cv-qualified) void.
 
 .SH Template parameters
 

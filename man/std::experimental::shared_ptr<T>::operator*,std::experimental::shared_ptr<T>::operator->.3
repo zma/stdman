@@ -1,4 +1,4 @@
-.TH std::experimental::shared_ptr<T>::operator*,std::experimental::shared_ptr<T>::operator-> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::shared_ptr<T>::operator*,std::experimental::shared_ptr<T>::operator-> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::shared_ptr<T>::operator*,std::experimental::shared_ptr<T>::operator-> \- std::experimental::shared_ptr<T>::operator*,std::experimental::shared_ptr<T>::operator->
 
@@ -6,8 +6,7 @@ std::experimental::shared_ptr<T>::operator*,std::experimental::shared_ptr<T>::op
    T& operator*() const noexcept;  \fB(1)\fP (library fundamentals TS)
    T* operator->() const noexcept; \fB(2)\fP (library fundamentals TS)
 
-   Dereferences the stored pointer. The behavior is undefined if the stored pointer is
-   null.
+   Dereferences the stored pointer. The behavior is undefined if the stored pointer is null.
 
 .SH Parameters
 
@@ -20,14 +19,11 @@ std::experimental::shared_ptr<T>::operator*,std::experimental::shared_ptr<T>::op
 
   Remarks
 
-   When T is an array type or (possibly cv-qualified) void, it is unspecified whether
-   function \fB(1)\fP is declared.
+   When T is an array type or (possibly cv-qualified) void, it is unspecified whether function \fB(1)\fP is declared.
 
    When T is an array type, it is unspecified whether function \fB(2)\fP is declared.
 
-   In either case, if the function is declared, it is unspecified what its return type
-   is, except that the declaration (although not necessarily the definition) of the
-   function is guaranteed to be legal.
+   In either case, if the function is declared, it is unspecified what its return type is, except that the declaration (although not necessarily the definition) of the function is guaranteed to be legal.
 
 .SH Example
 

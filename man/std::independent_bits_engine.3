@@ -1,4 +1,4 @@
-.TH std::independent_bits_engine 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::independent_bits_engine 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::independent_bits_engine \- std::independent_bits_engine
 
@@ -12,21 +12,18 @@ std::independent_bits_engine \- std::independent_bits_engine
 
    > class independent_bits_engine;
 
-   independent_bits_engine is a random number engine adaptor that produces random
-   numbers with different number of bits than that of the wrapped engine.
+   independent_bits_engine is a random number engine adaptor that produces random numbers with different number of bits than that of the wrapped engine.
 
 .SH Template parameters
 
-   Engine    -  the type of the wrapped engine
-   W         -  the number of bits the generated numbers should have
-   UIntType  -  the type of the generated random numbers. The type must be unsigned
-                integral type.
+   Engine       -     the type of the wrapped engine
+   W            -     the number of bits the generated numbers should have
+   UIntType     -     the type of the generated random numbers. The type must be unsigned integral type.
 .SH Type requirements
    -
    Engine must meet the requirements of RandomNumberEngine.
    -
-   W must be greater than zero, and no greater than
-   std::numeric_limits<UIntType>::digits.
+   W must be greater than zero, and no greater than std::numeric_limits<UIntType>::digits.
 
 .SH Member types
 
@@ -42,8 +39,7 @@ std::independent_bits_engine \- std::independent_bits_engine
    base          returns the underlying engine
                  \fI(public member function)\fP
 .SH Generation
-                 advances the state of the underlying engine and returns the generated
-   operator()    value
+   operator()    advances the state of the underlying engine and returns the generated value
                  \fI(public member function)\fP
    discard       advances the adaptor's state by a specified amount
                  \fI(public member function)\fP

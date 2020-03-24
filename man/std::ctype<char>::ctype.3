@@ -1,4 +1,4 @@
-.TH std::ctype<char>::ctype 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype<char>::ctype 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype<char>::ctype \- std::ctype<char>::ctype
 
@@ -6,16 +6,11 @@ std::ctype<char>::ctype \- std::ctype<char>::ctype
    Defined in header <locale>
    explicit ctype( const mask* tbl = 0, bool del = false, std::size_t refs = 0);
 
-   Creates a std::ctype<char> facet and forwards the starting reference count refs to
-   the base class constructor, locale::facet::facet().
+   Creates a std::ctype<char> facet and forwards the starting reference count refs to the base class constructor, locale::facet::facet().
 
-   If tbl is null, classic_table() is used by all classification member functions.
-   Otherwise, tbl must be a pointer to the first element of an array of masks, at least
-   std::ctype<char>::table_size in size, and that array is used by all of this facet's
-   classification member functions.
+   If tbl is null, classic_table() is used by all classification member functions. Otherwise, tbl must be a pointer to the first element of an array of masks, at least std::ctype<char>::table_size in size, and that array is used by all of this facet's classification member functions.
 
-   If del is true, it is assumed that the array was allocated with new[], and the
-   destructor of this facet will call delete[] tbl
+   If del is true, it is assumed that the array was allocated with new[], and the destructor of this facet will call delete[] tbl
 
 .SH Parameters
 

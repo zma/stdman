@@ -1,22 +1,16 @@
-.TH std::fread 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::fread 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::fread \- std::fread
 
 .SH Synopsis
    Defined in header <cstdio>
-   std::size_t fread( void* buffer, std::size_t size, std::size_t count, std::FILE*
-   stream );
+   std::size_t fread( void* buffer, std::size_t size, std::size_t count, std::FILE* stream );
 
-   Reads up to count objects into the array buffer from the given input stream stream
-   as if by calling std::fgetc size times for each object, and storing the results, in
-   the order obtained, into the successive positions of buffer, which is reinterpreted
-   as an array of unsigned char. The file position indicator for the stream is advanced
-   by the number of characters read.
+   Reads up to count objects into the array buffer from the given input stream stream as if by calling std::fgetc size times for each object, and storing the results, in the order obtained, into the successive positions of buffer, which is reinterpreted as an array of unsigned char. The file position indicator for the stream is advanced by the number of characters read.
 
    If the objects are not TriviallyCopyable, the behavior is undefined.
 
-   If an error occurs, the resulting value of the file position indicator for the
-   stream is indeterminate. If a partial element is read, its value is indeterminate.
+   If an error occurs, the resulting value of the file position indicator for the stream is indeterminate. If a partial element is read, its value is indeterminate.
 
 .SH Parameters
 
@@ -27,8 +21,7 @@ std::fread \- std::fread
 
 .SH Return value
 
-   Number of objects read successfully, which may be less than count if an error or
-   end-of-file condition occurs.
+   Number of objects read successfully, which may be less than count if an error or end-of-file condition occurs.
 
    If size or count is zero, fread returns zero and performs no other action.
 

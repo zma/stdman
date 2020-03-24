@@ -1,22 +1,17 @@
-.TH std::try_lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::try_lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::try_lock \- std::try_lock
 
 .SH Synopsis
    Defined in header <mutex>
-   template< class Lockable1, class Lockable2, class... LockableN>
-   int try_lock( Lockable1& lock1, Lockable2& lock2, LockableN&...        \fI(since C++11)\fP
-   lockn);
+   template< class Lockable1, class Lockable2, class... LockableN>          \fI(since C++11)\fP
+   int try_lock( Lockable1& lock1, Lockable2& lock2, LockableN&... lockn);
 
-   Tries to lock each of the given Lockable objects lock1, lock2, ..., lockn by calling
-   try_lock in order beginning with the first.
+   Tries to lock each of the given Lockable objects lock1, lock2, ..., lockn by calling try_lock in order beginning with the first.
 
-   If a call to try_lock fails, no further call to try_lock is performed, unlock is
-   called for any locked objects and a 0-based index of the object that failed to lock
-   is returned.
+   If a call to try_lock fails, no further call to try_lock is performed, unlock is called for any locked objects and a 0-based index of the object that failed to lock is returned.
 
-   If a call to try_lock results in an exception, unlock is called for any locked
-   objects before rethrowing.
+   If a call to try_lock results in an exception, unlock is called for any locked objects before rethrowing.
 
 .SH Parameters
 
@@ -28,8 +23,7 @@ std::try_lock \- std::try_lock
 
 .SH Example
 
-   The following example uses std::try_lock to periodically tally and reset counters
-   running in separate threads.
+   The following example uses std::try_lock to periodically tally and reset counters running in separate threads.
 
    
 // Run this code

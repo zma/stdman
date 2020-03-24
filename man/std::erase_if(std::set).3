@@ -1,4 +1,4 @@
-.TH std::erase_if(std::set) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::erase_if(std::set) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::erase_if(std::set) \- std::erase_if(std::set)
 
@@ -7,8 +7,7 @@ std::erase_if(std::set) \- std::erase_if(std::set)
    template< class Key, class Compare, class Alloc, class Pred > \fB(1)\fP \fI(since C++20)\fP
    void erase_if(std::set<Key,Compare,Alloc>& c, Pred pred);
 
-   Erases all elements that satisfy the predicate pred from the container. Equivalent
-   to
+   Erases all elements that satisfy the predicate pred from the container. Equivalent to
 
  for (auto i = c.begin(), last = c.end(); i != last; ) {
    if (pred(*i)) {

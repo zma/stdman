@@ -1,4 +1,4 @@
-.TH std::atomic<T>::atomic 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic<T>::atomic 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic<T>::atomic \- std::atomic<T>::atomic
 
@@ -9,9 +9,7 @@ std::atomic<T>::atomic \- std::atomic<T>::atomic
 
    Constructs new atomic variable.
 
-   1) The default constructor is trivial: no initialization takes place other than zero
-   initialization of static and thread-local objects. std::atomic_init may be used to
-   complete initialization.
+   1) The default constructor is trivial: no initialization takes place other than zero initialization of static and thread-local objects. std::atomic_init may be used to complete initialization.
    2) Initializes the underlying value with desired. The initialization is not atomic.
    3) Atomic variables are not CopyConstructible.
 
@@ -21,5 +19,4 @@ std::atomic<T>::atomic \- std::atomic<T>::atomic
 
 .SH Notes
 
-   The default-initialized std::atomic<T> does not contain a T object, and its only
-   valid uses are destruction and initialization by std::atomic_init, see LWG 2334
+   The default-initialized std::atomic<T> does not contain a T object, and its only valid uses are destruction and initialization by std::atomic_init, see LWG 2334

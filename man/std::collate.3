@@ -1,4 +1,4 @@
-.TH std::collate 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::collate 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::collate \- std::collate
 
@@ -7,24 +7,19 @@ std::collate \- std::collate
    template< class CharT >
    class collate;
 
-   Class std::collate encapsulates locale-specific collation (comparison) and hashing
-   of strings. This facet is used by std::basic_regex and can be applied, by means of
-   std::locale::operator(), directly to all standard algorithms that expect a string
-   comparison predicate.
+   Class std::collate encapsulates locale-specific collation (comparison) and hashing of strings. This facet is used by std::basic_regex and can be applied, by means of std::locale::operator(), directly to all standard algorithms that expect a string comparison predicate.
 
    std-collate-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
-   Two standalone (locale-independent) specializations are provided by the standard
-   library:
+   Two standalone (locale-independent) specializations are provided by the standard library:
 
    Defined in header <locale>
    std::collate<char>    implements lexicographical ordering of byte strings
    std::collate<wchar_t> implements lexicographical ordering of wide strings
 
-   In addition, every locale object constructed in a C++ program implements its own
-   (locale-specific) versions of these specializations.
+   In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 
@@ -97,8 +92,7 @@ std::collate \- std::collate
 
 .SH See also
 
-                  lexicographically compares two strings using this locale's collate
-   operator()     facet
+   operator()     lexicographically compares two strings using this locale's collate facet
                   \fI(public member function of std::locale)\fP
    collate_byname creates a collate facet for the named locale
                   \fI(class template)\fP

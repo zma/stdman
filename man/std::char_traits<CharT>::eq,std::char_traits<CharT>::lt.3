@@ -1,22 +1,19 @@
-.TH std::char_traits<CharT>::eq,std::char_traits<CharT>::lt 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::char_traits<CharT>::eq,std::char_traits<CharT>::lt 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::char_traits<CharT>::eq,std::char_traits<CharT>::lt \- std::char_traits<CharT>::eq,std::char_traits<CharT>::lt
 
 .SH Synopsis
-   static bool eq( char_type a, char_type b );              \fI(until C++11)\fP
-   static constexpr bool eq( char_type a, char_type         \fI(since C++11)\fP
-   b ) noexcept;                                    \fB(1)\fP
-   static bool lt( char_type a, char_type b );                            \fI(until C++11)\fP
-   static constexpr bool lt( char_type a, char_type     \fB(2)\fP               \fI(since C++11)\fP
-   b ) noexcept;
+   static bool eq( char_type a, char_type b );                            \fI(until C++11)\fP
+   static constexpr bool eq( char_type a, char_type b ) noexcept; \fB(1)\fP     \fI(since C++11)\fP
+   static bool lt( char_type a, char_type b );                        \fB(2)\fP               \fI(until C++11)\fP
+   static constexpr bool lt( char_type a, char_type b ) noexcept;                       \fI(since C++11)\fP
 
    Compares two characters.
 
    1) Compares a and b for equality.
    2) Compares a and b in such a way that they are totally ordered.
 
-   For the char specialization, eq and lt are defined identically to the  \fI(since C++11)\fP
-   built-in operators == and < for type unsigned char (not char).
+   For the char specialization, eq and lt are defined identically to the built-in operators == and < for type unsigned char (not char). \fI(since C++11)\fP
 
 .SH Parameters
 

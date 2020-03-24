@@ -1,4 +1,4 @@
-.TH std::wctype 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wctype 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wctype \- std::wctype
 
@@ -6,9 +6,7 @@ std::wctype \- std::wctype
    Defined in header <cwctype>
    std::wctype_t wctype( const char* str );
 
-   Constructs a value of type std::wctype_t that describes a LC_CTYPE category of wide
-   character classification. It may be one of the standard classification categories,
-   or a locale-specific category, such as "jkanji".
+   Constructs a value of type std::wctype_t that describes a LC_CTYPE category of wide character classification. It may be one of the standard classification categories, or a locale-specific category, such as "jkanji".
 
 .SH Parameters
 
@@ -31,9 +29,7 @@ std::wctype \- std::wctype
 
 .SH Return value
 
-   std::wctype_t object suitable for use with std::iswctype to classify wide characters
-   according to the named category of the current C locale or zero if str does not name
-   a category supported by the current C locale.
+   std::wctype_t object suitable for use with std::iswctype to classify wide characters according to the named category of the current C locale or zero if str does not name a category supported by the current C locale.
 
 .SH See also
 

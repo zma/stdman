@@ -1,20 +1,14 @@
-.TH std::ostreambuf_iterator<CharT,Traits>::ostreambuf_iterator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ostreambuf_iterator<CharT,Traits>::ostreambuf_iterator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ostreambuf_iterator<CharT,Traits>::ostreambuf_iterator \- std::ostreambuf_iterator<CharT,Traits>::ostreambuf_iterator
 
 .SH Synopsis
-   ostreambuf_iterator( streambuf_type* buffer )            \fI(until C++11)\fP
-   throw();
-   ostreambuf_iterator( streambuf_type* buffer )            \fI(since C++11)\fP
-   noexcept;                                        \fB(1)\fP
-   ostreambuf_iterator( ostream_type& stream )                            \fI(until C++11)\fP
-   throw();                                             \fB(2)\fP
-   ostreambuf_iterator( ostream_type& stream )                            \fI(since C++11)\fP
-   noexcept;
+   ostreambuf_iterator( streambuf_type* buffer ) throw();          \fI(until C++11)\fP
+   ostreambuf_iterator( streambuf_type* buffer ) noexcept; \fB(1)\fP     \fI(since C++11)\fP
+   ostreambuf_iterator( ostream_type& stream ) throw();        \fB(2)\fP               \fI(until C++11)\fP
+   ostreambuf_iterator( ostream_type& stream ) noexcept;                         \fI(since C++11)\fP
 
-   1) Constructs the iterator with the private streambuf_type* member set to buffer and
-   the failed() bit set to false. The behavior is undefined if buffer is a null
-   pointer.
+   1) Constructs the iterator with the private streambuf_type* member set to buffer and the failed() bit set to false. The behavior is undefined if buffer is a null pointer.
    2) Same as ostreambuf_iterator(stream.rdbuf())
 
 .SH Parameters

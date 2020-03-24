@@ -1,4 +1,4 @@
-.TH std::mktime 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::mktime 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::mktime \- std::mktime
 
@@ -6,16 +6,11 @@ std::mktime \- std::mktime
    Defined in header <ctime>
    std::time_t mktime( std::tm* time );
 
-   Converts local calendar time to a time since epoch as a time_t object. time->tm_wday
-   and time->tm_yday are ignored. The values in time are permitted to be outside their
-   normal ranges.
+   Converts local calendar time to a time since epoch as a time_t object. time->tm_wday and time->tm_yday are ignored. The values in time are permitted to be outside their normal ranges.
 
-   A negative value of time->tm_isdst causes mktime to attempt to determine if Daylight
-   Saving Time was in effect.
+   A negative value of time->tm_isdst causes mktime to attempt to determine if Daylight Saving Time was in effect.
 
-   If the conversion is successful, the time object is modified. All fields of time are
-   updated to fit their proper ranges. time->tm_wday and time->tm_yday are recalculated
-   using information available in other fields.
+   If the conversion is successful, the time object is modified. All fields of time are updated to fit their proper ranges. time->tm_wday and time->tm_yday are recalculated using information available in other fields.
 
 .SH Parameters
 
@@ -23,14 +18,11 @@ std::mktime \- std::mktime
 
 .SH Return value
 
-   Time since epoch as a std::time_t object on success or -1 if time cannot be
-   represented as a std::time_t object.
+   Time since epoch as a std::time_t object on success or -1 if time cannot be represented as a std::time_t object.
 
 .SH Notes
 
-   If the std::tm object was obtained from std::get_time or the POSIX strptime, the
-   value of tm_isdst is indeterminate, and needs to be set explicitly before calling
-   mktime.
+   If the std::tm object was obtained from std::get_time or the POSIX strptime, the value of tm_isdst is indeterminate, and needs to be set explicitly before calling mktime.
 
 .SH Example
 

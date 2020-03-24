@@ -1,23 +1,18 @@
-.TH std::front_insert_iterator<Container>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::front_insert_iterator<Container>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::front_insert_iterator<Container>::operator= \- std::front_insert_iterator<Container>::operator=
 
 .SH Synopsis
-   front_insert_iterator<Container>&
-   operator=( typename Container::const_reference           \fI(until C++11)\fP
-   value );
-   front_insert_iterator<Container>&                        \fI(since C++11)\fP
-   operator=( const typename Container::value_type&         \fI(until C++20)\fP
-   value );
-   constexpr front_insert_iterator<Container>&
-   operator=( const typename Container::value_type& \fB(1)\fP     \fI(since C++20)\fP
-   value );
-   front_insert_iterator<Container>&                                      \fI(since C++11)\fP
-   operator=( typename Container::value_type&&                            \fI(until C++20)\fP
-   value );                                             \fB(2)\fP
-   constexpr front_insert_iterator<Container>&
-   operator=( typename Container::value_type&&                            \fI(since C++20)\fP
-   value );
+   front_insert_iterator<Container>&                                 \fI(until C++11)\fP
+   operator=( typename Container::const_reference value );
+   front_insert_iterator<Container>&                                 \fI(since C++11)\fP
+   operator=( const typename Container::value_type& value );         \fI(until C++20)\fP
+   constexpr front_insert_iterator<Container>&               \fB(1)\fP     \fI(since C++20)\fP
+   operator=( const typename Container::value_type& value );
+   front_insert_iterator<Container>&                                               \fI(since C++11)\fP
+   operator=( typename Container::value_type&& value );          \fB(2)\fP               \fI(until C++20)\fP
+   constexpr front_insert_iterator<Container>&                                     \fI(since C++20)\fP
+   operator=( typename Container::value_type&& value );
 
    Inserts the given value value to the container.
 

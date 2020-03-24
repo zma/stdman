@@ -1,4 +1,4 @@
-.TH std::ios_base::fmtflags 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ios_base::fmtflags 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ios_base::fmtflags \- std::ios_base::fmtflags
 
@@ -31,8 +31,7 @@ std::ios_base::fmtflags \- std::ios_base::fmtflags
 
    static constexpr fmtflags uppercase = /*implementation defined*/
 
-   Specifies available formatting flags. It is a BitmaskType. The following constants
-   are defined:
+   Specifies available formatting flags. It is a BitmaskType. The following constants are defined:
 
    Constant    Explanation
    dec         use decimal base for integer I/O: see std::dec
@@ -41,19 +40,14 @@ std::ios_base::fmtflags \- std::ios_base::fmtflags
    basefield   dec|oct|hex. Useful for masking operations
    left        left adjustment (adds fill characters to the right): see std::left
    right       right adjustment (adds fill characters to the left): see std::right
-   internal    internal adjustment (adds fill characters to the internal designated
-               point): see std::internal
+   internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
    adjustfield left|right|internal. Useful for masking operations
-   scientific  generate floating point types using scientific notation, or hex notation
-               if combined with fixed: see std::scientific
-   fixed       generate floating point types using fixed notation, or hex notation if
-               combined with scientific: see std::fixed
+   scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
+   fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
    floatfield  scientific|fixed. Useful for masking operations
    boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
-   showbase    generate a prefix indicating the numeric base for integer output,
-               require the currency indicator in monetary I/O: see std::showbase
-   showpoint   generate a decimal-point character unconditionally for floating-point
-               number output: see std::showpoint
+   showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
+   showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
    showpos     generate a + character for non-negative numeric output: see std::showpos
    skipws      skip leading whitespace before certain input operations: see std::skipws
    unitbuf     flush the output after each output operation: see std::unitbuf
@@ -133,9 +127,8 @@ std::ios_base::fmtflags \- std::ios_base::fmtflags
    noboolalpha  \fI(function)\fP
    showpos      controls whether the + sign used with non-negative numbers
    noshowpos    \fI(function)\fP
-   showpoint    controls whether decimal point is always included in floating-point
-   noshowpoint  representation
-                \fI(function)\fP
+   showpoint    controls whether decimal point is always included in floating-point representation
+   noshowpoint  \fI(function)\fP
    unitbuf      controls whether output is flushed after each operation
    nounitbuf    \fI(function)\fP
    skipws       controls whether leading whitespace is skipped on input

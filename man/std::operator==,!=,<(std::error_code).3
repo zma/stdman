@@ -1,15 +1,12 @@
-.TH std::operator==,!=,<(std::error_code) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::operator==,!=,<(std::error_code) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::operator==,!=,<(std::error_code) \- std::operator==,!=,<(std::error_code)
 
 .SH Synopsis
    Defined in header <system_error>
-   bool operator==( const error_code& lhs, const error_code& rhs )    \fB(1)\fP \fI(since C++11)\fP
-   noexcept;
-   bool operator!=( const error_code& lhs, const error_code& rhs )    \fB(1)\fP \fI(since C++11)\fP
-   noexcept;
-   bool operator<( const error_code& lhs, const error_code& rhs )     \fB(1)\fP \fI(since C++11)\fP
-   noexcept;
+   bool operator==( const error_code& lhs, const error_code& rhs ) noexcept; \fB(1)\fP \fI(since C++11)\fP
+   bool operator!=( const error_code& lhs, const error_code& rhs ) noexcept; \fB(1)\fP \fI(since C++11)\fP
+   bool operator<( const error_code& lhs, const error_code& rhs ) noexcept;  \fB(1)\fP \fI(since C++11)\fP
 
    Compares two error code objects.
 
@@ -25,8 +22,7 @@ std::operator==,!=,<(std::error_code) \- std::operator==,!=,<(std::error_code)
 
    1) true if the error category and error value compare equal.
    2) true if the error category or error value compare are not equal.
-   3) true if lhs.category() < rhs.category(). Otherwise, true if lhs.category() ==
-   rhs.category() && lhs.value() < rhs.value(). Otherwise, false
+   3) true if lhs.category() < rhs.category(). Otherwise, true if lhs.category() == rhs.category() && lhs.value() < rhs.value(). Otherwise, false
 
 .SH See also
 

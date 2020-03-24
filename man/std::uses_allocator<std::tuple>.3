@@ -1,16 +1,13 @@
-.TH std::uses_allocator<std::tuple> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::uses_allocator<std::tuple> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::uses_allocator<std::tuple> \- std::uses_allocator<std::tuple>
 
 .SH Synopsis
    Defined in header <tuple>
-   template< class... Types, class Alloc >
-   struct uses_allocator< std::tuple<Types...>, Alloc > : std::true_type  \fI(since C++11)\fP
-   { };
+   template< class... Types, class Alloc >                                     \fI(since C++11)\fP
+   struct uses_allocator< std::tuple<Types...>, Alloc > : std::true_type { };
 
-   This specialization of std::uses_allocator informs other library components that
-   tuples support uses-allocator construction, even though they do not have a nested
-   allocator_type.
+   This specialization of std::uses_allocator informs other library components that tuples support uses-allocator construction, even though they do not have a nested allocator_type.
 
 Inherited from std::integral_constant
 

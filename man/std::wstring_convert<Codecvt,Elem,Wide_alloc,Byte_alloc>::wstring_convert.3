@@ -1,4 +1,4 @@
-.TH std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::wstring_convert 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::wstring_convert 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::wstring_convert \- std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::wstring_convert
 
@@ -11,27 +11,21 @@ std::wstring_convert<Codecvt,Elem,Wide_alloc,Byte_alloc>::wstring_convert \- std
    wstring_convert(const std::wstring_convert&) = delete; \fB(5)\fP \fI(since C++14)\fP
 
    1) Default constructor.
-   2) Constructs the wstring_convert object with a specified conversion facet, using
-   default-constructed values for the shift state and the error strings
-   3) Constructs the wstring_convert object with a specified conversion facet and
-   specified shift state, using default-constructed values for the error strings
-   4) Constructs the wstring_convert object with specified error strings, using new
-   Codecvt as the conversion facet and the default-constructed state_type as shift
-   state.
+   2) Constructs the wstring_convert object with a specified conversion facet, using default-constructed values for the shift state and the error strings
+   3) Constructs the wstring_convert object with a specified conversion facet and specified shift state, using default-constructed values for the error strings
+   4) Constructs the wstring_convert object with specified error strings, using new Codecvt as the conversion facet and the default-constructed state_type as shift state.
    5) The copy constructor is deleted, wstring_convert is not CopyConstructible
 
 .SH Parameters
 
-   pcvt     - pointer to the conversion facet of type Codecvt (behavior is undefined if
-              this pointer is null)
+   pcvt     - pointer to the conversion facet of type Codecvt (behavior is undefined if this pointer is null)
    state    - initial value of the conversion shift state
    byte_err - narrow string to display on errors
    wide_err - wide string to display on errors
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
      DR    Applied to      Behavior as published       Correct behavior
    P0935R0 C++11      default constructor was explicit made implicit

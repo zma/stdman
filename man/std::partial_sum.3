@@ -1,4 +1,4 @@
-.TH std::partial_sum 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::partial_sum 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::partial_sum \- std::partial_sum
 
@@ -12,10 +12,7 @@ std::partial_sum \- std::partial_sum
 
    BinaryOperation op );
 
-   Computes the partial sums of the elements in the subranges of the range [first,
-   last) and writes them to the range beginning at d_first. The first version uses
-   operator+ to sum up the elements, the second version uses the given binary function
-   op
+   Computes the partial sums of the elements in the subranges of the range [first, last) and writes them to the range beginning at d_first. The first version uses operator+ to sum up the elements, the second version uses the given binary function op
    , both applying std::move to their operands on the left hand side
    \fI(since C++20)\fP.
 
@@ -27,9 +24,8 @@ std::partial_sum \- std::partial_sum
  *(d_first+3) = *first + *(first+1) + *(first+2) + *(first+3);
  ...
 
-   op must not have side effects.                                         \fI(until C++11)\fP
-   op must not invalidate any iterators, including the end iterators, or  \fI(since C++11)\fP
-   modify any elements of the range involved.
+   op must not have side effects.                                                                                   \fI(until C++11)\fP
+   op must not invalidate any iterators, including the end iterators, or modify any elements of the range involved. \fI(since C++11)\fP
 
 .SH Parameters
 
@@ -38,17 +34,11 @@ std::partial_sum \- std::partial_sum
                  binary operation function object that will be applied.
 
                  The signature of the function should be equivalent to the following:
-
+   op          -
                  Ret fun(const Type1 &a, const Type2 &b);
 
-   op          - The signature does not need to have const &.
-                 The type Type1 must be such that an object of type
-                 iterator_traits<InputIt>::value_type can be implicitly converted to
-                 Type1. The type Type2 must be such that an object of type InputIt can
-                 be dereferenced and then implicitly converted to Type2. The type Ret
-                 must be such that an object of type
-                 iterator_traits<InputIt>::value_type can be assigned a value of type
-                 Ret. 
+                 The signature does not need to have const &.
+                 The type Type1 must be such that an object of type iterator_traits<InputIt>::value_type can be implicitly converted to Type1. The type Type2 must be such that an object of type InputIt can be dereferenced and then implicitly converted to Type2. The type Ret must be such that an object of type iterator_traits<InputIt>::value_type can be assigned a value of type Ret. 
 .SH Type requirements
    -
    InputIt must meet the requirements of LegacyInputIterator.
@@ -140,9 +130,7 @@ std::partial_sum \- std::partial_sum
                        \fI(function template)\fP
    accumulate          sums up a range of elements
                        \fI(function template)\fP
-   inclusive_scan      similar to std::partial_sum, includes the ith input element in
-   \fI(C++17)\fP             the ith sum
-                       \fI(function template)\fP
-   exclusive_scan      similar to std::partial_sum, excludes the ith input element from
-   \fI(C++17)\fP             the ith sum
-                       \fI(function template)\fP
+   inclusive_scan      similar to std::partial_sum, includes the ith input element in the ith sum
+   \fI(C++17)\fP             \fI(function template)\fP
+   exclusive_scan      similar to std::partial_sum, excludes the ith input element from the ith sum
+   \fI(C++17)\fP             \fI(function template)\fP

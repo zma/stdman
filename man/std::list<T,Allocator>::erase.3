@@ -1,27 +1,23 @@
-.TH std::list<T,Allocator>::erase 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::list<T,Allocator>::erase 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::list<T,Allocator>::erase \- std::list<T,Allocator>::erase
 
 .SH Synopsis
-   iterator erase( iterator pos );                          \fI(until C++11)\fP
-   iterator erase( const_iterator pos );                    \fI(since C++11)\fP
-   iterator erase( iterator first, iterator last ); \fB(1)\fP                   \fI(until C++11)\fP
-   iterator erase( const_iterator first,                \fB(2)\fP               \fI(since C++11)\fP
-   const_iterator last );
+   iterator erase( iterator pos );                                      \fI(until C++11)\fP
+   iterator erase( const_iterator pos );                        \fB(1)\fP     \fI(since C++11)\fP
+   iterator erase( iterator first, iterator last );                 \fB(2)\fP               \fI(until C++11)\fP
+   iterator erase( const_iterator first, const_iterator last );                       \fI(since C++11)\fP
 
    Erases the specified elements from the container.
 
    1) Removes the element at pos.
    2) Removes the elements in the range [first, last).
 
-   References and iterators to the erased elements are invalidated. Other references
-   and iterators are not affected.
+   References and iterators to the erased elements are invalidated. Other references and iterators are not affected.
 
-   The iterator pos must be valid and dereferenceable. Thus the end() iterator (which
-   is valid, but is not dereferencable) cannot be used as a value for pos.
+   The iterator pos must be valid and dereferenceable. Thus the end() iterator (which is valid, but is not dereferencable) cannot be used as a value for pos.
 
-   The iterator first does not need to be dereferenceable if first==last: erasing an
-   empty range is a no-op.
+   The iterator first does not need to be dereferenceable if first==last: erasing an empty range is a no-op.
 
 .SH Parameters
 
@@ -30,8 +26,7 @@ std::list<T,Allocator>::erase \- std::list<T,Allocator>::erase
 
 .SH Return value
 
-   Iterator following the last removed element. If the iterator pos refers to the last
-   element, the end() iterator is returned.
+   Iterator following the last removed element. If the iterator pos refers to the last element, the end() iterator is returned.
 
 .SH Exceptions
 

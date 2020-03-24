@@ -1,4 +1,4 @@
-.TH std::bitset<N>::operator[] 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::bitset<N>::operator[] 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::bitset<N>::operator[] \- std::bitset<N>::operator[]
 
@@ -7,12 +7,9 @@ std::bitset<N>::operator[] \- std::bitset<N>::operator[]
    constexpr bool operator[]( std::size_t pos ) const; \fB(1)\fP     \fI(since C++11)\fP
    reference operator[]( std::size_t pos );                \fB(2)\fP
 
-   Accesses the bit at position pos. The first version returns the value of the bit,
-   the second version returns an object of type std::bitset::reference that allows
-   modification of the value.
+   Accesses the bit at position pos. The first version returns the value of the bit, the second version returns an object of type std::bitset::reference that allows modification of the value.
 
-   Unlike test(), does not throw exceptions: the behavior is undefined if pos is out of
-   bounds.
+   Unlike test(), does not throw exceptions: the behavior is undefined if pos is out of bounds.
 
 .SH Parameters
 
@@ -22,8 +19,7 @@ std::bitset<N>::operator[] \- std::bitset<N>::operator[]
 
    1) the value of the requested bit
 
-   2) an object of type std::bitset::reference, which allows writing to the requested
-   bit.
+   2) an object of type std::bitset::reference, which allows writing to the requested bit.
 
 .SH Exceptions
 

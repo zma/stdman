@@ -1,22 +1,16 @@
-.TH std::fwrite 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::fwrite 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::fwrite \- std::fwrite
 
 .SH Synopsis
    Defined in header <cstdio>
-   std::size_t fwrite( const void* buffer, std::size_t size, std::size_t count,
-   std::FILE* stream );
+   std::size_t fwrite( const void* buffer, std::size_t size, std::size_t count, std::FILE* stream );
 
-   Writes up to count binary objects from the given array buffer to the output stream
-   stream. The objects are written as if by reinterpreting each object as an array of
-   unsigned char and calling std::fputc size times for each object to write those
-   unsigned chars into stream, in order. The file position indicator for the stream is
-   advanced by the number of characters written.
+   Writes up to count binary objects from the given array buffer to the output stream stream. The objects are written as if by reinterpreting each object as an array of unsigned char and calling std::fputc size times for each object to write those unsigned chars into stream, in order. The file position indicator for the stream is advanced by the number of characters written.
 
    If the objects are not TriviallyCopyable, the behavior is undefined.
 
-   If an error occurs, the resulting value of the file position indicator for the
-   stream is indeterminate.
+   If an error occurs, the resulting value of the file position indicator for the stream is indeterminate.
 
 .SH Parameters
 
@@ -27,8 +21,7 @@ std::fwrite \- std::fwrite
 
 .SH Return value
 
-   Number of objects written successfully, which may be less than count if an error
-   occurred.
+   Number of objects written successfully, which may be less than count if an error occurred.
 
    If size or count is zero, fwrite returns zero and performs no other action.
 

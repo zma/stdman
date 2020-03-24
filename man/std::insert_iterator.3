@@ -1,4 +1,4 @@
-.TH std::insert_iterator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::insert_iterator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::insert_iterator \- std::insert_iterator
 
@@ -6,18 +6,13 @@ std::insert_iterator \- std::insert_iterator
    Defined in header <iterator>
    template< class Container >
 
-   class insert_iterator : public std::iterator<                          \fI(until C++17)\fP
-   std::output_iterator_tag,
+   class insert_iterator : public std::iterator< std::output_iterator_tag,  \fI(until C++17)\fP
 
    void,void,void,void >
-   template< class Container >                                            \fI(since C++17)\fP
+   template< class Container >                                              \fI(since C++17)\fP
    class insert_iterator;
 
-   std::insert_iterator is a LegacyOutputIterator that inserts elements into a
-   container for which it was constructed, at the position pointed to by the supplied
-   iterator. The container's insert() member function is called whenever the iterator
-   (whether dereferenced or not) is assigned to. Incrementing the std::insert_iterator
-   is a no-op.
+   std::insert_iterator is a LegacyOutputIterator that inserts elements into a container for which it was constructed, at the position pointed to by the supplied iterator. The container's insert() member function is called whenever the iterator (whether dereferenced or not) is assigned to. Incrementing the std::insert_iterator is a no-op.
 
 .SH Member types
 
@@ -54,8 +49,7 @@ std::insert_iterator \- std::insert_iterator
    reference         void
    iterator_category std::output_iterator_tag
 
-   These member types are required to be obtained by inheriting from      \fI(until C++17)\fP
-   std::iterator<std::output_iterator_tag, void, void, void, void>.
+   These member types are required to be obtained by inheriting from std::iterator<std::output_iterator_tag, void, void, void, void>. \fI(until C++17)\fP
 
 .SH Example
 
@@ -85,8 +79,7 @@ std::insert_iterator \- std::insert_iterator
 
 .SH See also
 
-                         creates a std::insert_iterator of type inferred from the
-   inserter              argument
+   inserter              creates a std::insert_iterator of type inferred from the argument
                          \fI(function template)\fP
    back_insert_iterator  iterator adaptor for insertion at the end of a container
                          \fI(class template)\fP

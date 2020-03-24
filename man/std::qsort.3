@@ -1,20 +1,15 @@
-.TH std::qsort 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::qsort 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::qsort \- std::qsort
 
 .SH Synopsis
    Defined in header <cstdlib>
-   void qsort( void *ptr, std::size_t count, std::size_t size, /*compare-pred*/*
-   comp );                                                                         \fB(1)\fP
-   void qsort( void *ptr, std::size_t count, std::size_t size, /*c-compare-pred*/*
-   comp );
-   extern "C++" using /*compare-pred*/ = int(const void*, const void*); //
-   exposition-only                                                                 \fB(2)\fP
-   extern "C" using /*c-compare-pred*/ = int(const void*, const void*); //
-   exposition-only
+   void qsort( void *ptr, std::size_t count, std::size_t size, /*compare-pred*/* comp );   \fB(1)\fP
+   void qsort( void *ptr, std::size_t count, std::size_t size, /*c-compare-pred*/* comp );
+   extern "C++" using /*compare-pred*/ = int(const void*, const void*); // exposition-only \fB(2)\fP
+   extern "C" using /*c-compare-pred*/ = int(const void*, const void*); // exposition-only
 
-   Sorts the given array pointed to by ptr in ascending order. The array contains count
-   elements of size bytes. Function pointed to by comp is used for object comparison.
+   Sorts the given array pointed to by ptr in ascending order. The array contains count elements of size bytes. Function pointed to by comp is used for object comparison.
 
    If comp indicates two elements as equivalent, their order is unspecified.
 
@@ -23,19 +18,14 @@ std::qsort \- std::qsort
    ptr   - pointer to the array to sort
    count - number of elements in the array
    size  - size of each element in the array in bytes
-           comparison function which returns a negative integer value if the first
-           argument is less than the second,
+           comparison function which returns a negative integer value if the first argument is less than the second,
 
-           a positive integer value if the first argument is greater than the second
-           and zero if the arguments are equal.
-           The signature of the comparison function should be equivalent to the
-           following:
+           a positive integer value if the first argument is greater than the second and zero if the arguments are equal.
+           The signature of the comparison function should be equivalent to the following:
    comp  -
            int cmp(const void *a, const void *b);
 
-           The function must not modify the objects passed to it and must return
-           consistent results when called for the same objects, regardless of their
-           positions in the array.
+           The function must not modify the objects passed to it and must return consistent results when called for the same objects, regardless of their positions in the array.
 
            
 
@@ -45,14 +35,11 @@ std::qsort \- std::qsort
 
 .SH Notes
 
-   Despite the name, C++, C, and POSIX standards do not require this function to be
-   implemented using quicksort or make any complexity or stability guarantees.
+   Despite the name, C++, C, and POSIX standards do not require this function to be implemented using quicksort or make any complexity or stability guarantees.
 
-   The type of the elements of the array must be a TrivialType, otherwise the behavior
-   is undefined.
+   The type of the elements of the array must be a TrivialType, otherwise the behavior is undefined.
 
-   The two overloads provided by the C++ standard library are distinct because the
-   types of the parameter comp are distinct (language linkage is part of its type)
+   The two overloads provided by the C++ standard library are distinct because the types of the parameter comp are distinct (language linkage is part of its type)
 
 .SH Example
 

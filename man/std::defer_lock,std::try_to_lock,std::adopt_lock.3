@@ -1,4 +1,4 @@
-.TH std::defer_lock,std::try_to_lock,std::adopt_lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::defer_lock,std::try_to_lock,std::adopt_lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::defer_lock,std::try_to_lock,std::adopt_lock \- std::defer_lock,std::try_to_lock,std::adopt_lock
 
@@ -14,11 +14,9 @@ std::defer_lock,std::try_to_lock,std::adopt_lock \- std::defer_lock,std::try_to_
                                                         \fI(until C++17)\fP
    inline constexpr std::adopt_lock_t adopt_lock {};    \fI(since C++17)\fP
 
-   std::defer_lock, std::try_to_lock and std::adopt_lock are instances of empty struct
-   tag types std::defer_lock_t, std::try_to_lock_t and std::adopt_lock_t respectively.
+   std::defer_lock, std::try_to_lock and std::adopt_lock are instances of empty struct tag types std::defer_lock_t, std::try_to_lock_t and std::adopt_lock_t respectively.
 
-   They are used to specify locking strategies for std::lock_guard, std::unique_lock
-   and std::shared_lock.
+   They are used to specify locking strategies for std::lock_guard, std::unique_lock and std::shared_lock.
 
    Type          Effect(s)
    defer_lock_t  do not acquire ownership of the mutex

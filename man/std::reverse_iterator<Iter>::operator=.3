@@ -1,16 +1,14 @@
-.TH std::reverse_iterator<Iter>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::reverse_iterator<Iter>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::reverse_iterator<Iter>::operator= \- std::reverse_iterator<Iter>::operator=
 
 .SH Synopsis
-   template< class U >                                                    \fI(until C++17)\fP
+   template< class U >                                                         \fI(until C++17)\fP
    reverse_iterator& operator=( const reverse_iterator<U>& other );
-   template< class U >
-   constexpr reverse_iterator& operator=( const reverse_iterator<U>&      \fI(since C++17)\fP
-   other );
+   template< class U >                                                         \fI(since C++17)\fP
+   constexpr reverse_iterator& operator=( const reverse_iterator<U>& other );
 
-   The underlying iterator is assigned the value of the underlying iterator of other,
-   i.e. other.base().
+   The underlying iterator is assigned the value of the underlying iterator of other, i.e. other.base().
 
 .SH Parameters
 

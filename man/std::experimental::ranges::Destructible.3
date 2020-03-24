@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::Destructible 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::Destructible 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::Destructible \- std::experimental::ranges::Destructible
 
@@ -7,17 +7,13 @@ std::experimental::ranges::Destructible \- std::experimental::ranges::Destructib
    template < class T >                                                 (ranges TS)
    concept bool Destructible = std::is_nothrow_destructible<T>::value;
 
-   The concept Destructible specifies the concept of all types whose instances can
-   safely be destroyed at the end of their lifetime (including reference types).
+   The concept Destructible specifies the concept of all types whose instances can safely be destroyed at the end of their lifetime (including reference types).
 
-   There need not be any subsumption relationship between Destructible<T> and
-   std::is_nothrow_destructible<T>::value.
+   There need not be any subsumption relationship between Destructible<T> and std::is_nothrow_destructible<T>::value.
 
 .SH Notes
 
-   Unlike the Destructible named requirement in the main C++ standard, Destructible
-   requires the destructor to be noexcept(true), not merely non-throwing when invoked,
-   and allows reference types and array types.
+   Unlike the Destructible named requirement in the main C++ standard, Destructible requires the destructor to be noexcept(true), not merely non-throwing when invoked, and allows reference types and array types.
 
 .SH See also
 

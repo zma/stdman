@@ -1,4 +1,4 @@
-.TH std::ctype 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype \- std::ctype
 
@@ -7,28 +7,19 @@ std::ctype \- std::ctype
    template< class CharT >
    class ctype;
 
-   Class ctype encapsulates character classification features. All stream input
-   operations performed through std::basic_istream<charT> use the std::ctype<charT> of
-   the locale imbued in the stream to identify whitespace characters for input
-   tokenization. Stream output operations apply std::ctype<charT>::widen() to
-   narrow-character arguments prior to output.
+   Class ctype encapsulates character classification features. All stream input operations performed through std::basic_istream<charT> use the std::ctype<charT> of the locale imbued in the stream to identify whitespace characters for input tokenization. Stream output operations apply std::ctype<charT>::widen() to narrow-character arguments prior to output.
 
    std-ctype-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
-   Two standalone (locale-independent) specializations are provided by the standard
-   library:
+   Two standalone (locale-independent) specializations are provided by the standard library:
 
    Defined in header <locale>
-                       provides narrow character equivalents of the minimal "C" locale
-   std::ctype<char>    classification. This specialization uses table lookup for
-                       character classification
-   std::ctype<wchar_t> provides wide character classification appropriate to the native
-                       character set
+   std::ctype<char>    provides narrow character equivalents of the minimal "C" locale classification. This specialization uses table lookup for character classification
+   std::ctype<wchar_t> provides wide character classification appropriate to the native character set
 
-   In addition, every locale object constructed in a C++ program implements its own
-   (locale-specific) versions of these specializations.
+   In addition, every locale object constructed in a C++ program implements its own (locale-specific) versions of these specializations.
 
 .SH Member types
 
@@ -65,12 +56,10 @@ std::ctype \- std::ctype
 
    do_is       classifies a character or a character sequence
    \fB[virtual]\fP   \fI(virtual protected member function)\fP
-   do_scan_is  locates the first character in a sequence that conforms to given
-   \fB[virtual]\fP   classification
-               \fI(virtual protected member function)\fP
-   do_scan_not locates the first character in a sequence that fails given
-   \fB[virtual]\fP   classification
-               \fI(virtual protected member function)\fP
+   do_scan_is  locates the first character in a sequence that conforms to given classification
+   \fB[virtual]\fP   \fI(virtual protected member function)\fP
+   do_scan_not locates the first character in a sequence that fails given classification
+   \fB[virtual]\fP   \fI(virtual protected member function)\fP
    do_toupper  converts a character or characters to uppercase
    \fB[virtual]\fP   \fI(virtual protected member function)\fP
    do_tolower  converts a character or characters to lowercase
@@ -105,9 +94,8 @@ Inherited from std::ctype_base
    \fB[static]\fP         \fI(public static member constant)\fP
    punct            the value of mask identifying punctuation character classification
    \fB[static]\fP         \fI(public static member constant)\fP
-   xdigit           the value of mask identifying hexadecimal digit character
-   \fB[static]\fP         classification
-                    \fI(public static member constant)\fP
+   xdigit           the value of mask identifying hexadecimal digit character classification
+   \fB[static]\fP         \fI(public static member constant)\fP
    blank            the value of mask identifying blank character classification
    \fB[static]\fP \fI(C++11)\fP \fI(public static member constant)\fP
    alnum            alpha | digit
@@ -117,8 +105,7 @@ Inherited from std::ctype_base
 
 .SH Example
 
-   The following example demonstrates modification of a ctype other than ctype<char> to
-   tokenize a CSV file
+   The following example demonstrates modification of a ctype other than ctype<char> to tokenize a CSV file
 
    
 // Run this code

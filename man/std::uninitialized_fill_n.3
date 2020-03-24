@@ -1,45 +1,35 @@
-.TH std::uninitialized_fill_n 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::uninitialized_fill_n 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::uninitialized_fill_n \- std::uninitialized_fill_n
 
 .SH Synopsis
    Defined in header <memory>
-   template< class ForwardIt, class Size, class T >
-   void uninitialized_fill_n( ForwardIt first, Size count, const          \fI(until C++11)\fP
-   T& value );
-   template< class ForwardIt, class Size, class T >
-   ForwardIt uninitialized_fill_n( ForwardIt first, Size count,   \fB(1)\fP     \fI(since C++11)\fP
-   const T& value );
-   template< class ExecutionPolicy, class ForwardIt, class Size,
-   class T >                                                          \fB(2)\fP \fI(since C++17)\fP
-   ForwardIt uninitialized_fill_n( ExecutionPolicy&& policy,
-   ForwardIt first, Size count, const T& value );
+   template< class ForwardIt, class Size, class T >                                                                 \fI(until C++11)\fP
+   void uninitialized_fill_n( ForwardIt first, Size count, const T& value );
+   template< class ForwardIt, class Size, class T >                                                         \fB(1)\fP     \fI(since C++11)\fP
+   ForwardIt uninitialized_fill_n( ForwardIt first, Size count, const T& value );
+   template< class ExecutionPolicy, class ForwardIt, class Size, class T >                                      \fB(2)\fP \fI(since C++17)\fP
+   ForwardIt uninitialized_fill_n( ExecutionPolicy&& policy, ForwardIt first, Size count, const T& value );
 
-   1) Copies the given value value to the first count elements in an uninitialized
-   memory area beginning at first as if by
+   1) Copies the given value value to the first count elements in an uninitialized memory area beginning at first as if by
 
  for (; n--; ++first)
    ::new (static_cast<void*>(std::addressof(*first)))
       typename std::iterator_traits<ForwardIt>::value_type(x);
 
-   If an exception is thrown during the initialization, the objects already constructed
-   are destroyed in an unspecified order.
-   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate
-   in overload resolution unless
-   std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
+   If an exception is thrown during the initialization, the objects already constructed are destroyed in an unspecified order.
+   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
 
 .SH Parameters
 
-   first            -           the beginning of the range of the elements to
-                                initialize
-   count            -           number of elements to construct
-   value            -           the value to construct the elements with
+   first                 -                 the beginning of the range of the elements to initialize
+   count                 -                 number of elements to construct
+   value                 -                 the value to construct the elements with
 .SH Type requirements
    -
    ForwardIt must meet the requirements of LegacyForwardIterator.
    -
-   No increment, assignment, comparison, or indirection through valid instances of
-   ForwardIt may throw exceptions.
+   No increment, assignment, comparison, or indirection through valid instances of ForwardIt may throw exceptions.
 
 .SH Return value
 
@@ -52,12 +42,9 @@ std::uninitialized_fill_n \- std::uninitialized_fill_n
 
 .SH Exceptions
 
-   The overload with a template parameter named ExecutionPolicy reports errors as
-   follows:
+   The overload with a template parameter named ExecutionPolicy reports errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception
-       and ExecutionPolicy is one of the standard policies, std::terminate is called.
-       For any other ExecutionPolicy, the behavior is implementation-defined.
+     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
      * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 .SH Possible implementation
@@ -114,6 +101,5 @@ std::uninitialized_fill_n \- std::uninitialized_fill_n
 
 .SH See also
 
-                      copies an object to an uninitialized area of memory, defined by a
-   uninitialized_fill range
+   uninitialized_fill copies an object to an uninitialized area of memory, defined by a range
                       \fI(function template)\fP

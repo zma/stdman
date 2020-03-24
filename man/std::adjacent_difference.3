@@ -1,4 +1,4 @@
-.TH std::adjacent_difference 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::adjacent_difference 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::adjacent_difference \- std::adjacent_difference
 
@@ -6,56 +6,38 @@ std::adjacent_difference \- std::adjacent_difference
    Defined in header <numeric>
    template< class InputIt, class OutputIt >
 
-   OutputIt adjacent_difference( InputIt first,             \fI(until C++20)\fP
-   InputIt last,
+   OutputIt adjacent_difference( InputIt first, InputIt last,                                           \fI(until C++20)\fP
 
    OutputIt d_first );
    template< class InputIt, class OutputIt >
 
-   constexpr OutputIt adjacent_difference( InputIt          \fI(since C++20)\fP
-   first, InputIt last,
+   constexpr OutputIt adjacent_difference( InputIt first, InputIt last,                                 \fI(since C++20)\fP
 
    OutputIt d_first );
-   template< class ExecutionPolicy, class
-   ForwardIt1, class ForwardIt2 >
+   template< class ExecutionPolicy, class ForwardIt1, class ForwardIt2 >
 
-   ForwardIt2 adjacent_difference(                      \fB(2)\fP \fI(since C++17)\fP
-   ExecutionPolicy&& policy, ForwardIt1 first,
-   ForwardIt1 last,
+   ForwardIt2 adjacent_difference( ExecutionPolicy&& policy, ForwardIt1 first, ForwardIt1 last,     \fB(2)\fP \fI(since C++17)\fP
 
-   ForwardIt2 d_first );
-   template< class InputIt, class OutputIt, class
-   BinaryOperation >                                \fB(1)\fP
+   ForwardIt2 d_first );                                                                        \fB(1)\fP
+   template< class InputIt, class OutputIt, class BinaryOperation >
 
-   OutputIt adjacent_difference( InputIt first,                           \fI(until C++20)\fP
-   InputIt last,
+   OutputIt adjacent_difference( InputIt first, InputIt last,                                                         \fI(until C++20)\fP
 
    OutputIt d_first, BinaryOperation op );
-   template< class InputIt, class OutputIt, class
-   BinaryOperation >
+   template< class InputIt, class OutputIt, class BinaryOperation >
 
-   constexpr OutputIt adjacent_difference( InputIt                        \fI(since C++20)\fP
-   first, InputIt last,                                 \fB(3)\fP
+   constexpr OutputIt adjacent_difference( InputIt first, InputIt last,                             \fB(3)\fP               \fI(since C++20)\fP
 
    OutputIt d_first, BinaryOperation op );
-   template< class ExecutionPolicy, class
-   ForwardIt1, class ForwardIt2, class
-   BinaryOperation >
+   template< class ExecutionPolicy, class ForwardIt1, class ForwardIt2, class BinaryOperation >
 
-   ForwardIt2 adjacent_difference(                          \fB(4)\fP           \fI(since C++17)\fP
-   ExecutionPolicy&& policy, ForwardIt1 first,
-   ForwardIt1 last,
+   ForwardIt2 adjacent_difference( ExecutionPolicy&& policy, ForwardIt1 first, ForwardIt1 last,         \fB(4)\fP           \fI(since C++17)\fP
 
    ForwardIt2 d_first, BinaryOperation op );
 
-   Computes the differences between the second and the first of each adjacent pair of
-   elements of the range [first, last) and writes them to the range beginning at
-   d_first + 1. An unmodified copy of *first is written to *d_first.
+   Computes the differences between the second and the first of each adjacent pair of elements of the range [first, last) and writes them to the range beginning at d_first + 1. An unmodified copy of *first is written to *d_first.
 
-   1,3) First, creates an accumulator acc whose type is InputIt's value type,
-   initializes it with *first, and assigns the result to *d_first. Then, for every
-   iterator i in [first + 1, last) in order, creates an object val whose type is
-   InputIt's value type, initializes it with *i, computes
+   1,3) First, creates an accumulator acc whose type is InputIt's value type, initializes it with *first, and assigns the result to *d_first. Then, for every iterator i in [first + 1, last) in order, creates an object val whose type is InputIt's value type, initializes it with *i, computes
    val - acc
    \fI(until C++20)\fP
    val - std::move(acc)
@@ -63,14 +45,9 @@ std::adjacent_difference \- std::adjacent_difference
    op(val, acc)
    \fI(until C++20)\fP
    op(val, std::move(acc))
-   \fI(since C++20)\fP (overload \fB(3)\fP), assigns the result to *(d_first + (i - first)), and
-   move assigns from val to acc.
+   \fI(since C++20)\fP (overload \fB(3)\fP), assigns the result to *(d_first + (i - first)), and move assigns from val to acc.
    first may be equal to d_first.
-   2,4) Performs *d_first = *first;. For every d in [1, last - first - 1], assigns
-   *(first + d) - *(first + d - 1) (overload \fB(2)\fP) or op(*(first + d), *(first + d - 1))
-   (overload \fB(4)\fP) to *(d_first + d). This is executed according to policy. This
-   overload only participates in overload resolution if
-   std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true.
+   2,4) Performs *d_first = *first;. For every d in [1, last - first - 1], assigns *(first + d) - *(first + d - 1) (overload \fB(2)\fP) or op(*(first + d), *(first + d - 1)) (overload \fB(4)\fP) to *(d_first + d). This is executed according to policy. This overload only participates in overload resolution if std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true.
    The behavior is undefined if the input and output ranges overlap in any way.
 
    Equivalent operation:
@@ -81,41 +58,33 @@ std::adjacent_difference \- std::adjacent_difference
  *(d_first+3) = *(first+3) - *(first+2);
  ...
 
-   op must not have side effects.                                         \fI(until C++11)\fP
-   op must not invalidate any iterators, including the end iterators, or  \fI(since C++11)\fP
-   modify any elements of the ranges involved.
+   op must not have side effects.                                                                                    \fI(until C++11)\fP
+   op must not invalidate any iterators, including the end iterators, or modify any elements of the ranges involved. \fI(since C++11)\fP
 
 .SH Parameters
 
-   first, last  -  the range of elements
-   d_first      -  the beginning of the destination range
-   policy       -  the execution policy to use. See execution policy for details.
-                   binary operation function object that will be applied.
+   first, last - the range of elements
+   d_first     - the beginning of the destination range
+   policy      - the execution policy to use. See execution policy for details.
+                 binary operation function object that will be applied.
 
-                   The signature of the function should be equivalent to the following:
+                 The signature of the function should be equivalent to the following:
+   op          -
+                 Ret fun(const Type1 &a, const Type2 &b);
 
-                   Ret fun(const Type1 &a, const Type2 &b);
-   op           -
-                   The signature does not need to have const &.
-                   The types Type1 and Type2 must be such that an object of type
-                   iterator_traits<InputIt>::value_type can be implicitly converted to
-                   both of them. The type Ret must be such that an object of type
-                   OutputIt can be dereferenced and assigned a value of type Ret. 
+                 The signature does not need to have const &.
+                 The types Type1 and Type2 must be such that an object of type iterator_traits<InputIt>::value_type can be implicitly converted to both of them. The type Ret must be such that an object of type OutputIt can be dereferenced and assigned a value of type Ret. 
 .SH Type requirements
    -
-   InputIt must meet the requirements of LegacyInputIterator. InputIt's value type must
-   be MoveAssignable and constructible from the type of *first
+   InputIt must meet the requirements of LegacyInputIterator. InputIt's value type must be MoveAssignable and constructible from the type of *first
    -
-   OutputIt must meet the requirements of LegacyOutputIterator. both acc (the
-   accumulated value) and the result of
+   OutputIt must meet the requirements of LegacyOutputIterator. both acc (the accumulated value) and the result of
    val - acc or op(val, acc)
    \fI(until C++20)\fP
    val - std::move(acc) or op(val, std::move(acc))
    \fI(since C++20)\fP must be writable to OutputIt
    -
-   ForwardIt1, ForwardIt2 must meet the requirements of LegacyForwardIterator. The
-   results of *first, *first - *first (for \fB(2)\fP) and op(*first, *first) (for \fB(4)\fP) must
-   be writable to ForwardIt2.
+   ForwardIt1, ForwardIt2 must meet the requirements of LegacyForwardIterator. The results of *first, *first - *first (for \fB(2)\fP) and op(*first, *first) (for \fB(4)\fP) must be writable to ForwardIt2.
 
 .SH Return value
 
@@ -131,12 +100,9 @@ std::adjacent_difference \- std::adjacent_difference
 
 .SH Exceptions
 
-   The overloads with a template parameter named ExecutionPolicy report errors as
-   follows:
+   The overloads with a template parameter named ExecutionPolicy report errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception
-       and ExecutionPolicy is one of the standard policies, std::terminate is called.
-       For any other ExecutionPolicy, the behavior is implementation-defined.
+     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
      * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 .SH Possible implementation

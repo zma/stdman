@@ -1,72 +1,46 @@
-.TH std::filesystem::path::path 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::path::path 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::path::path \- std::filesystem::path::path
 
 .SH Synopsis
-   path() noexcept;                                                   \fB(1)\fP \fI(since C++17)\fP
-   path( const path& p );                                             \fB(2)\fP \fI(since C++17)\fP
-   path( path&& p ) noexcept;                                         \fB(3)\fP \fI(since C++17)\fP
-   path( string_type&& source, format fmt = auto_format );            \fB(4)\fP \fI(since C++17)\fP
-   template< class Source >                                           \fB(5)\fP \fI(since C++17)\fP
+   path() noexcept;                                                                       \fB(1)\fP \fI(since C++17)\fP
+   path( const path& p );                                                                 \fB(2)\fP \fI(since C++17)\fP
+   path( path&& p ) noexcept;                                                             \fB(3)\fP \fI(since C++17)\fP
+   path( string_type&& source, format fmt = auto_format );                                \fB(4)\fP \fI(since C++17)\fP
+   template< class Source >                                                               \fB(5)\fP \fI(since C++17)\fP
    path( const Source& source, format fmt = auto_format );
-   template< class InputIt >                                          \fB(6)\fP \fI(since C++17)\fP
+   template< class InputIt >                                                              \fB(6)\fP \fI(since C++17)\fP
    path( InputIt first, InputIt last, format fmt = auto_format );
-   template< class Source >
-   path( const Source& source, const std::locale& loc, format fmt =   \fB(7)\fP \fI(since C++17)\fP
-   auto_format );
-   template< class InputIt >
-   path( InputIt first, InputIt last, const std::locale& loc, format  \fB(8)\fP \fI(since C++17)\fP
-   fmt = auto_format );
+   template< class Source >                                                               \fB(7)\fP \fI(since C++17)\fP
+   path( const Source& source, const std::locale& loc, format fmt = auto_format );
+   template< class InputIt >                                                              \fB(8)\fP \fI(since C++17)\fP
+   path( InputIt first, InputIt last, const std::locale& loc, format fmt = auto_format );
 
    Constructs a new path object.
 
    1) Constructs an empty path.
-   2) Copy constructor. Constructs a path whose pathname, in both native and generic
-   formats, is the same as that of p
-   3) Move constructor. Constructs a path whose pathname, in both native and generic
-   formats, is the same as that of p, p is left in valid but unspecified state.
-   4-6) Constructs the path from a character sequence (format interpreted as specified
-   by fmt) provided by source (4,5), which is a pointer or an input iterator to a
-   null-terminated character/wide character sequence, an std::basic_string or an
-   std::basic_string_view, or represented as a pair of input iterators [first, last)
-   \fB(6)\fP. Any of the character types char,
+   2) Copy constructor. Constructs a path whose pathname, in both native and generic formats, is the same as that of p
+   3) Move constructor. Constructs a path whose pathname, in both native and generic formats, is the same as that of p, p is left in valid but unspecified state.
+   4-6) Constructs the path from a character sequence (format interpreted as specified by fmt) provided by source (4,5), which is a pointer or an input iterator to a null-terminated character/wide character sequence, an std::basic_string or an std::basic_string_view, or represented as a pair of input iterators [first, last) \fB(6)\fP. Any of the character types char,
    char8_t,
-   \fI(since C++20)\fPchar16_t, char32_t, wchar_t is allowed, and the method of conversion to
-   the native character set depends on the character type used by source
+   \fI(since C++20)\fPchar16_t, char32_t, wchar_t is allowed, and the method of conversion to the native character set depends on the character type used by source
 
-     * If the source character type is char, the encoding of the source is assumed to
-       be the native narrow encoding (so no conversion takes place on POSIX systems)
+              * If the source character type is char, the encoding of the source is assumed to be the native narrow encoding (so no conversion takes place on POSIX systems)
 
-     * If the source character type is char8_t, conversion from UTF-8 to  \fI(since C++20)\fP
-       native filesystem encoding is used.
+         * If the source character type is char8_t, conversion from UTF-8 to native filesystem encoding is used.   \fI(since C++20)\fP
 
-     * If the source character type is char16_t, conversion from UTF-16 to native
-       filesystem encoding is used.
-     * If the source character type is char32_t, conversion from UTF-32 to native
-       filesystem encoding is used.
-     * If the source character type is wchar_t, the input is assumed to be the native
-       wide encoding (so no conversion takes places on Windows)
+              * If the source character type is char16_t, conversion from UTF-16 to native filesystem encoding is used.
+              * If the source character type is char32_t, conversion from UTF-32 to native filesystem encoding is used.
+              * If the source character type is wchar_t, the input is assumed to be the native wide encoding (so no conversion takes places on Windows)
 
-   7-8) Constructs the path from a character sequence (format interpreted as specified
-   by fmt) provided by source \fB(6)\fP, which is a pointer or an input iterator to a
-   null-terminated character sequence, an std::string, an std::basic_string_view, or
-   represented as a pair of input iterators [first, last) (\fB(7)\fP). The only character
-   type allowed is char. Uses loc to perform the character encoding conversion. If
-   value_type is wchar_t, converts from to wide using the std::codecvt<wchar_t, char,
-   std::mbstate_t> facet of loc. Otherwise, first converts to wide using the
-   std::codecvt<wchar_t, char, std::mbstate_t> facet and then converts to filesystem
-   native character type using std::codecvt<wchar_t,value_type> facet of loc.
+   7-8) Constructs the path from a character sequence (format interpreted as specified by fmt) provided by source \fB(6)\fP, which is a pointer or an input iterator to a null-terminated character sequence, an std::string, an std::basic_string_view, or represented as a pair of input iterators [first, last) (\fB(7)\fP). The only character type allowed is char. Uses loc to perform the character encoding conversion. If value_type is wchar_t, converts from to wide using the std::codecvt<wchar_t, char, std::mbstate_t> facet of loc. Otherwise, first converts to wide using the std::codecvt<wchar_t, char, std::mbstate_t> facet and then converts to filesystem native character type using std::codecvt<wchar_t,value_type> facet of loc.
 
 .SH Parameters
 
    p           - a path to copy
-                 std::basic_string, std::basic_string_view, pointer to a
-   source      - null-terminated character string, or input iterator with a character
-                 value type that points to a null-terminated character sequence (the
-                 character type must be char for overload \fB(6)\fP)
+   source      - std::basic_string, std::basic_string_view, pointer to a null-terminated character string, or input iterator with a character value type that points to a null-terminated character sequence (the character type must be char for overload \fB(6)\fP)
    first, last - pair of LegacyInputIterators that specify a character sequence
-   fmt         - enumerator of type path::format which specifies how pathname format is
-                 to be interpreted
+   fmt         - enumerator of type path::format which specifies how pathname format is to be interpreted
    loc         - locale that defines encoding conversion to use
 .SH Type requirements
    -
@@ -84,9 +58,8 @@ std::filesystem::path::path \- std::filesystem::path::path
 
 .SH Notes
 
-   For portable pathname generation from Unicode strings, see u8path.     \fI(until C++20)\fP
-   path constructor supports creation from UTF-8 string when the source   \fI(since C++20)\fP
-   is a sequence of char8_t.
+   For portable pathname generation from Unicode strings, see u8path.                             \fI(until C++20)\fP
+   path constructor supports creation from UTF-8 string when the source is a sequence of char8_t. \fI(since C++20)\fP
 
 .SH Example
 

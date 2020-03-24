@@ -1,4 +1,4 @@
-.TH std::ctype<CharT>::narrow,do_narrow 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype<CharT>::narrow,do_narrow 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype<CharT>::narrow,do_narrow \- std::ctype<CharT>::narrow,do_narrow
 
@@ -19,25 +19,15 @@ std::ctype<CharT>::narrow,do_narrow \- std::ctype<CharT>::narrow,do_narrow
 
    char dflt, char* dst ) const;
 
-   1,2) Public member function, calls the protected virtual member function do_narrow
-   of the most derived class.
-   3) Converts the (possibly wide) character c to multibyte representation if the
-   character can be represented with a single byte (for example, ASCII characters in
-   UTF-8 encoding are single bytes). Returns dflt if such conversion does not exist.
-   4) For every character in the character array [beg, end), writes narrowed characters
-   (or dflt whenever narrowing fails) to the successive locations in the character
-   array pointed to by dst.
+   1,2) Public member function, calls the protected virtual member function do_narrow of the most derived class.
+   3) Converts the (possibly wide) character c to multibyte representation if the character can be represented with a single byte (for example, ASCII characters in UTF-8 encoding are single bytes). Returns dflt if such conversion does not exist.
+   4) For every character in the character array [beg, end), writes narrowed characters (or dflt whenever narrowing fails) to the successive locations in the character array pointed to by dst.
 
-   Narrowing is always successful and is always reversible (by calling widen()) for all
-   characters from the basic source character set (latin letters, digits, and
-   punctuations required to write a C++ program)
+   Narrowing is always successful and is always reversible (by calling widen()) for all characters from the basic source character set (latin letters, digits, and punctuations required to write a C++ program)
 
-   Narrowing, if successful, preserves all character classification categories known to
-   is().
+   Narrowing, if successful, preserves all character classification categories known to is().
 
-   Narrowing of any digit character guarantees that if the result is subtracted from
-   the character literal '0', the difference equals the digit value of the original
-   character.
+   Narrowing of any digit character guarantees that if the result is subtracted from the character literal '0', the difference equals the digit value of the original character.
 
 .SH Parameters
 

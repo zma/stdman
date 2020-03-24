@@ -1,36 +1,31 @@
-.TH std::destroy_n 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::destroy_n 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::destroy_n \- std::destroy_n
 
 .SH Synopsis
    Defined in header <memory>
-   template< class ForwardIt, class Size >                            \fB(1)\fP \fI(since C++17)\fP
+   template< class ForwardIt, class Size >                                   \fB(1)\fP \fI(since C++17)\fP
    ForwardIt destroy_n( ForwardIt first, Size n );
-   template< class ExecutionPolicy, class ForwardIt, class Size >
-   ForwardIt destroy_n( ExecutionPolicy&& policy, ForwardIt first,    \fB(2)\fP \fI(since C++17)\fP
-   Size n );
+   template< class ExecutionPolicy, class ForwardIt, class Size >            \fB(2)\fP \fI(since C++17)\fP
+   ForwardIt destroy_n( ExecutionPolicy&& policy, ForwardIt first, Size n );
 
    1) Destroys the n objects in the range starting at first, as if by
 
  for (; n > 0; (void) ++first, --n)
    std::destroy_at(std::addressof(*first));
 
-   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate
-   in overload resolution unless
-   std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
+   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
 
 .SH Parameters
 
-   first             -          the beginning of the range of elements to destroy
-   n                 -          the number of elements to destroy
-   policy            -          the execution policy to use. See execution policy for
-                                details.
+   first                 -              the beginning of the range of elements to destroy
+   n                     -              the number of elements to destroy
+   policy                -              the execution policy to use. See execution policy for details.
 .SH Type requirements
    -
    ForwardIt must meet the requirements of LegacyForwardIterator.
    -
-   No increment, assignment, comparison, or indirection through valid instances of
-   ForwardIt may throw exceptions.
+   No increment, assignment, comparison, or indirection through valid instances of ForwardIt may throw exceptions.
 
 .SH Return value
 
@@ -42,12 +37,9 @@ std::destroy_n \- std::destroy_n
 
 .SH Exceptions
 
-   The overload with a template parameter named ExecutionPolicy reports errors as
-   follows:
+   The overload with a template parameter named ExecutionPolicy reports errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception
-       and ExecutionPolicy is one of the standard policies, std::terminate is called.
-       For any other ExecutionPolicy, the behavior is implementation-defined.
+     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
      * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 .SH Possible implementation
@@ -62,8 +54,7 @@ std::destroy_n \- std::destroy_n
 
 .SH Example
 
-   The following example demonstrates how to use destroy_n to destroy a contiguous
-   sequence of elements.
+   The following example demonstrates how to use destroy_n to destroy a contiguous sequence of elements.
 
    
 // Run this code

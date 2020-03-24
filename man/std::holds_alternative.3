@@ -1,15 +1,13 @@
-.TH std::holds_alternative 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::holds_alternative 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::holds_alternative \- std::holds_alternative
 
 .SH Synopsis
    Defined in header <variant>
-   template <class T, class... Types>
-   constexpr bool holds_alternative(const std::variant<Types...>& v)      \fI(since C++17)\fP
-   noexcept;
+   template <class T, class... Types>                                           \fI(since C++17)\fP
+   constexpr bool holds_alternative(const std::variant<Types...>& v) noexcept;
 
-   Checks if the variant v holds the alternative T. The call is ill-formed if T does
-   not appear exactly once in Types...
+   Checks if the variant v holds the alternative T. The call is ill-formed if T does not appear exactly once in Types...
 
 .SH Parameters
 
@@ -44,9 +42,7 @@ std::holds_alternative \- std::holds_alternative
 
 .SH See also
 
-                          returns the zero-based index of the alternative held by the
-   index                  variant
+   index                  returns the zero-based index of the alternative held by the variant
                           \fI(public member function)\fP
-   std::get(std::variant) reads the value of the variant given the index or the type
-   \fI(C++17)\fP                (if the type is unique), throws on error
-                          \fI(function template)\fP
+   std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
+   \fI(C++17)\fP                \fI(function template)\fP

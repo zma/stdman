@@ -1,4 +1,4 @@
-.TH std::mutex::mutex 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::mutex::mutex 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::mutex::mutex \- std::mutex::mutex
 
@@ -6,8 +6,7 @@ std::mutex::mutex \- std::mutex::mutex
    constexpr mutex() noexcept;     \fB(1)\fP \fI(since C++11)\fP
    mutex( const mutex& ) = delete; \fB(2)\fP \fI(since C++11)\fP
 
-   1) Constructs the mutex. The mutex is in unlocked state after the constructor
-   completes.
+   1) Constructs the mutex. The mutex is in unlocked state after the constructor completes.
    2) Copy constructor is deleted.
 
 .SH Parameters
@@ -16,8 +15,6 @@ std::mutex::mutex \- std::mutex::mutex
 
 .SH Notes
 
-   Because the default constructor is constexpr, static mutexes are initialized as part
-   of static non-local initialization, before any dynamic non-local initialization
-   begins. This makes it safe to lock a mutex in a constructor of any static object.
+   Because the default constructor is constexpr, static mutexes are initialized as part of static non-local initialization, before any dynamic non-local initialization begins. This makes it safe to lock a mutex in a constructor of any static object.
 
 .SH See also

@@ -1,92 +1,68 @@
-.TH std::is_permutation 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_permutation 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_permutation \- std::is_permutation
 
 .SH Synopsis
    Defined in header <algorithm>
-   template< class ForwardIt1, class ForwardIt2
-   >                                                    (since
-                                                        C++11)
-   bool is_permutation( ForwardIt1 first1,              (until
-   ForwardIt1 last1,                                    C++20)
+   template< class ForwardIt1, class ForwardIt2 >
+                                                                                 \fI(since C++11)\fP
+   bool is_permutation( ForwardIt1 first1, ForwardIt1 last1,                     \fI(until C++20)\fP
 
    ForwardIt2 first2 );
-   template< class ForwardIt1, class ForwardIt2
-   >
-                                                        (since
-   constexpr bool is_permutation( ForwardIt1            C++20)
-   first1, ForwardIt1 last1,
+   template< class ForwardIt1, class ForwardIt2 >
+
+   constexpr bool is_permutation( ForwardIt1 first1, ForwardIt1 last1,           \fI(since C++20)\fP
 
    ForwardIt2 first2 );
-   template< class ForwardIt1, class
-   ForwardIt2, class BinaryPredicate >                          (since
-                                                                C++11)
-   bool is_permutation( ForwardIt1 first1,                      (until
-   ForwardIt1 last1,                                            C++20)
+   template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+                                                                                               \fI(since C++11)\fP
+   bool is_permutation( ForwardIt1 first1, ForwardIt1 last1,                                   \fI(until C++20)\fP
 
    ForwardIt2 first2, BinaryPredicate p );
-   template< class ForwardIt1, class
-   ForwardIt2, class BinaryPredicate >
-                                                                (since
-   constexpr bool is_permutation( ForwardIt1                    C++20)
-   first1, ForwardIt1 last1,
+   template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+
+   constexpr bool is_permutation( ForwardIt1 first1, ForwardIt1 last1,                         \fI(since C++20)\fP
 
    ForwardIt2 first2, BinaryPredicate p );
-   template< class ForwardIt1, class ForwardIt2 \fB(1)\fP
-   >                                                                    (since
-                                                                        C++14)
-   bool is_permutation( ForwardIt1 first1,                              (until
-   ForwardIt1 last1,                                                    C++20)
+   template< class ForwardIt1, class ForwardIt2 >                        \fB(1)\fP
+                                                                                                             \fI(since C++14)\fP
+   bool is_permutation( ForwardIt1 first1, ForwardIt1 last1,                                                 \fI(until C++20)\fP
 
    ForwardIt2 first2, ForwardIt2 last2 );
-   template< class ForwardIt1, class ForwardIt2     \fB(2)\fP
-   >
-                                                                        (since
-   constexpr bool is_permutation( ForwardIt1                            C++20)
-   first1, ForwardIt1 last1,
+   template< class ForwardIt1, class ForwardIt2 >                            \fB(2)\fP
+
+   constexpr bool is_permutation( ForwardIt1 first1, ForwardIt1 last1,                                       \fI(since C++20)\fP
 
    ForwardIt2 first2, ForwardIt2 last2 );
-   template< class ForwardIt1, class                    \fB(3)\fP
-   ForwardIt2, class BinaryPredicate >
-                                                                                (since
-   bool is_permutation( ForwardIt1 first1,                                      C++14)
-   ForwardIt1 last1,                                                            (until
-   ForwardIt2 first2, ForwardIt2 last2,                                         C++20)
+   template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >         \fB(3)\fP
 
-   BinaryPredicate p );                                         \fB(4)\fP
-   template< class ForwardIt1, class
-   ForwardIt2, class BinaryPredicate >
+   bool is_permutation( ForwardIt1 first1, ForwardIt1 last1,                                                               \fI(since C++14)\fP
+   ForwardIt2 first2, ForwardIt2 last2,                                                                                    \fI(until C++20)\fP
 
-   constexpr bool is_permutation( ForwardIt1                                    (since
-   first1, ForwardIt1 last1,                                                    C++20)
+   BinaryPredicate p );                                                                        \fB(4)\fP
+   template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+
+   constexpr bool is_permutation( ForwardIt1 first1, ForwardIt1 last1,                                                     \fI(since C++20)\fP
    ForwardIt2 first2, ForwardIt2 last2,
 
    BinaryPredicate p );
 
-   Returns true if there exists a permutation of the elements in the range [first1,
-   last1) that makes that range equal to the range [first2,last2), where last2 denotes
-   first2 + (last1 - first1) if it was not given.
+   Returns true if there exists a permutation of the elements in the range [first1, last1) that makes that range equal to the range [first2,last2), where last2 denotes first2 + (last1 - first1) if it was not given.
 
-   1,3) Elements are compared using operator==. The behavior is undefined if it is not
-   an equivalence relation.
-   2,4) Elements are compared using the given binary predicate p. The behavior is
-   undefined if it is not an equivalence relation.
+   1,3) Elements are compared using operator==. The behavior is undefined if it is not an equivalence relation.
+   2,4) Elements are compared using the given binary predicate p. The behavior is undefined if it is not an equivalence relation.
 
 .SH Parameters
 
    first1, last1 - the range of elements to compare
    first2, last2 - the second range to compare
-                   binary predicate which returns true if the elements should be
-                   treated as equal.
+                   binary predicate which returns true if the elements should be treated as equal.
 
-                   The signature of the predicate function should be equivalent to the
-                   following:
+                   The signature of the predicate function should be equivalent to the following:
    p             -
                    bool pred(const Type &a, const Type &b);
 
-                   Type should be the value type of both ForwardIt1 and ForwardIt2. The
-                   signature does not need to have const &, but the function must not
-                   modify the objects passed to it. 
+                   Type should be the value type of both ForwardIt1 and ForwardIt2. The signature does not need to have const &, but the function must not modify the objects passed to it. 
 .SH Type requirements
    -
    ForwardIt1, ForwardIt2 must meet the requirements of LegacyForwardIterator.
@@ -99,12 +75,9 @@ std::is_permutation \- std::is_permutation
 
 .SH Complexity
 
-   At most O(N^2) applications of the predicate, or exactly N if the sequences are
-   already equal, where N=std::distance(first1, last1).
+   At most O(N^2) applications of the predicate, or exactly N if the sequences are already equal, where N=std::distance(first1, last1).
 
-   However if ForwardIt1 and ForwardIt2 meet the requirements of
-   LegacyRandomAccessIterator and std::distance(first1, last1) != std::distance(first2,
-   last2) no applications of the predicate are made.
+   However if ForwardIt1 and ForwardIt2 meet the requirements of LegacyRandomAccessIterator and std::distance(first1, last1) != std::distance(first2, last2) no applications of the predicate are made.
 
 .SH Possible implementation
 
@@ -160,9 +133,7 @@ std::is_permutation \- std::is_permutation
 
 .SH See also
 
-                    generates the next greater lexicographic permutation of a range of
-   next_permutation elements
+   next_permutation generates the next greater lexicographic permutation of a range of elements
                     \fI(function template)\fP
-                    generates the next smaller lexicographic permutation of a range of
-   prev_permutation elements
+   prev_permutation generates the next smaller lexicographic permutation of a range of elements
                     \fI(function template)\fP

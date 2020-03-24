@@ -1,4 +1,4 @@
-.TH std::erase,std::erase_if(std::forward_list) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::erase,std::erase_if(std::forward_list) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::erase,std::erase_if(std::forward_list) \- std::erase,std::erase_if(std::forward_list)
 
@@ -9,10 +9,8 @@ std::erase,std::erase_if(std::forward_list) \- std::erase,std::erase_if(std::for
    template< class T, class Alloc, class Pred >               \fB(2)\fP \fI(since C++20)\fP
    void erase_if(std::forward_list<T,Alloc>& c, Pred pred);
 
-   1) Erases all elements that compare equal to value from the container. Equivalent to
-   c.remove_if([&](auto& elem) { return elem == value; });
-   2) Erases all elements that satisfy the predicate pred from the container.
-   Equivalent to c.remove_if(pred);
+   1) Erases all elements that compare equal to value from the container. Equivalent to c.remove_if([&](auto& elem) { return elem == value; });
+   2) Erases all elements that satisfy the predicate pred from the container. Equivalent to c.remove_if(pred);
 
 .SH Parameters
 
@@ -20,9 +18,7 @@ std::erase,std::erase_if(std::forward_list) \- std::erase,std::erase_if(std::for
    value - value to be removed
            unary predicate which returns true if the element should be erased.
 
-           The expression pred(v) must be convertible to bool for every argument v of
-   pred  - type (possibly const) T, regardless of value category, and must not modify
-           v. Thus, a parameter type of T&is not allowed
+   pred  - The expression pred(v) must be convertible to bool for every argument v of type (possibly const) T, regardless of value category, and must not modify v. Thus, a parameter type of T&is not allowed
            , nor is T unless for T a move is equivalent to a copy
            \fI(since C++11)\fP. 
 
@@ -37,8 +33,7 @@ std::erase,std::erase_if(std::forward_list) \- std::erase,std::erase_if(std::for
 
 .SH Notes
 
-   Unlike std::forward_list::remove, erase accepts heterogenous types and does not
-   force a conversion to the container's value type before invoking the == operator.
+   Unlike std::forward_list::remove, erase accepts heterogenous types and does not force a conversion to the container's value type before invoking the == operator.
 
 .SH See also
 

@@ -1,4 +1,4 @@
-.TH std::ptr_fun 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ptr_fun 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ptr_fun \- std::ptr_fun
 
@@ -15,17 +15,13 @@ std::ptr_fun \- std::ptr_fun
 
    ptr_fun( Result (*f)(Arg1, Arg2) );
 
-   Creates a function wrapper object (either std::pointer_to_unary_function or
-   std::pointer_to_binary_function), deducing the target type from the template
-   arguments.
+   Creates a function wrapper object (either std::pointer_to_unary_function or std::pointer_to_binary_function), deducing the target type from the template arguments.
 
    1) Effectively calls std::pointer_to_unary_function<Arg,Result>(f).
 
    2) Effectively calls std::pointer_to_binary_function<Arg1,Arg2,Result>(f).
 
-   This function and the related types are deprecated as of C++11 in favor of the more
-   general std::function and std::ref, both of which create callable adapter-compatible
-   function objects from plain functions.
+   This function and the related types are deprecated as of C++11 in favor of the more general std::function and std::ref, both of which create callable adapter-compatible function objects from plain functions.
 
 .SH Parameters
 

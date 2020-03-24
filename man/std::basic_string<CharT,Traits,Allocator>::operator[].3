@@ -1,4 +1,4 @@
-.TH std::basic_string<CharT,Traits,Allocator>::operator[] 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::operator[] 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::operator[] \- std::basic_string<CharT,Traits,Allocator>::operator[]
 
@@ -6,17 +6,13 @@ std::basic_string<CharT,Traits,Allocator>::operator[] \- std::basic_string<CharT
    reference operator[]( size_type pos );             \fB(1)\fP
    const_reference operator[]( size_type pos ) const; \fB(2)\fP
 
-   Returns a reference to the character at specified location pos. No bounds checking
-   is performed. If pos > size(), the behavior is undefined.
+   Returns a reference to the character at specified location pos. No bounds checking is performed. If pos > size(), the behavior is undefined.
 
-   1) If pos == size(), the behavior is undefined.
-   2) If pos == size(), a reference to the character with value CharT()   \fI(until C++11)\fP
-   (the null character) is returned.
-   If pos == size(), a reference to the character with value CharT() (the
-   null character) is returned.
-                                                                          \fI(since C++11)\fP
-   For the first (non-const) version, the behavior is undefined if this
-   character is modified to any value other than CharT() .
+   1) If pos == size(), the behavior is undefined.                                                                              \fI(until C++11)\fP
+   2) If pos == size(), a reference to the character with value CharT() (the null character) is returned.
+   If pos == size(), a reference to the character with value CharT() (the null character) is returned.
+                                                                                                                                \fI(since C++11)\fP
+   For the first (non-const) version, the behavior is undefined if this character is modified to any value other than CharT() .
 
 .SH Parameters
 

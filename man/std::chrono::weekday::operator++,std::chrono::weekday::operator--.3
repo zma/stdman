@@ -1,4 +1,4 @@
-.TH std::chrono::weekday::operator++,std::chrono::weekday::operator-- 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::weekday::operator++,std::chrono::weekday::operator-- 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::weekday::operator++,std::chrono::weekday::operator-- \- std::chrono::weekday::operator++,std::chrono::weekday::operator--
 
@@ -8,8 +8,7 @@ std::chrono::weekday::operator++,std::chrono::weekday::operator-- \- std::chrono
    constexpr std::chrono::weekday& operator--() noexcept;   \fB(3)\fP \fI(since C++20)\fP
    constexpr std::chrono::weekday operator--(int) noexcept; \fB(4)\fP \fI(since C++20)\fP
 
-   Adds or subtracts 1 from the weekday value, reducing the result modulo 7 to an
-   integer in the range [0, 6].
+   Adds or subtracts 1 from the weekday value, reducing the result modulo 7 to an integer in the range [0, 6].
 
    1-2) Performs *this += std::chrono::days{1};
    3-4) Performs *this -= std::chrono::days{1};

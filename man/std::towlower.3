@@ -1,4 +1,4 @@
-.TH std::towlower 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::towlower 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::towlower \- std::towlower
 
@@ -8,8 +8,7 @@ std::towlower \- std::towlower
 
    Converts the given wide character to lowercase, if possible.
 
-   If the value of ch is neither representable as a wchar_t nor equal to the value of
-   the macro WEOF, the behavior is undefined.
+   If the value of ch is neither representable as a wchar_t nor equal to the value of the macro WEOF, the behavior is undefined.
 
 .SH Parameters
 
@@ -17,15 +16,11 @@ std::towlower \- std::towlower
 
 .SH Return value
 
-   Lowercase version of ch or unmodified ch if no lowercase version is listed in the
-   current C locale.
+   Lowercase version of ch or unmodified ch if no lowercase version is listed in the current C locale.
 
 .SH Notes
 
-   Only 1:1 character mapping can be performed by this function, e.g. the Greek
-   uppercase letter 'Σ' has two lowercase forms, depending on the position in a word:
-   'σ' and 'ς'. A call to std::towlower cannot be used to obtain the correct lowercase
-   form in this case.
+   Only 1:1 character mapping can be performed by this function, e.g. the Greek uppercase letter 'Σ' has two lowercase forms, depending on the position in a word: 'σ' and 'ς'. A call to std::towlower cannot be used to obtain the correct lowercase form in this case.
 
    ISO 30112 specifies which pairs of Unicode characters are included in this mapping.
 
@@ -59,8 +54,7 @@ std::towlower \- std::towlower
 
    towupper             converts a wide character to uppercase
                         \fI(function)\fP
-                        converts a character to lowercase using the ctype facet of a
-   tolower(std::locale) locale
+   tolower(std::locale) converts a character to lowercase using the ctype facet of a locale
                         \fI(function template)\fP
    tolower              converts a character to lowercase
                         \fI(function)\fP

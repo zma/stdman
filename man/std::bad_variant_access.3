@@ -1,4 +1,4 @@
-.TH std::bad_variant_access 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::bad_variant_access 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::bad_variant_access \- std::bad_variant_access
 
@@ -6,11 +6,9 @@ std::bad_variant_access \- std::bad_variant_access
    Defined in header <variant>
    class bad_variant_access : public std::exception  \fI(since C++17)\fP
 
-   std::bad_variant_access is the type of the exception thrown in the following
-   situations:
+   std::bad_variant_access is the type of the exception thrown in the following situations:
 
-     * std::get(std::variant) called with an index or type that does not match the
-       currently active alternative
+     * std::get(std::variant) called with an index or type that does not match the currently active alternative
      * std::visit called to visit a variant that is valueless_by_exception
 
 .SH Member functions
@@ -63,9 +61,7 @@ Inherited from std::exception
 
 .SH See also
 
-   std::get(std::variant) reads the value of the variant given the index or the type
-   \fI(C++17)\fP                (if the type is unique), throws on error
-                          \fI(function template)\fP
-   visit                  calls the provided functor with the arguments held by one or
-   \fI(C++17)\fP                more variants
-                          \fI(function template)\fP
+   std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
+   \fI(C++17)\fP                \fI(function template)\fP
+   visit                  calls the provided functor with the arguments held by one or more variants
+   \fI(C++17)\fP                \fI(function template)\fP

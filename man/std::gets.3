@@ -1,4 +1,4 @@
-.TH std::gets 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::gets 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::gets \- std::gets
 
@@ -7,8 +7,7 @@ std::gets \- std::gets
    char* gets( char* str );    (deprecated in C++11)
                                (removed in C++14)
 
-   Reads stdin into given character string until a newline character is found or
-   end-of-file occurs.
+   Reads stdin into given character string until a newline character is found or end-of-file occurs.
 
 .SH Parameters
 
@@ -18,15 +17,11 @@ std::gets \- std::gets
 
    str on success, NULL on failure.
 
-   If the failure has been caused by end of file condition, additionally sets the eof
-   indicator (see std::feof()) on stdin. If the failure has been caused by some other
-   error, sets the error indicator (see std::ferror()) on stdin.
+   If the failure has been caused by end of file condition, additionally sets the eof indicator (see std::feof()) on stdin. If the failure has been caused by some other error, sets the error indicator (see std::ferror()) on stdin.
 
 .SH Notes
 
-   The function provides no means to prevent buffer overflow of the destination array,
-   given sufficiently long input string. std::gets was deprecated in C++11 and removed
-   from C++14.
+   The function provides no means to prevent buffer overflow of the destination array, given sufficiently long input string. std::gets was deprecated in C++11 and removed from C++14.
 
    std::fgets can be used instead.
 

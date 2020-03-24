@@ -1,18 +1,15 @@
-.TH std::shared_mutex::try_lock_shared 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_mutex::try_lock_shared 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_mutex::try_lock_shared \- std::shared_mutex::try_lock_shared
 
 .SH Synopsis
    bool try_lock_shared();  \fI(since C++17)\fP
 
-   Tries to lock the mutex in shared mode. Returns immediately. On successful lock
-   acquisition returns true, otherwise returns false.
+   Tries to lock the mutex in shared mode. Returns immediately. On successful lock acquisition returns true, otherwise returns false.
 
-   This function is allowed to fail spuriously and return false even if the mutex is
-   not currenly exclusively locked by any other thread.
+   This function is allowed to fail spuriously and return false even if the mutex is not currenly exclusively locked by any other thread.
 
-   Prior unlock() operation on the same mutex synchronizes-with (as defined in
-   std::memory_order) this operation if it returns true.
+   Prior unlock() operation on the same mutex synchronizes-with (as defined in std::memory_order) this operation if it returns true.
 
    The behavior is undefined if the calling thread already owns the mutex in any mode.
 
@@ -37,8 +34,7 @@ std::shared_mutex::try_lock_shared \- std::shared_mutex::try_lock_shared
 
    lock            locks the mutex, blocks if the mutex is not available
                    \fI(public member function)\fP
-                   tries to lock the mutex for shared ownership, returns if the mutex
-   try_lock_shared is not available
+   try_lock_shared tries to lock the mutex for shared ownership, returns if the mutex is not available
                    \fI(public member function)\fP
    unlock_shared   unlocks the mutex (shared ownership)
                    \fI(public member function)\fP

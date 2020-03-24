@@ -1,4 +1,4 @@
-.TH std::pmr::polymorphic_allocator<T>::new_object 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pmr::polymorphic_allocator<T>::new_object 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pmr::polymorphic_allocator<T>::new_object \- std::pmr::polymorphic_allocator<T>::new_object
 
@@ -29,19 +29,13 @@ std::pmr::polymorphic_allocator<T>::new_object \- std::pmr::polymorphic_allocato
 
 .SH Notes
 
-   This function was introduced for use with the fully-specialized allocator
-   std::polymorphic_allocator<>, but it may be useful in any specialization as a
-   shortcut to avoid having to rebind from std::polymorphic_allocator<T> to
-   std::polymorphic_allocator<U>, and having to call allocate, construct, and
-   deallocate individually.
+   This function was introduced for use with the fully-specialized allocator std::polymorphic_allocator<>, but it may be useful in any specialization as a shortcut to avoid having to rebind from std::polymorphic_allocator<T> to std::polymorphic_allocator<U>, and having to call allocate, construct, and deallocate individually.
 
-   Since U is not deduced, it must be provided as a template argument when calling this
-   function.
+   Since U is not deduced, it must be provided as a template argument when calling this function.
 
 .SH Exceptions
 
-   May throw any exceptions thrown by the call to allocate_object or the constructor of
-   U.
+   May throw any exceptions thrown by the call to allocate_object or the constructor of U.
 
 .SH See also
 

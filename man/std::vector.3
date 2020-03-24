@@ -1,4 +1,4 @@
-.TH std::vector 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::vector 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::vector \- std::vector
 
@@ -20,33 +20,21 @@ std::vector \- std::vector
    1) std::vector is a sequence container that encapsulates dynamic size arrays.
    2) std::pmr::vector is an alias template that uses a polymorphic allocator
 
-   The elements are stored contiguously, which means that elements can be
-   accessed not only through iterators, but also using offsets to regular
-   pointers to elements. This means that a pointer to an element of a     (since C++03)
-   vector may be passed to any function that expects a pointer to an
-   element of an array.
+   The elements are stored contiguously, which means that elements can be accessed not only through iterators, but also using offsets to regular pointers to elements. This means that a pointer to an element of a vector may be passed to any function that expects a pointer to an element of an array. (since C++03)
 
-   The storage of the vector is handled automatically, being expanded and contracted as
-   needed. Vectors usually occupy more space than static arrays, because more memory is
-   allocated to handle future growth. This way a vector does not need to reallocate
-   each time an element is inserted, but only when the additional memory is exhausted.
-   The total amount of allocated memory can be queried using capacity() function.
+   The storage of the vector is handled automatically, being expanded and contracted as needed. Vectors usually occupy more space than static arrays, because more memory is allocated to handle future growth. This way a vector does not need to reallocate each time an element is inserted, but only when the additional memory is exhausted. The total amount of allocated memory can be queried using capacity() function.
    Extra memory can be returned to the system via a call to shrink_to_fit().
    \fI(since C++11)\fP
 
-   Reallocations are usually costly operations in terms of performance. The reserve()
-   function can be used to eliminate reallocations if the number of elements is known
-   beforehand.
+   Reallocations are usually costly operations in terms of performance. The reserve() function can be used to eliminate reallocations if the number of elements is known beforehand.
 
    The complexity (efficiency) of common operations on vectors is as follows:
 
      * Random access - constant O(1)
      * Insertion or removal of elements at the end - amortized constant O(1)
-     * Insertion or removal of elements - linear in the distance to the end of the
-       vector O(n)
+     * Insertion or removal of elements - linear in the distance to the end of the vector O(n)
 
-   std::vector (for T other than bool) meets the requirements of Container,
-   AllocatorAwareContainer, SequenceContainer
+   std::vector (for T other than bool) meets the requirements of Container, AllocatorAwareContainer, SequenceContainer
    , ContiguousContainer
    \fI(since C++17)\fP and ReversibleContainer.
 
@@ -54,30 +42,15 @@ std::vector \- std::vector
 
                The type of the elements.
 
-               T must meet the requirements of CopyAssignable and         \fI(until C++11)\fP
-               CopyConstructible.
-               The requirements that are imposed on the elements depend
-               on the actual operations performed on the container.       \fI(since C++11)\fP
-               Generally, it is required that element type is a complete  \fI(until C++17)\fP
-               type and meets the requirements of Erasable, but many
-   T         - member functions impose stricter requirements.
-               The requirements that are imposed on the elements depend
-               on the actual operations performed on the container.
-               Generally, it is required that element type meets the
-               requirements of Erasable, but many member functions impose \fI(since C++17)\fP
-               stricter requirements. This container (but not its
-               members) can be instantiated with an incomplete element
-               type if the allocator satisfies the allocator completeness
-               requirements.
-               An allocator that is used to acquire/release memory and to
-   Allocator - construct/destroy the elements in that memory. The type must meet the
-               requirements of Allocator. The behavior is undefined if
-               Allocator::value_type is not the same as T.
+   T         - T must meet the requirements of CopyAssignable and CopyConstructible.                                                                                                                                                                                                                                                                                                                                              \fI(until C++11)\fP
+               The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type is a complete type and meets the requirements of Erasable, but many member functions impose stricter requirements.                                                                                                                                       \fI(since C++11)\fP
+                                                                                                                                                                                                                                                                                                                                                                                                                                  \fI(until C++17)\fP
+               The requirements that are imposed on the elements depend on the actual operations performed on the container. Generally, it is required that element type meets the requirements of Erasable, but many member functions impose stricter requirements. This container (but not its members) can be instantiated with an incomplete element type if the allocator satisfies the allocator completeness requirements. \fI(since C++17)\fP
+   Allocator - An allocator that is used to acquire/release memory and to construct/destroy the elements in that memory. The type must meet the requirements of Allocator. The behavior is undefined if Allocator::value_type is not the same as T.
 
 .SH Specializations
 
-   The standard library provides a specialization of std::vector for the type bool,
-   which may be optimized for space efficiency.
+   The standard library provides a specialization of std::vector for the type bool, which may be optimized for space efficiency.
 
    vector<bool> space-efficient dynamic bitset
                 \fI(class template specialization)\fP
@@ -86,22 +59,16 @@ std::vector \- std::vector
 
     This section is incomplete
 
-   There are still a few inaccuracies in this section. Refer to individual member
-   function pages for more detail.
+   There are still a few inaccuracies in this section. Refer to individual member function pages for more detail.
 
-             Operations                                Invalidated
-   All read only operations, swap, Never
-   std::swap
-   clear, operator=, assign        Always
-   reserve, shrink_to_fit          If the vector changed capacity, all of them. If not,
-                                   none.
-   erase                           Erased elements + all elements after them (including
-                                   end())
-   push_back, emplace_back         If the vector changed capacity, all of them. If not,
-                                   only end().
-   insert, emplace, resize         If the vector changed capacity, all of them. If not,
-                                   only those after the insertion point.
-   pop_back                        The element erased and end().
+                  Operations                                                        Invalidated
+   All read only operations, swap, std::swap Never
+   clear, operator=, assign                  Always
+   reserve, shrink_to_fit                    If the vector changed capacity, all of them. If not, none.
+   erase                                     Erased elements + all elements after them (including end())
+   push_back, emplace_back                   If the vector changed capacity, all of them. If not, only end().
+   insert, emplace, resize                   If the vector changed capacity, all of them. If not, only those after the insertion point.
+   pop_back                                  The element erased and end().
 
 .SH Member types
 
@@ -164,8 +131,7 @@ std::vector \- std::vector
                  \fI(public member function)\fP
    reserve       reserves storage
                  \fI(public member function)\fP
-                 returns the number of elements that can be held in currently allocated
-   capacity      storage
+   capacity      returns the number of elements that can be held in currently allocated storage
                  \fI(public member function)\fP
    shrink_to_fit reduces memory usage by freeing unused memory
    \fI(C++11)\fP       \fI(public member function)\fP

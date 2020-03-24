@@ -1,19 +1,15 @@
-.TH std::experimental::filesystem::create_hard_link 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::create_hard_link 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::create_hard_link \- std::experimental::filesystem::create_hard_link
 
 .SH Synopsis
    Defined in header <experimental/filesystem>
-   void create_hard_link( const path& target, const path& link );
-   void create_hard_link( const path& target, const path& link,         (filesystem TS)
-   error_code& ec );
+   void create_hard_link( const path& target, const path& link );                  (filesystem TS)
+   void create_hard_link( const path& target, const path& link, error_code& ec );
 
-   Creates a hard link link with its target set to target as if by POSIX link(): the
-   pathname target must exist.
+   Creates a hard link link with its target set to target as if by POSIX link(): the pathname target must exist.
 
-   Once created, link and target are two logical names that refer to the same file
-   (they are equivalent). Even if the original name target is deleted, the file
-   continues to exist and is accessible as link.
+   Once created, link and target are two logical names that refer to the same file (they are equivalent). Even if the original name target is deleted, the file continues to exist and is accessible as link.
 
 .SH Parameters
 
@@ -27,22 +23,15 @@ std::experimental::filesystem::create_hard_link \- std::experimental::filesystem
 
 .SH Exceptions
 
-   The overload that does not take a error_code& parameter throws filesystem_error on
-   underlying OS API errors, constructed with target as the first argument, link as the
-   second argument, and the OS error code as the error code argument. std::bad_alloc
-   may be thrown if memory allocation fails. The overload taking a error_code&
-   parameter sets it to the OS API error code if an OS API call fails, and executes
-   ec.clear() if no errors occur. This overload has
+   The overload that does not take a error_code& parameter throws filesystem_error on underlying OS API errors, constructed with target as the first argument, link as the second argument, and the OS error code as the error code argument. std::bad_alloc may be thrown if memory allocation fails. The overload taking a error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. This overload has
    noexcept specification:
    noexcept
 
 .SH Notes
 
-   Some operating systems do not support hard links at all or support them only for
-   regular files.
+   Some operating systems do not support hard links at all or support them only for regular files.
 
-   Some file systems do not support hard links regardless of the operating system: the
-   FAT file system used on memory cards and flash drives, for example.
+   Some file systems do not support hard links regardless of the operating system: the FAT file system used on memory cards and flash drives, for example.
 
    Some file systems limit the number of links per file.
 
@@ -50,9 +39,7 @@ std::experimental::filesystem::create_hard_link \- std::experimental::filesystem
 
    Hard links typically cannot cross filesystem boundaries.
 
-   The special pathname dot (".") is a hard link to its parent directory. The special
-   pathname dot-dot ".." is a hard link to the directory that is the parent of its
-   parent.
+   The special pathname dot (".") is a hard link to its parent directory. The special pathname dot-dot ".." is a hard link to the directory that is the parent of its parent.
 
 .SH Example
 
@@ -84,6 +71,5 @@ std::experimental::filesystem::create_hard_link \- std::experimental::filesystem
 
    create_symlink           creates a symbolic link
    create_directory_symlink \fI(function)\fP
-                            returns the number of hard links referring to the specific
-   hard_link_count          file
+   hard_link_count          returns the number of hard links referring to the specific file
                             \fI(function)\fP

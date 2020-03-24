@@ -1,4 +1,4 @@
-.TH deductionguidesforstd::array 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH deductionguidesforstd::array 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 deductionguidesforstd::array \- deductionguidesforstd::array
 
@@ -7,9 +7,7 @@ deductionguidesforstd::array \- deductionguidesforstd::array
    template <class T, class... U>                 \fI(since C++17)\fP
    array(T, U...) -> array<T, 1 + sizeof...(U)>;
 
-   One deduction guide is provided for std::array to provide an equivalent of
-   std::experimental::make_array for construction of std::array from a variadic
-   parameter pack.
+   One deduction guide is provided for std::array to provide an equivalent of std::experimental::make_array for construction of std::array from a variadic parameter pack.
 
    The program is ill-formed if (std::is_same_v<T, U> && ...) is not true
 

@@ -1,35 +1,29 @@
-.TH std::conj(std::complex) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::conj(std::complex) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::conj(std::complex) \- std::conj(std::complex)
 
 .SH Synopsis
    Defined in header <complex>
-   template< class T >
-   std::complex<T> conj( const std::complex<T>& z           \fI(until C++20)\fP
-   );
-   template< class T >
-   constexpr std::complex<T> conj( const                    \fI(since C++20)\fP
-   std::complex<T>& z );
+   template< class T >                                                 \fI(until C++20)\fP
+   std::complex<T> conj( const std::complex<T>& z );
+   template< class T >                                                 \fI(since C++20)\fP
+   constexpr std::complex<T> conj( const std::complex<T>& z );
    std::complex<float> conj( float z );
 
-   template< class DoubleOrInteger >                                      \fI(since C++11)\fP
-   std::complex<double> conj( DoubleOrInteger z );  \fB(1)\fP                   \fI(until C++20)\fP
+   template< class DoubleOrInteger >                                                 \fI(since C++11)\fP
+   std::complex<double> conj( DoubleOrInteger z );             \fB(1)\fP                   \fI(until C++20)\fP
 
-   std::complex<long double> conj( long double z );
-   constexpr std::complex<float> conj( float z );       \fB(2)\fP
+   std::complex<long double> conj( long double z );                \fB(2)\fP
+   constexpr std::complex<float> conj( float z );
 
-   template< class DoubleOrInteger >
-   constexpr std::complex<double> conj(                                   \fI(since C++20)\fP
-   DoubleOrInteger z );
+   template< class DoubleOrInteger >                                                 \fI(since C++20)\fP
+   constexpr std::complex<double> conj( DoubleOrInteger z );
 
-   constexpr std::complex<long double> conj( long
-   double z );
+   constexpr std::complex<long double> conj( long double z );
 
    1) Computes the complex conjugate of z by reversing the sign of the imaginary part.
 
-   2) Additional overloads are provided for float, double, long double,
-   and all integer types, which are treated as complex numbers with zero  \fI(since C++11)\fP
-   imaginary component.
+   2) Additional overloads are provided for float, double, long double, and all integer types, which are treated as complex numbers with zero imaginary component. \fI(since C++11)\fP
 
 .SH Parameters
 

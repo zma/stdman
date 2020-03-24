@@ -1,4 +1,4 @@
-.TH std::common_type 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::common_type 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::common_type \- std::common_type
 
@@ -7,42 +7,25 @@ std::common_type \- std::common_type
    template< class... T >           \fI(since C++11)\fP
    struct common_type;
 
-   Determines the common type among all types T..., that is the type all T... can be
-   implicitly converted to. If such a type exists (as determined according to the rules
-   below), the member type names that type. Otherwise, there is no member type.
+   Determines the common type among all types T..., that is the type all T... can be implicitly converted to. If such a type exists (as determined according to the rules below), the member type names that type. Otherwise, there is no member type.
 
      * If sizeof...(T) is zero, there is no member type.
-     * If sizeof...(T) is one (i.e., T... contains only one type T0), the member type
-       names the same type as std::common_type<T0, T0>::type if it exists; otherwise
-       there is no member type.
+     * If sizeof...(T) is one (i.e., T... contains only one type T0), the member type names the same type as std::common_type<T0, T0>::type if it exists; otherwise there is no member type.
      * If sizeof...(T) is two (i.e., T... contains exactly two types T1 and T2),
 
-     * If applying std::decay to at least one of T1 and T2 produces a different type,
-       the member type names the same type as std::common_type<std::decay<T1>::type,
-       std::decay<T2>::type>::type, if it exists; if not, there is no member type.
-     * Otherwise, if there is a user specialization for std::common_type<T1, T2>, that
-       specialization is used;
-     * Otherwise, if std::decay<decltype(false ? std::declval<T1>() :
-       std::declval<T2>())>::type is a valid type, the member type denotes that type;
+              * If applying std::decay to at least one of T1 and T2 produces a different type, the member type names the same type as std::common_type<std::decay<T1>::type, std::decay<T2>::type>::type, if it exists; if not, there is no member type.
+              * Otherwise, if there is a user specialization for std::common_type<T1, T2>, that specialization is used;
+              * Otherwise, if std::decay<decltype(false ? std::declval<T1>() : std::declval<T2>())>::type is a valid type, the member type denotes that type;
 
-     * Otherwise, if std::decay<decltype(false ? std::declval<const T1
-       &>() : std::declval<const T2 &>())>::type is a valid type, the     \fI(since C++20)\fP
-       member type denotes that type;
+         * Otherwise, if std::decay<decltype(false ? std::declval<const T1 &>() : std::declval<const T2 &>())>::type is a valid type, the member type denotes that type;   \fI(since C++20)\fP
 
-     * Otherwise, there is no member type.
+              * Otherwise, there is no member type.
 
-     * If sizeof...(T) is greater than two (i.e., T... consists of the types T1, T2,
-       R...), then if std::common_type<T1, T2>::type exists, the member type denotes
-       std::common_type<std::common_type<T1, T2>::type, R...>::type if such a type
-       exists. In all other cases, there is no member type.
+     * If sizeof...(T) is greater than two (i.e., T... consists of the types T1, T2, R...), then if std::common_type<T1, T2>::type exists, the member type denotes std::common_type<std::common_type<T1, T2>::type, R...>::type if such a type exists. In all other cases, there is no member type.
 
-   The types in the parameter pack T shall each be a complete type, (possibly
-   cv-qualified) void, or an array of unknown bound. Otherwise, the behavior is
-   undefined.
+   The types in the parameter pack T shall each be a complete type, (possibly cv-qualified) void, or an array of unknown bound. Otherwise, the behavior is undefined.
 
-   If an instantiation of a template above depends, directly or indirectly, on an
-   incomplete type, and that instantiation could yield a different result if that type
-   were hypothetically completed, the behavior is undefined.
+   If an instantiation of a template above depends, directly or indirectly, on an incomplete type, and that instantiation could yield a different result if that type were hypothetically completed, the behavior is undefined.
 
 .SH Member types
 
@@ -61,16 +44,11 @@ std::common_type \- std::common_type
      * At least one of T1 and T2 depends on a user-defined type, and
      * std::decay is an identity transformation for both T1 and T2.
 
-   If such a specialization has a member named type, it must be a public and
-   unambiguous member type that names a cv-unqualified non-reference type to which both
-   T1 and T2 are explicitly convertible. Additionally, std::common_type<T1, T2>::type
-   and std::common_type<T2, T1>::type must denote the same type.
+   If such a specialization has a member named type, it must be a public and unambiguous member type that names a cv-unqualified non-reference type to which both T1 and T2 are explicitly convertible. Additionally, std::common_type<T1, T2>::type and std::common_type<T2, T1>::type must denote the same type.
 
-   A program that adds common_type specializations in violation of these rules has
-   undefined behavior.
+   A program that adds common_type specializations in violation of these rules has undefined behavior.
 
-   Note that the behavior of a program that adds a specialization to any other template
-   from <type_traits> is undefined.
+   Note that the behavior of a program that adds a specialization to any other template from <type_traits> is undefined.
 
    The following specializations are already provided by the standard library:
 
@@ -129,20 +107,16 @@ std::common_type \- std::common_type
 
 .SH Notes
 
-   For arithmetic types not subject to promotion, the common type may be viewed as the
-   type of the (possibly mixed-mode) arithmetic expression such as T0() + T1() + ... +
-   Tn().
+   For arithmetic types not subject to promotion, the common type may be viewed as the type of the (possibly mixed-mode) arithmetic expression such as T0() + T1() + ... + Tn().
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to          Behavior as published              Correct behavior
-   LWG 2141 C++11      common_type<int, int>::type is int&&     decayed result type
-   LWG 2408 C++11      common_type is not SFINAE-friendly       made SFINAE-friendly
-   LWG 2460 C++11      common_type specializations are nearly   reduced number of
-                       impossible to write                      specializations needed
+      DR    Applied to                   Behavior as published                                Correct behavior
+   LWG 2141 C++11      common_type<int, int>::type is int&&                       decayed result type
+   LWG 2408 C++11      common_type is not SFINAE-friendly                         made SFINAE-friendly
+   LWG 2460 C++11      common_type specializations are nearly impossible to write reduced number of specializations needed
 
 .SH Examples
 

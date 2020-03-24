@@ -1,4 +1,4 @@
-.TH std::filesystem::permissions 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::permissions 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::permissions \- std::filesystem::permissions
 
@@ -17,23 +17,15 @@ std::filesystem::permissions \- std::filesystem::permissions
 
    std::error_code& ec);
 
-   Changes access permissions of the file to which p resolves, as if by POSIX fchmodat.
-   Symlinks are followed unless perm_options::nofollow is set in opts
+   Changes access permissions of the file to which p resolves, as if by POSIX fchmodat. Symlinks are followed unless perm_options::nofollow is set in opts
 
    The second signature behaves as if called with opts set to perm_options::replace
 
    The effects depend on prms and opts as follows:
 
-     * If opts is perm_options::replace, file permissions are set to exactly prms &
-       std::filesystem::perms::mask (meaning, every valid bit of prms is applied)
-     * If opts is perm_options::add, the file permissions are set to exactly
-       status(p).permissions() | (prms & perms::mask) (meaning, any valid bit that is
-       set in prms, but not in the file's current permissions is added to the file's
-       permissions)
-     * If opts is perm_options::remove, the file permissions are set to exactly
-       status(p).permissions() & ~(prms & perms::mask) (meaning, any valid bit that is
-       clear in prms, but set in the file's current permissions is cleared in the
-       file's permissions)
+     * If opts is perm_options::replace, file permissions are set to exactly prms & std::filesystem::perms::mask (meaning, every valid bit of prms is applied)
+     * If opts is perm_options::add, the file permissions are set to exactly status(p).permissions() | (prms & perms::mask) (meaning, any valid bit that is set in prms, but not in the file's current permissions is added to the file's permissions)
+     * If opts is perm_options::remove, the file permissions are set to exactly status(p).permissions() & ~(prms & perms::mask) (meaning, any valid bit that is clear in prms, but set in the file's current permissions is cleared in the file's permissions)
 
    opts is required to have only one of replace, add, or remove to be set.
 
@@ -52,21 +44,13 @@ std::filesystem::permissions \- std::filesystem::permissions
 
 .SH Exceptions
 
-   The overload that does not take a std::error_code& parameter throws filesystem_error
-   on underlying OS API errors, constructed with p as the first path argument and the
-   OS error code as the error code argument. The overload taking a std::error_code&
-   parameter sets it to the OS API error code if an OS API call fails, and executes
-   ec.clear() if no errors occur. Any overload not marked noexcept may throw
-   std::bad_alloc if memory allocation fails.
+   The overload that does not take a std::error_code& parameter throws filesystem_error on underlying OS API errors, constructed with p as the first path argument and the OS error code as the error code argument. The overload taking a std::error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. Any overload not marked noexcept may throw std::bad_alloc if memory allocation fails.
 
 .SH Notes
 
-   Permissions may not necessarily be implemented as bits, but they are treated that
-   way conceptually.
+   Permissions may not necessarily be implemented as bits, but they are treated that way conceptually.
 
-   Some permission bits may be ignored on some systems, and changing some bits may
-   automatically change others (e.g. on platforms without owner/group/all distinction,
-   setting any of the three write bits set all three)
+   Some permission bits may be ignored on some systems, and changing some bits may automatically change others (e.g. on platforms without owner/group/all distinction, setting any of the three write bits set all three)
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::experimental::filesystem::copy_symlink 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::filesystem::copy_symlink 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::filesystem::copy_symlink \- std::experimental::filesystem::copy_symlink
 
@@ -10,11 +10,8 @@ std::experimental::filesystem::copy_symlink \- std::experimental::filesystem::co
 
    Copies a symlink to another location.
 
-   1) Effectively calls f(read_symlink(from), to) where f is create_symlink() or
-   create_directory_symlink depending on whether from resolves to a file or directory.
-   2) Effectively calls f(read_symlink(from, ec), to, ec) where f is create_symlink()
-   or create_directory_symlink depending on whether from resolves to a file or
-   directory.
+   1) Effectively calls f(read_symlink(from), to) where f is create_symlink() or create_directory_symlink depending on whether from resolves to a file or directory.
+   2) Effectively calls f(read_symlink(from, ec), to, ec) where f is create_symlink() or create_directory_symlink depending on whether from resolves to a file or directory.
 
 .SH Parameters
 
@@ -28,12 +25,7 @@ std::experimental::filesystem::copy_symlink \- std::experimental::filesystem::co
 
 .SH Exceptions
 
-   The overload that does not take a error_code& parameter throws filesystem_error on
-   underlying OS API errors, constructed with from as the first argument, to as the
-   second argument, and the OS error code as the error code argument. std::bad_alloc
-   may be thrown if memory allocation fails. The overload taking a error_code&
-   parameter sets it to the OS API error code if an OS API call fails, and executes
-   ec.clear() if no errors occur. This overload has
+   The overload that does not take a error_code& parameter throws filesystem_error on underlying OS API errors, constructed with from as the first argument, to as the second argument, and the OS error code as the error code argument. std::bad_alloc may be thrown if memory allocation fails. The overload taking a error_code& parameter sets it to the OS API error code if an OS API call fails, and executes ec.clear() if no errors occur. This overload has
    noexcept specification:
    noexcept
 

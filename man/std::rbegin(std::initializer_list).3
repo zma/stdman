@@ -1,15 +1,13 @@
-.TH std::rbegin(std::initializer_list) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::rbegin(std::initializer_list) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::rbegin(std::initializer_list) \- std::rbegin(std::initializer_list)
 
 .SH Synopsis
    Defined in header <iterator>
-   template <class E>
-   std::reverse_iterator<const E*> rbegin( std::initializer_list<E> il    \fI(since C++14)\fP
-   );
+   template <class E>                                                      \fI(since C++14)\fP
+   std::reverse_iterator<const E*> rbegin( std::initializer_list<E> il );
 
-   The overload of std::rbegin for initializer_list returns an std::reverse_iterator
-   pointing at the last element of il.
+   The overload of std::rbegin for initializer_list returns an std::reverse_iterator pointing at the last element of il.
 
 .SH Parameters
 
@@ -25,9 +23,7 @@ std::rbegin(std::initializer_list) \- std::rbegin(std::initializer_list)
 
 .SH Notes
 
-   This overload is necessary because std::initializer_list does not have a member
-   function rbegin. No overload is needed for std::crbegin because it is implemented in
-   terms of std::rbegin.
+   This overload is necessary because std::initializer_list does not have a member function rbegin. No overload is needed for std::crbegin because it is implemented in terms of std::rbegin.
 
 .SH Example
 

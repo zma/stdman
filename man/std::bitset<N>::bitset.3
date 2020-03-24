@@ -1,36 +1,26 @@
-.TH std::bitset<N>::bitset 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::bitset<N>::bitset 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::bitset<N>::bitset \- std::bitset<N>::bitset
 
 .SH Synopsis
-   bitset();                                                    (until
-                                                                C++11)
-   constexpr bitset() noexcept;                                 (since
-                                                                C++11)
-   bitset( unsigned long val );                                         (until
-                                                                        C++11)
-   constexpr bitset( unsigned long long val ) noexcept;                 (since
-                                                                        C++11)
+   bitset();                                                                  \fI(until C++11)\fP
+   constexpr bitset() noexcept;                                               \fI(since C++11)\fP
+   bitset( unsigned long val );                                                             \fI(until C++11)\fP
+   constexpr bitset( unsigned long long val ) noexcept;                                     \fI(since C++11)\fP
    template< class CharT, class Traits, class Alloc >
 
-   explicit bitset( const
-   std::basic_string<CharT,Traits,Alloc>& str,
-   typename                                                                     (until
-   std::basic_string<CharT,Traits,Alloc>::size_type                             C++11)
+   explicit bitset( const std::basic_string<CharT,Traits,Alloc>& str,
+   typename std::basic_string<CharT,Traits,Alloc>::size_type                                              \fI(until C++11)\fP
    pos = 0,
-   typename
-   std::basic_string<CharT,Traits,Alloc>::size_type
+   typename std::basic_string<CharT,Traits,Alloc>::size_type
 
    n = std::basic_string<CharT,Traits,Alloc>::npos);
-   template< class CharT, class Traits, class Alloc >   \fB(1)\fP
+   template< class CharT, class Traits, class Alloc >
 
-   explicit bitset( const                                   \fB(2)\fP
-   std::basic_string<CharT,Traits,Alloc>& str,
-   typename                                                     \fB(3)\fP
-   std::basic_string<CharT,Traits,Alloc>::size_type                             (since
-   pos = 0,                                                                     C++11)
-   typename
-   std::basic_string<CharT,Traits,Alloc>::size_type
+   explicit bitset( const std::basic_string<CharT,Traits,Alloc>& str, \fB(1)\fP
+   typename std::basic_string<CharT,Traits,Alloc>::size_type              \fB(2)\fP
+   pos = 0,                                                                   \fB(3)\fP                         \fI(since C++11)\fP
+   typename std::basic_string<CharT,Traits,Alloc>::size_type
    n = std::basic_string<CharT,Traits,Alloc>::npos,
    CharT zero = CharT('0'),
 
@@ -38,8 +28,8 @@ std::bitset<N>::bitset \- std::bitset<N>::bitset
    template< class CharT >
 
    explicit bitset( const CharT* str,
-   typename std::basic_string<CharT>::size_type                         \fB(4)\fP     (since
-   n = std::basic_string<CharT>::npos,                                          C++11)
+   typename std::basic_string<CharT>::size_type                                             \fB(4)\fP           \fI(since C++11)\fP
+   n = std::basic_string<CharT>::npos,
    CharT zero = CharT('0'),
 
    CharT one = CharT('1'));
@@ -47,26 +37,17 @@ std::bitset<N>::bitset \- std::bitset<N>::bitset
    Constructs a new bitset from one of several optional data sources:
 
    1) Default constructor. Constructs a bitset with all bits set to zero.
-   2) Constructs a bitset, initializing the first (rightmost, least significant) M bit
-   positions to the corresponding bit values of val, where M is the smaller of the
-   number of bits in an unsigned long long and the number of bits N in the bitset being
-   constructed. If M is less than N (the bitset is longer than
+   2) Constructs a bitset, initializing the first (rightmost, least significant) M bit positions to the corresponding bit values of val, where M is the smaller of the number of bits in an unsigned long long and the number of bits N in the bitset being constructed. If M is less than N (the bitset is longer than
    32
    \fI(until C++11)\fP
    64
    \fI(since C++11)\fP bits, for typical implementations of unsigned
    long
    \fI(since C++11)\fPlong), the remaining bit positions are initialized to zeroes.
-   3) Constructs a bitset using the characters in the std::basic_string str. An
-   optional starting position pos and length n can be provided, as well as characters
-   denoting alternate values for set (one) and unset (zero) bits. Traits::eq() is used
-   to compare the character values.
+   3) Constructs a bitset using the characters in the std::basic_string str. An optional starting position pos and length n can be provided, as well as characters denoting alternate values for set (one) and unset (zero) bits. Traits::eq() is used to compare the character values.
    The effective length of the initializing string is min(n, str.size() - pos).
-   If pos > str.size(), this constructor throws std::out_of_range. If any characters
-   examined in str are not zero or one, it throws std::invalid_argument.
-   4) Similar to \fB(3)\fP, but uses a CharT* instead of a std::basic_string. Equivalent to
-   bitset(n == basic_string<CharT>::npos ? basic_string<CharT>(str) :
-   basic_string<CharT>(str, n), 0, n, zero, one)
+   If pos > str.size(), this constructor throws std::out_of_range. If any characters examined in str are not zero or one, it throws std::invalid_argument.
+   4) Similar to \fB(3)\fP, but uses a CharT* instead of a std::basic_string. Equivalent to bitset(n == basic_string<CharT>::npos ? basic_string<CharT>(str) : basic_string<CharT>(str, n), 0, n, zero, one)
 
 .SH Parameters
 
@@ -79,8 +60,7 @@ std::bitset<N>::bitset \- std::bitset<N>::bitset
 
 .SH Exceptions
 
-   3) std::out_of_range if pos > str.size(), std::invalid_argument if any character is
-   not one or zero
+   3) std::out_of_range if pos > str.size(), std::invalid_argument if any character is not one or zero
    4) std::invalid_argument if any character is not one or zero
 
 .SH Example

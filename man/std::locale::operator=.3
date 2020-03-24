@@ -1,4 +1,4 @@
-.TH std::locale::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::locale::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::locale::operator= \- std::locale::operator=
 
@@ -7,10 +7,7 @@ std::locale::operator= \- std::locale::operator=
    const locale& operator=( const locale& other ) throw();   \fI(until C++11)\fP
    const locale& operator=( const locale& other ) noexcept;  \fI(since C++11)\fP
 
-   Creates a copy of other, replacing the contents of *this. The reference counts of
-   all facets held by other are incremented. The reference counts of all facets
-   previously held by *this are decremented, and those facets whose reference count
-   becomes zero are deleted.
+   Creates a copy of other, replacing the contents of *this. The reference counts of all facets held by other are incremented. The reference counts of all facets previously held by *this are decremented, and those facets whose reference count becomes zero are deleted.
 
 .SH Return value
 

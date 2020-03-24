@@ -1,4 +1,4 @@
-.TH std::localtime 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::localtime 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::localtime \- std::localtime
 
@@ -6,8 +6,7 @@ std::localtime \- std::localtime
    Defined in header <ctime>
    std::tm* localtime( const std::time_t *time );
 
-   Converts given time since epoch as std::time_t value into calendar time, expressed
-   in local time.
+   Converts given time since epoch as std::time_t value into calendar time, expressed in local time.
 
 .SH Parameters
 
@@ -15,19 +14,15 @@ std::localtime \- std::localtime
 
 .SH Return value
 
-   pointer to a static internal std::tm object on success, or null pointer otherwise.
-   The structure may be shared between std::gmtime, std::localtime, and std::ctime, and
-   may be overwritten on each invocation.
+   pointer to a static internal std::tm object on success, or null pointer otherwise. The structure may be shared between std::gmtime, std::localtime, and std::ctime, and may be overwritten on each invocation.
 
 .SH Notes
 
    This function may not be thread-safe.
 
-   POSIX requires that this function sets errno to EOVERFLOW if it fails because the
-   argument is too large.
+   POSIX requires that this function sets errno to EOVERFLOW if it fails because the argument is too large.
 
-   POSIX specifies that the timezone information is determined by this function as if
-   by calling tzset, which reads the environment variable TZ.
+   POSIX specifies that the timezone information is determined by this function as if by calling tzset, which reads the environment variable TZ.
 
 .SH Example
 
@@ -58,6 +53,5 @@ std::localtime \- std::localtime
 
 .SH See also
 
-          converts time since epoch to calendar time expressed as Universal Coordinated
-   gmtime Time
+   gmtime converts time since epoch to calendar time expressed as Universal Coordinated Time
           \fI(function)\fP

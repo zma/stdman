@@ -1,4 +1,4 @@
-.TH std::showbase,std::noshowbase 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::showbase,std::noshowbase 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::showbase,std::noshowbase \- std::showbase,std::noshowbase
 
@@ -7,19 +7,13 @@ std::showbase,std::noshowbase \- std::showbase,std::noshowbase
    std::ios_base& showbase( std::ios_base& str );   \fB(1)\fP
    std::ios_base& noshowbase( std::ios_base& str ); \fB(2)\fP
 
-   1) enables the showbase flag in the stream str as if by calling
-   str.setf(std::ios_base::showbase)
+   1) enables the showbase flag in the stream str as if by calling str.setf(std::ios_base::showbase)
 
-   2) disables the showbase flag in the stream str as if by calling
-   str.unsetf(std::ios_base::showbase)
+   2) disables the showbase flag in the stream str as if by calling str.unsetf(std::ios_base::showbase)
 
-   This is an I/O manipulator, it may be called with an expression such as out <<
-   std::showbase for any out of type std::basic_ostream or with an expression such as
-   in >> std::showbase for any in of type std::basic_istream.
+   This is an I/O manipulator, it may be called with an expression such as out << std::showbase for any out of type std::basic_ostream or with an expression such as in >> std::showbase for any in of type std::basic_istream.
 
-   The showbase flag affects the behavior of integer output (see std::num_put::put),
-   monetary input (see std::money_get::get) and monetary output (see
-   std::money_put::put).
+   The showbase flag affects the behavior of integer output (see std::num_put::put), monetary input (see std::money_get::get) and monetary output (see std::money_put::put).
 
 .SH Parameters
 
@@ -31,9 +25,7 @@ std::showbase,std::noshowbase \- std::showbase,std::noshowbase
 
 .SH Notes
 
-   As specifed in std::num_put::put, the showbase flag in integer output acts like the
-   # format specifier in std::printf, which means the numeric base prefix is not added
-   when outputting the value zero.
+   As specifed in std::num_put::put, the showbase flag in integer output acts like the # format specifier in std::printf, which means the numeric base prefix is not added when outputting the value zero.
 
 .SH Example
 

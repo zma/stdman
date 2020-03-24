@@ -1,21 +1,16 @@
-.TH std::basic_stringbuf<CharT,Traits,Allocator>::setbuf 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_stringbuf<CharT,Traits,Allocator>::setbuf 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_stringbuf<CharT,Traits,Allocator>::setbuf \- std::basic_stringbuf<CharT,Traits,Allocator>::setbuf
 
 .SH Synopsis
    protected:
-   virtual std::basic_streambuf<CharT, Traits>* setbuf( char_type* s, std::streamsize
-   n )
+   virtual std::basic_streambuf<CharT, Traits>* setbuf( char_type* s, std::streamsize n )
 
    If s is a null pointer and n is zero, this function has no effect.
 
-   Otherwise, the effect is implementation-defined: some implementations do nothing,
-   while some implementations clear the std::string member currently used as the buffer
-   and begin using the user-supplied character array of size n, whose first element is
-   pointed to by s, as the buffer and the input/output character sequence.
+   Otherwise, the effect is implementation-defined: some implementations do nothing, while some implementations clear the std::string member currently used as the buffer and begin using the user-supplied character array of size n, whose first element is pointed to by s, as the buffer and the input/output character sequence.
 
-   This function is protected virtual, it may only be called through pubsetbuf() or
-   from member functions of a user-defined class derived from std::basic_stringbuf.
+   This function is protected virtual, it may only be called through pubsetbuf() or from member functions of a user-defined class derived from std::basic_stringbuf.
 
 .SH Parameters
 
@@ -28,9 +23,7 @@ std::basic_stringbuf<CharT,Traits,Allocator>::setbuf \- std::basic_stringbuf<Cha
 
 .SH Notes
 
-   The deprecated stream buffer std::strstreambuf or the boost.IOStreams device
-   boost::basic_array may be used to implement I/O buffering over a user-provided char
-   array in portable manner.
+   The deprecated stream buffer std::strstreambuf or the boost.IOStreams device boost::basic_array may be used to implement I/O buffering over a user-provided char array in portable manner.
 
 .SH Example
 

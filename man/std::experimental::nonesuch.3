@@ -1,4 +1,4 @@
-.TH std::experimental::nonesuch 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::nonesuch 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::nonesuch \- std::experimental::nonesuch
 
@@ -12,11 +12,9 @@ std::experimental::nonesuch \- std::experimental::nonesuch
 
    };
 
-   std::experimental::nonesuch is a class type used by std::experimental::detected_t to
-   indicate detection failure.
+   std::experimental::nonesuch is a class type used by std::experimental::detected_t to indicate detection failure.
 
-   nonesuch has no default constructor or initializer-list constructor, and is not an
-   aggregate.
+   nonesuch has no default constructor or initializer-list constructor, and is not an aggregate.
 
 .SH Notes
 
@@ -24,9 +22,7 @@ std::experimental::nonesuch \- std::experimental::nonesuch
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-   LWG 2960 LFTSv2     nonesuch may be an aggregate and has an   made non-aggregate and
-                       implicit conversion sequence from {}      removed ICS
+      DR    Applied to                            Behavior as published                                      Correct behavior
+   LWG 2960 LFTSv2     nonesuch may be an aggregate and has an implicit conversion sequence from {} made non-aggregate and removed ICS

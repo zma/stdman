@@ -1,4 +1,4 @@
-.TH std::chrono::weekday 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::weekday 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::weekday \- std::chrono::weekday
 
@@ -13,10 +13,7 @@ std::chrono::weekday \- std::chrono::weekday
    inline constexpr std::chrono::weekday Friday{5};     \fI(since C++20)\fP
    inline constexpr std::chrono::weekday Saturday{6};   \fI(since C++20)\fP
 
-   The class weekday represent a day of the week in the Gregorian calendar. Its normal
-   range is [0, 6], for Sunday through Saturday, but it can hold any value in the range
-   [0, 255]. Seven named constants are predefined in the std::chrono namespace for the
-   seven days of the week.
+   The class weekday represent a day of the week in the Gregorian calendar. Its normal range is [0, 6], for Sunday through Saturday, but it can hold any value in the range [0, 255]. Seven named constants are predefined in the std::chrono namespace for the seven days of the week.
 
    weekday is a TriviallyCopyable StandardLayoutType.
 
@@ -34,8 +31,7 @@ std::chrono::weekday \- std::chrono::weekday
                      \fI(public member function)\fP
    ok                checks if the stored weekday value is valid
                      \fI(public member function)\fP
-                     convenience syntax for constructing a weekday_indexed or
-   operator[]        weekday_last from this weekday
+   operator[]        convenience syntax for constructing a weekday_indexed or weekday_last from this weekday
                      \fI(public member function)\fP
 
   Nonmember functions

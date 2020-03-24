@@ -1,4 +1,4 @@
-.TH std::visit 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::visit 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::visit \- std::visit
 
@@ -13,16 +13,12 @@ std::visit \- std::visit
 
    Effectively returns
 
-   std::invoke(std::forward<Visitor>(vis),
-   std::get<is>(std::forward<Variants>(vars))...)
+   std::invoke(std::forward<Visitor>(vis), std::get<is>(std::forward<Variants>(vars))...)
 
    , where is... is vars.index()....
 
-   1) The return type is deduced from the returned expression as if by decltype. The
-   call is ill-formed if the invocation above is not a valid expression of the same
-   type and value category, for all combinations of alternative types of all variants.
-   2) The return type is R. If R is (possibly cv-qualified) void, the result of the
-   invoke expression is discarded.
+   1) The return type is deduced from the returned expression as if by decltype. The call is ill-formed if the invocation above is not a valid expression of the same type and value category, for all combinations of alternative types of all variants.
+   2) The return type is R. If R is (possibly cv-qualified) void, the result of the invoke expression is discarded.
 
 .SH Parameters
 
@@ -32,8 +28,7 @@ std::visit \- std::visit
 .SH Return value
 
    1) The value returned by the selected invocation of the visitor.
-   2) Nothing if R is (possibly cv-qualified) void; otherwise the value returned by the
-   selected invocation of the visitor, implicitly converted to R.
+   2) Nothing if R is (possibly cv-qualified) void; otherwise the value returned by the selected invocation of the visitor, implicitly converted to R.
 
 .SH Exceptions
 
@@ -41,11 +36,9 @@ std::visit \- std::visit
 
 .SH Complexity
 
-   When the number of variants is zero or one, the invocation of the callable object is
-   implemented in constant time, i.e. it does not depend on sizeof...(Types).
+   When the number of variants is zero or one, the invocation of the callable object is implemented in constant time, i.e. it does not depend on sizeof...(Types).
 
-   If the number of variants is larger than 1, the invocation of the callable object
-   has no complexity requirements.
+   If the number of variants is larger than 1, the invocation of the callable object has no complexity requirements.
 
 .SH Example
 

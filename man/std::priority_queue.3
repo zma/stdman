@@ -1,4 +1,4 @@
-.TH std::priority_queue 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::priority_queue 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::priority_queue \- std::priority_queue
 
@@ -12,41 +12,27 @@ std::priority_queue \- std::priority_queue
 
    > class priority_queue;
 
-   A priority queue is a container adaptor that provides constant time lookup of the
-   largest (by default) element, at the expense of logarithmic insertion and
-   extraction.
+   A priority queue is a container adaptor that provides constant time lookup of the largest (by default) element, at the expense of logarithmic insertion and extraction.
 
-   A user-provided Compare can be supplied to change the ordering, e.g. using
-   std::greater<T> would cause the smallest element to appear as the top().
+   A user-provided Compare can be supplied to change the ordering, e.g. using std::greater<T> would cause the smallest element to appear as the top().
 
-   Working with a priority_queue is similar to managing a heap in some random access
-   container, with the benefit of not being able to accidentally invalidate the heap.
+   Working with a priority_queue is similar to managing a heap in some random access container, with the benefit of not being able to accidentally invalidate the heap.
 
 .SH Template parameters
 
                The type of the stored elements.
-   T         - The behavior is undefined if T is not the same type as
-               Container::value_type.
+   T         - The behavior is undefined if T is not the same type as Container::value_type.
                \fI(since C++17)\fP
-               The type of the underlying container to use to store the elements. The
-               container must satisfy the requirements of SequenceContainer, and its
-               iterators must satisfy the requirements of LegacyRandomAccessIterator.
-               Additionally, it must provide the following functions with the usual
-               semantics:
-   Container -
+               The type of the underlying container to use to store the elements. The container must satisfy the requirements of SequenceContainer, and its iterators must satisfy the requirements of LegacyRandomAccessIterator. Additionally, it must provide the following functions with the usual semantics:
+
                  * front()
-                 * push_back()
+   Container -   * push_back()
                  * pop_back()
 
-               The standard containers std::vector and std::deque satisfy these
-               requirements.
+               The standard containers std::vector and std::deque satisfy these requirements.
    Compare   - A Compare type providing a strict weak ordering.
 
-   Note that the Compare parameter is defined such that it returns true if its first
-   argument comes before its second argument in a weak ordering. But because the
-   priority queue outputs largest elements first, the elements that "come before" are
-   actually output last. That is, the front of the queue contains the "last" element
-   according to the weak ordering imposed by Compare.
+   Note that the Compare parameter is defined such that it returns true if its first argument comes before its second argument in a weak ordering. But because the priority queue outputs largest elements first, the elements that "come before" are actually output last. That is, the front of the queue contains the "last" element according to the weak ordering imposed by Compare.
 
 .SH Member types
 
@@ -96,9 +82,8 @@ std::priority_queue \- std::priority_queue
 
 .SH Helper classes
 
-   std::uses_allocator<std::priority_queue> specializes the std::uses_allocator type
-   \fI(C++11)\fP                                  trait
-                                            \fI(function template)\fP
+   std::uses_allocator<std::priority_queue> specializes the std::uses_allocator type trait
+   \fI(C++11)\fP                                  \fI(function template)\fP
 
   Deduction guides\fI(since C++17)\fP
 

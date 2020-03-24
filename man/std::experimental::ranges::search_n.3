@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::search_n 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::search_n 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::search_n \- std::experimental::ranges::search_n
 
@@ -7,25 +7,21 @@ std::experimental::ranges::search_n \- std::experimental::ranges::search_n
    template< ForwardIterator I, Sentinel<I> S, class T,
 
    class Pred = ranges::equal_to<>, class Proj = ranges::identity >
-   requires IndirectlyComparable<I, const T*, Pred, Proj>               \fB(1)\fP (ranges TS)
+   requires IndirectlyComparable<I, const T*, Pred, Proj>                     \fB(1)\fP (ranges TS)
    I search_n(I first, S last, ranges::difference_type_t<I> count,
 
    const T& value, Pred pred = Pred{}, Proj proj = Proj{});
    template< ForwardRange R, class T, class Pred = ranges::equal_to<>,
 
    class Proj = ranges::identity >
-   requires IndirectlyComparable<ranges::iterator_t<R>, const T*, Pred,
-   Proj>                                                                \fB(2)\fP (ranges TS)
+   requires IndirectlyComparable<ranges::iterator_t<R>, const T*, Pred, Proj> \fB(2)\fP (ranges TS)
    ranges::safe_iterator_t<R> search_n(R&& r,
    ranges::difference_type_t<ranges::iterator_t<R>> count,
 
    const T& value, Pred pred = Pred{}, Proj proj = Proj{});
 
-   1) Searches the range [first, last) for the first sequence of count elements whose
-   projected values are each equal to the given value value according to the predicate
-   pred.
-   2) Same as \fB(1)\fP, but uses r as the source range, as if using ranges::begin(r) as
-   first and ranges::end(r) as last.
+   1) Searches the range [first, last) for the first sequence of count elements whose projected values are each equal to the given value value according to the predicate pred.
+   2) Same as \fB(1)\fP, but uses r as the source range, as if using ranges::begin(r) as first and ranges::end(r) as last.
 
 .SH Parameters
 
@@ -38,8 +34,7 @@ std::experimental::ranges::search_n \- std::experimental::ranges::search_n
 
 .SH Return value
 
-   Iterator to the beginning of the found sequence in the range [first, last). If no
-   such sequence is found, an iterator that compares equal to last is returned.
+   Iterator to the beginning of the found sequence in the range [first, last). If no such sequence is found, an iterator that compares equal to last is returned.
 
 .SH Complexity
 

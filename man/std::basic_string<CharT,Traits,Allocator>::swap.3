@@ -1,4 +1,4 @@
-.TH std::basic_string<CharT,Traits,Allocator>::swap 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::swap 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::swap \- std::basic_string<CharT,Traits,Allocator>::swap
 
@@ -6,11 +6,9 @@ std::basic_string<CharT,Traits,Allocator>::swap \- std::basic_string<CharT,Trait
    void swap( basic_string& other );                            \fI(until C++17)\fP
    void swap( basic_string& other ) noexcept(/* see below */);  \fI(since C++17)\fP
 
-   Exchanges the contents of the string with those of other. All iterators and
-   references may be invalidated.
+   Exchanges the contents of the string with those of other. All iterators and references may be invalidated.
 
-   The behavior is undefined if Allocator does not propagate on swap and  \fI(since C++11)\fP
-   the allocators of *this and other are unequal.
+   The behavior is undefined if Allocator does not propagate on swap and the allocators of *this and other are unequal. \fI(since C++11)\fP
 
 .SH Parameters
 
@@ -21,8 +19,8 @@ std::basic_string<CharT,Traits,Allocator>::swap \- std::basic_string<CharT,Trait
    \fI(none)\fP
 
 .SH Exceptions
-                                                                                 (since
-   noexcept specification:                                                       C++17)
+
+   noexcept specification:                                                       \fI(since C++17)\fP
    noexcept(std::allocator_traits<Allocator>::propagate_on_container_swap::value
    || std::allocator_traits<Allocator>::is_always_equal::value)
 

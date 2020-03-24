@@ -1,4 +1,4 @@
-.TH std::localeconv 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::localeconv 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::localeconv \- std::localeconv
 
@@ -6,8 +6,7 @@ std::localeconv \- std::localeconv
    Defined in header <clocale>
    std::lconv* localeconv();
 
-   The localeconv function obtains a pointer to a static object of type std::lconv,
-   which represents numeric and monetary formatting rules of the current C locale.
+   The localeconv function obtains a pointer to a static object of type std::lconv, which represents numeric and monetary formatting rules of the current C locale.
 
 .SH Parameters
 
@@ -21,8 +20,7 @@ std::localeconv \- std::localeconv
 
    Modifying the object references through the returned pointer is undefined behavior.
 
-   std::localeconv modifies a static object, calling it from different threads without
-   synchronization is undefined behavior.
+   std::localeconv modifies a static object, calling it from different threads without synchronization is undefined behavior.
 
 .SH Example
 

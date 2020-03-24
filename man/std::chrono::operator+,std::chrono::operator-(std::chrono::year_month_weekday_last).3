@@ -1,4 +1,4 @@
-.TH std::chrono::operator+,std::chrono::operator-(std::chrono::year_month_weekday_last) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator+,std::chrono::operator-(std::chrono::year_month_weekday_last) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator+,std::chrono::operator-(std::chrono::year_month_weekday_last) \- std::chrono::operator+,std::chrono::operator-(std::chrono::year_month_weekday_last)
 
@@ -34,13 +34,7 @@ std::chrono::operator+,std::chrono::operator-(std::chrono::year_month_weekday_la
 
    const std::chrono::years& dy) noexcept;
 
-   1-2) Adds dm.count() months to the date represented by ymwdl. The result has the
-   same year() and month() as std::chrono::year_month(ymwdl.year(), ymwdl.month()) + dm
-   and the same weekday() as ymwdl.
-   3-4) Adds dy.count() years to the date represented by ymwdl. The result is
-   equivalent to std::chrono::year_month_weekday_last(ymwdl.year() + dy, ymwdl.month(),
-   ymwd.weekday_last()).
-   5) Subtracts dm.count() months from the date represented by ymwdl. Equivalent to
-   ymwdl+ -dm.
-   6) Subtracts dy.count() years from the date represented by ymwdl. Equivalent to
-   ymwdl + -dy.
+   1-2) Adds dm.count() months to the date represented by ymwdl. The result has the same year() and month() as std::chrono::year_month(ymwdl.year(), ymwdl.month()) + dm and the same weekday() as ymwdl.
+   3-4) Adds dy.count() years to the date represented by ymwdl. The result is equivalent to std::chrono::year_month_weekday_last(ymwdl.year() + dy, ymwdl.month(), ymwd.weekday_last()).
+   5) Subtracts dm.count() months from the date represented by ymwdl. Equivalent to ymwdl+ -dm.
+   6) Subtracts dy.count() years from the date represented by ymwdl. Equivalent to ymwdl + -dy.

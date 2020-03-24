@@ -1,4 +1,4 @@
-.TH std::basic_regex<CharT,Traits>::basic_regex 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_regex<CharT,Traits>::basic_regex 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_regex<CharT,Traits>::basic_regex \- std::basic_regex<CharT,Traits>::basic_regex
 
@@ -23,21 +23,16 @@ std::basic_regex<CharT,Traits>::basic_regex \- std::basic_regex<CharT,Traits>::b
    basic_regex( std::initializer_list<CharT> init,                  \fB(8)\fP \fI(since C++11)\fP
    flag_type f = std::regex_constants::ECMAScript );
 
-   Constructs a new regular expression from a sequence of characters interpreted
-   according to the flags f.
+   Constructs a new regular expression from a sequence of characters interpreted according to the flags f.
 
-   1) Default constructor. Constructs an empty regular expression which will match
-   nothing.
+   1) Default constructor. Constructs an empty regular expression which will match nothing.
    2) Constructs a regex from a null-terminated string s.
    3) Constructs a regex from a sequence of count characters, pointed to by s.
    4) Copy constructor. Constructs a regex by copying other
-   5) Move constructor. Constructs a regex by with the contents of other using move
-   semantics.
+   5) Move constructor. Constructs a regex by with the contents of other using move semantics.
    6) Constructs a regex from a string str.
-   7) Range constructor. Constructs the string with the contents of the range [first,
-   last).
-   8) Initializer list constructor. Constructs the string with the contents of the
-   initializer list init.
+   7) Range constructor. Constructs the string with the contents of the range [first, last).
+   8) Initializer list constructor. Constructs the string with the contents of the initializer list init.
 
 .SH Parameters
 
@@ -47,8 +42,7 @@ std::basic_regex<CharT,Traits>::basic_regex \- std::basic_regex<CharT,Traits>::b
    str         - a basic_string used as a source used to initialize the regex
    other       - another regex to use as source to initialize the regex
    init        - initializer list used to initialize the regex
-   f           - flags used to guide the interpretation of the character sequence as a
-                 regular expression
+   f           - flags used to guide the interpretation of the character sequence as a regular expression
 .SH Type requirements
    -
    ForwardIt must meet the requirements of LegacyForwardIterator.

@@ -1,48 +1,35 @@
-.TH std::random_shuffle,std::shuffle 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::random_shuffle,std::shuffle 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::random_shuffle,std::shuffle \- std::random_shuffle,std::shuffle
 
 .SH Synopsis
    Defined in header <algorithm>
-   template< class RandomIt >               (deprecated in C++14)
-   void random_shuffle( RandomIt first, \fB(1)\fP (removed in C++17)
-   RandomIt last );
-   template< class RandomIt, class
-   RandomFunc >                                                   \fI(until C++11)\fP
-   void random_shuffle( RandomIt first,
-   RandomIt last, RandomFunc& r );
-   template< class RandomIt, class                                \fI(since C++11)\fP
-   RandomFunc >                         \fB(2)\fP                       (deprecated in C++14)
-   void random_shuffle( RandomIt first,                           (removed in C++17)
-   RandomIt last, RandomFunc&& r );
-   template< class RandomIt, class URBG
-   >                                        \fB(3)\fP                   \fI(since C++11)\fP
-   void shuffle( RandomIt first,
-   RandomIt last, URBG&& g );
+   template< class RandomIt >                                            \fB(1)\fP (deprecated in C++14)
+   void random_shuffle( RandomIt first, RandomIt last );                     (removed in C++17)
+   template< class RandomIt, class RandomFunc >                                                    \fI(until C++11)\fP
+   void random_shuffle( RandomIt first, RandomIt last, RandomFunc& r );
+   template< class RandomIt, class RandomFunc >                                                    \fI(since C++11)\fP
+   void random_shuffle( RandomIt first, RandomIt last, RandomFunc&& r ); \fB(2)\fP                       (deprecated in C++14)
+                                                                                                   (removed in C++17)
+   template< class RandomIt, class URBG >                                    \fB(3)\fP                   \fI(since C++11)\fP
+   void shuffle( RandomIt first, RandomIt last, URBG&& g );
 
-   Reorders the elements in the given range [first, last) such that each possible
-   permutation of those elements has equal probability of appearance.
+   Reorders the elements in the given range [first, last) such that each possible permutation of those elements has equal probability of appearance.
 
-   1) The random number generator is implementation-defined, but the function std::rand
-   is often used.
+   1) The random number generator is implementation-defined, but the function std::rand is often used.
    2) The random number generator is the function object r.
    3) The random number generator is the function object g.
 
 .SH Parameters
 
    first, last - the range of elements to shuffle randomly
-                 function object returning a randomly chosen value of type convertible
-   r           - to std::iterator_traits<RandomIt>::difference_type in the interval
-                 [0,n) if invoked as r(n)
-   g           - a UniformRandomBitGenerator whose result type is convertible to
-                 std::iterator_traits<RandomIt>::difference_type
+   r           - function object returning a randomly chosen value of type convertible to std::iterator_traits<RandomIt>::difference_type in the interval [0,n) if invoked as r(n)
+   g           - a UniformRandomBitGenerator whose result type is convertible to std::iterator_traits<RandomIt>::difference_type
 .SH Type requirements
    -
-   RandomIt must meet the requirements of ValueSwappable and
-   LegacyRandomAccessIterator.
+   RandomIt must meet the requirements of ValueSwappable and LegacyRandomAccessIterator.
    -
-   std::remove_reference_t<URBG> must meet the requirements of
-   UniformRandomBitGenerator.
+   std::remove_reference_t<URBG> must meet the requirements of UniformRandomBitGenerator.
 
 .SH Return value
 
@@ -54,9 +41,7 @@ std::random_shuffle,std::shuffle \- std::random_shuffle,std::shuffle
 
 .SH Notes
 
-   Note that the implementation is not dictated by the standard, so even if you use
-   exactly the same RandomFunc or URBG you may get different results with different
-   standard library implementations.
+   Note that the implementation is not dictated by the standard, so even if you use exactly the same RandomFunc or URBG you may get different results with different standard library implementations.
 
 .SH Possible implementation
 
@@ -133,9 +118,7 @@ std::random_shuffle,std::shuffle \- std::random_shuffle,std::shuffle
 
 .SH See also
 
-                    generates the next greater lexicographic permutation of a range of
-   next_permutation elements
+   next_permutation generates the next greater lexicographic permutation of a range of elements
                     \fI(function template)\fP
-                    generates the next smaller lexicographic permutation of a range of
-   prev_permutation elements
+   prev_permutation generates the next smaller lexicographic permutation of a range of elements
                     \fI(function template)\fP

@@ -1,4 +1,4 @@
-.TH std::gmtime 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::gmtime 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::gmtime \- std::gmtime
 
@@ -6,8 +6,7 @@ std::gmtime \- std::gmtime
    Defined in header <ctime>
    std::tm* gmtime( const std::time_t* time );
 
-   Converts given time since epoch as std::time_t value into calendar time, expressed
-   in Coordinated Universal Time (UTC).
+   Converts given time since epoch as std::time_t value into calendar time, expressed in Coordinated Universal Time (UTC).
 
 .SH Parameters
 
@@ -15,16 +14,13 @@ std::gmtime \- std::gmtime
 
 .SH Return value
 
-   Pointer to a static internal std::tm object on success, or null pointer otherwise.
-   The structure may be shared between std::gmtime, std::localtime, and std::ctime and
-   may be overwritten on each invocation.
+   Pointer to a static internal std::tm object on success, or null pointer otherwise. The structure may be shared between std::gmtime, std::localtime, and std::ctime and may be overwritten on each invocation.
 
 .SH Notes
 
    This function may not be thread-safe.
 
-   POSIX requires that this function sets errno to EOVERFLOW if it fails because the
-   argument is too large.
+   POSIX requires that this function sets errno to EOVERFLOW if it fails because the argument is too large.
 
 .SH Example
 

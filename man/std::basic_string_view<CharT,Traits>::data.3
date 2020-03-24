@@ -1,13 +1,11 @@
-.TH std::basic_string_view<CharT,Traits>::data 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string_view<CharT,Traits>::data 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string_view<CharT,Traits>::data \- std::basic_string_view<CharT,Traits>::data
 
 .SH Synopsis
    constexpr const_pointer data() const noexcept;  \fI(since C++17)\fP
 
-   Returns a pointer to the underlying character array. The pointer is such that the
-   range [data(); data() + size()) is valid and the values in it correspond to the
-   values of the view.
+   Returns a pointer to the underlying character array. The pointer is such that the range [data(); data() + size()) is valid and the values in it correspond to the values of the view.
 
 .SH Parameters
 
@@ -23,10 +21,7 @@ std::basic_string_view<CharT,Traits>::data \- std::basic_string_view<CharT,Trait
 
 .SH Notes
 
-   Unlike std::basic_string::data() and string literals, data() may return a pointer to
-   a buffer that is not null-terminated. Therefore it is typically a mistake to pass
-   data() to a routine that takes just a const CharT* and expects a null-terminated
-   string.
+   Unlike std::basic_string::data() and string literals, data() may return a pointer to a buffer that is not null-terminated. Therefore it is typically a mistake to pass data() to a routine that takes just a const CharT* and expects a null-terminated string.
 
 .SH Example
 

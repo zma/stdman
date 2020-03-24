@@ -1,4 +1,4 @@
-.TH std::invalid_argument 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::invalid_argument 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::invalid_argument \- std::invalid_argument
 
@@ -6,15 +6,13 @@ std::invalid_argument \- std::invalid_argument
    Defined in header <stdexcept>
    class invalid_argument;
 
-   Defines a type of object to be thrown as exception. It reports errors that arise
-   because an argument value has not been accepted.
+   Defines a type of object to be thrown as exception. It reports errors that arise because an argument value has not been accepted.
 
-   This exception is thrown by std::bitset::bitset, and the std::stoi and std::stof
-   families of functions.
+   This exception is thrown by std::bitset::bitset, and the std::stoi and std::stof families of functions.
 
    std-invalid argument-inheritance.svg
 
-                                   Inheritance diagram
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Inheritance diagram
 
 .SH Member functions
 
@@ -26,13 +24,9 @@ std::invalid_argument::invalid_argument
    explicit invalid_argument( const std::string& what_arg ); \fB(1)\fP
    explicit invalid_argument( const char* what_arg );        \fB(2)\fP \fI(since C++11)\fP
 
-   Constructs the exception object with what_arg as explanatory string that can be
-   accessed through what().
+   Constructs the exception object with what_arg as explanatory string that can be accessed through what().
 
-   Because copying std::invalid_argument is not permitted to throw exceptions, this
-   message is typically stored internally as a separately-allocated reference-counted
-   string. This is also why there is no constructor taking std::string&&: it would have
-   to copy the content anyway.
+   Because copying std::invalid_argument is not permitted to throw exceptions, this message is typically stored internally as a separately-allocated reference-counted string. This is also why there is no constructor taking std::string&&: it would have to copy the content anyway.
 
 .SH Parameters
 
@@ -53,6 +47,4 @@ Inherited from std::exception
 
 .SH Notes
 
-   The purpose of this exception type is similar to the error condition
-   std::errc::invalid_argument (thrown in std::system_error from member functions of
-   std::thread) and the related errno constant EINVAL.
+   The purpose of this exception type is similar to the error condition std::errc::invalid_argument (thrown in std::system_error from member functions of std::thread) and the related errno constant EINVAL.

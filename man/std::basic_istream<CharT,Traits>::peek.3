@@ -1,12 +1,11 @@
-.TH std::basic_istream<CharT,Traits>::peek 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_istream<CharT,Traits>::peek 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_istream<CharT,Traits>::peek \- std::basic_istream<CharT,Traits>::peek
 
 .SH Synopsis
    int_type peek();
 
-   Behaves as UnformattedInputFunction. After constructing and testing the sentry
-   object, reads the next character from the input stream without extracting it.
+   Behaves as UnformattedInputFunction. After constructing and testing the sentry object, reads the next character from the input stream without extracting it.
 
 .SH Parameters
 
@@ -20,11 +19,9 @@ std::basic_istream<CharT,Traits>::peek \- std::basic_istream<CharT,Traits>::peek
 
 .SH Exceptions
 
-   failure if an error occurred (the error state flag is not goodbit) and exceptions()
-   is set to throw for that state.
+   failure if an error occurred (the error state flag is not goodbit) and exceptions() is set to throw for that state.
 
-   If an internal operation throws an exception, it is caught and badbit is set. If
-   exceptions() is set for badbit, the exception is rethrown.
+   If an internal operation throws an exception, it is caught and badbit is set. If exceptions() is set for badbit, the exception is rethrown.
 
 .SH Example
 

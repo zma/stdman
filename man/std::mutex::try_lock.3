@@ -1,22 +1,17 @@
-.TH std::mutex::try_lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::mutex::try_lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::mutex::try_lock \- std::mutex::try_lock
 
 .SH Synopsis
    bool try_lock();  \fI(since C++11)\fP
 
-   Tries to lock the mutex. Returns immediately. On successful lock acquisition returns
-   true, otherwise returns false.
+   Tries to lock the mutex. Returns immediately. On successful lock acquisition returns true, otherwise returns false.
 
-   This function is allowed to fail spuriously and return false even if the mutex is
-   not currently locked by any other thread.
+   This function is allowed to fail spuriously and return false even if the mutex is not currently locked by any other thread.
 
-   If try_lock is called by a thread that already owns the mutex, the behavior is
-   undefined.
+   If try_lock is called by a thread that already owns the mutex, the behavior is undefined.
 
-   Prior unlock() operation on the same mutex synchronizes-with (as defined in
-   std::memory_order) this operation if it returns true. Note that prior lock() does
-   not synchronize with this operation if it returns false.
+   Prior unlock() operation on the same mutex synchronizes-with (as defined in std::memory_order) this operation if it returns true. Note that prior lock() does not synchronize with this operation if it returns false.
 
 .SH Parameters
 

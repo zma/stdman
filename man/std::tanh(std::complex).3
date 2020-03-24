@@ -1,4 +1,4 @@
-.TH std::tanh(std::complex) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tanh(std::complex) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tanh(std::complex) \- std::tanh(std::complex)
 
@@ -26,24 +26,17 @@ std::tanh(std::complex) \- std::tanh(std::complex)
      * std::tanh(std::conj(z)) == std::conj(std::tanh(z))
      * std::tanh(-z) == -std::tanh(z)
      * If z is (+0,+0), the result is (+0,+0)
-     * If z is (x,+∞) (for any^[1] finite x), the result is (NaN,NaN) and FE_INVALID is
-       raised
-     * If z is (x,NaN) (for any^[2] finite x), the result is (NaN,NaN) and FE_INVALID
-       may be raised
+     * If z is (x,+∞) (for any^[1] finite x), the result is (NaN,NaN) and FE_INVALID is raised
+     * If z is (x,NaN) (for any^[2] finite x), the result is (NaN,NaN) and FE_INVALID may be raised
      * If z is (+∞,y) (for any finite positive y), the result is (1,+0)
-     * If z is (+∞,+∞), the result is (1,±0) (the sign of the imaginary part is
-       unspecified)
-     * If z is (+∞,NaN), the result is (1,±0) (the sign of the imaginary part is
-       unspecified)
+     * If z is (+∞,+∞), the result is (1,±0) (the sign of the imaginary part is unspecified)
+     * If z is (+∞,NaN), the result is (1,±0) (the sign of the imaginary part is unspecified)
      * If z is (NaN,+0), the result is (NaN,+0)
-     * If z is (NaN,y) (for any non-zero y), the result is (NaN,NaN) and FE_INVALID may
-       be raised
+     * If z is (NaN,y) (for any non-zero y), the result is (NaN,NaN) and FE_INVALID may be raised
      * If z is (NaN,NaN), the result is (NaN,NaN)
 
-    1. ↑ per C11 DR471, this only holds for non-zero x. If z is (0,∞), the result
-       should be (0,NaN)
-    2. ↑ per C11 DR471, this only holds for non-zero x. If z is (0,NaN), the result
-       should be (0,NaN)
+    1. ↑ per C11 DR471, this only holds for non-zero x. If z is (0,∞), the result should be (0,NaN)
+    2. ↑ per C11 DR471, this only holds for non-zero x. If z is (0,NaN), the result should be (0,NaN)
 
 .SH Notes
 
@@ -54,11 +47,7 @@ std::tanh(std::complex) \- std::tanh(std::complex)
    ez
    +e-z
 
-   Hyperbolic tangent is an analytical function on the complex plain and has no branch
-   cuts. It is periodic with respect to the imaginary component, with period πi, and
-   has poles of the first order along the imaginary line, at coordinates (0, π(1/2 +
-   n)). However no common floating-point representation is able to represent π/2
-   exactly, thus there is no value of the argument for which a pole error occurs.
+   Hyperbolic tangent is an analytical function on the complex plain and has no branch cuts. It is periodic with respect to the imaginary component, with period πi, and has poles of the first order along the imaginary line, at coordinates (0, π(1/2 + n)). However no common floating-point representation is able to represent π/2 exactly, thus there is no value of the argument for which a pole error occurs.
 
 .SH Example
 

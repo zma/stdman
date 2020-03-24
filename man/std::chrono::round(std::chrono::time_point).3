@@ -1,19 +1,15 @@
-.TH std::chrono::round(std::chrono::time_point) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::round(std::chrono::time_point) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::round(std::chrono::time_point) \- std::chrono::round(std::chrono::time_point)
 
 .SH Synopsis
    Defined in header <chrono>
-   template <class ToDuration, class Clock, class Duration>
-   constexpr time_point<Clock, ToDuration> round(const time_point<Clock,  \fI(since C++17)\fP
-   Duration>& tp);
+   template <class ToDuration, class Clock, class Duration>                               \fI(since C++17)\fP
+   constexpr time_point<Clock, ToDuration> round(const time_point<Clock, Duration>& tp);
 
-   Returns the nearest time point to tp representable in ToDuration, rounding to even
-   in halfway cases.
+   Returns the nearest time point to tp representable in ToDuration, rounding to even in halfway cases.
 
-   The function does not participate in the overload resolution unless ToDuration is an
-   specialization of std::chrono::duration and
-   std::chrono::treat_as_floating_point<typename ToDuration::rep>::value is false.
+   The function does not participate in the overload resolution unless ToDuration is an specialization of std::chrono::duration and std::chrono::treat_as_floating_point<typename ToDuration::rep>::value is false.
 
 .SH Parameters
 
@@ -21,8 +17,7 @@ std::chrono::round(std::chrono::time_point) \- std::chrono::round(std::chrono::t
 
 .SH Return value
 
-   d rounded to nearest time point using duration of type ToDuration, rounding to even
-   in halfway cases.
+   d rounded to nearest time point using duration of type ToDuration, rounding to even in halfway cases.
 
 .SH Possible implementation
 
@@ -47,16 +42,14 @@ std::chrono::round(std::chrono::time_point) \- std::chrono::round(std::chrono::t
 
 .SH See also
 
-                                  converts a time point to another time point on the
-   time_point_cast                same clock, with a different duration
+   time_point_cast                converts a time point to another time point on the same clock, with a different duration
                                   \fI(function template)\fP
    ceil(std::chrono::time_point)  converts a time_point to another, rounding up
    \fI(C++17)\fP                        \fI(function template)\fP
    floor(std::chrono::time_point) converts a time_point to another, rounding down
    \fI(C++17)\fP                        \fI(function template)\fP
-   round(std::chrono::duration)   converts a duration to another, rounding to nearest,
-   \fI(C++17)\fP                        ties to even
-                                  \fI(function template)\fP
+   round(std::chrono::duration)   converts a duration to another, rounding to nearest, ties to even
+   \fI(C++17)\fP                        \fI(function template)\fP
    round
    roundf
    roundl
@@ -64,8 +57,8 @@ std::chrono::round(std::chrono::time_point) \- std::chrono::round(std::chrono::t
    lroundf
    lroundl
    llround
-   llroundf                       nearest integer, rounding away from zero in halfway
-   llroundl                       cases
+   llroundf
+   llroundl                       nearest integer, rounding away from zero in halfway cases
    \fI(C++11)\fP                        \fI(function)\fP
    \fI(C++11)\fP
    \fI(C++11)\fP

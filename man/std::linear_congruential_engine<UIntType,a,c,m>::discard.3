@@ -1,12 +1,11 @@
-.TH std::linear_congruential_engine<UIntType,a,c,m>::discard 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::linear_congruential_engine<UIntType,a,c,m>::discard 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::linear_congruential_engine<UIntType,a,c,m>::discard \- std::linear_congruential_engine<UIntType,a,c,m>::discard
 
 .SH Synopsis
    void discard( unsigned long long z );  \fI(since C++11)\fP
 
-   Advances the internal state by z times. Equivalent to calling operator() z times and
-   discarding the result
+   Advances the internal state by z times. Equivalent to calling operator() z times and discarding the result
 
 .SH Parameters
 
@@ -22,9 +21,7 @@ std::linear_congruential_engine<UIntType,a,c,m>::discard \- std::linear_congruen
 
 .SH Notes
 
-   For some engines, "fast jump" algorithms are known, which advance the state by many
-   steps (order of millions) without calculating intermediate state transitions,
-   although not necessarily in constant time.
+   For some engines, "fast jump" algorithms are known, which advance the state by many steps (order of millions) without calculating intermediate state transitions, although not necessarily in constant time.
 
 .SH See also
 

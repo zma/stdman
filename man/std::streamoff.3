@@ -1,4 +1,4 @@
-.TH std::streamoff 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::streamoff 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::streamoff \- std::streamoff
 
@@ -6,23 +6,17 @@ std::streamoff \- std::streamoff
    Defined in header <ios>
    typedef /*unspecified*/ streamoff;
 
-   The type std::streamoff is a signed integral type of sufficient size to represent
-   the maximum possible file size supported by the operating system. Typically, this is
-   a typedef to long long.
+   The type std::streamoff is a signed integral type of sufficient size to represent the maximum possible file size supported by the operating system. Typically, this is a typedef to long long.
 
-   It is used to represent offsets from stream positions (values of type std::fpos). A
-   std::streamoff value of -1 is also used to represent error conditions by some of the
-   I/O library functions.
+   It is used to represent offsets from stream positions (values of type std::fpos). A std::streamoff value of -1 is also used to represent error conditions by some of the I/O library functions.
 
   Relationship with std::fpos
 
      * the difference between two std::fpos objects is a value of type std::streamoff
 
-     * a value of type std::streamoff may be added or subtracted from std::fpos
-       yielding a different std::fpos.
+     * a value of type std::streamoff may be added or subtracted from std::fpos yielding a different std::fpos.
 
-     * a value of type std::fpos is implicitly convertible to std::streamoff (the
-       conversion result is the offset from the beginning of the file).
+     * a value of type std::fpos is implicitly convertible to std::streamoff (the conversion result is the offset from the beginning of the file).
 
      * a value of type std::fpos is constructible from a value of type std::streamoff
 

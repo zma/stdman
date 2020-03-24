@@ -1,28 +1,18 @@
-.TH std::not2 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::not2 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::not2 \- std::not2
 
 .SH Synopsis
    Defined in header <functional>
-   template< class Predicate >                                    \fI(until C++14)\fP
+   template< class Predicate >                                           \fI(until C++14)\fP
    std::binary_negate<Predicate> not2(const Predicate& pred);
-   template< class Predicate >                                    \fI(since C++14)\fP
-   constexpr std::binary_negate<Predicate> not2(const Predicate&  (deprecated in C++17)
-   pred);                                                         (removed in C++20)
+   template< class Predicate >                                           \fI(since C++14)\fP
+   constexpr std::binary_negate<Predicate> not2(const Predicate& pred);  (deprecated in C++17)
+                                                                         (removed in C++20)
 
-   not2 is a helper function to create a function object that returns the complement of
-   the binary predicate function passed. The function object created is of type
-   std::binary_negate<Predicate>.
+   not2 is a helper function to create a function object that returns the complement of the binary predicate function passed. The function object created is of type std::binary_negate<Predicate>.
 
-   The binary predicate type must define two member types, first_argument_type and
-   second_argument_type, that are convertible to the predicate's parameter types. The
-   function objects obtained from std::owner_less, std::ref, std::cref, std::plus,
-   std::minus, std::multiplies, std::divides, std::modulus, std::equal_to,
-   std::not_equal_to, std::greater, std::less, std::greater_equal, std::less_equal,
-   std::logical_not, std::logical_or, std::bit_and, std::bit_or, std::bit_xor,
-   std::mem_fn, std::map::value_comp, std::multimap::value_comp, std::function, or from
-   another call to std::not2 have these types defined, as are function objects derived
-   from the deprecated std::binary_function.
+   The binary predicate type must define two member types, first_argument_type and second_argument_type, that are convertible to the predicate's parameter types. The function objects obtained from std::owner_less, std::ref, std::cref, std::plus, std::minus, std::multiplies, std::divides, std::modulus, std::equal_to, std::not_equal_to, std::greater, std::less, std::greater_equal, std::less_equal, std::logical_not, std::logical_or, std::bit_and, std::bit_or, std::bit_xor, std::mem_fn, std::map::value_comp, std::multimap::value_comp, std::function, or from another call to std::not2 have these types defined, as are function objects derived from the deprecated std::binary_function.
 
 .SH Parameters
 
@@ -30,8 +20,7 @@ std::not2 \- std::not2
 
 .SH Return value
 
-   std::not2 returns an object of type std::binary_negate<Predicate>, constructed with
-   pred.
+   std::not2 returns an object of type std::binary_negate<Predicate>, constructed with pred.
 
 .SH Exceptions
 
@@ -121,21 +110,19 @@ std::not2 \- std::not2
 
 .SH See also
 
-   not_fn                Creates a function object that returns the complement of the
-   \fI(C++17)\fP               result of the function object it holds
-                         \fI(function template)\fP
-   binary_negate         wrapper function object returning the complement of the binary
-   (deprecated in C++17) predicate it holds
-   (removed in C++20)    \fI(class template)\fP
-   function              wraps callable object of any type with specified function call
-   \fI(C++11)\fP               signature
-                         \fI(class template)\fP
+   not_fn                Creates a function object that returns the complement of the result of the function object it holds
+   \fI(C++17)\fP               \fI(function template)\fP
+   binary_negate         wrapper function object returning the complement of the binary predicate it holds
+   (deprecated in C++17) \fI(class template)\fP
+   (removed in C++20)
+   function              wraps callable object of any type with specified function call signature
+   \fI(C++11)\fP               \fI(class template)\fP
    not1                  constructs custom std::unary_negate object
    (deprecated in C++17) \fI(function template)\fP
    (removed in C++20)
-   ptr_fun               creates an adaptor-compatible function object wrapper from a
-   (deprecated in C++11) pointer to function
-   (removed in C++17)    \fI(function template)\fP
+   ptr_fun               creates an adaptor-compatible function object wrapper from a pointer to function
+   (deprecated in C++11) \fI(function template)\fP
+   (removed in C++17)
    binary_function       adaptor-compatible binary function base class
    (deprecated in C++11) \fI(class template)\fP
    (removed in C++17)

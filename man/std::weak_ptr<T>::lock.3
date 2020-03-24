@@ -1,16 +1,13 @@
-.TH std::weak_ptr<T>::lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::weak_ptr<T>::lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::weak_ptr<T>::lock \- std::weak_ptr<T>::lock
 
 .SH Synopsis
    std::shared_ptr<T> lock() const noexcept;  \fI(since C++11)\fP
 
-   Creates a new std::shared_ptr that shares ownership of the managed object. If there
-   is no managed object, i.e. *this is empty, then the returned shared_ptr also is
-   empty.
+   Creates a new std::shared_ptr that shares ownership of the managed object. If there is no managed object, i.e. *this is empty, then the returned shared_ptr also is empty.
 
-   Effectively returns expired() ? shared_ptr<T>() : shared_ptr<T>(*this), executed
-   atomically.
+   Effectively returns expired() ? shared_ptr<T>() : shared_ptr<T>(*this), executed atomically.
 
 .SH Parameters
 
@@ -18,16 +15,11 @@ std::weak_ptr<T>::lock \- std::weak_ptr<T>::lock
 
 .SH Return value
 
-   A shared_ptr which shares ownership of the owned object if std::weak_ptr::expired
-   returns false. Else returns default-constructed shared_ptr of type T.
+   A shared_ptr which shares ownership of the owned object if std::weak_ptr::expired returns false. Else returns default-constructed shared_ptr of type T.
 
 .SH Notes
 
-   Both this function and the constructor of std::shared_ptr may be used to acquire
-   temporary ownership of the managed object referred to by a std::weak_ptr. The
-   difference is that the constructor of std::shared_ptr throws an exception when its
-   std::weak_ptr argument is empty, while std::weak_ptr<T>::lock() constructs an empty
-   std::shared_ptr<T>.
+   Both this function and the constructor of std::shared_ptr may be used to acquire temporary ownership of the managed object referred to by a std::weak_ptr. The difference is that the constructor of std::shared_ptr throws an exception when its std::weak_ptr argument is empty, while std::weak_ptr<T>::lock() constructs an empty std::shared_ptr<T>.
 
 .SH Example
 
@@ -74,13 +66,10 @@ std::weak_ptr<T>::lock \- std::weak_ptr<T>::lock
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-                       lock() was not required to be atomic, but
-   LWG 2316 C++11      required to be noexcept, which led to a   specified to be atomic
-                       contradiction
+      DR    Applied to                                      Behavior as published                                         Correct behavior
+   LWG 2316 C++11      lock() was not required to be atomic, but required to be noexcept, which led to a contradiction specified to be atomic
 
 .SH See also
 

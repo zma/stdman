@@ -1,4 +1,4 @@
-.TH std::get_new_handler 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::get_new_handler 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::get_new_handler \- std::get_new_handler
 
@@ -8,9 +8,7 @@ std::get_new_handler \- std::get_new_handler
 
    Returns the currently installed new-handler, which may be a null pointer.
 
-   This function is thread-safe. Previous call to std::set_new_handler
-   synchronizes-with (see std::memory_order) the subsequent calls to      \fI(since C++11)\fP
-   std::get_new_handler.
+   This function is thread-safe. Previous call to std::set_new_handler synchronizes-with (see std::memory_order) the subsequent calls to std::get_new_handler. \fI(since C++11)\fP
 
 .SH Parameters
 

@@ -1,4 +1,4 @@
-.TH deductionguidesforstd::shared_ptr 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH deductionguidesforstd::shared_ptr 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 deductionguidesforstd::shared_ptr \- deductionguidesforstd::shared_ptr
 
@@ -9,12 +9,9 @@ deductionguidesforstd::shared_ptr \- deductionguidesforstd::shared_ptr
    template <class T, class D>                         \fB(2)\fP \fI(since C++17)\fP
    shared_ptr(std::unique_ptr<T, D>) -> shared_ptr<T>;
 
-   These deduction guides are provided for std::shared_ptr to account for the edge
-   cases missed by the implicit deduction guides.
+   These deduction guides are provided for std::shared_ptr to account for the edge cases missed by the implicit deduction guides.
 
-   Note that there is no class template argument deduction from pointer types because
-   it is impossible to distinguish pointers obtained from array and non-array forms of
-   new.
+   Note that there is no class template argument deduction from pointer types because it is impossible to distinguish pointers obtained from array and non-array forms of new.
 
 .SH Example
 

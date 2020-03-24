@@ -1,15 +1,14 @@
-.TH std::basic_string_view<CharT,Traits>::copy 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string_view<CharT,Traits>::copy 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string_view<CharT,Traits>::copy \- std::basic_string_view<CharT,Traits>::copy
 
 .SH Synopsis
-   size_type copy( CharT* dest, size_type count, size_type pos = 0 )      \fI(since C++17)\fP
-   const;                                                                 \fI(until C++20)\fP
-   constexpr size_type copy( CharT* dest, size_type count,                \fI(since C++20)\fP
+   size_type copy( CharT* dest, size_type count, size_type pos = 0 ) const;  \fI(since C++17)\fP
+                                                                             \fI(until C++20)\fP
+   constexpr size_type copy( CharT* dest, size_type count,                   \fI(since C++20)\fP
    size_type pos = 0 ) const;
 
-   Copies the substring [pos, pos + rcount) to the character array pointed to by dest,
-   where rcount is the smaller of count and size() - pos.
+   Copies the substring [pos, pos + rcount) to the character array pointed to by dest, where rcount is the smaller of count and size() - pos.
 
    Equivalent to Traits::copy(dest, data() + pos, rcount).
 

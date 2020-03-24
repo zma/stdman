@@ -1,4 +1,4 @@
-.TH std::ctime 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctime 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctime \- std::ctime
 
@@ -6,15 +6,12 @@ std::ctime \- std::ctime
    Defined in header <ctime>
    char* ctime( const std::time_t* time );
 
-   Converts given time since epoch to a calendar local time and then to a textual
-   representation, as if by calling std::asctime(std::localtime(time)). The resulting
-   string has the following format:
+   Converts given time since epoch to a calendar local time and then to a textual representation, as if by calling std::asctime(std::localtime(time)). The resulting string has the following format:
 
  Www Mmm dd hh:mm:ss yyyy
 
      * Www - the day of the week (one of Mon, Tue, Wed, Thu, Fri, Sat, Sun).
-     * Mmm - the month (one of Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov,
-       Dec).
+     * Mmm - the month (one of Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec).
      * dd - the day of the month
      * hh - hours
      * mm - minutes
@@ -29,19 +26,13 @@ std::ctime \- std::ctime
 
 .SH Return value
 
-   Pointer to a static null-terminated character string holding the textual
-   representation of date and time. The string may be shared between std::asctime and
-   std::ctime, and may be overwritten on each invocation of any of those functions.
+   Pointer to a static null-terminated character string holding the textual representation of date and time. The string may be shared between std::asctime and std::ctime, and may be overwritten on each invocation of any of those functions.
 
 .SH Notes
 
-   This function returns a pointer to static data and is not thread-safe. In addition,
-   it modifies the static std::tm object which may be shared with std::gmtime and
-   std::localtime. POSIX marks this function obsolete and recommends std::strftime
-   instead.
+   This function returns a pointer to static data and is not thread-safe. In addition, it modifies the static std::tm object which may be shared with std::gmtime and std::localtime. POSIX marks this function obsolete and recommends std::strftime instead.
 
-   The behavior may be undefined for the values of time_t that result in the string
-   longer than 25 characters (e.g. year 10000)
+   The behavior may be undefined for the values of time_t that result in the string longer than 25 characters (e.g. year 10000)
 
 .SH Example
 

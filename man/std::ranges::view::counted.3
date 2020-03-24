@@ -1,4 +1,4 @@
-.TH std::ranges::view::counted 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ranges::view::counted 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ranges::view::counted \- std::ranges::view::counted
 
@@ -9,27 +9,20 @@ std::ranges::view::counted \- std::ranges::view::counted
 
    }
 
-   A counted view presents a View of the elements of the counted range [i, n) for some
-   iterator i and non-negative integer n.
+   A counted view presents a View of the elements of the counted range [i, n) for some iterator i and non-negative integer n.
 
-   A counted range [i, n) is the n elements starting with the element pointed to by i
-   and up to but not including the element, if any, pointed to by the result of n
-   applications of ++i.
+   A counted range [i, n) is the n elements starting with the element pointed to by i and up to but not including the element, if any, pointed to by the result of n applications of ++i.
 
-   If n == 0, the counted range is valid and empty. Otherwise, the counted range is
-   only valid if n is positive, i is dereferenceable, and [++i, --n) is a valid counted
-   range.
+   If n == 0, the counted range is valid and empty. Otherwise, the counted range is only valid if n is positive, i is dereferenceable, and [++i, --n) is a valid counted range.
 
-   Formally, if E and F are expressions, and T is the type std::decay_t<decltype((E))>,
-   then
+   Formally, if E and F are expressions, and T is the type std::decay_t<decltype((E))>, then
 
-   if T models Iterator and decltype((F)) models ConvertibleTo<iter_difference_t<T>>,
+           if T models Iterator and decltype((F)) models ConvertibleTo<iter_difference_t<T>>,
 
-   if T models RandomAccessIterator, view::counted(E, F) is expression-equivalent to
-   ranges::subrange{E, E + static_cast<std::iter_difference_t<T>>(F)}
-   otherwise view::counted(E, F) is expression-equivalent to
-   ranges::subrange{std::counted_iterator{E, F}, std::default_sentinel}
-   otherwise, view::counted(E, F) is ill-formed.
+                        if T models RandomAccessIterator, view::counted(E, F) is expression-equivalent to ranges::subrange{E, E + static_cast<std::iter_difference_t<T>>(F)}
+                        otherwise view::counted(E, F) is expression-equivalent to ranges::subrange{std::counted_iterator{E, F}, std::default_sentinel}
+
+           otherwise, view::counted(E, F) is ill-formed.
 
 .SH Example
 

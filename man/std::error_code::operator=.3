@@ -1,4 +1,4 @@
-.TH std::error_code::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::error_code::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::error_code::operator= \- std::error_code::operator=
 
@@ -6,11 +6,9 @@ std::error_code::operator= \- std::error_code::operator=
    template< class ErrorCodeEnum >                     \fI(since C++11)\fP
    error_code& operator=( ErrorCodeEnum e ) noexcept;
 
-   Replaces the error code and corresponding category with those representing error
-   code enum e.
+   Replaces the error code and corresponding category with those representing error code enum e.
 
-   Equivalent to *this = std::make_error_code(e). The overload participates in overload
-   resolutions only if std::is_error_code_enum<ErrorCodeEnum>::value == true.
+   Equivalent to *this = std::make_error_code(e). The overload participates in overload resolutions only if std::is_error_code_enum<ErrorCodeEnum>::value == true.
 
 .SH Parameters
 

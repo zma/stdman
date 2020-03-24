@@ -1,4 +1,4 @@
-.TH std::experimental::pmr::polymorphic_allocator<T>::polymorphic_allocator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::pmr::polymorphic_allocator<T>::polymorphic_allocator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::pmr::polymorphic_allocator<T>::polymorphic_allocator \- std::experimental::pmr::polymorphic_allocator<T>::polymorphic_allocator
 
@@ -11,12 +11,9 @@ std::experimental::pmr::polymorphic_allocator<T>::polymorphic_allocator \- std::
 
    Constructs a new polymorphic_allocator.
 
-   1) Constructs a polymorphic_allocator using the return value of
-   std::experimental::pmr::get_default_resource() as the underlying memory resource.
-   2-3) Constructs a polymorphic_allocator using other.resource() as the underlying
-   memory resource.
-   4) Constructs a polymorphic_allocator using r as the underlying memory resource.
-   This constructor provides an implicit conversion from memory_resource*.
+   1) Constructs a polymorphic_allocator using the return value of std::experimental::pmr::get_default_resource() as the underlying memory resource.
+   2-3) Constructs a polymorphic_allocator using other.resource() as the underlying memory resource.
+   4) Constructs a polymorphic_allocator using r as the underlying memory resource. This constructor provides an implicit conversion from memory_resource*.
 
 .SH Parameters
 

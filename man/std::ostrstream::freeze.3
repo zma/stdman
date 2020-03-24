@@ -1,20 +1,15 @@
-.TH std::ostrstream::freeze 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ostrstream::freeze 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ostrstream::freeze \- std::ostrstream::freeze
 
 .SH Synopsis
    void freeze(bool flag = true);
 
-   If the stream is using a dynamically-allocated array for output, disables (flag ==
-   true) or enables (flag == false) automatic allocation/deallocation of the buffer.
-   Effectively calls rdbuf()->freeze(flag)
+   If the stream is using a dynamically-allocated array for output, disables (flag == true) or enables (flag == false) automatic allocation/deallocation of the buffer. Effectively calls rdbuf()->freeze(flag)
 
 .SH Notes
 
-   After a call to str(), dynamic streams become frozen automatically. A call to
-   freeze(false) is required before exiting the scope in which this ostrstream object
-   was created. otherwise the destructor will leak memory. Also, additional output to a
-   frozen stream may be truncated once it reaches the end of the allocated buffer.
+   After a call to str(), dynamic streams become frozen automatically. A call to freeze(false) is required before exiting the scope in which this ostrstream object was created. otherwise the destructor will leak memory. Also, additional output to a frozen stream may be truncated once it reaches the end of the allocated buffer.
 
 .SH Parameters
 

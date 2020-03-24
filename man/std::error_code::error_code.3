@@ -1,4 +1,4 @@
-.TH std::error_code::error_code 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::error_code::error_code 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::error_code::error_code \- std::error_code::error_code
 
@@ -10,13 +10,9 @@ std::error_code::error_code \- std::error_code::error_code
 
    Constructs new error code.
 
-   1) Constructs error code with default value. Equivalent to error_code(0,
-   std::system_category()).
-   2) Constructs error code with ec as the platform-dependent error code and ecat as
-   the corresponding error category.
-   3) Constructs error code from an error code enum e. Equivalent to *this =
-   make_error_code(e). The overload participates in overload resolutions only if
-   std::is_error_code_enum<ErrorCodeEnum>::value == true.
+   1) Constructs error code with default value. Equivalent to error_code(0, std::system_category()).
+   2) Constructs error code with ec as the platform-dependent error code and ecat as the corresponding error category.
+   3) Constructs error code from an error code enum e. Equivalent to *this = make_error_code(e). The overload participates in overload resolutions only if std::is_error_code_enum<ErrorCodeEnum>::value == true.
 
 .SH Parameters
 

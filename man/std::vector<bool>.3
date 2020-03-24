@@ -1,4 +1,4 @@
-.TH std::vector<bool> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::vector<bool> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::vector<bool> \- std::vector<bool>
 
@@ -7,24 +7,16 @@ std::vector<bool> \- std::vector<bool>
    template<class Allocator>
    class vector<bool, Allocator>;
 
-   std::vector<bool> is a possibly space-efficient specialization of std::vector for
-   the type bool.
+   std::vector<bool> is a possibly space-efficient specialization of std::vector for the type bool.
 
-   The manner in which std::vector<bool> is made space efficient (as well as whether it
-   is optimized at all) is implementation defined. One potential optimization involves
-   coalescing vector elements such that each element occupies a single bit instead of
-   sizeof(bool) bytes.
+   The manner in which std::vector<bool> is made space efficient (as well as whether it is optimized at all) is implementation defined. One potential optimization involves coalescing vector elements such that each element occupies a single bit instead of sizeof(bool) bytes.
 
-   std::vector<bool> behaves similarly to std::vector, but in order to be space
-   efficient, it:
+   std::vector<bool> behaves similarly to std::vector, but in order to be space efficient, it:
 
-     * Does not necessarily store its elements as a contiguous array (so &v[0] + n !=
-       &v[n])
-     * Exposes class std::vector<bool>::reference as a method of accessing individual
-       bits. In particular, objects of this class are returned by operator[] by value.
+     * Does not necessarily store its elements as a contiguous array (so &v[0] + n != &v[n])
+     * Exposes class std::vector<bool>::reference as a method of accessing individual bits. In particular, objects of this class are returned by operator[] by value.
      * Does not use std::allocator_traits::construct to construct bit values.
-     * Does not guarantee that different elements in the same container can be modified
-       concurrently by different threads.
+     * Does not guarantee that different elements in the same container can be modified concurrently by different threads.
 
 .SH Member types
 
@@ -82,8 +74,7 @@ std::vector<bool> \- std::vector<bool>
                  \fI(public member function of std::vector<T,Allocator>)\fP
    reserve       reserves storage
                  \fI(public member function of std::vector<T,Allocator>)\fP
-                 returns the number of elements that can be held in currently allocated
-   capacity      storage
+   capacity      returns the number of elements that can be held in currently allocated storage
                  \fI(public member function of std::vector<T,Allocator>)\fP
 .SH Modifiers
    clear         clears the contents
@@ -128,14 +119,8 @@ std::vector<bool> \- std::vector<bool>
 
 .SH Notes
 
-   If the size of the bitset is known at compile time, std::bitset may be used, which
-   offers a richer set of member functions. In addition, boost::dynamic_bitset exists
-   as an alternative to std::vector<bool>.
+   If the size of the bitset is known at compile time, std::bitset may be used, which offers a richer set of member functions. In addition, boost::dynamic_bitset exists as an alternative to std::vector<bool>.
 
-   Since its representation may by optimized, std::vector<bool> does not necessarily
-   meet all Container or SequenceContainer requirements. For example, because
-   std::vector<bool>::iterator is implementation-defined, it may not satisfy the
-   LegacyForwardIterator requirement. Use of algorithms such as std::search that
-   require LegacyForwardIterators may result in either compile-time or run-time errors.
+   Since its representation may by optimized, std::vector<bool> does not necessarily meet all Container or SequenceContainer requirements. For example, because std::vector<bool>::iterator is implementation-defined, it may not satisfy the LegacyForwardIterator requirement. Use of algorithms such as std::search that require LegacyForwardIterators may result in either compile-time or run-time errors.
 
    The Boost.Container version of vector does not specialize for bool.

@@ -1,4 +1,4 @@
-.TH std::make_exception_ptr 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::make_exception_ptr 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::make_exception_ptr \- std::make_exception_ptr
 
@@ -7,8 +7,7 @@ std::make_exception_ptr \- std::make_exception_ptr
    template< class E >                                     \fI(since C++11)\fP
    std::exception_ptr make_exception_ptr( E e ) noexcept;
 
-   Creates an std::exception_ptr that holds a reference to a copy of e. This is done as
-   if executing the following code:
+   Creates an std::exception_ptr that holds a reference to a copy of e. This is done as if executing the following code:
 
  try {
      throw e;
@@ -22,9 +21,7 @@ std::make_exception_ptr \- std::make_exception_ptr
 
 .SH Return value
 
-   An instance of std::exception_ptr holding a reference to the copy of e, or to an
-   instance of std::bad_alloc or to an instance of std::bad_exception (see
-   std::current_exception).
+   An instance of std::exception_ptr holding a reference to the copy of e, or to an instance of std::bad_alloc or to an instance of std::bad_exception (see std::current_exception).
 
 .SH Notes
 

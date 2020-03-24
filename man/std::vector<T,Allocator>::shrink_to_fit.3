@@ -1,4 +1,4 @@
-.TH std::vector<T,Allocator>::shrink_to_fit 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::vector<T,Allocator>::shrink_to_fit 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::vector<T,Allocator>::shrink_to_fit \- std::vector<T,Allocator>::shrink_to_fit
 
@@ -7,12 +7,9 @@ std::vector<T,Allocator>::shrink_to_fit \- std::vector<T,Allocator>::shrink_to_f
 
    Requests the removal of unused capacity.
 
-   It is a non-binding request to reduce capacity() to size(). It depends on the
-   implementation whether the request is fulfilled.
+   It is a non-binding request to reduce capacity() to size(). It depends on the implementation whether the request is fulfilled.
 
-   If reallocation occurs, all iterators, including the past the end iterator, and all
-   references to the elements are invalidated. If no reallocation takes place, no
-   iterators or references are invalidated.
+   If reallocation occurs, all iterators, including the past the end iterator, and all references to the elements are invalidated. If no reallocation takes place, no iterators or references are invalidated.
 
 .SH Parameters
 
@@ -65,6 +62,5 @@ std::vector<T,Allocator>::shrink_to_fit \- std::vector<T,Allocator>::shrink_to_f
 
    size     returns the number of elements
             \fI(public member function)\fP
-            returns the number of elements that can be held in currently allocated
-   capacity storage
+   capacity returns the number of elements that can be held in currently allocated storage
             \fI(public member function)\fP

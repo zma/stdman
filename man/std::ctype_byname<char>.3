@@ -1,4 +1,4 @@
-.TH std::ctype_byname<char> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ctype_byname<char> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ctype_byname<char> \- std::ctype_byname<char>
 
@@ -7,9 +7,7 @@ std::ctype_byname<char> \- std::ctype_byname<char>
    template<>
    class ctype_byname : public std::ctype<char>;
 
-   This specialization of std::ctype_byname encapsulates character classification
-   features for type char. Like its base class std::ctype<char> and unlike
-   general-purpose std::ctype_byname, table lookup is used to classify characters
+   This specialization of std::ctype_byname encapsulates character classification features for type char. Like its base class std::ctype<char> and unlike general-purpose std::ctype_byname, table lookup is used to classify characters
 
 .SH Member types
 
@@ -42,14 +40,11 @@ Inherited from std::ctype<char>
                  \fI(public member function of std::ctype<char>)\fP
    classic_table obtains the "C" locale character classification table
    \fB[static]\fP      \fI(public static member function of std::ctype<char>)\fP
-                 classifies a character or a character sequence, using the
-   is            classification table
+   is            classifies a character or a character sequence, using the classification table
                  \fI(public member function of std::ctype<char>)\fP
-                 locates the first character in a sequence that conforms to given
-   scan_is       classification, using the classification table
+   scan_is       locates the first character in a sequence that conforms to given classification, using the classification table
                  \fI(public member function of std::ctype<char>)\fP
-                 locates the first character in a sequence that fails given
-   scan_not      classification, using the classification table
+   scan_not      locates the first character in a sequence that fails given classification, using the classification table
                  \fI(public member function of std::ctype<char>)\fP
    toupper       invokes do_toupper
                  \fI(public member function of std::ctype<CharT>)\fP
@@ -96,9 +91,8 @@ Inherited from std::ctype_base
    \fB[static]\fP         \fI(public static member constant)\fP
    punct            the value of mask identifying punctuation character classification
    \fB[static]\fP         \fI(public static member constant)\fP
-   xdigit           the value of mask identifying hexadecimal digit character
-   \fB[static]\fP         classification
-                    \fI(public static member constant)\fP
+   xdigit           the value of mask identifying hexadecimal digit character classification
+   \fB[static]\fP         \fI(public static member constant)\fP
    blank            the value of mask identifying blank character classification
    \fB[static]\fP \fI(C++11)\fP \fI(public static member constant)\fP
    alnum            alpha | digit

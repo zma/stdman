@@ -1,4 +1,4 @@
-.TH std::chrono::time_of_day 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::time_of_day 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::time_of_day \- std::chrono::time_of_day
 
@@ -15,20 +15,13 @@ std::chrono::time_of_day \- std::chrono::time_of_day
    template< class Rep, class Period >                    \fB(5)\fP \fI(since C++20)\fP
    class time_of_day<std::chrono::duration<Rep, Period>>;
 
-   The class template time_of_day splits a std::chrono::duration representing time
-   since midnight into a "broken down" time such as hours:minutes:seconds, with the
-   precision of the split determined by the Duration template parameter. It also tracks
-   whether it should be output in a 12-hour time format or a 24-hour time format. It is
-   primarily a formatting tool.
+   The class template time_of_day splits a std::chrono::duration representing time since midnight into a "broken down" time such as hours:minutes:seconds, with the precision of the split determined by the Duration template parameter. It also tracks whether it should be output in a 12-hour time format or a 24-hour time format. It is primarily a formatting tool.
 
-   The primary template \fB(1)\fP is not defined; four specializations are provided to handle
-   four different levels of precision.
+   The primary template \fB(1)\fP is not defined; four specializations are provided to handle four different levels of precision.
 
    Each specialization of time_of_day is a TriviallyCopyable StandardLayoutType.
 
-   The partial specialization \fB(5)\fP only exists if
-   std::chrono::treat_as_floating_point_v<Rep> is false and std::chrono::duration<Rep,
-   Period> is not convertible to std::chrono::seconds.
+   The partial specialization \fB(5)\fP only exists if std::chrono::treat_as_floating_point_v<Rep> is false and std::chrono::duration<Rep, Period> is not convertible to std::chrono::seconds.
 
 .SH Member types
 

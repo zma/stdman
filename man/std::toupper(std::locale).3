@@ -1,4 +1,4 @@
-.TH std::toupper(std::locale) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::toupper(std::locale) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::toupper(std::locale) \- std::toupper(std::locale)
 
@@ -7,8 +7,7 @@ std::toupper(std::locale) \- std::toupper(std::locale)
    template< class charT >
    charT toupper( charT ch, const locale& loc );
 
-   Converts the character ch to uppercase if possible, using the conversion rules
-   specified by the given locale's std::ctype facet.
+   Converts the character ch to uppercase if possible, using the conversion rules specified by the given locale's std::ctype facet.
 
 .SH Parameters
 
@@ -17,14 +16,11 @@ std::toupper(std::locale) \- std::toupper(std::locale)
 
 .SH Return value
 
-   Returns the uppercase form of ch if one is listed in the locale, otherwise returns
-   ch unchanged.
+   Returns the uppercase form of ch if one is listed in the locale, otherwise returns ch unchanged.
 
 .SH Notes
 
-   Only 1:1 character mapping can be performed by this function, e.g. the uppercase
-   form of 'ß' is (with some exceptions) the two-character string "SS", which cannot be
-   obtained by std::toupper.
+   Only 1:1 character mapping can be performed by this function, e.g. the uppercase form of 'ß' is (with some exceptions) the two-character string "SS", which cannot be obtained by std::toupper.
 
 .SH Possible implementation
 
@@ -62,8 +58,7 @@ std::toupper(std::locale) \- std::toupper(std::locale)
 
 .SH See also
 
-                        converts a character to lowercase using the ctype facet of a
-   tolower(std::locale) locale
+   tolower(std::locale) converts a character to lowercase using the ctype facet of a locale
                         \fI(function template)\fP
    toupper              converts a character to uppercase
                         \fI(function)\fP

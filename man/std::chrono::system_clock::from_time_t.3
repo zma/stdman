@@ -1,15 +1,13 @@
-.TH std::chrono::system_clock::from_time_t 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::system_clock::from_time_t 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::system_clock::from_time_t \- std::chrono::system_clock::from_time_t
 
 .SH Synopsis
-   static std::chrono::system_clock::time_point from_time_t( std::time_t  \fI(since C++11)\fP
-   t ) noexcept;
+   static std::chrono::system_clock::time_point from_time_t( std::time_t t ) noexcept;  \fI(since C++11)\fP
 
    Converts t to a time point type, using the coarser precision of the two types.
 
-   If time_point has lower precision, it is implementation defined whether the value is
-   rounded or truncated.
+   If time_point has lower precision, it is implementation defined whether the value is rounded or truncated.
 
 .SH Parameters
 

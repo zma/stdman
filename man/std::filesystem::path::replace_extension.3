@@ -1,18 +1,15 @@
-.TH std::filesystem::path::replace_extension 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::path::replace_extension 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::path::replace_extension \- std::filesystem::path::replace_extension
 
 .SH Synopsis
    path& replace_extension( const path& replacement = path() ); \fB(1)\fP \fI(since C++17)\fP
 
-   Replaces the extension with replacement or removes it when the default value of
-   replacement is used.
+   Replaces the extension with replacement or removes it when the default value of replacement is used.
 
-   Firstly, if this path has an extension(), it is removed from the generic-format view
-   of the pathname.
+   Firstly, if this path has an extension(), it is removed from the generic-format view of the pathname.
 
-   Then, a dot character is appended to the generic-format view of the pathname, if
-   replacement is not empty or does not begin with a dot character.
+   Then, a dot character is appended to the generic-format view of the pathname, if replacement is not empty or does not begin with a dot character.
 
    Then replacement is appended as if by operator+=(replacement)
 
@@ -30,9 +27,7 @@ std::filesystem::path::replace_extension \- std::filesystem::path::replace_exten
 
 .SH Notes
 
-   The type of replacement is std::filesystem::path even though it is not intended to
-   represent an object on the file system in order to correctly account for the
-   filesystem character encoding.
+   The type of replacement is std::filesystem::path even though it is not intended to represent an object on the file system in order to correctly account for the filesystem character encoding.
 
 .SH Example
 

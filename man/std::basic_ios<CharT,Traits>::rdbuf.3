@@ -1,19 +1,15 @@
-.TH std::basic_ios<CharT,Traits>::rdbuf 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ios<CharT,Traits>::rdbuf 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ios<CharT,Traits>::rdbuf \- std::basic_ios<CharT,Traits>::rdbuf
 
 .SH Synopsis
-   std::basic_streambuf<CharT, Traits>* rdbuf() const;                             \fB(1)\fP
-   std::basic_streambuf<CharT, Traits>* rdbuf( std::basic_streambuf<CharT,         \fB(2)\fP
-   Traits>* sb );
+   std::basic_streambuf<CharT, Traits>* rdbuf() const;                                    \fB(1)\fP
+   std::basic_streambuf<CharT, Traits>* rdbuf( std::basic_streambuf<CharT, Traits>* sb ); \fB(2)\fP
 
    Manages the associated stream buffer.
 
-   1) Returns the associated stream buffer. If there is no associated stream buffer,
-   returns a null pointer.
-   2) Sets the associated stream buffer to sb. The error state is cleared by calling
-   clear(). Returns the associated stream buffer before the operation. If there is no
-   associated stream buffer, returns a null pointer.
+   1) Returns the associated stream buffer. If there is no associated stream buffer, returns a null pointer.
+   2) Sets the associated stream buffer to sb. The error state is cleared by calling clear(). Returns the associated stream buffer before the operation. If there is no associated stream buffer, returns a null pointer.
 
 .SH Parameters
 
@@ -21,8 +17,7 @@ std::basic_ios<CharT,Traits>::rdbuf \- std::basic_ios<CharT,Traits>::rdbuf
 
 .SH Return value
 
-   The associated stream buffer, or a null pointer if there was no associated stream
-   buffer.
+   The associated stream buffer, or a null pointer if there was no associated stream buffer.
 
 .SH Exceptions
 

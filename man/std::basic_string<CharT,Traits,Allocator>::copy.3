@@ -1,4 +1,4 @@
-.TH std::basic_string<CharT,Traits,Allocator>::copy 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::copy 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::copy \- std::basic_string<CharT,Traits,Allocator>::copy
 
@@ -9,10 +9,7 @@ std::basic_string<CharT,Traits,Allocator>::copy \- std::basic_string<CharT,Trait
 
    size_type pos = 0) const;
 
-   Copies a substring [pos, pos+count) to character string pointed to by dest. If the
-   requested substring lasts past the end of the string, or if count == npos, the
-   copied substring is [pos, size()). The resulting character string is not
-   null-terminated.
+   Copies a substring [pos, pos+count) to character string pointed to by dest. If the requested substring lasts past the end of the string, or if count == npos, the copied substring is [pos, size()). The resulting character string is not null-terminated.
 
    If pos > size(), std::out_of_range is thrown.
 

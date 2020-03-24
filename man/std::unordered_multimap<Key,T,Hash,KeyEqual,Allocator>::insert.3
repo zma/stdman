@@ -1,4 +1,4 @@
-.TH std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::insert 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::insert 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::insert \- std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::insert
 
@@ -19,31 +19,15 @@ std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::insert \- std::unordered
 
    Inserts element(s) into the container.
 
-   1-2) inserts value. The overload \fB(2)\fP is equivalent to
-   emplace(std::forward<P>(value)) and only participates in overload resolution if
-   std::is_constructible<value_type, P&&>::value == true.
-   3-4) inserts value, using hint as a non-binding suggestion to where the search
-   should start. The overload \fB(4)\fP is equivalent to emplace_hint(hint,
-   std::forward<P>(value)) and only participates in overload resolution if
-   std::is_constructible<value_type, P&&>::value == true.
+   1-2) inserts value. The overload \fB(2)\fP is equivalent to emplace(std::forward<P>(value)) and only participates in overload resolution if std::is_constructible<value_type, P&&>::value == true.
+   3-4) inserts value, using hint as a non-binding suggestion to where the search should start. The overload \fB(4)\fP is equivalent to emplace_hint(hint, std::forward<P>(value)) and only participates in overload resolution if std::is_constructible<value_type, P&&>::value == true.
    5) inserts elements from range [first, last).
    6) inserts elements from initializer list ilist.
-   7) If nh is an empty node handle, does nothing. Otherwise, inserts the element owned
-   by nh into the container and returns an iterator pointing at the inserted element..
-   The behavior is undefined if nh is not empty and get_allocator() !=
-   nh.get_allocator().
-   8) If nh is an empty node handle, does nothing and returns the end iterator.
-   Otherwise, inserts the element owned by nh into the container, and returns the
-   iterator pointing to the element with key equivalent to nh.key() The element is
-   inserted as close as possible to hint. The behavior is undefined if nh is not empty
-   and get_allocator() != nh.get_allocator().
+   7) If nh is an empty node handle, does nothing. Otherwise, inserts the element owned by nh into the container and returns an iterator pointing at the inserted element.. The behavior is undefined if nh is not empty and get_allocator() != nh.get_allocator().
+   8) If nh is an empty node handle, does nothing and returns the end iterator. Otherwise, inserts the element owned by nh into the container, and returns the iterator pointing to the element with key equivalent to nh.key() The element is inserted as close as possible to hint. The behavior is undefined if nh is not empty and get_allocator() != nh.get_allocator().
 
-   If rehashing occurs due to the insertion, all iterators are invalidated. Otherwise
-   iterators are not affected. References are not invalidated. Rehashing occurs only if
-   the new number of elements is greater than max_load_factor()*bucket_count().
-   If the insertion is successful, pointers and references to the element obtained
-   while it is held in the node handle are invalidated, and pointers and references
-   obtained to that element before it was extracted become valid.
+   If rehashing occurs due to the insertion, all iterators are invalidated. Otherwise iterators are not affected. References are not invalidated. Rehashing occurs only if the new number of elements is greater than max_load_factor()*bucket_count().
+   If the insertion is successful, pointers and references to the element obtained while it is held in the node handle are invalidated, and pointers and references obtained to that element before it was extracted become valid.
    \fI(since C++17)\fP
 
 .SH Parameters
@@ -61,8 +45,7 @@ std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::insert \- std::unordered
 
    1-4) Returns an iterator to the inserted element.
    5-6) \fI(none)\fP
-   7,8) End iterator if nh was empty, iterator pointing to the inserted element
-   otherwise.
+   7,8) End iterator if nh was empty, iterator pointing to the inserted element otherwise.
 
 .SH Exceptions
 
@@ -74,8 +57,7 @@ std::unordered_multimap<Key,T,Hash,KeyEqual,Allocator>::insert \- std::unordered
 .SH Complexity
 
    1-4) Average case: O(1), worst case O(size())
-   5-6) Average case: O(N), where N is the number of elements to insert. Worse case:
-   O(N*size()+N)
+   5-6) Average case: O(N), where N is the number of elements to insert. Worse case: O(N*size()+N)
    7-8) Average case: O(1), worst case O(size())
 
 .SH See also

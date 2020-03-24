@@ -1,4 +1,4 @@
-.TH std::condition_variable::condition_variable 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::condition_variable::condition_variable 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::condition_variable::condition_variable \- std::condition_variable::condition_variable
 
@@ -16,10 +16,6 @@ std::condition_variable::condition_variable \- std::condition_variable::conditio
 
 .SH Exceptions
 
-   1) May throw std::system_error with std::error_condition equal to
-   std::errc::operation_not_permitted if the thread has no privilege to create a
-   condition variable, std::errc::resource_unavailable_try_again if a non-memory
-   resource limitation prevents this initialization, or another implementation-defined
-   value.
+   1) May throw std::system_error with std::error_condition equal to std::errc::operation_not_permitted if the thread has no privilege to create a condition variable, std::errc::resource_unavailable_try_again if a non-memory resource limitation prevents this initialization, or another implementation-defined value.
 
 .SH See also

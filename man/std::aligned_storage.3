@@ -1,20 +1,15 @@
-.TH std::aligned_storage 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::aligned_storage 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::aligned_storage \- std::aligned_storage
 
 .SH Synopsis
    Defined in header <type_traits>
-   template< std::size_t Len, std::size_t Align = /*default-alignment*/
-   >                                                                      \fI(since C++11)\fP
+   template< std::size_t Len, std::size_t Align = /*default-alignment*/ >  \fI(since C++11)\fP
    struct aligned_storage;
 
-   Provides the nested type type, which is a trivial standard-layout type suitable for
-   use as uninitialized storage for any object whose size is at most Len and whose
-   alignment requirement is a divisor of Align.
+   Provides the nested type type, which is a trivial standard-layout type suitable for use as uninitialized storage for any object whose size is at most Len and whose alignment requirement is a divisor of Align.
 
-   The default value of Align is the most stringent (the largest) alignment requirement
-   for any object whose size is at most Len. If the default value is not used, Align
-   must be the value of alignof(T) for some type T, or the behavior is undefined.
+   The default value of Align is the most stringent (the largest) alignment requirement for any object whose size is at most Len. If the default value is not used, Align must be the value of alignof(T) for some type T, or the behavior is undefined.
 
    The behavior is undefined if Len == 0.
 
@@ -27,19 +22,14 @@ std::aligned_storage \- std::aligned_storage
 
 .SH Helper types
 
-   template< std::size_t Len, std::size_t Align = /*default-alignment*/
-   >                                                                      \fI(since C++14)\fP
+   template< std::size_t Len, std::size_t Align = /*default-alignment*/ >  \fI(since C++14)\fP
    using aligned_storage_t = typename aligned_storage<Len, Align>::type;
 
 .SH Notes
 
-   The type defined by std::aligned_storage<>::type can be used to create uninitialized
-   memory blocks suitable to hold the objects of given type, optionally aligned
-   stricter than their natural alignment requirement, for example on a cache or page
-   boundary.
+   The type defined by std::aligned_storage<>::type can be used to create uninitialized memory blocks suitable to hold the objects of given type, optionally aligned stricter than their natural alignment requirement, for example on a cache or page boundary.
 
-   As with any other uninitialized storage, the objects are created using placement new
-   and destroyed with explicit destructor calls.
+   As with any other uninitialized storage, the objects are created using placement new and destroyed with explicit destructor calls.
 
 .SH Possible implementation
 
@@ -54,8 +44,7 @@ std::aligned_storage \- std::aligned_storage
 
 .SH Example
 
-   A primitive static vector class, demonstrating creation, access, and destruction of
-   objects in aligned storage
+   A primitive static vector class, demonstrating creation, access, and destruction of objects in aligned storage
 
    
 // Run this code
@@ -116,13 +105,10 @@ std::aligned_storage \- std::aligned_storage
 
 .SH See also
 
-   alignas specifier specifies that the storage for the variable should be aligned by
-                     specific amount \fI(C++11)\fP
+   alignas specifier specifies that the storage for the variable should be aligned by specific amount \fI(C++11)\fP
    alignment_of      obtains the type's alignment requirements
    \fI(C++11)\fP           \fI(class template)\fP
-   aligned_union     defines the type suitable for use as uninitialized storage for all
-   \fI(C++11)\fP           given types
-                     \fI(class template)\fP
-   max_align_t       trivial type with alignment requirement as great as any other
-   \fI(C++11)\fP           scalar type
-                     \fI(typedef)\fP
+   aligned_union     defines the type suitable for use as uninitialized storage for all given types
+   \fI(C++11)\fP           \fI(class template)\fP
+   max_align_t       trivial type with alignment requirement as great as any other scalar type
+   \fI(C++11)\fP           \fI(typedef)\fP

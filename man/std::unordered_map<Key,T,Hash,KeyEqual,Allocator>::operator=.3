@@ -1,38 +1,20 @@
-.TH std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::operator= \- std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::operator=
 
 .SH Synopsis
-   unordered_map& operator=( const unordered_map& other \fB(1)\fP \fI(since C++11)\fP
-   );
-   unordered_map& operator=( unordered_map&& other );                     \fI(since C++11)\fP
-                                                                          \fI(until C++17)\fP
-   unordered_map& operator=( unordered_map&& other )    \fB(2)\fP               \fI(since C++17)\fP
-   noexcept(/* see below */);
-   unordered_map& operator=(                                \fB(3)\fP           \fI(since C++11)\fP
-   std::initializer_list<value_type> ilist );
+   unordered_map& operator=( const unordered_map& other );                      \fB(1)\fP \fI(since C++11)\fP
+   unordered_map& operator=( unordered_map&& other );                                             \fI(since C++11)\fP
+                                                                                \fB(2)\fP               \fI(until C++17)\fP
+   unordered_map& operator=( unordered_map&& other ) noexcept(/* see below */);                   \fI(since C++17)\fP
+   unordered_map& operator=( std::initializer_list<value_type> ilist );             \fB(3)\fP           \fI(since C++11)\fP
 
    Replaces the contents of the container.
 
-   1) Copy assignment operator. Replaces the contents with a copy of the contents of
-   other.
-   If
-   std::allocator_traits<allocator_type>::propagate_on_container_copy_assignment::value
-   is true, the target allocator is replaced by a copy of the source allocator. If the
-   target and the source allocators do not compare equal, the target (*this) allocator
-   is used to deallocate the memory, then other's allocator is used to allocate it
-   before copying the elements.
+   1) Copy assignment operator. Replaces the contents with a copy of the contents of other.
+   If std::allocator_traits<allocator_type>::propagate_on_container_copy_assignment::value is true, the target allocator is replaced by a copy of the source allocator. If the target and the source allocators do not compare equal, the target (*this) allocator is used to deallocate the memory, then other's allocator is used to allocate it before copying the elements.
    \fI(since C++11)\fP.
-   2) Move assignment operator. Replaces the contents with those of other using move
-   semantics (i.e. the data in other is moved from other into this container). other is
-   in a valid but unspecified state afterwards. If
-   std::allocator_traits<allocator_type>::propagate_on_container_move_assignment::value
-   is true, the target allocator is replaced by a copy of the source allocator. If it
-   is false and the source and the target allocators do not compare equal, the target
-   cannot take ownership of the source memory and must move-assign each element
-   individually, allocating additional memory using its own allocator as needed. In any
-   case, all elements originally present in *this are either destroyed or replaced by
-   elementwise move-assignment.
+   2) Move assignment operator. Replaces the contents with those of other using move semantics (i.e. the data in other is moved from other into this container). other is in a valid but unspecified state afterwards. If std::allocator_traits<allocator_type>::propagate_on_container_move_assignment::value is true, the target allocator is replaced by a copy of the source allocator. If it is false and the source and the target allocators do not compare equal, the target cannot take ownership of the source memory and must move-assign each element individually, allocating additional memory using its own allocator as needed. In any case, all elements originally present in *this are either destroyed or replaced by elementwise move-assignment.
    3) Replaces the contents with those identified by initializer list ilist.
 
 .SH Parameters
@@ -47,8 +29,7 @@ std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::operator= \- std::unordered_m
 .SH Complexity
 
    1) Linear in the size of *this and other.
-   2) Linear in the size of *this unless the allocators do not compare equal and do not
-   propagate, in which case linear in the size of *this and other
+   2) Linear in the size of *this unless the allocators do not compare equal and do not propagate, in which case linear in the size of *this and other
    3) Linear in the size of *this and ilist.
 
 .SH Exceptions
@@ -63,12 +44,7 @@ std::unordered_map<Key,T,Hash,KeyEqual,Allocator>::operator= \- std::unordered_m
 
 .SH Notes
 
-   After container move assignment (overload \fB(2)\fP), unless elementwise move assignment
-   is forced by incompatible allocators, references, pointers, and iterators (other
-   than the end iterator) to other remain valid, but refer to elements that are now in
-   *this. The current standard makes this guarantee via the blanket statement in
-   §23.2.1[container.requirements.general]/12, and a more direct guarantee is under
-   consideration via LWG 2321.
+   After container move assignment (overload \fB(2)\fP), unless elementwise move assignment is forced by incompatible allocators, references, pointers, and iterators (other than the end iterator) to other remain valid, but refer to elements that are now in *this. The current standard makes this guarantee via the blanket statement in §23.2.1[container.requirements.general]/12, and a more direct guarantee is under consideration via LWG 2321.
 
 .SH Example
 

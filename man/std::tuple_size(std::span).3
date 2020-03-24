@@ -1,4 +1,4 @@
-.TH std::tuple_size(std::span) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tuple_size(std::span) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tuple_size(std::span) \- std::tuple_size(std::span)
 
@@ -6,17 +6,14 @@ std::tuple_size(std::span) \- std::tuple_size(std::span)
    Defined in header <span>
    template< class T, std::size_t N >
 
-   class tuple_size< std::span<T, N> > :                              \fB(1)\fP \fI(since C++20)\fP
+   class tuple_size< std::span<T, N> > :                                 \fB(1)\fP \fI(since C++20)\fP
    public std::integral_constant<std::size_t, N>
 
    { };
-   template< class T >
-   class tuple_size< std::span<T, std::dynamic_extent> >; // Not      \fB(2)\fP \fI(since C++20)\fP
-   defined
+   template< class T >                                                   \fB(2)\fP \fI(since C++20)\fP
+   class tuple_size< std::span<T, std::dynamic_extent> >; // Not defined
 
-   Provides access to the number of elements in a static-extent span as a compile-time
-   constant expression. If the span has dynamic extent, the tuple_size specialization
-   is an incomplete type.
+   Provides access to the number of elements in a static-extent span as a compile-time constant expression. If the span has dynamic extent, the tuple_size specialization is an incomplete type.
 
 Inherited from std::integral_constant
 

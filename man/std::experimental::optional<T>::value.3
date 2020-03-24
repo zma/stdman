@@ -1,4 +1,4 @@
-.TH std::experimental::optional<T>::value 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::optional<T>::value 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::optional<T>::value \- std::experimental::optional<T>::value
 
@@ -27,8 +27,7 @@ std::experimental::optional<T>::value \- std::experimental::optional<T>::value
 
 .SH Notes
 
-   The dereference operator operator*() does not check if this optional contains a
-   value, which may be more efficient than value().
+   The dereference operator operator*() does not check if this optional contains a value, which may be more efficient than value().
 
 .SH Example
 
@@ -54,11 +53,9 @@ std::experimental::optional<T>::value \- std::experimental::optional<T>::value
 
 .SH See also
 
-                             returns the contained value if available, another value
-   value_or                  otherwise
+   value_or                  returns the contained value if available, another value otherwise
                              \fI(public member function)\fP
    operator->                accesses the contained value
    operator*                 \fI(public member function)\fP
-   bad_optional_access       exception indicating checked access to an optional that
-   (library fundamentals TS) doesn't contain a value
-                             \fI(class)\fP
+   bad_optional_access       exception indicating checked access to an optional that doesn't contain a value
+   (library fundamentals TS) \fI(class)\fP

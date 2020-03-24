@@ -1,4 +1,4 @@
-.TH std::condition_variable_any::notify_all 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::condition_variable_any::notify_all 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::condition_variable_any::notify_all \- std::condition_variable_any::notify_all
 
@@ -17,17 +17,9 @@ std::condition_variable_any::notify_all \- std::condition_variable_any::notify_a
 
 .SH Notes
 
-   The effects of notify_one()/notify_all() and each of the three atomic parts of
-   wait()/wait_for()/wait_until() (unlock+wait, wakeup, and lock) take place in a
-   single total order that can be viewed as modification order of an atomic variable:
-   the order is specific to this individual condition_variable. This makes it
-   impossible for notify_one() to, for example, be delayed and unblock a thread that
-   started waiting just after the call to notify_one() was made.
+   The effects of notify_one()/notify_all() and each of the three atomic parts of wait()/wait_for()/wait_until() (unlock+wait, wakeup, and lock) take place in a single total order that can be viewed as modification order of an atomic variable: the order is specific to this individual condition_variable. This makes it impossible for notify_one() to, for example, be delayed and unblock a thread that started waiting just after the call to notify_one() was made.
 
-   The notifying thread does not need to hold the lock on the same mutex as the one
-   held by the waiting thread(s); in fact doing so is a pessimization, since the
-   notified thread would immediately block again, waiting for the notifying thread to
-   release the lock.
+   The notifying thread does not need to hold the lock on the same mutex as the one held by the waiting thread(s); in fact doing so is a pessimization, since the notified thread would immediately block again, waiting for the notifying thread to release the lock.
 
 .SH Example
 

@@ -1,14 +1,13 @@
-.TH std::chrono::time_zone::to_local 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::time_zone::to_local 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::time_zone::to_local \- std::chrono::time_zone::to_local
 
 .SH Synopsis
    template< class Duration >
 
-   auto to_local(const std::chrono::sys_time<Duration>& tp) const               (since
-                                                                                C++20)
-   -> std::chrono::local_time<std::common_type_t<Duration,
-   std::chrono::seconds>>;
+   auto to_local(const std::chrono::sys_time<Duration>& tp) const                   \fI(since C++20)\fP
+
+   -> std::chrono::local_time<std::common_type_t<Duration, std::chrono::seconds>>;
 
    Converts the sys_time tp to the corresponding local_time in this time zone.
 
@@ -18,5 +17,4 @@ std::chrono::time_zone::to_local \- std::chrono::time_zone::to_local
 
 .SH Notes
 
-   The precision of the result is at least std::chrono::seconds, and will be finer if
-   the argument has finer precision.
+   The precision of the result is at least std::chrono::seconds, and will be finer if the argument has finer precision.

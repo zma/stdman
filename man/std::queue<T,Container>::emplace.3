@@ -1,4 +1,4 @@
-.TH std::queue<T,Container>::emplace 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::queue<T,Container>::emplace 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::queue<T,Container>::emplace \- std::queue<T,Container>::emplace
 
@@ -8,9 +8,7 @@ std::queue<T,Container>::emplace \- std::queue<T,Container>::emplace
    template< class... Args >                  \fI(since C++17)\fP
    decltype(auto) emplace( Args&&... args );
 
-   Pushes a new element to the end of the queue. The element is constructed in-place,
-   i.e. no copy or move operations are performed. The constructor of the element is
-   called with exactly the same arguments as supplied to the function.
+   Pushes a new element to the end of the queue. The element is constructed in-place, i.e. no copy or move operations are performed. The constructor of the element is called with exactly the same arguments as supplied to the function.
 
    Effectively calls c.emplace_back(std::forward<Args>(args)...);
 
@@ -20,9 +18,8 @@ std::queue<T,Container>::emplace \- std::queue<T,Container>::emplace
 
 .SH Return value
 
-   \fI(none)\fP                                                                 \fI(until C++17)\fP
-   The value or reference, if any, returned by the above call to          \fI(since C++17)\fP
-   Container::emplace_back.
+   \fI(none)\fP                                                                                 \fI(until C++17)\fP
+   The value or reference, if any, returned by the above call to Container::emplace_back. \fI(since C++17)\fP
 
 .SH Complexity
 
@@ -30,12 +27,10 @@ std::queue<T,Container>::emplace \- std::queue<T,Container>::emplace
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to           Behavior as published              Correct behavior
-   LWG 2783 C++17      emplace returned reference, breaking      returns decltype(auto)
-                       compatibility with pre-C++17 containers
+      DR    Applied to                            Behavior as published                                Correct behavior
+   LWG 2783 C++17      emplace returned reference, breaking compatibility with pre-C++17 containers returns decltype(auto)
 
 .SH See also
 

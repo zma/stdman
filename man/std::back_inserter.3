@@ -1,18 +1,15 @@
-.TH std::back_inserter 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::back_inserter 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::back_inserter \- std::back_inserter
 
 .SH Synopsis
    Defined in header <iterator>
-   template< class Container >                                            \fI(until C++20)\fP
+   template< class Container >                                                    \fI(until C++20)\fP
    std::back_insert_iterator<Container> back_inserter( Container& c );
-   template< class Container >
-   constexpr std::back_insert_iterator<Container> back_inserter(          \fI(since C++20)\fP
-   Container& c );
+   template< class Container >                                                    \fI(since C++20)\fP
+   constexpr std::back_insert_iterator<Container> back_inserter( Container& c );
 
-   back_inserter is a convenience function template that constructs a
-   std::back_insert_iterator for the container c with the type deduced from the type of
-   the argument.
+   back_inserter is a convenience function template that constructs a std::back_insert_iterator for the container c with the type deduced from the type of the argument.
 
 .SH Parameters
 
@@ -20,8 +17,7 @@ std::back_inserter \- std::back_inserter
 
 .SH Return value
 
-   A std::back_insert_iterator which can be used to add elements to the end of the
-   container c
+   A std::back_insert_iterator which can be used to add elements to the end of the container c
 
 .SH Possible implementation
 
@@ -57,9 +53,7 @@ std::back_inserter \- std::back_inserter
 
    back_insert_iterator iterator adaptor for insertion at the end of a container
                         \fI(class template)\fP
-                        creates a std::front_insert_iterator of type inferred from the
-   front_inserter       argument
+   front_inserter       creates a std::front_insert_iterator of type inferred from the argument
                         \fI(function template)\fP
-                        creates a std::insert_iterator of type inferred from the
-   inserter             argument
+   inserter             creates a std::insert_iterator of type inferred from the argument
                         \fI(function template)\fP

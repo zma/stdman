@@ -1,4 +1,4 @@
-.TH std::packaged_task<R(Args...)>::get_future 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::packaged_task<R(Args...)>::get_future 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::packaged_task<R(Args...)>::get_future \- std::packaged_task<R(Args...)>::get_future
 
@@ -21,6 +21,5 @@ std::packaged_task<R(Args...)>::get_future \- std::packaged_task<R(Args...)>::ge
 
    std::future_error on the following error conditions:
 
-     * The shared state has already been retrieved via a call to get_future. The error
-       category is set to future_already_retrieved.
+     * The shared state has already been retrieved via a call to get_future. The error category is set to future_already_retrieved.
      * *this has no shared state. The error category is set to no_state.

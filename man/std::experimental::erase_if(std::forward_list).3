@@ -1,14 +1,13 @@
-.TH std::experimental::erase_if(std::forward_list) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::erase_if(std::forward_list) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::erase_if(std::forward_list) \- std::experimental::erase_if(std::forward_list)
 
 .SH Synopsis
    Defined in header <experimental/forward_list>
-   template< class T, class Alloc, class Pred >              (library fundamentals TS
-   void erase_if(std::forward_list<T,Alloc>& c, Pred pred);  v2)
+   template< class T, class Alloc, class Pred >              (library fundamentals TS v2)
+   void erase_if(std::forward_list<T,Alloc>& c, Pred pred);
 
-   Erases all elements that satisfy the predicate pred from the container. Equivalent
-   to c.remove_if(pred);
+   Erases all elements that satisfy the predicate pred from the container. Equivalent to c.remove_if(pred);
 
 .SH Parameters
 
@@ -29,8 +28,6 @@ std::experimental::erase_if(std::forward_list) \- std::experimental::erase_if(st
    remove                      removes elements satisfying specific criteria
    remove_if                   \fI(function template)\fP
    remove                      removes elements satisfying specific criteria
-   remove_if                   \fI\fI(public member\fP function of\fP
-                               std::forward_list<T,Allocator>)
-   erase (std::forward_list)   Erases all elements equal to a specific value from a
-   (library fundamentals 2 TS) std::forward_list
-                               \fI(function template)\fP
+   remove_if                   \fI(public member function of std::forward_list<T,Allocator>)\fP
+   erase (std::forward_list)   Erases all elements equal to a specific value from a std::forward_list
+   (library fundamentals 2 TS) \fI(function template)\fP

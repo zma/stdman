@@ -1,4 +1,4 @@
-.TH std::addressof 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::addressof 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::addressof \- std::addressof
 
@@ -11,12 +11,10 @@ std::addressof \- std::addressof
    template <class T>                           \fB(2)\fP \fI(since C++17)\fP
    const T* addressof(const T&&) = delete;
 
-   1) Obtains the actual address of the object or function arg, even in presence of
-   overloaded operator&
+   1) Obtains the actual address of the object or function arg, even in presence of overloaded operator&
    2) Rvalue overload is deleted to prevent taking the address of const rvalues.
 
-   The expression std::addressof(E) is a constant subexpression, if E is  \fI(since C++17)\fP
-   an lvalue constant subexpression.
+   The expression std::addressof(E) is a constant subexpression, if E is an lvalue constant subexpression. \fI(since C++17)\fP
 
 .SH Parameters
 
@@ -36,13 +34,11 @@ std::addressof \- std::addressof
                      reinterpret_cast<const volatile char&>(arg)));
    }
 
-   Note: the above implementation is oversimplified and is not constexpr (which
-   requires compiler support).
+   Note: the above implementation is oversimplified and is not constexpr (which requires compiler support).
 
 .SH Example
 
-   operator& may be overloaded for a pointer wrapper class to obtain a pointer to
-   pointer:
+   operator& may be overloaded for a pointer wrapper class to obtain a pointer to pointer:
 
    
 // Run this code

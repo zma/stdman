@@ -1,4 +1,4 @@
-.TH std::io_errc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::io_errc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::io_errc \- std::io_errc
 
@@ -10,12 +10,7 @@ std::io_errc \- std::io_errc
 
    };
 
-   The scoped enumeration std::io_errc defines the error codes reported by I/O streams
-   in std::ios_base::failure exception objects. Only one error code
-   (std::io_errc::stream) is required, although the implementation may define
-   additional error codes. Because the appropriate specialization of
-   std::is_error_code_enum is provided, values of type std::io_errc are implicitly
-   convertible to std::error_code.
+   The scoped enumeration std::io_errc defines the error codes reported by I/O streams in std::ios_base::failure exception objects. Only one error code (std::io_errc::stream) is required, although the implementation may define additional error codes. Because the appropriate specialization of std::is_error_code_enum is provided, values of type std::io_errc are implicitly convertible to std::error_code.
 
 .SH Member constants
 
@@ -31,9 +26,8 @@ std::io_errc \- std::io_errc
 
 .SH Helper classes
 
-   is_error_code_enum<std::io_errc> extends the type trait std::is_error_code_enum to
-   \fI(C++11)\fP                          identify iostream error codes
-                                    \fI(class template)\fP
+   is_error_code_enum<std::io_errc> extends the type trait std::is_error_code_enum to identify iostream error codes
+   \fI(C++11)\fP                          \fI(class template)\fP
 
 .SH Example
 

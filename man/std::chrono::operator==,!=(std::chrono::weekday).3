@@ -1,12 +1,10 @@
-.TH std::chrono::operator==,!=(std::chrono::weekday) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator==,!=(std::chrono::weekday) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator==,!=(std::chrono::weekday) \- std::chrono::operator==,!=(std::chrono::weekday)
 
 .SH Synopsis
-   constexpr bool operator==(const std::chrono::weekday& x, const         \fI(since C++20)\fP
-   std::chrono::weekday& y) noexcept;
-   constexpr bool operator!=(const std::chrono::weekday& x, const         \fI(since C++20)\fP
-   std::chrono::weekday& y) noexcept;
+   constexpr bool operator==(const std::chrono::weekday& x, const std::chrono::weekday& y) noexcept;  \fI(since C++20)\fP
+   constexpr bool operator!=(const std::chrono::weekday& x, const std::chrono::weekday& y) noexcept;  \fI(since C++20)\fP
 
    Compare the two std::chrono::weekday x and y.
 
@@ -17,5 +15,4 @@ std::chrono::operator==,!=(std::chrono::weekday) \- std::chrono::operator==,!=(s
 
 .SH Notes
 
-   weekday does not support the <, <=, > and >= operators because there is no universal
-   consensus on which day is the first day of the week.
+   weekday does not support the <, <=, > and >= operators because there is no universal consensus on which day is the first day of the week.

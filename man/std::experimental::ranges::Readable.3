@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::Readable 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::Readable 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::Readable \- std::experimental::ranges::Readable
 
@@ -9,16 +9,12 @@ std::experimental::ranges::Readable \- std::experimental::ranges::Readable
    concept bool Readable =
    requires {
    typename ranges::value_type_t<In>;
-   typename ranges::reference_t<In>;
+   typename ranges::reference_t<In>;                                                    (ranges TS)
    typename ranges::rvalue_reference_t<In>;
-   } &&                                                                     (ranges TS)
-   CommonReference<ranges::reference_t<In>&&, ranges::value_type_t<In>&>
-   &&
-   CommonReference<ranges::reference_t<In>&&,
-   ranges::rvalue_reference_t<In>&&> &&
+   } &&
+   CommonReference<ranges::reference_t<In>&&, ranges::value_type_t<In>&> &&
+   CommonReference<ranges::reference_t<In>&&, ranges::rvalue_reference_t<In>&&> &&
 
-   CommonReference<ranges::rvalue_reference_t<In>&&, const
-   ranges::value_type_t<In>&>;
+   CommonReference<ranges::rvalue_reference_t<In>&&, const ranges::value_type_t<In>&>;
 
-   The concept Readable is satisfied by types that are readable by applying operator*,
-   such as pointers, smart pointers, and iterators.
+   The concept Readable is satisfied by types that are readable by applying operator*, such as pointers, smart pointers, and iterators.

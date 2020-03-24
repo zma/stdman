@@ -1,4 +1,4 @@
-.TH std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::construct 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::construct 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::construct \- std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::construct
 
@@ -22,90 +22,63 @@ std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::construct \- std::scope
    template< class T1, class T2, class U, class V >                   \fB(6)\fP \fI(until C++20)\fP
    void construct( std::pair<T1, T2>* p, std::pair<U, V>&& xy );
 
-   Constructs an object in allocated, but not initialized storage pointed to by p using
-   OuterAllocator and the provided constructor arguments. If the object is of type that
-   itself uses allocators, or if it is std::pair, passes InnerAllocator down to the
-   constructed object.
+   Constructs an object in allocated, but not initialized storage pointed to by p using OuterAllocator and the provided constructor arguments. If the object is of type that itself uses allocators, or if it is std::pair, passes InnerAllocator down to the constructed object.
 
-   First, retrieve the outermost allocator OUTERMOST by calling
-   this->outer_allocator(), and then calling the outer_allocator() member function
-   recursively on the result of this call until reaching an allocator that has no such
-   member function.
+   First, retrieve the outermost allocator OUTERMOST by calling this->outer_allocator(), and then calling the outer_allocator() member function recursively on the result of this call until reaching an allocator that has no such member function.
 
-   Define OUTERMOST_ALLOC_TRAITS(x) as
-   std::allocator_traits<std::remove_reference_t<decltype(OUTERMOST(x))>>
+   Define OUTERMOST_ALLOC_TRAITS(x) as std::allocator_traits<std::remove_reference_t<decltype(OUTERMOST(x))>>
 
-   1) Creates an object of the given type T by means of uses-allocator construction at
-   the uninitialized memory location indicated by p, using OUTERMOST as the allocator.
-   After adjustment for uses-allocator convention expected by T's constructor, calls
-   OUTERMOST_ALLOC_TRAITS(*this)::construct.
+   1) Creates an object of the given type T by means of uses-allocator construction at the uninitialized memory location indicated by p, using OUTERMOST as the allocator. After adjustment for uses-allocator convention expected by T's constructor, calls OUTERMOST_ALLOC_TRAITS(*this)::construct.
 
-   This overload only participates in overload resolution if U is not a           (until
-   specialization of std::pair.                                                   C++20)
+   This overload only participates in overload resolution if U is not a specialization of std::pair. \fI(until C++20)\fP
    Equivalent to
 
    std::apply(
        [p,this](auto&&... newargs) {
            OUTERMOST_ALLOC_TRAITS(*this)::construct(
-               OUTERMOST(*this), p, std::forward<decltype(newargs)>(newargs)...); (since
-       },                                                                         C++20)
+               OUTERMOST(*this), p, std::forward<decltype(newargs)>(newargs)...);                    \fI(since C++20)\fP
+       },
        std::uses_allocator_construction_args(
            inner_allocator(),
            std::forward<Args>(args)...
        )
    );
 
-  2) First, if either T1 or T2 is allocator-aware, modifies the tuples x and y to
-  include the appropriate inner allocator, resulting in the two new tuples xprime
-  and yprime, according to the following three rules:
-  2a) if T1 is not allocator-aware (std::uses_allocator<T1,
-  inner_allocator_type>::value==false, then xprime is
-  std::tuple<Args1&&...>(std::move(x)). (it is also required that
-  std::is_constructible<T1, Args1...>::value==true)
-  2b) if T1 is allocator-aware (std::uses_allocator<T1,
-  inner_allocator_type>::value==true), and its constructor takes an allocator tag
-  (std::is_constructible<T1, std::allocator_arg_t, inner_allocator_type&,
-  Args1...>::value==true), then xprime is
+   2) First, if either T1 or T2 is allocator-aware, modifies the tuples x and y to include the appropriate inner allocator, resulting in the two new tuples xprime and yprime, according to the following three rules:
+   2a) if T1 is not allocator-aware (std::uses_allocator<T1, inner_allocator_type>::value==false, then xprime is std::tuple<Args1&&...>(std::move(x)). (it is also required that std::is_constructible<T1, Args1...>::value==true)
+   2b) if T1 is allocator-aware (std::uses_allocator<T1, inner_allocator_type>::value==true), and its constructor takes an allocator tag (std::is_constructible<T1, std::allocator_arg_t, inner_allocator_type&, Args1...>::value==true), then xprime is
 
-  std::tuple_cat(std::tuple<std::allocator_arg_t, inner_allocator_type&>(
-                      std::allocator_arg, inner_allocator()
-                 ),
-                 std::tuple<Args1&&...>(std::move(x)))
+   std::tuple_cat(std::tuple<std::allocator_arg_t, inner_allocator_type&>(
+                       std::allocator_arg, inner_allocator()
+                  ),
+                  std::tuple<Args1&&...>(std::move(x)))
 
-  2c) if T1 is allocator-aware (std::uses_allocator<T1,
-  inner_allocator_type>::value==true), and its constructor takes the allocator as
-  the last argument (std::is_constructible<T1, Args1...,
-  inner_allocator_type&>::value==true), then xprime is
-  std::tuple_cat(std::tuple<Args1&&...>(std::move(x)),
-  std::tuple<inner_allocator_type&>(inner_allocator())).
-  Same rules apply to T2 and the replacement of y with yprime
-  Once xprime and yprime are constructed, constructs the pair p in allocated        (until
-  storage by calling                                                                C++20)
+   2c) if T1 is allocator-aware (std::uses_allocator<T1, inner_allocator_type>::value==true), and its constructor takes the allocator as the last argument (std::is_constructible<T1, Args1..., inner_allocator_type&>::value==true), then xprime is std::tuple_cat(std::tuple<Args1&&...>(std::move(x)), std::tuple<inner_allocator_type&>(inner_allocator())).
+   Same rules apply to T2 and the replacement of y with yprime
+   Once xprime and yprime are constructed, constructs the pair p in allocated storage by calling
 
-  std::allocator_traits<O>::construct( OUTERMOST,
-                                       p,
-                                       std::piecewise_construct,
-                                       std::move(xprime),
-                                       std::move(yprime));
+   std::allocator_traits<O>::construct( OUTERMOST,
+                                        p,
+                                        std::piecewise_construct,
+                                        std::move(xprime),
+                                        std::move(yprime));                                                                                                                                                                                                                                                                                                      \fI(until C++20)\fP
 
-  3) Equivalent to construct(p, std::piecewise_construct, std::tuple<>(),
-  std::tuple<>()), that is, passes the inner allocator on to the pair's member
-  types if they accept them.
-  4) Equivalent to
+   3) Equivalent to construct(p, std::piecewise_construct, std::tuple<>(), std::tuple<>()), that is, passes the inner allocator on to the pair's member types if they accept them.
+   4) Equivalent to
 
-  construct(p, std::piecewise_construct, std::forward_as_tuple(std::forward<U>(x)),
-                                         std::forward_as_tuple(std::forward<V>(y)))
+   construct(p, std::piecewise_construct, std::forward_as_tuple(std::forward<U>(x)),
+                                          std::forward_as_tuple(std::forward<V>(y)))
 
-  5) Equivalent to
+   5) Equivalent to
 
-  construct(p, std::piecewise_construct, std::forward_as_tuple(xy.first),
-                                         std::forward_as_tuple(xy.second))
+   construct(p, std::piecewise_construct, std::forward_as_tuple(xy.first),
+                                          std::forward_as_tuple(xy.second))
 
-  6) Equivalent to
+   6) Equivalent to
 
-  construct(p, std::piecewise_construct,
-               std::forward_as_tuple(std::forward<U>(xy.first)),
-               std::forward_as_tuple(std::forward<V>(xy.second)))
+   construct(p, std::piecewise_construct,
+                std::forward_as_tuple(std::forward<U>(xy.first)),
+                std::forward_as_tuple(std::forward<V>(xy.second)))
 
 .SH Parameters
 
@@ -121,23 +94,15 @@ std::scoped_allocator_adaptor<OuterAlloc,InnerAlloc...>::construct \- std::scope
 
 .SH Notes
 
-   This function is called (through std::allocator_traits) by any allocator-aware
-   object, such as std::vector, that was given a std::scoped_allocator_adaptor as the
-   allocator to use. Since inner_allocator is itself an instance of
-   std::scoped_allocator_adaptor, this function will also be called when the
-   allocator-aware objects constructed through this function start constructing their
-   own members.
+   This function is called (through std::allocator_traits) by any allocator-aware object, such as std::vector, that was given a std::scoped_allocator_adaptor as the allocator to use. Since inner_allocator is itself an instance of std::scoped_allocator_adaptor, this function will also be called when the allocator-aware objects constructed through this function start constructing their own members.
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to         Behavior as published              Correct behavior
-   LWG 2975 C++11      first overload is mistakenly used for  constrained to not accept
-                       pair construction in some cases        pairs
-   P0475R1  C++11      pair piecewise construction may copy   transformed to tuples of
-                       the arguments                          references to avoid copy
+      DR    Applied to                         Behavior as published                                         Correct behavior
+   LWG 2975 C++11      first overload is mistakenly used for pair construction in some cases constrained to not accept pairs
+   P0475R1  C++11      pair piecewise construction may copy the arguments                    transformed to tuples of references to avoid copy
 
 .SH See also
 

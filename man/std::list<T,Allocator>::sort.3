@@ -1,4 +1,4 @@
-.TH std::list<T,Allocator>::sort 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::list<T,Allocator>::sort 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::list<T,Allocator>::sort \- std::list<T,Allocator>::sort
 
@@ -7,32 +7,22 @@ std::list<T,Allocator>::sort \- std::list<T,Allocator>::sort
    template< class Compare >  \fB(2)\fP
    void sort( Compare comp );
 
-   Sorts the elements in ascending order. The order of equal elements is preserved. The
-   first version uses operator< to compare the elements, the second version uses the
-   given comparison function comp.
+   Sorts the elements in ascending order. The order of equal elements is preserved. The first version uses operator< to compare the elements, the second version uses the given comparison function comp.
 
    If an exception is thrown, the order of elements in *this is unspecified.
 
 .SH Parameters
 
-          comparison function object (i.e. an object that satisfies the requirements of
-          Compare) which returns true if the first argument is less than (i.e. is
-          ordered before) the second.
+          comparison function object (i.e. an object that satisfies the requirements of Compare) which returns true if the first argument is less than (i.e. is ordered before) the second.
 
-          The signature of the comparison function should be equivalent to the
-          following:
+          The signature of the comparison function should be equivalent to the following:
 
-          bool cmp(const Type1 &a, const Type2 &b);
-   comp -
-          While the signature does not need to have const &, the function must not
-          modify the objects passed to it and must be able to accept all values of type
-          (possibly const) Type1 and Type2 regardless of value category (thus, Type1 &
-          is not allowed
+   comp - bool cmp(const Type1 &a, const Type2 &b);
+
+          While the signature does not need to have const &, the function must not modify the objects passed to it and must be able to accept all values of type (possibly const) Type1 and Type2 regardless of value category (thus, Type1 & is not allowed
           , nor is Type1 unless for Type1 a move is equivalent to a copy
           \fI(since C++11)\fP).
-          The types Type1 and Type2 must be such that an object of type
-          list<T,Allocator>::const_iterator can be dereferenced and then implicitly
-          converted to both of them. 
+          The types Type1 and Type2 must be such that an object of type list<T,Allocator>::const_iterator can be dereferenced and then implicitly converted to both of them. 
 
 .SH Return value
 
@@ -44,10 +34,7 @@ std::list<T,Allocator>::sort \- std::list<T,Allocator>::sort
 
 .SH Notes
 
-   std::sort requires random access iterators and so cannot be used with list . This
-   function also differs from std::sort in that it does not require the element type of
-   the list to be swappable, preserves the values of all iterators, and performs a
-   stable sort.
+   std::sort requires random access iterators and so cannot be used with list . This function also differs from std::sort in that it does not require the element type of the list to be swappable, preserves the values of all iterators, and performs a stable sort.
 
 .SH Example
 

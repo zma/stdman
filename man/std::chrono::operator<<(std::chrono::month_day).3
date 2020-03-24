@@ -1,17 +1,15 @@
-.TH std::chrono::operator<<(std::chrono::month_day) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator<<(std::chrono::month_day) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator<<(std::chrono::month_day) \- std::chrono::operator<<(std::chrono::month_day)
 
 .SH Synopsis
    template< class CharT, class Traits >
 
-   std::basic_ostream<CharT, Traits>&                                     \fI(since C++20)\fP
+   std::basic_ostream<CharT, Traits>&                                                    \fI(since C++20)\fP
 
-   operator<<(std::basic_ostream<CharT, Traits>& os, const
-   std::chrono::month_day& md);
+   operator<<(std::basic_ostream<CharT, Traits>& os, const std::chrono::month_day& md);
 
-   Outputs a textual representation of md into the stream os, as if by os << md.month()
-   << '/' << md.day().
+   Outputs a textual representation of md into the stream os, as if by os << md.month() << '/' << md.day().
 
 .SH Return value
 
@@ -19,8 +17,7 @@ std::chrono::operator<<(std::chrono::month_day) \- std::chrono::operator<<(std::
 
 .SH Notes
 
-   This operator<< is primarily intended for debugging use. When used with non-default
-   stream flags, the output may be surprising:
+   This operator<< is primarily intended for debugging use. When used with non-default stream flags, the output may be surprising:
 
  auto md = std::chrono::February/1;
  std::cout.width\fB(10)\fP;

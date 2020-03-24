@@ -1,4 +1,4 @@
-.TH std::system_category 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::system_category 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::system_category \- std::system_category
 
@@ -6,12 +6,7 @@ std::system_category \- std::system_category
    Defined in header <system_error>
    const std::error_category& system_category() noexcept;  \fI(since C++11)\fP
 
-   Obtains a reference to the static error category object for errors reported by the
-   operating system. The object is required to override the virtual function
-   std::error_category::name() to return a pointer to the string "system". It is also
-   required to override the virtual function
-   std::error_category::default_error_condition() to map the error codes that match
-   POSIX errno values to std::generic_category.
+   Obtains a reference to the static error category object for errors reported by the operating system. The object is required to override the virtual function std::error_category::name() to return a pointer to the string "system". It is also required to override the virtual function std::error_category::default_error_condition() to map the error codes that match POSIX errno values to std::generic_category.
 
 .SH Parameters
 
@@ -19,8 +14,7 @@ std::system_category \- std::system_category
 
 .SH Return value
 
-   A reference to the static object of unspecified runtime type, derived from
-   std::error_category.
+   A reference to the static object of unspecified runtime type, derived from std::error_category.
 
 .SH Example
 
@@ -58,6 +52,5 @@ std::system_category \- std::system_category
 
    generic_category identifies the generic error category
    \fI(C++11)\fP          \fI(function)\fP
-   errc             the std::error_condition enumeration listing all standard <cerrno>
-   \fI(C++11)\fP          macro constants
-                    \fI(class)\fP
+   errc             the std::error_condition enumeration listing all standard <cerrno> macro constants
+   \fI(C++11)\fP          \fI(class)\fP

@@ -1,14 +1,11 @@
-.TH std::numeric_limits<T>::lowest 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::lowest 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::lowest \- std::numeric_limits<T>::lowest
 
 .SH Synopsis
    static constexpr T lowest() noexcept;  \fI(since C++11)\fP
 
-   Returns the lowest finite value representable by the numeric type T, that is, a
-   finite value x such that there is no other finite value y where y < x. This is
-   different from std::numeric_limits<T>::min() for floating-point types. Only
-   meaningful for bounded types.
+   Returns the lowest finite value representable by the numeric type T, that is, a finite value x such that there is no other finite value y where y < x. This is different from std::numeric_limits<T>::min() for floating-point types. Only meaningful for bounded types.
 
 .SH Return value
 
@@ -36,9 +33,7 @@ std::numeric_limits<T>::lowest \- std::numeric_limits<T>::lowest
 
 .SH Notes
 
-   While it's not true for fundamental C++ floating-point types, a third-party
-   floating-point type T may exist such that std::numeric_limits<T>::lowest() !=
-   -std::numeric_limits<T>::max().
+   While it's not true for fundamental C++ floating-point types, a third-party floating-point type T may exist such that std::numeric_limits<T>::lowest() != -std::numeric_limits<T>::max().
 
 .SH Example
 
@@ -85,8 +80,7 @@ std::numeric_limits<T>::lowest \- std::numeric_limits<T>::lowest
 
    min        returns the smallest finite value of the given type
    \fB[static]\fP   \fI(public static member function)\fP
-   denorm_min returns the smallest positive subnormal value of the given floating-point
-   \fB[static]\fP   type
-              \fI(public static member function)\fP
+   denorm_min returns the smallest positive subnormal value of the given floating-point type
+   \fB[static]\fP   \fI(public static member function)\fP
    max        returns the largest finite value of the given type
    \fB[static]\fP   \fI(public static member function)\fP

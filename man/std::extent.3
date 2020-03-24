@@ -1,4 +1,4 @@
-.TH std::extent 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::extent 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::extent \- std::extent
 
@@ -7,10 +7,7 @@ std::extent \- std::extent
    template< class T, unsigned N = 0>  \fI(since C++11)\fP
    struct extent;
 
-   If T is an array type, provides the member constant value equal to the number of
-   elements along the Nth dimension of the array, if N is in [0, std::rank<T>::value).
-   For any other type, or if T is array of unknown bound along its first dimension and
-   N is 0, value is 0.
+   If T is an array type, provides the member constant value equal to the number of elements along the Nth dimension of the array, if N is in [0, std::rank<T>::value). For any other type, or if T is array of unknown bound along its first dimension and N is 0, value is 0.
 
   Helper variable template
 

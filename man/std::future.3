@@ -1,4 +1,4 @@
-.TH std::future 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::future 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::future \- std::future
 
@@ -8,23 +8,15 @@ std::future \- std::future
    template< class T > class future<T&>; \fB(2)\fP \fI(since C++11)\fP
    template<> class future<void>;        \fB(3)\fP \fI(since C++11)\fP
 
-   The class template std::future provides a mechanism to access the result of
-   asynchronous operations:
+   The class template std::future provides a mechanism to access the result of asynchronous operations:
 
-     * An asynchronous operation (created via std::async, std::packaged_task, or
-       std::promise) can provide a std::future object to the creator of that
-       asynchronous operation.
+     * An asynchronous operation (created via std::async, std::packaged_task, or std::promise) can provide a std::future object to the creator of that asynchronous operation.
 
-     * The creator of the asynchronous operation can then use a variety of methods to
-       query, wait for, or extract a value from the std::future. These methods may
-       block if the asynchronous operation has not yet provided a value.
+     * The creator of the asynchronous operation can then use a variety of methods to query, wait for, or extract a value from the std::future. These methods may block if the asynchronous operation has not yet provided a value.
 
-     * When the asynchronous operation is ready to send a result to the creator, it can
-       do so by modifying shared state (e.g. std::promise::set_value) that is linked to
-       the creator's std::future.
+     * When the asynchronous operation is ready to send a result to the creator, it can do so by modifying shared state (e.g. std::promise::set_value) that is linked to the creator's std::future.
 
-   Note that std::future references shared state that is not shared with any other
-   asynchronous return objects (as opposed to std::shared_future).
+   Note that std::future references shared state that is not shared with any other asynchronous return objects (as opposed to std::shared_future).
 
 .SH Member functions
 
@@ -34,8 +26,7 @@ std::future \- std::future
                  \fI(public member function)\fP
    operator=     moves the future object
                  \fI(public member function)\fP
-                 transfers the shared state from *this to a shared_future and returns
-   share         it
+   share         transfers the shared state from *this to a shared_future and returns it
                  \fI(public member function)\fP
 .SH Getting the result
    get           returns the result
@@ -45,11 +36,9 @@ std::future \- std::future
                  \fI(public member function)\fP
    wait          waits for the result to become available
                  \fI(public member function)\fP
-                 waits for the result, returns if it is not available for the specified
-   wait_for      timeout duration
+   wait_for      waits for the result, returns if it is not available for the specified timeout duration
                  \fI(public member function)\fP
-                 waits for the result, returns if it is not available until specified
-   wait_until    time point has been reached
+   wait_until    waits for the result, returns if it is not available until specified time point has been reached
                  \fI(public member function)\fP
 
 .SH Example
@@ -92,9 +81,7 @@ std::future \- std::future
 
 .SH See also
 
-   async         runs a function asynchronously (potentially in a new thread) and
-   \fI(C++11)\fP       returns a std::future that will hold the result
-                 \fI(function template)\fP
-   shared_future waits for a value (possibly referenced by other futures) that is set
-   \fI(C++11)\fP       asynchronously
-                 \fI(class template)\fP
+   async         runs a function asynchronously (potentially in a new thread) and returns a std::future that will hold the result
+   \fI(C++11)\fP       \fI(function template)\fP
+   shared_future waits for a value (possibly referenced by other futures) that is set asynchronously
+   \fI(C++11)\fP       \fI(class template)\fP

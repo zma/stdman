@@ -1,4 +1,4 @@
-.TH std::numpunct<CharT>::grouping,std::numpunct<CharT>::do_grouping 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numpunct<CharT>::grouping,std::numpunct<CharT>::do_grouping 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numpunct<CharT>::grouping,std::numpunct<CharT>::do_grouping \- std::numpunct<CharT>::grouping,std::numpunct<CharT>::do_grouping
 
@@ -9,24 +9,14 @@ std::numpunct<CharT>::grouping,std::numpunct<CharT>::do_grouping \- std::numpunc
    protected:                               \fB(2)\fP
    virtual std::string do_grouping() const;
 
-   1) Public member function, calls the member function do_grouping of the most derived
-   class.
-   2) Returns an std::string holding, in each char element, the number of digits in
-   each group of the numeric output formatted by num_put::put() (and, therefore,
-   basic_ostream::operator<<)
+   1) Public member function, calls the member function do_grouping of the most derived class.
+   2) Returns an std::string holding, in each char element, the number of digits in each group of the numeric output formatted by num_put::put() (and, therefore, basic_ostream::operator<<)
 
-   The groups are stored as binary values: three-digit group is '\\3', and 51-digit
-   group is '3'. The character at index zero of the returned string holds the number of
-   digits in the rightmost group. The character at index 1 holds the number of digits
-   in the second group from the right, etc. The grouping indicated by the last
-   character in the returned string is reused to group all remaining digits in the
-   (left part of) the number.
+   The groups are stored as binary values: three-digit group is '\\3', and 51-digit group is '3'. The character at index zero of the returned string holds the number of digits in the rightmost group. The character at index 1 holds the number of digits in the second group from the right, etc. The grouping indicated by the last character in the returned string is reused to group all remaining digits in the (left part of) the number.
 
 .SH Return value
 
-   The object of type std::string holding the groups. The standard specializations of
-   std::numpunct return an empty string, indicating no grouping. Typical groupings
-   (e.g. the en_US locale) return "\\003".
+   The object of type std::string holding the groups. The standard specializations of std::numpunct return an empty string, indicating no grouping. Typical groupings (e.g. the en_US locale) return "\\003".
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::time_get<CharT,InputIt>::get_year,std::time_get<CharT,InputIt>::do_get_year 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::time_get<CharT,InputIt>::get_year,std::time_get<CharT,InputIt>::do_get_year 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::time_get<CharT,InputIt>::get_year,std::time_get<CharT,InputIt>::do_get_year \- std::time_get<CharT,InputIt>::get_year,std::time_get<CharT,InputIt>::do_get_year
 
@@ -15,42 +15,30 @@ std::time_get<CharT,InputIt>::get_year,std::time_get<CharT,InputIt>::do_get_year
 
    std::ios_base::iostate& err, std::tm* t) const;
 
-   1) public member function, calls the protected virtual member function do_get_year
-   of the most derived class.
-   2) Reads successive characters from the sequence [beg, end) and parses out the year
-   using some implementation-defined format. Depending on the locale, two-digit years
-   may be accepted, and it is implementation-defined which century they belong to.
+   1) public member function, calls the protected virtual member function do_get_year of the most derived class.
+   2) Reads successive characters from the sequence [beg, end) and parses out the year using some implementation-defined format. Depending on the locale, two-digit years may be accepted, and it is implementation-defined which century they belong to.
 
    The parsed year is stored in the std::tm structure field t->tm_year.
 
-   If the end iterator is reached before a valid date is read, the function sets
-   std::ios_base::eofbit in err. If a parsing error is encountered, the function sets
-   std::ios_base::failbit in err.
+   If the end iterator is reached before a valid date is read, the function sets std::ios_base::eofbit in err. If a parsing error is encountered, the function sets std::ios_base::failbit in err.
 
 .SH Parameters
 
    beg - iterator designating the start of the sequence to parse
    end - one past the end iterator for the sequence to parse
-   str - a stream object that this function uses to obtain locale facets when needed,
-         e.g. std::ctype to skip whitespace or std::collate to compare strings
+   str - a stream object that this function uses to obtain locale facets when needed, e.g. std::ctype to skip whitespace or std::collate to compare strings
    err - stream error flags object that is modified by this function to indicate errors
    t   - pointer to the std::tm object that will hold the result of this function call
 
 .SH Return value
 
-   Iterator pointing one past the last character in [beg, end) that was recognized as a
-   part of a valid year.
+   Iterator pointing one past the last character in [beg, end) that was recognized as a part of a valid year.
 
 .SH Notes
 
-   For two-digit input values, many implementations use the same parsing rules as the
-   conversion specifier '%y' as used by std::get_time, std::time_get::get(), and the
-   POSIX function strptime(): two-digit integer is expected, the values in the range
-   [69,99] results in values 1969 to 1999, range [00,68] results in 2000-2068.
-   Four-digit inputs are typically accepted as-is.
+   For two-digit input values, many implementations use the same parsing rules as the conversion specifier '%y' as used by std::get_time, std::time_get::get(), and the POSIX function strptime(): two-digit integer is expected, the values in the range [69,99] results in values 1969 to 1999, range [00,68] results in 2000-2068. Four-digit inputs are typically accepted as-is.
 
-   If a parsing error is encountered, most implementations of this function leave *t
-   unmodified.
+   If a parsing error is encountered, most implementations of this function leave *t unmodified.
 
 .SH Example
 

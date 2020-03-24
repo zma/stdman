@@ -1,4 +1,4 @@
-.TH std::set<Key,Compare,Allocator>::count 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::set<Key,Compare,Allocator>::count 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::set<Key,Compare,Allocator>::count \- std::set<Key,Compare,Allocator>::count
 
@@ -7,14 +7,10 @@ std::set<Key,Compare,Allocator>::count \- std::set<Key,Compare,Allocator>::count
    template< class K >                      \fB(2)\fP \fI(since C++14)\fP
    size_type count( const K& x ) const;
 
-   Returns the number of elements with key that compares equivalent to the specified
-   argument, which is either 1 or 0 since this container does not allow duplicates.
+   Returns the number of elements with key that compares equivalent to the specified argument, which is either 1 or 0 since this container does not allow duplicates.
 
    1) Returns the number of elements with key key.
-   2) Returns the number of elements with key that compares equivalent to the value x.
-   This overload only participates in overload resolution if the qualified-id
-   Compare::is_transparent is valid and denotes a type. They allow calling this
-   function without constructing an instance of Key.
+   2) Returns the number of elements with key that compares equivalent to the value x. This overload only participates in overload resolution if the qualified-id Compare::is_transparent is valid and denotes a type. They allow calling this function without constructing an instance of Key.
 
 .SH Parameters
 
@@ -23,8 +19,7 @@ std::set<Key,Compare,Allocator>::count \- std::set<Key,Compare,Allocator>::count
 
 .SH Return value
 
-   Number of elements with key that compares equivalent to key or x, which is either 1
-   or 0 for \fB(1)\fP.
+   Number of elements with key that compares equivalent to key or x, which is either 1 or 0 for \fB(1)\fP.
 
 .SH Complexity
 

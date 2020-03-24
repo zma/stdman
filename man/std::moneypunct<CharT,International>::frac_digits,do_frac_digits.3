@@ -1,4 +1,4 @@
-.TH std::moneypunct<CharT,International>::frac_digits,do_frac_digits 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::moneypunct<CharT,International>::frac_digits,do_frac_digits 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::moneypunct<CharT,International>::frac_digits,do_frac_digits \- std::moneypunct<CharT,International>::frac_digits,do_frac_digits
 
@@ -9,15 +9,12 @@ std::moneypunct<CharT,International>::frac_digits,do_frac_digits \- std::moneypu
    protected:                          \fB(2)\fP
    virtual int do_frac_digits() const;
 
-   1) Public member function, calls the member function do_frac_digits of the most
-   derived class.
-   2) Returns the number of digits to be displayed after the decimal point when
-   printing monetary values
+   1) Public member function, calls the member function do_frac_digits of the most derived class.
+   2) Returns the number of digits to be displayed after the decimal point when printing monetary values
 
 .SH Return value
 
-   The number of digits to be displayed after the decimal point. In common U.S.
-   locales, this is the value 2.
+   The number of digits to be displayed after the decimal point. In common U.S. locales, this is the value 2.
 
 .SH Example
 

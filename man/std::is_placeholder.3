@@ -1,4 +1,4 @@
-.TH std::is_placeholder 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_placeholder 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_placeholder \- std::is_placeholder
 
@@ -7,16 +7,11 @@ std::is_placeholder \- std::is_placeholder
    template< class T >             \fI(since C++11)\fP
    struct is_placeholder;
 
-   If T is the type of a standard placeholder (_1, _2, _3, ...), then this template is
-   derived from std::integral_constant<int,1>, std::integral_constant<int,2>,
-   std::integral_constant<int,3>, respectively.
+   If T is the type of a standard placeholder (_1, _2, _3, ...), then this template is derived from std::integral_constant<int,1>, std::integral_constant<int,2>, std::integral_constant<int,3>, respectively.
 
-   If T is not a standard placeholder type, this template is derived from
-   std::integral_constant<int,0>
+   If T is not a standard placeholder type, this template is derived from std::integral_constant<int,0>
 
-   The template may be specialized for any user-defined T type: the specialization must
-   satisfy UnaryTypeTrait with BaseCharacteristic of std::integral_constant<int, N>
-   with N > 0 to indicate that T should be treated as N'th placeholder type.
+   The template may be specialized for any user-defined T type: the specialization must satisfy UnaryTypeTrait with BaseCharacteristic of std::integral_constant<int, N> with N > 0 to indicate that T should be treated as N'th placeholder type.
 
    std::bind uses std::is_placeholder to detect placeholders for unbound arguments.
 

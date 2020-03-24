@@ -1,10 +1,9 @@
-.TH std::experimental::basic_string_view<CharT,Traits>::operator[] 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::basic_string_view<CharT,Traits>::operator[] 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::basic_string_view<CharT,Traits>::operator[] \- std::experimental::basic_string_view<CharT,Traits>::operator[]
 
 .SH Synopsis
-   constexpr const_reference operator[](size_type pos)        (library fundamentals TS)
-   const;
+   constexpr const_reference operator[](size_type pos) const;  (library fundamentals TS)
 
    Returns a const reference to the character at specified location pos.
 
@@ -28,8 +27,7 @@ std::experimental::basic_string_view<CharT,Traits>::operator[] \- std::experimen
 
 .SH Notes
 
-   Unlike std::basic_string::operator[], basic_string_view::operator[](size()) has
-   undefined behavior instead of returning CharT().
+   Unlike std::basic_string::operator[], basic_string_view::operator[](size()) has undefined behavior instead of returning CharT().
 
 .SH Example
 

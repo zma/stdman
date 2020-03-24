@@ -1,4 +1,4 @@
-.TH std::result_of,std::invoke_result 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::result_of,std::invoke_result 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::result_of,std::invoke_result \- std::result_of,std::invoke_result
 
@@ -16,29 +16,24 @@ std::result_of,std::invoke_result \- std::result_of,std::invoke_result
 
    Deduces the return type of an INVOKE expression at compile time.
 
-   F must be a callable type, reference to function, or reference to      \fI(since C++11)\fP
-   callable type. Invoking F with ArgTypes... must be a well-formed       \fI(until C++14)\fP
-   expression.
-   F and all types in ArgTypes can be any complete type, array of unknown \fI(since C++14)\fP
-   bound, or (possibly cv-qualified) void.
+   F must be a callable type, reference to function, or reference to callable type. Invoking F with ArgTypes... must be a well-formed expression. \fI(since C++11)\fP
+                                                                                                                                                  \fI(until C++14)\fP
+   F and all types in ArgTypes can be any complete type, array of unknown bound, or (possibly cv-qualified) void.                                 \fI(since C++14)\fP
 
 .SH Member types
 
    Member type Definition
-               the return type of the Callable type F if invoked with the arguments
-               ArgTypes....
-   type        Only defined if F can be called with the arguments ArgTypes... in
-               unevaluated context.
+               the return type of the Callable type F if invoked with the arguments ArgTypes....
+   type        Only defined if F can be called with the arguments ArgTypes... in unevaluated context.
                \fI(since C++14)\fP
 
 .SH Helper types
 
-   template< class T >                                            \fI(since C++14)\fP
-   using result_of_t = typename result_of<T>::type;           \fB(1)\fP (deprecated in C++17)
-                                                                  (removed in C++20)
-   template< class F, class... ArgTypes>
-   using invoke_result_t = typename invoke_result<F,          \fB(2)\fP \fI(since C++17)\fP
-   ArgTypes...>::type;
+   template< class T >                                                       \fI(since C++14)\fP
+   using result_of_t = typename result_of<T>::type;                      \fB(1)\fP (deprecated in C++17)
+                                                                             (removed in C++20)
+   template< class F, class... ArgTypes>                                 \fB(2)\fP \fI(since C++17)\fP
+   using invoke_result_t = typename invoke_result<F, ArgTypes...>::type;
 
 .SH Possible implementation
 
@@ -117,28 +112,19 @@ std::result_of,std::invoke_result \- std::result_of,std::invoke_result
 
 .SH Notes
 
-   As formulated in C++11, the behavior of std::result_of is undefined when
-   INVOKE(std::declval<F>(), std::declval<ArgTypes>()...) is ill-formed (e.g. when F is
-   not a callable type at all). C++14 changes that to a SFINAE (when F is not callable,
-   std::result_of<F(ArgTypes...)> simply doesn't have the type member).
+   As formulated in C++11, the behavior of std::result_of is undefined when INVOKE(std::declval<F>(), std::declval<ArgTypes>()...) is ill-formed (e.g. when F is not a callable type at all). C++14 changes that to a SFINAE (when F is not callable, std::result_of<F(ArgTypes...)> simply doesn't have the type member).
 
-   The motivation behind std::result_of is to determine the result of invoking a
-   Callable, in particular if that result type is different for different sets of
-   arguments.
+   The motivation behind std::result_of is to determine the result of invoking a Callable, in particular if that result type is different for different sets of arguments.
 
-   F(Args...) is a function type with Args... being the argument types and F being the
-   return type. As such, std::result_of suffers from several quirks that lead to its
-   deprecation in favor of std::invoke_result in C++17:
+   F(Args...) is a function type with Args... being the argument types and F being the return type. As such, std::result_of suffers from several quirks that lead to its deprecation in favor of std::invoke_result in C++17:
 
      * F cannot be a function type or an array type (but can be a reference to them);
-     * if any of the Args has type "array of T" or a function type T, it is
-       automatically adjusted to T*;
+     * if any of the Args has type "array of T" or a function type T, it is automatically adjusted to T*;
      * neither F nor any of Args... can be an abstract class type;
      * if any of Args... has a top-level cv-qualifier, it is discarded;
      * none of Args... may be of type void.
 
-   To avoid these quirks, result_of is often used with reference types as F and
-   Args.... For example:
+   To avoid these quirks, result_of is often used with reference types as F and Args.... For example:
 
  template<class F, class... Args>
  std::result_of_t<F&&(Args&&...)> // instead of std::result_of_t<F(Args...)>, which is wrong
@@ -200,10 +186,9 @@ std::result_of,std::invoke_result \- std::result_of,std::invoke_result
    invoke                 invokes any Callable object with given arguments
    \fI(C++17)\fP                \fI(function template)\fP
    is_invocable
-   is_invocable_r         checks if a type can be invoked (as if by std::invoke) with
-   is_nothrow_invocable   the given argument types
-   is_nothrow_invocable_r \fI(class template)\fP
+   is_invocable_r         checks if a type can be invoked (as if by std::invoke) with the given argument types
+   is_nothrow_invocable   \fI(class template)\fP
+   is_nothrow_invocable_r
    \fI(C++17)\fP
-   declval                obtains a reference to its argument for use in unevaluated
-   \fI(C++11)\fP                context
-                          \fI(function template)\fP
+   declval                obtains a reference to its argument for use in unevaluated context
+   \fI(C++11)\fP                \fI(function template)\fP

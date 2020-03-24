@@ -1,4 +1,4 @@
-.TH std::pointer_traits 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::pointer_traits 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::pointer_traits \- std::pointer_traits
 
@@ -7,11 +7,7 @@ std::pointer_traits \- std::pointer_traits
    template< class Ptr > struct pointer_traits;   \fB(1)\fP \fI(since C++11)\fP
    template< class T > struct pointer_traits<T*>; \fB(2)\fP \fI(since C++11)\fP
 
-   The pointer_traits class template provides the standardized way to access certain
-   properties of pointer-like types (fancy pointers, such as
-   boost::interprocess::offset_ptr). The standard template std::allocator_traits relies
-   on pointer_traits to determine the defaults for various typedefs required by
-   Allocator.
+   The pointer_traits class template provides the standardized way to access certain properties of pointer-like types (fancy pointers, such as boost::interprocess::offset_ptr). The standard template std::allocator_traits relies on pointer_traits to determine the defaults for various typedefs required by Allocator.
 
    1) The non-specialized pointer_traits declares the following types:
 
@@ -19,23 +15,20 @@ std::pointer_traits \- std::pointer_traits
 
    Type            Definition
    pointer         Ptr
-   element_type    Ptr::element_type if present. Otherwise T if Ptr is a template
-                   instantiation Template<T, Args...>
+   element_type    Ptr::element_type if present. Otherwise T if Ptr is a template instantiation Template<T, Args...>
    difference_type Ptr::difference_type if present, otherwise std::ptrdiff_t
 
 .SH Member alias templates
 
-   Template                 Definition
-   template <class U> using Ptr::rebind<U> if exists, otherwise Template<U, Args...> if
-   rebind                   Ptr is a template instantiation Template<T, Args...>
+   Template                        Definition
+   template <class U> using rebind Ptr::rebind<U> if exists, otherwise Template<U, Args...> if Ptr is a template instantiation Template<T, Args...>
 
 .SH Member functions
 
    pointer_to obtains a dereferenceable pointer to its argument
    \fB[static]\fP   \fI(public static member function)\fP
 
-   2) A specialization is provided for pointer types, T*, which declares the following
-   types
+   2) A specialization is provided for pointer types, T*, which declares the following types
 
 .SH Member types
 
@@ -54,8 +47,7 @@ std::pointer_traits \- std::pointer_traits
    pointer_to obtains a dereferenceable pointer to its argument
    \fB[static]\fP   \fI(public static member function)\fP
 
-   3) A specialization for user-defined fancy pointer types may define an additional
-   static member function
+   3) A specialization for user-defined fancy pointer types may define an additional static member function
 
   Optional Member functions
 
@@ -64,8 +56,7 @@ std::pointer_traits \- std::pointer_traits
 
 .SH Notes
 
-   The rebind member template alias makes it possible, given a pointer-like type that
-   points to T, to obtain the same pointer-like type that points to U. For example,
+   The rebind member template alias makes it possible, given a pointer-like type that points to T, to obtain the same pointer-like type that points to U. For example,
 
  using another_pointer = std::pointer_traits<std::shared_ptr<int>>::rebind<double>;
  static_assert(std::is_same<another_pointer, std::shared_ptr<double>>::value);
@@ -116,6 +107,5 @@ std::pointer_traits \- std::pointer_traits
 
    allocator_traits provides information about allocator types
    \fI(C++11)\fP          \fI(class template)\fP
-   addressof        obtains actual address of an object, even if the & operator is
-   \fI(C++11)\fP          overloaded
-                    \fI(function template)\fP
+   addressof        obtains actual address of an object, even if the & operator is overloaded
+   \fI(C++11)\fP          \fI(function template)\fP

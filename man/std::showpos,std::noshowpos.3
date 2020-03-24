@@ -1,4 +1,4 @@
-.TH std::showpos,std::noshowpos 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::showpos,std::noshowpos 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::showpos,std::noshowpos \- std::showpos,std::noshowpos
 
@@ -7,18 +7,13 @@ std::showpos,std::noshowpos \- std::showpos,std::noshowpos
    std::ios_base& showpos( std::ios_base& str );   \fB(1)\fP
    std::ios_base& noshowpos( std::ios_base& str ); \fB(2)\fP
 
-   Enables or disables the display of the plus sign '+' in non-negative integer output.
-   Has no effect on input.
+   Enables or disables the display of the plus sign '+' in non-negative integer output. Has no effect on input.
 
-   1) enables the showpos flag in the stream str as if by calling
-   str.setf(std::ios_base::showpos)
+   1) enables the showpos flag in the stream str as if by calling str.setf(std::ios_base::showpos)
 
-   2) disables the showpos flag in the stream str as if by calling
-   str.unsetf(std::ios_base::showpos)
+   2) disables the showpos flag in the stream str as if by calling str.unsetf(std::ios_base::showpos)
 
-   This is an I/O manipulator, it may be called with an expression such as out <<
-   std::showpos for any out of type std::basic_ostream or with an expression such as in
-   >> std::showpos for any in of type std::basic_istream.
+   This is an I/O manipulator, it may be called with an expression such as out << std::showpos for any out of type std::basic_ostream or with an expression such as in >> std::showpos for any in of type std::basic_istream.
 
 .SH Parameters
 

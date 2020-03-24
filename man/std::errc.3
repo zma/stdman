@@ -1,4 +1,4 @@
-.TH std::errc 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::errc 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::errc \- std::errc
 
@@ -6,8 +6,7 @@ std::errc \- std::errc
    Defined in header <system_error>
    enum class errc;                  \fI(since C++11)\fP
 
-   The scoped enumeration std::errc defines the values of portable error conditions
-   that correspond to the POSIX error codes.
+   The scoped enumeration std::errc defines the values of portable error conditions that correspond to the POSIX error codes.
 
 .SH Member constants
 
@@ -100,10 +99,8 @@ std::errc \- std::errc
 
 .SH Helper classes
 
-                                      extends the type trait
-   is_error_condition_enum<std::errc> std::is_error_condition_enum to identify the the
-   \fI(C++11)\fP                            std::errc values as error conditions
-                                      \fI(function template)\fP
+   is_error_condition_enum<std::errc> extends the type trait std::is_error_condition_enum to identify the the std::errc values as error conditions
+   \fI(C++11)\fP                            \fI(function template)\fP
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::map 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::map 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::map \- std::map
 
@@ -20,52 +20,44 @@ std::map \- std::map
 
    }
 
-   std::map is a sorted associative container that contains key-value pairs with unique
-   keys. Keys are sorted by using the comparison function Compare. Search, removal, and
-   insertion operations have logarithmic complexity. Maps are usually implemented as
-   red-black trees.
+   std::map is a sorted associative container that contains key-value pairs with unique keys. Keys are sorted by using the comparison function Compare. Search, removal, and insertion operations have logarithmic complexity. Maps are usually implemented as red-black trees.
 
-   Everywhere the standard library uses the Compare requirements, uniqueness is
-   determined by using the equivalence relation. In imprecise terms, two objects a and
-   b are considered equivalent (not unique) if neither compares less than the other:
-   !comp(a, b) && !comp(b, a).
+   Everywhere the standard library uses the Compare requirements, uniqueness is determined by using the equivalence relation. In imprecise terms, two objects a and b are considered equivalent (not unique) if neither compares less than the other: !comp(a, b) && !comp(b, a).
 
-   std::map meets the requirements of Container, AllocatorAwareContainer,
-   AssociativeContainer and ReversibleContainer.
+   std::map meets the requirements of Container, AllocatorAwareContainer, AssociativeContainer and ReversibleContainer.
 
 .SH Member types
 
-   Member type              Definition
-   key_type                 Key
-   mapped_type              T
-   value_type               std::pair<const Key, T>
-   size_type                Unsigned integer type (usually std::size_t)
-   difference_type          Signed integer type (usually std::ptrdiff_t)
-   key_compare              Compare
-   allocator_type           Allocator
-   reference                Allocator::reference \fI(until C++11)\fP
-                            value_type&          \fI(since C++11)\fP
-   const_reference          Allocator::const_reference \fI(until C++11)\fP
-                            const value_type&          \fI(since C++11)\fP
-   pointer                  Allocator::pointer                        \fI(until C++11)\fP
-                            std::allocator_traits<Allocator>::pointer \fI(since C++11)\fP
-   const_pointer            Allocator::const_pointer                        \fI(until C++11)\fP
-                            std::allocator_traits<Allocator>::const_pointer \fI(since C++11)\fP
-   iterator                 LegacyBidirectionalIterator
-   const_iterator           Constant LegacyBidirectionalIterator
-   reverse_iterator         std::reverse_iterator<iterator>
-   const_reverse_iterator   std::reverse_iterator<const_iterator>
-   node_type\fI(since C++17)\fP   a specialization of node handle representing a container node
-                            type describing the result of inserting a node_type, a
-                            specialization of
+   Member type                     Definition
+   key_type                        Key
+   mapped_type                     T
+   value_type                      std::pair<const Key, T>
+   size_type                       Unsigned integer type (usually std::size_t)
+   difference_type                 Signed integer type (usually std::ptrdiff_t)
+   key_compare                     Compare
+   allocator_type                  Allocator
+   reference                       Allocator::reference \fI(until C++11)\fP
+                                   value_type&          \fI(since C++11)\fP
+   const_reference                 Allocator::const_reference \fI(until C++11)\fP
+                                   const value_type&          \fI(since C++11)\fP
+   pointer                         Allocator::pointer                        \fI(until C++11)\fP
+                                   std::allocator_traits<Allocator>::pointer \fI(since C++11)\fP
+   const_pointer                   Allocator::const_pointer                        \fI(until C++11)\fP
+                                   std::allocator_traits<Allocator>::const_pointer \fI(since C++11)\fP
+   iterator                        LegacyBidirectionalIterator
+   const_iterator                  Constant LegacyBidirectionalIterator
+   reverse_iterator                std::reverse_iterator<iterator>
+   const_reverse_iterator          std::reverse_iterator<const_iterator>
+   node_type\fI(since C++17)\fP          a specialization of node handle representing a container node
+                                   type describing the result of inserting a node_type, a specialization of
 
-                            template <class Iter, class NodeType> struct /*unspecified*/ {
-   insert_return_type(since     Iter     position;
-   C++17)                       bool     inserted;
-                                NodeType node;
-                            };
+                                   template <class Iter, class NodeType> struct /*unspecified*/ {
+                                       Iter     position;
+   insert_return_type\fI(since C++17)\fP     bool     inserted;
+                                       NodeType node;
+                                   };
 
-                            instantiated with template arguments iterator and node_type.
+                                   instantiated with template arguments iterator and node_type.
 
 .SH Member classes
 
@@ -110,16 +102,14 @@ std::map \- std::map
    insert           or nodes
                     \fI(since C++17)\fP
                     \fI(public member function)\fP
-   insert_or_assign inserts an element or assigns to the current element if the key
-   \fI(C++17)\fP          already exists
-                    \fI(public member function)\fP
+   insert_or_assign inserts an element or assigns to the current element if the key already exists
+   \fI(C++17)\fP          \fI(public member function)\fP
    emplace          constructs element in-place
    \fI(C++11)\fP          \fI(public member function)\fP
    emplace_hint     constructs elements in-place using a hint
    \fI(C++11)\fP          \fI(public member function)\fP
-   try_emplace      inserts in-place if the key does not exist, does nothing if the key
-   \fI(C++17)\fP          exists
-                    \fI(public member function)\fP
+   try_emplace      inserts in-place if the key does not exist, does nothing if the key exists
+   \fI(C++17)\fP          \fI(public member function)\fP
    erase            erases elements
                     \fI(public member function)\fP
    swap             swaps the contents
@@ -137,16 +127,14 @@ std::map \- std::map
    (C++20)          \fI(public member function)\fP
    equal_range      returns range of elements matching a specific key
                     \fI(public member function)\fP
-                    returns an iterator to the first element not less than the given
-   lower_bound      key
+   lower_bound      returns an iterator to the first element not less than the given key
                     \fI(public member function)\fP
    upper_bound      returns an iterator to the first element greater than the given key
                     \fI(public member function)\fP
 .SH Observers
    key_comp         returns the function that compares keys
                     \fI(public member function)\fP
-                    returns the function that compares keys in objects of type
-   value_comp       value_type
+   value_comp       returns the function that compares keys in objects of type value_type
                     \fI(public member function)\fP
 
 .SH Non-member functions

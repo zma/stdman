@@ -1,4 +1,4 @@
-.TH std::thread::get_id 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::thread::get_id 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::thread::get_id \- std::thread::get_id
 
@@ -13,8 +13,7 @@ std::thread::get_id \- std::thread::get_id
 
 .SH Return value
 
-   A value of type std::thread::id identifying the thread associated with *this. If
-   there is no thread associated, default constructed std::thread::id is returned.
+   A value of type std::thread::id identifying the thread associated with *this. If there is no thread associated, default constructed std::thread::id is returned.
 
 .SH Example
 
@@ -54,6 +53,5 @@ std::thread::get_id \- std::thread::get_id
 
    id       represents the id of a thread
             \fI(public member class)\fP
-            checks whether the thread is joinable, i.e. potentially running in parallel
-   joinable context
+   joinable checks whether the thread is joinable, i.e. potentially running in parallel context
             \fI(public member function)\fP

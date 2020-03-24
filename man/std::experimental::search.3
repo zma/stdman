@@ -1,4 +1,4 @@
-.TH std::experimental::search 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::search 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::search \- std::experimental::search
 
@@ -6,13 +6,11 @@ std::experimental::search \- std::experimental::search
    Defined in header <experimental/algorithm>
    template<class ForwardIterator, class Searcher>
 
-   ForwardIterator search( ForwardIterator first,             (library fundamentals TS)
-   ForwardIterator last,
+   ForwardIterator search( ForwardIterator first, ForwardIterator last,  (library fundamentals TS)
 
    const Searcher& searcher );
 
-   Searches the sequence [first, last) for the pattern specified in the constructor of
-   searcher.
+   Searches the sequence [first, last) for the pattern specified in the constructor of searcher.
 
    Effectively executes searcher(first, last).       \fI(until C++17)\fP
    Effectively executes searcher(first, last).first. \fI(since C++17)\fP
@@ -34,8 +32,7 @@ std::experimental::search \- std::experimental::search
 
 .SH Return value
 
-   Returns the result of searcher.operator(), that is, an iterator to the location at
-   which the substring is found or a copy of last if it was not found.
+   Returns the result of searcher.operator(), that is, an iterator to the location at which the substring is found or a copy of last if it was not found.
 
 .SH Complexity
 

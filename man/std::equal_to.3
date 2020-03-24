@@ -1,4 +1,4 @@
-.TH std::equal_to 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::equal_to 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::equal_to \- std::equal_to
 
@@ -9,17 +9,13 @@ std::equal_to \- std::equal_to
    template< class T = void >      \fI(since C++14)\fP
    struct equal_to;
 
-   Function object for performing comparisons. Unless specialised, invokes operator==
-   on type T.
+   Function object for performing comparisons. Unless specialised, invokes operator== on type T.
 
 .SH Specializations
 
-   The standard library provides a specialization of std::equal_to when T
-   is not specified, which leaves the parameter types and return type to
-   be deduced.
-                                                                          \fI(since C++14)\fP
-                  function object implementing x == y deducing argument
-   equal_to<void> and return types
+   The standard library provides a specialization of std::equal_to when T is not specified, which leaves the parameter types and return type to be deduced.
+                                                                                                                                                            \fI(since C++14)\fP
+   equal_to<void> function object implementing x == y deducing argument and return types
                   \fI(class template specialization)\fP
 
 .SH Member types

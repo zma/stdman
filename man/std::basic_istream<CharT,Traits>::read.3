@@ -1,4 +1,4 @@
-.TH std::basic_istream<CharT,Traits>::read 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_istream<CharT,Traits>::read 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_istream<CharT,Traits>::read \- std::basic_istream<CharT,Traits>::read
 
@@ -7,16 +7,11 @@ std::basic_istream<CharT,Traits>::read \- std::basic_istream<CharT,Traits>::read
 
    Extracts characters from stream.
 
-   Behaves as UnformattedInputFunction. After constructing and checking the sentry
-   object, extracts characters and stores them into successive locations of the
-   character array whose first element is pointed to by s. Characters are extracted and
-   stored until any of the following conditions occurs:
+   Behaves as UnformattedInputFunction. After constructing and checking the sentry object, extracts characters and stores them into successive locations of the character array whose first element is pointed to by s. Characters are extracted and stored until any of the following conditions occurs:
 
      * count characters were extracted and stored
 
-     * end of file condition occurs on the input sequence (in which case,
-       setstate(failbit|eofbit) is called). The number of successfully extracted
-       characters can be queried using gcount().
+     * end of file condition occurs on the input sequence (in which case, setstate(failbit|eofbit) is called). The number of successfully extracted characters can be queried using gcount().
 
 .SH Parameters
 
@@ -29,17 +24,13 @@ std::basic_istream<CharT,Traits>::read \- std::basic_istream<CharT,Traits>::read
 
 .SH Exceptions
 
-   failure if an error occurred (the error state flag is not goodbit) and exceptions()
-   is set to throw for that state.
+   failure if an error occurred (the error state flag is not goodbit) and exceptions() is set to throw for that state.
 
-   If an internal operation throws an exception, it is caught and badbit is set. If
-   exceptions() is set for badbit, the exception is rethrown.
+   If an internal operation throws an exception, it is caught and badbit is set. If exceptions() is set for badbit, the exception is rethrown.
 
 .SH Notes
 
-   When using a non-converting locale (the default locale is non-converting), the
-   overrider of this function in std::basic_ifstream may be optimized for zero-copy
-   bulk I/O (by means of overriding std::streambuf::xsgetn)
+   When using a non-converting locale (the default locale is non-converting), the overrider of this function in std::basic_ifstream may be optimized for zero-copy bulk I/O (by means of overriding std::streambuf::xsgetn)
 
 .SH Example
 

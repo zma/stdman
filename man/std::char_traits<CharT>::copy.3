@@ -1,20 +1,16 @@
-.TH std::char_traits<CharT>::copy 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::char_traits<CharT>::copy 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::char_traits<CharT>::copy \- std::char_traits<CharT>::copy
 
 .SH Synopsis
-   static char_type* copy( char_type* dest, const char_type* src,         \fI(until C++20)\fP
-   std::size_t count );
-   static constexpr char_type* copy( char_type* dest, const char_type*    \fI(since C++20)\fP
-   src, std::size_t count );
+   static char_type* copy( char_type* dest, const char_type* src, std::size_t count );            \fI(until C++20)\fP
+   static constexpr char_type* copy( char_type* dest, const char_type* src, std::size_t count );  \fI(since C++20)\fP
 
-   Copies count character from character string pointed to by src to character string
-   pointed to by dest.
+   Copies count character from character string pointed to by src to character string pointed to by dest.
 
    Formally, for each i in [0, count), performs assign(src[i], dest[i]).
 
-   The behavior is undefined if copied character ranges overlap, i.e. src is in [dest,
-   dest + count).
+   The behavior is undefined if copied character ranges overlap, i.e. src is in [dest, dest + count).
 
 .SH Parameters
 

@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::Same 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::Same 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::Same \- std::experimental::ranges::Same
 
@@ -9,15 +9,13 @@ std::experimental::ranges::Same \- std::experimental::ranges::Same
 
    The concept Same<T, U> is satisfied if and only if T and U denote the same type.
 
-   Despite being specified using it, there need not be any subsumption relationship
-   between Same<T, U> and std::is_same<T, U>::value.
+   Despite being specified using it, there need not be any subsumption relationship between Same<T, U> and std::is_same<T, U>::value.
 
    For the purposes of constraint checking, Same<T, U> implies Same<U, T>.
 
 .SH Notes
 
-   The additional requirement on constraint checking differentiates Same from
-   std::is_same.
+   The additional requirement on constraint checking differentiates Same from std::is_same.
 
 .SH See also
 

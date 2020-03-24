@@ -1,20 +1,16 @@
-.TH std::complex<T>::operator+(unary),operator-(unary) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::complex<T>::operator+(unary),operator-(unary) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::complex<T>::operator+(unary),operator-(unary) \- std::complex<T>::operator+(unary),operator-(unary)
 
 .SH Synopsis
-   template< class T >
-   std::complex<T> operator+( const                         \fI(until C++20)\fP
-   std::complex<T>& val );
-   template< class T >
-   constexpr std::complex<T> operator+( const               \fI(since C++20)\fP
-   std::complex<T>& val );                          \fB(1)\fP
-   template< class T >
-   std::complex<T> operator-( const                                       \fI(until C++20)\fP
-   std::complex<T>& val );                              \fB(2)\fP
-   template< class T >
-   constexpr std::complex<T> operator-( const                             \fI(since C++20)\fP
-   std::complex<T>& val );
+   template< class T >                                                        \fI(until C++20)\fP
+   std::complex<T> operator+( const std::complex<T>& val );
+   template< class T >                                                        \fI(since C++20)\fP
+   constexpr std::complex<T> operator+( const std::complex<T>& val ); \fB(1)\fP
+   template< class T >                                                                      \fI(until C++20)\fP
+   std::complex<T> operator-( const std::complex<T>& val );               \fB(2)\fP
+   template< class T >                                                                      \fI(since C++20)\fP
+   constexpr std::complex<T> operator-( const std::complex<T>& val );
 
    Implements the analogs of the unary arithmetic operators for complex numbers.
 
@@ -32,7 +28,7 @@ std::complex<T>::operator+(unary),operator-(unary) \- std::complex<T>::operator+
 
 .SH See also
 
-   operator+ performs complex number arithmetics on two complex values or a complex and
-   operator- a scalar
+   operator+
+   operator- performs complex number arithmetics on two complex values or a complex and a scalar
    operator* \fI(function template)\fP
    operator/

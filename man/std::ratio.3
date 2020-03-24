@@ -1,4 +1,4 @@
-.TH std::ratio 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ratio 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ratio \- std::ratio
 
@@ -11,27 +11,16 @@ std::ratio \- std::ratio
 
    > class ratio;
 
-   The class template std::ratio provides compile-time rational arithmetic support.
-   Each instantiation of this template exactly represents any finite rational number as
-   long as its numerator Num and denominator Denom are representable as compile-time
-   constants of type std::intmax_t. In addition, Denom may not be zero and may not be
-   equal to the most negative value.
+   The class template std::ratio provides compile-time rational arithmetic support. Each instantiation of this template exactly represents any finite rational number as long as its numerator Num and denominator Denom are representable as compile-time constants of type std::intmax_t. In addition, Denom may not be zero and may not be equal to the most negative value.
 
-   The static data members nom and den representing the numerator and denominator are
-   calculated by dividing Num and Denom by their greatest common divisor. However, two
-   std::ratio with different Num or Denom are distinct types even if they represent the
-   same rational number (after reduction). A ratio type can be reduced to the lowest
-   terms via its type member: std::ratio<3, 6>::type is std::ratio<1, 2>.
+   The static data members nom and den representing the numerator and denominator are calculated by dividing Num and Denom by their greatest common divisor. However, two std::ratio with different Num or Denom are distinct types even if they represent the same rational number (after reduction). A ratio type can be reduced to the lowest terms via its type member: std::ratio<3, 6>::type is std::ratio<1, 2>.
 
-   Several convenience typedefs that correspond to the SI ratios are provided by the
-   standard library:
+   Several convenience typedefs that correspond to the SI ratios are provided by the standard library:
 
    Defined in header <ratio>
    Type  Definition
-   yocto std::ratio<1, 1000000000000000000000000>, if std::intmax_t can represent the
-         denominator
-   zepto std::ratio<1, 1000000000000000000000>, if std::intmax_t can represent the
-         denominator
+   yocto std::ratio<1, 1000000000000000000000000>, if std::intmax_t can represent the denominator
+   zepto std::ratio<1, 1000000000000000000000>, if std::intmax_t can represent the denominator
    atto  std::ratio<1, 1000000000000000000>
    femto std::ratio<1, 1000000000000000>
    pico  std::ratio<1, 1000000000000>
@@ -48,10 +37,8 @@ std::ratio \- std::ratio
    tera  std::ratio<1000000000000, 1>
    peta  std::ratio<1000000000000000, 1>
    exa   std::ratio<1000000000000000000, 1>
-   zetta std::ratio<1000000000000000000000, 1>, if std::intmax_t can represent the
-         numerator
-   yotta std::ratio<1000000000000000000000000, 1>, if std::intmax_t can represent the
-         numerator
+   zetta std::ratio<1000000000000000000000, 1>, if std::intmax_t can represent the numerator
+   yotta std::ratio<1000000000000000000000000, 1>, if std::intmax_t can represent the numerator
 
 .SH Member types
 
@@ -60,9 +47,7 @@ std::ratio \- std::ratio
 
 .SH Member objects
 
-   constexpr intmax_t num constexpr value of type std::intmax_t equal to sign(Num) *
-   \fB[static]\fP               sign(Denom) * abs(Num) / gcd(Num, Denom)
-                          \fI(public static member constant)\fP
-   constexpr intmax_t den constexpr value of type std::intmax_t equal to abs(Denom) /
-   \fB[static]\fP               gcd(Num, Denom)
-                          \fI(public static member constant)\fP
+   constexpr intmax_t num constexpr value of type std::intmax_t equal to sign(Num) * sign(Denom) * abs(Num) / gcd(Num, Denom)
+   \fB[static]\fP               \fI(public static member constant)\fP
+   constexpr intmax_t den constexpr value of type std::intmax_t equal to abs(Denom) / gcd(Num, Denom)
+   \fB[static]\fP               \fI(public static member constant)\fP

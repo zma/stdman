@@ -1,4 +1,4 @@
-.TH std::strcat 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::strcat 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::strcat \- std::strcat
 
@@ -6,12 +6,9 @@ std::strcat \- std::strcat
    Defined in header <cstring>
    char *strcat( char *dest, const char *src );
 
-   Appends a copy of the character string pointed to by src to the end of the character
-   string pointed to by dest. The character src[0] replaces the null terminator at the
-   end of dest. The resulting byte string is null-terminated.
+   Appends a copy of the character string pointed to by src to the end of the character string pointed to by dest. The character src[0] replaces the null terminator at the end of dest. The resulting byte string is null-terminated.
 
-   The behavior is undefined if the destination array is not large enough for the
-   contents of both src and dest and the terminating null character.
+   The behavior is undefined if the destination array is not large enough for the contents of both src and dest and the terminating null character.
 
    The behavior is undefined if the strings overlap.
 

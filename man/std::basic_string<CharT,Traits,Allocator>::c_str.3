@@ -1,4 +1,4 @@
-.TH std::basic_string<CharT,Traits,Allocator>::c_str 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_string<CharT,Traits,Allocator>::c_str 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_string<CharT,Traits,Allocator>::c_str \- std::basic_string<CharT,Traits,Allocator>::c_str
 
@@ -6,18 +6,14 @@ std::basic_string<CharT,Traits,Allocator>::c_str \- std::basic_string<CharT,Trai
    const CharT* c_str() const;           \fI(until C++11)\fP
    const CharT* c_str() const noexcept;  \fI(since C++11)\fP
 
-   Returns a pointer to a null-terminated character array with data equivalent to those
-   stored in the string.
+   Returns a pointer to a null-terminated character array with data equivalent to those stored in the string.
 
-   The pointer is such that the range [c_str(); c_str() + size()] is valid and the
-   values in it correspond to the values stored in the string with an additional null
-   character after the last position.
+   The pointer is such that the range [c_str(); c_str() + size()] is valid and the values in it correspond to the values stored in the string with an additional null character after the last position.
 
    The pointer obtained from c_str() may be invalidated by:
 
      * Passing a non-const reference to the string to any standard library function, or
-     * Calling non-const member functions on the string, excluding operator[], at(),
-       front(), back(), begin(), rbegin(), end() and rend().
+     * Calling non-const member functions on the string, excluding operator[], at(), front(), back(), begin(), rbegin(), end() and rend().
 
    Writing to the character array accessed through c_str() is undefined behavior.
 
@@ -31,9 +27,8 @@ std::basic_string<CharT,Traits,Allocator>::c_str \- std::basic_string<CharT,Trai
 
    Pointer to the underlying character storage.
 
-   c_str()[i] == operator[](i) for every i in [0, size()).                \fI(until C++11)\fP
-   c_str() + i == std::addressof(operator[](i)) for every i in [0,        \fI(since C++11)\fP
-   size()].
+   c_str()[i] == operator[](i) for every i in [0, size()).                  \fI(until C++11)\fP
+   c_str() + i == std::addressof(operator[](i)) for every i in [0, size()]. \fI(since C++11)\fP
 
 .SH Complexity
 
@@ -41,9 +36,7 @@ std::basic_string<CharT,Traits,Allocator>::c_str \- std::basic_string<CharT,Trai
 
 .SH Notes
 
-   The pointer obtained from c_str() may only be treated as a pointer to a
-   null-terminated character string if the string object does not contain other null
-   characters.
+   The pointer obtained from c_str() may only be treated as a pointer to a null-terminated character string if the string object does not contain other null characters.
 
 .SH Example
 

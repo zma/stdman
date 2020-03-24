@@ -1,4 +1,4 @@
-.TH std::uncaught_exception,std::uncaught_exceptions 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::uncaught_exception,std::uncaught_exceptions 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::uncaught_exception,std::uncaught_exceptions \- std::uncaught_exception,std::uncaught_exceptions
 
@@ -10,17 +10,10 @@ std::uncaught_exception,std::uncaught_exceptions \- std::uncaught_exception,std:
                                                (removed in C++20)
    int uncaught_exceptions() noexcept;     \fB(2)\fP \fI(since C++17)\fP
 
-   1) Detects if the current thread has a live exception object, that is, an exception
-   has been thrown or rethrown and not yet entered a matching catch clause,
-   std::terminate or std::unexpected. In other words, std::uncaught_exception detects
-   if stack unwinding is currently in progress.
-   2) Detects how many exceptions in the current thread have been thrown or rethrown
-   and not yet entered their matching catch clauses.
+   1) Detects if the current thread has a live exception object, that is, an exception has been thrown or rethrown and not yet entered a matching catch clause, std::terminate or std::unexpected. In other words, std::uncaught_exception detects if stack unwinding is currently in progress.
+   2) Detects how many exceptions in the current thread have been thrown or rethrown and not yet entered their matching catch clauses.
 
-   Sometimes it's safe to throw an exception even while std::uncaught_exception() ==
-   true. For example, if stack unwinding causes an object to be destructed, the
-   destructor for that object could run code that throws an exception as long as the
-   exception is caught by some catch block before escaping the destructor.
+   Sometimes it's safe to throw an exception even while std::uncaught_exception() == true. For example, if stack unwinding causes an object to be destructed, the destructor for that object could run code that throws an exception as long as the exception is caught by some catch block before escaping the destructor.
 
 .SH Parameters
 
@@ -33,11 +26,7 @@ std::uncaught_exception,std::uncaught_exceptions \- std::uncaught_exception,std:
 
 .SH Notes
 
-   An example where int-returning uncaught_exceptions is used is the boost.log library:
-   the expression BOOST_LOG(logger) << foo(); first creates a guard object and records
-   the number of uncaught exceptions in its constructor. The output is performed by the
-   guard object's destructor unless foo() throws (in which case the number of uncaught
-   exceptions in the destructor is greater than what the constructor observed)
+   An example where int-returning uncaught_exceptions is used is the boost.log library: the expression BOOST_LOG(logger) << foo(); first creates a guard object and records the number of uncaught exceptions in its constructor. The output is performed by the guard object's destructor unless foo() throws (in which case the number of uncaught exceptions in the destructor is greater than what the constructor observed)
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::get(std::array) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::get(std::array) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::get(std::array) \- std::get(std::array)
 
@@ -14,8 +14,7 @@ std::get(std::array) \- std::get(std::array)
 
    Extracts the Ith element element from the array.
 
-   I must be an integer value in range [0, N). This is enforced at compile time as
-   opposed to at() or operator[].
+   I must be an integer value in range [0, N). This is enforced at compile time as opposed to at() or operator[].
 
 .SH Parameters
 
@@ -69,6 +68,5 @@ std::get(std::array) \- std::get(std::array)
                           \fI(function template)\fP
    std::get(std::pair)    accesses an element of a pair
    \fI(C++11)\fP                \fI(function template)\fP
-   std::get(std::variant) reads the value of the variant given the index or the type
-   \fI(C++17)\fP                (if the type is unique), throws on error
-                          \fI(function template)\fP
+   std::get(std::variant) reads the value of the variant given the index or the type (if the type is unique), throws on error
+   \fI(C++17)\fP                \fI(function template)\fP

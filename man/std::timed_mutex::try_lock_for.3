@@ -1,35 +1,24 @@
-.TH std::timed_mutex::try_lock_for 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::timed_mutex::try_lock_for 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::timed_mutex::try_lock_for \- std::timed_mutex::try_lock_for
 
 .SH Synopsis
-   template< class Rep, class Period >
-   bool try_lock_for( const std::chrono::duration<Rep,Period>&            \fI(since C++11)\fP
-   timeout_duration );
+   template< class Rep, class Period >                                              \fI(since C++11)\fP
+   bool try_lock_for( const std::chrono::duration<Rep,Period>& timeout_duration );
 
-   Tries to lock the mutex. Blocks until specified timeout_duration has elapsed or the
-   lock is acquired, whichever comes first. On successful lock acquisition returns
-   true, otherwise returns false.
+   Tries to lock the mutex. Blocks until specified timeout_duration has elapsed or the lock is acquired, whichever comes first. On successful lock acquisition returns true, otherwise returns false.
 
-   If timeout_duration is less or equal timeout_duration.zero(), the function behaves
-   like try_lock().
+   If timeout_duration is less or equal timeout_duration.zero(), the function behaves like try_lock().
 
-   This function may block for longer than timeout_duration due to scheduling or
-   resource contention delays.
+   This function may block for longer than timeout_duration due to scheduling or resource contention delays.
 
-   The standard recommends that a steady_clock is used to measure the duration. If an
-   implementation uses a system_clock instead, the wait time may also be sensitive to
-   clock adjustments.
+   The standard recommends that a steady_clock is used to measure the duration. If an implementation uses a system_clock instead, the wait time may also be sensitive to clock adjustments.
 
-   As with try_lock(), this function is allowed to fail spuriously and return false
-   even if the mutex was not locked by any other thread at some point during
-   timeout_duration.
+   As with try_lock(), this function is allowed to fail spuriously and return false even if the mutex was not locked by any other thread at some point during timeout_duration.
 
-   Prior unlock() operation on the same mutex synchronizes-with (as defined in
-   std::memory_order) this operation if it returns true.
+   Prior unlock() operation on the same mutex synchronizes-with (as defined in std::memory_order) this operation if it returns true.
 
-   If try_lock_for is called by a thread that already owns the mutex, the behavior is
-   undefined.
+   If try_lock_for is called by a thread that already owns the mutex, the behavior is undefined.
 
 .SH Parameters
 
@@ -41,8 +30,7 @@ std::timed_mutex::try_lock_for \- std::timed_mutex::try_lock_for
 
 .SH Exceptions
 
-   Any exception thrown by clock, time_point, or duration during the execution (clocks,
-   time points, and durations provided by the standard library never throw)
+   Any exception thrown by clock, time_point, or duration during the execution (clocks, time points, and durations provided by the standard library never throw)
 
 .SH Example
 

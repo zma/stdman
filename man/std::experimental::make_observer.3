@@ -1,15 +1,13 @@
-.TH std::experimental::make_observer 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::make_observer 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::make_observer \- std::experimental::make_observer
 
 .SH Synopsis
    Defined in header <experimental/memory>
-   template <class W>                                          (library fundamentals TS
-   std::experimental::observer_ptr<W> make_observer(W* p)      v2)
-   noexcept;
+   template <class W>                                                (library fundamentals TS v2)
+   std::experimental::observer_ptr<W> make_observer(W* p) noexcept;
 
-   Creates an observer_ptr object, deducing the template argument from the type of the
-   function argument.
+   Creates an observer_ptr object, deducing the template argument from the type of the function argument.
 
 .SH Parameters
 

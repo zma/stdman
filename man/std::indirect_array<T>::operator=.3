@@ -1,12 +1,11 @@
-.TH std::indirect_array<T>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::indirect_array<T>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::indirect_array<T>::operator= \- std::indirect_array<T>::operator=
 
 .SH Synopsis
-   void operator=( const T& value ) const;                            \fB(1)\fP
-   void operator=( const std::valarray<T>& val_arr ) const;           \fB(2)\fP
-   const indirect_array& operator=( const indirect_array& sl_arr)     \fB(3)\fP \fI(since C++11)\fP
-   const;
+   void operator=( const T& value ) const;                               \fB(1)\fP
+   void operator=( const std::valarray<T>& val_arr ) const;              \fB(2)\fP
+   const indirect_array& operator=( const indirect_array& sl_arr) const; \fB(3)\fP \fI(since C++11)\fP
 
    Assigns values to all referred elements.
 

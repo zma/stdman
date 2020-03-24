@@ -1,4 +1,4 @@
-.TH std::uppercase,std::nouppercase 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::uppercase,std::nouppercase 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::uppercase,std::nouppercase \- std::uppercase,std::nouppercase
 
@@ -7,18 +7,13 @@ std::uppercase,std::nouppercase \- std::uppercase,std::nouppercase
    std::ios_base& uppercase( std::ios_base& str );   \fB(1)\fP
    std::ios_base& nouppercase( std::ios_base& str ); \fB(2)\fP
 
-   Enables the use of uppercase characters in floating-point and hexadecimal integer
-   output. Has no effect on input.
+   Enables the use of uppercase characters in floating-point and hexadecimal integer output. Has no effect on input.
 
-   1) enables the uppercase flag in the stream str as if by calling
-   str.setf(std::ios_base::uppercase)
+   1) enables the uppercase flag in the stream str as if by calling str.setf(std::ios_base::uppercase)
 
-   2) disables the uppercase flag in the stream str as if by calling
-   str.unsetf(std::ios_base::uppercase)
+   2) disables the uppercase flag in the stream str as if by calling str.unsetf(std::ios_base::uppercase)
 
-   This is an I/O manipulator, it may be called with an expression such as out <<
-   std::uppercase for any out of type std::basic_ostream or with an expression such as
-   in >> std::uppercase for any in of type std::basic_istream.
+   This is an I/O manipulator, it may be called with an expression such as out << std::uppercase for any out of type std::basic_ostream or with an expression such as in >> std::uppercase for any in of type std::basic_istream.
 
 .SH Parameters
 

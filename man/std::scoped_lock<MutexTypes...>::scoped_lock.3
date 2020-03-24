@@ -1,4 +1,4 @@
-.TH std::scoped_lock<MutexTypes...>::scoped_lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::scoped_lock<MutexTypes...>::scoped_lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::scoped_lock<MutexTypes...>::scoped_lock \- std::scoped_lock<MutexTypes...>::scoped_lock
 
@@ -9,12 +9,8 @@ std::scoped_lock<MutexTypes...>::scoped_lock \- std::scoped_lock<MutexTypes...>:
 
    Acquires ownership of the given mutexes m.
 
-   1) If sizeof...(MutexTypes) == 0, does nothing. Otherwise, If sizeof...(MutexTypes)
-   == 1, effectively calls m.lock(). Otherwise, effectively calls std::lock(m...). The
-   behavior is undefined if one of MutexTypes is not a recursive mutex and the current
-   thread already owns the corresponding argument in m....
-   2) Acquires ownership of the mutexes m... without attempting to lock any of them.
-   The behavior is undefined unless the current thread owns all of the mutexes in m....
+   1) If sizeof...(MutexTypes) == 0, does nothing. Otherwise, If sizeof...(MutexTypes) == 1, effectively calls m.lock(). Otherwise, effectively calls std::lock(m...). The behavior is undefined if one of MutexTypes is not a recursive mutex and the current thread already owns the corresponding argument in m....
+   2) Acquires ownership of the mutexes m... without attempting to lock any of them. The behavior is undefined unless the current thread owns all of the mutexes in m....
    3) Copy constructor is deleted.
 
    The behavior is undefined if m is destroyed before the scoped_lock object is.
@@ -30,9 +26,7 @@ std::scoped_lock<MutexTypes...>::scoped_lock \- std::scoped_lock<MutexTypes...>:
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-     DR    Applied to              Behavior as published               Correct behavior
-   P0739R0 C++17      adopt_lock_t parameter was last, impeding class  moved to first
-                      template argument deduction
+     DR    Applied to                            Behavior as published                            Correct behavior
+   P0739R0 C++17      adopt_lock_t parameter was last, impeding class template argument deduction moved to first

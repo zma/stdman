@@ -1,4 +1,4 @@
-.TH std::numeric_limits<T>::round_error 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::numeric_limits<T>::round_error 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::numeric_limits<T>::round_error \- std::numeric_limits<T>::round_error
 
@@ -6,10 +6,7 @@ std::numeric_limits<T>::round_error \- std::numeric_limits<T>::round_error
    static T round_error() throw();             \fI(until C++11)\fP
    static constexpr T round_error() noexcept;  \fI(since C++11)\fP
 
-   Returns the largest possible rounding error in ULPs (units in the last place) as
-   defined by ISO 10967, which can vary from 0.5 (rounding to the nearest digit) to 1.0
-   (rounding to zero or to infinity). It is only meaningful if
-   std::numeric_limits<T>::is_integer == false.
+   Returns the largest possible rounding error in ULPs (units in the last place) as defined by ISO 10967, which can vary from 0.5 (rounding to the nearest digit) to 1.0 (rounding to zero or to infinity). It is only meaningful if std::numeric_limits<T>::is_integer == false.
 
 .SH Return value
 

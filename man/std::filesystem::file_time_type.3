@@ -1,19 +1,16 @@
-.TH std::filesystem::file_time_type 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::filesystem::file_time_type 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::filesystem::file_time_type \- std::filesystem::file_time_type
 
 .SH Synopsis
    Defined in header <filesystem>
-   using file_time_type = std::chrono::time_point</*trivial-clock*/>;     \fI(since C++17)\fP
-                                                                          \fI(until C++20)\fP
-   using file_time_type =                                                 \fI(since C++20)\fP
-   std::chrono::time_point<std::chrono::file_clock>;
+   using file_time_type = std::chrono::time_point</*trivial-clock*/>;        \fI(since C++17)\fP
+                                                                             \fI(until C++20)\fP
+   using file_time_type = std::chrono::time_point<std::chrono::file_clock>;  \fI(since C++20)\fP
 
    Represents file time.
 
-   trivial-clock is an implementation-defined type that satisfies
-   TrivialClock and is sufficient to represent the resolution and range   \fI(until C++20)\fP
-   of the file time values offered by the filesystem.
+   trivial-clock is an implementation-defined type that satisfies TrivialClock and is sufficient to represent the resolution and range of the file time values offered by the filesystem. \fI(until C++20)\fP
 
 .SH Example
 

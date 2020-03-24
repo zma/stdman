@@ -1,4 +1,4 @@
-.TH std::get_money 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::get_money 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::get_money \- std::get_money
 
@@ -7,25 +7,18 @@ std::get_money \- std::get_money
    template< class MoneyT >                                      \fI(since C++11)\fP
    /*unspecified*/ get_money( MoneyT& mon, bool intl = false );
 
-   When used in an expression in >> get_money(mon, intl), parses the character input as
-   a monetary value, as specified by the std::money_get facet of the locale currently
-   imbued in in, and stores the value in mon.
+   When used in an expression in >> get_money(mon, intl), parses the character input as a monetary value, as specified by the std::money_get facet of the locale currently imbued in in, and stores the value in mon.
 
-   The extraction operation in in >> get_money(mon, intl) behaves as a
-   FormattedInputFunction.
+   The extraction operation in in >> get_money(mon, intl) behaves as a FormattedInputFunction.
 
 .SH Parameters
 
-   mon  - variable where monetary value will be written. Can be either long double or
-          basic_string
-   intl - expects to find required international currency strings if true, expects
-          optional currency symbols otherwise
+   mon  - variable where monetary value will be written. Can be either long double or basic_string
+   intl - expects to find required international currency strings if true, expects optional currency symbols otherwise
 
 .SH Return value
 
-   Returns an object of unspecified type such that if in is the name of an input stream
-   of type std::basic_istream<CharT, Traits>, then the expression in >> get_money(mon,
-   intl) behaves as if the following code was executed:
+   Returns an object of unspecified type such that if in is the name of an input stream of type std::basic_istream<CharT, Traits>, then the expression in >> get_money(mon, intl) behaves as if the following code was executed:
 
    typedef std::istreambuf_iterator<CharT, Traits> Iter;
    typedef std::money_get<CharT, Iter> MoneyGet;

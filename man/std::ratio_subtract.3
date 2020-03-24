@@ -1,4 +1,4 @@
-.TH std::ratio_subtract 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ratio_subtract 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ratio_subtract \- std::ratio_subtract
 
@@ -7,23 +7,15 @@ std::ratio_subtract \- std::ratio_subtract
    template< class R1, class R2 >           \fI(since C++11)\fP
    using ratio_subtract = /* see below */;
 
-   The alias template std::ratio_subtract denotes the result of subtracting two exact
-   rational fractions represented by the std::ratio specializations R1 and R2.
+   The alias template std::ratio_subtract denotes the result of subtracting two exact rational fractions represented by the std::ratio specializations R1 and R2.
 
-   The result is a std::ratio specialization std::ratio<U, V>, such that given Num ==
-   R1::num * R2::den - R2::num * R1::den and Denom == R1::den * R2::den (computed
-   without arithmetic overflow), U is std::ratio<Num, Denom>::num and V is
-   std::ratio<Num, Denom>::den.
+   The result is a std::ratio specialization std::ratio<U, V>, such that given Num == R1::num * R2::den - R2::num * R1::den and Denom == R1::den * R2::den (computed without arithmetic overflow), U is std::ratio<Num, Denom>::num and V is std::ratio<Num, Denom>::den.
 
 .SH Notes
 
-   If U or V is not representable in std::intmax_t, the program is ill-formed. If Num
-   or Denom is not representable in std::intmax_t, the program is ill-formed unless the
-   implementation yields correct values for U and V.
+   If U or V is not representable in std::intmax_t, the program is ill-formed. If Num or Denom is not representable in std::intmax_t, the program is ill-formed unless the implementation yields correct values for U and V.
 
-   The above definition requires that the result of std::ratio_subtract<R1, R2> be
-   already reduced to lowest terms; for example, std::ratio_subtract<std::ratio<1, 2>,
-   std::ratio<1, 6>> is the same type as std::ratio<1, 3>.
+   The above definition requires that the result of std::ratio_subtract<R1, R2> be already reduced to lowest terms; for example, std::ratio_subtract<std::ratio<1, 2>, std::ratio<1, 6>> is the same type as std::ratio<1, 3>.
 
 .SH Example
 

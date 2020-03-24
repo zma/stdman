@@ -1,4 +1,4 @@
-.TH std::chrono::operator<<(std::chrono::file_time) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::operator<<(std::chrono::file_time) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::operator<<(std::chrono::file_time) \- std::chrono::operator<<(std::chrono::file_time)
 
@@ -10,8 +10,7 @@ std::chrono::operator<<(std::chrono::file_time) \- std::chrono::operator<<(std::
 
    const std::chrono::file_time<Duration>& tp);
 
-   Outputs tp into the stream os, as if by std::chrono::to_stream(os, fmt, tp), where
-   fmt is a string containing "%F %T" widened to CharT.
+   Outputs tp into the stream os, as if by std::chrono::to_stream(os, fmt, tp), where fmt is a string containing "%F %T" widened to CharT.
 
 .SH Return value
 
@@ -19,6 +18,5 @@ std::chrono::operator<<(std::chrono::file_time) \- std::chrono::operator<<(std::
 
 .SH See also
 
-   to_stream (std::chrono::file_time) outputs a file_time into a stream according to
-   (C++20)                            the provided format
-                                      \fI(function template)\fP
+   to_stream (std::chrono::file_time) outputs a file_time into a stream according to the provided format
+   (C++20)                            \fI(function template)\fP

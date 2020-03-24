@@ -1,4 +1,4 @@
-.TH std::atomic<T>::is_lock_free 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic<T>::is_lock_free 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic<T>::is_lock_free \- std::atomic<T>::is_lock_free
 
@@ -14,20 +14,13 @@ std::atomic<T>::is_lock_free \- std::atomic<T>::is_lock_free
 
 .SH Return value
 
-   true if the atomic operations on the objects of this type are lock-free, false
-   otherwise.
+   true if the atomic operations on the objects of this type are lock-free, false otherwise.
 
 .SH Notes
 
-   All atomic types except for std::atomic_flag may be implemented using mutexes or
-   other locking operations, rather than using the lock-free atomic CPU instructions.
-   Atomic types are also allowed to be sometimes lock-free, e.g. if only aligned memory
-   accesses are naturally atomic on a given architecture, misaligned objects of the
-   same type have to use locks.
+   All atomic types except for std::atomic_flag may be implemented using mutexes or other locking operations, rather than using the lock-free atomic CPU instructions. Atomic types are also allowed to be sometimes lock-free, e.g. if only aligned memory accesses are naturally atomic on a given architecture, misaligned objects of the same type have to use locks.
 
-   The C++ standard recommends (but does not require) that lock-free atomic operations
-   are also address-free, that is, suitable for communication between processes using
-   shared memory.
+   The C++ standard recommends (but does not require) that lock-free atomic operations are also address-free, that is, suitable for communication between processes using shared memory.
 
 .SH Example
 
@@ -56,11 +49,9 @@ std::atomic<T>::is_lock_free \- std::atomic<T>::is_lock_free
 
 .SH See also
 
-   atomic_is_lock_free                  checks if the atomic type's operations are
-   \fI(C++11)\fP                              lock-free
-                                        \fI(function template)\fP
-                                        specializes atomic operations for
-   atomic_is_lock_free(std::shared_ptr) std::shared_ptr
+   atomic_is_lock_free                  checks if the atomic type's operations are lock-free
+   \fI(C++11)\fP                              \fI(function template)\fP
+   atomic_is_lock_free(std::shared_ptr) specializes atomic operations for std::shared_ptr
                                         \fI(function template)\fP
    is_always_lock_free                  indicates that the type is always lock-free
    \fB[static]\fP \fI(C++17)\fP                     \fI(public static member constant)\fP

@@ -1,4 +1,4 @@
-.TH std::tx_exception 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tx_exception 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tx_exception \- std::tx_exception
 
@@ -7,11 +7,9 @@ std::tx_exception \- std::tx_exception
    template< class T >                              (TM TS)
    class tx_exception : public std::runtime_error;
 
-   Defines an exception type that can be used to cancel and roll back an atomic
-   transaction initiated by the keyword atomic_cancel
+   Defines an exception type that can be used to cancel and roll back an atomic transaction initiated by the keyword atomic_cancel
 
-   If T is not TriviallyCopyable, the program that specializes std::tx_exception<T> is
-   ill-formed.
+   If T is not TriviallyCopyable, the program that specializes std::tx_exception<T> is ill-formed.
 
 .SH Member functions
 
@@ -21,8 +19,7 @@ std::tx_exception::tx_exception
    tx_exception( T value, const std::string& what_arg ) transaction_safe; \fB(2)\fP
    tx_exception( T value, const char* what_arg ) transaction_safe;        \fB(3)\fP
 
-   Constructs the exception object with what_arg as explanatory string that can be
-   accessed through what() and value as the object that can be accessed through get().
+   Constructs the exception object with what_arg as explanatory string that can be accessed through what() and value as the object that can be accessed through get().
 
 .SH Parameters
 

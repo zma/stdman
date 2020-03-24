@@ -1,4 +1,4 @@
-.TH std::allocator 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::allocator 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::allocator \- std::allocator
 
@@ -9,21 +9,13 @@ std::allocator \- std::allocator
    template<>                 \fB(2)\fP (deprecated in C++17)
    struct allocator<void>;        (removed in C++20)
 
-   The std::allocator class template is the default Allocator used by all standard
-   library containers if no user-specified allocator is provided. The default allocator
-   is stateless, that is, all instances of the given allocator are interchangeable,
-   compare equal and can deallocate memory allocated by any other instance of the same
-   allocator type.
+   The std::allocator class template is the default Allocator used by all standard library containers if no user-specified allocator is provided. The default allocator is stateless, that is, all instances of the given allocator are interchangeable, compare equal and can deallocate memory allocated by any other instance of the same allocator type.
 
-   The explicit specialization for void lacks the member typedefs
-   reference, const_reference, size_type and difference_type. This        \fI(until C++20)\fP
-   specialization declares no member functions.
+   The explicit specialization for void lacks the member typedefs reference, const_reference, size_type and difference_type. This specialization declares no member functions. \fI(until C++20)\fP
 
-   All custom allocators also must be stateless.                          \fI(until C++11)\fP
-   Custom allocators may contain state. Each container or another
-   allocator-aware object stores an instance of the supplied allocator    \fI(since C++11)\fP
-   and controls allocator replacement through std::allocator_traits.
-   The default allocator satisfies allocator completeness requirements.   \fI(since C++17)\fP
+   All custom allocators also must be stateless.                                                                                                                                                        \fI(until C++11)\fP
+   Custom allocators may contain state. Each container or another allocator-aware object stores an instance of the supplied allocator and controls allocator replacement through std::allocator_traits. \fI(since C++11)\fP
+   The default allocator satisfies allocator completeness requirements.                                                                                                                                 \fI(since C++17)\fP
 
 .SH Member types
 
@@ -36,9 +28,7 @@ std::allocator \- std::allocator
    size_type                                               std::size_t
    difference_type                                         std::ptrdiff_t
    propagate_on_container_move_assignment\fI(C++14)\fP           std::true_type
-                                                           template< class U > struct
-   rebind (deprecated in C++17)(removed in C++20)          rebind { typedef
-                                                           allocator<U> other; };
+   rebind (deprecated in C++17)(removed in C++20)          template< class U > struct rebind { typedef allocator<U> other; };
    is_always_equal\fI(C++17)\fP                                  std::true_type
 
 .SH Member functions
@@ -47,9 +37,9 @@ std::allocator \- std::allocator
                          \fI(public member function)\fP
    destructor            destructs an allocator instance
                          \fI(public member function)\fP
-   address               obtains the address of an object, even if operator& is
-   (deprecated in C++17) overloaded
-   (removed in C++20)    \fI(public member function)\fP
+   address               obtains the address of an object, even if operator& is overloaded
+   (deprecated in C++17) \fI(public member function)\fP
+   (removed in C++20)
    allocate              allocates uninitialized storage
                          \fI(public member function)\fP
    deallocate            deallocates storage
@@ -71,15 +61,10 @@ std::allocator \- std::allocator
 
 .SH Notes
 
-   The member template class rebind provides a way to obtain an allocator for a
-   different type. For example,
+   The member template class rebind provides a way to obtain an allocator for a different type. For example,
 
-   std::list<T, A> allocates nodes of some internal type Node<T>, using   \fI(until C++11)\fP
-   the allocator A::rebind<Node<T>>::other
-   std::list<T, A> allocates nodes of some internal type Node<T>, using
-   the allocator std::allocator_traits<A>::rebind_alloc<Node<T>>, which   \fI(since C++11)\fP
-   is implemented in terms of A::rebind<Node<T>>::other if A is an
-   std::allocator
+   std::list<T, A> allocates nodes of some internal type Node<T>, using the allocator A::rebind<Node<T>>::other                                                                                                             \fI(until C++11)\fP
+   std::list<T, A> allocates nodes of some internal type Node<T>, using the allocator std::allocator_traits<A>::rebind_alloc<Node<T>>, which is implemented in terms of A::rebind<Node<T>>::other if A is an std::allocator \fI(since C++11)\fP
 
 .SH Example
 
@@ -130,6 +115,5 @@ std::allocator \- std::allocator
    \fI(C++11)\fP                  \fI(class template)\fP
    scoped_allocator_adaptor implements multi-level allocator for multi-level containers
    \fI(C++11)\fP                  \fI(class template)\fP
-   uses_allocator           checks if the specified type supports uses-allocator
-   \fI(C++11)\fP                  construction
-                            \fI(class template)\fP
+   uses_allocator           checks if the specified type supports uses-allocator construction
+   \fI(C++11)\fP                  \fI(class template)\fP

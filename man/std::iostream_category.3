@@ -1,4 +1,4 @@
-.TH std::iostream_category 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::iostream_category 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::iostream_category \- std::iostream_category
 
@@ -6,10 +6,7 @@ std::iostream_category \- std::iostream_category
    Defined in header <ios>
    const std::error_category& iostream_category() noexcept;  \fI(since C++11)\fP
 
-   Obtains a reference to the static error category object for iostream errors. The
-   object is required to override the virtual function error_category::name() to return
-   a pointer to the string "iostream". It is used to identify error codes provided in
-   the exceptions of type std::ios_base::failure.
+   Obtains a reference to the static error category object for iostream errors. The object is required to override the virtual function error_category::name() to return a pointer to the string "iostream". It is used to identify error codes provided in the exceptions of type std::ios_base::failure.
 
 .SH Parameters
 
@@ -17,8 +14,7 @@ std::iostream_category \- std::iostream_category
 
 .SH Return value
 
-   A reference to the static object of unspecified runtime type, derived from
-   std::error_category.
+   A reference to the static object of unspecified runtime type, derived from std::error_category.
 
 .SH Example
 

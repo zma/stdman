@@ -1,4 +1,4 @@
-.TH std::is_const 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::is_const 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::is_const \- std::is_const
 
@@ -7,8 +7,7 @@ std::is_const \- std::is_const
    template< class T >              \fI(since C++11)\fP
    struct is_const;
 
-   If T is a const-qualified type (that is, const, or const volatile), provides the
-   member constant value equal true. For any other type, value is false.
+   If T is a const-qualified type (that is, const, or const volatile), provides the member constant value equal true. For any other type, value is false.
 
 .SH Template parameters
 
@@ -41,9 +40,7 @@ Inherited from std::integral_constant
 
 .SH Notes
 
-   If T is a reference type then is_const<T>::value is always false. The proper way to
-   check a potentially-reference type for const-ness is to remove the reference:
-   is_const<typename remove_reference<T>::type>.
+   If T is a reference type then is_const<T>::value is always false. The proper way to check a potentially-reference type for const-ness is to remove the reference: is_const<typename remove_reference<T>::type>.
 
 .SH Possible implementation
 

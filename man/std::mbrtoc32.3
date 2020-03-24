@@ -1,4 +1,4 @@
-.TH std::mbrtoc32 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::mbrtoc32 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::mbrtoc32 \- std::mbrtoc32
 
@@ -13,49 +13,32 @@ std::mbrtoc32 \- std::mbrtoc32
 
    Converts a narrow multibyte character to its UTF-32 character representation.
 
-   If s is not a null pointer, inspects at most n bytes of the multibyte character
-   string, beginning with the byte pointed to by s to determine the number of bytes
-   necessary to complete the next multibyte character (including any shift sequences).
-   If the function determines that the next multibyte character in s is complete and
-   valid, converts it to the corresponding 32-bit character and stores it in *pc32 (if
-   pc32 is not null).
+   If s is not a null pointer, inspects at most n bytes of the multibyte character string, beginning with the byte pointed to by s to determine the number of bytes necessary to complete the next multibyte character (including any shift sequences). If the function determines that the next multibyte character in s is complete and valid, converts it to the corresponding 32-bit character and stores it in *pc32 (if pc32 is not null).
 
-   If the multibyte character in *s corresponds to a multi-char32_t sequence (not
-   possible with UTF-32), then after the first call to this function, *ps is updated in
-   such a way that the next calls to mbrtoc32 will write out the additional char32_t,
-   without considering *s.
+   If the multibyte character in *s corresponds to a multi-char32_t sequence (not possible with UTF-32), then after the first call to this function, *ps is updated in such a way that the next calls to mbrtoc32 will write out the additional char32_t, without considering *s.
 
-   If s is a null pointer, the values of n and pc32 are ignored and the call is
-   equivalent to std::mbrtoc32(NULL, "", 1, ps).
+   If s is a null pointer, the values of n and pc32 are ignored and the call is equivalent to std::mbrtoc32(NULL, "", 1, ps).
 
-   If the wide character produced is the null character, the conversion state *ps
-   represents the initial shift state.
+   If the wide character produced is the null character, the conversion state *ps represents the initial shift state.
 
-   The multibyte encoding used by this function is specified by the currently active C
-   locale.
+   The multibyte encoding used by this function is specified by the currently active C locale.
 
 .SH Parameters
 
    pc32 - pointer to the location where the resulting 32-bit character will be written
    s    - pointer to the multibyte character string used as input
    n    - limit on the number of bytes in s that can be examined
-   ps   - pointer to the conversion state object used when interpreting the multibyte
-          string
+   ps   - pointer to the conversion state object used when interpreting the multibyte string
 
 .SH Return value
 
    The first of the following that applies:
 
-     * 0 if the character converted from s (and stored in *pc32 if non-null) was the
-       null character
-     * the number of bytes [1...n] of the multibyte character successfully converted
-       from s
-     * -3 if the next char32_t from a multi-char32_t character has now been written to
-       *pc32. No bytes are processed from the input in this case.
-     * -2 if the next n bytes constitute an incomplete, but so far valid, multibyte
-       character. Nothing is written to *pc32.
-     * -1 if encoding error occurs. Nothing is written to *pc32, the value EILSEQ is
-       stored in errno and the value of *ps is unspecified.
+     * 0 if the character converted from s (and stored in *pc32 if non-null) was the null character
+     * the number of bytes [1...n] of the multibyte character successfully converted from s
+     * -3 if the next char32_t from a multi-char32_t character has now been written to *pc32. No bytes are processed from the input in this case.
+     * -2 if the next n bytes constitute an incomplete, but so far valid, multibyte character. Nothing is written to *pc32.
+     * -1 if encoding error occurs. Nothing is written to *pc32, the value EILSEQ is stored in errno and the value of *ps is unspecified.
 
 .SH Examples
 

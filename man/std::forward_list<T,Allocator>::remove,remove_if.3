@@ -1,4 +1,4 @@
-.TH std::forward_list<T,Allocator>::remove,remove_if 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::forward_list<T,Allocator>::remove,remove_if 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::forward_list<T,Allocator>::remove,remove_if \- std::forward_list<T,Allocator>::remove,remove_if
 
@@ -11,18 +11,14 @@ std::forward_list<T,Allocator>::remove,remove_if \- std::forward_list<T,Allocato
    template< class UnaryPredicate >          \fI(since C++20)\fP
    size_type remove_if( UnaryPredicate p );
 
-   Removes all elements satisfying specific criteria. The first version removes all
-   elements that are equal to value, the second version removes all elements for which
-   predicate p returns true.
+   Removes all elements satisfying specific criteria. The first version removes all elements that are equal to value, the second version removes all elements for which predicate p returns true.
 
 .SH Parameters
 
    value - value of the elements to remove
            unary predicate which returns true if the element should be removed.
 
-           The expression p(v) must be convertible to bool for every argument v of type
-   p     - (possibly const) T, regardless of value category, and must not modify v.
-           Thus, a parameter type of T&is not allowed
+   p     - The expression p(v) must be convertible to bool for every argument v of type (possibly const) T, regardless of value category, and must not modify v. Thus, a parameter type of T&is not allowed
            , nor is T unless for T a move is equivalent to a copy
            \fI(since C++11)\fP. 
 

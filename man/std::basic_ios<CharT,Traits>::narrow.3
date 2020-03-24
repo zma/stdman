@@ -1,16 +1,13 @@
-.TH std::basic_ios<CharT,Traits>::narrow 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ios<CharT,Traits>::narrow 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ios<CharT,Traits>::narrow \- std::basic_ios<CharT,Traits>::narrow
 
 .SH Synopsis
    char narrow( char_type c, char dfault ) const;
 
-   Converts a current locale-specific character c to its standard equivalent. The
-   result is converted from char_type to char if needed. If no conversion can be
-   performed, the function returns dfault.
+   Converts a current locale-specific character c to its standard equivalent. The result is converted from char_type to char if needed. If no conversion can be performed, the function returns dfault.
 
-   Effectively calls std::use_facet< std::ctype<char_type> >(getloc()).narrow(c,
-   dfault);.
+   Effectively calls std::use_facet< std::ctype<char_type> >(getloc()).narrow(c, dfault);.
 
 .SH Parameters
 
@@ -19,8 +16,7 @@ std::basic_ios<CharT,Traits>::narrow \- std::basic_ios<CharT,Traits>::narrow
 
 .SH Return value
 
-   Character converted to its standard equivalent and then to char. dfault is returned
-   if the conversion fails.
+   Character converted to its standard equivalent and then to char. dfault is returned if the conversion fails.
 
 .SH See also
 

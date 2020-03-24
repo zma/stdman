@@ -1,4 +1,4 @@
-.TH std::basic_ios<CharT,Traits>::set_rdbuf 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::basic_ios<CharT,Traits>::set_rdbuf 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::basic_ios<CharT,Traits>::set_rdbuf \- std::basic_ios<CharT,Traits>::set_rdbuf
 
@@ -8,12 +8,7 @@ std::basic_ios<CharT,Traits>::set_rdbuf \- std::basic_ios<CharT,Traits>::set_rdb
 
    Sets the associated stream buffer to sb without clearing the error state.
 
-   This member function is protected: it is called by the move constructors of the
-   derived streams such as std::basic_ofstream or std::basic_istringstream, as the
-   final step after constructing the base class and after moving the stream buffer:
-   only the most derived stream class knows how to correctly move the stream buffer,
-   but std::basic_ios needs to be made aware of the stream's new location so that its
-   public member functions can access it.
+   This member function is protected: it is called by the move constructors of the derived streams such as std::basic_ofstream or std::basic_istringstream, as the final step after constructing the base class and after moving the stream buffer: only the most derived stream class knows how to correctly move the stream buffer, but std::basic_ios needs to be made aware of the stream's new location so that its public member functions can access it.
 
 .SH Parameters
 

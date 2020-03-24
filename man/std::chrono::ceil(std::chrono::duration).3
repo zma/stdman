@@ -1,4 +1,4 @@
-.TH std::chrono::ceil(std::chrono::duration) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::chrono::ceil(std::chrono::duration) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::chrono::ceil(std::chrono::duration) \- std::chrono::ceil(std::chrono::duration)
 
@@ -7,11 +7,9 @@ std::chrono::ceil(std::chrono::duration) \- std::chrono::ceil(std::chrono::durat
    template <class ToDuration, class Rep, class Period>        \fI(since C++17)\fP
    constexpr ToDuration ceil(const duration<Rep, Period>& d);
 
-   Returns the smallest duration t representable in ToDuration that is greater or equal
-   to d.
+   Returns the smallest duration t representable in ToDuration that is greater or equal to d.
 
-   The function does not participate in the overload resolution unless ToDuration is an
-   instance of std::chrono::duration.
+   The function does not participate in the overload resolution unless ToDuration is an instance of std::chrono::duration.
 
 .SH Parameters
 
@@ -44,14 +42,12 @@ std::chrono::ceil(std::chrono::duration) \- std::chrono::ceil(std::chrono::durat
 
 .SH See also
 
-                                 converts a duration to another, with a different tick
-   duration_cast                 interval
+   duration_cast                 converts a duration to another, with a different tick interval
                                  \fI(function template)\fP
    floor(std::chrono::duration)  converts a duration to another, rounding down
    \fI(C++17)\fP                       \fI(function template)\fP
-   round(std::chrono::duration)  converts a duration to another, rounding to nearest,
-   \fI(C++17)\fP                       ties to even
-                                 \fI(function template)\fP
+   round(std::chrono::duration)  converts a duration to another, rounding to nearest, ties to even
+   \fI(C++17)\fP                       \fI(function template)\fP
    ceil(std::chrono::time_point) converts a time_point to another, rounding up
    \fI(C++17)\fP                       \fI(function template)\fP
    ceil

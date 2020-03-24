@@ -1,26 +1,20 @@
-.TH std::experimental::basic_string_view<CharT,Traits>::find_last_not_of 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::basic_string_view<CharT,Traits>::find_last_not_of 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::basic_string_view<CharT,Traits>::find_last_not_of \- std::experimental::basic_string_view<CharT,Traits>::find_last_not_of
 
 .SH Synopsis
-   constexpr size_type                                            (library fundamentals
-   find_last_not_of(basic_string_view v, size_type pos =      \fB(1)\fP TS)
-   npos) const noexcept;
-   constexpr size_type                                            (library fundamentals
-   find_last_not_of(CharT c, size_type pos = npos) const      \fB(2)\fP TS)
-   noexcept;
-   constexpr size_type                                            (library fundamentals
-   find_last_not_of(const CharT* s, size_type pos, size_type  \fB(3)\fP TS)
-   count) const;
-   constexpr size_type                                            (library fundamentals
-   find_last_not_of(const CharT* s, size_type pos = npos)     \fB(4)\fP TS)
-   const;
+   constexpr size_type                                                         \fB(1)\fP (library fundamentals TS)
+   find_last_not_of(basic_string_view v, size_type pos = npos) const noexcept;
+   constexpr size_type                                                         \fB(2)\fP (library fundamentals TS)
+   find_last_not_of(CharT c, size_type pos = npos) const noexcept;
+   constexpr size_type                                                         \fB(3)\fP (library fundamentals TS)
+   find_last_not_of(const CharT* s, size_type pos, size_type count) const;
+   constexpr size_type                                                         \fB(4)\fP (library fundamentals TS)
+   find_last_not_of(const CharT* s, size_type pos = npos) const;
 
-   Finds the last character not equal to any of the characters in the given character
-   sequence.
+   Finds the last character not equal to any of the characters in the given character sequence.
 
-   1) Finds the last character not equal to any of the characters of v in this view,
-   starting at position pos.
+   1) Finds the last character not equal to any of the characters of v in this view, starting at position pos.
    2) Equivalent to find_last_not_of(basic_string_view(&c, 1), pos).
    3) Equivalent to find_last_not_of(basic_string_view(s, count), pos).
    4) Equivalent to find_last_not_of(basic_string_view(s), pos).
@@ -35,8 +29,7 @@ std::experimental::basic_string_view<CharT,Traits>::find_last_not_of \- std::exp
 
 .SH Return value
 
-   Position of the last character not equal to any of the characters in the given
-   string, or npos if no such character is found.
+   Position of the last character not equal to any of the characters in the given string, or npos if no such character is found.
 
 .SH Complexity
 

@@ -1,4 +1,4 @@
-.TH std::codecvt<InternT,ExternT,State>::max_length,do_max_length 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::codecvt<InternT,ExternT,State>::max_length,do_max_length 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::codecvt<InternT,ExternT,State>::max_length,do_max_length \- std::codecvt<InternT,ExternT,State>::max_length,do_max_length
 
@@ -9,22 +9,18 @@ std::codecvt<InternT,ExternT,State>::max_length,do_max_length \- std::codecvt<In
    protected:                         \fB(2)\fP
    virtual int do_max_length() const;
 
-   1) Public member function, calls the member function do_max_length of the most
-   derived class.
-   2) Returns the maximum value that do_length(state, from, from_end, 1) can return for
-   any valid range [from, from_end) and any valid state.
+   1) Public member function, calls the member function do_max_length of the most derived class.
+   2) Returns the maximum value that do_length(state, from, from_end, 1) can return for any valid range [from, from_end) and any valid state.
 
 .SH Return value
 
-   The maximum number of ExternT characters that could be consumed if converted by in()
-   to produce one InternT character.
+   The maximum number of ExternT characters that could be consumed if converted by in() to produce one InternT character.
 
    The non-converting specialization std::codecvt<char, char, std::mbstate_t> returns 1
 
 .SH Notes
 
-   If the encoding is state-dependent (encoding() == -1), then more than max_length()
-   external characters may be consumed to produce one internal character
+   If the encoding is state-dependent (encoding() == -1), then more than max_length() external characters may be consumed to produce one internal character
 
 .SH Exceptions
 
@@ -73,6 +69,5 @@ std::codecvt<InternT,ExternT,State>::max_length,do_max_length \- std::codecvt<In
 
    MB_CUR_MAX  maximum number of bytes in a multibyte character in the current C locale
                (macro variable)
-   do_encoding returns the number of externT characters necessary to produce one
-   \fB[virtual]\fP   internT character, if constant
-               \fI(virtual protected member function)\fP
+   do_encoding returns the number of externT characters necessary to produce one internT character, if constant
+   \fB[virtual]\fP   \fI(virtual protected member function)\fP

@@ -1,4 +1,4 @@
-.TH std::set_new_handler 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::set_new_handler 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::set_new_handler \- std::set_new_handler
 
@@ -7,30 +7,21 @@ std::set_new_handler \- std::set_new_handler
    std::new_handler set_new_handler( std::new_handler new_p ) throw();   \fI(until C++11)\fP
    std::new_handler set_new_handler( std::new_handler new_p ) noexcept;  \fI(since C++11)\fP
 
-   Makes new_p the new global new-handler function and returns the previously installed
-   new-handler.
+   Makes new_p the new global new-handler function and returns the previously installed new-handler.
 
-   The new-handler function is the function called by allocation functions whenever a
-   memory allocation attempt fails. Its intended purpose is one of three things:
+   The new-handler function is the function called by allocation functions whenever a memory allocation attempt fails. Its intended purpose is one of three things:
 
    1) make more memory available
    2) terminate the program (e.g. by calling std::terminate)
    3) throw exception of type std::bad_alloc or derived from std::bad_alloc.
 
-   The default implementation throws std::bad_alloc. The user can install his own
-   new-handler, which may offer behavior different than the default one.
+   The default implementation throws std::bad_alloc. The user can install his own new-handler, which may offer behavior different than the default one.
 
-   If new-handler returns, the allocation function repeats the previously-failed
-   allocation attempt and calls the new-handler again if the allocation fails again. To
-   end the loop, new-handler may call std::set_new_handler(nullptr): if, after a failed
-   allocation attempt, allocation function finds that std::get_new_handler returns a
-   null pointer value, it will throw std::bad_alloc.
+   If new-handler returns, the allocation function repeats the previously-failed allocation attempt and calls the new-handler again if the allocation fails again. To end the loop, new-handler may call std::set_new_handler(nullptr): if, after a failed allocation attempt, allocation function finds that std::get_new_handler returns a null pointer value, it will throw std::bad_alloc.
 
    At program startup, new-handler is a null pointer.
 
-   This function is thread-safe. Every call to std::set_new_handler
-   synchronizes-with (see std::memory_order) the subsequent               \fI(since C++11)\fP
-   std::set_new_handler and std::get_new_handler calls.
+   This function is thread-safe. Every call to std::set_new_handler synchronizes-with (see std::memory_order) the subsequent std::set_new_handler and std::get_new_handler calls. \fI(since C++11)\fP
 
 .SH Parameters
 

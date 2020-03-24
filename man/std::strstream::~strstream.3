@@ -1,13 +1,11 @@
-.TH std::strstream::~strstream 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::strstream::~strstream 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::strstream::~strstream \- std::strstream::~strstream
 
 .SH Synopsis
    virtual ~strstream();
 
-   Destroys a std::strstream object, which also destroys the member std::strstreambuf,
-   which may call the deallocation function if the underlying buffer was
-   dynamically-allocated and not frozen.
+   Destroys a std::strstream object, which also destroys the member std::strstreambuf, which may call the deallocation function if the underlying buffer was dynamically-allocated and not frozen.
 
 .SH Parameters
 
@@ -15,8 +13,7 @@ std::strstream::~strstream \- std::strstream::~strstream
 
 .SH Notes
 
-   If str() was called on a dynamic strstream and freeze(false) was not called after
-   that, this destructor leaks memory.
+   If str() was called on a dynamic strstream and freeze(false) was not called after that, this destructor leaks memory.
 
 .SH Example
 

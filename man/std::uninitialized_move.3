@@ -1,44 +1,35 @@
-.TH std::uninitialized_move 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::uninitialized_move 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::uninitialized_move \- std::uninitialized_move
 
 .SH Synopsis
    Defined in header <memory>
-   template< class InputIt, class ForwardIt >
-   ForwardIt uninitialized_move( InputIt first, InputIt last,         \fB(1)\fP \fI(since C++17)\fP
-   ForwardIt d_first );
-   template< class ExecutionPolicy, class InputIt, class ForwardIt >
-   ForwardIt uninitialized_move( ExecutionPolicy&& policy, InputIt    \fB(2)\fP \fI(since C++17)\fP
-   first, InputIt last, ForwardIt d_first );
+   template< class InputIt, class ForwardIt >                                                                \fB(1)\fP \fI(since C++17)\fP
+   ForwardIt uninitialized_move( InputIt first, InputIt last, ForwardIt d_first );
+   template< class ExecutionPolicy, class InputIt, class ForwardIt >                                         \fB(2)\fP \fI(since C++17)\fP
+   ForwardIt uninitialized_move( ExecutionPolicy&& policy, InputIt first, InputIt last, ForwardIt d_first );
 
-   1) Moves elements from the range [first, last) to an uninitialized memory area
-   beginning at d_first as if by
+   1) Moves elements from the range [first, last) to an uninitialized memory area beginning at d_first as if by
 
  for (; first != last; ++d_first, (void) ++first)
     ::new (static_cast<void*>(std::addressof(*d_first)))
        typename std::iterator_traits<ForwardIt>::value_type(std::move(*first));
 
-   If an exception is thrown during the initialization, some objects in [first, last)
-   are left in a valid but unspecified state, and the objects already constructed are
-   destroyed in an unspecified order.
-   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate
-   in overload resolution unless
-   std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
+   If an exception is thrown during the initialization, some objects in [first, last) are left in a valid but unspecified state, and the objects already constructed are destroyed in an unspecified order.
+   2) Same as \fB(1)\fP, but executed according to policy. This overload does not participate in overload resolution unless std::is_execution_policy_v<std::decay_t<ExecutionPolicy>> is true
 
 .SH Parameters
 
-   first, last           -        the range of the elements to move
-   d_first               -        the beginning of the destination range
-   policy                -        the execution policy to use. See execution policy for
-                                  details.
+   first, last             -             the range of the elements to move
+   d_first                 -             the beginning of the destination range
+   policy                  -             the execution policy to use. See execution policy for details.
 .SH Type requirements
    -
    InputIt must meet the requirements of LegacyInputIterator.
    -
    ForwardIt must meet the requirements of LegacyForwardIterator.
    -
-   No increment, assignment, comparison, or indirection through valid instances of
-   ForwardIt may throw exceptions.
+   No increment, assignment, comparison, or indirection through valid instances of ForwardIt may throw exceptions.
 
 .SH Return value
 
@@ -50,33 +41,30 @@ std::uninitialized_move \- std::uninitialized_move
 
 .SH Exceptions
 
-   The overload with a template parameter named ExecutionPolicy reports errors as
-   follows:
+   The overload with a template parameter named ExecutionPolicy reports errors as follows:
 
-     * If execution of a function invoked as part of the algorithm throws an exception
-       and ExecutionPolicy is one of the standard policies, std::terminate is called.
-       For any other ExecutionPolicy, the behavior is implementation-defined.
+     * If execution of a function invoked as part of the algorithm throws an exception and ExecutionPolicy is one of the standard policies, std::terminate is called. For any other ExecutionPolicy, the behavior is implementation-defined.
      * If the algorithm fails to allocate memory, std::bad_alloc is thrown.
 
 .SH Possible implementation
 
-template<class InputIt, class ForwardIt>
-ForwardIt uninitialized_move(InputIt first, InputIt last, ForwardIt d_first)
-{
-    typedef typename std::iterator_traits<ForwardIt>::value_type Value;
-    ForwardIt current = d_first;
-    try {
-        for (; first != last; ++first, (void) ++current) {
-            ::new (static_cast<void*>(std::addressof(*current))) Value(std::move(*first));
-        }
-        return current;
-    } catch (...) {
-        for (; d_first != current; ++d_first) {
-            d_first->~Value();
-        }
-        throw;
-    }
-}
+   template<class InputIt, class ForwardIt>
+   ForwardIt uninitialized_move(InputIt first, InputIt last, ForwardIt d_first)
+   {
+       typedef typename std::iterator_traits<ForwardIt>::value_type Value;
+       ForwardIt current = d_first;
+       try {
+           for (; first != last; ++first, (void) ++current) {
+               ::new (static_cast<void*>(std::addressof(*current))) Value(std::move(*first));
+           }
+           return current;
+       } catch (...) {
+           for (; d_first != current; ++d_first) {
+               d_first->~Value();
+           }
+           throw;
+       }
+   }
 
 .SH Example
 

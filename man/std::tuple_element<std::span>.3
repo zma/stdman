@@ -1,4 +1,4 @@
-.TH std::tuple_element<std::span> 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::tuple_element<std::span> 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::tuple_element<std::span> \- std::tuple_element<std::span>
 
@@ -7,9 +7,7 @@ std::tuple_element<std::span> \- std::tuple_element<std::span>
    template< std::size_t I, class T, std::size_t N >  \fI(since C++20)\fP
    struct tuple_element<I, std::span<T, N> >;
 
-   Provides compile-time indexed access to the type of the elements of the span using
-   tuple-like interface. The program is ill-formed if I >= N or if N ==
-   std::dynamic_extent.
+   Provides compile-time indexed access to the type of the elements of the span using tuple-like interface. The program is ill-formed if I >= N or if N == std::dynamic_extent.
 
 .SH Member types
 

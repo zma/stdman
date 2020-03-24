@@ -1,4 +1,4 @@
-.TH std::experimental::shuffle 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::shuffle 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::shuffle \- std::experimental::shuffle
 
@@ -7,16 +7,13 @@ std::experimental::shuffle \- std::experimental::shuffle
    template< class RandomIt>                      (library fundamentals TS v2)
    void shuffle( RandomIt first, RandomIt last);
 
-   Reorders the elements in the given range [first, last) such that each possible
-   permutation of those elements has equal probability of appearance, using the
-   per-thread random number engine as the random number generator.
+   Reorders the elements in the given range [first, last) such that each possible permutation of those elements has equal probability of appearance, using the per-thread random number engine as the random number generator.
 
 .SH Parameters
 
    first, last           -           the range of elements to shuffle randomly
    -
-   RandomIt must meet the requirements of ValueSwappable and
-   LegacyRandomAccessIterator.
+   RandomIt must meet the requirements of ValueSwappable and LegacyRandomAccessIterator.
 
 .SH Return value
 

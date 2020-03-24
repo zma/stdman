@@ -1,4 +1,4 @@
-.TH std::resetiosflags 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::resetiosflags 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::resetiosflags \- std::resetiosflags
 
@@ -6,8 +6,7 @@ std::resetiosflags \- std::resetiosflags
    Defined in header <iomanip>
    /*unspecified*/ resetiosflags( std::ios_base::fmtflags mask );
 
-   When used in an expression out << resetiosflags(mask) or in >> resetiosflags(mask),
-   clears all format flags of the stream out or in as specified by the mask.
+   When used in an expression out << resetiosflags(mask) or in >> resetiosflags(mask), clears all format flags of the stream out or in as specified by the mask.
 
 .SH Parameters
 
@@ -15,10 +14,7 @@ std::resetiosflags \- std::resetiosflags
 
 .SH Return value
 
-   Returns an object of unspecified type such that if str is the name of a stream of
-   type std::basic_ostream<CharT, Traits> or std::basic_istream<CharT, Traits>, then
-   the expression str << resetiosflags(mask) or str >> resetiosflags(mask) behaves as
-   if the following code was executed:
+   Returns an object of unspecified type such that if str is the name of a stream of type std::basic_ostream<CharT, Traits> or std::basic_istream<CharT, Traits>, then the expression str << resetiosflags(mask) or str >> resetiosflags(mask) behaves as if the following code was executed:
 
    str.setf(std::ios_base::fmtflags\fB(0)\fP, mask);
 

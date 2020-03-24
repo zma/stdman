@@ -1,4 +1,4 @@
-.TH std::experimental::ranges::tagged 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::ranges::tagged 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::ranges::tagged \- std::experimental::ranges::tagged
 
@@ -10,15 +10,11 @@ std::experimental::ranges::tagged \- std::experimental::ranges::tagged
 
    struct tagged;
 
-   The class template tagged augments a tuple-like class type Base, which it publicly
-   derives from, with a set of named accessors specified by the tag specifiers Tags....
-   The tags are applied in order: the i-th tag specifier in Tags... correspond to the
-   i-th element of the tuple.
+   The class template tagged augments a tuple-like class type Base, which it publicly derives from, with a set of named accessors specified by the tag specifiers Tags.... The tags are applied in order: the i-th tag specifier in Tags... correspond to the i-th element of the tuple.
 
    The tag specifiers in Tags... shall be unique. Otherwise, the behavior is undefined.
 
-   It is not possible to delete an instance of tagged through a pointer to any base
-   other than Base.
+   It is not possible to delete an instance of tagged through a pointer to any base other than Base.
 
 .SH Member functions
 
@@ -31,8 +27,7 @@ std::experimental::ranges::tagged \- std::experimental::ranges::tagged
 
     Named element accessors
 
-   For the N-th tag specifier in Tags... whose corresponding element name is name,
-   tagged provides accessors named name as follows:
+   For the N-th tag specifier in Tags... whose corresponding element name is name, tagged provides accessors named name as follows:
 
  constexpr decltype(auto) name() &       { return std::get<N>(*this); }
  constexpr decltype(auto) name() const & { return std::get<N>(*this); }
@@ -45,13 +40,10 @@ std::experimental::ranges::tagged \- std::experimental::ranges::tagged
 
   Tuple-like access
 
-                                                         obtains the size of a tagged
-   std::tuple_size<std::experimental::ranges::tagged>    (class template
-                                                         specialization)
-                                                         obtains the types of the
-   std::tuple_element<std::experimental::ranges::tagged> elements of a tagged
-                                                         (class template
-                                                         specialization)
+   std::tuple_size<std::experimental::ranges::tagged>    obtains the size of a tagged
+                                                         \fI(class template specialization)\fP
+   std::tuple_element<std::experimental::ranges::tagged> obtains the types of the elements of a tagged
+                                                         \fI(class template specialization)\fP
 
 .SH See also
 

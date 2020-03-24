@@ -1,4 +1,4 @@
-.TH std::error_category::equivalent 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::error_category::equivalent 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::error_category::equivalent \- std::error_category::equivalent
 
@@ -8,8 +8,7 @@ std::error_category::equivalent \- std::error_category::equivalent
    virtual bool equivalent( const std::error_code& code,   \fB(2)\fP \fI(since C++11)\fP
    int condition ) const noexcept;
 
-   Checks whether error code is equivalent to an error condition for the error category
-   represented by *this.
+   Checks whether error code is equivalent to an error condition for the error category represented by *this.
 
    1) Equivalent to default_error_condition(code) == condition.
    2) Equivalent to *this == code.category() && code.value() == condition.
@@ -21,5 +20,4 @@ std::error_category::equivalent \- std::error_category::equivalent
 
 .SH Return value
 
-   true if the error code is equivalent to the given error condition for the error
-   category represented by *this, false otherwise.
+   true if the error code is equivalent to the given error condition for the error category represented by *this, false otherwise.

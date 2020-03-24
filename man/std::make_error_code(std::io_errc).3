@@ -1,4 +1,4 @@
-.TH std::make_error_code(std::io_errc) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::make_error_code(std::io_errc) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::make_error_code(std::io_errc) \- std::make_error_code(std::io_errc)
 
@@ -6,9 +6,7 @@ std::make_error_code(std::io_errc) \- std::make_error_code(std::io_errc)
    Defined in header <ios>
    std::error_code make_error_code( std::io_errc e ) noexcept;  \fI(since C++11)\fP
 
-   Constructs an std::error_code object from a value of type std::io_errc as if by
-   return std::error_code(static_cast<int>(e), std::iostream_category()). This function
-   is called by the constructor of std::error_code when given an std::io_errc argument.
+   Constructs an std::error_code object from a value of type std::io_errc as if by return std::error_code(static_cast<int>(e), std::iostream_category()). This function is called by the constructor of std::error_code when given an std::io_errc argument.
 
 .SH Parameters
 
@@ -16,8 +14,7 @@ std::make_error_code(std::io_errc) \- std::make_error_code(std::io_errc)
 
 .SH Return value
 
-   A value of type std::error_code that holds the error code number from e associated
-   with the error category "iostream".
+   A value of type std::error_code that holds the error code number from e associated with the error category "iostream".
 
 .SH Example
 

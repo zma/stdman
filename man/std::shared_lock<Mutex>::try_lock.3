@@ -1,15 +1,13 @@
-.TH std::shared_lock<Mutex>::try_lock 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::shared_lock<Mutex>::try_lock 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::shared_lock<Mutex>::try_lock \- std::shared_lock<Mutex>::try_lock
 
 .SH Synopsis
    bool try_lock();  \fI(since C++14)\fP
 
-   Tries to lock the associated mutex in shared mode without blocking. Effectively
-   calls mutex()->try_lock_shared().
+   Tries to lock the associated mutex in shared mode without blocking. Effectively calls mutex()->try_lock_shared().
 
-   std::system_error is thrown if there is no associated mutex or if the mutex is
-   already locked.
+   std::system_error is thrown if there is no associated mutex or if the mutex is already locked.
 
 .SH Parameters
 
@@ -23,11 +21,9 @@ std::shared_lock<Mutex>::try_lock \- std::shared_lock<Mutex>::try_lock
 
      * Any exceptions thrown by mutex()->try_lock_shared()
 
-     * If there is no associated mutex, std::system_error with an error code of
-       std::errc::operation_not_permitted
+     * If there is no associated mutex, std::system_error with an error code of std::errc::operation_not_permitted
 
-     * If the mutex is already locked, std::system_error with an error code of
-       std::errc::resource_deadlock_would_occur
+     * If the mutex is already locked, std::system_error with an error code of std::errc::resource_deadlock_would_occur
 
 .SH Example
 

@@ -1,17 +1,13 @@
-.TH std::atomic_ref<T>::load 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic_ref<T>::load 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic_ref<T>::load \- std::atomic_ref<T>::load
 
 .SH Synopsis
-   T load( std::memory_order order = std::memory_order_seq_cst ) const    \fI(since C++20)\fP
-   noexcept;
+   T load( std::memory_order order = std::memory_order_seq_cst ) const noexcept;  \fI(since C++20)\fP
 
-   Atomically loads and returns the current value of the referenced object. Memory is
-   affected according to the value of order.
+   Atomically loads and returns the current value of the referenced object. Memory is affected according to the value of order.
 
-   order must be one of std::memory_order_relaxed, std::memory_order_consume,
-   std::memory_order_acquire or std::memory_order_seq_cst. Otherwise the behavior is
-   undefined.
+   order must be one of std::memory_order_relaxed, std::memory_order_consume, std::memory_order_acquire or std::memory_order_seq_cst. Otherwise the behavior is undefined.
 
 .SH Parameters
 

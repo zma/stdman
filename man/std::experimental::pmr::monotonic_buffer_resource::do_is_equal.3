@@ -1,13 +1,11 @@
-.TH std::experimental::pmr::monotonic_buffer_resource::do_is_equal 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::experimental::pmr::monotonic_buffer_resource::do_is_equal 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::experimental::pmr::monotonic_buffer_resource::do_is_equal \- std::experimental::pmr::monotonic_buffer_resource::do_is_equal
 
 .SH Synopsis
-   virtual bool do_is_equal(const memory_resource& other)     (library fundamentals TS)
-   const noexcept;
+   virtual bool do_is_equal(const memory_resource& other) const noexcept;  (library fundamentals TS)
 
-   Compare *this with other for identity - memory allocated using a
-   monotonic_buffer_resource can only be deallocated using that same resource.
+   Compare *this with other for identity - memory allocated using a monotonic_buffer_resource can only be deallocated using that same resource.
 
 .SH Return value
 
@@ -16,5 +14,4 @@ std::experimental::pmr::monotonic_buffer_resource::do_is_equal \- std::experimen
 .SH See also
 
    do_is_equal compare for equality with another memory_resource
-   \fB[virtual]\fP   \fI\fI(virtual protected member function\fP of\fP
-               std::experimental::pmr::memory_resource)
+   \fB[virtual]\fP   \fI(virtual protected member function of std::experimental::pmr::memory_resource)\fP

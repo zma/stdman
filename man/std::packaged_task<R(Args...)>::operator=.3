@@ -1,4 +1,4 @@
-.TH std::packaged_task<R(Args...)>::operator= 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::packaged_task<R(Args...)>::operator= 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::packaged_task<R(Args...)>::operator= \- std::packaged_task<R(Args...)>::operator=
 
@@ -7,9 +7,7 @@ std::packaged_task<R(Args...)>::operator= \- std::packaged_task<R(Args...)>::ope
    packaged_task& operator=( packaged_task&& rhs ) noexcept;  \fB(2)\fP \fI(since C++11)\fP
 
    1) Copy assignment operator is deleted, std::packaged_task is move-only.
-   2) Releases the shared state, if any, destroys the previously-held task, and moves
-   the shared state and the task owned by rhs into *this. rhs is left without a shared
-   state and with a moved-from task.
+   2) Releases the shared state, if any, destroys the previously-held task, and moves the shared state and the task owned by rhs into *this. rhs is left without a shared state and with a moved-from task.
 
 .SH Parameters
 
@@ -21,12 +19,10 @@ std::packaged_task<R(Args...)>::operator= \- std::packaged_task<R(Args...)>::ope
 
   Defect reports
 
-   The following behavior-changing defect reports were applied retroactively to
-   previously published C++ standards.
+   The following behavior-changing defect reports were applied retroactively to previously published C++ standards.
 
-      DR    Applied to              Behavior as published              Correct behavior
-   LWG 2067 C++11      the deleted copy assignment operator took       made const
-                       reference to non-const
+      DR    Applied to                      Behavior as published                       Correct behavior
+   LWG 2067 C++11      the deleted copy assignment operator took reference to non-const made const
 
 .SH Example
 

@@ -1,4 +1,4 @@
-.TH std::atomic_ref<T>::is_lock_free 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::atomic_ref<T>::is_lock_free 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::atomic_ref<T>::is_lock_free \- std::atomic_ref<T>::is_lock_free
 
@@ -17,15 +17,9 @@ std::atomic_ref<T>::is_lock_free \- std::atomic_ref<T>::is_lock_free
 
 .SH Notes
 
-   All atomic types except for std::atomic_flag may be implemented using mutexes or
-   other locking operations, rather than using the lock-free atomic CPU instructions.
-   Atomic types are also allowed to be sometimes lock-free, e.g. if only aligned memory
-   accesses are naturally atomic on a given architecture, misaligned objects of the
-   same type have to use locks.
+   All atomic types except for std::atomic_flag may be implemented using mutexes or other locking operations, rather than using the lock-free atomic CPU instructions. Atomic types are also allowed to be sometimes lock-free, e.g. if only aligned memory accesses are naturally atomic on a given architecture, misaligned objects of the same type have to use locks.
 
-   The C++ standard recommends (but does not require) that lock-free atomic operations
-   are also address-free, that is, suitable for communication between processes using
-   shared memory.
+   The C++ standard recommends (but does not require) that lock-free atomic operations are also address-free, that is, suitable for communication between processes using shared memory.
 
 .SH Example
 

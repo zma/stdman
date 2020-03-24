@@ -1,16 +1,14 @@
-.TH std::swap(std::function) 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::swap(std::function) 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::swap(std::function) \- std::swap(std::function)
 
 .SH Synopsis
-   template< class R, class... Args >                                     \fI(since C++11)\fP
-   void swap( function<R(Args...)> &lhs, function<R(Args...)> &rhs );     \fI(until C++17)\fP
-   template< class R, class... Args >
-   void swap( function<R(Args...)> &lhs, function<R(Args...)> &rhs )      \fI(since C++17)\fP
-   noexcept;
+   template< class R, class... Args >                                           \fI(since C++11)\fP
+   void swap( function<R(Args...)> &lhs, function<R(Args...)> &rhs );           \fI(until C++17)\fP
+   template< class R, class... Args >                                           \fI(since C++17)\fP
+   void swap( function<R(Args...)> &lhs, function<R(Args...)> &rhs ) noexcept;
 
-   Overloads the std::swap algorithm for std::function. Exchanges the state of lhs with
-   that of rhs. Effectively calls lhs.swap(rhs).
+   Overloads the std::swap algorithm for std::function. Exchanges the state of lhs with that of rhs. Effectively calls lhs.swap(rhs).
 
 .SH Parameters
 

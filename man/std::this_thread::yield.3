@@ -1,4 +1,4 @@
-.TH std::this_thread::yield 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::this_thread::yield 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::this_thread::yield \- std::this_thread::yield
 
@@ -6,8 +6,7 @@ std::this_thread::yield \- std::this_thread::yield
    Defined in header <thread>
    void yield() noexcept;      \fI(since C++11)\fP
 
-   Provides a hint to the implementation to reschedule the execution of threads,
-   allowing other threads to run.
+   Provides a hint to the implementation to reschedule the execution of threads, allowing other threads to run.
 
 .SH Parameters
 
@@ -19,12 +18,7 @@ std::this_thread::yield \- std::this_thread::yield
 
 .SH Notes
 
-   The exact behavior of this function depends on the implementation, in particular on
-   the mechanics of the OS scheduler in use and the state of the system. For example, a
-   first-in-first-out realtime scheduler (SCHED_FIFO in Linux) would suspend the
-   current thread and put it on the back of the queue of the same-priority threads that
-   are ready to run (and if there are no other threads at the same priority, yield has
-   no effect).
+   The exact behavior of this function depends on the implementation, in particular on the mechanics of the OS scheduler in use and the state of the system. For example, a first-in-first-out realtime scheduler (SCHED_FIFO in Linux) would suspend the current thread and put it on the back of the queue of the same-priority threads that are ready to run (and if there are no other threads at the same priority, yield has no effect).
 
 .SH Example
 

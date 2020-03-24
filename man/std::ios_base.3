@@ -1,4 +1,4 @@
-.TH std::ios_base 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::ios_base 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::ios_base \- std::ios_base
 
@@ -6,23 +6,14 @@ std::ios_base \- std::ios_base
    Defined in header <ios>
    class ios_base;
 
-   The class ios_base is a multipurpose class that serves as the base class for all I/O
-   stream classes. It maintains several kinds of data:
+   The class ios_base is a multipurpose class that serves as the base class for all I/O stream classes. It maintains several kinds of data:
 
    1) state information: stream status flags
-   2) control information: flags that control formatting of both input and output
-   sequences and the imbued locale
-   3) private storage: indexed extensible data structure that allows both long and
-   void* members, which may be implemented as two arbitrary-length arrays or a single
-   array of two-element structs or another container.
-   4) callbacks: arbitrary number of user-defined functions to be called from imbue(),
-   copyfmt(), and ~ios_base()
+   2) control information: flags that control formatting of both input and output sequences and the imbued locale
+   3) private storage: indexed extensible data structure that allows both long and void* members, which may be implemented as two arbitrary-length arrays or a single array of two-element structs or another container.
+   4) callbacks: arbitrary number of user-defined functions to be called from imbue(), copyfmt(), and ~ios_base()
 
-   Typical implementation holds member constants corresponding to all values of
-   fmtflags, iostate, openmode, and seekdir shown below, member variables to maintain
-   current precision, width, and formatting flags, the exception mask, the buffer error
-   state, a resizeable container holding the callbacks, the currently imbued locale,
-   the private storage, and a static integer variable for xalloc().
+   Typical implementation holds member constants corresponding to all values of fmtflags, iostate, openmode, and seekdir shown below, member variables to maintain current precision, width, and formatting flags, the exception mask, the buffer error state, a resizeable container holding the callbacks, the currently imbued locale, the private storage, and a static integer variable for xalloc().
 
 .SH Member functions
 
@@ -47,14 +38,11 @@ std::ios_base \- std::ios_base
    getloc            returns current locale
                      \fI(public member function)\fP
 .SH Internal extensible array
-   xalloc            returns a program-wide unique integer that is safe to use as index
-   \fB[static]\fP          to pword() and iword()
-                     \fI(public static member function)\fP
-                     resizes the private storage if necessary and access to the long
-   iword             element at the given index
+   xalloc            returns a program-wide unique integer that is safe to use as index to pword() and iword()
+   \fB[static]\fP          \fI(public static member function)\fP
+   iword             resizes the private storage if necessary and access to the long element at the given index
                      \fI(public member function)\fP
-                     resizes the private storage if necessary and access to the void*
-   pword             element at the given index
+   pword             resizes the private storage if necessary and access to the void* element at the given index
                      \fI(public member function)\fP
 .SH Miscellaneous
    register_callback registers event callback function
@@ -91,35 +79,21 @@ std::ios_base \- std::ios_base
                   oct         use octal base for integer I/O: see std::oct
                   hex         use hexadecimal base for integer I/O: see std::hex
                   basefield   dec|oct|hex. Useful for masking operations
-                  left        left adjustment (adds fill characters to the right): see
-                              std::left
-                  right       right adjustment (adds fill characters to the left): see
-                              std::right
-                  internal    internal adjustment (adds fill characters to the internal
-                              designated point): see std::internal
-                  adjustfield left|right|internal. Useful for masking operations
-                              generate floating point types using scientific notation,
-                  scientific  or hex notation if combined with fixed: see
-                              std::scientific
-   fmtflags       fixed       generate floating point types using fixed notation, or
-                              hex notation if combined with scientific: see std::fixed
+                  left        left adjustment (adds fill characters to the right): see std::left
+                  right       right adjustment (adds fill characters to the left): see std::right
+                  internal    internal adjustment (adds fill characters to the internal designated point): see std::internal
+   fmtflags       adjustfield left|right|internal. Useful for masking operations
+                  scientific  generate floating point types using scientific notation, or hex notation if combined with fixed: see std::scientific
+                  fixed       generate floating point types using fixed notation, or hex notation if combined with scientific: see std::fixed
                   floatfield  scientific|fixed. Useful for masking operations
-                  boolalpha   insert and extract bool type in alphanumeric format: see
-                              std::boolalpha
-                              generate a prefix indicating the numeric base for integer
-                  showbase    output, require the currency indicator in monetary I/O:
-                              see std::showbase
-                  showpoint   generate a decimal-point character unconditionally for
-                              floating-point number output: see std::showpoint
-                  showpos     generate a + character for non-negative numeric output:
-                              see std::showpos
-                  skipws      skip leading whitespace before certain input operations:
-                              see std::skipws
-                  unitbuf     flush the output after each output operation: see
-                              std::unitbuf
-                              replace certain lowercase letters with their uppercase
-                  uppercase   equivalents in certain output operations: see
-                              std::uppercase
+                  boolalpha   insert and extract bool type in alphanumeric format: see std::boolalpha
+                  showbase    generate a prefix indicating the numeric base for integer output, require the currency indicator in monetary I/O: see std::showbase
+                  showpoint   generate a decimal-point character unconditionally for floating-point number output: see std::showpoint
+                  showpos     generate a + character for non-negative numeric output: see std::showpos
+                  skipws      skip leading whitespace before certain input operations: see std::skipws
+                  unitbuf     flush the output after each output operation: see std::unitbuf
+                  uppercase   replace certain lowercase letters with their uppercase
+                              equivalents in certain output operations: see std::uppercase
 
                   \fI(typedef)\fP
                   state of the stream type
@@ -129,8 +103,7 @@ std::ios_base \- std::ios_base
                   Constant Explanation
    iostate        goodbit  no error
                   badbit   irrecoverable stream error
-                  failbit  input/output operation failed (formatting or extraction
-                           error)
+                  failbit  input/output operation failed (formatting or extraction error)
                   eofbit   associated input sequence has reached end-of-file
 
                   \fI(typedef)\fP
@@ -152,9 +125,7 @@ std::ios_base \- std::ios_base
 .SH Deprecated member types
    Type                  Explanation
    io_state\fB(deprecated)\fP  integer type that may be used like iostate
-   open_mode\fB(deprecated)\fP integer type that may be used like openmode
-   seek_dir\fB(deprecated)\fP  integer type that may be used like seekdir       \fI(until C++17)\fP
-   streamoff\fB(deprecated)\fP unspecified type that may be used like off_type,
-                         not necessarily std::streamoff
-   streampos\fB(deprecated)\fP unspecified type that may be used like pos_type,
-                         not necessarily std::streampos
+   open_mode\fB(deprecated)\fP integer type that may be used like openmode                                     \fI(until C++17)\fP
+   seek_dir\fB(deprecated)\fP  integer type that may be used like seekdir
+   streamoff\fB(deprecated)\fP unspecified type that may be used like off_type, not necessarily std::streamoff
+   streampos\fB(deprecated)\fP unspecified type that may be used like pos_type, not necessarily std::streampos

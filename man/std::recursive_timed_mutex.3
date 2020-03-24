@@ -1,4 +1,4 @@
-.TH std::recursive_timed_mutex 3 "2019.08.27" "http://cppreference.com" "C++ Standard Libary"
+.TH std::recursive_timed_mutex 3 "2020.03.24" "http://cppreference.com" "C++ Standard Libary"
 .SH NAME
 std::recursive_timed_mutex \- std::recursive_timed_mutex
 
@@ -6,16 +6,11 @@ std::recursive_timed_mutex \- std::recursive_timed_mutex
    Defined in header <mutex>
    class recursive_timed_mutex;  \fI(since C++11)\fP
 
-   The recursive_timed_mutex class is a synchronization primitive that can be used to
-   protect shared data from being simultaneously accessed by multiple threads.
+   The recursive_timed_mutex class is a synchronization primitive that can be used to protect shared data from being simultaneously accessed by multiple threads.
 
-   In a manner similar to std::recursive_mutex, recursive_timed_mutex provides
-   exclusive, recursive ownership semantics. In addition, recursive_timed_mutex
-   provides the ability to attempt to claim ownership of a recursive_timed_mutex with a
-   timeout via the try_lock_for and try_lock_until methods.
+   In a manner similar to std::recursive_mutex, recursive_timed_mutex provides exclusive, recursive ownership semantics. In addition, recursive_timed_mutex provides the ability to attempt to claim ownership of a recursive_timed_mutex with a timeout via the try_lock_for and try_lock_until methods.
 
-   The recursive_timed_mutex class satisfies all requirements of TimedMutex and
-   StandardLayoutType.
+   The recursive_timed_mutex class satisfies all requirements of TimedMutex and StandardLayoutType.
 
 .SH Member types
 
